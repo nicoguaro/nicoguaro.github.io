@@ -58,7 +58,7 @@ de 186 Gb/s, considerando esta tasa el tiempo que tardaría en transmitirse la
 totalidad de los datos (asumiendo datos representados como reales de 32 bits)
 tardaría :math:`2,3\times 10^{16}\ \mbox{s}` o, equivalentemente,
 :math:`1,7\times 10^{10}\, \text{años}` (la edad estimada del universo es de
-:math:`13,7\times 10^9}\, \text{años}`).
+:math:`13,7\times 10^9\, \text{años}`).
 
 Si quisiéramos que esto pasara
 ealmente rápido, digamos en 1 milisegundo, la tasa de transmisión
