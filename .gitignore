@@ -1,0 +1,6 @@
+
+## Suggested by Nikola
+cache
+.doit.db
+__pycache__
+output
