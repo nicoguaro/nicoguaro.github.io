@@ -40,12 +40,21 @@ Social media
 
     <a class="twitter-timeline"
         href="https://twitter.com/nicoguaro"
-        data-widget-id="735901354120581120">Tweets by @nicoguaro</a>
-        <script>
-            !function(d,s,id){
-            var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
-            if(!d.getElementById(id)){js=d.createElement(s);
-            js.id=id;js.src=p+"://platform.twitter.com/widgets.js";
-            fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-        </script>
-
+        data-widget-id="735901354120581120"
+        show-replies="true">
+    Tweets by @nicoguaro
+    </a>
+    <script>
+        !function(d,s,id){
+            var js,
+            fjs=d.getElementsByTagName(s)[0],
+            p=/^http:/.test(d.location)?'http':'https';
+            if(!d.getElementById(id)){
+                js=d.createElement(s);
+                js.id=id;
+                js.src=p+"://platform.twitter.com/widgets.js";
+                fjs.parentNode.insertBefore(js,fjs);
+            }
+        }
+        (document,"script","twitter-wjs");
+    </script>
