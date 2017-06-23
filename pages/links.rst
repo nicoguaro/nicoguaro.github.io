@@ -18,6 +18,7 @@ Friends
 
 Visualization tools
 -------------------
+
 - `MayaVi <http://code.enthought.com/projects/mayavi/>`_ is is a scientific
    data visualizer written in Python, which uses VTK.
 - `ParaView <http://www.paraview.org/>`_ is an open source multiple-platform
