@@ -22,5 +22,4 @@ reza así
 | ¡Están verdes! No valen mi espera.
 
 
-Etiquetas
----------
+

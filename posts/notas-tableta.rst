@@ -106,5 +106,3 @@ box", pero podría ser mejor. Las aplicaciones que me parecen más
 promisorias son: Note Anytime y Quill.
 
 
-Etiquetas
----------

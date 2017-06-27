@@ -72,21 +72,22 @@ de mapas de bits (o ráster) e imágenes vectoriales.
    que es un estándar a través de la internet y la mayoría de
    navegadores *modernos* permiten visualizar.
 
-| Recapitulando, deberíamos usar imágenes JPG para fotografías y SVG
-  para esquemas/diagramas. Otro atributo que puede ser de utilidad es el
-  manejo de capas, SVG permite esto.... y de formatos ráster tenemos la
-  opción de usar TIFF.
-| En cuanto a software para generar/editar este tipo de imágenes debo
-  decir que existen gran cantidad de programas que permiten exportar a
-  estos formatos: Python/Matplotlib, Matlab, Inkscape, Adobe
-  Illustrator, GIMP, Photoshop, LibreOffice. Si el gráfico es generado a
-  partir de un cálculo o de una serie de datos yo uso Matplotlib. Si en
-  cambio, queremos hacer un esquema o —como suelo decir— un muñeco mi
-  herramienta favorita es `Inkscape. <http://www.inkscape.org/>`__ Este
-  programa pretende ser una alternativa libre a programas como Adobe
-  Illustrator —y sí que lo consigue. Obviamente, se podría usar
-  Illustrator o Corel Draw para esta tarea. Si el único uso sería hacer
-  esquemas técnico, creo que sería un desperdicio.
+Recapitulando, deberíamos usar imágenes JPG para fotografías y SVG
+para esquemas/diagramas. Otro atributo que puede ser de utilidad es el
+manejo de capas, SVG permite esto.... y de formatos ráster tenemos la
+opción de usar TIFF.
+
+En cuanto a software para generar/editar este tipo de imágenes debo
+decir que existen gran cantidad de programas que permiten exportar a
+estos formatos: Python/Matplotlib, Matlab, Inkscape, Adobe
+Illustrator, GIMP, Photoshop, LibreOffice. Si el gráfico es generado a
+partir de un cálculo o de una serie de datos yo uso Matplotlib. Si en
+cambio, queremos hacer un esquema o —como suelo decir— un muñeco mi
+herramienta favorita es `Inkscape. <http://www.inkscape.org/>`__ Este
+programa pretende ser una alternativa libre a programas como Adobe
+Illustrator —y sí que lo consigue. Obviamente, se podría usar
+Illustrator o Corel Draw para esta tarea. Si el único uso sería hacer
+esquemas técnico, creo que sería un desperdicio.
 
 +-----------------------------------------------------------------------+
 | .. image:: /images/sensor_hall.png                                    |
@@ -333,6 +334,4 @@ Seguro dejé mucho temas por fuera así como herramientas dentro de
 algún tópico. Si ese es el caso, agradecería que me lo digan en los
 comentarios.
 
-Etiquetas
----------
 

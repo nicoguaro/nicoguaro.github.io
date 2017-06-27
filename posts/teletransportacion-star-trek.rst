@@ -65,5 +65,3 @@ ealmente rápido, digamos en 1 milisegundo, la tasa de transmisión
 debería ser :math:`2,3\times 10^{19}` más rápida que el récord que alcanzaron
 en el CERN… algo que es inconcebible para nosotros actualmente.
 
-Etiquetas
----------
