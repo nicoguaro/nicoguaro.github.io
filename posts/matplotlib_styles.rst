@@ -7,18 +7,18 @@
 .. description:
 .. type: text
 
-
-Using the `style package <http://matplotlib.org/users/customizing.html>`_
-in matplotlib allows for easy style formatting of plots. The main idea
-is to create a file with some of the parameters that want to be defined
-(that can also be accessed through `rcParams`).
+We can format plots easily using the `style package <http://matplotlib.org/users/customizing.html>`_
+in matplotlib all. The main idea is to create a file with some of the
+parameters that want to be defined (that can also be accessed through
+`rcParams`).
 
 This post is not a tutorial on how to use those, for that you can check
 the `style sheet reference <http://matplotlib.org/examples/style_sheets/style_sheets_reference.html>`_.
 Here, I just want to play with some of these parameters to create three
-different styles. The first two are for some infamous tools, that
-is probably used for most people as the visualization platform, while the
-third one is just a clean style. All the files used here can be download
+different styles. The first two examples present the style of an (infamous by
+some) software, that is probably used for most people as their visualization
+platform, while the third one is just a clean style. All the files used here
+can be download
 `here <https://gist.github.com/nicoguaro/862ea1015917d99352401433d45684e2>`_.
 
 
