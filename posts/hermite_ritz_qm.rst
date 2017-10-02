@@ -25,7 +25,7 @@ We want so solve the time-independent
 
 where we are using
 `natural units <https://en.wikipedia.org/wiki/Natural_units>`_
-are used since they are a good choice for numeric calculations.
+ since they are a good choice for numeric calculations.
 
 Solving equation is equivalent to solve the following
 variational equation
