@@ -109,3 +109,47 @@ In this case, both codes are really close to each other. The Python code
 has 25 lines, while the Julia one has 27. As expected, the results given by
 them are the same.
 
+Edit (2017-10-02)
+-----------------
+As suggested by Edward Villegas, I decided to compare execution times.
+I used ``%timeit`` for IPython and ``@benchmark`` (from ``BenchmarkTools``)
+for Julia.
+
+In IPython, we have
+
+.. code:: IPython
+
+    %timeit bisection(fun, 0.0, 2.0)
+
+with result
+
+.. code:: Python
+
+    10000 loops, best of 3: 107 µs per loop
+
+And in Julia, we have
+
+.. code:: julia
+
+    @benchmark bisection(fun, 0.0, 2.0)
+
+
+with result
+
+.. code:: julia
+
+    BenchmarkTools.Trial: 
+      memory estimate:  48 bytes
+      allocs estimate:  2
+      --------------
+      minimum time:     1.505 μs (0.00% GC)
+      median time:      1.548 μs (0.00% GC)
+      mean time:        1.604 μs (0.00% GC)
+      maximum time:     38.425 μs (0.00% GC)
+      --------------
+      samples:          10000
+      evals/sample:     10
+
+And it seems that the Julia version is around 100 times faster than
+the Python counterpart.
+
