@@ -7,8 +7,15 @@
 .. description: 
 .. type: text
 
+During October (2017) I will write a program per day for some well-known
+numerical methods in both Python and Julia. It is intended to be an exercise
+then don't expect the code to be good enough for real use. Also,
+I should mention that I have almost no experience with Julia, so it
+probably won't be idiomatic Julia but more Python-like Julia.
+
 Regula falsi
-=======================
+============
+
 The second method to be considered is the 
 `false position method <https://en.wikipedia.org/wiki/False_position_method>`_,
 or *regula falsi*. This method is used to solve the equation :math:`f(x) = 0`
