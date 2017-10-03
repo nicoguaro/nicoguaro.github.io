@@ -1,8 +1,7 @@
 .. title: Numerical methods challenge
 .. slug: numerical-01
 .. date: 2017-10-01 23:12:04 UTC-05:00
-.. tags: mathjax, numerical methods, python, julia, scientific computing,
-         root finding
+.. tags: mathjax, numerical methods, python, julia, scientific computing, root finding
 .. category: Scientific Computing
 .. link: 
 .. description: 
@@ -123,7 +122,7 @@ In IPython, we have
 
 with result
 
-.. code:: Python
+.. code:: IPython
 
     10000 loops, best of 3: 107 µs per loop
 
