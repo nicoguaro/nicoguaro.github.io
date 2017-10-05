@@ -1,10 +1,10 @@
-.. title: Numerical methods challenge: Day 4
-.. slug: numerical-04
-.. date: 2017-10-04 21:30:15 UTC-05:00
+.. title: Numerical methods challenge: Day 5
+.. slug: numerical-05
+.. date: 2017-10-05 13:21:41 UTC-05:00
 .. tags: mathjax, numerical methods, python, julia, scientific computing, root finding
-.. category: Scientific Computing
+.. category: 
 .. link: 
-.. description: 
+.. description: Scientific Computing
 .. type: text
 
 During October (2017) I will write a program per day for some well-known
@@ -30,9 +30,8 @@ computed from the old one using
 where we need to use the Jacobian matrix :math:`J`.
 
 
-We will test the method with the function
-:math:`\mathbf{F}(x, y) = (x + 2y - 2, x^2 + 4x - 4)`
-with solution :math:`\mathbf{x} = (0, 1)`.
+We will test the method with the function :math:`\mathbf{F}(\mathbf{x}) = \mathbf{x}^2`
+with solution :math:`\mathbf{x} = \mathbf{0}`.
 
 Following are the codes.
 
@@ -42,39 +41,36 @@ Python
 .. code:: python
 
     from __future__ import division, print_function
-    from numpy import array
-    from numpy.linalg import solve, norm, det
+    from numpy import cos, sin, array
+    from numpy.linalg import solve, norm
 
     def newton(fun, jaco, x, niter=50, ftol=1e-12, verbose=False):
         msg = "Maximum number of iterations reached."
         for cont in range(niter):
-            J = jaco(x)
-            f = fun(x)
-            if det(J) < ftol:
+            if norm(jaco(x)) < ftol:
                 x = None
                 msg = "Derivative near to zero."
                 break
             if verbose:
                 print("n: {}, x: {}".format(cont, x))
-            x = x - solve(J, f)
-            if norm(f) < ftol:
+            x = x - solve(jaco(x), fun(x))
+            if norm(fun(x)) < ftol:
                 msg = "Root found with desired accuracy."
                 break
         return x, msg
 
 
     def fun(x):
-        return array([x[0] + 2*x[1] - 2, x[0]**2 + 4*x[1]**2 - 4])
+        return array([x[0]**2, x[1]**2])
 
 
     def jaco(x):
         return array([
-                [1, 2],
-                [2*x[0], 8*x[1]]])
+                [2*x[0], 0],
+                [0, 2*x[1]]])
 
 
     print(newton(fun, jaco, [1.0, 10.0]))
-
 
 
 
@@ -88,9 +84,7 @@ Julia
     function newton(fun, jaco, x, niter=50, ftol=1e-12, verbose=false)
         msg = "Maximum number of iterations reached."
         for cont = 1:niter
-            J = jaco(x)
-            f = fun(x)
-            if det(J) < ftol
+            if norm(jaco(x)) < ftol
                 x = nothing
                 msg = "Derivative near to zero."
                 break
@@ -98,8 +92,8 @@ Julia
             if verbose
                 println("n: $(cont), x: $(x)")
             end
-            x = x - J\f
-            if norm(f) < ftol
+            x = x - jaco(x)\fun(x)
+            if norm(fun(x)) < ftol
                 msg = "Root found with desired accuracy."
                 break
             end
@@ -109,18 +103,17 @@ Julia
 
 
     function fun(x)
-        return [x[1] + 2*x[2] - 2, x[1]^2 + 4*x[2]^2 - 4]
+        return x.^2
     end
 
 
     function jaco(x)
-        return [1.0 2.0;
-                2*x[1] 8*x[2]]
+        return [2*x[1] 0.0;
+                0.0 2*x[2]]
     end
 
 
     println(newton(fun, jaco, [1.0, 10.0]))
-
 
 
 
@@ -142,7 +135,7 @@ with result
 
 .. code:: IPython
 
-    1000 loops, best of 3: 284 µs per loop
+    1000 loops, best of 3: 913 µs per loop
 
 For Julia:
 
@@ -155,20 +148,19 @@ with result
 .. code:: julia
 
     BenchmarkTools.Trial: 
-      memory estimate:  10.44 KiB
-      allocs estimate:  192
+      memory estimate:  64.25 KiB
+      allocs estimate:  554
       --------------
-      minimum time:     6.818 μs (0.00% GC)
-      median time:      7.167 μs (0.00% GC)
-      mean time:        9.607 μs (16.53% GC)
-      maximum time:     2.953 ms (97.40% GC)
+      minimum time:     32.472 μs (0.00% GC)
+      median time:      34.797 μs (0.00% GC)
+      mean time:        41.564 μs (14.16% GC)
+      maximum time:     2.489 ms (95.42% GC)
       --------------
       samples:          10000
-      evals/sample:     4
+      evals/sample:     1
 
 
-
-In this case, we can say that the Python code is roughly 40 times slower
+In this case, we can say that the Python code is roughly 20 times slower
 than the Julia one. This is an improvement compared to the previous examples,
 where the ratio was around 100. The reason for this "improvement" might be
 in the inversion of the Jacobian, that calls a ``numpy`` routine, doing
