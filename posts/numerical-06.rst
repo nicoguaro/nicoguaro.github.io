@@ -1,4 +1,4 @@
-.. title: Numerical methods challenge: Day 5
+.. title: Numerical methods challenge: Day 6
 .. slug: numerical-06
 .. date: 2017-10-06 20:05:08 UTC-05:00
 .. tags: mathjax, numerical methods, python, julia, scientific computing, optimization
