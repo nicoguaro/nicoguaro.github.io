@@ -2,9 +2,9 @@
 .. slug: numerical-06
 .. date: 2017-10-06 20:05:08 UTC-05:00
 .. tags: mathjax, numerical methods, python, julia, scientific computing, optimization
-.. category: 
+.. category: Scientific Computing
 .. link: 
-.. description: Scientific Computing
+.. description: 
 .. type: text
 
 During October (2017) I will write a program per day for some well-known
