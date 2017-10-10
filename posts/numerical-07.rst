@@ -3,8 +3,8 @@
 .. date: 2017-10-07 14:51:35 UTC-05:00
 .. tags: mathjax, numerical methods, python, julia, scientific computing, optimization
 .. category: Scientific Computing
-.. link: 
-.. description: 
+.. link:
+.. description:
 .. type: text
 
 During October (2017) I will write a program per day for some well-known
@@ -52,15 +52,15 @@ Python
     def nelder_mead_step(fun, verts, alpha=1, gamma=2, rho=0.5,
                          sigma=0.5):
         """Nelder-Mead iteration according to Wikipedia _[1]
-        
-        
+
+
         References
         ----------
          .. [1] Wikipedia contributors. "Nelder–Mead method." Wikipedia,
              The Free Encyclopedia. Wikipedia, The Free Encyclopedia,
-             1 Sep. 2016. Web. 20 Sep. 2016. 
+             1 Sep. 2016. Web. 20 Sep. 2016.
         """
-        nverts, _ = verts.shape         
+        nverts, _ = verts.shape
         f = np.apply_along_axis(fun, 1, verts)
         # 1. Order
         order = np.argsort(f)
@@ -93,7 +93,7 @@ Python
                 new_verts[0, :] = verts[0, :]
                 for k in range(1, nverts):
                     new_verts[k, :] = sigma*(verts[k,:] - verts[0,:])
-     
+
         return new_verts
 
 
@@ -136,7 +136,7 @@ Julia
     function nelder_mead_step(fun, verts; alpha=1, gamma=2, rho=0.5,
                          sigma=0.5)
         nverts, _ = size(verts)
-        f = [fun(x[row, :]) for row in 1:nverts]
+        f = [fun(verts[row, :]) for row in 1:nverts]
         # 1. Order
         order = sortperm(f)
         verts = verts[order, :]
@@ -172,12 +172,12 @@ Julia
                 end
             end
         end
-     
+
         return new_verts
     end
 
 
-    function nelder_mead(fun, x; niter=200, atol=1e-8, verbose=false)
+    function nelder_mead(fun, x; niter=50, atol=1e-8, verbose=false)
         msg = "Maximum number of iterations reached."
         f_old = fun(mean(x, 1))
         for cont = 1:niter
@@ -204,4 +204,58 @@ Julia
     x = [1 0;
         1 1;
         2 0]
-    println(nelder_mead(rosen, x))
+    println(nelder_mead(rosen, x, verbose=false))
+
+with result
+
+
+.. code:: julia
+
+    ([0.999947 0.999877], 2.9076931147093985e-8, "Extremum found with desired accuracy.")
+
+
+Comparison Python/Julia
+-----------------------
+
+Regarding number of lines we have: 38 in Python and 39 in Julia. The comparison
+in execution time is done with ``%timeit`` magic command in IPython and
+``@benchmark`` in Julia.
+
+For Python:
+
+.. code:: IPython
+
+    %timeit nelder_mead(rosen, x)
+
+with result
+
+.. code::
+
+    100 loops, best of 3: 7.82 ms per loop
+
+For Julia:
+
+.. code:: julia
+
+    @benchmark grad_descent(rosen, rosen_grad, [2.0, 1.0])
+
+with result
+
+.. code:: julia
+
+    BenchmarkTools.Trial:
+      memory estimate:  162.23 KiB
+      allocs estimate:  4780
+      --------------
+      minimum time:     462.926 μs (0.00% GC)
+      median time:      506.511 μs (0.00% GC)
+      mean time:        552.411 μs (3.86% GC)
+      maximum time:     5.179 ms (80.31% GC)
+      --------------
+      samples:          9008
+      evals/sample:     1
+
+
+
+In this case, we can say that the Python code is roughly 15 times slower
+than the Julia one.
