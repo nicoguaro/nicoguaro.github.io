@@ -98,6 +98,10 @@ Julia
 In both cases the result is the following plot.
 
 .. image:: /images/lagrange_interp.svg
+   :width: 400 px
+   :alt: Lagrange interpolation.
+   :align:  center
+
 
 Comparison Python/Julia
 -----------------------
