@@ -20,7 +20,7 @@ Today we are comparing `Lagrange interpolation <posts/numerical-11>`_ with
 `Hermite interpolation <https://en.wikipedia.org/wiki/Hermite_interpolation>`_.
 For this example we are using the
 `confluent Vandermonde matrix <https://en.wikipedia.org/wiki/Vandermonde_matrix>`_
-:math:` V. The code is based on an *old* code of mine that is present
+:math:`V`. The code is based on an *old* code of mine that is present
 in this `repo <https://github.com/nicoguaro/FEM_resources/terpolation/interp.py>`_.
 
 As in the case of Lagrange interpolation we solve the system
