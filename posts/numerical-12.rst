@@ -13,7 +13,7 @@ then don't expect the code to be good enough for real use. Also,
 I should mention that I have almost no experience with Julia, so it
 probably won't be idiomatic Julia but more Python-like Julia.
 
-ermite interpolation: Inverting Vandermonde matrix
+Hermite interpolation: Inverting Vandermonde matrix
 ===================================================
 
 Today we are comparing `Lagrange interpolation <posts/numerical-11>`_ with
