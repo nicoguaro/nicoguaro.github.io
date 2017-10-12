@@ -1,8 +1,8 @@
 .. title: Numerical methods challenge: Day 11
 .. slug: numerical-11
 .. date: 2017-10-11 12:25:10 UTC-05:00
-.. tags:
-.. category:
+.. tags: mathjax, numerical methods, python, julia, scientific computing, interpolation
+.. category: Scientific Computing
 .. link:
 .. description:
 .. type: text
