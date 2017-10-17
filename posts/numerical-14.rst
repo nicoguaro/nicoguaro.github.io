@@ -127,7 +127,4 @@ with result
       evals/sample:     1
 
 
-
-
-
 In this case, we can say that the Python code is roughly as fast as Julia.
