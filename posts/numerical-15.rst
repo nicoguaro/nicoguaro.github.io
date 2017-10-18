@@ -13,8 +13,8 @@ then don't expect the code to be good enough for real use. Also,
 I should mention that I have almost no experience with Julia, so it
 probably won't be idiomatic Julia but more Python-like Julia.
 
-Trapezoidal rule
-================
+Simpson's rule
+==============
 
 Today we have the `Simpson's rule <https://en.wikipedia.org/wiki/Simpson%27s_rule>`_.
 This is another `Newton-Cotes formulas <https://en.wikipedia.org/wiki/Newton%E2%80%93Cotes_formulas>`_, used for numerical integration. Newton-Cotes is related to
