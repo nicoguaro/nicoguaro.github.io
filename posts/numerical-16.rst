@@ -13,12 +13,17 @@ then don't expect the code to be good enough for real use. Also,
 I should mention that I have almost no experience with Julia, so it
 probably won't be idiomatic Julia but more Python-like Julia.
 
-Clensha-Curtis quadrature
-=========================
+Clenshaw-Curtis quadrature
+==========================
 
 Today we have the `Simpson's rule <https://en.wikipedia.org/wiki/Clenshaw%E2%80%93Curtis_quadrature>`_.
 This method is based in the expansion of the integrand in
 `Chebyshev polynomials <https://en.wikipedia.org/wiki/Chebyshev_polynomials>`_.
+
+We will test the quadrature with the integral
+
+.. math::
+    \int_0^3 e^{-x^2} \mathrm{d}x \approx 0.8862073482595214
 
 
 Following are the codes.
@@ -90,7 +95,7 @@ Julia
     print(clenshaw_curtis(fun, N=N, a=0, b=3))
 
 
-
+with result
 
 .. code:: julia
 
