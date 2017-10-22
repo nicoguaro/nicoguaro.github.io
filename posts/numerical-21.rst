@@ -16,7 +16,7 @@ probably won't be idiomatic Julia but more Python-like Julia.
 Jacobi iteration
 ================
 
-Today we have a `Finite difference method <https://en.wikipedia.org/wiki/Finite_difference_method`_
+Today we have a `Finite difference method <https://en.wikipedia.org/wiki/Finite_difference_method>`_
 combined with `Jacobi method <https://en.wikipedia.org/wiki/Jacobi_method>`_
 We are solving the Laplace equation.
 
