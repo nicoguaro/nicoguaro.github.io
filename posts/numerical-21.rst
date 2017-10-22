@@ -1,10 +1,167 @@
-.. title: numerical-21
+.. title: Numerical methods challenge: Day 21
 .. slug: numerical-21
 .. date: 2017-10-21 14:57:55 UTC-05:00
-.. tags: 
-.. category: 
+.. tags: mathjax, numerical methods, python, julia, scientific computing, pde, bvp
+.. category: Scientific Computing
 .. link: 
 .. description: 
 .. type: text
 
-Write your post here.
+During October (2017) I will write a program per day for some well-known
+numerical methods in both Python and Julia. It is intended to be an exercise
+then don't expect the code to be good enough for real use. Also,
+I should mention that I have almost no experience with Julia, so it
+probably won't be idiomatic Julia but more Python-like Julia.
+
+Jacobi iteration
+================
+
+Today we have a `shooting method <https://en.wikipedia.org/wiki/Finite_difference_method`_.
+combined with `Jacobi method <https://en.wikipedia.org/wiki/Jacobi_method>`_
+We are solving the Laplace equation.
+
+.. math::
+
+    \nabla^ 2 u = 0
+
+with
+
+.. math::
+    
+    u(0, y) = 1 -y,\quad u(x, 0) = 1 - x,\quad u(1, y) = u(x, 1) = 0
+
+
+Following are the codes.
+
+Python
+------
+
+.. code:: python
+
+    from __future__ import division, print_function
+    import numpy as np
+    import matplotlib.pyplot as plt
+    from scipy.optimize import newton
+    from scipy.integrate import odeint
+
+
+    def shooting(dydx, x, x0, xf, shoot=None):
+        if shoot is None:
+            shoot = np.random.uniform(-20, 20)
+        F = lambda s, x0, xf, x: odeint(dydx, [x0, s], x)[-1, 0] - xf
+        shoot = newton(F, shoot, args=(x0, xf, x))
+        y = odeint(dydx, [x0, shoot], x)
+        return y[:, 0], shoot
+
+
+    func = lambda y, t: [y[1], 1.5*y[0]**2]
+    x = np.linspace(0, 1, 1000)
+    y, shoot = shooting(func, x, 4, 1, shoot=-5)
+    plt.plot(x, y)
+    plt.xlabel(r"$x$")
+    plt.ylabel(r"$y$")
+    plt.show()
+
+
+Julia
+-----
+
+.. code:: julia
+
+    using PyPlot
+
+
+    function jacobi(u, update; tol=1e-6, niter=500)
+        num = niter
+        for n = 1:niter
+            u_new = update(u)
+            if norm(u_new - u) < tol
+                num = n
+                break
+            else
+                u = copy(u_new)
+            end
+        end
+        return u, num
+    end
+
+
+    function heat_FDM(u)
+        u_new = copy(u)
+        u_new[2:end-1, 2:end-1] = 0.25*(u_new[1:end-2, 2:end-1] +
+            u_new[3:end, 2:end-1] + u_new[2:end-1, 1:end-2] + u_new[2:end-1, 3:end])
+        return u_new
+    end
+
+        
+    nx = 50
+    ny = 50
+    x_vec = linspace(-0.5, 0.5, nx)
+    y_vec = linspace(-0.5, 0.5, ny)
+    u0 = zeros(nx, ny)
+    u0[:, 1] = 1 - x_vec
+    u0[1, :] = 1 - y_vec
+    nvec = [100, 1000, 10000, 100000]
+    for (num, niter) = enumerate(nvec)
+        u, n = jacobi(u0, heat_FDM, tol=1e-12, niter=niter)
+        subplot(2, 2, num)
+        contourf(u, cmap="hot")
+        xlabel(L"$x$")
+        ylabel(L"$y$")
+        title("$(n) iterations")
+        axis("image")
+    end
+    tight_layout()
+    show()
+
+.. image:: /images/jacobi_heat.svg
+   :width: 600 px
+   :alt: Solution of the differential equation that satisfy the boundary conditions.
+   :align:  center
+
+
+Comparison Python/Julia
+-----------------------
+
+Regarding number of lines we have: 20 in Python and 23 in Julia. The comparison
+in execution time is done with ``%timeit`` magic command in IPython and
+``@benchmark`` in Julia.
+
+For Python:
+
+.. code:: IPython
+
+    %timeit jacobi(u0, heat_FDM, tol=1e-12, niter=1000)
+
+with result
+
+.. code::
+
+    10 loops, best of 3: 29.6 ms per loop
+
+For Julia:
+
+.. code:: julia
+
+    @benchmark jacobi(u0, heat_FDM, tol=1e-12, niter=1000)
+
+
+with result
+
+.. code:: julia
+
+    BenchmarkTools.Trial: 
+      memory estimate:  247.89 MiB
+      allocs estimate:  43002
+      --------------
+      minimum time:     196.943 ms (5.66% GC)
+      median time:      203.230 ms (5.74% GC)
+      mean time:        203.060 ms (6.01% GC)
+      maximum time:     208.017 ms (5.51% GC)
+      --------------
+      samples:          25
+      evals/sample:     1
+
+
+In this case, we can say that the Python code is roughly 10 times faster than
+Julia.
