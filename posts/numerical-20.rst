@@ -1,7 +1,7 @@
 .. title: Numerical methods challenge: Day 20
 .. slug: numerical-20
 .. date: 2017-10-20 20:10:43 UTC-05:00
-.. tags: mathjax, numerical methods, python, julia, scientific computing, ode
+.. tags: mathjax, numerical methods, python, julia, scientific computing, ode, shooting method
 .. category: Scientific Computing
 .. link:
 .. description:

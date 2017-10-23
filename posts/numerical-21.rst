@@ -1,7 +1,7 @@
 .. title: Numerical methods challenge: Day 21
 .. slug: numerical-21
 .. date: 2017-10-21 14:57:55 UTC-05:00
-.. tags: mathjax, numerical methods, python, julia, scientific computing, pde, bvp
+.. tags: mathjax, numerical methods, python, julia, scientific computing, pde, finite differences
 .. category: Scientific Computing
 .. link: 
 .. description: 
@@ -28,7 +28,8 @@ with
 
 .. math::
     
-    u(0, y) = 1 -y,\quad u(x, 0) = 1 - x,\quad u(1, y) = u(x, 1) = 0
+    u(0, y) = 1 -y,\quad u(x, 0) = 1 - x,\\
+    u(1, y) = u(x, 1) = 0
 
 
 Following are the codes.

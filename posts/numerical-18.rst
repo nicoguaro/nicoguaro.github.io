@@ -1,7 +1,7 @@
 .. title: Numerical methods challenge: Day 18
 .. slug: numerical-18
 .. date: 2017-10-18 19:58:37 UTC-05:00
-.. tags: mathjax, numerical methods, python, julia, scientific computing, ode
+.. tags: mathjax, numerical methods, python, julia, scientific computing, ode, runge-kutta
 .. category: Scientific Computing
 .. link:
 .. description:
