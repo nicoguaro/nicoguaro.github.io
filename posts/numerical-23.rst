@@ -52,9 +52,9 @@ reads
 
 .. math::
 
-    \Pi[\hat{u}] = \sum_{n=0}^{N} \sum_{m=0}^{N} c_n c_m
+    \Pi[\hat{u}] = -\sum_{n=0}^{N} \sum_{m=0}^{N} c_n c_m
         \left[\frac{2 + 2m + 2n + 2mn}{(n + m + 1)(n + m + 2)(n + m +3)}\right]
-        +\\ \sum_{n=0}^{N} c_n\int_{0}^{1} x^{n + 1}(1 - x) f(x) dx
+        -\\ \sum_{n=0}^{N} c_n\int_{0}^{1} x^{n + 1}(1 - x) f(x) dx
 
 where, in general, we will need to perform numerical integration for the
 second term.
