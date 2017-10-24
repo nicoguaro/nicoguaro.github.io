@@ -38,7 +38,7 @@ The functional for this differential equation is
 
 .. math::
 
-    \Pi[u] = -\int_{0}^{1} \left(\frac{d u}{d x}\right)^2 dx -
+    \Pi[u] = -\int_{0}^{1} \left(\frac{d u}{d x}\right)^2 dx
              -\int_{0}^{1}  u f(x) dx
 
 In this case, we are using the approximation
