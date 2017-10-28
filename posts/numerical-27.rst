@@ -1,0 +1,106 @@
+.. title: Numerical methods challenge: Day 27
+.. slug: numerical-27
+.. date: 2017-10-27 21:27:06 UTC-05:00
+.. tags: mathjax, numerical methods, python, julia, scientific computing, finite element method
+.. category:
+.. link:
+.. description:
+.. type: text
+
+During October (2017) I will write a program per day for some well-known
+numerical methods in both Python and Julia. It is intended to be an exercise
+then don't expect the code to be good enough for real use. Also,
+I should mention that I have almost no experience with Julia, so it
+probably won't be idiomatic Julia but more Python-like Julia.
+
+Monte Carlo integration
+=======================
+
+Today we have `Monte Carlo integration https://en.wikipedia.org/wiki/Monte_Carlo_integration`_.
+Where we use random sampling to numerically compute an integral. This
+method is important when we want to evaluate higher-dimensional
+integrals since common quadrature techniques imply an exponential
+growing in the number of sampling points.
+
+The method computes an integral
+
+.. math::
+
+    I = \int_\Omega f(x) dx
+
+where :math:`Omega` has volume :math:`V`.
+
+The integral is approximated as
+
+.. math::
+
+    I \approx \frac{V}{N} \sum_{i=1}^{N} f(x_i)
+
+where the :math:`x_i` distribute uniform over :math:`\Omega`.
+
+
+Following are the codes
+
+Python
+------
+
+.. code:: python
+
+    from __future__ import division, print_function
+    import numpy as np
+
+
+    def monte_carlo_int(fun, N, low, high, args=()):
+        ndims = len(low)
+        pts = np.random.uniform(low=low, high=high, size=(N, ndims))
+        V = np.prod(np.asarray(high) - np.asarray(low))
+        return V*np.sum(fun(pts, *args))/N
+
+
+    def circ(x, rad):
+        return 0.5*(1 - np.sign(x[:, 0]**2 + x[:, 1]**2 - rad**2))
+
+
+    N = 1000000
+    low = [-1, -1]
+    high = [1, 1]
+    rad = 1
+    inte = monte_carlo_int(circ, N, low, high, args=(rad,))
+
+
+Julia
+-----
+
+.. code:: julia
+
+    using Distributions
+
+
+    function monte_carlo_int(fun, N, low, high; args=())
+        ndims = length(low)
+        pts = rand(Uniform(-1, 1), N, ndims)
+        V = prod(high - low)
+        return V*sum(fun(pts, args)...)/N
+    end
+
+
+    function circ(x, rad)
+        return 0.5*(1 - sign(x[:, 0].^2 + x[:, 1].^2 - rad^2))
+    end
+
+
+    N = 1000000
+    low = [-1, -1]
+    high = [1, 1]
+    rad = 1
+    inte = monte_carlo_int(circ, N, low, high, args=(rad,))
+
+
+One of the most common examples is the computation of :math:`\pi`, this
+is illustrated in the following animation.
+
+.. image:: https://upload.wikimedia.org/wikipedia/commons/8/84/Pi_30K.gif
+   :width: 500 px
+   :alt: Finite element method approximation.
+   :align:  center
+
