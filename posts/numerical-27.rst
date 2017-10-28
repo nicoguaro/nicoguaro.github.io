@@ -16,7 +16,7 @@ probably won't be idiomatic Julia but more Python-like Julia.
 Monte Carlo integration
 =======================
 
-Today we have `Monte Carlo integration https://en.wikipedia.org/wiki/Monte_Carlo_integration`_.
+Today we have `Monte Carlo integration <https://en.wikipedia.org/wiki/Monte_Carlo_integration>`_.
 Where we use random sampling to numerically compute an integral. This
 method is important when we want to evaluate higher-dimensional
 integrals since common quadrature techniques imply an exponential
@@ -28,7 +28,7 @@ The method computes an integral
 
     I = \int_\Omega f(x) dx
 
-where :math:`Omega` has volume :math:`V`.
+where :math:`\Omega` has volume :math:`V`.
 
 The integral is approximated as
 
