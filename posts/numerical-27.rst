@@ -78,14 +78,17 @@ Julia
 
     function monte_carlo_int(fun, N, low, high; args=())
         ndims = length(low)
-        pts = rand(Uniform(-1, 1), N, ndims)
+        pts = rand(Uniform(0, 1), N, ndims)
+        for cont = 1:ndims
+            pts[:, cont] = pts[:, cont]*(high[cont] - low[cont]) + low[cont]
+        end
         V = prod(high - low)
-        return V*sum(fun(pts, args)...)/N
+        return V*sum(fun(pts, args...))/N
     end
 
 
     function circ(x, rad)
-        return 0.5*(1 - sign(x[:, 0].^2 + x[:, 1].^2 - rad^2))
+        return 0.5*(1 - sign.(x[:, 1].^2 + x[:, 2].^2 - rad^2))
     end
 
 
@@ -104,3 +107,51 @@ is illustrated in the following animation.
    :alt: Finite element method approximation.
    :align:  center
 
+
+Comparison Python/Julia
+-----------------------
+
+Regarding number of lines we have: 20 in Python and 24 in Julia. The comparison
+in execution time is done with ``%timeit`` magic command in IPython and
+``@benchmark`` in Julia.
+
+For Python:
+
+.. code:: IPython
+
+    %timeit monte_carlo_int(circ, N, low, high, args=(rad,))
+
+with result
+
+.. code::
+
+     10 loops, best of 3: 53.2 ms per loop
+
+
+For Julia:
+
+.. code:: julia
+
+    @benchmark FEM1D(x, fun)
+
+
+with result
+
+.. code:: julia
+
+    BenchmarkTools.Trial: 
+      memory estimate:  129.70 MiB
+      allocs estimate:  46
+      --------------
+      minimum time:     60.131 ms (5.15% GC)
+      median time:      164.018 ms (55.64% GC)
+      mean time:        204.366 ms (49.50% GC)
+      maximum time:     357.749 ms (64.04% GC)
+      --------------
+      samples:          25
+      evals/sample:     1
+
+
+
+In this case, we can say that the Python code is roughly 3 times faster than
+Julia code.
