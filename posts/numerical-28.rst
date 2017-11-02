@@ -158,5 +158,5 @@ with result
       evals/sample:     1
 
 
-In this case, we can say that the Python code is roughly 30 times faster than
+In this case, we can say that the Python code is roughly 30 times slower than
 Julia code.
