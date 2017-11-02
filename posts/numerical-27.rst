@@ -1,8 +1,8 @@
 .. title: Numerical methods challenge: Day 27
 .. slug: numerical-27
 .. date: 2017-10-27 21:27:06 UTC-05:00
-.. tags: mathjax, numerical methods, python, julia, scientific computing, finite element method
-.. category:
+.. tags: mathjax, numerical methods, python, julia, scientific computing, monte carlo
+.. category: Scientific Computing
 .. link:
 .. description:
 .. type: text
@@ -132,14 +132,14 @@ For Julia:
 
 .. code:: julia
 
-    @benchmark FEM1D(x, fun)
+    @benchmark monte_carlo_int(circ, N, low, high, args=(rad,))
 
 
 with result
 
 .. code:: julia
 
-    BenchmarkTools.Trial: 
+    BenchmarkTools.Trial:
       memory estimate:  129.70 MiB
       allocs estimate:  46
       --------------
