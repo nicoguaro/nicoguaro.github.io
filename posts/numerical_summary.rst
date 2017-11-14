@@ -17,7 +17,7 @@ Summary
 =======
 
 This post is a summary of that challenge. For the source code you can check
-`the repository <https://github.com/nicoguaro/numerical_challenge_2017>`.
+`the repository <https://github.com/nicoguaro/numerical_challenge_2017>`_.
 
 
 The verdict
@@ -27,8 +27,8 @@ Since the challenge is with myself, and the main purpose was to learn some
 Julia the verdict is: **success**. Nevertheless, I failed during day 26
 with the Boundary Element Method.
 
-The list of code
-----------------
+The list of methods
+-------------------
 
 +-------------------------------+---------------------------------------------------+
 | Day                           | Numerical method                                  |
@@ -95,3 +95,21 @@ The list of code
 +-------------------------------+---------------------------------------------------+
 |  `31 <posts/numerical-31>`_   | Finite element method with solver                 |
 +-------------------------------+---------------------------------------------------+
+
+Conclusions
+-----------
+
+- This was an exercise of code-kata to learn some of the details of Julia for
+scientific computing. As such, it was really useful for me to get my hands
+dirty with Julia.
+
+- Implementing the Boundary Element Method in one day seems to be rough. I
+knew this beforehand, but I gave it a try anyways ... without succcess.
+
+- Julia syntax is somewhat in a sweetspot between Python and MATLAB. This makes
+it really easy to use, although the documentation of some packages is at
+an arcane stage right now.
+
+- I won't take a challenge like this in a while. It takes a lot of atttention
+to get it done.
+
