@@ -100,16 +100,16 @@ Conclusions
 -----------
 
 - This was an exercise of code-kata to learn some of the details of Julia for
-scientific computing. As such, it was really useful for me to get my hands
-dirty with Julia.
+  scientific computing. As such, it was really useful for me to get my hands
+  dirty with Julia.
 
 - Implementing the Boundary Element Method in one day seems to be rough. I
-knew this beforehand, but I gave it a try anyways ... without succcess.
+  knew this beforehand, but I gave it a try anyways ... without succcess.
 
 - Julia syntax is somewhat in a sweetspot between Python and MATLAB. This makes
-it really easy to use, although the documentation of some packages is at
-an arcane stage right now.
+  it really easy to use, although the documentation of some packages is at
+  an arcane stage right now.
 
 - I won't take a challenge like this in a while. It takes a lot of atttention
-to get it done.
+  to get it done.
 
