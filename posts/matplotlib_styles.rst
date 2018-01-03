@@ -2,7 +2,7 @@
 .. slug: matplotlib_styles
 .. date: 2017-06-27 17:14:14 UTC-05:00
 .. tags: scientific computing, visualization, matplotlib, python
-.. category: Scientific Computing
+.. category: Visualization
 .. link:
 .. description:
 .. type: text
