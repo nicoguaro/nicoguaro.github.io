@@ -46,7 +46,7 @@ Using linear triangles, the local stiffness matrices read
 
 .. math::
 
-    K_\text{local} =  \frac{1}{|J|}
+    K_\text{local} =  \frac{1}{2|J|}
         \begin{bmatrix}
             2 & -1 &1\\
             -1 & 1 &0\\
