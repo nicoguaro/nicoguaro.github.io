@@ -387,7 +387,7 @@ Thanks for reading!
   <small>
     <i>
       This post was written in the Jupyter notebook. You can 
-      <a href="./downloads/notebooks/finite_diff_map.ipynb" download=True>download</a>
+      <a href="../../downloads/notebooks/finite_diff_map.ipynb" download=True>download</a>
       this notebook, or see a static view on
       <a href="http://nbviewer.jupyter.org/url/nicoguaro.github.io/downloads/notebooks/finite_diff_map.ipynb">nbviewer</a>.
     <i>
