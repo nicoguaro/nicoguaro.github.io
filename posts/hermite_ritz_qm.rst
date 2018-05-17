@@ -21,7 +21,7 @@ We want so solve the time-independent
 
 .. math::
 
-  \left[-\frac{1}{2}\nabla^2 + V(x)\right] \psi = E\psi\, ,
+    \left[-\frac{1}{2}\nabla^2 + V(x)\right] \psi = E\psi\, ,
 
 where we are using
 `natural units <https://en.wikipedia.org/wiki/Natural_units>`_
@@ -30,7 +30,9 @@ since they are a good choice for numeric calculations.
 Solving equation is equivalent to solve the following
 variational equation
 
-.. math:: \delta \Pi[\psi] = 0\, ,
+.. math::
+
+    \delta \Pi[\psi] = 0\, ,
 
 with
 

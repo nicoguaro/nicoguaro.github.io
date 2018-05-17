@@ -261,7 +261,7 @@
 'render_listings', (553984, 56)
 'render_posts:cache/posts/numerical-11.html', (554496, 361)
 'create_bundles', (555008, 56)
-'sitemap:output/sitemap.xml', (555520, 24722)
+'sitemap:output/sitemap.xml', (555520, 24720)
 'render_taxonomies:output/categories/ciencia-ficcion/index.html', (580608, 2044)
 'render_pages:output/posts/teletransportacion-star-trek/index.html', (582656, 5532)
 'render_sources:output/pages/links/index.rst', (588288, 230)
