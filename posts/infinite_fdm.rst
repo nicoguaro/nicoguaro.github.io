@@ -179,7 +179,7 @@ following equation
 
 .. math::
 
-  -\frac{1}{2}\left(\frac{\mathrm{d}\xi}{\mathrm{d}x}\right)^2\frac{\mathrm{d}^2}{\mathrm{d}\xi^2}\psi(\xi) - \frac{\mathrm{d}^2\xi}{\mathrm{d}x^2}\frac{\mathrm{d}}{\mathrm{d}\xi}\psi(\xi) + V(x) \psi(x) = E\psi(x)
+  -\frac{1}{2}\left(\frac{\mathrm{d}\xi}{\mathrm{d}x}\right)^2\frac{\mathrm{d}^2}{\mathrm{d}\xi^2}\psi(\xi) - \frac{\mathrm{d}^2\xi}{\mathrm{d}x^2}\frac{\mathrm{d}}{\mathrm{d}\xi}\psi(\xi) + V(\xi) \psi(\xi) = E\psi(\xi)
 
 The following snippet solve the eigenproblem for the mapped domain:
 
@@ -387,7 +387,7 @@ Thanks for reading!
   <small>
     <i>
       This post was written in the Jupyter notebook. You can 
-      <a href="./../../downloads/notebooks/finite_diff_map.ipynb" download=True>download</a>
+      <a href="./../../downloads/notebooks/finite_diff_map.ipynb">download</a>
       this notebook, or see a static view on
       <a href="http://nbviewer.jupyter.org/url/nicoguaro.github.io/downloads/notebooks/finite_diff_map.ipynb">nbviewer</a>.
     <i>
