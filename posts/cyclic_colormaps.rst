@@ -44,7 +44,7 @@ I picked up colormaps from different sources
   - cyclic_mygbm_30_95_c78
 
 and, of course, ``hsv``. You can download the colormaps in text
-format from `here </files/cyclic_colormaps.zip>`_.
+format from `here </downloads/cyclic_colormaps.zip>`_.
 
 Comparison
 ----------
