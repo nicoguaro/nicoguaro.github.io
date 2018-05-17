@@ -19,9 +19,9 @@ Transforming the equation to an algebraic one
 We want so solve the time-independent
 `Schrödinger equation <https://en.wikipedia.org/wiki/Schr%C3%B6dinger_equation>`_
 
-.. math ::
+.. math::
 
-   \left[\frac{1}{2}\nabla^2 + V(x)\right] \psi = E\psi\, ,
+  \left[-\frac{1}{2}\nabla^2 + V(x)\right] \psi = E\psi\, ,
 
 where we are using
 `natural units <https://en.wikipedia.org/wiki/Natural_units>`_
@@ -257,5 +257,3 @@ with results
 
 A Jupyter Notebook with the examples can be found
 `here <https://github.com/nicoguaro/FEM_resources/blob/master/quantum_mechanics/Ritz_Hermite_QM.ipynb>`_.
-
-
