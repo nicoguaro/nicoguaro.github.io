@@ -333,7 +333,7 @@
 'render_taxonomies:output/categories/optimization.xml', (692224, 1218)
 'render_pages:output/posts/la-zorra-y-las-uvas/index.html', (693760, 5484)
 'render_listings', (699392, 56)
-'sitemap:output/sitemap.xml', (699904, 25484)
+'sitemap:output/sitemap.xml', (699904, 25488)
 'render_posts:cache/posts/numerical-19.html', (725504, 361)
 'render_taxonomies:output/categories/variational-methods/index.html', (726016, 1986)
 'render_sources:output/posts/putnam_prob/index.rst', (728064, 243)
