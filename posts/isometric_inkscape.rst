@@ -2,7 +2,7 @@
 .. slug: isometric_inkscape
 .. date: 2018-05-24 15:42:02 UTC-05:00
 .. tags: mathjax, inkscape, computer graphics, linear algebra,
-.. category:
+.. category: Computer graphics
 .. link:
 .. description:
 .. type: text
