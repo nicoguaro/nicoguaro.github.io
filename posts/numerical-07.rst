@@ -71,7 +71,7 @@ Python
         # 3. Reflection
         xr = xo + alpha*(xo - verts[-1, :])
         fr = fun(xr)
-        if f[0]<=fr and fr<f[1]:
+        if f[0]<=fr and fr<f[-2]:
             new_verts = np.vstack((verts[:-1, :], xr))
         # 4. Expansion
         elif fr<f[0]:
@@ -126,7 +126,7 @@ with result
 
 .. code:: python
 
-    (array([ 0.99994674,  0.99987728]), 2.9076931146734301e-08, 'Extremum found with desired accuracy.')
+    (array([0.99994674, 0.99987728]), 2.90769311467343e-08, 'Extremum found with desired accuracy.')
 
 Julia
 ------
@@ -146,7 +146,7 @@ Julia
         # 3. Reflection
         xr = xo + alpha*(xo - verts[end, :]')
         fr = fun(xr)
-        if f[1]<=fr && fr<f[2]
+        if f[1]<=fr && fr<f[end - 1]
             new_verts = [verts[1:end-1, :]; xr]
         # 4. Expansion
         elseif fr<f[1]
