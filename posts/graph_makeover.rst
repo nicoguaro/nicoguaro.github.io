@@ -60,7 +60,7 @@ plot and see if we can correct them:
 - Right and top spines are not contributing to the plot.
 - Annotations are stealing protagonism from the data.
 - It looks clutterd with lines and markers.
-- It is an `spaghetti graph <http://www.storytellingwithdata.com/blog/2013/03/avoiding-spaghetti-graph>`__.
+- It is a `spaghetti graph <http://www.storytellingwithdata.com/blog/2013/03/avoiding-spaghetti-graph>`__.
 
 
 The following snippet generates this graph.
@@ -174,7 +174,7 @@ And increase the linewidth.
      :align:  center
 
 
-It is an spaghetti graph
+It is a spaghetti graph
 ************************
 
 I think that a good option for this graph would be to highlight
