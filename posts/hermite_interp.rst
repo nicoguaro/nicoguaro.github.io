@@ -8,7 +8,6 @@
 .. type: text
 
 
-
 In this post, we find the Hermite interpolation functions for the
 domain [-1, 1]. And then, we use it for a pieciwise interpolation. Notice
 that this interpolation has :math:`C^1` continuity compared to the
