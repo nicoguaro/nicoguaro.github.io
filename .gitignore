@@ -4,3 +4,10 @@ cache
 .doit.db
 __pycache__
 output
+
+
+## Temporary builds
+._build
+
+##  VS Code
+.vscode/*

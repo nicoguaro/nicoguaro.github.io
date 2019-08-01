@@ -11,27 +11,26 @@
 I am Nicolás Guarín-Zapata. I am an Engineeer in Physics, MSc in Engineering
 and PhD candidate with emphasis in Computational Mechanics.
 
-Some Interest Areas:
+Some Interest Areas (in alphabetical order):
 
-- Computational Mechanics
-- Wave Propagation
 - Acoustics and Vibrations
-- Finite Element Methods
 - Applied Math
+- Computational Mechanics
+- Design of Materials
+- Finite Element Methods
 - Free/Libre Software
+- Wave Propagation
 
-I love `music <http://www.youtube.com/watch?v=BcjEcfugv2E>`_ and I used to
-take part of the `Choir of Universidad EAFIT
+I love music and I used to take part of the `Choir of Universidad EAFIT
 <https://www.youtube.com/user/coroEAFIT/videos>`_.
-
 
 
 Social media
 -------------
 
-- `Twitter: @nicoguaro <https://twitter.com/nicoguaro>`_
-
 - `GitHub: nicoguaro <https://github.com/nicoguaro>`_
+
+- `Twitter: @nicoguaro <https://twitter.com/nicoguaro>`_
 
 - `Flickr: nicoguaro <https://www.flickr.com/photos/nicoguaro/nicoguaro>`_
 
