@@ -2,12 +2,16 @@
 ## Suggested by Nikola
 cache
 .doit.db
+.doit.db.bak
+.doit.db.dat
+.doit.db.dir
+.doit.db*
 __pycache__
 output
 
 
 ## Temporary builds
-._build
+._build/*
 
 ##  VS Code
 .vscode/*
