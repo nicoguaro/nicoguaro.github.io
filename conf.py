@@ -17,7 +17,8 @@ import time
 
 
 # Data about this site
-BLOG_AUTHOR = "Nicolás Guarín-Zapata"  # (translatable)
+BLOG_AUTHOR = {"en": "Nicolás Guarín-Zapata",
+               "es": "Nicolás Guarín-Zapata"}  # (translatable)
 BLOG_TITLE = "Nicolás' blog"  # (translatable)
 # This is the main URL for your site. It will be used
 # in a prominent link. Don't forget the protocol (http/https)!
