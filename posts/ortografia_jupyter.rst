@@ -1,5 +1,5 @@
 .. title: Revisión ortográfica en Jupyter Notebook
-.. slug: ortografia-jupyter
+.. slug: ortografia_jupyter
 .. date: 2019-08-20 14:45:41 UTC-05:00
 .. tags: tutorial, data-science, python, scientific computing,
 .. category: Writing
@@ -16,7 +16,6 @@ continuación.
    :width: 600 px
    :alt: Ejemplo de corrección ortográfica en Jupyter Notebook.
    :align:  center
-
 
 
 Existen `varias formas <https://stackoverflow.com/q/39324039/3358223>`__ de
