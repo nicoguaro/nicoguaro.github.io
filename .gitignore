@@ -1,17 +1,22 @@
 
 ## Suggested by Nikola
-cache
+cache/
+output/
 .doit.db
 .doit.db.bak
 .doit.db.dat
 .doit.db.dir
 .doit.db*
-__pycache__
-output
 
+## Python
+__pycache__/
+*.py[cod]
 
 ## Temporary builds
 ._build/*
+
+## Jupyter Notebook
+.ipynb_checkpoints/
 
 ##  VS Code
 .vscode/*
