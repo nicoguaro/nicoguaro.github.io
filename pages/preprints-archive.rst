@@ -11,6 +11,15 @@
 This is a self-archiving page for research papers. Following you can find the
 links to the preprints.
 
+
+2020
+----
+
+
+- Nicolás Guarín-Zapata, Juan Gomez, Camilo Valencia, Gary Dargush,
+  Ali Reza Hadjesfandiari (2020): `Finite element modeling of micropolar-based phononic crystals <https://www.sciencedirect.com/science/article/pii/S0165212519300526>`_.
+  Wave Motion, 92, 102406. DOI: 10.1016/j.wavemoti.2019.102406 (`preprint <preprint2020a_>`_).
+
 2019
 ----
 
@@ -30,3 +39,5 @@ links to the preprints.
 .. _supplementary2019a: /downloads/supplementary/2019_uel_paper_supplementary.zip
 
 .. _preprint2019b: /downloads/preprints/2019_tuning_bandgap_helicoidal.pdf
+
+.. _preprint2020a: /downloads/preprints/2020_micropolar_phononic.pdf
