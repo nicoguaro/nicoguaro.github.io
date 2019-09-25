@@ -19,7 +19,7 @@ different styles. The first two examples present the style of an (infamous by
 some) software, that is probably used for most people as their visualization
 platform, while the third one is just a clean style. All the files used here
 can be download
-`here <https://gist.github.com/nicoguaro/862ea1015917d99352401433d45684e2>`_.
+`here <https://github.com/nicoguaro/matplotlib_styles>`_.
 
 
 For all the examples below the following imports are done:
@@ -36,7 +36,7 @@ First example: MS 2003
 In our first example we want to reproduce the style that we used to see
 more than a decade ago as default.
 
-The following is the content of the file `MS2003.mplstyle <https://gist.githubusercontent.com/nicoguaro/862ea1015917d99352401433d45684e2/raw/79e08ea0fabd4e84bba9fef5d29ecf3f9bbe0436/MS2003.mplstyle>`_
+The following is the content of the file `MS2003.mplstyle <https://github.com/nicoguaro/matplotlib_styles/blob/master/styles/MS2003.mplstyle>`_
 
 .. code:: python
 
@@ -94,7 +94,7 @@ In the second example we want to reproduce the offspring of the style
 in the first example. This is definitely an improvement over the previous
 style, but it is `not perfect <http://analyticsdemystified.com/excel-tips/data-visualization-that-is-color-blind-friendly-excel-2007/>`_.
 
-The following is the content of the file `MS2007.mplstyle <https://gist.githubusercontent.com/nicoguaro/862ea1015917d99352401433d45684e2/raw/79e08ea0fabd4e84bba9fef5d29ecf3f9bbe0436/MS2007.mplstyle>`_
+The following is the content of the file `MS2007.mplstyle <https://github.com/nicoguaro/matplotlib_styles/blob/master/styles/MS2007.mplstyle>`_
 
 .. code:: python
 
@@ -154,7 +154,7 @@ Third example: a clean style
 The last example is a clean style that uses a color palette taken
 from `ColorBrewer <http://colorbrewer2.org/#type=qualitative&scheme=Set1&n=8>`_.
 
-The following is the content of the file `clean_style.mplstyle <https://gist.githubusercontent.com/nicoguaro/862ea1015917d99352401433d45684e2/raw/79e08ea0fabd4e84bba9fef5d29ecf3f9bbe0436/clean.mplstyle>`_
+The following is the content of the file `clean_style.mplstyle <https://github.com/nicoguaro/matplotlib_styles/blob/master/styles/clean.mplstyle>`_
 
 .. code:: python
 
@@ -206,7 +206,7 @@ example we could have used the following URL:
 
 .. code:: python
 
-    style = "https://gist.githubusercontent.com/nicoguaro/862ea1015917d99352401433d45684e2/raw/79e08ea0fabd4e84bba9fef5d29ecf3f9bbe0436/clean.mplstyle"
+    style = "https://raw.githubusercontent.com/nicoguaro/matplotlib_styles/master/styles/clean.mplstyle"
 
 
 Resources
