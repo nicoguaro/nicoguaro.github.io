@@ -8,8 +8,8 @@
 .. type: text
 
 
-I am Nicolás Guarín-Zapata. I am an Engineeer in Physics, MSc in Engineering
-and PhD candidate with emphasis in Computational Mechanics.
+I am Nicolás Guarín-Zapata. I am an Engineer in Physics, an M.Sc. in
+engineering and a Ph.D. candidate with an emphasis on Computational Mechanics.
 
 Some Interest Areas (in alphabetical order):
 
