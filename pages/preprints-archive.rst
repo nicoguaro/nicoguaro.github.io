@@ -23,8 +23,10 @@ links to the preprints.
 2019
 ----
 
-- Camilo Valencia, Juan Gómez, Nicolás Guarín-Zapata (2019): `A general purpose element-based approach to compute dispersion relations in periodic materials with existing finite element codes <https://www.worldscientific.com/doi/10.1142/S2591728519500051>`_. Journal of Theoretical and Computational
-  Acoustics. DOI: 10.1142/S2591728519500051 (`preprint <preprint2019a_>`_,
+- Camilo Valencia, Juan Gómez, Nicolás Guarín-Zapata (2019):
+  `A general purpose element-based approach to compute dispersion relations in periodic materials with existing finite element codes <https://www.worldscientific.com/doi/10.1142/S2591728519500051>`_.
+  Journal of Theoretical and Computational Acoustics.
+  DOI: 10.1142/S2591728519500051 (`preprint <preprint2019a_>`_,
   `supplementary material <supplementary2019a_>`_).
 
 - Nicolás Guarín-Zapata, Juan Gómez, David Kisailus, Pablo Zavattieri (2019):
@@ -32,7 +34,49 @@ links to the preprints.
   Journal of the Mechanics and Physics of Solids, 131, 344-357.
   DOI: 10.1016/j.jmps.2019.07.003  (`preprint <preprint2019b_>`_).
 
+2016
+----
 
+- Nick Yaraghi, Nicolás Guarín‐Zapata, Lessa Grunenfelder,... (2016).
+  `A sinusoidally architected helicoidal biocomposite <article2016_>`_.
+  Advanced Materials, 28(32), 6835-6844. DOI: 10.1002/adma.201600786
+  (`preprint <preprint2016_>`_).
+
+2015
+----
+
+- Nicolás Guarín-Zapata, Juan Gomez, Nick Yaraghi, David Kisailus, D.,
+  Pablo Zavattieri (2015). `Shear wave filtering in naturally-occurring Bouligand structures <article2015b_>`_.
+  Acta biomaterialia, 23, 11-20. DOI: 10.1016/j.actbio.2015.04.039
+  (`preprint <preprint2015b_>`_).
+
+- Nicolás Guarín-Zapata, Juan Gomez (2015).
+  `Evaluation of the spectral finite element method with the theory of phononic crystals <article2015a_>`_.
+  Journal of Computational Acoustics, 23(02), 1550004. DOI: 10.1142/S0218396X15500046
+  (`preprint <preprint2015a_>`_).
+
+2014
+----
+- Sara Elena Rodríguez, Nicolás Guarín-Zapata. (2014).
+  `Introducción a la acústica de la bandola andina colombiana <article2014_>`_.
+  Ricercare, (1), 111-126. DOI: 10.17230/ricercare.2014.1.7  (`preprint <preprint2014_>`_).
+
+
+.. _article2014: http://publicaciones.eafit.edu.co/index.php/ricercare/article/view/2323
+
+.. _article2015a: https://www.worldscientific.com/doi/abs/10.1142/S0218396X15500046
+
+.. _article2015b: https://www.sciencedirect.com/science/article/pii/S1742706115002172
+
+.. _article2016: https://onlinelibrary.wiley.com/doi/abs/10.1002/adma.201600786
+
+.. _preprint2014: /downloads/preprints/2014_bandola.pdf
+
+.. _preprint2015a: /downloads/preprints/2015_spectral_fem.pdf
+
+.. _preprint2015b: /downloads/preprints/2015_shear_wave_filtering.pdf
+
+.. _preprint2016: /downloads/preprints/2016_sinusoidal_helicoid.pdf
 
 .. _preprint2019a: /downloads/preprints/2019_uel_paper.pdf
 
