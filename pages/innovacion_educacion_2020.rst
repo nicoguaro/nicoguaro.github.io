@@ -7,8 +7,8 @@
 .. description:
 .. type: text
 
-Este sitio web acompaña la postulación al premio "Premio Latinoamericano a la
-Innovación en Educación Superior".
+Sitio web de apoyo a la postulación al *Premio Latinoamericano a la
+Innovación en Educación Superior*.
 
 
 - **Título de la innovación:** Pensamiento Computacional para Ingenierías:
@@ -47,10 +47,13 @@ sido adoptada en la integración de estrategias de andamiaje presentes en los
 ambientes de aprendizaje. Como parte de la implementación de la innovación se ha
 dado inicio a un proyecto que busca medir su impacto en las asignaturas del área.
 
-Ejemplo típico
+Ejemplo de uso
 --------------
 
-Video de uno de los ejemplos
+Video mostrando los cuadernillos implementados para un
+proyecto de diseño de una presa.
+
+{{% media url=https://youtu.be/PpkWqyf9EFg %}}
 
 Inventario de recursos de la innovación
 ---------------------------------------
@@ -106,6 +109,10 @@ innovación.
 Información bibliográfica
 -------------------------
 
+- Barba, L. A., Barker, L. J., Blank, D. S., et al. (2019).
+  Teaching and Learning with Jupyter.
+  Disponible en: https://jupyter4edu.github.io/jupyter-edu-book/index.html
+
 - Guarín-Zapata, N., Gomez, J., Ortega-Alvarez, J. D, & Vieira, C. (2019).
   Jupyter Notebooks y otros recursos para el aprendizaje activo en el área de
   Mecánica Computacional de la Universidad EAFIT. Experiencias significativas de
@@ -128,6 +135,10 @@ Información bibliográfica
 - Ortega-Alvarez, J., Vieira, C., Guarín-Zapata, N., & Gomez, J. (2020).
   WIP Flipping a Computational Modeling Class: Strategies to Engage Students and
   Foster Active Learning. Frontiers in Education 2020 (accepted).
+
+- Rüde, U., Willcox, K., McInnes, L. C., & Sterck, H. D. (2018). Research and
+  Education in Computational Science and Engineering. SIAM Review, 60(3),
+  707–754. https://doi.org/10.1137/16M1096840
 
 - Santos Lara, P.J. de los,  Granados Alejo, V., & Mota Muñoz, F. G. (2019).
   Desarrollo de una librería Python para el análisis
