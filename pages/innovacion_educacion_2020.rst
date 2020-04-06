@@ -15,7 +15,7 @@ Innovación en Educación Superior*.
   Transformando el proceso de aprendizaje
 
 - **Autores:**  Juan David Gómez, Nicolás Guarín-Zapata, Camilo Vieira y
-  Juan David Ortega
+  Juan David Ortega-Alvarez
 
 - **Palabras clave:** Pensamiento computacional
 
@@ -24,28 +24,21 @@ Innovación en Educación Superior*.
 Resumen
 -------
 
-Esta innovación de aprendizaje busca desarrollar conocimientos y habilidades en
-estudiantes de ingeniería civil utilizando estrategias basadas en evidencias.
-La innovación fue implementada en el área de Mecánica Computacional del programa
-de Ingeniería Civil de la Universidad EAFIT que incluye  los cursos de
-Modelación Computacional, Mecánica del Medio Continuo, e Introducción al Método
-de los Elementos Finitos. La transformación incluyó el simulador por elementos
-finitos SolidsPy, que permite la creación de ambientes de aprendizaje en forma
-de cuadernillos digitales interactivos (Notebooks de Jupyter), y el uso de
-estrategias pedagógicas específicas como la clase invertida y las
-autoexplicaciones en el aula para las asignaturas del área. Los cuadernillos
-corresponden a los cuadernos tradicionales de notas de clase pero con la
-adición de interactividad. Esta herramienta permite integrar la mecánica de los
-medios continuos y el pensamiento computacional. Los cuadernillos se diseñaron
-de acuerdo con los lineamientos de la teoría de aprendizaje cognitivo de la cual
-se adoptaron los métodos de enseñanza y eventos de aprendizaje. Estos eventos,
-a su vez, están orientados por una filosofía pedagógica basada en la combinación
-de elementos del constructivismo y de la teoría de la carga cognitiva. El
-constructivismo ha sido incorporado mediante una estrategia de clase invertida
-que promueve el aprendizaje activo mientras que la teoría de carga cognitiva ha
-sido adoptada en la integración de estrategias de andamiaje presentes en los
-ambientes de aprendizaje. Como parte de la implementación de la innovación se ha
-dado inicio a un proyecto que busca medir su impacto en las asignaturas del área.
+Esta innovación busca desarrollar habilidades en estudiantes de ingeniería civil
+utilizando estrategias basadas en evidencias. La innovación fue implementada en
+el área de Mecánica Computacional del programa de Ingeniería Civil de la
+Universidad EAFIT, la cual incluye los cursos de Modelación Computacional,
+Mecánica del Medio Continuo, e Introducción al Método de los Elementos Finitos.
+La transformación incluyó el simulador SolidsPy, que permite la creación de
+ambientes de aprendizaje con cuadernillos digitales interactivos (Notebooks de
+Jupyter), y el uso de estrategias como la clase invertida y las
+autoexplicaciones en el aula. Los cuadernillos permiten integrar la mecánica de
+los medios continuos y el pensamiento computacional, y se diseñaron de acuerdo
+con los lineamientos de la teoría de aprendiz cognitivo. Los ambientes de
+aprendizaje combinan elementos del constructivismo y de la teoría de la carga
+cognitiva. El constructivismo soporta la estrategia de clase invertida que
+promueve el aprendizaje activo, mientras que la teoría de carga cognitiva
+sugiere estrategias de andamiaje presentes en los ambientes de aprendizaje.
 
 Ejemplo de uso
 --------------
@@ -62,29 +55,23 @@ Los recursos que forman parte de la innovación se encuentran disponibles en un
 `repositorio de GitHub <https://github.com/AppliedMechanics-EAFIT>`_ bajo
 licencias abiertas, tanto para el contenido como para el código. Estos son:
 
-- `SolidsPy <https://solidspy.readthedocs.io>`_: Programa para análisis de
+- `SolidsPy <https://solidspy.readthedocs.io>`_:Programa para análisis de
   tensiones por el método de elementos finitos desarrollado con fines de
   docencia, de código abierto y escrito en en Python. Su estructura modular
-  permite su uso como (i) calculadora de tensiones para el curso de medios
-  continuos, (ii) librería de métodos numéricos y programación para  el curso
-  de modelación computacional, y (iii) laboratorio de elementos finitos.
-  Esta estructura facilita usar de manera independiente las diferentes
-  funciones del programa y usarlas a manera de pseudo-lenguaje para diseñar
-  diferentes experiencias de aprendizaje incluyendo clases completas, tareas y
-  proyectos.
+  permite su uso como calculadora de tensiones para el curso de medios
+  continuos, librería de métodos numéricos y programación para  el curso de
+  modelación computacional, y laboratorio de elementos finitos.
 
 - `Cuadernillos digitales interactivos  (Notebooks de Jupyter) <https://jupyter.org/>`_:
-  Documentos digitales interactivos que permiten combinar texto,
-  ecuaciones, imágenes, videos y código en diferentes lenguajes. Los
-  cuadernillos son el espacio donde se formulan las diferentes actividades de
-  aprendizaje para realizar en el espacio de la reunión. SolidsPy puede
-  importarse como un módulo más y ser usado en el diseño de actividades de
-  aprendizaje. El carácter interactivo de los cuadernillos facilita la creación
-  de diverso tipo de actividades.
+  Documentos digitales interactivos que permiten combinar texto, ecuaciones,
+  imágenes, videos y código. Son el espacio donde se formulan las diferentes
+  actividades de aprendizaje para realizar en el espacio de la reunión.
+  SolidsPy puede importarse como un módulo más y ser usado en el diseño de
+  actividades de aprendizaje.
 
 - `Notas de clase <https://bit.ly/39NG4t1>`_: Cada uno de los cursos dispone de
   un paquete de notas de clase que presentan los contenidos teóricos en el orden
-  adoptado en cada materia y con referencias a textos guías disponibles en la
+  adoptado en cada materia y con referencias a textos disponibles en la
   literatura. Las notas contienen ejemplos, problemas propuestos y referencias
   a las actividades formuladas en los cuadernillos digitales.
 
