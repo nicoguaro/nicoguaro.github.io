@@ -1,10 +1,11 @@
-.. title: Anexo a la postulación al Premio Latinoamericano a la Innovación en Educación Superior
+.. title: Pensamiento Computacional para Ingenierías: Transformando el proceso de aprendizaje
 .. slug: innovacion_educacion_2020
 .. date: 2020-03-27 13:44:31 UTC-05:00
+.. authors: Juan David Gómez, Nicolás Guarín-Zapata, Camilo Vieira y Juan David Ortega-Alvarez
 .. tags:
-.. category:
+.. category: Education
 .. link:
-.. description:
+.. description: Postulación al Premio Latinoamericano a la Innovación en Educación Superior
 .. type: text
 
 Sitio web de apoyo a la postulación al *Premio Latinoamericano a la
@@ -14,12 +15,20 @@ Innovación en Educación Superior*.
 - **Título de la innovación:** Pensamiento Computacional para Ingenierías:
   Transformando el proceso de aprendizaje
 
-- **Autores:**  Juan David Gómez, Nicolás Guarín-Zapata, Camilo Vieira y
-  Juan David Ortega-Alvarez
+- **Autores:**
 
-- **Palabras clave:** Pensamiento computacional
+  - Juan David Gómez. Escuela de Ingeniería, Universidad EAFIT.
+  - Nicolás Guarín-Zapata. Escuela de Ingeniería, Universidad EAFIT.
+  - Camilo Vieira. Instituto de Estudios en Educación, Universidad del Norte
+  - Juan David Ortega-Alvarez . Escuela de Ingeniería, Universidad EAFIT.
+
+- **Palabras clave:** Pensamiento computacional,
+  Ciencia e ingeniería computacional, Ingeniería Civil,
+  Jupyter Notebook, Python, Método de Elementos Finitos
 
 - **Categoría:** Experiencias de aprendizaje transformador
+
+- **Fecha:** Abril de 2020
 
 Resumen
 -------
