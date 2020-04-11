@@ -30,6 +30,8 @@ Innovación en Educación Superior*.
 
 - **Fecha:** Abril de 2020
 
+- **Documento de la postulación:** `Descargar </downloads/innovacion_en_eds.pdf>`_
+
 Resumen
 -------
 

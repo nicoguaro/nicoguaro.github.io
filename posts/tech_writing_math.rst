@@ -20,3 +20,5 @@ https://docs.microsoft.com/en-us/archive/blogs/murrays/latex-math-in-office
 https://www.youtube.com/watch?v=PTQD4WmHgkU
 
 https://mathpix.com/
+
+- Detexify: http://detexify.kirelabs.org/classify.html
