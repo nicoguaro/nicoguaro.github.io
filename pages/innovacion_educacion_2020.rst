@@ -8,8 +8,8 @@
 .. description: Postulación al Premio Latinoamericano a la Innovación en Educación Superior
 .. type: text
 
-Sitio web de apoyo a la postulación al *Premio Latinoamericano a la
-Innovación en Educación Superior*.
+Sitio web de apoyo a la postulación al
+`Premio Latinoamericano a la Innovación en Educación Superior <sitio_premio_>`_.
 
 
 - **Título de la innovación:** Pensamiento Computacional para Ingenierías:
@@ -156,3 +156,6 @@ Información bibliográfica
   Engineering Curriculum Instructions at a Colombian Higher Education
   Institution. Proceedings of 2019 Research in Engineering Education Symposium
   (REES), Cape Town.
+
+
+.. _sitio_premio: https://www.urosario.edu.co/Innovacion-en-Educacion-Superior/Premio/
