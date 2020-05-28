@@ -63,7 +63,7 @@ mencionar algunos puntos importantes de acuerdo con la sección
 3. El espacio entre líneas debe estar entre 120-145% del tamaño de la letra.
 
 4. La longitud de la línea debe tener entre 45 y 90 caracteres. Esto es
-   aproximadamente 2 o 3 alfabetos de mayúsculas pequeñas:
+   aproximadamente 2 o 3 alfabetos en minúsculas:
 
    abcdefghijklmnñopqrstuvwxyzabcdefghijklmnñopqrstuvwxyzabcd
 
@@ -103,7 +103,7 @@ editores basados en marcado.
 
   - Microsoft Word.
 
-- Los editores basados en marcas dependen de las marcas en el "texto" para
+- Los editores basados en marcado dependen de las marcas en el "texto" para
   diferenciar secciones y estilos. En este caso, su texto parece código,
   como se ve en la siguiente imagen
 
@@ -118,7 +118,7 @@ editores basados en marcado.
   - `reStructuredtext <https://docutils.sourceforge.io/rst.html>`_.
 
 
-Independientemente de cuál sea tableu editor principal, sugiero utilizar
+Independientemente de cuál sea tu editor principal, sugiero utilizar
 `Pandoc <https://pandoc.org/>`_. Te permite convertir entre varios
 formatos, haciendo el proceso un poco más fácil. Incluso hay un editor
 basado completamente en él llamado `Panwriter <https://panwriter.com/>`_.
