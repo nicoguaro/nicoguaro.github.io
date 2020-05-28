@@ -4,7 +4,7 @@
 .. tags: mathjax, inkscape, computer graphics, linear algebra, tutorial
 .. category: Computer graphics
 .. link:
-.. description:
+.. description: How to make isometric drawings using Inkscape.
 .. type: text
 
 Sometimes I find myself in need of making a schematic using an
@@ -113,7 +113,7 @@ Tranformation in Inkscape
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 We already have the transformation matrices and we can use them in Inkscape.
-But first, we need to understand how it works. Inkscape, uses
+But first, we need to understand how it works. Inkscape uses
 `SVG <https://en.wikipedia.org/wiki/Scalable_Vector_Graphics>`__, the web
 standard for vector graphics. `Transformations <https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/transform>`__ in SVG are done using the following
 matrix
@@ -123,7 +123,7 @@ matrix
    \begin{bmatrix} a &c &e\\ b &d &f\\ 0 &0 &1\end{bmatrix}\, ,
 
 that uses `homogeneous coordinates <https://en.wikipedia.org/wiki/Homogeneous_coordinates>`__. So, one can just press ``Shift + Ctrl + M``
-and type the components of the matrices obtaines above for
+and type the components of the matrices obtained above for
 :math:`a`, :math:`b`, :math:`c`, and :math:`d`; leaving
 :math:`e` and :math:`f` as zero.
 
