@@ -21,4 +21,8 @@ https://www.youtube.com/watch?v=PTQD4WmHgkU
 
 https://mathpix.com/
 
+http://www.jonathanleroux.org/software/iguanatex/download.html
+
+https://superuser.com/questions/340650/type-math-formulas-in-microsoft-word-the-latex-way
+
 - Detexify: http://detexify.kirelabs.org/classify.html

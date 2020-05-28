@@ -94,6 +94,7 @@ DEFAULT_LANG = "en"
 # the path will be used as a prefix for the generated pages location
 TRANSLATIONS = {
     DEFAULT_LANG: "",
+    "es": "./es"
     # Example for another language:
     # "es": "./es",
 }

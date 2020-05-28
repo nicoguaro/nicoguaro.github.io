@@ -1,7 +1,8 @@
 .. title: Herramientas (auxiliares) para Investigación
 .. slug: herramientas-investigacion
 .. date: 2014-07-12 04:24:00
-.. tags: Visualización Científica, Scientific Visualization, Investigación,Research, mathjax
+.. tags: visualización científica, scientific visualization, investigación,
+         research, mathjax
 .. category: Old blog
 .. description:
 
@@ -333,5 +334,3 @@ Enlaces sugeridos
 Seguro dejé mucho temas por fuera así como herramientas dentro de
 algún tópico. Si ese es el caso, agradecería que me lo digan en los
 comentarios.
-
-

@@ -1,15 +1,19 @@
 .. title: Technical writing
 .. slug: tech_writing
-.. date: 2020-02-02 18:53:40 UTC-05:00
-.. tags: writing, research
+.. date: 2020-05-28 18:53:40 UTC-05:00
+.. tags: writing, research, typography, libreoffice, latex
 .. category: Writing
 .. link:
 .. description: Give some tips on technical writing.
 .. type: text
-.. status: draft
+.. status:
 
 This is the first post about technical writing [*]_ from a series that
-I will be creating during the course of this year.
+I will be creating during the course of this year. Technical writing is
+something that most of us have to deal with in different contexts. For
+example, in college coursework, research publications, software documentation.
+The main idea of the series is to mention some of the tricks that I have
+learned over the years and some tools that might come in handy.
 
 Future posts will (probably) be about:
 
@@ -24,7 +28,10 @@ Future posts will (probably) be about:
 The current post
 ================
 
-According to the `U.S. Bureau of Labor Statistics <https://www.bls.gov/ooh/media-and-communication/technical-writers.htm>`_
+As mentioned above, technical writing is something that a lot of persons
+have to lead with. This is a skill that is sometimes overlooked,
+but it should not. According to the
+`U.S. Bureau of Labor Statistics <https://www.bls.gov/ooh/media-and-communication/technical-writers.htm>`_
 
   Technical writers prepare instruction manuals, how-to guides,
   journal articles, and other supporting documents to communicate complex and
@@ -33,7 +40,18 @@ According to the `U.S. Bureau of Labor Statistics <https://www.bls.gov/ooh/media
 And it is a desired skill in the workplace. Its demand is expected to grow
 around 10% in the current decade.
 
-According Butterick's "Typography in ten minutes":
+Typography
+----------
+
+The first thing that I should mention is that writing documents is
+typography. "Putting documents" together is typography because
+we are *designing with text* (Butterick, 2019). So, we should consider
+ourselves typographers since we are constantly designing documents.
+
+I would suggest taking a look at "Butterick's Practical Typography"
+since it is a really good book about it and it reads smoothly. I will
+mention some important points here according to Butterick's
+"Typography in ten minutes":
 
 1. The most important typographic selection is on the body text.
    This is due to the fact that it is most of the document.
@@ -51,42 +69,77 @@ According Butterick's "Typography in ten minutes":
 5. Mind the selection of your font. Try to avoid default fonts such as
    Arial, Calibri or Times New Roman.
 
-
-
 Editors
 --------
 
-- LaTeX
+Another point that I want to touch in this post is about editors. The first
+question that arises is "what editor should I use?". The short answer is:
+**use whatever your peers are using**. That's my best advice; that way you
+have people to discuss with you about your doubts.
 
-- Microsoft Word
+The long answer … is that each editor has its weak and strong points. I
+have written scientific papers in LaTeX, LibreOffice Writer and MS Word;
+all of them look professional. So, in the end, you can write your
+documents in several ways and achieve a similar result. I prefer to use
+LaTeX for long documents since it is centered in the structure of the
+document instead of the appearance and this is the way one should manage
+a long document like a dissertation, in my opinion.
 
-- LibreOffice writers
+If you just want me to pick one editor and suggest it to you, I would
+say that you should ride with `LibreOffice <https://www.libreoffice.org/>`_.
+A good reference for it is "Designing with LibreOffice". Once you learn
+how to use styles you will ask how have you been writing documents all
+this time.
 
-- Markup languages:
+There are two main flavors for editors that I am going to discuss:
+WYSIWYG (What You See Is What You Get) and markup-based editors.
 
-  - Markdown: https://www.markdownguide.org/getting-started/
+- WYSIWYG. This category is the one that most people is familiar with.
+  Two examples are:
 
-  - reStructuredtext
+  - LibreOffice writer; and
+
+  - Microsoft Word.
+
+- Markup-based editors rely on marks on the "text" to differentiate
+  sections and styles. In this case, your text looks like code, as seen
+  in the following image
+
+  .. image:: /images/rst_code.png
+
+  Some examples are:
+
+  - LaTeX;
+
+  - `Markdown <https://www.markdownguide.org/getting-started>`_; and
+
+  - `reStructuredtext <https://docutils.sourceforge.io/rst.html>`_.
 
 
-  Pandoc: https://pandoc.org/
-
-  Panwriter: https://github.com/mb21/panwriter/releases
-
-
-  https://sylvaindeville.net/2015/07/17/writing-academic-papers-in-plain-text-with-markdown-and-jupyter-notebook/
+Independently of what your main editor is I suggest that you use
+`Pandoc <https://pandoc.org/>`_. It allows you to convert between several
+formats, making the process a little bit easier. There is even an editor
+based completely on it named `Panwriter <https://panwriter.com/>`_.
 
 
 References
 ----------
 
-1. Matthew Butterick (2019). Butterick's Practical Typography. Second edition,
-   Matthew Butterick.
+1. Matthew Butterick (2019). `Butterick's Practical Typography <https://practicaltypography.com/>`_.
+   Second edition, Matthew Butterick.
 
-Info: https://www.bls.gov/ooh/media-and-communication/technical-writers.htm
+2. Wikibooks contributors. (2020). `LaTeX <https://en.wikibooks.org/wiki/LaTeX>`_.
+   Wikibooks, The Free Textbook Project.
+
+3. Bruce Byfield (2016). `Designing with LibreOffice <https://designingwithlibreoffice.com/>`_.
+   Friends of OpenDocument, Inc.
+
+4. Deville, S. (2015).
+   `Writing academic papers in plain text with Markdown and Jupyter notebook <https://sylvaindeville.net/2015/07/17/writing-academic-papers-in-plain-text-with-markdown-and-jupyter-notebook/>`_.
+   Sylvain Deville.
 
 
 .. [*] This post is (somewhat) related to a
-   `previous post <../herramientas-investigacion/>`__ where I discussed about
-   research tools that most of us need but are not commonly taught in a formal
-   fashion.
+   `previous post <../herramientas-investigacion/>`__
+   where I discussed research tools that most of us need but are not
+   commonly taught in a formal fashion.
