@@ -1,6 +1,6 @@
 .. title: Technical writing
 .. slug: tech_writing
-.. date: 2020-05-28 18:53:40 UTC-05:00
+.. date: 2020-05-28 15:53:40 UTC-05:00
 .. tags: writing, research, typography, libreoffice, latex
 .. category: Writing
 .. link:
