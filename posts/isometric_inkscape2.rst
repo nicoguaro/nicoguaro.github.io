@@ -8,7 +8,7 @@
 .. type: text
 
 `Last week <../isometric_inkscape>`__  I posted a quick guide on isometric
-drawing using `Inkscape <https://inkscape.org/en/>`__. In that post I
+drawing using `Inkscape <https://inkscape.org/en/>`__. In that post, I
 showed how to obtain images that are projected to the faces of an
 isometric box.
 
@@ -54,7 +54,7 @@ the previous schematic.
    :align:  center
 
 We can now proceed, to recreate the desired figure. I don't know the
-exact dimensions of the box; my guess is that the cross section was
+exact dimensions of the box; my guess is that the cross-section was
 a square and the aspect ratio was 5:1. After applying the transformations
 to each rectangle we obtain the following (adding some tweaks here and there).
 
@@ -66,7 +66,7 @@ to each rectangle we obtain the following (adding some tweaks here and there).
 Second approach
 ---------------
 
-For this type of schematic I would prefer to create an axonometric grid
+For this type of schematic, I would prefer to create an axonometric grid
 (``File > Document Properties > Grids``). After adding the grid to our
 canvas it is pretty straightforward to draw the figures in isometric
 view. The canvas should look similar to the following image.
@@ -98,5 +98,5 @@ Conclusion
 
 As I mentioned, Inkscape can be used for drawing simple figures in isometric
 projection. Nevertheless, I strongly suggest to use a CAD like 
-`FreeCAD <https://freecadweb.org/>`__ for more compicated geometries.
+`FreeCAD <https://freecadweb.org/>`__ for more complicated geometries.
 
