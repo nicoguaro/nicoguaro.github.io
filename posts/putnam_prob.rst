@@ -105,7 +105,7 @@ we can check that the determinants of the matrices
     x &y &z &1
     \end{bmatrix}\, ,
 
-have the same sign. In this case :math:`(x, y, z)` is the point of interest
+have the same sign. In this case, :math:`(x, y, z)` is the point of interest
 and :math:`(x_i, y_i, z_i)` are the coordinates of each vertex.
 
 
