@@ -7,7 +7,7 @@
 .. description: 
 .. type: text
 
-Yesterday (May 4, 2020), Christian Howard posted on 
+Yesterday (June 4, 2020), Christian Howard posted on 
 `Twitter <https://twitter.com/choward1491/status/1268736220055699457>`_
 the following question
 
@@ -39,7 +39,7 @@ a counter-clockwise orientation:
 
 - **face 3**: edge 2, edge 4, edge 5
 
-Then, I take each face and pick a random from :math:`(0, 1, 2)` and
+Then, I take each face and pick a random number from :math:`(0, 1, 2)` and
 mark the corresponding edge, and move to the following face. I repeat
 this process several times and I count the favorable cases and divide
 them by the number of trials to get an estimate of the probability.
