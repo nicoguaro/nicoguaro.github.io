@@ -1,8 +1,8 @@
 .. title: Randomized Marking of a Tetrahedron
 .. slug: marking-tetrahedron
 .. date: 2020-06-05 22:58:32 UTC-05:00
-.. tags: 
-.. category: mathjax, monte carlo, combinatorics, computational geometry
+.. tags: mathjax, monte carlo, combinatorics, computational geometry
+.. category: Scientific Computing
 .. link: 
 .. description: 
 .. type: text
