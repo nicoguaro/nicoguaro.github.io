@@ -1,31 +1,30 @@
-.. title: Cyclic colormaps comparison
+.. title: Comparación de mapas de colores cíclicos
 .. slug: cyclic_colormaps
 .. date: 2018-01-02 18:55:41 UTC-05:00
-.. tags: mathjax, scientific computing, visualization, matplotlib, python
+.. tags: mathjax, computación científica, visualizaciónn, matplotlib, python
 .. category: Visualization
 .. link:
 .. description:
 .. type: text
 
-
-I started this post looking for a
-`diffusion map <https://en.wikipedia.org/wiki/Diffusion_map>`_ on Python,
-that I didn't find. Then I continued following an
-`example <http://scikit-learn.org/stable/auto_examples/manifold/plot_compare_methods.html#sphx-glr-auto-examples-manifold-plot-compare-methods-py>`_
-on `manifold learning <https://en.wikipedia.org/wiki/Nonlinear_dimensionality_reduction>`_
-by `Jake Vanderplas <https://jakevdp.github.io/>`_ on a `different dataset
+Empecé esta publicación buscando implementaciones de
+`mapas de difusión <https://en.wikipedia.org/wiki/Diffusion_map>`_
+en Python, que no pude encontrar. Me puse entonces a seguir un 
+`ejemplo <http://scikit-learn.org/stable/auto_examples/manifold/plot_compare_methods.html#sphx-glr-auto-examples-manifold-plot-compare-methods-py>`_
+sobre `aprendizaje de variedades <https://en.wikipedia.org/wiki/Nonlinear_dimensionality_reduction>`_
+de `Jake Vanderplas <https://jakevdp.github.io/>`_ en un `conjunto de datos diferente
 <https://commons.wikimedia.org/wiki/File:Diffusion_map_of_a_torodial_helix.jpg>`_.
-It worked nicely,
+Y funcionó bien
 
 .. image:: /images/manifold_learning_toroidal_helix.svg
 
+pero el mapa de color es `"Spectral" <https://matplotlib.org/examples/color/colormaps_reference.html>`_,
+que es divergente. Esto me puso a pensar acerca de usar un mapa de
+colores cícliclo, y terminé en esta pregunta de 
+`StackOverflow <https://stackoverflow.com/q/23712207/3358223>`_.
+Y decidí comparar algunos mapas de colores cíclicos.
 
-but the colormap used is `Spectral <https://matplotlib.org/examples/color/colormaps_reference.html>`_, that is divergent. This made me think about
-using a cyclic colormap, and ended up in
-`this StackOverflow <https://stackoverflow.com/q/23712207/3358223>`_ question.
-And I decided to compare some cyclic colormaps.
-
-I picked up colormaps from different sources
+Elegí mapas de colores de diferentes fuentes
 
 - `cmocean <https://matplotlib.org/cmocean/>`_:
 
@@ -43,13 +42,13 @@ I picked up colormaps from different sources
   - cyclic_mrybm_35_75_c68
   - cyclic_mygbm_30_95_c78
 
-and, of course, ``hsv``. You can download the colormaps in text
-format from `here </downloads/cyclic_colormaps.zip>`_.
+y, obviamente, ``hsv``. Los mapas de colores en formato de texto
+plano se pueden descargar `aquí </downloads/cyclic_colormaps.zip>`_.
 
-Comparison
-----------
+Comparación
+-----------
 
-For all the examples below the following imports are done:
+Para todos los ejemplos se importaron los siguientes módulos:
 
 .. code:: python
 
@@ -60,23 +59,24 @@ For all the examples below the following imports are done:
     from colorspacious import cspace_convert
 
 
-Color map test image
-~~~~~~~~~~~~~~~~~~~~
+Imagen de prueba 
+~~~~~~~~~~~~~~~~
 
-Peter Kovesi proposed a way to compare cyclic colormaps on a
-`paper <http://peterkovesi.com/projects/colourmaps/colourmaptestimage.html>`_
-on 2015. It consists of a spiral ramp with an undulation. In polar coordinates
-it reads
+Peter Kovesi propuso una manera de comparar mapas de colores
+cíclicos en un 
+`artículo <http://peterkovesi.com/projects/colourmaps/colourmaptestimage.html>`_
+en 2015. Consta de una rampa en espiral con ondulaciones. En
+coordenadas polares es
 
 .. math::
 
     c = (A \rho^p \sin(n \theta) + \theta)\, \mathrm{mod}\, 2\pi
 
-with :math:`A` the amplitude of the oscilation, :math:`\rho` the normalized
-radius in [0, 1], :math:`p` a positive number, and :math:`n` the number
-of cycles.
+con :math:`A` la amplitud de la oscilación, :math:`\rho`
+el radio normalizado en [0, 1], :math:`p` un número positivo,
+y :math:`n` el número de ciclos.
 
-And the following function creates the grid in Python
+Y la siguiente función crea la rejilla en Python.
 
 .. code:: python
 
@@ -88,13 +88,12 @@ And the following function creates the grid in Python
     vals = np.mod(vals, 2*np.pi)
     return t, r, vals
 
-
-The following is the result
+El resultado es el siguiente
 
 .. image:: /images/sine_helix_cyclic_cmap.png
 
-Colorblindness test
-~~~~~~~~~~~~~~~~~~~
+Prueba para daltonismo
+~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: python
 
@@ -131,53 +130,60 @@ Colorblindness test
 .. figure:: /images/hsv_eval.png
     :align: center
 
-    ``hsv`` colormap comparison for different color vision deficiencies.
+    Comparación de ``hsv`` para diferentes deficiencias visuales
+    del color.
 
 .. figure:: /images/cmocean_phase_eval.png
     :align: center
 
-    ``Phase`` colormap comparison for different color vision deficiencies.
+    Comparación de ``Phase`` para diferentes deficiencias visuales
+    del color.
 
 .. figure:: /images/hue_L60_eval.png
     :align: center
 
-    ``hue_L60`` colormap comparison for different color vision deficiencies.
-
+    Comparación de ``hue_L60`` para diferentes deficiencias visuales
+    del color.
 
 .. figure:: /images/erdc_iceFire_eval.png
     :align: center
 
-    ``erdc_iceFire`` colormap comparison for different color vision deficiencies.
+    Comparación de ``erdc_iceFire`` para diferentes deficiencias visuales
+    del color.
 
 .. figure:: /images/nic_Edge_eval.png
     :align: center
 
-    ``nic_Edge`` colormap comparison for different color vision deficiencies.
+    Comparación de ``nic_Edge`` para diferentes deficiencias visuales
+    del color.
 
 .. figure:: /images/colorwheel_eval.png
     :align: center
 
-    ``Colorwheel`` colormap comparison for different color vision deficiencies.
+    Comparación de ``Colorwheel`` para diferentes deficiencias visuales
+    del color.
 
 .. figure:: /images/cyclic_mrybm_eval.png
     :align: center
 
-    ``Cyclic_mrybm`` colormap comparison for different color vision deficiencies.
+    Comparación de ``Cyclic_mrybm`` para diferentes deficiencias visuales
+    del color.
 
 .. figure:: /images/cyclic_mygbm_eval.png
     :align: center
 
-    ``Cyclic_mygbm`` colormap comparison for different color vision deficiencies.
+    Comparación de ``Cyclic_mygbm`` para diferentes deficiencias visuales
+    del color.
 
 
-Randomly generated cyclic colormaps
------------------------------------
+Mapas de colores cíclicos generados aleatoriamente
+--------------------------------------------------
 
-What if we generate some random colormaps that are cyclic? How would they
-look like?
+¿Qué pasa si generamos mapas de colores cíclicos aleatoriamente?
+¿Cómo lucirían?
 
-
-Following are the snippet and resulting colormaps.
+A continuación están las piezas de código y mapas de colores
+resultantes.
 
 .. code:: python
 
@@ -239,41 +245,41 @@ Following are the snippet and resulting colormaps.
 .. figure:: /images/random_cmaps.png
     :align: center
 
-    16 randomly generated colormaps.
+    16 mapas de colores generados aleatoriamente.
 
 .. figure:: /images/random_cmaps_traj.svg
     :align: center
 
-    Trajectories in RGB space for the randomly generated colormaps.
+    Trayectorias en espacio RGB para los mapas de colores generados
+    aleatoriamente.
 
+Una idea interesante sería tomar estos mapas de colores y optimizar
+algunos parámetros perceptuales como luminosidad para obtener
+mapas de colores útiles.
 
-A good idea would be to take these colormaps and optimize some perceptual
-parameters such as lightness to get some usable ones.
+Conclusiones
+------------
 
-Conclusions
------------
-
-I probably would use ``phase``, ``colorwheel``, or ``mrybm`` in the
-future.
+Probablemente, yo usaría ``phase``, ``colorwheel``, o ``mrybm`` en
+el futuro.
 
 .. figure:: /images/toroidal_helix_phase.svg
     :align: center
 
-    Initial image using ``phase``.
-
+    Imagen inicial usando ``phase``.
 
 .. figure:: /images/toroidal_helix_colorwheel.svg
     :align: center
 
-    Initial image using ``colorwheel``.
+    Imagen inicial usando ``colorwheel``.
 
 .. figure:: /images/toroidal_helix_mrybm.svg
     :align: center
 
-    Initial image using ``mrybm``.
+    Imagen inicial usando ``mrybm``.
 
-References
-----------
+Referencias
+-----------
 
 1. Peter Kovesi. Good Colour Maps: How to Design Them.
    arXiv:1509.03700 [cs.GR] 2015
