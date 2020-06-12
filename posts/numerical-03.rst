@@ -1,11 +1,10 @@
 .. title: Numerical methods challenge: Day 3
 .. slug: numerical-03
 .. date: 2017-10-03 19:26:13 UTC-05:00
-.. tags: mathjax, numerical methods, python, julia, scientific computing, root finding
+.. tags: numerical methods, python, julia, scientific computing, root finding
 .. category:  Scientific Computing
-.. link: 
-.. description: 
 .. type: text
+.. has_math: yes
 
 During October (2017) I will write a program per day for some well-known
 numerical methods in both Python and Julia. It is intended to be an exercise

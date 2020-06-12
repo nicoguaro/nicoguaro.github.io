@@ -1,11 +1,11 @@
 .. title: Gráficos isométricos en Inkscape
 .. slug: isometric_inkscape
 .. date: 2018-05-24 15:42:02 UTC-05:00
-.. tags: inkscape, gráficos por computador, álgebra lineal, tutorial, mathjax
+.. tags: inkscape, gráficos por computador, álgebra lineal, tutorial
 .. category: Computer graphics
-.. link:
 .. description: Cómo hacer isométricos usando Inkscape.
 .. type: text
+.. has_math: yes
 
 A veces me encuentro en la necesidad de hacer un diagrama usando una
 `proyección isométrica <https://en.wikipedia.org/wiki/Isometric_projection>`__.

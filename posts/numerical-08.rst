@@ -1,11 +1,10 @@
 .. title: Numerical methods challenge: Day 8
 .. slug: numerical-08
 .. date: 2017-10-09 16:15:50 UTC-05:00
-.. tags: mathjax, numerical methods, python, julia, scientific computing, optimization
+.. tags: numerical methods, python, julia, scientific computing, optimization
 .. category: Scientific Computing
-.. link:
-.. description:
 .. type: text
+.. has_math: yes
 
 During October (2017) I will write a program per day for some well-known
 numerical methods in both Python and Julia. It is intended to be an exercise

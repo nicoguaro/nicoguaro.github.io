@@ -1,11 +1,10 @@
 .. title: Numerical methods challenge: Day 22
 .. slug: numerical-22
 .. date: 2017-10-22 10:51:10 UTC-05:00
-.. tags: mathjax, numerical methods, python, julia, scientific computing, finite differences
+.. tags: numerical methods, python, julia, scientific computing, finite differences
 .. category: Scientific Computing
-.. link: 
-.. description: 
 .. type: text
+.. has_math: yes
 
 During October (2017) I will write a program per day for some well-known
 numerical methods in both Python and Julia. It is intended to be an exercise

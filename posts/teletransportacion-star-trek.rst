@@ -1,9 +1,9 @@
 .. title: Respecto a la teletransportación en Star Trek
 .. slug: teletransportacion-star-trek
 .. date: 2013-04-18 03:40:00
-.. tags: mathjax, Ciencia ficción, Science fiction, Cuentas de servilleta, Back-of-the-envelope calculations
+.. tags: Ciencia ficción, Science fiction, Cuentas de servilleta, Back-of-the-envelope calculations
 .. category: Old blog
-.. description:
+.. has_math: yes
 
 Alguna vez una amiga me preguntó sobre cuál era más fácil de dos métodos para
 teletransportar personas. Uno consistía en "desconfigurar" y "reconfigurar" a

@@ -1,11 +1,10 @@
 .. title: Marcado Aleatorio de un Tetraedro
 .. slug: marking-tetrahedron
 .. date: 2020-06-05 22:58:32 UTC-05:00
-.. tags: mathjax, monte carlo, combinatoria, geometría computacional
+.. tags: monte carlo, combinatoria, geometría computacional
 .. category: Scientific Computing
-.. link: 
-.. description: 
 .. type: text
+.. has_math: yes
 
 El día de ayer (junio 4 de 2020), Christian Howard publicó en  
 `Twitter <https://twitter.com/choward1491/status/1268736220055699457>`_

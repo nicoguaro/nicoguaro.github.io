@@ -1,11 +1,9 @@
 .. title: Numerical methods challenge: Day 23
 .. slug: numerical-23
 .. date: 2017-10-23 20:30:03 UTC-05:00
-.. tags: mathjax, numerical methods, python, julia, scientific computing, ritz method
-.. category:
-.. link:
-.. description:
+.. tags: numerical methods, python, julia, scientific computing, ritz method
 .. type: text
+.. has_math: yes
 
 During October (2017) I will write a program per day for some well-known
 numerical methods in both Python and Julia. It is intended to be an exercise

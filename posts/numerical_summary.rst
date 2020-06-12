@@ -1,11 +1,10 @@
 .. title: Numerical methods challenge: Summary
 .. slug: numerical_summary
 .. date: 2017-11-14 11:22:23 UTC-05:00
-.. tags: mathjax, numerical methods, python, julia, scientific computing
+.. tags: numerical methods, python, julia, scientific computing
 .. category: Scientific Computing
-.. link:
-.. description:
 .. type: text
+.. has_math: yes
 
 During October (2017) I wrote a program per day for some well-known numerical
 methods in both Python and Julia. It was intended to be an exercise, then don't

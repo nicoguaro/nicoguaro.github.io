@@ -1,11 +1,10 @@
 .. title: Cyclic colormaps comparison
 .. slug: cyclic_colormaps
 .. date: 2018-01-02 18:55:41 UTC-05:00
-.. tags: mathjax, scientific computing, visualization, matplotlib, python
+.. tags: scientific computing, visualization, matplotlib, python
 .. category: Visualization
-.. link:
-.. description:
 .. type: text
+.. has_math: yes
 
 
 I started this post looking for a

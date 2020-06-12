@@ -1,11 +1,10 @@
 .. title: Isometric graphics in Inkscape: Part 2
 .. slug: isometric_inkscape2
 .. date: 2018-05-30 12:40:57 UTC-05:00
-.. tags: mathjax, inkscape, computer graphics, tutorial
+.. tags: inkscape, computer graphics, tutorial
 .. category: Computer graphics
-.. link: 
-.. description: 
 .. type: text
+.. has_math: yes
 
 `Last week <../isometric_inkscape>`__  I posted a quick guide on isometric
 drawing using `Inkscape <https://inkscape.org/en/>`__. In that post, I

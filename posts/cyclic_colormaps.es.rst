@@ -1,11 +1,10 @@
 .. title: Comparación de mapas de colores cíclicos
 .. slug: cyclic_colormaps
 .. date: 2018-01-02 18:55:41 UTC-05:00
-.. tags: mathjax, computación científica, visualizaciónn, matplotlib, python
+.. tags: computación científica, visualizaciónn, matplotlib, python
 .. category: Visualization
-.. link:
-.. description:
 .. type: text
+.. has_math: yes
 
 Empecé esta publicación buscando implementaciones de
 `mapas de difusión <https://en.wikipedia.org/wiki/Diffusion_map>`_

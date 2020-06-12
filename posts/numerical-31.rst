@@ -1,11 +1,10 @@
 .. title: Numerical methods challenge: Day 31
 .. slug: numerical-31
 .. date: 2017-10-31 20:45:09 UTC-05:00
-.. tags: mathjax, numerical methods, python, julia, scientific computing, conjugate gradient, finite element
+.. tags: numerical methods, python, julia, scientific computing, conjugate gradient, finite element
 .. category: Scientific Computing
-.. link:
-.. description:
 .. type: text
+.. has_math: yes
 
 During October (2017) I wrote a program per day for some well-known
 numerical methods in both Python and Julia. It was intended to be an exercise,

@@ -1,12 +1,10 @@
 .. title: Probabilidad de que un tetraedro en una esfera contenga su centro
 .. slug: putnam_prob
 .. date: 2017-12-13 15:24:52 UTC-05:00
-.. tags: mathjax, monte carlo, geometría computacional,
-         coordenadas baricéntricas, probabilidad, python
+.. tags: monte carlo, geometría computacional
 .. category: Scientific Computing
-.. link:
-.. description:
 .. type: text
+.. has_math: yes
 
 Me interesé en este problema viendo el canal de YouTube
 `3Blue1Brown <https://www.youtube.com/channel/UCYO_jab_esuFRV4b17AJtAw>`_,

@@ -1,11 +1,10 @@
 .. title: Numerical methods challenge: Day 17
 .. slug: numerical-17
 .. date: 2017-10-17 16:29:05 UTC-05:00
-.. tags: mathjax, numerical methods, python, julia, scientific computing, ode
+.. tags: numerical methods, python, julia, scientific computing, ode
 .. category: Scientific Computing
-.. link:
-.. description:
 .. type: text
+.. has_math: yes
 
 During October (2017) I will write a program per day for some well-known
 numerical methods in both Python and Julia. It is intended to be an exercise

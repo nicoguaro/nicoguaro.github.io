@@ -1,11 +1,10 @@
 .. title: Numerical methods challenge: Day 29
 .. slug: numerical-29
 .. date: 2017-10-29 21:10:08 UTC-05:00
-.. tags: mathjax, numerical methods, python, julia, scientific computing, cholesky decomposition
+.. tags: numerical methods, python, julia, scientific computing, cholesky decomposition
 .. category: Scientific Computing
-.. link:
-.. description:
 .. type: text
+.. has_math: yes
 
 During October (2017) I will write a program per day for some well-known
 numerical methods in both Python and Julia. It is intended to be an exercise

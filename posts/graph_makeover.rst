@@ -1,11 +1,10 @@
 .. title: #SWDchallenge: Graph makeover
 .. slug: graph_makeover
 .. date: 2018-07-12 18:32:40 UTC-05:00
-.. tags: mathjax, visualization, papers, python
+.. tags: visualization, papers, python
 .. category: Visualization
-.. link:
-.. description:
 .. type: text
+.. has_math: yes
 
 
 At `storytelling with data <http://www.storytellingwithdata.com/>`__, they run

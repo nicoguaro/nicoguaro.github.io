@@ -1,11 +1,11 @@
 .. title: Gráficos isométricos en Inkscape: Parte 2
 .. slug: isometric_inkscape2
 .. date: 2018-05-30 12:40:57 UTC-05:00
-.. tags: mathjax, inkscape, gráficos por computador, tutorial
+.. tags: inkscape, gráficos por computador, tutorial
 .. category: Computer graphics
-.. link: 
 .. description: Cómo hacer isométricos usando Inkscape.
 .. type: text
+.. has_math: yes
 
 `La semana pasada <../ isometric_inkscape>`__ publiqué una guía rápida
 sobre dibujos isométricos dibujar usando `Inkscape <https://inkscape.org/en/>`__.

@@ -1,11 +1,10 @@
 .. title: Finite differences in infinite domains
 .. slug: infinite_fdm
 .. date: 2018-05-17 15:57:00 UTC-05:00
-.. tags: mathjax, scientific computing, python, finite difference, pde, quantum mechanics
+.. tags: scientific computing, python, finite difference, pde, quantum mechanics
 .. category: Scientific Computing
-.. link:
-.. description:
 .. type: text
+.. has_math: yes
 
 
 

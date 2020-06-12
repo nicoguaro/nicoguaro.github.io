@@ -1,11 +1,10 @@
 .. title: Probability that a random tetrahedron over a sphere contains its center
 .. slug: putnam_prob
 .. date: 2017-12-13 15:24:52 UTC-05:00
-.. tags: mathjax, monte carlo, computational geometry, barycentric coordinates, probability, python
+.. tags: monte carlo, computational geometry, barycentric coordinates, probability, python
 .. category: Scientific Computing
-.. link:
-.. description:
 .. type: text
+.. has_math: yes
 
 I got interested in this problem watching the YouTube channel
 `3Blue1Brown <https://www.youtube.com/channel/UCYO_jab_esuFRV4b17AJtAw>`_,

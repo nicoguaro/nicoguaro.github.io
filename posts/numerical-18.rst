@@ -1,11 +1,10 @@
 .. title: Numerical methods challenge: Day 18
 .. slug: numerical-18
 .. date: 2017-10-18 19:58:37 UTC-05:00
-.. tags: mathjax, numerical methods, python, julia, scientific computing, ode, runge-kutta
+.. tags: numerical methods, python, julia, scientific computing, ode, runge-kutta
 .. category: Scientific Computing
-.. link:
-.. description:
 .. type: text
+.. has_math: yes
 
 During October (2017) I will write a program per day for some well-known
 numerical methods in both Python and Julia. It is intended to be an exercise

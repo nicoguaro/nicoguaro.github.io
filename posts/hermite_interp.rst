@@ -1,11 +1,10 @@
 .. title: Piecewise Hermite interpolation
 .. slug: hermite_interp
 .. date: 2017-06-22 16:24:44 UTC-05:00
-.. tags: mathjax, interpolation, finite elements, approximation, sympy, python
+.. tags: interpolation, finite elements, approximation, sympy, python
 .. category: Scientific Computing
-.. link:
-.. description:
 .. type: text
+.. has_math: yes
 
 
 In this post, we find the Hermite interpolation functions for the

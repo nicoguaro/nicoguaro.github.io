@@ -1,11 +1,10 @@
 .. title: Randomized Marking of a Tetrahedron
 .. slug: marking-tetrahedron
 .. date: 2020-06-05 22:58:32 UTC-05:00
-.. tags: mathjax, monte carlo, combinatorics, computational geometry
+.. tags: monte carlo, combinatorics, computational geometry
 .. category: Scientific Computing
-.. link: 
-.. description: 
 .. type: text
+.. has_math: yes
 
 Yesterday (June 4, 2020), Christian Howard posted on 
 `Twitter <https://twitter.com/choward1491/status/1268736220055699457>`_
