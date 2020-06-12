@@ -73,7 +73,7 @@ and
 
     F_{nm} = \left[\frac{\theta}{2\pi}\right]^{\theta_B}_{\theta_A}
 
-for points :math:`n` and $m$ in different elements, and the subindices
+for points :math:`n` and :math:`m` in different elements, and the subindices
 :math:`A,B` refer to the endpoints of the evaluation element. For diagonal
 terms the integrals evaluate to
 
@@ -88,7 +88,7 @@ and
 
     F_{nn} = - \frac{1}{2\pi}
 
-with $L$ the size of the element.
+with :math:`L` the size of the element.
 
 Below is the Python code. In this case, I did not succeed and the
 code is not working right now.
@@ -155,4 +155,3 @@ code is not working right now.
     Gmat, Fmat = assem(coords, elems)
     u_boundary = np.ones_like(theta)
     q_boundary = solve(Gmat, Fmat.dot(u_boundary))
-
