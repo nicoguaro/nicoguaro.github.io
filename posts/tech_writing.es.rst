@@ -31,7 +31,7 @@ Esta publicación
 ================
 
 Como se mencionó anteriormente, la escritura técnica es algo con lo que muchas
-personas tienen que liderar. Esta es una habilidad que a veces se pasa por alto,
+personas tienen que lidiar. Esta es una habilidad que a veces se pasa por alto,
 pero no debería. De acuerdo con la
 `U.S. Bureau of Labor Statistics <https://www.bls.gov/ooh/media-and-communication/technical-writers.htm>`_
 

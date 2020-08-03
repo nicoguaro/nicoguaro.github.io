@@ -17,7 +17,7 @@ learned over the years and some tools that might come in handy.
 
 Future posts will (probably) be about:
 
-- Using equations;
+- `Using equations <../tech_writing_math>`_;
 
 - Using figures;
 
@@ -29,7 +29,7 @@ The current post
 ================
 
 As mentioned above, technical writing is something that a lot of persons
-have to lead with. This is a skill that is sometimes overlooked,
+have to deal with. This is a skill that is sometimes overlooked,
 but it should not. According to the
 `U.S. Bureau of Labor Statistics <https://www.bls.gov/ooh/media-and-communication/technical-writers.htm>`_
 
