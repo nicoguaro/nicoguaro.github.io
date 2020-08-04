@@ -31,7 +31,7 @@ Hay dos tipos de ecuaciones utilizadas en Internet:
 - `MathML <https://en.wikipedia.org/wiki/MathML>`_ es un
   `estándar W3C <https://en.wikipedia.org/wiki/World_Wide_Web_Consortium>`_
   para ecuaciones y está incluido en HTML5, por lo que funcionaría en todos los
-  navegadores modernos El problema con este es que no está diseñado para ser
+  navegadores modernos. El problema con este es que no está diseñado para ser
   escrito a mano. Por tanto, uno puede usarlo si tiene alguna forma automática
   de generar el código.
 
