@@ -156,3 +156,6 @@ Referencias
 3. “Python - Output Sympy Equation to Word Using Mathml.” Stack Overflow,
    https://stackoverflow.com/questions/40921128/output-sympy-equation-to-word-using-mathml.
    Fecha de acceso: Agosto 3, 2020.
+
+4. OERPUB (2016), “Mathconverter”, https://github.com/oerpub/mathconverter,
+   Fecha de acceso: Agosto 3, 2020.

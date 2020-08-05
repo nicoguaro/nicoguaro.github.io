@@ -38,7 +38,7 @@ There are two main flavors of equations used over the internet:
 
 - `LaTeX <https://www.overleaf.com/learn/latex/Mathematical_expressions>`_
   is my suggested way to write equations. The learning curve might be a
-  little bit steep at th beginning but it pays off.
+  little bit steep at the beginning but it pays off.
 
 One tool that helps with equations is `MathPix Snip <https://mathpix.com/>`_
 that automatically generates LaTeX or MathML code from an image, even a
@@ -155,3 +155,6 @@ References
 3. “Python - Output Sympy Equation to Word Using Mathml.” Stack Overflow,
    https://stackoverflow.com/questions/40921128/output-sympy-equation-to-word-using-mathml.
    Accessed 3 Aug. 2020.
+
+4. OERPUB (2016), “Mathconverter”, https://github.com/oerpub/mathconverter,
+   Accesed 3 Aug. 2020.
