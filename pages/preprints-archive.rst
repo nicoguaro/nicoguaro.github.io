@@ -15,10 +15,16 @@ links to the preprints.
 2020
 ----
 
+- Wei Huang, Mehdi Shishebor, Nicolás Guarín-Zapata et al. (2020):
+  `A natural impact-resistant bicontinuous composite nanoparticle coating <https://www.nature.com/articles/s41563-020-0768-7>`_
+  Nature Materials (2020): 1-8. DOI: 10.1038/s41563-020-0768-7
+  (`read it <rdcu.be/b6oFj>`_).  
 
 - Nicolás Guarín-Zapata, Juan Gomez, Camilo Valencia, Gary Dargush,
-  Ali Reza Hadjesfandiari (2020): `Finite element modeling of micropolar-based phononic crystals <https://www.sciencedirect.com/science/article/pii/S0165212519300526>`_.
-  Wave Motion, 92, 102406. DOI: 10.1016/j.wavemoti.2019.102406 (`preprint <preprint2020a_>`_).
+  Ali Reza Hadjesfandiari (2020):
+  `Finite element modeling of micropolar-based phononic crystals <https://www.sciencedirect.com/science/article/pii/S0165212519300526>`_.
+  Wave Motion, 92, 102406. DOI: 10.1016/j.wavemoti.2019.102406
+  (`preprint <preprint2020a_>`_).
 
 2019
 ----

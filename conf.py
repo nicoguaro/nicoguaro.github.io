@@ -27,7 +27,8 @@ SITE_URL = "https://nicoguaro.github.io/"
 # If not set, defaults to SITE_URL
 # BASE_URL = "https://nicoguaro.github.io/"
 BLOG_EMAIL = "nicoguarin@gmail.com"
-BLOG_DESCRIPTION = "Personal blog and website"  # (translatable)
+BLOG_DESCRIPTION = {"en": "Personal blog and website",
+                     "es": "Blog y sitio web personales"} # (translatable)
 
 # Nikola is multilingual!
 #
