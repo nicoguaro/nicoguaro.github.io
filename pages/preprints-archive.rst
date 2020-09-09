@@ -18,7 +18,7 @@ links to the preprints.
 - Wei Huang, Mehdi Shishebor, Nicolás Guarín-Zapata et al. (2020):
   `A natural impact-resistant bicontinuous composite nanoparticle coating <https://www.nature.com/articles/s41563-020-0768-7>`_
   Nature Materials (2020): 1-8. DOI: 10.1038/s41563-020-0768-7
-  (`read it <rdcu.be/b6oFj>`_).  
+  (`read it <https://rdcu.be/b6oFj>`_).  
 
 - Nicolás Guarín-Zapata, Juan Gomez, Camilo Valencia, Gary Dargush,
   Ali Reza Hadjesfandiari (2020):
