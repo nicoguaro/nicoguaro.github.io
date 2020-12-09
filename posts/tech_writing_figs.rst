@@ -86,3 +86,5 @@ References
 1. "Artwork Overview."
    https://www.elsevier.com/authors/author-schemas/artwork-and-media-instructions/artwork-overview.
    Accessed 9 Aug. 2020.
+
+https://aip.scitation.org/jap/authors/manuscript
