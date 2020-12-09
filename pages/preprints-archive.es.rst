@@ -14,10 +14,18 @@ se pueden encontrar enlaces a los *preprints*.
 2020
 ----
 
-- Juan Ortega-Alvarez, Nicolás Guarín-Zapata, Camilo Vieira, and
-  Juan Gomez (2020). Flipping a Computational Modeling Class: Strategies
-  to Engage Students and Foster Active Learning. Frontiers in Education 2020.
-  October 21-24, 2020. Uppsala, Sweden (`preprint <preprint2020b_>`_).
+- Claus Claeys, Elke Deckers, Wim Desmet, Juan Gomez, Nicolás
+  Guarín-Zapata, Florian Maurin, y Camilo Valencia (2020).
+  Corrigendum to “Probability that a band-gap extremum is located on
+  the irreducible Brillouin-zone contour for the 17 different plane
+  crystallographic lattices” [International Journal of Solids and
+  Structures, 135 (2018) 26–36]. (`preprint <preprint2020c_>`_).
+
+- Juan Ortega-Alvarez, Nicolás Guarín-Zapata, Camilo Vieira, y
+  Juan Gomez (2020).
+  `Flipping a Computational Modeling Class: Strategies to Engage Students and Foster Active Learning <https://ieeexplore.ieee.org/abstract/document/9273890>`_.
+  Frontiers in Education 2020. October 21-24, 2020. Uppsala,
+  Sweden (`preprint <preprint2020b_>`_).
 
 - Wei Huang, Mehdi Shishebor, Nicolás Guarín-Zapata et al. (2020):
   `A natural impact-resistant bicontinuous composite nanoparticle coating <https://www.nature.com/articles/s41563-020-0768-7>`_
@@ -96,3 +104,5 @@ se pueden encontrar enlaces a los *preprints*.
 .. _preprint2020a: /downloads/preprints/2020_micropolar_phononic.pdf
 
 .. _preprint2020b: /downloads/preprints/2020_flipped_learning.pdf
+
+.. _preprint2020c: /downloads/preprints/2020_corrigendum_IBZ.pdf
