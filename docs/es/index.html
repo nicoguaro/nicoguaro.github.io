@@ -1,0 +1,1575 @@
+<!DOCTYPE html>
+<html prefix="" lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="Blog y sitio web personales">
+<meta name="viewport" content="width=device-width">
+<title>Nicolás' blog | Nicolás' blog</title>
+<link href="../assets/css/all.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+<link rel="alternate" type="application/rss+xml" title="RSS (en)" href="../rss.xml">
+<link rel="alternate" type="application/rss+xml" title="RSS (es)" href="rss.xml">
+<link rel="canonical" href="https://nicoguaro.github.io/es/">
+<link rel="next" href="index-5.html" type="text/html">
+<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]-->
+</head>
+<body>
+    <a href="#content" class="sr-only sr-only-focusable">Ir al contenido principal</a>
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+            styles, `#sidebar-checkbox` for behavior. -->
+    <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox"><!-- Toggleable sidebar --><div class="sidebar" id="sidebar">
+        <div class="sidebar-item">
+            <p>A reserved <a href="https://getnikola.com" target="_blank">Nikola</a> theme that places the utmost gravity on content with a hidden drawer. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a> for Jekyll,
+            ported to Nikola by <a href="https://twitter.com/ralsina" target="_blank">@ralsina</a>.</p>
+        </div>
+        
+    <nav id="menu" role="navigation" class="sidebar-nav"><a class="sidebar-nav-item" href="../pages/about/">About</a>
+        <a class="sidebar-nav-item" href="../index.html">Blog</a>
+        <a class="sidebar-nav-item" href="../pages/preprints-archive/">Preprints</a>
+        <a class="sidebar-nav-item" href="../pages/links/">Links</a>
+        <a class="sidebar-nav-item" href="../archive.html">Archive</a>
+        <a class="sidebar-nav-item" href="../categories/">Tags</a>
+        <a class="sidebar-nav-item" href="../rss.xml">RSS feed</a>
+    
+    
+    </nav>
+</div>
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          
+    <h3 id="brand" class="masthead-title">
+      <a href="https://nicoguaro.github.io/es/" title="Nicolás' blog" rel="home">Nicolás' blog</a>
+    </h3>
+
+        </div>
+      </div>
+
+      <div class="container content" id="content">
+        
+
+<div class="posts">
+    <article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/tech_writing_math/" class="u-url">Escritura técnica: usando matemáticas</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
+            <p class="dateline"><a href="posts/tech_writing_math/" rel="bookmark"><time class="post-date published dt-published" datetime="2020-08-02T18:00:00-05:00" title="2020-08-02 18:00">2020-08-02 18:00</time></a></p>
+                <p class="commentline">
+        
+    <a href="posts/tech_writing_math/#disqus_thread" data-disqus-identifier="cache/posts/tech_writing_math.html">Comentarios</a>
+
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <div>
+<p>En una <a class="reference external" href="posts/tech_writing">publicación anterior</a> mencioné algunos aspectos
+generales de la escritura técnica. En este me gustaría hablar sobre la
+inclusión de expresiones matemáticas en documentos técnicos.</p>
+<p>Hay dos formas principales de incluir matemáticas en documentos:</p>
+<ul class="simple">
+<li><p>utilizando texto; y</p></li>
+<li><p>utilizando una interfaz gráfica.</p></li>
+</ul>
+<p>Usar una interfaz gráfica, como el editor de ecuaciones en LibreOffice Writer o
+MS Word, o <a class="reference external" href="http://www.dessci.com/en/products/mathtype/">MathType</a> es
+conveniente. No es necesario memorizar nada y se pueden mirar las expresiones
+mientras se crean. Sin embargo, puede ser algo lento en comparación con el uso
+de entrada de texto —una vez que se está cómodo con la sintaxis—.</p>
+<p>Hay dos tipos de ecuaciones utilizadas en Internet:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/MathML">MathML</a> es un
+<a class="reference external" href="https://en.wikipedia.org/wiki/World_Wide_Web_Consortium">estándar W3C</a>
+para ecuaciones y está incluido en HTML5, por lo que funcionaría en todos los
+navegadores modernos. El problema con este es que no está diseñado para ser
+escrito a mano. Por tanto, uno puede usarlo si tiene alguna forma automática
+de generar el código.</p></li>
+<li><p><a class="reference external" href="https://www.overleaf.com/learn/latex/Mathematical_expressions">LaTeX</a>
+es mi forma sugerida de escribir ecuaciones. La curva de aprendizaje podría
+ser un un poco empinada al principio pero vale la pena.</p></li>
+</ul>
+<p>Una herramienta que ayuda con las ecuaciones es
+<a class="reference external" href="https://mathpix.com/">MathPix Snip</a> que genera automáticamente código
+LaTeX o MathML a partir de una imagen, incluso una escrita a mano. Otra
+herramienta que es realmente útil es
+<a class="reference external" href="http://detexify.kirelabs.org/classify.html">Detexify</a> que permite
+dibujar un símbolo y proporciona la sintaxis de LaTeX de este.</p>
+<p>En el resto de la publicación mostraré mis sugerencias para trabajar
+con ecuaciones en LibreOffice y MS Word. Si estás utilizando LaTeX o
+MarkDown/ReStructuredText para tus documentos ya estás utilizando
+LaTeX para tus ecuaciones.</p>
+<div class="section" id="libreoffice">
+<h2>LibreOffice</h2>
+<p>LibreOffice tiene su propio editor de ecuaciones con su propia sintaxis y
+funciona bien para expresiones pequeñas, pero se complica para ecuaciones
+grandes o largas manipulaciones algebraicas. Para LibreOffice sugeriría usar
+<a class="reference external" href="http://roland65.free.fr/texmaths/install.html">TexMaths</a>, es fácil de
+usar y funciona para el procesador de textos (Writer) y presentaciones (Impress).
+Supongo que también funciona para hojas de cálculo (Calc), pero no recuerdo
+haber usado ecuaciones en una.</p>
+</div>
+<div class="section" id="ms-office">
+<h2>MS Office</h2>
+<p>MS Office también tiene su propio editor de ecuaciones, funciona bien y es
+fácil de usar. Sin embargo, el mismo problema aparece cuando quieres expresiones
+largas. Una opción es usar directamente
+<a class="reference external" href="https://docs.microsoft.com/en-us/archive/blogs/murrays/latex-math-in-office">LaTeX en Office</a>
+pero prefiero usar
+<a class="reference external" href="http://www.jonathanleroux.org/software/iguanatex/download.html">IguanaTex</a>.
+Es un complemento que permite ingresar ecuaciones de forma similar a TexMaths en
+LibreOffice.</p>
+<p>También puede pegar directamente las ecuaciones MathML en MS Word (&gt;2013 y Windows).</p>
+</div>
+<div class="section" id="usa-sympy">
+<h2>Usa SymPy</h2>
+<p>Independientemente de la herramienta que use para escribir sus documentos,
+sugiero usar un <a class="reference external" href="https://es.wikipedia.org/wiki/Sistema_algebraico_computacional">CAS</a>
+(del inglés Computer Algebra System), como Mathematica o SymPy. Estos programas
+permiten la generación automática de LaTeX y MathML a partir de expresiones y
+esto facilita mucho el proceso.</p>
+<p>Veamos un ejemplo. Supongamos que tenemos la función</p>
+<div class="math">
+\begin{equation*}
+f(x) = \exp(-x^2) \sin(3*x)
+\end{equation*}
+</div>
+<p>y queremos calcular su segunda derivada</p>
+<div class="math">
+\begin{equation*}
+f''(x) = \left(- 12 x \cos{\left(3 x \right)} + 2 \left(2 x^{2} - 1\right) \sin{\left(3 x \right)} - 9 \sin{\left(3 x \right)}\right) e^{- x^{2}}
+\end{equation*}
+</div>
+<p>El siguiente bloque de código nos da el código LaTex</p>
+<pre class="code python"><a name="rest_code_83eef001808a499aba112e9e609011bc-1"></a><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
+<a name="rest_code_83eef001808a499aba112e9e609011bc-2"></a><span class="n">init_session</span><span class="p">()</span>
+<a name="rest_code_83eef001808a499aba112e9e609011bc-3"></a><span class="n">f</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+<a name="rest_code_83eef001808a499aba112e9e609011bc-4"></a><span class="n">fxx</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<a name="rest_code_83eef001808a499aba112e9e609011bc-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">latex</span><span class="p">(</span><span class="n">fxx</span><span class="p">))</span>
+</pre>
+<p>que es</p>
+<pre class="code latex"><a name="rest_code_e699667206a74783bf364b3773efe193-1"></a><span class="k">\left</span>(- 12 x <span class="k">\cos</span><span class="nb">{</span><span class="k">\left</span>(3 x <span class="k">\right</span>)<span class="nb">}</span> + 2 <span class="k">\left</span>(2 x<span class="nb">^{</span>2<span class="nb">}</span> - 1<span class="k">\right</span>) <span class="k">\sin</span><span class="nb">{</span><span class="k">\left</span>(3 x <span class="k">\right</span>)<span class="nb">}</span> - 9 <span class="k">\sin</span><span class="nb">{</span><span class="k">\left</span>(3 x <span class="k">\right</span>)<span class="nb">}</span><span class="k">\right</span>) e<span class="nb">^{</span>- x<span class="nb">^{</span>2<span class="nb">}}</span>
+</pre>
+<p>Este corresponde con el código que usé arriba para representar la ecuación.</p>
+<p>Si quisiéramos el código MathML de esa expresión podríamos usar
+el siguiente fragmento de código</p>
+<pre class="code python"><a name="rest_code_04808d42b9dc43cea279ac213bbe34ae-1"></a><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
+<a name="rest_code_04808d42b9dc43cea279ac213bbe34ae-2"></a><span class="n">init_session</span><span class="p">()</span>
+<a name="rest_code_04808d42b9dc43cea279ac213bbe34ae-3"></a><span class="n">f</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+<a name="rest_code_04808d42b9dc43cea279ac213bbe34ae-4"></a><span class="n">fxx</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<a name="rest_code_04808d42b9dc43cea279ac213bbe34ae-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">mathml</span><span class="p">(</span><span class="n">fxx</span><span class="p">,</span> <span class="n">printer</span><span class="o">=</span><span class="s2">"presentation"</span><span class="p">))</span>
+</pre>
+<p>observe el argumento opcional <code class="docutils literal">printer = "presentation"</code>. Si queremos agregar
+esto a MS Word, por ejemplo, podríamos agregar la salida (que no voy a
+mostrar porque es realmente larga) dentro del siguiente código</p>
+<pre class="code xml"><a name="rest_code_b0cae1dccdea42e8927afcd1a10de939-1"></a><span class="nt">&lt;math</span> <span class="na">xmlns =</span> <span class="s">"http://www.w3.org/1998/Math/MathML"</span><span class="nt">&gt;</span>
+<a name="rest_code_b0cae1dccdea42e8927afcd1a10de939-2"></a><span class="nt">&lt;/math&gt;</span>
+</pre>
+<p>Cuando se usa Jupyter Notebook, esto se puede hacer gráficamente con un
+clic derecho sobre la expresión. Y se muestra el siguiente menú.</p>
+<img alt="/images/jupyter_export_eqs.png" src="../images/jupyter_export_eqs.png">
+</div>
+<div class="section" id="referencias">
+<h2>Referencias</h2>
+<ol class="arabic simple">
+<li><p>“How to Insert Equations in Microsoft Word.” WikiHow,
+<a class="reference external" href="https://www.wikihow.com/Insert-Equations-in-Microsoft-Word">https://www.wikihow.com/Insert-Equations-in-Microsoft-Word</a>.
+Fecha de acceso: Agosto 3, 2020.</p></li>
+<li><p>“Copy MathML into Word to Use as Equation.” Stack Overflow,
+<a class="reference external" href="https://stackoverflow.com/questions/25430775/copy-mathml-into-word-to-use-as-equation">https://stackoverflow.com/questions/25430775/copy-mathml-into-word-to-use-as-equation</a>.
+Fecha de acceso: Agosto 3, 2020.</p></li>
+<li><p>“Python - Output Sympy Equation to Word Using Mathml.” Stack Overflow,
+<a class="reference external" href="https://stackoverflow.com/questions/40921128/output-sympy-equation-to-word-using-mathml">https://stackoverflow.com/questions/40921128/output-sympy-equation-to-word-using-mathml</a>.
+Fecha de acceso: Agosto 3, 2020.</p></li>
+<li><p>OERPUB (2016), “Mathconverter”, <a class="reference external" href="https://github.com/oerpub/mathconverter">https://github.com/oerpub/mathconverter</a>,
+Fecha de acceso: Agosto 3, 2020.</p></li>
+</ol>
+</div>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/download_stream/" class="u-url">Descargar videos de MS Stream</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
+            <p class="dateline"><a href="posts/download_stream/" rel="bookmark"><time class="post-date published dt-published" datetime="2020-06-12T15:31:22-05:00" title="2020-06-12 15:31">2020-06-12 15:31</time></a></p>
+                <p class="commentline">
+        
+    <a href="posts/download_stream/#disqus_thread" data-disqus-identifier="cache/posts/download_stream.html">Comentarios</a>
+
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <div>
+<p>Esta semana un estudiante me preguntó acerca de descargar los videos de uno
+de los cursos de MS Stream. El problema es que si no eres propietario
+del video no puedes descargarlo. Entonces, voy a mostrar una opción para
+descargar videos sin ser propietario de los mismos.</p>
+<p><strong>Descargo de responsabilidad:</strong> puede ser una buena idea preguntar a tu
+organización sobre los derechos de autor de los videos.</p>
+<div class="section" id="prerrequisitos">
+<h2>Prerrequisitos</h2>
+<p>Vas a necesitar lo siguiente:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://git-scm.com/downloads">git</a>;</p></li>
+<li><p><a class="reference external" href="https://www.ffmpeg.org/download.html">ffmpeg</a>; and</p></li>
+<li><p><a class="reference external" href="https://nodejs.org/en/download/">Node.js</a>.</p></li>
+</ul>
+</div>
+<div class="section" id="instalacion-de-destreamer">
+<h2>Instalación de <code class="docutils literal">destreamer</code>
+</h2>
+<p>Después de obtener los requisitos previos, puedes descargar
+<a class="reference external" href="https://github.com/snobu/destreamer">destreamer</a> usando</p>
+<pre class="code bash"><a name="rest_code_1c72e901727044aa99a4f978204a00a9-1"></a>$ git clone https://github.com/snobu/destreamer
+<a name="rest_code_1c72e901727044aa99a4f978204a00a9-2"></a>$ <span class="nb">cd</span> destreamer
+<a name="rest_code_1c72e901727044aa99a4f978204a00a9-3"></a>$ npm install
+<a name="rest_code_1c72e901727044aa99a4f978204a00a9-4"></a>$ npm run build
+</pre>
+<p>en una terminal.</p>
+<p>Si no se quiere jugar con
+<a class="reference external" href="https://en.wikipedia.org/wiki/Environment_variable">variables de entorno</a>,
+sugiero agregar <code class="docutils literal">ffmpeg</code> a la misma carpeta en donde se encuentra
+<code class="docutils literal">destreamer</code>.</p>
+</div>
+<div class="section" id="descarga">
+<h2>Descarga</h2>
+<p>Después de eso, debe navegar a la carpeta donde descargaste <code class="docutils literal">destreamer</code> y</p>
+<pre class="code bash"><a name="rest_code_943df07e8055473491432a1359bca3d7-1"></a>$ ./destreamer.sh -i <span class="s2">"https://web.microsoftstream.com/video/VIDEO_ID"</span>
+</pre>
+<p>en Mac o Linux,</p>
+<pre class="code bash"><a name="rest_code_2008f8bdc20446478e85babfb58da9fb-1"></a>$ destreamer.cmd -i <span class="s2">"https://web.microsoftstream.com/video/VIDEO_ID"</span>
+</pre>
+<p>en el <em>command prompt</em> en Windows, y</p>
+<pre class="code bash"><a name="rest_code_7c4d5c1396b2418ea1dd7bf3a1122aa1-1"></a>$ destreamer.ps1 -i <span class="s2">"https://web.microsoftstream.com/video/VIDEO_ID"</span>
+</pre>
+<p>en PowerShell. <code class="docutils literal">VIDEO_ID</code> se refiere al identificador del video
+en MS Stream.</p>
+<p>Si deseas descargar varios archivos (como un curso completo),
+puedes crear un archivo con las URL y usar</p>
+<pre class="code bash"><a name="rest_code_cf8f42b0b46049ccbb4c3f7d16d444de-1"></a>$ destreamer.cmd -f filename.txt
+</pre>
+</div>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/marking-tetrahedron/" class="u-url">Marcado Aleatorio de un Tetraedro</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
+            <p class="dateline"><a href="posts/marking-tetrahedron/" rel="bookmark"><time class="post-date published dt-published" datetime="2020-06-05T22:58:32-05:00" title="2020-06-05 22:58">2020-06-05 22:58</time></a></p>
+                <p class="commentline">
+        
+    <a href="posts/marking-tetrahedron/#disqus_thread" data-disqus-identifier="cache/posts/marking-tetrahedron.html">Comentarios</a>
+
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <div>
+<p>El día de ayer (junio 4 de 2020), Christian Howard publicó en
+<a class="reference external" href="https://twitter.com/choward1491/status/1268736220055699457">Twitter</a>
+la siguiente pregunta</p>
+<blockquote>
+<p>Dado un tetraedro τ. Para cada cara triangular de τ,
+marcamos al azar uniformemente uno de sus aristas. ¿Cuál es el
+probabilidad de que exista una arista de τ que se marca dos veces?</p>
+</blockquote>
+<p>Pensé un poco pero no pude encontrar la manera apropiada de
+hacer e conteo. Entonces, se me ocurrió un número de la nada:
+<span class="math">\(2/3\)</span>, pero no sé por qué. Así que decidí correr una
+simulación para verificar este número.</p>
+<p>La respuesta correcta es <span class="math">\(51/81\)</span>, aproximadamente 63%. este
+cálculo está bien explicado en el
+<a class="reference external" href="https://medium.com/@choward1491/randomized-marking-of-a-tetrahedron-f978593f43d2">blog de Christian</a>
+con algunos gráficos interesantes (y memes).</p>
+<div class="section" id="el-algoritmo">
+<h2>El algoritmo</h2>
+<p>El algoritmo es bastante simple. Se enumeran las aristas de cada
+cara siguiendo una orientación antihooraria:</p>
+<ul class="simple">
+<li><p><strong>cara 0</strong>: arista 0, arista 1, arista 2</p></li>
+<li><p><strong>cara 1</strong>: arista 0, arista 3, arista 4</p></li>
+<li><p><strong>cara 2</strong>: arista 1, arista 5, arista 3</p></li>
+<li><p><strong>cara 3</strong>: arista 2, arista 4, arista 5</p></li>
+</ul>
+<p>Luego, se toma cada cara y se elige un número al azar
+entre <span class="math">\((0, 1, 2)\)</span> se marca la arista correspondiente,
+y se procede a la siguiente cara. Se repite este proceso muchas
+veces y se cuentan los casos favorables y se dividen por el
+número total de intentos para obtener un estimado de la
+probabilidad.</p>
+<p>A continuación se muestra un código de Python con esta idea.</p>
+<pre class="code python"><a name="rest_code_d76bbc74d81b484b8020e644f6c651e7-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<a name="rest_code_d76bbc74d81b484b8020e644f6c651e7-2"></a><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<a name="rest_code_d76bbc74d81b484b8020e644f6c651e7-3"></a>
+<a name="rest_code_d76bbc74d81b484b8020e644f6c651e7-4"></a><span class="n">faces</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+<a name="rest_code_d76bbc74d81b484b8020e644f6c651e7-5"></a>        <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+<a name="rest_code_d76bbc74d81b484b8020e644f6c651e7-6"></a>        <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+<a name="rest_code_d76bbc74d81b484b8020e644f6c651e7-7"></a>        <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+<a name="rest_code_d76bbc74d81b484b8020e644f6c651e7-8"></a>        <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]])</span>
+<a name="rest_code_d76bbc74d81b484b8020e644f6c651e7-9"></a>
+<a name="rest_code_d76bbc74d81b484b8020e644f6c651e7-10"></a>
+<a name="rest_code_d76bbc74d81b484b8020e644f6c651e7-11"></a><span class="k">def</span> <span class="nf">mark_edges</span><span class="p">():</span>
+<a name="rest_code_d76bbc74d81b484b8020e644f6c651e7-12"></a>    <span class="n">marked_edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">6</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+<a name="rest_code_d76bbc74d81b484b8020e644f6c651e7-13"></a>    <span class="k">for</span> <span class="n">face</span> <span class="ow">in</span> <span class="n">faces</span><span class="p">:</span>
+<a name="rest_code_d76bbc74d81b484b8020e644f6c651e7-14"></a>        <span class="n">num</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<a name="rest_code_d76bbc74d81b484b8020e644f6c651e7-15"></a>        <span class="n">edge</span> <span class="o">=</span> <span class="n">face</span><span class="p">[</span><span class="n">num</span><span class="p">]</span>
+<a name="rest_code_d76bbc74d81b484b8020e644f6c651e7-16"></a>        <span class="n">marked_edges</span><span class="p">[</span><span class="n">edge</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+<a name="rest_code_d76bbc74d81b484b8020e644f6c651e7-17"></a>    <span class="k">return</span> <span class="n">marked_edges</span>
+<a name="rest_code_d76bbc74d81b484b8020e644f6c651e7-18"></a>
+<a name="rest_code_d76bbc74d81b484b8020e644f6c651e7-19"></a>
+<a name="rest_code_d76bbc74d81b484b8020e644f6c651e7-20"></a><span class="k">def</span> <span class="nf">comp_probs</span><span class="p">(</span><span class="n">N_min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">N_max</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">ntrials</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+<a name="rest_code_d76bbc74d81b484b8020e644f6c651e7-21"></a>    <span class="n">prob</span> <span class="o">=</span> <span class="p">[]</span>
+<a name="rest_code_d76bbc74d81b484b8020e644f6c651e7-22"></a>    <span class="n">N_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="n">N_min</span><span class="p">,</span> <span class="n">N_max</span><span class="p">,</span> <span class="n">ntrials</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+<a name="rest_code_d76bbc74d81b484b8020e644f6c651e7-23"></a>    <span class="k">for</span> <span class="n">N</span> <span class="ow">in</span> <span class="n">N_vals</span><span class="p">:</span>
+<a name="rest_code_d76bbc74d81b484b8020e644f6c651e7-24"></a>        <span class="n">cont_marked</span> <span class="o">=</span> <span class="mi">0</span>
+<a name="rest_code_d76bbc74d81b484b8020e644f6c651e7-25"></a>        <span class="k">for</span> <span class="n">cont</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+<a name="rest_code_d76bbc74d81b484b8020e644f6c651e7-26"></a>            <span class="n">marked</span> <span class="o">=</span> <span class="n">mark_edges</span><span class="p">()</span>
+<a name="rest_code_d76bbc74d81b484b8020e644f6c651e7-27"></a>            <span class="k">if</span> <span class="mi">2</span> <span class="ow">in</span> <span class="n">marked</span><span class="p">:</span>
+<a name="rest_code_d76bbc74d81b484b8020e644f6c651e7-28"></a>                <span class="n">cont_marked</span> <span class="o">+=</span> <span class="mi">1</span>
+<a name="rest_code_d76bbc74d81b484b8020e644f6c651e7-29"></a>        <span class="n">prob</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cont_marked</span><span class="o">/</span><span class="n">N</span><span class="p">)</span>
+<a name="rest_code_d76bbc74d81b484b8020e644f6c651e7-30"></a>    <span class="k">return</span> <span class="n">N_vals</span><span class="p">,</span> <span class="n">prob</span>
+<a name="rest_code_d76bbc74d81b484b8020e644f6c651e7-31"></a>
+<a name="rest_code_d76bbc74d81b484b8020e644f6c651e7-32"></a>
+<a name="rest_code_d76bbc74d81b484b8020e644f6c651e7-33"></a><span class="c1">#%% Cálculos</span>
+<a name="rest_code_d76bbc74d81b484b8020e644f6c651e7-34"></a><span class="n">N_min</span> <span class="o">=</span> <span class="mi">1</span>
+<a name="rest_code_d76bbc74d81b484b8020e644f6c651e7-35"></a><span class="n">N_max</span> <span class="o">=</span> <span class="mi">5</span>
+<a name="rest_code_d76bbc74d81b484b8020e644f6c651e7-36"></a><span class="n">ntrials</span> <span class="o">=</span> <span class="mi">100</span>
+<a name="rest_code_d76bbc74d81b484b8020e644f6c651e7-37"></a><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<a name="rest_code_d76bbc74d81b484b8020e644f6c651e7-38"></a><span class="n">N_vals</span><span class="p">,</span> <span class="n">prob</span> <span class="o">=</span> <span class="n">comp_probs</span><span class="p">(</span><span class="n">N_min</span><span class="p">,</span> <span class="n">N_max</span><span class="p">,</span> <span class="n">ntrials</span><span class="p">)</span>
+<a name="rest_code_d76bbc74d81b484b8020e644f6c651e7-39"></a>
+<a name="rest_code_d76bbc74d81b484b8020e644f6c651e7-40"></a><span class="c1">#%% Gráficos</span>
+<a name="rest_code_d76bbc74d81b484b8020e644f6c651e7-41"></a><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<a name="rest_code_d76bbc74d81b484b8020e644f6c651e7-42"></a><span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="mf">0.63</span><span class="p">,</span> <span class="mi">10</span><span class="o">**</span><span class="n">N_min</span><span class="p">,</span> <span class="mi">10</span><span class="o">**</span><span class="n">N_max</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"#3f3f3f"</span><span class="p">)</span>
+<a name="rest_code_d76bbc74d81b484b8020e644f6c651e7-43"></a><span class="n">plt</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="n">N_vals</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">prob</span><span class="p">),</span> <span class="s2">"o"</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<a name="rest_code_d76bbc74d81b484b8020e644f6c651e7-44"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"Number of trials"</span><span class="p">)</span>
+<a name="rest_code_d76bbc74d81b484b8020e644f6c651e7-45"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"Estimated probability"</span><span class="p">)</span>
+<a name="rest_code_d76bbc74d81b484b8020e644f6c651e7-46"></a><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">"prob_tet.svg"</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">"tight"</span><span class="p">)</span>
+<a name="rest_code_d76bbc74d81b484b8020e644f6c651e7-47"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre>
+<p>Y podemos ver la evolución del estimado para diferente número
+de intentos.</p>
+<img alt="Probabilidad estimada para diferente número de intentos." class="align-center" src="../images/marked_tets.svg" style="width: 600px;">
+</div>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/tech_writing/" class="u-url">Escritura técnica</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
+            <p class="dateline"><a href="posts/tech_writing/" rel="bookmark"><time class="post-date published dt-published" datetime="2020-05-28T15:53:40-05:00" title="2020-05-28 15:53">2020-05-28 15:53</time></a></p>
+                <p class="commentline">
+        
+    <a href="posts/tech_writing/#disqus_thread" data-disqus-identifier="cache/posts/tech_writing.html">Comentarios</a>
+
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <div>
+<p>Esta es la primera publicación sobre redacción técnica <a class="footnote-reference brackets" href="posts/tech_writing/#id2" id="id1">*</a> de una serie que
+crearé durante el transcurso de este año. La escritura técnica es algo con lo
+que la mayoría de nosotros tenemos que lidiar en diferentes contextos. Por
+ejemplo, en cursos universitarios, publicaciones de investigación,
+documentación de software. La idea principal de la serie es mencionar algunos
+de los trucos que he aprendido a lo largo de los años y algunas herramientas
+que pueden ser útiles.</p>
+<p>Las publicaciones futuras serán (probablemente) sobre:</p>
+<ul class="simple">
+<li><p>Uso de ecuaciones;</p></li>
+<li><p>Uso de figuras;</p></li>
+<li><p>Uso de tablas; y</p></li>
+<li><p>Gestión de referencias bibliográficas.</p></li>
+</ul>
+<div class="section" id="esta-publicacion">
+<h2>Esta publicación</h2>
+<p>Como se mencionó anteriormente, la escritura técnica es algo con lo que muchas
+personas tienen que lidiar. Esta es una habilidad que a veces se pasa por alto,
+pero no debería. De acuerdo con la
+<a class="reference external" href="https://www.bls.gov/ooh/media-and-communication/technical-writers.htm">U.S. Bureau of Labor Statistics</a></p>
+<blockquote>
+<p>Los redactores técnicos preparan manuales, guías prácticas,
+artículos de revistas y otros documentos de respaldo para comunicar
+información compleja y técnica con mayor facilidad.</p>
+</blockquote>
+<p>Y es una habilidad deseada en el lugar de trabajo. Se espera que su demanda crezca
+alrededor del 10% en la década actual.</p>
+<div class="section" id="tipografia">
+<h3>Tipografía</h3>
+<p>Lo primero que debo mencionar es que escribir documentos es
+tipografía ya que estamos <em>diseñando con texto</em> (Butterick, 2019). Por lo tanto,
+deberíamos considerarnos tipógrafos, ya que constantemente diseñamos documentos.</p>
+<p>Sugeriría echar un vistazo a "Butterick's Practical Typography"
+ya que es un libro muy bueno sobre el tema y es fácil de leer. Voy a
+mencionar algunos puntos importantes de acuerdo con la sección
+"Tipografía en diez minutos":</p>
+<ol class="arabic">
+<li><p>La selección tipográfica más importante está en el cuerpo del texto.
+Esto se debe al hecho de que es la mayor parte del documento.</p></li>
+<li><p>Elija un tamaño de punto entre 10-12 puntos para documentos impresos
+y 15-25 píxeles para documentos digitales.</p></li>
+<li><p>El espacio entre líneas debe estar entre 120-145% del tamaño de la letra.</p></li>
+<li>
+<p>La longitud de la línea debe tener entre 45 y 90 caracteres. Esto es
+aproximadamente 2 o 3 alfabetos en minúsculas:</p>
+<p>abcdefghijklmnñopqrstuvwxyzabcdefghijklmnñopqrstuvwxyzabcd</p>
+</li>
+<li><p>Cuidado con la selección de su fuente. Intente evitar las fuentes
+predeterminadas como Arial, Calibri o Times New Roman.</p></li>
+</ol>
+</div>
+<div class="section" id="editores">
+<h3>Editores</h3>
+<p>Otro punto que quiero tocar en esta publicación es el de los editores. La
+primera pregunta que surge es "¿qué editor debo usar?". La respuesta corta es:
+<strong>usa lo que tus colegas estén usando</strong>. Ese es mi mejor consejo; de esa
+manera tu tienes personas con quienes hablar sobre tus dudas.</p>
+<p>La respuesta larga ... es que cada editor tiene sus puntos débiles y fuertes.
+Yo ha escrito artículos científicos en LaTeX, LibreOffice Writer y MS Word;
+todos se ven profesionales. Entonces, al final, puedes escribir tu
+documentos de varias maneras y lograr un resultado similar. Prefiero usar
+LaTeX para documentos largos, ya que se centra en la estructura de la
+documento en lugar de la apariencia y esta es la forma en que uno debe
+administrar un documento largo como una disertación, en mi opinión.</p>
+<p>Si solo quieres que elija un editor y te lo sugiera, diría que
+<a class="reference external" href="https://www.libreoffice.org/">LibreOffice</a>. Una buena referencia para
+es "Designing with LibreOffice". Una vez que aprendas
+cómo usar estilos, preguntarás cómo has estado escribiendo todos los documentos
+hasta ahora.</p>
+<p>Hay dos grupos de editores que voy a discutir:
+WYSIWYG (siglas en inglés para "Lo que ves es lo que obtienes") y
+editores basados en marcado.</p>
+<ul>
+<li>
+<p>WYSIWYG. Esta categoría es la que la mayoría de la gente conoce.
+Dos ejemplos son:</p>
+<ul class="simple">
+<li><p>LibreOffice writer; y</p></li>
+<li><p>Microsoft Word.</p></li>
+</ul>
+</li>
+<li>
+<p>Los editores basados en marcado dependen de las marcas en el "texto" para
+diferenciar secciones y estilos. En este caso, su texto parece código,
+como se ve en la siguiente imagen</p>
+<img alt="/images/rst_code.png" src="../images/rst_code.png"><p>Algunos ejemplos son:</p>
+<ul class="simple">
+<li><p>LaTeX;</p></li>
+<li><p><a class="reference external" href="https://www.markdownguide.org/getting-started">Markdown</a>; y</p></li>
+<li><p><a class="reference external" href="https://docutils.sourceforge.io/rst.html">reStructuredtext</a>.</p></li>
+</ul>
+</li>
+</ul>
+<p>Independientemente de cuál sea tu editor principal, sugiero utilizar
+<a class="reference external" href="https://pandoc.org/">Pandoc</a>. Te permite convertir entre varios
+formatos, haciendo el proceso un poco más fácil. Incluso hay un editor
+basado completamente en él llamado <a class="reference external" href="https://panwriter.com/">Panwriter</a>.</p>
+</div>
+<div class="section" id="references">
+<h3>References</h3>
+<ol class="arabic simple">
+<li><p>Matthew Butterick (2019). <a class="reference external" href="https://practicaltypography.com/">Butterick's Practical Typography</a>.
+Segunda edición, Matthew Butterick.</p></li>
+<li><p>Wikibooks contributors. (2020). <a class="reference external" href="https://en.wikibooks.org/wiki/LaTeX">LaTeX</a>.
+Wikibooks, The Free Textbook Project.</p></li>
+<li><p>Bruce Byfield (2016). <a class="reference external" href="https://designingwithlibreoffice.com/">Designing with LibreOffice</a>.
+Friends of OpenDocument, Inc.</p></li>
+<li><p>Deville, S. (2015).
+<a class="reference external" href="https://sylvaindeville.net/2015/07/17/writing-academic-papers-in-plain-text-with-markdown-and-jupyter-notebook/">Writing academic papers in plain text with Markdown and Jupyter notebook</a>.
+Sylvain Deville.</p></li>
+</ol>
+<dl class="footnote brackets">
+<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="posts/tech_writing/#id1">*</a></span></dt>
+<dd>
+<p>Esta publicación está (algo) relacionada con una
+<a class="reference external" href="posts/herramientas-investigacion/">publicación anterior</a>
+donde discutí sobre algunas herramientas de investigación que la mayoría
+de nosotros necesitamos pero que comúnmente no se enseñan de manera formal.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/ortografia_jupyter/" class="u-url">Revisión ortográfica en Jupyter Notebook</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
+            <p class="dateline"><a href="posts/ortografia_jupyter/" rel="bookmark"><time class="post-date published dt-published" datetime="2019-08-20T14:45:41-05:00" title="2019-08-20 14:45">2019-08-20 14:45</time></a></p>
+                <p class="commentline">
+        
+    <a href="posts/ortografia_jupyter/#disqus_thread" data-disqus-identifier="cache/posts/ortografia_jupyter.html">Comentarios</a>
+
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <div>
+<p>El objetivo de esta publicación es mostrar cómo tener revisión automática
+de ortografía en Jupyter Notebook <a class="footnote-reference brackets" href="posts/ortografia_jupyter/#id2" id="id1">*</a> para español, como se muestra a
+continuación.</p>
+<img alt="Ejemplo de corrección ortográfica en Jupyter Notebook." class="align-center" src="../images/ortografia_jupyter/ejemplo_ortografia.png" style="width: 600px;"><p>Existen <a class="reference external" href="https://stackoverflow.com/q/39324039/3358223">varias formas</a> de
+realizar esto. Sin embargo, la forma más fácil es a través del complemento
+(<em>nbextension</em>) <a class="reference external" href="posts/ortografia_jupyter/&lt;https:/jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/spellchecker/README.html">Spellchecker</a>.</p>
+<div class="section" id="paso-a-paso">
+<h2>Paso a paso</h2>
+<p>Los pasos a seguir son los siguientes:</p>
+<ol class="arabic simple">
+<li><p>Instalar Jupyter notebook extensions (<a class="reference external" href="https://github.com/ipython-contrib/jupyter_contrib_nbextensions">nbextensions</a>). Este incluye
+<a class="reference external" href="posts/ortografia_jupyter/&lt;https:/jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/spellchecker/README.html">Spellchecker</a>.</p></li>
+<li><p>Ubicar los diccionarios en la carpeta donde está el complemento. Los
+diccionarios deben usar la codificación UTF-8.</p></li>
+<li><p>Configurar la ruta de los diccionarios. Esta puede ser una URL o
+una ruta relativa respecto a la carpeta en donde se encuentra el complemento.</p></li>
+</ol>
+<p>A continuación describiremos en detalle cada paso.</p>
+<div class="section" id="paso-1-instalacion-de-nbextensions">
+<h3>Paso 1: Instalación de nbextensions</h3>
+<p>Existe una lista de complementos que agregan algunas funcionalidades
+comúnmente usadas a Jupyter notebook.</p>
+<p>Escriba lo siguiente en una terminal, para instalarlo usando PIP.</p>
+<pre class="code bash"><a name="rest_code_83c20bbfa0304bcab2385304ae8cd580-1"></a>pip install jupyter_contrib_nbextensions
+</pre>
+<p>Sin embargo, si se está usando Anaconda el <strong>método recomendado</strong> es usar
+<code class="docutils literal">conda</code>, como se muestra a continuación.</p>
+<pre class="code bash"><a name="rest_code_3118c9cfb0d640e5adb0b6adef1ee8f6-1"></a>conda install -c conda-forge jupyter_contrib_nbextensions
+</pre>
+<p>Esto debe instalar los complementos y también la
+<a class="reference external" href="https://github.com/Jupyter-contrib/jupyter_nbextensions_configurator">interfaz de configuración</a>.
+En el menú principal de Jupyter notebook aparecerá una nueva pestaña
+nombrada <em>Nbextensions</em> en donde se pueden elegir los complementos a usar.
+La apariencia es la siguiente.</p>
+<img alt="Interfaz gráfica para los complementos de Jupyter." class="align-center" src="../images/ortografia_jupyter/interfaz_nbextensions.png" style="width: 600px;"><p>Algunos complementos recomendados son:</p>
+<ul class="simple">
+<li><p><strong>Collapsible Headings:</strong> que permite ocultar secciones de los documentos.</p></li>
+<li><p><strong>RISE:</strong> que convierte los notebooks en presentaciones.</p></li>
+</ul>
+</div>
+<div class="section" id="paso-2-diccionarios-para-espanol">
+<h3>Paso 2: Diccionarios para español</h3>
+<p>La documentación de <a class="reference external" href="posts/ortografia_jupyter/&lt;https:/jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/spellchecker/README.html">Spellchecker</a> sugiere usar un script de Python para
+descargar diccionarios del proyecto <a class="reference external" href="https://chromium.googlesource.com/chromium/deps/hunspell_dictionaries/+/master">Chromium</a>.
+Sin embargo, estos tienen como codificación ISO-8859-1 (occidente) y falla
+para caracteres con tildes o virgulillas. Para que no haya problemas el
+diccionario debe tener codificación <a class="reference external" href="https://en.wikipedia.org/wiki/UTF-8">UTF-8</a>.
+Pueden descargarse en <a class="reference external" href="../downloads/dict_es_ES.zip">este enlace</a>.</p>
+<p>Una vez que se tienen los diccionarios se deben ubicar en la ruta del
+complemento. En mi computador esta sería</p>
+<pre class="code text"><a name="rest_code_7e0d3a10e5ec4aecb7f6d6fa10152385-1"></a>~/.local/share/jupyter/nbextensions/spellchecker/
+</pre>
+<p>y dentro de esta los ubicaremos en</p>
+<pre class="code text"><a name="rest_code_0c964f2524d642d48557ef20e3bb707f-1"></a>~/.local/share/jupyter/nbextensions/spellchecker/typo/dictionaries
+</pre>
+<p>Esta ubicación es arbitraria, lo importante es que necesitamos conocer
+la ruta relativa al complemento.</p>
+</div>
+<div class="section" id="paso-3-configuracion-complementos">
+<h3>Paso 3: Configuración complementos</h3>
+<p>Ahora, en la pestaña <em>Nbextensions</em> seleccionamos el complemento y llenamos
+los campos con la información de nuestro diccionario:</p>
+<ul class="simple">
+<li><p>language code to use with typo.js: <code class="docutils literal">es_ES</code></p></li>
+<li><p>url for the dictionary .dic file to use: <code class="docutils literal">./typo/dictionaries/es_ES.dic</code></p></li>
+<li><p>url for the dictionary .aff file to use: <code class="docutils literal">./typo/dictionaries/es_ES.aff</code></p></li>
+</ul>
+<p>Esto se muestra a continuación.</p>
+<img alt="Configuración con archivos locales." class="align-center" src="../images/ortografia_jupyter/config_local.png" style="width: 600px;"><p>Otra opción es usar la URL para los archivos. En <a class="reference external" href="https://github.com/wooorm/dictionaries">https://github.com/wooorm/dictionaries</a>
+están disponibles los diccionarios del proyecto <a class="reference external" href="https://hunspell.github.io/">hunspell</a>
+en UTF-8. En este caso, la configuración sería:</p>
+<ul class="simple">
+<li><p>language code to use with typo.js: <code class="docutils literal">es_ES</code></p></li>
+<li><p>url for the dictionary .dic file to use: <code class="docutils literal"><span class="pre">https://raw.githubusercontent.com/wooorm/dictionaries/master/dictionaries/es/index.dic</span></code></p></li>
+<li><p>url for the dictionary .aff file to use: <code class="docutils literal"><span class="pre">https://raw.githubusercontent.com/wooorm/dictionaries/master/dictionaries/es/index.aff</span></code></p></li>
+</ul>
+<p>Y se muestra a continuación.</p>
+<img alt="Configuración con archivos remotos." class="align-center" src="../images/ortografia_jupyter/config_url.png" style="width: 600px;"><dl class="footnote brackets">
+<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="posts/ortografia_jupyter/#id1">*</a></span></dt>
+<dd>
+<p>Dado el público objetivo de esta publicación está hecha en español y
+no en inglés como se acostumbra en este blog.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/graph_makeover/" class="u-url">#SWDchallenge: Mejorando un gráfico</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
+            <p class="dateline"><a href="posts/graph_makeover/" rel="bookmark"><time class="post-date published dt-published" datetime="2018-07-12T18:32:40-05:00" title="2018-07-12 18:32">2018-07-12 18:32</time></a></p>
+                <p class="commentline">
+        
+    <a href="posts/graph_makeover/#disqus_thread" data-disqus-identifier="cache/posts/graph_makeover.html">Comentarios</a>
+
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <div>
+<p>En <a class="reference external" href="http://www.storytellingwithdata.com/">storytelling with data</a> tienen
+un reto mensual en visualización de datos llamado
+<a class="reference external" href="http://www.storytellingwithdata.com/swdchallenge/">#SWDchallenge</a>. La idea
+principal de los retos es poner a prueba las habilidades de visualización
+de datos y <em>storytelling</em> — contar historias atractivas
+para facilitar su entendimiento —.</p>
+<p>Cada mes el reto tiene un tópico diferente. Este
+<a class="reference external" href="http://www.storytellingwithdata.com/blog/2018/7/1/swdchallenge-your-choice-makeover">mes</a>
+el reto era mejorar un gráfico existente. Yo decidí tomar un gráfico hecho
+por mí que fue publicado en un
+<a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S1742706115002172">artículo</a>
+en 2015.</p>
+<div class="section" id="el-original">
+<h2>El "original"</h2>
+<p>El gráfico original con el que vamos a empezar es el siguiente.</p>
+<img alt="Gráfico original." class="align-center" src="../images/graph_makeover/energy_vs_D_orig.svg" style="width: 600px;"><p>Este no es el gráfico original en el artículo de 2015 pero sirve el propósito
+del reto. Los datos se pueden descargar
+<a class="reference external" href="../downloads/Energy_vs_D.csv">aquí</a>. Este grafico presenta la fracción
+de energía transmitida (<span class="math">\(\eta\)</span>) para un compuesto helicoidadl
+con diferentes parámetros geométricos. Los parámetros que se variaron
+fueron los siguientes:</p>
+<ul class="simple">
+<li><p>Ángulo de rotación <span class="math">\(\alpha\)</span>: el ángulo formado entre capas consecutivas;</p></li>
+<li><p>Grosor del compuesto <span class="math">\(D\)</span>, normalizdo por la longitud de onda
+<span class="math">\(\lambda\)</span>; y</p></li>
+<li><p>Número de capas <span class="math">\(N\)</span> en cada celda del compuesto.</p></li>
+</ul>
+<p>El siguiente esquema ilustra estos parámetros.</p>
+<img alt="Parámetros del compuesto helicoidal." class="align-center" src="../images/graph_makeover/coordinates_and_cells.png" style="width: 600px;"><p>Yo no diría que el gráfico es horrible, y, en comparación con lo que se
+encuentra en la literatura cientítica es incluso bueno. Pero … en tierra
+de ciegos, el tuerto es rey. Entonces, vamos a enumarara cada uno de los
+<em>pecados</em> del gráfico, y a corregirlos:</p>
+<ul class="simple">
+<li><p>Tiene dos ejes horizontales.</p></li>
+<li><p>La leyenda está encerrada en una recuadro que no es necesario.</p></li>
+<li><p>Los ejes de la derecha y la parte superior no contribuyen al gráfico.</p></li>
+<li><p>Las anotaciones están robando protagonismo a los datos.</p></li>
+<li><p>Se ve desordenado con las líneas y los marcadores.</p></li>
+<li><p>Es un <a class="reference external" href="http://www.storytellingwithdata.com/blog/2013/03/avoiding-spaghetti-graph">gráfico espagueti</a>.</p></li>
+</ul>
+<p>El siguiente código genera este gráfico.</p>
+<pre class="code python"><a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-2"></a><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-3"></a><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">rcParams</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-4"></a>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-5"></a><span class="n">rcParams</span><span class="p">[</span><span class="s1">'font.family'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'serif'</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-6"></a><span class="n">rcParams</span><span class="p">[</span><span class="s1">'font.size'</span><span class="p">]</span> <span class="o">=</span> <span class="mi">16</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-7"></a><span class="n">rcParams</span><span class="p">[</span><span class="s1">'legend.fontsize'</span><span class="p">]</span> <span class="o">=</span> <span class="mi">15</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-8"></a><span class="n">rcParams</span><span class="p">[</span><span class="s1">'mathtext.fontset'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'cm'</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-9"></a>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-10"></a><span class="n">markers</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'o'</span><span class="p">,</span> <span class="s1">'^'</span><span class="p">,</span> <span class="s1">'v'</span><span class="p">,</span> <span class="s1">'s'</span><span class="p">,</span> <span class="s1">'&lt;'</span><span class="p">,</span> <span class="s1">'&gt;'</span><span class="p">,</span> <span class="s1">'d'</span><span class="p">,</span> <span class="s1">'*'</span><span class="p">,</span> <span class="s1">'x'</span><span class="p">,</span> <span class="s1">'D'</span><span class="p">,</span> <span class="s1">'+'</span><span class="p">,</span> <span class="s1">'H'</span><span class="p">]</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-11"></a><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">"Energy_vs_D.csv"</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">","</span><span class="p">)</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-12"></a><span class="n">labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">"Energy_vs_D.csv"</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">","</span><span class="p">,</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-13"></a>                    <span class="n">usecols</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-14"></a><span class="n">labels</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-15"></a>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-16"></a><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-17"></a><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-18"></a><span class="k">for</span> <span class="n">cont</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-19"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span> <span class="n">cont</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="n">markers</span><span class="p">[</span><span class="n">cont</span><span class="p">],</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-20"></a>             <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">"$D/\lambda=</span><span class="si">{:.3g}</span><span class="s2">$"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">labels</span><span class="p">[</span><span class="n">cont</span><span class="p">]))</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-21"></a>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-22"></a><span class="c1"># First x-axis</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-23"></a><span class="n">xticks</span><span class="p">,</span> <span class="n">xlabels</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">()</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-24"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"Number of layers - $N$"</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-25"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"Fraction of Energy - $\eta$"</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-26"></a><span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">'center left'</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-27"></a>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-28"></a><span class="c1"># Second x-axis</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-29"></a><span class="n">ax2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">twiny</span><span class="p">()</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-30"></a><span class="n">ax2</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">xticks</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-31"></a><span class="n">ax2</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="mf">180.</span><span class="o">/</span><span class="n">xticks</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-32"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"Angle - $\alpha\ (^\circ)$"</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-33"></a>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-34"></a><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-35"></a><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">"energy_vs_D_orig.svg"</span><span class="p">)</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-36"></a><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">"energy_vs_D_orig.png"</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+</pre>
+</div>
+<div class="section" id="correcciones">
+<h2>Correcciones</h2>
+<p>Voy a reivindicar el gráfico un pecado a la vez, veamos cómo resulta.</p>
+<div class="section" id="tiene-dos-ejes-horizontales">
+<h3>Tiene dos ejes horizontales</h3>
+<p>Originalmente, agregue dos ejes horizontales para mostrar el número de
+capas y el ángulo de rotación al mismo tiempo. La recomendación general
+es evitar esto, así que vamos a deshacernos del eje superior.</p>
+<img alt="Primera iteración." class="align-center" src="../images/graph_makeover/energy_vs_D_1.svg" style="width: 600px;">
+</div>
+<div class="section" id="leyenda-en-un-recuadro">
+<h3>Leyenda en un recuadro</h3>
+<p>Es claro a qué se refiere …</p>
+<img alt="Segunda iteración." class="align-center" src="../images/graph_makeover/energy_vs_D_2.svg" style="width: 600px;">
+</div>
+<div class="section" id="ejes-a-la-derecha-y-arriba">
+<h3>Ejes a la derecha y arriba</h3>
+<p>Quítemoslos</p>
+<img alt="Tercera iteración." class="align-center" src="../images/graph_makeover/energy_vs_D_3.svg" style="width: 600px;">
+</div>
+<div class="section" id="las-anotaciones-estan-robando-protagonismo">
+<h3>Las anotaciones están robando protagonismo</h3>
+<p>Vamos a desplazar las anotaciones hacia el fondo cambiando el color del
+texto a un gris claro.</p>
+<img alt="Cuarta iteración." class="align-center" src="../images/graph_makeover/energy_vs_D_4.svg" style="width: 600px;">
+</div>
+<div class="section" id="lineas-y-marcadores">
+<h3>Líneas y marcadores</h3>
+<p>Conservemos únicamente las líneas.</p>
+<img alt="Quinta iteración." class="align-center" src="../images/graph_makeover/energy_vs_D_5.svg" style="width: 600px;"><p>E incrementemos su grosor.</p>
+<img alt="Sexta iteración." class="align-center" src="../images/graph_makeover/energy_vs_D_6.svg" style="width: 600px;">
+</div>
+<div class="section" id="es-un-grafico-espagueti">
+<h3>Es un gráfico espagueti</h3>
+<p>Creo que una buena opción para este gráfico sería resaltar una línea al
+tiempo. Haciendo esto, terminamos con el siguiente gráfico.</p>
+<img alt="Séptima iteración." class="align-center" src="../images/graph_makeover/energy_vs_D_7.svg" style="width: 600px;"><p>El siguiente bloque de código genera esta versión.</p>
+<pre class="code python"><a name="rest_code_0b5ac52887d243f690196574ca790ed9-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-2"></a><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-3"></a><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">rcParams</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-4"></a>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-5"></a><span class="c1"># Plots setup</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-6"></a><span class="n">gray</span> <span class="o">=</span> <span class="s1">'#757575'</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-7"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"mathtext.fontset"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"cm"</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-8"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"text.color"</span><span class="p">]</span> <span class="o">=</span> <span class="n">gray</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-9"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"xtick.color"</span><span class="p">]</span> <span class="o">=</span> <span class="n">gray</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-10"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"ytick.color"</span><span class="p">]</span> <span class="o">=</span> <span class="n">gray</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-11"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"axes.labelcolor"</span><span class="p">]</span> <span class="o">=</span> <span class="n">gray</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-12"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"axes.edgecolor"</span><span class="p">]</span> <span class="o">=</span> <span class="n">gray</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-13"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"axes.spines.right"</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-14"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"axes.spines.top"</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-15"></a><span class="n">rcParams</span><span class="p">[</span><span class="s1">'font.family'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'serif'</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-16"></a><span class="n">rcParams</span><span class="p">[</span><span class="s1">'mathtext.fontset'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'cm'</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-17"></a>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-18"></a>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-19"></a>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-20"></a><span class="k">def</span> <span class="nf">line_plots</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">highlight_line</span><span class="p">,</span> <span class="n">title</span><span class="p">):</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-21"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-22"></a>    <span class="k">for</span> <span class="n">cont</span><span class="p">,</span> <span class="n">datum</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">T</span><span class="p">):</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-23"></a>        <span class="k">if</span> <span class="n">cont</span> <span class="o">==</span> <span class="n">highlight_line</span><span class="p">:</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-24"></a>            <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">datum</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"#984ea3"</span><span class="p">,</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-25"></a>                     <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-26"></a>        <span class="k">else</span><span class="p">:</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-27"></a>            <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">datum</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">gray</span><span class="p">,</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-28"></a>                     <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-29"></a>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-30"></a>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-31"></a><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">"Energy_vs_D.csv"</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">","</span><span class="p">)</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-32"></a><span class="n">labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">"Energy_vs_D.csv"</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">","</span><span class="p">,</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-33"></a>                    <span class="n">usecols</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-34"></a><span class="n">labels</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-35"></a>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-36"></a><span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="s2">"all"</span><span class="p">)</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-37"></a><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-38"></a><span class="k">for</span> <span class="n">cont</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-39"></a>    <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">cont</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-40"></a>    <span class="n">title</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">"$D/\lambda=</span><span class="si">{:.3g}</span><span class="s2">$"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">labels</span><span class="p">[</span><span class="n">cont</span><span class="p">])</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-41"></a>    <span class="n">line_plots</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">cont</span><span class="p">,</span> <span class="n">title</span><span class="p">)</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-42"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-43"></a>    <span class="k">if</span> <span class="n">cont</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">:</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-44"></a>        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-45"></a>        <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_ticks</span><span class="p">([])</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-46"></a>        <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s2">"bottom"</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s2">"none"</span><span class="p">)</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-47"></a>    <span class="k">else</span><span class="p">:</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-48"></a>        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"Number of layers - $N$"</span><span class="p">)</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-49"></a>    <span class="k">if</span> <span class="n">cont</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-50"></a>        <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_ticks</span><span class="p">([])</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-51"></a>        <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s2">"left"</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s2">"none"</span><span class="p">)</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-52"></a>    <span class="k">else</span><span class="p">:</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-53"></a>        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"Fraction of Energy - $\eta$"</span><span class="p">)</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-54"></a>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-55"></a>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-56"></a><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-57"></a><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">"energy_vs_D_7.svg"</span><span class="p">)</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-58"></a><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">"energy_vs_D_7.png"</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+</pre>
+</div>
+</div>
+<div class="section" id="ajustes-finales">
+<h2>Ajustes finales</h2>
+<p>Añadimos algunos detalles en Inkscape para terminar con la siguiente
+versión.</p>
+<img alt="Versión final." class="align-center" src="../images/graph_makeover/energy_vs_D_final.svg" style="width: 600px;">
+</div>
+<div class="section" id="lecturas-adicionales">
+<h2>Lecturas adicionales</h2>
+<ul class="simple">
+<li><p>Knaflic, Cole Nussbaumer. <a class="reference external" href="http://www.storytellingwithdata.com/book/">Storytelling with data: A data visualization guide for business professionals</a>.
+John Wiley &amp; Sons, 2015.</p></li>
+<li><p>Nicolás Guarín-Zapata et al. <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S1742706115002172">"Shear wave filtering in naturally-occurring Bouligand structures."</a>
+Acta biomaterialia 23 (2015): 11-20. Preprint: <a class="reference external" href="https://arxiv.org/pdf/1505.04203.pdf">https://arxiv.org/pdf/1505.04203.pdf</a></p></li>
+</ul>
+</div>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/isometric_inkscape2/" class="u-url">Gráficos isométricos en Inkscape: Parte 2</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
+            <p class="dateline"><a href="posts/isometric_inkscape2/" rel="bookmark"><time class="post-date published dt-published" datetime="2018-05-30T12:40:57-05:00" title="2018-05-30 12:40">2018-05-30 12:40</time></a></p>
+                <p class="commentline">
+        
+    <a href="posts/isometric_inkscape2/#disqus_thread" data-disqus-identifier="cache/posts/isometric_inkscape2.html">Comentarios</a>
+
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <div>
+<p><a class="reference external" href="posts/isometric_inkscape">La semana pasada</a> publiqué una guía rápida
+sobre dibujos isométricos dibujar usando <a class="reference external" href="https://inkscape.org/en/">Inkscape</a>.
+En ese post, mostré cómo obtener imágenes que se proyectan a las caras de
+un bloque isométrico.</p>
+<p>Después de mi publicación, <a class="reference external" href="https://twitter.com/parresianz">Biswajit Banerjee</a>
+me preguntó en <a class="reference external" href="https://twitter.com/parresianz/status/999787980658126848">Twitter</a>
+si podría repetir el proceso con un ejemplo más complejo, y él sugirió
+el siguiente diagramaa</p>
+<img alt="Cálculo del momento de inercia para una viga." class="align-center" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Beam_moment_plain.svg/512px-Beam_moment_plain.svg.png"><p>que, creo, se creó en Inkscape usando la opción "Crear caja 3D".</p>
+<p>En esta publicación, haré lo siguiente:</p>
+<ol class="arabic simple">
+<li><p>Usar el mismo enfoque de la semana pasada para recrear este esquema.</p></li>
+<li><p>Sugerir mi enfoque preferido para dibujar este esquema.</p></li>
+</ol>
+<div class="section" id="primer-enfoque">
+<h2>Primer enfoque</h2>
+<p>Repetiré el resumen de la semana pasada. Hay que tener en cuenta que
+Inkscape trata la rotación en sentido horario como positiva.</p>
+<img alt="Resumen para esquemas isométricos en Inkscape." class="align-center" src="../images/isometric_inkscape/isometric_instructions.svg" style="width: 500px;"><p>Luego, para crear una caja con las dimensiones deseadas, primero creamos
+cada rectángulo con las dimensiones correctas (en proyecciones paralelas).
+En el siguiente ejemplo, usamos caras con relaciones de aspecto 3:2,
+2:1 y 4:3. La caja de la derecha es la cifra obtenida después de aplicar
+las transformaciones descritas en el esquema anterior.</p>
+<img alt="Orthogonal views and final isometric figure" class="align-center" src="../images/isometric_inkscape/isometric_ex2.svg" style="width: 500px;"><p>Ahora podemos proceder, para recrear la figura deseada. No conozco las
+dimensiones exactas de la caja; supongo que la sección transversal era
+un cuadrado y la relación de aspecto era 5:1. Después de aplicar las
+transformaciones para cada rectángulo obtenemos lo siguiente
+(agregando algunos ajustes aquí y allá).</p>
+<img alt="Figura usando el enfoque descrito." class="align-center" src="../images/isometric_inkscape/isometric_beam.svg" style="width: 500px;">
+</div>
+<div class="section" id="segundo-enfoque">
+<h2>Segundo enfoque</h2>
+<p>Para este tipo de esquema, preferiría crear una cuadrícula axonométrica
+(<code class="docutils literal">Archivo &gt; Propiedades de documento &gt; Cuadrículas</code>). Después de
+agregar la cuadrícula a nuestro lienzo es bastante sencillo dibujar las
+figuras en vista isométrica. El lienzo debe ser similar a la siguiente
+imagen.</p>
+<img alt="Segundo enfoque: usando una rejilla axonométrica." class="align-center" src="../images/isometric_inkscape/screenshot_inkscape.png" style="width: 500px;"><p>Luego podemos dibujar cada cara usando la cuadrícula. Si queremos ser
+más precisos podemos activar <code class="docutils literal">Ajustar a nodos cúspides</code>. La siguiente
+animación muestra la construcción paso a paso.</p>
+<img alt="Construcción del isométrico paso a paso." class="align-center" src="../images/isometric_inkscape/isometric_construction.gif" style="width: 500px;"><p>Y obtenemos la siguiente imagen.</p>
+<img alt="Figura usando el segundo enfoque." class="align-center" src="../images/isometric_inkscape/isometric_beam2.svg" style="width: 500px;">
+</div>
+<div class="section" id="conclusion">
+<h2>Conclusión</h2>
+<p>Como mencioné, Inkscape se puede usar para dibujar figuras simples en
+proyección isométrica. Sin embargo, sugiero utilizar un CAD como
+<a class="reference external" href="https://freecadweb.org/">FreeCAD</a> para geometrías más complicadas.</p>
+</div>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/isometric_inkscape/" class="u-url">Gráficos isométricos en Inkscape</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
+            <p class="dateline"><a href="posts/isometric_inkscape/" rel="bookmark"><time class="post-date published dt-published" datetime="2018-05-24T15:42:02-05:00" title="2018-05-24 15:42">2018-05-24 15:42</time></a></p>
+                <p class="commentline">
+        
+    <a href="posts/isometric_inkscape/#disqus_thread" data-disqus-identifier="cache/posts/isometric_inkscape.html">Comentarios</a>
+
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <div>
+<p>A veces me encuentro en la necesidad de hacer un diagrama usando una
+<a class="reference external" href="https://en.wikipedia.org/wiki/Isometric_projection">proyección isométrica</a>.
+Cuando el diagrama es complicado la mejor opción es usar algún software de
+CAD como <a class="reference external" href="https://freecadweb.org/">FreeCAD</a>, pero a veces sólo se necesita
+un diagrama simple. Otra situación en la que esto es común
+es en <a class="reference external" href="https://en.wikipedia.org/wiki/Isometric_graphics_in_video_games_and_pixel_art">videojuegos</a>,
+donde se el <a class="reference external" href="https://youtu.be/toWMFcWB4HA">arte isométrico</a> y
+<a class="reference external" href="https://en.wikipedia.org/wiki/Pixel_art">arte pixelado</a> son bastante comunes.</p>
+<p>Lo que queremos se muestra en la siguiente figura.</p>
+<img alt="Ejemplo de isométrico." class="align-center" src="../images/isometric_inkscape/isometric_example.svg" style="width: 400px;"><p>Es decir, queremos comenzar con cierto dibujo, o
+escrito en el caso del ejemplo, y queremos saber cómo se
+vería en una de las caras de una bloque isométrico.</p>
+<p>A continuación, describiré brevemente las transformaciones involucradas en este
+proceso. Si sólo está interesado en la receta para hacer esto en Inkscape, pase
+al final de este post.</p>
+<div class="section" id="transformaciones-involucradas">
+<h2>Transformaciones involucradas</h2>
+<p>Como estamos trabajando en una pantalla de computador, estamos hablando de 2
+dimensiones. Por lo tanto, todas las transformaciones están representadas por
+matrices 2×2. En el ejemplo de interés en este post necesitamos las
+siguientes transformaciones:</p>
+<ol class="arabic simple">
+<li><p>Escalado vertical</p></li>
+<li><p>Inclinación horizontal</p></li>
+<li><p>Rotación</p></li>
+</ol>
+<p>Las siguientes son las matrices de transformación.</p>
+<div class="section" id="escalado-en-la-direccion-vertical">
+<h3>Escalado en la dirección vertical</h3>
+<p>La matriz está dada por</p>
+<div class="math">
+\begin{equation*}
+M_\text{scaling} = \begin{bmatrix} 1 &amp;0\\ 0 &amp;a\end{bmatrix}\, ,
+\end{equation*}
+</div>
+<p>donde <span class="math">\(a\)</span> es el factor de escalamiento.</p>
+</div>
+<div class="section" id="inclinacion-horizontal">
+<h3>Inclinación horizontal</h3>
+<p>La matriz está dada por</p>
+<div class="math">
+\begin{equation*}
+M_\text{skew} = \begin{bmatrix} 1 &amp;\tan a\\ 0 &amp;1\end{bmatrix}\, ,
+\end{equation*}
+</div>
+<p>donde <span class="math">\(a\)</span> es el ángulo de inclinación.</p>
+</div>
+<div class="section" id="rotacion">
+<h3>Rotación</h3>
+<p>La matriz está dada por</p>
+<div class="math">
+\begin{equation*}
+M_\text{rotation} = \begin{bmatrix} \cos a &amp;-\sin a\\ \sin a &amp;\cos a\end{bmatrix}\, ,
+\end{equation*}
+</div>
+<p>donde <span class="math">\(a\)</span> es el ángulo de rotación.</p>
+</div>
+<div class="section" id="transformacion-completa">
+<h3>Transformación completa</h3>
+<p>La transformación completa está dada por</p>
+<div class="math">
+\begin{equation*}
+M_\text{complete} = M_\text{rotation} M_\text{skew} M_\text{scaling}\, ,
+\end{equation*}
+</div>
+<p>particularmente,</p>
+<div class="math">
+\begin{align*}
+&amp;M_\text{side} =
+  \frac{1}{2}\begin{bmatrix} \sqrt{3} &amp; 0\\ -1 &amp;2\end{bmatrix}\approx
+  \begin{bmatrix} 0.866 &amp; 0.000\\ -0.500 &amp;1.000\end{bmatrix}\, , \\
+&amp;M_\text{front} = \frac{1}{2}\begin{bmatrix} \sqrt{3} &amp; 0\\ 1 &amp;2\end{bmatrix}\approx
+  \begin{bmatrix} 0.866 &amp; 0.000\\ 0.500 &amp;1.000\end{bmatrix}\, , \\
+&amp;M_\text{plant} = \frac{1}{2}\begin{bmatrix} \sqrt{3} &amp; -\sqrt{3}\\ -1 &amp;1\end{bmatrix}\approx
+  \begin{bmatrix} 0.866 &amp; -0.866\\ 0.500 &amp;0.500\end{bmatrix}\, .
+\end{align*}
+</div>
+<p>Estos valores parecen un poco arbitrarios, pero pueden obtenerse de la
+<a class="reference external" href="https://en.wikipedia.org/wiki/Isometric_projection#Mathematics">proyección isométrica</a>
+misma. Pero esta explicación sería un poco larga para este post.</p>
+</div>
+<div class="section" id="tranformacion-en-inskcape">
+<h3>Tranformación en Inskcape</h3>
+<p>Ya tenemos las matrices de transformación y podemos usarlas en Inkscape.
+Pero primero, necesitamos entender cómo funciona. Inkscape usa
+<a class="reference external" href="https://en.wikipedia.org/wiki/Scalable_Vector_Graphics">SVG</a>, el estándar
+web para gráficos vectoriales.
+<a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/transform">Las transformaciones</a>
+en SVG se realizan utilizando la siguiente matriz</p>
+<div class="math">
+\begin{equation*}
+\begin{bmatrix} a &amp;c &amp;e\\ b &amp;d &amp;f\\ 0 &amp;0 &amp;1\end{bmatrix}\, ,
+\end{equation*}
+</div>
+<p>que usa <a class="reference external" href="https://en.wikipedia.org/wiki/Homogeneous_coordinates">coordenadas homogéneas</a>.
+Entonces, se puede presionar <code class="docutils literal">Shift + Ctrl + M</code> y digitar
+las componentes de las matrices que se obtuvieron anteriormente
+para <span class="math">\(a\)</span>, <span class="math">\(b\)</span>, <span class="math">\(c\)</span>, y <span class="math">\(d\)</span>; dejando
+<span class="math">\(e\)</span> y <span class="math">\(f\)</span> con el valor 0.</p>
+<p>Sin embargo, mi método preferido es aplicar cada transformación después de
+otro en el cuadro de diálogo <cite>Transformar</cite> (<code class="docutils literal">Shift + Ctrl + M</code>).
+Y este es el método presentado en el resumen al final de esta publicación.</p>
+</div>
+</div>
+<div class="section" id="tl-dr">
+<h2>TL;DR</h2>
+<p>Si solo está interesado en las transformaciones necesarias en Inkscape
+Puedes consultar el resumen a continuación. Utiliza el tercer cuadrante como se
+presenta abajo.</p>
+<img alt="Nombres para la representación en tercer cuadrante." class="align-center" src="../images/isometric_inkscape/third_angle.svg" style="width: 400px;"><div class="section" id="resumen">
+<h3>Resumen</h3>
+<p>Tenga en cuenta que Inkscape trata la rotación en sentido horario como
+positiva. Opuesto a la notación común en matemáticas.</p>
+<img alt="Resumen para diagramas isométricos en Inkscape." class="align-center" src="../images/isometric_inkscape/isometric_instructions.svg" style="width: 500px;">
+</div>
+</div>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/infinite_fdm/" class="u-url">Diferencias finitas en dominios infinitos</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
+            <p class="dateline"><a href="posts/infinite_fdm/" rel="bookmark"><time class="post-date published dt-published" datetime="2018-05-17T15:57:00-05:00" title="2018-05-17 15:57">2018-05-17 15:57</time></a></p>
+                <p class="commentline">
+        
+    <a href="posts/infinite_fdm/#disqus_thread" data-disqus-identifier="cache/posts/infinite_fdm.html">Comentarios</a>
+
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <div class="section" id="diferencias-finitas-en-dominios-infinitos">
+<h2>Diferencias finitas en dominios infinitos</h2>
+<p>Gracias a mi amigo, <a class="reference external" href="http://cosmoscalibur.com/">Edward Villegas</a>,
+terminé pensando acerca del uso de cambio de variables en la solución
+de problemas de valores propios con diferencias finitas.</p>
+<div class="section" id="el-problema">
+<h3>El problema</h3>
+<p>Digamos que queremos resolver una ecuación diferencias sobre un dominio
+infinito. Un caso común es la solución de la  <a class="reference external" href="https://en.wikipedia.org/wiki/Schr%C3%B6dinger_equation#Time-independent_equation">ecuación de Schrödinger
+independiente del tiempo</a>
+sujeta a un potencial <span class="math">\(V(x)\)</span>. Por ejemplo</p>
+<div class="math">
+\begin{equation*}
+-\frac{1}{2}\frac{\mathrm{d}^2}{\mathrm{d}x^2}\psi(x) + V(x) \psi(x) = E\psi(x),\quad \forall x\in (-\infty, \infty),
+\end{equation*}
+</div>
+<p>en donde queremos encontrar las parejas de valores/funciones propias
+<span class="math">\((E_n, \psi_n(x))\)</span>.</p>
+<p>Lo que normalmente hago cuando uso <a class="reference external" href="https://en.wikipedia.org/wiki/Finite_difference_method">diferencias
+finitas</a>
+es dividir el dominio regularmente. Donde tomo un dominio lo <em>suficientemente
+grande</em>, para que la solución haya decaído a cero. Lo que hago en esta
+publicación es usar un cambio de variable para convertir el intervalo
+a uno finito y luego dividir el dominio transformado regularmente
+en intervalos finitos.</p>
+</div>
+<div class="section" id="mi-enfoque-usual">
+<h3>Mi enfoque usual</h3>
+<p>Mi enfoque usual es aproximar la segunda derivada con una <a class="reference external" href="https://en.wikipedia.org/wiki/Finite_difference_coefficient">diferencia
+centrada</a>
+para el punto <span class="math">\(x_i\)</span>, de la siguiente manera</p>
+<div class="math">
+\begin{equation*}
+\frac{\mathrm{d}^2 f(x)}{\mathrm{d}x^2} \approx \frac{f(x + \Delta x) - 2 f(x_i) + f(x - \Delta x)}{\Delta x^2}\, ,
+\end{equation*}
+</div>
+<p>con <span class="math">\(\Delta x\)</span> la separación entre puntos consecutivos.</p>
+<p>Podemos solucionar este problem en Python con el siguiente bloque
+de código:</p>
+<pre class="code python"><a name="rest_code_c437c2895ab4455d933ca8176ed79107-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<a name="rest_code_c437c2895ab4455d933ca8176ed79107-2"></a><span class="kn">from</span> <span class="nn">scipy.sparse</span> <span class="kn">import</span> <span class="n">diags</span>
+<a name="rest_code_c437c2895ab4455d933ca8176ed79107-3"></a><span class="kn">from</span> <span class="nn">scipy.sparse.linalg</span> <span class="kn">import</span> <span class="n">eigs</span>
+<a name="rest_code_c437c2895ab4455d933ca8176ed79107-4"></a>
+<a name="rest_code_c437c2895ab4455d933ca8176ed79107-5"></a>
+<a name="rest_code_c437c2895ab4455d933ca8176ed79107-6"></a><span class="k">def</span> <span class="nf">regular_FD</span><span class="p">(</span><span class="n">pot</span><span class="p">,</span> <span class="n">npts</span><span class="o">=</span><span class="mi">101</span><span class="p">,</span> <span class="n">x_max</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">nvals</span><span class="o">=</span><span class="mi">6</span><span class="p">):</span>
+<a name="rest_code_c437c2895ab4455d933ca8176ed79107-7"></a>    <span class="sd">"""</span>
+<a name="rest_code_c437c2895ab4455d933ca8176ed79107-8"></a><span class="sd">    Find eigenvalues/eigenfunctions for Schrodinger</span>
+<a name="rest_code_c437c2895ab4455d933ca8176ed79107-9"></a><span class="sd">    equation for the given potential `pot` using</span>
+<a name="rest_code_c437c2895ab4455d933ca8176ed79107-10"></a><span class="sd">    finite differences</span>
+<a name="rest_code_c437c2895ab4455d933ca8176ed79107-11"></a><span class="sd">    """</span>
+<a name="rest_code_c437c2895ab4455d933ca8176ed79107-12"></a>    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">x_max</span><span class="p">,</span> <span class="n">x_max</span><span class="p">,</span> <span class="n">npts</span><span class="p">)</span>
+<a name="rest_code_c437c2895ab4455d933ca8176ed79107-13"></a>    <span class="n">dx</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<a name="rest_code_c437c2895ab4455d933ca8176ed79107-14"></a>    <span class="n">D2</span> <span class="o">=</span> <span class="n">diags</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">npts</span><span class="p">,</span> <span class="n">npts</span><span class="p">))</span><span class="o">/</span><span class="n">dx</span><span class="o">**</span><span class="mi">2</span>
+<a name="rest_code_c437c2895ab4455d933ca8176ed79107-15"></a>    <span class="n">V</span> <span class="o">=</span> <span class="n">diags</span><span class="p">(</span><span class="n">pot</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<a name="rest_code_c437c2895ab4455d933ca8176ed79107-16"></a>    <span class="n">H</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span><span class="o">*</span><span class="n">D2</span> <span class="o">+</span> <span class="n">V</span>
+<a name="rest_code_c437c2895ab4455d933ca8176ed79107-17"></a>    <span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span> <span class="o">=</span> <span class="n">eigs</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">nvals</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s2">"SM"</span><span class="p">)</span>
+<a name="rest_code_c437c2895ab4455d933ca8176ed79107-18"></a>    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">vals</span><span class="p">),</span> <span class="n">vecs</span>
+</pre>
+<p>Configuremos los gráficos con el siguiente bloque de código.</p>
+<pre class="code python"><a name="rest_code_5856b17422924cd2af5620d09fda73a8-1"></a><span class="c1"># Jupyter notebook plotting setup &amp; imports</span>
+<a name="rest_code_5856b17422924cd2af5620d09fda73a8-2"></a><span class="o">%</span><span class="n">matplotlib</span> <span class="n">notebook</span>
+<a name="rest_code_5856b17422924cd2af5620d09fda73a8-3"></a><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<a name="rest_code_5856b17422924cd2af5620d09fda73a8-4"></a>
+<a name="rest_code_5856b17422924cd2af5620d09fda73a8-5"></a><span class="n">gray</span> <span class="o">=</span> <span class="s1">'#757575'</span>
+<a name="rest_code_5856b17422924cd2af5620d09fda73a8-6"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"figure.figsize"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span>
+<a name="rest_code_5856b17422924cd2af5620d09fda73a8-7"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"mathtext.fontset"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"cm"</span>
+<a name="rest_code_5856b17422924cd2af5620d09fda73a8-8"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"text.color"</span><span class="p">]</span> <span class="o">=</span> <span class="n">gray</span>
+<a name="rest_code_5856b17422924cd2af5620d09fda73a8-9"></a><span class="n">fontsize</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"font.size"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">12</span>
+<a name="rest_code_5856b17422924cd2af5620d09fda73a8-10"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"xtick.color"</span><span class="p">]</span> <span class="o">=</span> <span class="n">gray</span>
+<a name="rest_code_5856b17422924cd2af5620d09fda73a8-11"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"ytick.color"</span><span class="p">]</span> <span class="o">=</span> <span class="n">gray</span>
+<a name="rest_code_5856b17422924cd2af5620d09fda73a8-12"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"axes.labelcolor"</span><span class="p">]</span> <span class="o">=</span> <span class="n">gray</span>
+<a name="rest_code_5856b17422924cd2af5620d09fda73a8-13"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"axes.edgecolor"</span><span class="p">]</span> <span class="o">=</span> <span class="n">gray</span>
+<a name="rest_code_5856b17422924cd2af5620d09fda73a8-14"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"axes.spines.right"</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+<a name="rest_code_5856b17422924cd2af5620d09fda73a8-15"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"axes.spines.top"</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+</pre>
+<p>Consideremos el <a class="reference external" href="https://en.wikipedia.org/wiki/Quantum_harmonic_oscillator">oscilador armónico
+cuántico</a>,
+que tiene como valores propios</p>
+<div class="math">
+\begin{equation*}
+E_n = n + \frac{1}{2},\quad \forall n = 0, 1, 2 \cdots
+\end{equation*}
+</div>
+<p>Usando el método de diferencias finitas obtenemos valores que están
+muy cerca de los analíticos.</p>
+<pre class="code python"><a name="rest_code_5af0c2f8ed31493b82a21b4371efbe92-1"></a><span class="n">x</span><span class="p">,</span> <span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span> <span class="o">=</span> <span class="n">regular_FD</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">npts</span><span class="o">=</span><span class="mi">201</span><span class="p">)</span>
+<a name="rest_code_5af0c2f8ed31493b82a21b4371efbe92-2"></a><span class="n">vals</span>
+</pre>
+<p>Con respuesta</p>
+<pre class="code python"><a name="rest_code_0fc508f892e74e008b838625c1282be9-1"></a><span class="n">array</span><span class="p">([</span><span class="mf">0.4996873</span> <span class="p">,</span> <span class="mf">1.49843574</span><span class="p">,</span> <span class="mf">2.49593063</span><span class="p">,</span> <span class="mf">3.49216962</span><span class="p">,</span> <span class="mf">4.48715031</span><span class="p">,</span>
+<a name="rest_code_0fc508f892e74e008b838625c1282be9-2"></a>       <span class="mf">5.4808703</span> <span class="p">])</span>
+</pre>
+<p>Los valores analíticos son los siguientes</p>
+<pre class="code text"><a name="rest_code_5e335d6b45df4f33b18990282c1ec031-1"></a>[0.5, 1.5, 2.5, 3.5, 4.5, 5.5])
+</pre>
+<p>Si graficamos estos dos conjuntos, obtenemos lo siguiente.</p>
+<pre class="code python"><a name="rest_code_b61e0ea019c84c0dbea669b254115608-1"></a><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<a name="rest_code_b61e0ea019c84c0dbea669b254115608-2"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">anal_vals</span><span class="p">)</span>
+<a name="rest_code_b61e0ea019c84c0dbea669b254115608-3"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="s2">"o"</span><span class="p">)</span>
+<a name="rest_code_b61e0ea019c84c0dbea669b254115608-4"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$n$"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<a name="rest_code_b61e0ea019c84c0dbea669b254115608-5"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$E_n$"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<a name="rest_code_b61e0ea019c84c0dbea669b254115608-6"></a><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">"Analytic"</span><span class="p">,</span> <span class="s2">"Finite differences"</span><span class="p">])</span>
+<a name="rest_code_b61e0ea019c84c0dbea669b254115608-7"></a><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span>
+</pre>
+<img alt="Valores propios para la diferencia finita regular." class="align-center" src="../images/infinite_fdm/eigvals_regular.svg" style="width: 600px;"><p>Veamos las funciones propias</p>
+<pre class="code python"><a name="rest_code_c784c86bd36d49518339abc37a4fc4d2-1"></a><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<a name="rest_code_c784c86bd36d49518339abc37a4fc4d2-2"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">vecs</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">3</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<a name="rest_code_c784c86bd36d49518339abc37a4fc4d2-3"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<a name="rest_code_c784c86bd36d49518339abc37a4fc4d2-4"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$x$"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<a name="rest_code_c784c86bd36d49518339abc37a4fc4d2-5"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$|\psi_n(x)|^2$"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<a name="rest_code_c784c86bd36d49518339abc37a4fc4d2-6"></a><span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
+<a name="rest_code_c784c86bd36d49518339abc37a4fc4d2-7"></a><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span>
+</pre>
+<img alt="Funciones propias para la diferencia finita regular." class="align-center" src="../images/infinite_fdm/eigvecs_regular.svg" style="width: 600px;"><p>Un inconveniente con este método es el muestreo redundante hacia los extremos
+del intervalo mientras submuestreamos el centro.</p>
+</div>
+<div class="section" id="transformando-el-dominio">
+<h3>Transformando el dominio</h3>
+<p>Ahora, consideremos el caso en el que transormamos el dominio infinito a uno
+finito usando un cambio de variable</p>
+<div class="math">
+\begin{equation*}
+\xi = \xi(x)
+\end{equation*}
+</div>
+<p>con <span class="math">\(\xi \in (-1, 1)\)</span>. Dos opciones para esta transformación son:</p>
+<ul class="simple">
+<li><p><span class="math">\(\xi = \tanh x\)</span>; y</p></li>
+<li><p><span class="math">\(\xi = \frac{2}{\pi} \arctan x\)</span>.</p></li>
+</ul>
+<p>Haciendo este cambio de variable la ecuación, debemos resolver
+la siguiente ecuación</p>
+<div class="math">
+\begin{equation*}
+-\frac{1}{2}\left(\frac{\mathrm{d}\xi}{\mathrm{d}x}\right)^2\frac{\mathrm{d}^2}{\mathrm{d}\xi^2}\psi(\xi) - \frac{1}{2}\frac{\mathrm{d}^2\xi}{\mathrm{d}x^2}\frac{\mathrm{d}}{\mathrm{d}\xi}\psi(\xi) + V(\xi) \psi(\xi) = E\psi(\xi)
+\end{equation*}
+</div>
+<p>El siguiente bloque de código resuelve el problema de valores propios
+en el dominio transformado:</p>
+<pre class="code python"><a name="rest_code_0d2a60bd8c974d9ba43c5a4d920ca600-1"></a><span class="k">def</span> <span class="nf">mapped_FD</span><span class="p">(</span><span class="n">pot</span><span class="p">,</span> <span class="n">fun</span><span class="p">,</span> <span class="n">dxdxi</span><span class="p">,</span> <span class="n">dxdxi2</span><span class="p">,</span> <span class="n">npts</span><span class="o">=</span><span class="mi">101</span><span class="p">,</span> <span class="n">nvals</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">xi_tol</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">):</span>
+<a name="rest_code_0d2a60bd8c974d9ba43c5a4d920ca600-2"></a>    <span class="sd">"""</span>
+<a name="rest_code_0d2a60bd8c974d9ba43c5a4d920ca600-3"></a><span class="sd">    Find eigenvalues/eigenfunctions for Schrodinger</span>
+<a name="rest_code_0d2a60bd8c974d9ba43c5a4d920ca600-4"></a><span class="sd">    equation for the given potential `pot` using</span>
+<a name="rest_code_0d2a60bd8c974d9ba43c5a4d920ca600-5"></a><span class="sd">    finite differences over a mapped domain on (-1, 1)</span>
+<a name="rest_code_0d2a60bd8c974d9ba43c5a4d920ca600-6"></a><span class="sd">    """</span>
+<a name="rest_code_0d2a60bd8c974d9ba43c5a4d920ca600-7"></a>    <span class="n">xi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">+</span> <span class="n">xi_tol</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">xi_tol</span><span class="p">,</span> <span class="n">npts</span><span class="p">)</span>
+<a name="rest_code_0d2a60bd8c974d9ba43c5a4d920ca600-8"></a>    <span class="n">x</span> <span class="o">=</span> <span class="n">fun</span><span class="p">(</span><span class="n">xi</span><span class="p">)</span>
+<a name="rest_code_0d2a60bd8c974d9ba43c5a4d920ca600-9"></a>    <span class="n">dxi</span> <span class="o">=</span> <span class="n">xi</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">xi</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<a name="rest_code_0d2a60bd8c974d9ba43c5a4d920ca600-10"></a>    <span class="n">D2</span> <span class="o">=</span> <span class="n">diags</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">npts</span><span class="p">,</span> <span class="n">npts</span><span class="p">))</span><span class="o">/</span><span class="n">dxi</span><span class="o">**</span><span class="mi">2</span>
+<a name="rest_code_0d2a60bd8c974d9ba43c5a4d920ca600-11"></a>    <span class="n">D1</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">diags</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">npts</span><span class="p">,</span> <span class="n">npts</span><span class="p">))</span><span class="o">/</span><span class="n">dxi</span>
+<a name="rest_code_0d2a60bd8c974d9ba43c5a4d920ca600-12"></a>    <span class="n">V</span> <span class="o">=</span> <span class="n">diags</span><span class="p">(</span><span class="n">pot</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<a name="rest_code_0d2a60bd8c974d9ba43c5a4d920ca600-13"></a>    <span class="n">fac1</span> <span class="o">=</span> <span class="n">diags</span><span class="p">(</span><span class="n">dxdxi</span><span class="p">(</span><span class="n">xi</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<a name="rest_code_0d2a60bd8c974d9ba43c5a4d920ca600-14"></a>    <span class="n">fac2</span> <span class="o">=</span> <span class="n">diags</span><span class="p">(</span><span class="n">dxdxi2</span><span class="p">(</span><span class="n">xi</span><span class="p">))</span>
+<a name="rest_code_0d2a60bd8c974d9ba43c5a4d920ca600-15"></a>    <span class="n">H</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span><span class="o">*</span><span class="n">fac1</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">D2</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">fac2</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">D1</span><span class="p">)</span> <span class="o">+</span> <span class="n">V</span>
+<a name="rest_code_0d2a60bd8c974d9ba43c5a4d920ca600-16"></a>    <span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span> <span class="o">=</span> <span class="n">eigs</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">nvals</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s2">"SM"</span><span class="p">)</span>
+<a name="rest_code_0d2a60bd8c974d9ba43c5a4d920ca600-17"></a>    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">vals</span><span class="p">),</span> <span class="n">vecs</span>
+</pre>
+<div class="section" id="primera-transformacion-xi-tanh-x">
+<h4>Primera transformación: <span class="math">\(\xi = \tanh(x)\)</span>
+</h4>
+<p>Consideremos la primera transformación</p>
+<div class="math">
+\begin{equation*}
+\xi = \tanh(x)\, .
+\end{equation*}
+</div>
+<p>En este caso,</p>
+<div class="math">
+\begin{equation*}
+\frac{\mathrm{d}\xi}{\mathrm{d}x} = 1 - \tanh^2(x) = 1 - \xi^2\, ,
+\end{equation*}
+</div>
+<p>y</p>
+<div class="math">
+\begin{equation*}
+\frac{\mathrm{d}^2\xi}{\mathrm{d}x^2} = -2\tanh(x)[1 - \tanh^2(x)] = -2\xi[1 - \xi^2]\, .
+\end{equation*}
+</div>
+<p>Necesitamos definir las funciones</p>
+<pre class="code python"><a name="rest_code_9eca2549b674464a86b3272f9031bb2a-1"></a><span class="n">pot</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+<a name="rest_code_9eca2549b674464a86b3272f9031bb2a-2"></a><span class="n">fun</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">xi</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">arctanh</span><span class="p">(</span><span class="n">xi</span><span class="p">)</span>
+<a name="rest_code_9eca2549b674464a86b3272f9031bb2a-3"></a><span class="n">dxdxi</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">xi</span><span class="p">:</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">xi</span><span class="o">**</span><span class="mi">2</span>
+<a name="rest_code_9eca2549b674464a86b3272f9031bb2a-4"></a><span class="n">dxdxi2</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">xi</span><span class="p">:</span> <span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">xi</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">xi</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre>
+<p>y correr</p>
+<pre class="code python"><a name="rest_code_86747091408741e3a6c6c62771c0215f-1"></a><span class="n">x</span><span class="p">,</span> <span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span> <span class="o">=</span> <span class="n">mapped_FD</span><span class="p">(</span><span class="n">pot</span><span class="p">,</span> <span class="n">fun</span><span class="p">,</span> <span class="n">dxdxi</span><span class="p">,</span> <span class="n">dxdxi2</span><span class="p">,</span> <span class="n">npts</span><span class="o">=</span><span class="mi">201</span><span class="p">)</span>
+<a name="rest_code_86747091408741e3a6c6c62771c0215f-2"></a><span class="n">vals</span>
+</pre>
+<p>Y obtenemos los siguientes valores propios</p>
+<pre class="code python"><a name="rest_code_adf8bde26f724cc7ad4dc776f03f7d85-1"></a><span class="n">array</span><span class="p">([</span><span class="mf">0.49989989</span><span class="p">,</span> <span class="mf">1.4984226</span> <span class="p">,</span> <span class="mf">2.49003572</span><span class="p">,</span> <span class="mf">3.46934257</span><span class="p">,</span> <span class="mf">4.46935021</span><span class="p">,</span>
+<a name="rest_code_adf8bde26f724cc7ad4dc776f03f7d85-2"></a>       <span class="mf">5.59552989</span><span class="p">])</span>
+</pre>
+<p>Si los comparamos con los valores analítivos obtenemos lo siguiente.</p>
+<pre class="code python"><a name="rest_code_64e52d42c1ca4e56937f7038e2c20b89-1"></a><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<a name="rest_code_64e52d42c1ca4e56937f7038e2c20b89-2"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">anal_vals</span><span class="p">)</span>
+<a name="rest_code_64e52d42c1ca4e56937f7038e2c20b89-3"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="s2">"o"</span><span class="p">)</span>
+<a name="rest_code_64e52d42c1ca4e56937f7038e2c20b89-4"></a><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">"Analytic"</span><span class="p">,</span> <span class="s2">"Finite differences"</span><span class="p">])</span>
+<a name="rest_code_64e52d42c1ca4e56937f7038e2c20b89-5"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$n$"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<a name="rest_code_64e52d42c1ca4e56937f7038e2c20b89-6"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$E_n$"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<a name="rest_code_64e52d42c1ca4e56937f7038e2c20b89-7"></a><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span>
+</pre>
+<img alt="Valores propios para la primera transormación." class="align-center" src="../images/infinite_fdm/eigvals_tanh.svg" style="width: 600px;"><p>Y las siguientes funciones propias.</p>
+<pre class="code python"><a name="rest_code_bb0e5213283d478d8acaca2d9a3521cc-1"></a><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<a name="rest_code_bb0e5213283d478d8acaca2d9a3521cc-2"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">vecs</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">3</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<a name="rest_code_bb0e5213283d478d8acaca2d9a3521cc-3"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<a name="rest_code_bb0e5213283d478d8acaca2d9a3521cc-4"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$x$"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<a name="rest_code_bb0e5213283d478d8acaca2d9a3521cc-5"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$|\psi_n(x)|^2$"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<a name="rest_code_bb0e5213283d478d8acaca2d9a3521cc-6"></a><span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
+<a name="rest_code_bb0e5213283d478d8acaca2d9a3521cc-7"></a><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span>
+</pre>
+<img alt="Funciones propias para la primera transformación." class="align-center" src="../images/infinite_fdm/eigvecs_tanh.svg" style="width: 600px;">
+</div>
+<div class="section" id="segunda-transformacion-xi-frac-2-pi-mathrm-atan-x">
+<h4>Segunda transformación: <span class="math">\(\xi = \frac{2}{\pi}\mathrm{atan}(x)\)</span>
+</h4>
+<p>Consideremos ahora la segunda transformación</p>
+<div class="math">
+\begin{equation*}
+\xi = \frac{2}{\pi}\mathrm{atan}(x)\, .
+\end{equation*}
+</div>
+<p>En este caso,</p>
+<div class="math">
+\begin{equation*}
+\frac{\mathrm{d}\xi}{\mathrm{d}x} = \frac{2}{\pi(1 + x^2)} = \frac{2 \cos^2\xi}{\pi} \, ,
+\end{equation*}
+</div>
+<p>y</p>
+<div class="math">
+\begin{equation*}
+\frac{\mathrm{d}^2\xi}{\mathrm{d}x^2} = -\frac{4x}{\pi(1 + x^2)^2} = -\frac{4 \cos^4\xi \tan \xi}{\pi}\, .
+\end{equation*}
+</div>
+<p>Una vez más, definimos las funciones</p>
+<pre class="code python"><a name="rest_code_282f442d42a64e11bd60ed9d29d34a44-1"></a><span class="n">pot</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+<a name="rest_code_282f442d42a64e11bd60ed9d29d34a44-2"></a><span class="n">fun</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">xi</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">xi</span><span class="p">)</span>
+<a name="rest_code_282f442d42a64e11bd60ed9d29d34a44-3"></a><span class="n">dxdxi</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">xi</span><span class="p">:</span> <span class="mi">2</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">xi</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+<a name="rest_code_282f442d42a64e11bd60ed9d29d34a44-4"></a><span class="n">dxdxi2</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">xi</span><span class="p">:</span> <span class="o">-</span><span class="mi">4</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">xi</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">xi</span><span class="p">)</span>
+</pre>
+<p>y ejecutamos</p>
+<pre class="code python"><a name="rest_code_a51c3c87bfb94a8ea19f78573887970e-1"></a><span class="n">x</span><span class="p">,</span> <span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span> <span class="o">=</span> <span class="n">mapped_FD</span><span class="p">(</span><span class="n">pot</span><span class="p">,</span> <span class="n">fun</span><span class="p">,</span> <span class="n">dxdxi</span><span class="p">,</span> <span class="n">dxdxi2</span><span class="p">,</span> <span class="n">npts</span><span class="o">=</span><span class="mi">201</span><span class="p">)</span>
+<a name="rest_code_a51c3c87bfb94a8ea19f78573887970e-2"></a><span class="n">vals</span>
+</pre>
+<p>para obtener los siguientes valores propios</p>
+<pre class="code python"><a name="rest_code_16006b3310ed45889642e84ebdcf7684-1"></a><span class="n">array</span><span class="p">([</span><span class="mf">0.49997815</span><span class="p">,</span> <span class="mf">1.49979632</span><span class="p">,</span> <span class="mf">2.49930872</span><span class="p">,</span> <span class="mf">3.49824697</span><span class="p">,</span> <span class="mf">4.49627555</span><span class="p">,</span>
+<a name="rest_code_16006b3310ed45889642e84ebdcf7684-2"></a>       <span class="mf">5.49295665</span><span class="p">])</span>
+</pre>
+<p>con la siguiente gráfica</p>
+<pre class="code python"><a name="rest_code_7688a3a1b5ea4ba7bc58c1b094023e27-1"></a><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<a name="rest_code_7688a3a1b5ea4ba7bc58c1b094023e27-2"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">anal_vals</span><span class="p">)</span>
+<a name="rest_code_7688a3a1b5ea4ba7bc58c1b094023e27-3"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="s2">"o"</span><span class="p">)</span>
+<a name="rest_code_7688a3a1b5ea4ba7bc58c1b094023e27-4"></a><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">"Analytic"</span><span class="p">,</span> <span class="s2">"Finite differences"</span><span class="p">])</span>
+<a name="rest_code_7688a3a1b5ea4ba7bc58c1b094023e27-5"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$n$"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<a name="rest_code_7688a3a1b5ea4ba7bc58c1b094023e27-6"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$E_n$"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<a name="rest_code_7688a3a1b5ea4ba7bc58c1b094023e27-7"></a><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span>
+</pre>
+<img alt="Valores propios para la segunda transformación." class="align-center" src="../images/infinite_fdm/eigvals_atan.svg" style="width: 600px;"><p>y las siguientes funciones propias.</p>
+<pre class="code python"><a name="rest_code_0e1cb3987b614881abbc33f4c1f3c123-1"></a><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<a name="rest_code_0e1cb3987b614881abbc33f4c1f3c123-2"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">vecs</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">3</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<a name="rest_code_0e1cb3987b614881abbc33f4c1f3c123-3"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$x$"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<a name="rest_code_0e1cb3987b614881abbc33f4c1f3c123-4"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$|\psi|^2$"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<a name="rest_code_0e1cb3987b614881abbc33f4c1f3c123-5"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<a name="rest_code_0e1cb3987b614881abbc33f4c1f3c123-6"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$x$"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<a name="rest_code_0e1cb3987b614881abbc33f4c1f3c123-7"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$|\psi_n(x)|^2$"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<a name="rest_code_0e1cb3987b614881abbc33f4c1f3c123-8"></a><span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
+<a name="rest_code_0e1cb3987b614881abbc33f4c1f3c123-9"></a><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span>
+</pre>
+<img alt="Funciones propias para la segunda transformación." class="align-center" src="../images/infinite_fdm/eigvecs_atan.svg" style="width: 600px;">
+</div>
+</div>
+<div class="section" id="conclusion">
+<h3>Conclusión</h3>
+<p>El método funciona bien, aunque la ecuación diferencial es más
+complicada por el cambio de variable. Aunque existen métodos más
+elegantes para considerar dominiso infinitos, este es lo suficientemente
+simple para hacerse en 10 líneas de código.</p>
+<p>Podemos ver que la transforamción <span class="math">\(\xi = \mathrm{atan}(x)\)</span>, cubre
+mejor el dominio que <span class="math">\(\xi = \tanh(x)\)</span>, donde la mayoría de los puntos
+están ubicados en el centro del intervalo.</p>
+<p>¡Gracias por leer!</p>
+<small>
+  <i>
+    Esta publicación se escribió en el Jupyter notebook. Puedes
+    <a href="downloads/notebooks/finite_diff_map.ipynb">descargar</a>
+    este notebook, o ver una versión estática en
+    <a href="http://nbviewer.jupyter.org/url/nicoguaro.github.io/downloads/notebooks/finite_diff_map.ipynb">nbviewer</a>.
+  <i>
+</i></i></small>
+</div>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/cyclic_colormaps/" class="u-url">Comparación de mapas de colores cíclicos</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
+            <p class="dateline"><a href="posts/cyclic_colormaps/" rel="bookmark"><time class="post-date published dt-published" datetime="2018-01-02T18:55:41-05:00" title="2018-01-02 18:55">2018-01-02 18:55</time></a></p>
+                <p class="commentline">
+        
+    <a href="posts/cyclic_colormaps/#disqus_thread" data-disqus-identifier="cache/posts/cyclic_colormaps.html">Comentarios</a>
+
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <div>
+<p>Empecé esta publicación buscando implementaciones de
+<a class="reference external" href="https://en.wikipedia.org/wiki/Diffusion_map">mapas de difusión</a>
+en Python, que no pude encontrar. Me puse entonces a seguir un
+<a class="reference external" href="http://scikit-learn.org/stable/auto_examples/manifold/plot_compare_methods.html#sphx-glr-auto-examples-manifold-plot-compare-methods-py">ejemplo</a>
+sobre <a class="reference external" href="https://en.wikipedia.org/wiki/Nonlinear_dimensionality_reduction">aprendizaje de variedades</a>
+de <a class="reference external" href="https://jakevdp.github.io/">Jake Vanderplas</a> en un <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Diffusion_map_of_a_torodial_helix.jpg">conjunto de datos diferente</a>.
+Y funcionó bien</p>
+<img alt="/images/manifold_learning_toroidal_helix.svg" src="../images/manifold_learning_toroidal_helix.svg"><p>pero el mapa de color es <a class="reference external" href="https://matplotlib.org/examples/color/colormaps_reference.html">"Spectral"</a>,
+que es divergente. Esto me puso a pensar acerca de usar un mapa de
+colores cícliclo, y terminé en esta pregunta de
+<a class="reference external" href="https://stackoverflow.com/q/23712207/3358223">StackOverflow</a>.
+Y decidí comparar algunos mapas de colores cíclicos.</p>
+<p>Elegí mapas de colores de diferentes fuentes</p>
+<ul class="simple">
+<li>
+<p><a class="reference external" href="https://matplotlib.org/cmocean/">cmocean</a>:</p>
+<ul>
+<li><p>phase</p></li>
+</ul>
+</li>
+<li>
+<p><a class="reference external" href="http://paraview.org/">Paraview</a>:</p>
+<ul>
+<li><p>hue_L60</p></li>
+<li><p>erdc_iceFire</p></li>
+<li><p>nic_Edge</p></li>
+</ul>
+</li>
+<li>
+<p><a class="reference external" href="https://github.com/bokeh/colorcet">Colorcet</a>:</p>
+<ul>
+<li><p>colorwheel</p></li>
+<li><p>cyclic_mrybm_35_75_c68</p></li>
+<li><p>cyclic_mygbm_30_95_c78</p></li>
+</ul>
+</li>
+</ul>
+<p>y, obviamente, <code class="docutils literal">hsv</code>. Los mapas de colores en formato de texto
+plano se pueden descargar <a class="reference external" href="../downloads/cyclic_colormaps.zip">aquí</a>.</p>
+<div class="section" id="comparacion">
+<h2>Comparación</h2>
+<p>Para todos los ejemplos se importaron los siguientes módulos:</p>
+<pre class="code python"><a name="rest_code_1cf0bed56eb8446fb3eab91ecb8b983f-1"></a><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span>
+<a name="rest_code_1cf0bed56eb8446fb3eab91ecb8b983f-2"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<a name="rest_code_1cf0bed56eb8446fb3eab91ecb8b983f-3"></a><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<a name="rest_code_1cf0bed56eb8446fb3eab91ecb8b983f-4"></a><span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">LinearSegmentedColormap</span>
+<a name="rest_code_1cf0bed56eb8446fb3eab91ecb8b983f-5"></a><span class="kn">from</span> <span class="nn">colorspacious</span> <span class="kn">import</span> <span class="n">cspace_convert</span>
+</pre>
+<div class="section" id="imagen-de-prueba">
+<h3>Imagen de prueba</h3>
+<p>Peter Kovesi propuso una manera de comparar mapas de colores
+cíclicos en un
+<a class="reference external" href="http://peterkovesi.com/projects/colourmaps/colourmaptestimage.html">artículo</a>
+en 2015. Consta de una rampa en espiral con ondulaciones. En
+coordenadas polares es</p>
+<div class="math">
+\begin{equation*}
+c = (A \rho^p \sin(n \theta) + \theta)\, \mathrm{mod}\, 2\pi
+\end{equation*}
+</div>
+<p>con <span class="math">\(A\)</span> la amplitud de la oscilación, <span class="math">\(\rho\)</span>
+el radio normalizado en [0, 1], <span class="math">\(p\)</span> un número positivo,
+y <span class="math">\(n\)</span> el número de ciclos.</p>
+<p>Y la siguiente función crea la rejilla en Python.</p>
+<pre class="code python"><a name="rest_code_3b15d43cbf10462b8c1c72185c819287-1"></a><span class="k">def</span> <span class="nf">circle_sine_ramp</span><span class="p">(</span><span class="n">r_max</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">r_min</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">amp</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">5</span><span class="p">,</span> <span class="n">cycles</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+<a name="rest_code_3b15d43cbf10462b8c1c72185c819287-2"></a>                     <span class="n">power</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">nr</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">ntheta</span><span class="o">=</span><span class="mi">1025</span><span class="p">):</span>
+<a name="rest_code_3b15d43cbf10462b8c1c72185c819287-3"></a><span class="n">r</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mgrid</span><span class="p">[</span><span class="n">r_min</span><span class="p">:</span><span class="n">r_max</span><span class="p">:</span><span class="n">nr</span><span class="o">*</span><span class="mi">1</span><span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">:</span><span class="n">ntheta</span><span class="o">*</span><span class="mi">1</span><span class="n">j</span><span class="p">]</span>
+<a name="rest_code_3b15d43cbf10462b8c1c72185c819287-4"></a><span class="n">r_norm</span> <span class="o">=</span> <span class="p">(</span><span class="n">r</span> <span class="o">-</span> <span class="n">r_min</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">r_max</span> <span class="o">-</span> <span class="n">r_min</span><span class="p">)</span>
+<a name="rest_code_3b15d43cbf10462b8c1c72185c819287-5"></a><span class="n">vals</span> <span class="o">=</span> <span class="n">amp</span> <span class="o">*</span> <span class="n">r_norm</span><span class="o">**</span><span class="n">power</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">cycles</span><span class="o">*</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="n">t</span>
+<a name="rest_code_3b15d43cbf10462b8c1c72185c819287-6"></a><span class="n">vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mod</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+<a name="rest_code_3b15d43cbf10462b8c1c72185c819287-7"></a><span class="k">return</span> <span class="n">t</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">vals</span>
+</pre>
+<p>El resultado es el siguiente</p>
+<img alt="/images/sine_helix_cyclic_cmap.png" src="../images/sine_helix_cyclic_cmap.png">
+</div>
+<div class="section" id="prueba-para-daltonismo">
+<h3>Prueba para daltonismo</h3>
+<pre class="code python"><a name="rest_code_ed4499e68d8549979542917c1aa5e222-1"></a><span class="n">t</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">vals</span> <span class="o">=</span> <span class="n">circle_sine_ramp</span><span class="p">(</span><span class="n">cycles</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<a name="rest_code_ed4499e68d8549979542917c1aa5e222-2"></a><span class="n">cmaps</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"hsv"</span><span class="p">,</span>
+<a name="rest_code_ed4499e68d8549979542917c1aa5e222-3"></a>         <span class="s2">"cmocean_phase"</span><span class="p">,</span>
+<a name="rest_code_ed4499e68d8549979542917c1aa5e222-4"></a>         <span class="s2">"hue_L60"</span><span class="p">,</span>
+<a name="rest_code_ed4499e68d8549979542917c1aa5e222-5"></a>         <span class="s2">"erdc_iceFire"</span><span class="p">,</span>
+<a name="rest_code_ed4499e68d8549979542917c1aa5e222-6"></a>         <span class="s2">"nic_Edge"</span><span class="p">,</span>
+<a name="rest_code_ed4499e68d8549979542917c1aa5e222-7"></a>         <span class="s2">"colorwheel"</span><span class="p">,</span>
+<a name="rest_code_ed4499e68d8549979542917c1aa5e222-8"></a>         <span class="s2">"cyclic_mrybm"</span><span class="p">,</span>
+<a name="rest_code_ed4499e68d8549979542917c1aa5e222-9"></a>         <span class="s2">"cyclic_mygbm"</span><span class="p">]</span>
+<a name="rest_code_ed4499e68d8549979542917c1aa5e222-10"></a><span class="n">severity</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>
+<a name="rest_code_ed4499e68d8549979542917c1aa5e222-11"></a><span class="k">for</span> <span class="n">colormap</span> <span class="ow">in</span> <span class="n">cmaps</span><span class="p">:</span>
+<a name="rest_code_ed4499e68d8549979542917c1aa5e222-12"></a>    <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">colormap</span> <span class="o">+</span> <span class="s2">".txt"</span><span class="p">)</span>
+<a name="rest_code_ed4499e68d8549979542917c1aa5e222-13"></a>    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<a name="rest_code_ed4499e68d8549979542917c1aa5e222-14"></a>    <span class="k">for</span> <span class="n">cont</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+<a name="rest_code_ed4499e68d8549979542917c1aa5e222-15"></a>        <span class="n">cvd_space</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"sRGB1+CVD"</span><span class="p">,</span>
+<a name="rest_code_ed4499e68d8549979542917c1aa5e222-16"></a>             <span class="s2">"cvd_type"</span><span class="p">:</span> <span class="n">cvd_type</span><span class="p">[</span><span class="n">cont</span><span class="p">],</span>
+<a name="rest_code_ed4499e68d8549979542917c1aa5e222-17"></a>             <span class="s2">"severity"</span><span class="p">:</span> <span class="n">severity</span><span class="p">[</span><span class="n">cont</span><span class="p">]}</span>
+<a name="rest_code_ed4499e68d8549979542917c1aa5e222-18"></a>        <span class="n">data2</span> <span class="o">=</span> <span class="n">cspace_convert</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">cvd_space</span><span class="p">,</span> <span class="s2">"sRGB1"</span><span class="p">)</span>
+<a name="rest_code_ed4499e68d8549979542917c1aa5e222-19"></a>        <span class="n">data2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">data2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<a name="rest_code_ed4499e68d8549979542917c1aa5e222-20"></a>        <span class="n">cmap</span> <span class="o">=</span> <span class="n">LinearSegmentedColormap</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span><span class="s1">'my_colormap'</span><span class="p">,</span> <span class="n">data2</span><span class="p">)</span>
+<a name="rest_code_ed4499e68d8549979542917c1aa5e222-21"></a>        <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">cont</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s2">"polar"</span><span class="p">)</span>
+<a name="rest_code_ed4499e68d8549979542917c1aa5e222-22"></a>        <span class="n">ax</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">vals</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">)</span>
+<a name="rest_code_ed4499e68d8549979542917c1aa5e222-23"></a>        <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
+<a name="rest_code_ed4499e68d8549979542917c1aa5e222-24"></a>        <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
+<a name="rest_code_ed4499e68d8549979542917c1aa5e222-25"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="n">colormap</span><span class="p">)</span>
+<a name="rest_code_ed4499e68d8549979542917c1aa5e222-26"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<a name="rest_code_ed4499e68d8549979542917c1aa5e222-27"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">colormap</span> <span class="o">+</span> <span class="s2">".png"</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+</pre>
+<div class="figure align-center">
+<img alt="/images/hsv_eval.png" src="../images/hsv_eval.png"><p class="caption">Comparación de <code class="docutils literal">hsv</code> para diferentes deficiencias visuales
+del color.</p>
+</div>
+<div class="figure align-center">
+<img alt="/images/cmocean_phase_eval.png" src="../images/cmocean_phase_eval.png"><p class="caption">Comparación de <code class="docutils literal">Phase</code> para diferentes deficiencias visuales
+del color.</p>
+</div>
+<div class="figure align-center">
+<img alt="/images/hue_L60_eval.png" src="../images/hue_L60_eval.png"><p class="caption">Comparación de <code class="docutils literal">hue_L60</code> para diferentes deficiencias visuales
+del color.</p>
+</div>
+<div class="figure align-center">
+<img alt="/images/erdc_iceFire_eval.png" src="../images/erdc_iceFire_eval.png"><p class="caption">Comparación de <code class="docutils literal">erdc_iceFire</code> para diferentes deficiencias visuales
+del color.</p>
+</div>
+<div class="figure align-center">
+<img alt="/images/nic_Edge_eval.png" src="../images/nic_Edge_eval.png"><p class="caption">Comparación de <code class="docutils literal">nic_Edge</code> para diferentes deficiencias visuales
+del color.</p>
+</div>
+<div class="figure align-center">
+<img alt="/images/colorwheel_eval.png" src="../images/colorwheel_eval.png"><p class="caption">Comparación de <code class="docutils literal">Colorwheel</code> para diferentes deficiencias visuales
+del color.</p>
+</div>
+<div class="figure align-center">
+<img alt="/images/cyclic_mrybm_eval.png" src="../images/cyclic_mrybm_eval.png"><p class="caption">Comparación de <code class="docutils literal">Cyclic_mrybm</code> para diferentes deficiencias visuales
+del color.</p>
+</div>
+<div class="figure align-center">
+<img alt="/images/cyclic_mygbm_eval.png" src="../images/cyclic_mygbm_eval.png"><p class="caption">Comparación de <code class="docutils literal">Cyclic_mygbm</code> para diferentes deficiencias visuales
+del color.</p>
+</div>
+</div>
+</div>
+<div class="section" id="mapas-de-colores-ciclicos-generados-aleatoriamente">
+<h2>Mapas de colores cíclicos generados aleatoriamente</h2>
+<p>¿Qué pasa si generamos mapas de colores cíclicos aleatoriamente?
+¿Cómo lucirían?</p>
+<p>A continuación están las piezas de código y mapas de colores
+resultantes.</p>
+<pre class="code python"><a name="rest_code_c8425568af0f42c38c7fca3d1fe9f022-1"></a><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span>
+<a name="rest_code_c8425568af0f42c38c7fca3d1fe9f022-2"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<a name="rest_code_c8425568af0f42c38c7fca3d1fe9f022-3"></a><span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
+<a name="rest_code_c8425568af0f42c38c7fca3d1fe9f022-4"></a><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<a name="rest_code_c8425568af0f42c38c7fca3d1fe9f022-5"></a><span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">LinearSegmentedColormap</span>
+<a name="rest_code_c8425568af0f42c38c7fca3d1fe9f022-6"></a>
+<a name="rest_code_c8425568af0f42c38c7fca3d1fe9f022-7"></a>
+<a name="rest_code_c8425568af0f42c38c7fca3d1fe9f022-8"></a><span class="c1"># Next line to silence pyflakes. This import is needed.</span>
+<a name="rest_code_c8425568af0f42c38c7fca3d1fe9f022-9"></a><span class="n">Axes3D</span>
+<a name="rest_code_c8425568af0f42c38c7fca3d1fe9f022-10"></a>
+<a name="rest_code_c8425568af0f42c38c7fca3d1fe9f022-11"></a><span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="s2">"all"</span><span class="p">)</span>
+<a name="rest_code_c8425568af0f42c38c7fca3d1fe9f022-12"></a><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<a name="rest_code_c8425568af0f42c38c7fca3d1fe9f022-13"></a><span class="n">fig2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<a name="rest_code_c8425568af0f42c38c7fca3d1fe9f022-14"></a><span class="n">nx</span> <span class="o">=</span> <span class="mi">4</span>
+<a name="rest_code_c8425568af0f42c38c7fca3d1fe9f022-15"></a><span class="n">ny</span> <span class="o">=</span> <span class="mi">4</span>
+<a name="rest_code_c8425568af0f42c38c7fca3d1fe9f022-16"></a><span class="n">azimuths</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">361</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<a name="rest_code_c8425568af0f42c38c7fca3d1fe9f022-17"></a><span class="n">zeniths</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<a name="rest_code_c8425568af0f42c38c7fca3d1fe9f022-18"></a><span class="n">values</span> <span class="o">=</span> <span class="n">azimuths</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">30</span><span class="p">,</span> <span class="mi">361</span><span class="p">))</span>
+<a name="rest_code_c8425568af0f42c38c7fca3d1fe9f022-19"></a><span class="k">for</span> <span class="n">cont</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nx</span> <span class="o">*</span> <span class="n">ny</span><span class="p">):</span>
+<a name="rest_code_c8425568af0f42c38c7fca3d1fe9f022-20"></a>    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="n">cont</span><span class="p">)</span>
+<a name="rest_code_c8425568af0f42c38c7fca3d1fe9f022-21"></a>    <span class="n">rad</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<a name="rest_code_c8425568af0f42c38c7fca3d1fe9f022-22"></a>    <span class="n">center</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">rad</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">rad</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<a name="rest_code_c8425568af0f42c38c7fca3d1fe9f022-23"></a>    <span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<a name="rest_code_c8425568af0f42c38c7fca3d1fe9f022-24"></a>    <span class="n">rot_mat</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">qr</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
+<a name="rest_code_c8425568af0f42c38c7fca3d1fe9f022-25"></a>    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">256</span><span class="p">)</span>
+<a name="rest_code_c8425568af0f42c38c7fca3d1fe9f022-26"></a>    <span class="n">x</span> <span class="o">=</span> <span class="n">rad</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<a name="rest_code_c8425568af0f42c38c7fca3d1fe9f022-27"></a>    <span class="n">y</span> <span class="o">=</span> <span class="n">rad</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<a name="rest_code_c8425568af0f42c38c7fca3d1fe9f022-28"></a>    <span class="n">z</span> <span class="o">=</span> <span class="mf">0.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<a name="rest_code_c8425568af0f42c38c7fca3d1fe9f022-29"></a>    <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">))</span>
+<a name="rest_code_c8425568af0f42c38c7fca3d1fe9f022-30"></a>    <span class="n">X</span> <span class="o">=</span> <span class="n">rot_mat</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">+</span> <span class="n">center</span>
+<a name="rest_code_c8425568af0f42c38c7fca3d1fe9f022-31"></a>
+<a name="rest_code_c8425568af0f42c38c7fca3d1fe9f022-32"></a>    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">ny</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">cont</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">'polar'</span><span class="p">)</span>
+<a name="rest_code_c8425568af0f42c38c7fca3d1fe9f022-33"></a>    <span class="n">cmap</span> <span class="o">=</span> <span class="n">LinearSegmentedColormap</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span><span class="s1">'my_colormap'</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+<a name="rest_code_c8425568af0f42c38c7fca3d1fe9f022-34"></a>    <span class="n">ax</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">azimuths</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">180.0</span><span class="p">,</span> <span class="n">zeniths</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">)</span>
+<a name="rest_code_c8425568af0f42c38c7fca3d1fe9f022-35"></a>    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
+<a name="rest_code_c8425568af0f42c38c7fca3d1fe9f022-36"></a>    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
+<a name="rest_code_c8425568af0f42c38c7fca3d1fe9f022-37"></a>
+<a name="rest_code_c8425568af0f42c38c7fca3d1fe9f022-38"></a>    <span class="n">ax2</span> <span class="o">=</span> <span class="n">fig2</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">ny</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">cont</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">'3d'</span><span class="p">)</span>
+<a name="rest_code_c8425568af0f42c38c7fca3d1fe9f022-39"></a>    <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:],</span> <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:],</span> <span class="n">X</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="p">:])</span>
+<a name="rest_code_c8425568af0f42c38c7fca3d1fe9f022-40"></a>    <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<a name="rest_code_c8425568af0f42c38c7fca3d1fe9f022-41"></a>    <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<a name="rest_code_c8425568af0f42c38c7fca3d1fe9f022-42"></a>    <span class="n">ax2</span><span class="o">.</span><span class="n">set_zlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<a name="rest_code_c8425568af0f42c38c7fca3d1fe9f022-43"></a>    <span class="n">ax2</span><span class="o">.</span><span class="n">view_init</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="o">-</span><span class="mi">60</span><span class="p">)</span>
+<a name="rest_code_c8425568af0f42c38c7fca3d1fe9f022-44"></a>    <span class="n">ax2</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+<a name="rest_code_c8425568af0f42c38c7fca3d1fe9f022-45"></a>    <span class="n">ax2</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+<a name="rest_code_c8425568af0f42c38c7fca3d1fe9f022-46"></a>    <span class="n">ax2</span><span class="o">.</span><span class="n">set_zticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+<a name="rest_code_c8425568af0f42c38c7fca3d1fe9f022-47"></a>    <span class="n">ax2</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([])</span>
+<a name="rest_code_c8425568af0f42c38c7fca3d1fe9f022-48"></a>    <span class="n">ax2</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">([])</span>
+<a name="rest_code_c8425568af0f42c38c7fca3d1fe9f022-49"></a>    <span class="n">ax2</span><span class="o">.</span><span class="n">set_zticklabels</span><span class="p">([])</span>
+<a name="rest_code_c8425568af0f42c38c7fca3d1fe9f022-50"></a>
+<a name="rest_code_c8425568af0f42c38c7fca3d1fe9f022-51"></a>
+<a name="rest_code_c8425568af0f42c38c7fca3d1fe9f022-52"></a><span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">"random_cmaps.png"</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a name="rest_code_c8425568af0f42c38c7fca3d1fe9f022-53"></a><span class="n">fig2</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">"random_cmaps_traj.svg"</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre>
+<div class="figure align-center">
+<img alt="/images/random_cmaps.png" src="../images/random_cmaps.png"><p class="caption">16 mapas de colores generados aleatoriamente.</p>
+</div>
+<div class="figure align-center">
+<img alt="/images/random_cmaps_traj.svg" src="../images/random_cmaps_traj.svg"><p class="caption">Trayectorias en espacio RGB para los mapas de colores generados
+aleatoriamente.</p>
+</div>
+<p>Una idea interesante sería tomar estos mapas de colores y optimizar
+algunos parámetros perceptuales como luminosidad para obtener
+mapas de colores útiles.</p>
+</div>
+<div class="section" id="conclusiones">
+<h2>Conclusiones</h2>
+<p>Probablemente, yo usaría <code class="docutils literal">phase</code>, <code class="docutils literal">colorwheel</code>, o <code class="docutils literal">mrybm</code> en
+el futuro.</p>
+<div class="figure align-center">
+<img alt="/images/toroidal_helix_phase.svg" src="../images/toroidal_helix_phase.svg"><p class="caption">Imagen inicial usando <code class="docutils literal">phase</code>.</p>
+</div>
+<div class="figure align-center">
+<img alt="/images/toroidal_helix_colorwheel.svg" src="../images/toroidal_helix_colorwheel.svg"><p class="caption">Imagen inicial usando <code class="docutils literal">colorwheel</code>.</p>
+</div>
+<div class="figure align-center">
+<img alt="/images/toroidal_helix_mrybm.svg" src="../images/toroidal_helix_mrybm.svg"><p class="caption">Imagen inicial usando <code class="docutils literal">mrybm</code>.</p>
+</div>
+</div>
+<div class="section" id="referencias">
+<h2>Referencias</h2>
+<ol class="arabic simple">
+<li><p>Peter Kovesi. Good Colour Maps: How to Design Them.
+arXiv:1509.03700 [cs.GR] 2015</p></li>
+</ol>
+</div>
+</div>
+    </div>
+    </article>
+</div>
+
+        <nav class="postindexpager"><ul class="pager">
+<li class="next">
+                <a href="index-5.html" rel="next">Publicaciones anteriores</a>
+            </li>
+        </ul></nav><script>var disqus_shortname="nicoguaro-github";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
+        </script><footer id="footer"><p>Contents © 2021 <a href="mailto:nicoguarin@gmail.com">Nicolás Guarín-Zapata</a> - Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a> 
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+<img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png"></a></p>
+            
+        </footer>
+</div>
+    </div>
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+    
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-145359674-1', 'auto');
+ga('send', 'pageview');
+</script><script src="../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+    moment.locale("es");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>

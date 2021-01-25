@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html prefix="" lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="Consejos sobre escritur ténica.">
+<meta name="viewport" content="width=device-width">
+<title>Escritura técnica | Nicolás' blog</title>
+<link href="../../../assets/css/all.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+<link rel="alternate" type="application/rss+xml" title="RSS (en)" href="../../../rss.xml">
+<link rel="alternate" type="application/rss+xml" title="RSS (es)" href="../../rss.xml">
+<link rel="canonical" href="https://nicoguaro.github.io/es/posts/tech_writing/">
+<!--[if lt IE 9]><script src="../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Nicolás Guarín-Zapata">
+<link rel="prev" href="../ortografia_jupyter/" title="Revisión ortográfica en Jupyter Notebook" type="text/html">
+<link rel="next" href="../marking-tetrahedron/" title="Marcado Aleatorio de un Tetraedro" type="text/html">
+<meta property="og:site_name" content="Nicolás' blog">
+<meta property="og:title" content="Escritura técnica">
+<meta property="og:url" content="https://nicoguaro.github.io/es/posts/tech_writing/">
+<meta property="og:description" content="Consejos sobre escritur ténica.">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2020-05-28T15:53:40-05:00">
+<meta property="article:tag" content="escrotira">
+<meta property="article:tag" content="investigación">
+<meta property="article:tag" content="latex">
+<meta property="article:tag" content="libreoffice">
+<meta property="article:tag" content="tipografía">
+<link rel="alternate" hreflang="en" href="../../../posts/tech_writing/">
+</head>
+<body>
+    <a href="#content" class="sr-only sr-only-focusable">Ir al contenido principal</a>
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+            styles, `#sidebar-checkbox` for behavior. -->
+    <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox"><!-- Toggleable sidebar --><div class="sidebar" id="sidebar">
+        <div class="sidebar-item">
+            <p>A reserved <a href="https://getnikola.com" target="_blank">Nikola</a> theme that places the utmost gravity on content with a hidden drawer. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a> for Jekyll,
+            ported to Nikola by <a href="https://twitter.com/ralsina" target="_blank">@ralsina</a>.</p>
+        </div>
+        
+    <nav id="menu" role="navigation" class="sidebar-nav"><a class="sidebar-nav-item" href="../../../pages/about/">About</a>
+        <a class="sidebar-nav-item" href="../../../index.html">Blog</a>
+        <a class="sidebar-nav-item" href="../../../pages/preprints-archive/">Preprints</a>
+        <a class="sidebar-nav-item" href="../../../pages/links/">Links</a>
+        <a class="sidebar-nav-item" href="../../../archive.html">Archive</a>
+        <a class="sidebar-nav-item" href="../../../categories/">Tags</a>
+        <a class="sidebar-nav-item" href="../../../rss.xml">RSS feed</a>
+    
+    
+    </nav>
+</div>
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          
+    <h3 id="brand" class="masthead-title">
+      <a href="https://nicoguaro.github.io/es/" title="Nicolás' blog" rel="home">Nicolás' blog</a>
+    </h3>
+
+        </div>
+      </div>
+
+      <div class="container content" id="content">
+        
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="post-title p-name entry-title" itemprop="headline name"><a href="." class="u-url">Escritura técnica</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
+            <p class="dateline"><a href="." rel="bookmark"><time class="post-date published dt-published" datetime="2020-05-28T15:53:40-05:00" itemprop="datePublished" title="2020-05-28 15:53">2020-05-28 15:53</time></a></p>
+                <p class="commentline">
+        
+    <a href="#disqus_thread" data-disqus-identifier="cache/posts/tech_writing.html">Comentarios</a>
+
+
+                <meta name="description" itemprop="description" content="Consejos sobre escritur ténica."></p>
+</div>
+        
+        <div class="metadata posttranslations translations">
+            <h3 class="posttranslations-intro">También disponible en:</h3>
+                <p><a href="../../../posts/tech_writing/" rel="alternate" hreflang="en">English</a></p>
+        </div>
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p>Esta es la primera publicación sobre redacción técnica <a class="footnote-reference brackets" href="#id2" id="id1">*</a> de una serie que
+crearé durante el transcurso de este año. La escritura técnica es algo con lo
+que la mayoría de nosotros tenemos que lidiar en diferentes contextos. Por
+ejemplo, en cursos universitarios, publicaciones de investigación,
+documentación de software. La idea principal de la serie es mencionar algunos
+de los trucos que he aprendido a lo largo de los años y algunas herramientas
+que pueden ser útiles.</p>
+<p>Las publicaciones futuras serán (probablemente) sobre:</p>
+<ul class="simple">
+<li><p>Uso de ecuaciones;</p></li>
+<li><p>Uso de figuras;</p></li>
+<li><p>Uso de tablas; y</p></li>
+<li><p>Gestión de referencias bibliográficas.</p></li>
+</ul>
+<div class="section" id="esta-publicacion">
+<h2>Esta publicación</h2>
+<p>Como se mencionó anteriormente, la escritura técnica es algo con lo que muchas
+personas tienen que lidiar. Esta es una habilidad que a veces se pasa por alto,
+pero no debería. De acuerdo con la
+<a class="reference external" href="https://www.bls.gov/ooh/media-and-communication/technical-writers.htm">U.S. Bureau of Labor Statistics</a></p>
+<blockquote>
+<p>Los redactores técnicos preparan manuales, guías prácticas,
+artículos de revistas y otros documentos de respaldo para comunicar
+información compleja y técnica con mayor facilidad.</p>
+</blockquote>
+<p>Y es una habilidad deseada en el lugar de trabajo. Se espera que su demanda crezca
+alrededor del 10% en la década actual.</p>
+<div class="section" id="tipografia">
+<h3>Tipografía</h3>
+<p>Lo primero que debo mencionar es que escribir documentos es
+tipografía ya que estamos <em>diseñando con texto</em> (Butterick, 2019). Por lo tanto,
+deberíamos considerarnos tipógrafos, ya que constantemente diseñamos documentos.</p>
+<p>Sugeriría echar un vistazo a "Butterick's Practical Typography"
+ya que es un libro muy bueno sobre el tema y es fácil de leer. Voy a
+mencionar algunos puntos importantes de acuerdo con la sección
+"Tipografía en diez minutos":</p>
+<ol class="arabic">
+<li><p>La selección tipográfica más importante está en el cuerpo del texto.
+Esto se debe al hecho de que es la mayor parte del documento.</p></li>
+<li><p>Elija un tamaño de punto entre 10-12 puntos para documentos impresos
+y 15-25 píxeles para documentos digitales.</p></li>
+<li><p>El espacio entre líneas debe estar entre 120-145% del tamaño de la letra.</p></li>
+<li>
+<p>La longitud de la línea debe tener entre 45 y 90 caracteres. Esto es
+aproximadamente 2 o 3 alfabetos en minúsculas:</p>
+<p>abcdefghijklmnñopqrstuvwxyzabcdefghijklmnñopqrstuvwxyzabcd</p>
+</li>
+<li><p>Cuidado con la selección de su fuente. Intente evitar las fuentes
+predeterminadas como Arial, Calibri o Times New Roman.</p></li>
+</ol>
+</div>
+<div class="section" id="editores">
+<h3>Editores</h3>
+<p>Otro punto que quiero tocar en esta publicación es el de los editores. La
+primera pregunta que surge es "¿qué editor debo usar?". La respuesta corta es:
+<strong>usa lo que tus colegas estén usando</strong>. Ese es mi mejor consejo; de esa
+manera tu tienes personas con quienes hablar sobre tus dudas.</p>
+<p>La respuesta larga ... es que cada editor tiene sus puntos débiles y fuertes.
+Yo ha escrito artículos científicos en LaTeX, LibreOffice Writer y MS Word;
+todos se ven profesionales. Entonces, al final, puedes escribir tu
+documentos de varias maneras y lograr un resultado similar. Prefiero usar
+LaTeX para documentos largos, ya que se centra en la estructura de la
+documento en lugar de la apariencia y esta es la forma en que uno debe
+administrar un documento largo como una disertación, en mi opinión.</p>
+<p>Si solo quieres que elija un editor y te lo sugiera, diría que
+<a class="reference external" href="https://www.libreoffice.org/">LibreOffice</a>. Una buena referencia para
+es "Designing with LibreOffice". Una vez que aprendas
+cómo usar estilos, preguntarás cómo has estado escribiendo todos los documentos
+hasta ahora.</p>
+<p>Hay dos grupos de editores que voy a discutir:
+WYSIWYG (siglas en inglés para "Lo que ves es lo que obtienes") y
+editores basados en marcado.</p>
+<ul>
+<li>
+<p>WYSIWYG. Esta categoría es la que la mayoría de la gente conoce.
+Dos ejemplos son:</p>
+<ul class="simple">
+<li><p>LibreOffice writer; y</p></li>
+<li><p>Microsoft Word.</p></li>
+</ul>
+</li>
+<li>
+<p>Los editores basados en marcado dependen de las marcas en el "texto" para
+diferenciar secciones y estilos. En este caso, su texto parece código,
+como se ve en la siguiente imagen</p>
+<img alt="/images/rst_code.png" src="../../../images/rst_code.png"><p>Algunos ejemplos son:</p>
+<ul class="simple">
+<li><p>LaTeX;</p></li>
+<li><p><a class="reference external" href="https://www.markdownguide.org/getting-started">Markdown</a>; y</p></li>
+<li><p><a class="reference external" href="https://docutils.sourceforge.io/rst.html">reStructuredtext</a>.</p></li>
+</ul>
+</li>
+</ul>
+<p>Independientemente de cuál sea tu editor principal, sugiero utilizar
+<a class="reference external" href="https://pandoc.org/">Pandoc</a>. Te permite convertir entre varios
+formatos, haciendo el proceso un poco más fácil. Incluso hay un editor
+basado completamente en él llamado <a class="reference external" href="https://panwriter.com/">Panwriter</a>.</p>
+</div>
+<div class="section" id="references">
+<h3>References</h3>
+<ol class="arabic simple">
+<li><p>Matthew Butterick (2019). <a class="reference external" href="https://practicaltypography.com/">Butterick's Practical Typography</a>.
+Segunda edición, Matthew Butterick.</p></li>
+<li><p>Wikibooks contributors. (2020). <a class="reference external" href="https://en.wikibooks.org/wiki/LaTeX">LaTeX</a>.
+Wikibooks, The Free Textbook Project.</p></li>
+<li><p>Bruce Byfield (2016). <a class="reference external" href="https://designingwithlibreoffice.com/">Designing with LibreOffice</a>.
+Friends of OpenDocument, Inc.</p></li>
+<li><p>Deville, S. (2015).
+<a class="reference external" href="https://sylvaindeville.net/2015/07/17/writing-academic-papers-in-plain-text-with-markdown-and-jupyter-notebook/">Writing academic papers in plain text with Markdown and Jupyter notebook</a>.
+Sylvain Deville.</p></li>
+</ol>
+<dl class="footnote brackets">
+<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">*</a></span></dt>
+<dd>
+<p>Esta publicación está (algo) relacionada con una
+<a class="reference external" href="../herramientas-investigacion/">publicación anterior</a>
+donde discutí sobre algunas herramientas de investigación que la mayoría
+de nosotros necesitamos pero que comúnmente no se enseñan de manera formal.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../../categories/escrotira/" rel="tag">escrotira</a></li>
+            <li><a class="tag p-category" href="../../categories/investigacion/" rel="tag">investigación</a></li>
+            <li><a class="tag p-category" href="../../categories/latex/" rel="tag">latex</a></li>
+            <li><a class="tag p-category" href="../../categories/libreoffice/" rel="tag">libreoffice</a></li>
+            <li><a class="tag p-category" href="../../categories/tipografia/" rel="tag">tipografía</a></li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="previous">
+                <a href="../ortografia_jupyter/" rel="prev" title="Revisión ortográfica en Jupyter Notebook">Publicación anterior</a>
+            </li>
+            <li class="next">
+                <a href="../marking-tetrahedron/" rel="next" title="Marcado Aleatorio de un Tetraedro">Siguiente publicación</a>
+            </li>
+        </ul></nav></aside><section class="comments hidden-print"><h2>Comentarios</h2>
+        
+        
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="nicoguaro-github",
+            disqus_url="https://nicoguaro.github.io/es/posts/tech_writing/",
+        disqus_title="Escritura t\u00e9cnica",
+        disqus_identifier="cache/posts/tech_writing.html",
+        disqus_config = function () {
+            this.language = "es_ES";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section></article><script>var disqus_shortname="nicoguaro-github";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><footer id="footer"><p>Contents © 2021 <a href="mailto:nicoguarin@gmail.com">Nicolás Guarín-Zapata</a> - Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a> 
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+<img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png"></a></p>
+            
+        </footer>
+</div>
+    </div>
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+    
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-145359674-1', 'auto');
+ga('send', 'pageview');
+</script><script src="../../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+    moment.locale("es");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>

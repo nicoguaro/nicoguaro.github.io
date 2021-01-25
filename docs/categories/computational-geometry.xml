@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nicolás' blog (Posts about computational geometry)</title><link>https://nicoguaro.github.io/</link><description></description><atom:link href="https://nicoguaro.github.io/categories/computational-geometry.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2021 &lt;a href="mailto:nicoguarin@gmail.com"&gt;Nicolás Guarín-Zapata&lt;/a&gt; 
+&lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
+&lt;img alt="Creative Commons License"
+style="border-width:0"
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Mon, 25 Jan 2021 21:54:25 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Randomized Marking of a Tetrahedron</title><link>https://nicoguaro.github.io/posts/marking-tetrahedron/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;Yesterday (June 4, 2020), Christian Howard posted on
+&lt;a class="reference external" href="https://twitter.com/choward1491/status/1268736220055699457"&gt;Twitter&lt;/a&gt;
+the following question&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;You are given a tetrahedron τ. For each triangular facet of τ,
+we uniformly at random mark one of their edges. What is the
+probability that there exists an edge of τ that is marked twice?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I thought about a little bit but I couldn't find how to count
+properly. Then, a number popped up in my mind out of the blue:
+&lt;span class="math"&gt;\(2/3\)&lt;/span&gt;, but I don't know why. So, I decided to run a
+simulation to check this number.&lt;/p&gt;
+&lt;p&gt;The right answer is &lt;span class="math"&gt;\(51/81\)&lt;/span&gt; that is approximately 63%. This
+calculation is well explained in
+&lt;a class="reference external" href="https://medium.com/@choward1491/randomized-marking-of-a-tetrahedron-f978593f43d2"&gt;Christian's blog&lt;/a&gt;
+and with some cool drawings (and memes).&lt;/p&gt;
+&lt;div class="section" id="the-algorithm"&gt;
+&lt;h2&gt;The algorithm&lt;/h2&gt;
+&lt;p&gt;The algorithm is quite simple. I number the edges in each face following
+a counter-clockwise orientation:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;face 0&lt;/strong&gt;: edge 0, edge 1, edge 2&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;face 1&lt;/strong&gt;: edge 0, edge 3, edge 4&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;face 2&lt;/strong&gt;: edge 1, edge 5, edge 3&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;face 3&lt;/strong&gt;: edge 2, edge 4, edge 5&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Then, I take each face and pick a random number from &lt;span class="math"&gt;\((0, 1, 2)\)&lt;/span&gt; and
+mark the corresponding edge, and move to the following face. I repeat
+this process several times and I count the favorable cases and divide
+them by the number of trials to get an estimate of the probability.&lt;/p&gt;
+&lt;p&gt;Following is a Python code that follows this idea.&lt;/p&gt;
+&lt;pre class="code python"&gt;&lt;a name="rest_code_99825633787f4f30a13b08b3b8bcd059-1"&gt;&lt;/a&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
+&lt;a name="rest_code_99825633787f4f30a13b08b3b8bcd059-2"&gt;&lt;/a&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
+&lt;a name="rest_code_99825633787f4f30a13b08b3b8bcd059-3"&gt;&lt;/a&gt;
+&lt;a name="rest_code_99825633787f4f30a13b08b3b8bcd059-4"&gt;&lt;/a&gt;&lt;span class="n"&gt;faces&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;
+&lt;a name="rest_code_99825633787f4f30a13b08b3b8bcd059-5"&gt;&lt;/a&gt;        &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+&lt;a name="rest_code_99825633787f4f30a13b08b3b8bcd059-6"&gt;&lt;/a&gt;        &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+&lt;a name="rest_code_99825633787f4f30a13b08b3b8bcd059-7"&gt;&lt;/a&gt;        &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+&lt;a name="rest_code_99825633787f4f30a13b08b3b8bcd059-8"&gt;&lt;/a&gt;        &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;]])&lt;/span&gt;
+&lt;a name="rest_code_99825633787f4f30a13b08b3b8bcd059-9"&gt;&lt;/a&gt;
+&lt;a name="rest_code_99825633787f4f30a13b08b3b8bcd059-10"&gt;&lt;/a&gt;
+&lt;a name="rest_code_99825633787f4f30a13b08b3b8bcd059-11"&gt;&lt;/a&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;mark_edges&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+&lt;a name="rest_code_99825633787f4f30a13b08b3b8bcd059-12"&gt;&lt;/a&gt;    &lt;span class="n"&gt;marked_edges&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;zeros&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;dtype&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_99825633787f4f30a13b08b3b8bcd059-13"&gt;&lt;/a&gt;    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;face&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;faces&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;a name="rest_code_99825633787f4f30a13b08b3b8bcd059-14"&gt;&lt;/a&gt;        &lt;span class="n"&gt;num&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;randint&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_99825633787f4f30a13b08b3b8bcd059-15"&gt;&lt;/a&gt;        &lt;span class="n"&gt;edge&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;face&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;num&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;a name="rest_code_99825633787f4f30a13b08b3b8bcd059-16"&gt;&lt;/a&gt;        &lt;span class="n"&gt;marked_edges&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;edge&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;a name="rest_code_99825633787f4f30a13b08b3b8bcd059-17"&gt;&lt;/a&gt;    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;marked_edges&lt;/span&gt;
+&lt;a name="rest_code_99825633787f4f30a13b08b3b8bcd059-18"&gt;&lt;/a&gt;
+&lt;a name="rest_code_99825633787f4f30a13b08b3b8bcd059-19"&gt;&lt;/a&gt;
+&lt;a name="rest_code_99825633787f4f30a13b08b3b8bcd059-20"&gt;&lt;/a&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;comp_probs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;N_min&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;N_max&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ntrials&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;a name="rest_code_99825633787f4f30a13b08b3b8bcd059-21"&gt;&lt;/a&gt;    &lt;span class="n"&gt;prob&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
+&lt;a name="rest_code_99825633787f4f30a13b08b3b8bcd059-22"&gt;&lt;/a&gt;    &lt;span class="n"&gt;N_vals&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;logspace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;N_min&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;N_max&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ntrials&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dtype&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_99825633787f4f30a13b08b3b8bcd059-23"&gt;&lt;/a&gt;    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;N&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;N_vals&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;a name="rest_code_99825633787f4f30a13b08b3b8bcd059-24"&gt;&lt;/a&gt;        &lt;span class="n"&gt;cont_marked&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;a name="rest_code_99825633787f4f30a13b08b3b8bcd059-25"&gt;&lt;/a&gt;        &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;cont&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;N&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;a name="rest_code_99825633787f4f30a13b08b3b8bcd059-26"&gt;&lt;/a&gt;            &lt;span class="n"&gt;marked&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;mark_edges&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;a name="rest_code_99825633787f4f30a13b08b3b8bcd059-27"&gt;&lt;/a&gt;            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;marked&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;a name="rest_code_99825633787f4f30a13b08b3b8bcd059-28"&gt;&lt;/a&gt;                &lt;span class="n"&gt;cont_marked&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;a name="rest_code_99825633787f4f30a13b08b3b8bcd059-29"&gt;&lt;/a&gt;        &lt;span class="n"&gt;prob&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;cont_marked&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;N&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_99825633787f4f30a13b08b3b8bcd059-30"&gt;&lt;/a&gt;    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;N_vals&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;prob&lt;/span&gt;
+&lt;a name="rest_code_99825633787f4f30a13b08b3b8bcd059-31"&gt;&lt;/a&gt;
+&lt;a name="rest_code_99825633787f4f30a13b08b3b8bcd059-32"&gt;&lt;/a&gt;
+&lt;a name="rest_code_99825633787f4f30a13b08b3b8bcd059-33"&gt;&lt;/a&gt;&lt;span class="c1"&gt;#%% Computation&lt;/span&gt;
+&lt;a name="rest_code_99825633787f4f30a13b08b3b8bcd059-34"&gt;&lt;/a&gt;&lt;span class="n"&gt;N_min&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;a name="rest_code_99825633787f4f30a13b08b3b8bcd059-35"&gt;&lt;/a&gt;&lt;span class="n"&gt;N_max&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;
+&lt;a name="rest_code_99825633787f4f30a13b08b3b8bcd059-36"&gt;&lt;/a&gt;&lt;span class="n"&gt;ntrials&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;
+&lt;a name="rest_code_99825633787f4f30a13b08b3b8bcd059-37"&gt;&lt;/a&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;seed&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;seed&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_99825633787f4f30a13b08b3b8bcd059-38"&gt;&lt;/a&gt;&lt;span class="n"&gt;N_vals&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;prob&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;comp_probs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;N_min&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;N_max&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ntrials&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_99825633787f4f30a13b08b3b8bcd059-39"&gt;&lt;/a&gt;
+&lt;a name="rest_code_99825633787f4f30a13b08b3b8bcd059-40"&gt;&lt;/a&gt;&lt;span class="c1"&gt;#%% Plotting&lt;/span&gt;
+&lt;a name="rest_code_99825633787f4f30a13b08b3b8bcd059-41"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;figsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;a name="rest_code_99825633787f4f30a13b08b3b8bcd059-42"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;hlines&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;0.63&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;N_min&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;N_max&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"#3f3f3f"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_99825633787f4f30a13b08b3b8bcd059-43"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;semilogx&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;N_vals&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;prob&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="s2"&gt;"o"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;alpha&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_99825633787f4f30a13b08b3b8bcd059-44"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Number of trials"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_99825633787f4f30a13b08b3b8bcd059-45"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Estimated probability"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_99825633787f4f30a13b08b3b8bcd059-46"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;savefig&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"prob_tet.svg"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dpi&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;300&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;bbox_inches&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"tight"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_99825633787f4f30a13b08b3b8bcd059-47"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;p&gt;And we can see the following evolution for different number of trials.&lt;/p&gt;
+&lt;img alt="Estimated probabilities for different sample sizes." class="align-center" src="https://nicoguaro.github.io/images/marked_tets.svg" style="width: 600px;"&gt;
+&lt;/div&gt;&lt;/div&gt;</description><category>combinatorics</category><category>computational geometry</category><category>monte carlo</category><guid>https://nicoguaro.github.io/posts/marking-tetrahedron/</guid><pubDate>Sat, 06 Jun 2020 03:58:32 GMT</pubDate></item><item><title>Probability that a random tetrahedron over a sphere contains its center</title><link>https://nicoguaro.github.io/posts/putnam_prob/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;I got interested in this problem watching the YouTube channel
+&lt;a class="reference external" href="https://www.youtube.com/channel/UCYO_jab_esuFRV4b17AJtAw"&gt;3Blue1Brown&lt;/a&gt;,
+by Grant Sanderson, where he explains a way to tackle the problem that
+is just … elegant!&lt;/p&gt;
+&lt;p&gt;I can't emphasize enough how much I like this channel. For example,
+his approach to linear algebra in
+&lt;a class="reference external" href="https://www.youtube.com/watch?v=kjBOesZCoqc&amp;amp;list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab"&gt;Essence of linear algebra&lt;/a&gt; is really
+good. I mention it, just in case you don't know it.&lt;/p&gt;
+&lt;div class="section" id="the-problem"&gt;
+&lt;h2&gt;The problem&lt;/h2&gt;
+&lt;p&gt;Let's talk business now. The problem was originally part of the 53rd
+&lt;a class="reference external" href="http://kskedlaya.org/putnam-archive/1992.pdf"&gt;Putnam competition on 1992&lt;/a&gt;
+and was stated as&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Four points are chosen at random on the surface of a
+sphere.   What is the probability that the center of the
+sphere lies inside the tetrahedron whose vertices are at
+the four points?  (It is understood that each point is in-
+dependently chosen relative to a uniform distribution on
+the sphere.)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;As shown in the mentioned video, the probability is &lt;span class="math"&gt;\(1/8\)&lt;/span&gt;. Let's
+come with an algorithm to obtain this result —approximately, at least.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="the-proposed-approach"&gt;
+&lt;h2&gt;The proposed approach&lt;/h2&gt;
+&lt;p&gt;The approach that we are going to use is pretty straightforward. We are
+going to obtain a sample of (independent) random sets, with four points
+each, and check how many of them satisfy the condition of being inside
+the tetrahedron with the points as vertices.&lt;/p&gt;
+&lt;p&gt;For this approach to work, we need two things:&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;&lt;p&gt;A way to generate random numbers uniformly distributed. This is already
+in &lt;code class="docutils literal"&gt;numpy.random.uniform&lt;/code&gt;, so we don't need to do much about it.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;A way to check if a point is inside a tetrahedron.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="section" id="checking-that-a-point-is-inside-a-tetrahedron"&gt;
+&lt;h3&gt;Checking that a point is inside a tetrahedron&lt;/h3&gt;
+&lt;p&gt;To find if a point is inside a tetrahedron, we could compute the
+&lt;a class="reference external" href="https://en.wikipedia.org/wiki/Barycentric_coordinate_system"&gt;barycentric coordinates&lt;/a&gt;
+for that point and check that all of them are have the same sign. Equivalently,
+as proposed &lt;a class="reference external" href="http://steve.hollasch.net/cgindex/geometry/ptintet.html"&gt;here&lt;/a&gt;,
+we can check that the determinants of the matrices&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+M_0 =
+\begin{bmatrix}
+x_0 &amp;amp;y_0 &amp;amp;z_0 &amp;amp;1\\
+x_1 &amp;amp;y_1 &amp;amp;z_1 &amp;amp;1\\
+x_2 &amp;amp;y_2 &amp;amp;z_2 &amp;amp;1\\
+x_3 &amp;amp;y_3 &amp;amp;z_3 &amp;amp;1
+\end{bmatrix}\, ,
+\end{equation*}
+&lt;/div&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+M_1 =
+\begin{bmatrix}
+x &amp;amp;y &amp;amp;z &amp;amp;1\\
+x_1 &amp;amp;y_1 &amp;amp;z_1 &amp;amp;1\\
+x_2 &amp;amp;y_2 &amp;amp;z_2 &amp;amp;1\\
+x_3 &amp;amp;y_3 &amp;amp;z_3 &amp;amp;1
+\end{bmatrix}\, ,
+\end{equation*}
+&lt;/div&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+M_2 =
+\begin{bmatrix}
+x_0 &amp;amp;y_0 &amp;amp;z_0 &amp;amp;1\\
+x &amp;amp;y &amp;amp; &amp;amp;1\\
+x_2 &amp;amp;y_2 &amp;amp;z_2 &amp;amp;1\\
+x_3 &amp;amp;y_3 &amp;amp;z_3 &amp;amp;1
+\end{bmatrix}\, ,
+\end{equation*}
+&lt;/div&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+M_3 =
+\begin{bmatrix}
+x_0 &amp;amp;y_0 &amp;amp;z_0 &amp;amp;1\\
+x_1 &amp;amp;y_1 &amp;amp;z_1 &amp;amp;1\\
+x &amp;amp;y &amp;amp;z &amp;amp;1\\
+x_3 &amp;amp;y_3 &amp;amp;z_3 &amp;amp;1
+\end{bmatrix}\, ,
+\end{equation*}
+&lt;/div&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+M_4 =
+\begin{bmatrix}
+x_0 &amp;amp;y_0 &amp;amp;z_0 &amp;amp;1\\
+x_1 &amp;amp;y_1 &amp;amp;z_1 &amp;amp;1\\
+x_2 &amp;amp;y_2 &amp;amp;z_2 &amp;amp;1\\
+x &amp;amp;y &amp;amp;z &amp;amp;1
+\end{bmatrix}\, ,
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;have the same sign. In this case, &lt;span class="math"&gt;\((x, y, z)\)&lt;/span&gt; is the point of interest
+and &lt;span class="math"&gt;\((x_i, y_i, z_i)\)&lt;/span&gt; are the coordinates of each vertex.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="the-algorithm"&gt;
+&lt;h2&gt;The algorithm&lt;/h2&gt;
+&lt;p&gt;Below is a Python implementation of the approach discussed before&lt;/p&gt;
+&lt;pre class="code python"&gt;&lt;a name="rest_code_e6c3acede6f24d37ab6e5a4ec40f0cd6-1"&gt;&lt;/a&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;__future__&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;division&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;print_function&lt;/span&gt;
+&lt;a name="rest_code_e6c3acede6f24d37ab6e5a4ec40f0cd6-2"&gt;&lt;/a&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;pi&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;cos&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;sin&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;sign&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;hstack&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;a name="rest_code_e6c3acede6f24d37ab6e5a4ec40f0cd6-3"&gt;&lt;/a&gt;                   &lt;span class="n"&gt;column_stack&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;logspace&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_e6c3acede6f24d37ab6e5a4ec40f0cd6-4"&gt;&lt;/a&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;numpy.linalg&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;det&lt;/span&gt;
+&lt;a name="rest_code_e6c3acede6f24d37ab6e5a4ec40f0cd6-5"&gt;&lt;/a&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
+&lt;a name="rest_code_e6c3acede6f24d37ab6e5a4ec40f0cd6-6"&gt;&lt;/a&gt;
+&lt;a name="rest_code_e6c3acede6f24d37ab6e5a4ec40f0cd6-7"&gt;&lt;/a&gt;
+&lt;a name="rest_code_e6c3acede6f24d37ab6e5a4ec40f0cd6-8"&gt;&lt;/a&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;in_tet&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;z&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;pt&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;a name="rest_code_e6c3acede6f24d37ab6e5a4ec40f0cd6-9"&gt;&lt;/a&gt;    &lt;span class="sd"&gt;"""&lt;/span&gt;
+&lt;a name="rest_code_e6c3acede6f24d37ab6e5a4ec40f0cd6-10"&gt;&lt;/a&gt;&lt;span class="sd"&gt;    Determine if the point pt is inside the&lt;/span&gt;
+&lt;a name="rest_code_e6c3acede6f24d37ab6e5a4ec40f0cd6-11"&gt;&lt;/a&gt;&lt;span class="sd"&gt;    tetrahedron with vertices coordinates x, y, z&lt;/span&gt;
+&lt;a name="rest_code_e6c3acede6f24d37ab6e5a4ec40f0cd6-12"&gt;&lt;/a&gt;&lt;span class="sd"&gt;    """&lt;/span&gt;
+&lt;a name="rest_code_e6c3acede6f24d37ab6e5a4ec40f0cd6-13"&gt;&lt;/a&gt;    &lt;span class="n"&gt;mat0&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;column_stack&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;z&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]))&lt;/span&gt;
+&lt;a name="rest_code_e6c3acede6f24d37ab6e5a4ec40f0cd6-14"&gt;&lt;/a&gt;    &lt;span class="n"&gt;det0&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;det&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mat0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_e6c3acede6f24d37ab6e5a4ec40f0cd6-15"&gt;&lt;/a&gt;    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;cont&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;a name="rest_code_e6c3acede6f24d37ab6e5a4ec40f0cd6-16"&gt;&lt;/a&gt;        &lt;span class="n"&gt;mat&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;mat0&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;copy&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;a name="rest_code_e6c3acede6f24d37ab6e5a4ec40f0cd6-17"&gt;&lt;/a&gt;        &lt;span class="n"&gt;mat&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;cont&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;hstack&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;pt&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;a name="rest_code_e6c3acede6f24d37ab6e5a4ec40f0cd6-18"&gt;&lt;/a&gt;        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;sign&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;det&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mat&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;det0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;a name="rest_code_e6c3acede6f24d37ab6e5a4ec40f0cd6-19"&gt;&lt;/a&gt;            &lt;span class="n"&gt;inside&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;False&lt;/span&gt;
+&lt;a name="rest_code_e6c3acede6f24d37ab6e5a4ec40f0cd6-20"&gt;&lt;/a&gt;            &lt;span class="k"&gt;break&lt;/span&gt;
+&lt;a name="rest_code_e6c3acede6f24d37ab6e5a4ec40f0cd6-21"&gt;&lt;/a&gt;        &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;a name="rest_code_e6c3acede6f24d37ab6e5a4ec40f0cd6-22"&gt;&lt;/a&gt;            &lt;span class="n"&gt;inside&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;True&lt;/span&gt;
+&lt;a name="rest_code_e6c3acede6f24d37ab6e5a4ec40f0cd6-23"&gt;&lt;/a&gt;    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;inside&lt;/span&gt;
+&lt;a name="rest_code_e6c3acede6f24d37ab6e5a4ec40f0cd6-24"&gt;&lt;/a&gt;
+&lt;a name="rest_code_e6c3acede6f24d37ab6e5a4ec40f0cd6-25"&gt;&lt;/a&gt;
+&lt;a name="rest_code_e6c3acede6f24d37ab6e5a4ec40f0cd6-26"&gt;&lt;/a&gt;&lt;span class="c1"&gt;#%% Computation&lt;/span&gt;
+&lt;a name="rest_code_e6c3acede6f24d37ab6e5a4ec40f0cd6-27"&gt;&lt;/a&gt;&lt;span class="n"&gt;prob&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
+&lt;a name="rest_code_e6c3acede6f24d37ab6e5a4ec40f0cd6-28"&gt;&lt;/a&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;seed&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;seed&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_e6c3acede6f24d37ab6e5a4ec40f0cd6-29"&gt;&lt;/a&gt;&lt;span class="n"&gt;N_min&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;a name="rest_code_e6c3acede6f24d37ab6e5a4ec40f0cd6-30"&gt;&lt;/a&gt;&lt;span class="n"&gt;N_max&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;
+&lt;a name="rest_code_e6c3acede6f24d37ab6e5a4ec40f0cd6-31"&gt;&lt;/a&gt;&lt;span class="n"&gt;N_vals&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;logspace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;N_min&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;N_max&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dtype&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_e6c3acede6f24d37ab6e5a4ec40f0cd6-32"&gt;&lt;/a&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;N&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;N_vals&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;a name="rest_code_e6c3acede6f24d37ab6e5a4ec40f0cd6-33"&gt;&lt;/a&gt;    &lt;span class="n"&gt;inside_cont&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;a name="rest_code_e6c3acede6f24d37ab6e5a4ec40f0cd6-34"&gt;&lt;/a&gt;    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;cont_pts&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;N&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;a name="rest_code_e6c3acede6f24d37ab6e5a4ec40f0cd6-35"&gt;&lt;/a&gt;        &lt;span class="n"&gt;phi&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;uniform&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;low&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;high&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_e6c3acede6f24d37ab6e5a4ec40f0cd6-36"&gt;&lt;/a&gt;        &lt;span class="n"&gt;theta&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;uniform&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;low&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;high&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_e6c3acede6f24d37ab6e5a4ec40f0cd6-37"&gt;&lt;/a&gt;        &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;theta&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;cos&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;phi&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_e6c3acede6f24d37ab6e5a4ec40f0cd6-38"&gt;&lt;/a&gt;        &lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;theta&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;sin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;phi&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_e6c3acede6f24d37ab6e5a4ec40f0cd6-39"&gt;&lt;/a&gt;        &lt;span class="n"&gt;z&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;cos&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;theta&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_e6c3acede6f24d37ab6e5a4ec40f0cd6-40"&gt;&lt;/a&gt;        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;in_tet&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;z&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]):&lt;/span&gt;
+&lt;a name="rest_code_e6c3acede6f24d37ab6e5a4ec40f0cd6-41"&gt;&lt;/a&gt;            &lt;span class="n"&gt;inside_cont&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;a name="rest_code_e6c3acede6f24d37ab6e5a4ec40f0cd6-42"&gt;&lt;/a&gt;
+&lt;a name="rest_code_e6c3acede6f24d37ab6e5a4ec40f0cd6-43"&gt;&lt;/a&gt;    &lt;span class="n"&gt;prob&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;inside_cont&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;N&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_e6c3acede6f24d37ab6e5a4ec40f0cd6-44"&gt;&lt;/a&gt;
+&lt;a name="rest_code_e6c3acede6f24d37ab6e5a4ec40f0cd6-45"&gt;&lt;/a&gt;
+&lt;a name="rest_code_e6c3acede6f24d37ab6e5a4ec40f0cd6-46"&gt;&lt;/a&gt;&lt;span class="c1"&gt;#%% Plotting&lt;/span&gt;
+&lt;a name="rest_code_e6c3acede6f24d37ab6e5a4ec40f0cd6-47"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;figsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;a name="rest_code_e6c3acede6f24d37ab6e5a4ec40f0cd6-48"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;hlines&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;0.125&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;N_min&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;N_max&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"#3f3f3f"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_e6c3acede6f24d37ab6e5a4ec40f0cd6-49"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;semilogx&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;N_vals&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;prob&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"o"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;alpha&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_e6c3acede6f24d37ab6e5a4ec40f0cd6-50"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Number of trials"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_e6c3acede6f24d37ab6e5a4ec40f0cd6-51"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Computed probability"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_e6c3acede6f24d37ab6e5a4ec40f0cd6-52"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tight_layout&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;a name="rest_code_e6c3acede6f24d37ab6e5a4ec40f0cd6-53"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;p&gt;As expected, when the number of samples is sufficiently large, the
+estimated probability is close to the theoretical value: 0.125. This
+can be seen in the following figure.&lt;/p&gt;
+&lt;img alt="Computed probability for different sample sizes" class="align-center" src="https://nicoguaro.github.io/images/random_tets.svg" style="width: 600px;"&gt;
+&lt;/div&gt;&lt;/div&gt;</description><category>barycentric coordinates</category><category>computational geometry</category><category>monte carlo</category><category>probability</category><category>python</category><guid>https://nicoguaro.github.io/posts/putnam_prob/</guid><pubDate>Wed, 13 Dec 2017 20:24:52 GMT</pubDate></item></channel></rss>

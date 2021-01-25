@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html prefix="" lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>#SWDchallenge: Mejorando un gráfico | Nicolás' blog</title>
+<link href="../../../assets/css/all.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+<link rel="alternate" type="application/rss+xml" title="RSS (en)" href="../../../rss.xml">
+<link rel="alternate" type="application/rss+xml" title="RSS (es)" href="../../rss.xml">
+<link rel="canonical" href="https://nicoguaro.github.io/es/posts/graph_makeover/">
+<!--[if lt IE 9]><script src="../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Nicolás Guarín-Zapata">
+<link rel="prev" href="../isometric_inkscape2/" title="Gráficos isométricos en Inkscape: Parte 2" type="text/html">
+<link rel="next" href="../ortografia_jupyter/" title="Revisión ortográfica en Jupyter Notebook" type="text/html">
+<meta property="og:site_name" content="Nicolás' blog">
+<meta property="og:title" content="#SWDchallenge: Mejorando un gráfico">
+<meta property="og:url" content="https://nicoguaro.github.io/es/posts/graph_makeover/">
+<meta property="og:description" content="En storytelling with data tienen
+un reto mensual en visualización de datos llamado
+#SWDchallenge. La idea
+principal de los retos es poner a prueba las habilidades de visualización
+de datos y storytell">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2018-07-12T18:32:40-05:00">
+<meta property="article:tag" content="artículos">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="visualización">
+<link rel="alternate" hreflang="en" href="../../../posts/graph_makeover/">
+</head>
+<body>
+    <a href="#content" class="sr-only sr-only-focusable">Ir al contenido principal</a>
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+            styles, `#sidebar-checkbox` for behavior. -->
+    <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox"><!-- Toggleable sidebar --><div class="sidebar" id="sidebar">
+        <div class="sidebar-item">
+            <p>A reserved <a href="https://getnikola.com" target="_blank">Nikola</a> theme that places the utmost gravity on content with a hidden drawer. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a> for Jekyll,
+            ported to Nikola by <a href="https://twitter.com/ralsina" target="_blank">@ralsina</a>.</p>
+        </div>
+        
+    <nav id="menu" role="navigation" class="sidebar-nav"><a class="sidebar-nav-item" href="../../../pages/about/">About</a>
+        <a class="sidebar-nav-item" href="../../../index.html">Blog</a>
+        <a class="sidebar-nav-item" href="../../../pages/preprints-archive/">Preprints</a>
+        <a class="sidebar-nav-item" href="../../../pages/links/">Links</a>
+        <a class="sidebar-nav-item" href="../../../archive.html">Archive</a>
+        <a class="sidebar-nav-item" href="../../../categories/">Tags</a>
+        <a class="sidebar-nav-item" href="../../../rss.xml">RSS feed</a>
+    
+    
+    </nav>
+</div>
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          
+    <h3 id="brand" class="masthead-title">
+      <a href="https://nicoguaro.github.io/es/" title="Nicolás' blog" rel="home">Nicolás' blog</a>
+    </h3>
+
+        </div>
+      </div>
+
+      <div class="container content" id="content">
+        
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="post-title p-name entry-title" itemprop="headline name"><a href="." class="u-url">#SWDchallenge: Mejorando un gráfico</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
+            <p class="dateline"><a href="." rel="bookmark"><time class="post-date published dt-published" datetime="2018-07-12T18:32:40-05:00" itemprop="datePublished" title="2018-07-12 18:32">2018-07-12 18:32</time></a></p>
+                <p class="commentline">
+        
+    <a href="#disqus_thread" data-disqus-identifier="cache/posts/graph_makeover.html">Comentarios</a>
+
+
+        </p>
+</div>
+        
+        <div class="metadata posttranslations translations">
+            <h3 class="posttranslations-intro">También disponible en:</h3>
+                <p><a href="../../../posts/graph_makeover/" rel="alternate" hreflang="en">English</a></p>
+        </div>
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p>En <a class="reference external" href="http://www.storytellingwithdata.com/">storytelling with data</a> tienen
+un reto mensual en visualización de datos llamado
+<a class="reference external" href="http://www.storytellingwithdata.com/swdchallenge/">#SWDchallenge</a>. La idea
+principal de los retos es poner a prueba las habilidades de visualización
+de datos y <em>storytelling</em> — contar historias atractivas
+para facilitar su entendimiento —.</p>
+<p>Cada mes el reto tiene un tópico diferente. Este
+<a class="reference external" href="http://www.storytellingwithdata.com/blog/2018/7/1/swdchallenge-your-choice-makeover">mes</a>
+el reto era mejorar un gráfico existente. Yo decidí tomar un gráfico hecho
+por mí que fue publicado en un
+<a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S1742706115002172">artículo</a>
+en 2015.</p>
+<div class="section" id="el-original">
+<h2>El "original"</h2>
+<p>El gráfico original con el que vamos a empezar es el siguiente.</p>
+<img alt="Gráfico original." class="align-center" src="../../../images/graph_makeover/energy_vs_D_orig.svg" style="width: 600px;"><p>Este no es el gráfico original en el artículo de 2015 pero sirve el propósito
+del reto. Los datos se pueden descargar
+<a class="reference external" href="../../../downloads/Energy_vs_D.csv">aquí</a>. Este grafico presenta la fracción
+de energía transmitida (<span class="math">\(\eta\)</span>) para un compuesto helicoidadl
+con diferentes parámetros geométricos. Los parámetros que se variaron
+fueron los siguientes:</p>
+<ul class="simple">
+<li><p>Ángulo de rotación <span class="math">\(\alpha\)</span>: el ángulo formado entre capas consecutivas;</p></li>
+<li><p>Grosor del compuesto <span class="math">\(D\)</span>, normalizdo por la longitud de onda
+<span class="math">\(\lambda\)</span>; y</p></li>
+<li><p>Número de capas <span class="math">\(N\)</span> en cada celda del compuesto.</p></li>
+</ul>
+<p>El siguiente esquema ilustra estos parámetros.</p>
+<img alt="Parámetros del compuesto helicoidal." class="align-center" src="../../../images/graph_makeover/coordinates_and_cells.png" style="width: 600px;"><p>Yo no diría que el gráfico es horrible, y, en comparación con lo que se
+encuentra en la literatura cientítica es incluso bueno. Pero … en tierra
+de ciegos, el tuerto es rey. Entonces, vamos a enumarara cada uno de los
+<em>pecados</em> del gráfico, y a corregirlos:</p>
+<ul class="simple">
+<li><p>Tiene dos ejes horizontales.</p></li>
+<li><p>La leyenda está encerrada en una recuadro que no es necesario.</p></li>
+<li><p>Los ejes de la derecha y la parte superior no contribuyen al gráfico.</p></li>
+<li><p>Las anotaciones están robando protagonismo a los datos.</p></li>
+<li><p>Se ve desordenado con las líneas y los marcadores.</p></li>
+<li><p>Es un <a class="reference external" href="http://www.storytellingwithdata.com/blog/2013/03/avoiding-spaghetti-graph">gráfico espagueti</a>.</p></li>
+</ul>
+<p>El siguiente código genera este gráfico.</p>
+<pre class="code python"><a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-2"></a><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-3"></a><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">rcParams</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-4"></a>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-5"></a><span class="n">rcParams</span><span class="p">[</span><span class="s1">'font.family'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'serif'</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-6"></a><span class="n">rcParams</span><span class="p">[</span><span class="s1">'font.size'</span><span class="p">]</span> <span class="o">=</span> <span class="mi">16</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-7"></a><span class="n">rcParams</span><span class="p">[</span><span class="s1">'legend.fontsize'</span><span class="p">]</span> <span class="o">=</span> <span class="mi">15</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-8"></a><span class="n">rcParams</span><span class="p">[</span><span class="s1">'mathtext.fontset'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'cm'</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-9"></a>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-10"></a><span class="n">markers</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'o'</span><span class="p">,</span> <span class="s1">'^'</span><span class="p">,</span> <span class="s1">'v'</span><span class="p">,</span> <span class="s1">'s'</span><span class="p">,</span> <span class="s1">'&lt;'</span><span class="p">,</span> <span class="s1">'&gt;'</span><span class="p">,</span> <span class="s1">'d'</span><span class="p">,</span> <span class="s1">'*'</span><span class="p">,</span> <span class="s1">'x'</span><span class="p">,</span> <span class="s1">'D'</span><span class="p">,</span> <span class="s1">'+'</span><span class="p">,</span> <span class="s1">'H'</span><span class="p">]</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-11"></a><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">"Energy_vs_D.csv"</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">","</span><span class="p">)</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-12"></a><span class="n">labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">"Energy_vs_D.csv"</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">","</span><span class="p">,</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-13"></a>                    <span class="n">usecols</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-14"></a><span class="n">labels</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-15"></a>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-16"></a><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-17"></a><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-18"></a><span class="k">for</span> <span class="n">cont</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-19"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span> <span class="n">cont</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="n">markers</span><span class="p">[</span><span class="n">cont</span><span class="p">],</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-20"></a>             <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">"$D/\lambda=</span><span class="si">{:.3g}</span><span class="s2">$"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">labels</span><span class="p">[</span><span class="n">cont</span><span class="p">]))</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-21"></a>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-22"></a><span class="c1"># First x-axis</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-23"></a><span class="n">xticks</span><span class="p">,</span> <span class="n">xlabels</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">()</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-24"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"Number of layers - $N$"</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-25"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"Fraction of Energy - $\eta$"</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-26"></a><span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">'center left'</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-27"></a>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-28"></a><span class="c1"># Second x-axis</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-29"></a><span class="n">ax2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">twiny</span><span class="p">()</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-30"></a><span class="n">ax2</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">xticks</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-31"></a><span class="n">ax2</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="mf">180.</span><span class="o">/</span><span class="n">xticks</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-32"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"Angle - $\alpha\ (^\circ)$"</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-33"></a>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-34"></a><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-35"></a><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">"energy_vs_D_orig.svg"</span><span class="p">)</span>
+<a name="rest_code_1c9f229695d646d8bb82a3cc575c4a11-36"></a><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">"energy_vs_D_orig.png"</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+</pre>
+</div>
+<div class="section" id="correcciones">
+<h2>Correcciones</h2>
+<p>Voy a reivindicar el gráfico un pecado a la vez, veamos cómo resulta.</p>
+<div class="section" id="tiene-dos-ejes-horizontales">
+<h3>Tiene dos ejes horizontales</h3>
+<p>Originalmente, agregue dos ejes horizontales para mostrar el número de
+capas y el ángulo de rotación al mismo tiempo. La recomendación general
+es evitar esto, así que vamos a deshacernos del eje superior.</p>
+<img alt="Primera iteración." class="align-center" src="../../../images/graph_makeover/energy_vs_D_1.svg" style="width: 600px;">
+</div>
+<div class="section" id="leyenda-en-un-recuadro">
+<h3>Leyenda en un recuadro</h3>
+<p>Es claro a qué se refiere …</p>
+<img alt="Segunda iteración." class="align-center" src="../../../images/graph_makeover/energy_vs_D_2.svg" style="width: 600px;">
+</div>
+<div class="section" id="ejes-a-la-derecha-y-arriba">
+<h3>Ejes a la derecha y arriba</h3>
+<p>Quítemoslos</p>
+<img alt="Tercera iteración." class="align-center" src="../../../images/graph_makeover/energy_vs_D_3.svg" style="width: 600px;">
+</div>
+<div class="section" id="las-anotaciones-estan-robando-protagonismo">
+<h3>Las anotaciones están robando protagonismo</h3>
+<p>Vamos a desplazar las anotaciones hacia el fondo cambiando el color del
+texto a un gris claro.</p>
+<img alt="Cuarta iteración." class="align-center" src="../../../images/graph_makeover/energy_vs_D_4.svg" style="width: 600px;">
+</div>
+<div class="section" id="lineas-y-marcadores">
+<h3>Líneas y marcadores</h3>
+<p>Conservemos únicamente las líneas.</p>
+<img alt="Quinta iteración." class="align-center" src="../../../images/graph_makeover/energy_vs_D_5.svg" style="width: 600px;"><p>E incrementemos su grosor.</p>
+<img alt="Sexta iteración." class="align-center" src="../../../images/graph_makeover/energy_vs_D_6.svg" style="width: 600px;">
+</div>
+<div class="section" id="es-un-grafico-espagueti">
+<h3>Es un gráfico espagueti</h3>
+<p>Creo que una buena opción para este gráfico sería resaltar una línea al
+tiempo. Haciendo esto, terminamos con el siguiente gráfico.</p>
+<img alt="Séptima iteración." class="align-center" src="../../../images/graph_makeover/energy_vs_D_7.svg" style="width: 600px;"><p>El siguiente bloque de código genera esta versión.</p>
+<pre class="code python"><a name="rest_code_0b5ac52887d243f690196574ca790ed9-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-2"></a><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-3"></a><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">rcParams</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-4"></a>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-5"></a><span class="c1"># Plots setup</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-6"></a><span class="n">gray</span> <span class="o">=</span> <span class="s1">'#757575'</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-7"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"mathtext.fontset"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"cm"</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-8"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"text.color"</span><span class="p">]</span> <span class="o">=</span> <span class="n">gray</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-9"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"xtick.color"</span><span class="p">]</span> <span class="o">=</span> <span class="n">gray</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-10"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"ytick.color"</span><span class="p">]</span> <span class="o">=</span> <span class="n">gray</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-11"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"axes.labelcolor"</span><span class="p">]</span> <span class="o">=</span> <span class="n">gray</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-12"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"axes.edgecolor"</span><span class="p">]</span> <span class="o">=</span> <span class="n">gray</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-13"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"axes.spines.right"</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-14"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"axes.spines.top"</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-15"></a><span class="n">rcParams</span><span class="p">[</span><span class="s1">'font.family'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'serif'</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-16"></a><span class="n">rcParams</span><span class="p">[</span><span class="s1">'mathtext.fontset'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'cm'</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-17"></a>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-18"></a>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-19"></a>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-20"></a><span class="k">def</span> <span class="nf">line_plots</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">highlight_line</span><span class="p">,</span> <span class="n">title</span><span class="p">):</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-21"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-22"></a>    <span class="k">for</span> <span class="n">cont</span><span class="p">,</span> <span class="n">datum</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">T</span><span class="p">):</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-23"></a>        <span class="k">if</span> <span class="n">cont</span> <span class="o">==</span> <span class="n">highlight_line</span><span class="p">:</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-24"></a>            <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">datum</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"#984ea3"</span><span class="p">,</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-25"></a>                     <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-26"></a>        <span class="k">else</span><span class="p">:</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-27"></a>            <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">datum</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">gray</span><span class="p">,</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-28"></a>                     <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-29"></a>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-30"></a>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-31"></a><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">"Energy_vs_D.csv"</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">","</span><span class="p">)</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-32"></a><span class="n">labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">"Energy_vs_D.csv"</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">","</span><span class="p">,</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-33"></a>                    <span class="n">usecols</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-34"></a><span class="n">labels</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-35"></a>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-36"></a><span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="s2">"all"</span><span class="p">)</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-37"></a><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-38"></a><span class="k">for</span> <span class="n">cont</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-39"></a>    <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">cont</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-40"></a>    <span class="n">title</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">"$D/\lambda=</span><span class="si">{:.3g}</span><span class="s2">$"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">labels</span><span class="p">[</span><span class="n">cont</span><span class="p">])</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-41"></a>    <span class="n">line_plots</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">cont</span><span class="p">,</span> <span class="n">title</span><span class="p">)</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-42"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-43"></a>    <span class="k">if</span> <span class="n">cont</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">:</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-44"></a>        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-45"></a>        <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_ticks</span><span class="p">([])</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-46"></a>        <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s2">"bottom"</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s2">"none"</span><span class="p">)</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-47"></a>    <span class="k">else</span><span class="p">:</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-48"></a>        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"Number of layers - $N$"</span><span class="p">)</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-49"></a>    <span class="k">if</span> <span class="n">cont</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-50"></a>        <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_ticks</span><span class="p">([])</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-51"></a>        <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s2">"left"</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s2">"none"</span><span class="p">)</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-52"></a>    <span class="k">else</span><span class="p">:</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-53"></a>        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"Fraction of Energy - $\eta$"</span><span class="p">)</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-54"></a>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-55"></a>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-56"></a><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-57"></a><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">"energy_vs_D_7.svg"</span><span class="p">)</span>
+<a name="rest_code_0b5ac52887d243f690196574ca790ed9-58"></a><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">"energy_vs_D_7.png"</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+</pre>
+</div>
+</div>
+<div class="section" id="ajustes-finales">
+<h2>Ajustes finales</h2>
+<p>Añadimos algunos detalles en Inkscape para terminar con la siguiente
+versión.</p>
+<img alt="Versión final." class="align-center" src="../../../images/graph_makeover/energy_vs_D_final.svg" style="width: 600px;">
+</div>
+<div class="section" id="lecturas-adicionales">
+<h2>Lecturas adicionales</h2>
+<ul class="simple">
+<li><p>Knaflic, Cole Nussbaumer. <a class="reference external" href="http://www.storytellingwithdata.com/book/">Storytelling with data: A data visualization guide for business professionals</a>.
+John Wiley &amp; Sons, 2015.</p></li>
+<li><p>Nicolás Guarín-Zapata et al. <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S1742706115002172">"Shear wave filtering in naturally-occurring Bouligand structures."</a>
+Acta biomaterialia 23 (2015): 11-20. Preprint: <a class="reference external" href="https://arxiv.org/pdf/1505.04203.pdf">https://arxiv.org/pdf/1505.04203.pdf</a></p></li>
+</ul>
+</div>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../../categories/articulos/" rel="tag">artículos</a></li>
+            <li><a class="tag p-category" href="../../categories/python/" rel="tag">python</a></li>
+            <li><a class="tag p-category" href="../../categories/visualizacion/" rel="tag">visualización</a></li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="previous">
+                <a href="../isometric_inkscape2/" rel="prev" title="Gráficos isométricos en Inkscape: Parte 2">Publicación anterior</a>
+            </li>
+            <li class="next">
+                <a href="../ortografia_jupyter/" rel="next" title="Revisión ortográfica en Jupyter Notebook">Siguiente publicación</a>
+            </li>
+        </ul></nav></aside><section class="comments hidden-print"><h2>Comentarios</h2>
+        
+        
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="nicoguaro-github",
+            disqus_url="https://nicoguaro.github.io/es/posts/graph_makeover/",
+        disqus_title="#SWDchallenge: Mejorando un gr\u00e1fico",
+        disqus_identifier="cache/posts/graph_makeover.html",
+        disqus_config = function () {
+            this.language = "es_ES";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
+        </script></article><script>var disqus_shortname="nicoguaro-github";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><footer id="footer"><p>Contents © 2021 <a href="mailto:nicoguarin@gmail.com">Nicolás Guarín-Zapata</a> - Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a> 
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+<img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png"></a></p>
+            
+        </footer>
+</div>
+    </div>
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+    
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-145359674-1', 'auto');
+ga('send', 'pageview');
+</script><script src="../../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+    moment.locale("es");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>

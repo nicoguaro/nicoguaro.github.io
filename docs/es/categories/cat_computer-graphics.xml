@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nicolás' blog (Publicaciones sobre Computer graphics)</title><link>https://nicoguaro.github.io/</link><description></description><atom:link href="https://nicoguaro.github.io/es/categories/cat_computer-graphics.xml" rel="self" type="application/rss+xml"></atom:link><language>es</language><copyright>Contents © 2021 &lt;a href="mailto:nicoguarin@gmail.com"&gt;Nicolás Guarín-Zapata&lt;/a&gt; 
+&lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
+&lt;img alt="Creative Commons License"
+style="border-width:0"
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Mon, 25 Jan 2021 21:54:31 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Gráficos isométricos en Inkscape: Parte 2</title><link>https://nicoguaro.github.io/es/posts/isometric_inkscape2/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;a class="reference external" href="https://nicoguaro.github.io/es/posts/isometric_inkscape"&gt;La semana pasada&lt;/a&gt; publiqué una guía rápida
+sobre dibujos isométricos dibujar usando &lt;a class="reference external" href="https://inkscape.org/en/"&gt;Inkscape&lt;/a&gt;.
+En ese post, mostré cómo obtener imágenes que se proyectan a las caras de
+un bloque isométrico.&lt;/p&gt;
+&lt;p&gt;Después de mi publicación, &lt;a class="reference external" href="https://twitter.com/parresianz"&gt;Biswajit Banerjee&lt;/a&gt;
+me preguntó en &lt;a class="reference external" href="https://twitter.com/parresianz/status/999787980658126848"&gt;Twitter&lt;/a&gt;
+si podría repetir el proceso con un ejemplo más complejo, y él sugirió
+el siguiente diagramaa&lt;/p&gt;
+&lt;img alt="Cálculo del momento de inercia para una viga." class="align-center" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Beam_moment_plain.svg/512px-Beam_moment_plain.svg.png"&gt;
+&lt;p&gt;que, creo, se creó en Inkscape usando la opción "Crear caja 3D".&lt;/p&gt;
+&lt;p&gt;En esta publicación, haré lo siguiente:&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;&lt;p&gt;Usar el mismo enfoque de la semana pasada para recrear este esquema.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Sugerir mi enfoque preferido para dibujar este esquema.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="section" id="primer-enfoque"&gt;
+&lt;h2&gt;Primer enfoque&lt;/h2&gt;
+&lt;p&gt;Repetiré el resumen de la semana pasada. Hay que tener en cuenta que
+Inkscape trata la rotación en sentido horario como positiva.&lt;/p&gt;
+&lt;img alt="Resumen para esquemas isométricos en Inkscape." class="align-center" src="https://nicoguaro.github.io/images/isometric_inkscape/isometric_instructions.svg" style="width: 500px;"&gt;
+&lt;p&gt;Luego, para crear una caja con las dimensiones deseadas, primero creamos
+cada rectángulo con las dimensiones correctas (en proyecciones paralelas).
+En el siguiente ejemplo, usamos caras con relaciones de aspecto 3:2,
+2:1 y 4:3. La caja de la derecha es la cifra obtenida después de aplicar
+las transformaciones descritas en el esquema anterior.&lt;/p&gt;
+&lt;img alt="Orthogonal views and final isometric figure" class="align-center" src="https://nicoguaro.github.io/images/isometric_inkscape/isometric_ex2.svg" style="width: 500px;"&gt;
+&lt;p&gt;Ahora podemos proceder, para recrear la figura deseada. No conozco las
+dimensiones exactas de la caja; supongo que la sección transversal era
+un cuadrado y la relación de aspecto era 5:1. Después de aplicar las
+transformaciones para cada rectángulo obtenemos lo siguiente
+(agregando algunos ajustes aquí y allá).&lt;/p&gt;
+&lt;img alt="Figura usando el enfoque descrito." class="align-center" src="https://nicoguaro.github.io/images/isometric_inkscape/isometric_beam.svg" style="width: 500px;"&gt;
+&lt;/div&gt;
+&lt;div class="section" id="segundo-enfoque"&gt;
+&lt;h2&gt;Segundo enfoque&lt;/h2&gt;
+&lt;p&gt;Para este tipo de esquema, preferiría crear una cuadrícula axonométrica
+(&lt;code class="docutils literal"&gt;Archivo &amp;gt; Propiedades de documento &amp;gt; Cuadrículas&lt;/code&gt;). Después de
+agregar la cuadrícula a nuestro lienzo es bastante sencillo dibujar las
+figuras en vista isométrica. El lienzo debe ser similar a la siguiente
+imagen.&lt;/p&gt;
+&lt;img alt="Segundo enfoque: usando una rejilla axonométrica." class="align-center" src="https://nicoguaro.github.io/images/isometric_inkscape/screenshot_inkscape.png" style="width: 500px;"&gt;
+&lt;p&gt;Luego podemos dibujar cada cara usando la cuadrícula. Si queremos ser
+más precisos podemos activar &lt;code class="docutils literal"&gt;Ajustar a nodos cúspides&lt;/code&gt;. La siguiente
+animación muestra la construcción paso a paso.&lt;/p&gt;
+&lt;img alt="Construcción del isométrico paso a paso." class="align-center" src="https://nicoguaro.github.io/images/isometric_inkscape/isometric_construction.gif" style="width: 500px;"&gt;
+&lt;p&gt;Y obtenemos la siguiente imagen.&lt;/p&gt;
+&lt;img alt="Figura usando el segundo enfoque." class="align-center" src="https://nicoguaro.github.io/images/isometric_inkscape/isometric_beam2.svg" style="width: 500px;"&gt;
+&lt;/div&gt;
+&lt;div class="section" id="conclusion"&gt;
+&lt;h2&gt;Conclusión&lt;/h2&gt;
+&lt;p&gt;Como mencioné, Inkscape se puede usar para dibujar figuras simples en
+proyección isométrica. Sin embargo, sugiero utilizar un CAD como
+&lt;a class="reference external" href="https://freecadweb.org/"&gt;FreeCAD&lt;/a&gt; para geometrías más complicadas.&lt;/p&gt;
+&lt;/div&gt;&lt;/div&gt;</description><category>gráficos por computador</category><category>inkscape</category><category>tutorial</category><guid>https://nicoguaro.github.io/es/posts/isometric_inkscape2/</guid><pubDate>Wed, 30 May 2018 17:40:57 GMT</pubDate></item><item><title>Gráficos isométricos en Inkscape</title><link>https://nicoguaro.github.io/es/posts/isometric_inkscape/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;A veces me encuentro en la necesidad de hacer un diagrama usando una
+&lt;a class="reference external" href="https://en.wikipedia.org/wiki/Isometric_projection"&gt;proyección isométrica&lt;/a&gt;.
+Cuando el diagrama es complicado la mejor opción es usar algún software de
+CAD como &lt;a class="reference external" href="https://freecadweb.org/"&gt;FreeCAD&lt;/a&gt;, pero a veces sólo se necesita
+un diagrama simple. Otra situación en la que esto es común
+es en &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Isometric_graphics_in_video_games_and_pixel_art"&gt;videojuegos&lt;/a&gt;,
+donde se el &lt;a class="reference external" href="https://youtu.be/toWMFcWB4HA"&gt;arte isométrico&lt;/a&gt; y
+&lt;a class="reference external" href="https://en.wikipedia.org/wiki/Pixel_art"&gt;arte pixelado&lt;/a&gt; son bastante comunes.&lt;/p&gt;
+&lt;p&gt;Lo que queremos se muestra en la siguiente figura.&lt;/p&gt;
+&lt;img alt="Ejemplo de isométrico." class="align-center" src="https://nicoguaro.github.io/images/isometric_inkscape/isometric_example.svg" style="width: 400px;"&gt;
+&lt;p&gt;Es decir, queremos comenzar con cierto dibujo, o
+escrito en el caso del ejemplo, y queremos saber cómo se
+vería en una de las caras de una bloque isométrico.&lt;/p&gt;
+&lt;p&gt;A continuación, describiré brevemente las transformaciones involucradas en este
+proceso. Si sólo está interesado en la receta para hacer esto en Inkscape, pase
+al final de este post.&lt;/p&gt;
+&lt;div class="section" id="transformaciones-involucradas"&gt;
+&lt;h2&gt;Transformaciones involucradas&lt;/h2&gt;
+&lt;p&gt;Como estamos trabajando en una pantalla de computador, estamos hablando de 2
+dimensiones. Por lo tanto, todas las transformaciones están representadas por
+matrices 2×2. En el ejemplo de interés en este post necesitamos las
+siguientes transformaciones:&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;&lt;p&gt;Escalado vertical&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Inclinación horizontal&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Rotación&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Las siguientes son las matrices de transformación.&lt;/p&gt;
+&lt;div class="section" id="escalado-en-la-direccion-vertical"&gt;
+&lt;h3&gt;Escalado en la dirección vertical&lt;/h3&gt;
+&lt;p&gt;La matriz está dada por&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+M_\text{scaling} = \begin{bmatrix} 1 &amp;amp;0\\ 0 &amp;amp;a\end{bmatrix}\, ,
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;donde &lt;span class="math"&gt;\(a\)&lt;/span&gt; es el factor de escalamiento.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="inclinacion-horizontal"&gt;
+&lt;h3&gt;Inclinación horizontal&lt;/h3&gt;
+&lt;p&gt;La matriz está dada por&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+M_\text{skew} = \begin{bmatrix} 1 &amp;amp;\tan a\\ 0 &amp;amp;1\end{bmatrix}\, ,
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;donde &lt;span class="math"&gt;\(a\)&lt;/span&gt; es el ángulo de inclinación.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="rotacion"&gt;
+&lt;h3&gt;Rotación&lt;/h3&gt;
+&lt;p&gt;La matriz está dada por&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+M_\text{rotation} = \begin{bmatrix} \cos a &amp;amp;-\sin a\\ \sin a &amp;amp;\cos a\end{bmatrix}\, ,
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;donde &lt;span class="math"&gt;\(a\)&lt;/span&gt; es el ángulo de rotación.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="transformacion-completa"&gt;
+&lt;h3&gt;Transformación completa&lt;/h3&gt;
+&lt;p&gt;La transformación completa está dada por&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+M_\text{complete} = M_\text{rotation} M_\text{skew} M_\text{scaling}\, ,
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;particularmente,&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{align*}
+&amp;amp;M_\text{side} =
+  \frac{1}{2}\begin{bmatrix} \sqrt{3} &amp;amp; 0\\ -1 &amp;amp;2\end{bmatrix}\approx
+  \begin{bmatrix} 0.866 &amp;amp; 0.000\\ -0.500 &amp;amp;1.000\end{bmatrix}\, , \\
+&amp;amp;M_\text{front} = \frac{1}{2}\begin{bmatrix} \sqrt{3} &amp;amp; 0\\ 1 &amp;amp;2\end{bmatrix}\approx
+  \begin{bmatrix} 0.866 &amp;amp; 0.000\\ 0.500 &amp;amp;1.000\end{bmatrix}\, , \\
+&amp;amp;M_\text{plant} = \frac{1}{2}\begin{bmatrix} \sqrt{3} &amp;amp; -\sqrt{3}\\ -1 &amp;amp;1\end{bmatrix}\approx
+  \begin{bmatrix} 0.866 &amp;amp; -0.866\\ 0.500 &amp;amp;0.500\end{bmatrix}\, .
+\end{align*}
+&lt;/div&gt;
+&lt;p&gt;Estos valores parecen un poco arbitrarios, pero pueden obtenerse de la
+&lt;a class="reference external" href="https://en.wikipedia.org/wiki/Isometric_projection#Mathematics"&gt;proyección isométrica&lt;/a&gt;
+misma. Pero esta explicación sería un poco larga para este post.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="tranformacion-en-inskcape"&gt;
+&lt;h3&gt;Tranformación en Inskcape&lt;/h3&gt;
+&lt;p&gt;Ya tenemos las matrices de transformación y podemos usarlas en Inkscape.
+Pero primero, necesitamos entender cómo funciona. Inkscape usa
+&lt;a class="reference external" href="https://en.wikipedia.org/wiki/Scalable_Vector_Graphics"&gt;SVG&lt;/a&gt;, el estándar
+web para gráficos vectoriales.
+&lt;a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/transform"&gt;Las transformaciones&lt;/a&gt;
+en SVG se realizan utilizando la siguiente matriz&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+\begin{bmatrix} a &amp;amp;c &amp;amp;e\\ b &amp;amp;d &amp;amp;f\\ 0 &amp;amp;0 &amp;amp;1\end{bmatrix}\, ,
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;que usa &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Homogeneous_coordinates"&gt;coordenadas homogéneas&lt;/a&gt;.
+Entonces, se puede presionar &lt;code class="docutils literal"&gt;Shift + Ctrl + M&lt;/code&gt; y digitar
+las componentes de las matrices que se obtuvieron anteriormente
+para &lt;span class="math"&gt;\(a\)&lt;/span&gt;, &lt;span class="math"&gt;\(b\)&lt;/span&gt;, &lt;span class="math"&gt;\(c\)&lt;/span&gt;, y &lt;span class="math"&gt;\(d\)&lt;/span&gt;; dejando
+&lt;span class="math"&gt;\(e\)&lt;/span&gt; y &lt;span class="math"&gt;\(f\)&lt;/span&gt; con el valor 0.&lt;/p&gt;
+&lt;p&gt;Sin embargo, mi método preferido es aplicar cada transformación después de
+otro en el cuadro de diálogo &lt;cite&gt;Transformar&lt;/cite&gt; (&lt;code class="docutils literal"&gt;Shift + Ctrl + M&lt;/code&gt;).
+Y este es el método presentado en el resumen al final de esta publicación.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="tl-dr"&gt;
+&lt;h2&gt;TL;DR&lt;/h2&gt;
+&lt;p&gt;Si solo está interesado en las transformaciones necesarias en Inkscape
+Puedes consultar el resumen a continuación. Utiliza el tercer cuadrante como se
+presenta abajo.&lt;/p&gt;
+&lt;img alt="Nombres para la representación en tercer cuadrante." class="align-center" src="https://nicoguaro.github.io/images/isometric_inkscape/third_angle.svg" style="width: 400px;"&gt;
+&lt;div class="section" id="resumen"&gt;
+&lt;h3&gt;Resumen&lt;/h3&gt;
+&lt;p&gt;Tenga en cuenta que Inkscape trata la rotación en sentido horario como
+positiva. Opuesto a la notación común en matemáticas.&lt;/p&gt;
+&lt;img alt="Resumen para diagramas isométricos en Inkscape." class="align-center" src="https://nicoguaro.github.io/images/isometric_inkscape/isometric_instructions.svg" style="width: 500px;"&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/div&gt;</description><category>álgebra lineal</category><category>gráficos por computador</category><category>inkscape</category><category>tutorial</category><guid>https://nicoguaro.github.io/es/posts/isometric_inkscape/</guid><pubDate>Thu, 24 May 2018 20:42:02 GMT</pubDate></item></channel></rss>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nicolás' blog (Posts about nodejs)</title><link>https://nicoguaro.github.io/</link><description></description><atom:link href="https://nicoguaro.github.io/categories/nodejs.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2021 &lt;a href="mailto:nicoguarin@gmail.com"&gt;Nicolás Guarín-Zapata&lt;/a&gt; 
+&lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
+&lt;img alt="Creative Commons License"
+style="border-width:0"
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Mon, 25 Jan 2021 21:54:25 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Downloading videos from MS Stream</title><link>https://nicoguaro.github.io/posts/download_stream/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;This week a student asked me about downloading the videos from one of the
+courses from MS Stream. The problem is that if you are not a proprietary
+of the video you cannot download it. So, I will show you an option to
+download videos without being a proprietary of them.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Disclaimer:&lt;/strong&gt; It might be a good idea if you ask your organization about
+the copyright of the videos.&lt;/p&gt;
+&lt;div class="section" id="prerequisites"&gt;
+&lt;h2&gt;Prerequisites&lt;/h2&gt;
+&lt;p&gt;You will need the following:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://git-scm.com/downloads"&gt;git&lt;/a&gt;;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://www.ffmpeg.org/download.html"&gt;ffmpeg&lt;/a&gt;; and&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://nodejs.org/en/download/"&gt;Node.js&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="destreamer-installation"&gt;
+&lt;h2&gt;&lt;code class="docutils literal"&gt;destreamer&lt;/code&gt; installation&lt;/h2&gt;
+&lt;p&gt;After getting the prerequisites you can download
+&lt;a class="reference external" href="https://github.com/snobu/destreamer"&gt;destreamer&lt;/a&gt; using&lt;/p&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_04e5f097668e4203a00352706a2cceee-1"&gt;&lt;/a&gt;$ git clone https://github.com/snobu/destreamer
+&lt;a name="rest_code_04e5f097668e4203a00352706a2cceee-2"&gt;&lt;/a&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; destreamer
+&lt;a name="rest_code_04e5f097668e4203a00352706a2cceee-3"&gt;&lt;/a&gt;$ npm install
+&lt;a name="rest_code_04e5f097668e4203a00352706a2cceee-4"&gt;&lt;/a&gt;$ npm run build
+&lt;/pre&gt;&lt;p&gt;in a terminal.&lt;/p&gt;
+&lt;p&gt;If you do not want to play with
+&lt;a class="reference external" href="https://en.wikipedia.org/wiki/Environment_variable"&gt;environment variables&lt;/a&gt;,
+I suggest that you just add &lt;code class="docutils literal"&gt;ffmpeg&lt;/code&gt; to the same folder as &lt;code class="docutils literal"&gt;destreamer&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="downloading"&gt;
+&lt;h2&gt;Downloading&lt;/h2&gt;
+&lt;p&gt;After that, you need to navigate to the folder where you downloaded
+&lt;code class="docutils literal"&gt;destreamer&lt;/code&gt; and&lt;/p&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_be4db93189224a01a7d5cf16ac2cca17-1"&gt;&lt;/a&gt;$ ./destreamer.sh -i &lt;span class="s2"&gt;"https://web.microsoftstream.com/video/VIDEO_ID"&lt;/span&gt;
+&lt;/pre&gt;&lt;p&gt;in Mac or Linux,&lt;/p&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_a623b9c46d67427aa593da7b180b0b49-1"&gt;&lt;/a&gt;$ destreamer.cmd -i &lt;span class="s2"&gt;"https://web.microsoftstream.com/video/VIDEO_ID"&lt;/span&gt;
+&lt;/pre&gt;&lt;p&gt;in the command prompt in Windows, and&lt;/p&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_985b6343575342fbafaaf72ddeb539a0-1"&gt;&lt;/a&gt;$ destreamer.ps1 -i &lt;span class="s2"&gt;"https://web.microsoftstream.com/video/VIDEO_ID"&lt;/span&gt;
+&lt;/pre&gt;&lt;p&gt;in PowerShell.``VIDEO_ID`` refers to the identifier in MS Stream.&lt;/p&gt;
+&lt;p&gt;If you want to download several files (like a complete course), you
+can create a file with the URLs and use&lt;/p&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_de2bd4de6a9e44f4b507c251ff400948-1"&gt;&lt;/a&gt;$ destreamer.cmd -f filename.txt
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</description><category>nodejs</category><category>tutorial</category><category>videos</category><guid>https://nicoguaro.github.io/posts/download_stream/</guid><pubDate>Fri, 12 Jun 2020 20:31:22 GMT</pubDate></item></channel></rss>

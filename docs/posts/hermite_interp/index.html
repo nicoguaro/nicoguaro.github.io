@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html prefix="" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Piecewise Hermite interpolation | Nicolás' blog</title>
+<link href="../../assets/css/all.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+<link rel="alternate" type="application/rss+xml" title="RSS (en)" href="../../rss.xml">
+<link rel="alternate" type="application/rss+xml" title="RSS (es)" href="../../es/rss.xml">
+<link rel="canonical" href="https://nicoguaro.github.io/posts/hermite_interp/">
+<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Nicolás Guarín-Zapata">
+<link rel="prev" href="../herramientas-investigacion/" title="Herramientas (auxiliares) para Investigación" type="text/html">
+<link rel="next" href="../matplotlib_styles/" title="Using style sheets with matplotlib" type="text/html">
+<meta property="og:site_name" content="Nicolás' blog">
+<meta property="og:title" content="Piecewise Hermite interpolation">
+<meta property="og:url" content="https://nicoguaro.github.io/posts/hermite_interp/">
+<meta property="og:description" content="In this post, we find the Hermite interpolation functions for the
+domain [-1, 1]. And then, we use it for a pieciwise interpolation. Notice
+that this interpolation has \(C^1\) continuity compared to t">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2017-06-22T16:24:44-05:00">
+<meta property="article:tag" content="approximation">
+<meta property="article:tag" content="finite elements">
+<meta property="article:tag" content="interpolation">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="sympy">
+<link rel="alternate" hreflang="es" href="../../es/posts/hermite_interp/">
+</head>
+<body>
+    <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+            styles, `#sidebar-checkbox` for behavior. -->
+    <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox"><!-- Toggleable sidebar --><div class="sidebar" id="sidebar">
+        <div class="sidebar-item">
+            <p>A reserved <a href="https://getnikola.com" target="_blank">Nikola</a> theme that places the utmost gravity on content with a hidden drawer. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a> for Jekyll,
+            ported to Nikola by <a href="https://twitter.com/ralsina" target="_blank">@ralsina</a>.</p>
+        </div>
+        
+    <nav id="menu" role="navigation" class="sidebar-nav"><a class="sidebar-nav-item" href="../../pages/about/">About</a>
+        <a class="sidebar-nav-item" href="../../index.html">Blog</a>
+        <a class="sidebar-nav-item" href="../../pages/preprints-archive/">Preprints</a>
+        <a class="sidebar-nav-item" href="../../pages/links/">Links</a>
+        <a class="sidebar-nav-item" href="../../archive.html">Archive</a>
+        <a class="sidebar-nav-item" href="../../categories/">Tags</a>
+        <a class="sidebar-nav-item" href="../../rss.xml">RSS feed</a>
+    
+    
+    </nav>
+</div>
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          
+    <h3 id="brand" class="masthead-title">
+      <a href="https://nicoguaro.github.io/" title="Nicolás' blog" rel="home">Nicolás' blog</a>
+    </h3>
+
+        </div>
+      </div>
+
+      <div class="container content" id="content">
+        
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="post-title p-name entry-title" itemprop="headline name"><a href="." class="u-url">Piecewise Hermite interpolation</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
+            <p class="dateline"><a href="." rel="bookmark"><time class="post-date published dt-published" datetime="2017-06-22T16:24:44-05:00" itemprop="datePublished" title="2017-06-22 16:24">2017-06-22 16:24</time></a></p>
+                <p class="commentline">
+        
+    <a href="#disqus_thread" data-disqus-identifier="cache/posts/hermite_interp.html">Comments</a>
+
+
+        </p>
+</div>
+        
+        <div class="metadata posttranslations translations">
+            <h3 class="posttranslations-intro">Also available in:</h3>
+                <p><a href="../../es/posts/hermite_interp/" rel="alternate" hreflang="es">Español</a></p>
+        </div>
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p>In this post, we find the Hermite interpolation functions for the
+domain [-1, 1]. And then, we use it for a pieciwise interpolation. Notice
+that this interpolation has <span class="math">\(C^1\)</span> continuity compared to the
+<span class="math">\(C^0\)</span> continuity that is common in Lagrange interpolation.</p>
+<p>To compute the polynomials explicitly we use <cite>sympy</cite>.</p>
+<pre class="code ipython2"><a name="rest_code_bb6ce217d7824fafa7bff74a549a03e9-1"></a><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
+<a name="rest_code_bb6ce217d7824fafa7bff74a549a03e9-2"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<a name="rest_code_bb6ce217d7824fafa7bff74a549a03e9-3"></a><span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sym</span>
+<a name="rest_code_bb6ce217d7824fafa7bff74a549a03e9-4"></a><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre>
+<p>We want to find a set of basis function that satisfy the following</p>
+<div class="math">
+\begin{align*}
+N_1(x_1) &amp;= 1\\
+N_1(x_2) &amp;= 0\\
+N_2(x_1) &amp;= 1\\
+N_2(x_2) &amp;= 0\\
+N'_3(x_1) &amp;= 1\\
+N'_3(x_2) &amp;= 0\\
+N'_4(x_1) &amp;= 1\\
+N'_4(x_2) &amp;= 0
+\end{align*}
+</div>
+<p>These can be written as</p>
+<div class="math">
+\begin{equation*}
+\begin{bmatrix}
+1 &amp;x_1 &amp;x_1^2 &amp;x_1^3\\
+1 &amp;x_2 &amp;x_2^2 &amp;x_2^3\\
+0 &amp;1 &amp;2x_1 &amp;3x_1^2\\
+0 &amp;1 &amp;2x_2 &amp;3x_2^2
+\end{bmatrix}
+\begin{bmatrix}
+a_{11} &amp;a_{12} &amp;a_{13} &amp;a_{14}\\
+a_{21} &amp;a_{22} &amp;a_{23} &amp;a_{24}\\
+a_{31} &amp;a_{32} &amp;a_{33} &amp;a_{34}\\
+a_{41} &amp;a_{42} &amp;a_{43} &amp;a_{44}
+\end{bmatrix} =
+\begin{bmatrix}
+1 &amp;0 &amp;0 &amp;0\\
+0 &amp;1 &amp;0 &amp;0\\
+0 &amp;0 &amp;1 &amp;0\\
+0 &amp;0 &amp;0 &amp;1
+\end{bmatrix}
+\end{equation*}
+</div>
+<p>The formula for interpolation would be</p>
+<div class="math">
+\begin{equation*}
+f(x) \approx N_1(x) u_1 + N_2(x) u_2 + |J|(N_3(x) u'_3 + N_4(x) u'_4)\quad \forall x\in [a, b]
+\end{equation*}
+</div>
+<p>with <span class="math">\(|J| = (b - a)/2\)</span> the Jacobian determinant of the
+transformation.</p>
+<pre class="code ipython2"><a name="rest_code_b5bcd16a3dd14ea1b1ab5d03ff26e592-1"></a><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s2">"x1 x2 x"</span><span class="p">)</span>
+<a name="rest_code_b5bcd16a3dd14ea1b1ab5d03ff26e592-2"></a><span class="n">V</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">Matrix</span><span class="p">([</span>
+<a name="rest_code_b5bcd16a3dd14ea1b1ab5d03ff26e592-3"></a>    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x1</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">x1</span><span class="o">**</span><span class="mi">3</span><span class="p">],</span>
+<a name="rest_code_b5bcd16a3dd14ea1b1ab5d03ff26e592-4"></a>    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">x2</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">x2</span><span class="o">**</span><span class="mi">3</span><span class="p">],</span>
+<a name="rest_code_b5bcd16a3dd14ea1b1ab5d03ff26e592-5"></a>    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">x1</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="n">x1</span><span class="o">**</span><span class="mi">2</span><span class="p">],</span>
+<a name="rest_code_b5bcd16a3dd14ea1b1ab5d03ff26e592-6"></a>    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">x2</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="n">x2</span><span class="o">**</span><span class="mi">2</span><span class="p">]])</span>
+<a name="rest_code_b5bcd16a3dd14ea1b1ab5d03ff26e592-7"></a><span class="n">V</span>
+</pre>
+<div class="math">
+\begin{equation*}
+\left[\begin{matrix}1 &amp; x_{1} &amp; x_{1}^{2} &amp; x_{1}^{3}\\
+1 &amp; x_{2} &amp; x_{2}^{2} &amp; x_{2}^{3}\\
+0 &amp; 1 &amp; 2 x_{1} &amp; 3 x_{1}^{2}\\
+0 &amp; 1 &amp; 2 x_{2} &amp; 3 x_{2}^{2}\end{matrix}\right]
+\end{equation*}
+</div>
+<p>We can see that the previous matrix is a  confluent Vandermonder matrix <a class="footnote-reference brackets" href="#id2" id="id1">1</a>.
+It is similar to a Vandermonde matrix for the first <span class="math">\(n\)</span> nodes
+and the derivatives of each row for the following ones.</p>
+<p>The coefficients for our polynomials are given by the inverse of this matrix.</p>
+<pre class="code ipython2"><a name="rest_code_8faae9cd3a33492e8ff9954d815f2ded-1"></a><span class="n">sym</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">V</span><span class="o">.</span><span class="n">inv</span><span class="p">())</span>
+</pre>
+<div class="math">
+\begin{equation*}
+\left[\begin{matrix}\frac{x_{2}^{2} \left(3 x_{1} - x_{2}\right)}{x_{1}^{3} - 3 x_{1}^{2} x_{2} + 3 x_{1} x_{2}^{2} - x_{2}^{3}} &amp; \frac{x_{1}^{2} \left(x_{1} - 3 x_{2}\right)}{x_{1}^{3} - 3 x_{1}^{2} x_{2} + 3 x_{1} x_{2}^{2} - x_{2}^{3}} &amp; - \frac{x_{1} x_{2}^{2}}{x_{1}^{2} - 2 x_{1} x_{2} + x_{2}^{2}} &amp; - \frac{x_{1}^{2} x_{2}}{x_{1}^{2} - 2 x_{1} x_{2} + x_{2}^{2}}\\- \frac{6 x_{1} x_{2}}{x_{1}^{3} - 3 x_{1}^{2} x_{2} + 3 x_{1} x_{2}^{2} - x_{2}^{3}} &amp; \frac{6 x_{1} x_{2}}{x_{1}^{3} - 3 x_{1}^{2} x_{2} + 3 x_{1} x_{2}^{2} - x_{2}^{3}} &amp; \frac{x_{2} \left(2 x_{1} + x_{2}\right)}{x_{1}^{2} - 2 x_{1} x_{2} + x_{2}^{2}} &amp; \frac{x_{1} \left(x_{1} + 2 x_{2}\right)}{x_{1}^{2} - 2 x_{1} x_{2} + x_{2}^{2}}\\\frac{3 x_{1} + 3 x_{2}}{x_{1}^{3} - 3 x_{1}^{2} x_{2} + 3 x_{1} x_{2}^{2} - x_{2}^{3}} &amp; - \frac{3 x_{1} + 3 x_{2}}{x_{1}^{3} - 3 x_{1}^{2} x_{2} + 3 x_{1} x_{2}^{2} - x_{2}^{3}} &amp; - \frac{x_{1} + 2 x_{2}}{x_{1}^{2} - 2 x_{1} x_{2} + x_{2}^{2}} &amp; - \frac{2 x_{1} + x_{2}}{x_{1}^{2} - 2 x_{1} x_{2} + x_{2}^{2}}\\- \frac{2}{x_{1}^{3} - 3 x_{1}^{2} x_{2} + 3 x_{1} x_{2}^{2} - x_{2}^{3}} &amp; \frac{2}{x_{1}^{3} - 3 x_{1}^{2} x_{2} + 3 x_{1} x_{2}^{2} - x_{2}^{3}} &amp; \frac{1}{x_{1}^{2} - 2 x_{1} x_{2} + x_{2}^{2}} &amp; \frac{1}{x_{1}^{2} - 2 x_{1} x_{2} + x_{2}^{2}}\end{matrix}\right]
+\end{equation*}
+</div>
+<p>And we replace the values for the extreme nodes, -1 and 1.</p>
+<pre class="code ipython2"><a name="rest_code_ef62b790f791427884152270be9848ac-1"></a><span class="n">V_inv</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">V</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">x1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">x2</span><span class="p">:</span><span class="mi">1</span><span class="p">})</span><span class="o">.</span><span class="n">inv</span><span class="p">())</span>
+<a name="rest_code_ef62b790f791427884152270be9848ac-2"></a><span class="n">V_inv</span>
+</pre>
+<div class="math">
+\begin{equation*}
+\left[\begin{matrix}\frac{1}{2} &amp; \frac{1}{2} &amp; \frac{1}{4} &amp; - \frac{1}{4}\\
+- \frac{3}{4} &amp; \frac{3}{4} &amp; - \frac{1}{4} &amp; - \frac{1}{4}\\
+0 &amp; 0 &amp; - \frac{1}{4} &amp; \frac{1}{4}\\
+\frac{1}{4} &amp; - \frac{1}{4} &amp; \frac{1}{4} &amp; \frac{1}{4}\end{matrix}\right]
+\end{equation*}
+</div>
+<p>The polynomials are the product of the coefficients and the monomials</p>
+<pre class="code ipython2"><a name="rest_code_0661af12519d4aa09c88c5705e08cd2b-1"></a><span class="n">sym</span><span class="o">.</span><span class="n">factor</span><span class="p">(</span><span class="n">V_inv</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> <span class="n">sym</span><span class="o">.</span><span class="n">Matrix</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">]))</span>
+</pre>
+<div class="math">
+\begin{equation*}
+\left[\begin{matrix}\frac{1}{4} \left(x - 1\right)^{2} \left(x + 2\right)\\- \frac{1}{4} \left(x - 2\right) \left(x + 1\right)^{2}\\\frac{1}{4} \left(x - 1\right)^{2} \left(x + 1\right)\\\frac{1}{4} \left(x - 1\right) \left(x + 1\right)^{2}\end{matrix}\right]
+\end{equation*}
+</div>
+<p>The interpolation basis would be</p>
+<div class="math">
+\begin{align*}
+N_1 (x) &amp;= \frac{1}{4} (x - 1)^2 (2 + x)\\
+N_2 (x) &amp;= \frac{1}{4} (x + 1)^2 (2 - x)\\
+N_3 (x) &amp;= \frac{1}{4} (x - 1)^2 (x + 1)\\
+N_4 (x) &amp;= \frac{1}{4} (x + 1)^2 (x - 1)\, ,
+\end{align*}
+</div>
+<p>and the following function computes the interpolation for a given
+function and derivative</p>
+<pre class="code ipython2"><a name="rest_code_ce3f401b48f04cd2a4ef0d697f321984-1"></a><span class="k">def</span> <span class="nf">hermite_interp</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="n">grad</span><span class="p">,</span> <span class="n">x0</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">x1</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">npts</span><span class="o">=</span><span class="mi">101</span><span class="p">):</span>
+<a name="rest_code_ce3f401b48f04cd2a4ef0d697f321984-2"></a>    <span class="n">jaco</span> <span class="o">=</span> <span class="p">(</span><span class="n">x1</span> <span class="o">-</span> <span class="n">x0</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+<a name="rest_code_ce3f401b48f04cd2a4ef0d697f321984-3"></a>    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">npts</span><span class="p">)</span>
+<a name="rest_code_ce3f401b48f04cd2a4ef0d697f321984-4"></a>    <span class="n">f1</span> <span class="o">=</span> <span class="n">fun</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span>
+<a name="rest_code_ce3f401b48f04cd2a4ef0d697f321984-5"></a>    <span class="n">f2</span> <span class="o">=</span> <span class="n">fun</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span>
+<a name="rest_code_ce3f401b48f04cd2a4ef0d697f321984-6"></a>    <span class="n">g1</span> <span class="o">=</span> <span class="n">grad</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span>
+<a name="rest_code_ce3f401b48f04cd2a4ef0d697f321984-7"></a>    <span class="n">g2</span> <span class="o">=</span> <span class="n">grad</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span>
+<a name="rest_code_ce3f401b48f04cd2a4ef0d697f321984-8"></a>    <span class="n">N1</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x</span><span class="p">)</span>
+<a name="rest_code_ce3f401b48f04cd2a4ef0d697f321984-9"></a>    <span class="n">N2</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span>
+<a name="rest_code_ce3f401b48f04cd2a4ef0d697f321984-10"></a>    <span class="n">N3</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<a name="rest_code_ce3f401b48f04cd2a4ef0d697f321984-11"></a>    <span class="n">N4</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<a name="rest_code_ce3f401b48f04cd2a4ef0d697f321984-12"></a>    <span class="n">interp</span> <span class="o">=</span> <span class="n">N1</span><span class="o">*</span><span class="n">f1</span> <span class="o">+</span> <span class="n">N2</span><span class="o">*</span><span class="n">f2</span> <span class="o">+</span> <span class="n">jaco</span><span class="o">*</span><span class="p">(</span><span class="n">N3</span><span class="o">*</span><span class="n">g1</span> <span class="o">+</span> <span class="n">N4</span><span class="o">*</span><span class="n">g2</span><span class="p">)</span>
+<a name="rest_code_ce3f401b48f04cd2a4ef0d697f321984-13"></a>    <span class="k">return</span> <span class="n">interp</span>
+</pre>
+<p>In this case, we interpolate the <code class="docutils literal">sinc</code> function</p>
+<pre class="code ipython2"><a name="rest_code_93d19f4d9358420f8a9c512f592c24d9-1"></a><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<a name="rest_code_93d19f4d9358420f8a9c512f592c24d9-2"></a>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+<a name="rest_code_93d19f4d9358420f8a9c512f592c24d9-3"></a>
+<a name="rest_code_93d19f4d9358420f8a9c512f592c24d9-4"></a>
+<a name="rest_code_93d19f4d9358420f8a9c512f592c24d9-5"></a><span class="k">def</span> <span class="nf">grad</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<a name="rest_code_93d19f4d9358420f8a9c512f592c24d9-6"></a>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">x</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre>
+<p>The following snippet compute the interpolation and plot it.</p>
+<pre class="code ipython2"><a name="rest_code_ea1871ec3ba143edbcd6a8b35a79c967-1"></a><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
+<a name="rest_code_ea1871ec3ba143edbcd6a8b35a79c967-2"></a><span class="n">b</span> <span class="o">=</span> <span class="mi">5</span>
+<a name="rest_code_ea1871ec3ba143edbcd6a8b35a79c967-3"></a><span class="n">nels</span> <span class="o">=</span> <span class="mi">7</span>
+<a name="rest_code_ea1871ec3ba143edbcd6a8b35a79c967-4"></a><span class="n">npts</span> <span class="o">=</span> <span class="mi">200</span>
+<a name="rest_code_ea1871ec3ba143edbcd6a8b35a79c967-5"></a><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">npts</span><span class="p">)</span>
+<a name="rest_code_ea1871ec3ba143edbcd6a8b35a79c967-6"></a><span class="n">y</span> <span class="o">=</span> <span class="n">fun</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a name="rest_code_ea1871ec3ba143edbcd6a8b35a79c967-7"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"black"</span><span class="p">)</span>
+<a name="rest_code_ea1871ec3ba143edbcd6a8b35a79c967-8"></a><span class="n">xi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="n">nels</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<a name="rest_code_ea1871ec3ba143edbcd6a8b35a79c967-9"></a><span class="n">dx</span> <span class="o">=</span> <span class="n">xi</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">xi</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<a name="rest_code_ea1871ec3ba143edbcd6a8b35a79c967-10"></a><span class="k">for</span> <span class="n">x0</span> <span class="ow">in</span> <span class="n">xi</span><span class="p">:</span>
+<a name="rest_code_ea1871ec3ba143edbcd6a8b35a79c967-11"></a>    <span class="n">x1</span> <span class="o">=</span> <span class="n">x0</span> <span class="o">+</span> <span class="n">dx</span>
+<a name="rest_code_ea1871ec3ba143edbcd6a8b35a79c967-12"></a>    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">npts</span><span class="p">)</span>
+<a name="rest_code_ea1871ec3ba143edbcd6a8b35a79c967-13"></a>    <span class="n">y</span> <span class="o">=</span> <span class="n">hermite_interp</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="n">grad</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="o">=</span><span class="n">x1</span><span class="p">,</span> <span class="n">npts</span><span class="o">=</span><span class="n">npts</span><span class="p">)</span>
+<a name="rest_code_ea1871ec3ba143edbcd6a8b35a79c967-14"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">"dashed"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"#4daf4a"</span><span class="p">)</span>
+<a name="rest_code_ea1871ec3ba143edbcd6a8b35a79c967-15"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]],</span> <span class="p">[</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">"o"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"#4daf4a"</span><span class="p">,</span>
+<a name="rest_code_ea1871ec3ba143edbcd6a8b35a79c967-16"></a>         <span class="n">linewidth</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<a name="rest_code_ea1871ec3ba143edbcd6a8b35a79c967-17"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"x"</span><span class="p">)</span>
+<a name="rest_code_ea1871ec3ba143edbcd6a8b35a79c967-18"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"y"</span><span class="p">)</span>
+<a name="rest_code_ea1871ec3ba143edbcd6a8b35a79c967-19"></a><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">"Exact function"</span><span class="p">,</span> <span class="s2">"Interpolation"</span><span class="p">])</span>
+<a name="rest_code_ea1871ec3ba143edbcd6a8b35a79c967-20"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre>
+<img alt="/images/sinc_interp.svg" src="../../images/sinc_interp.svg"><div class="section" id="references">
+<h2>References</h2>
+<dl class="footnote brackets">
+<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd>
+<p>Walter Gautschi (1962). On inverses of Vandermonde
+and confluent Vandermonde matrices. Numerische Mathematik, 4
+117-123.</p>
+</dd>
+</dl>
+</div>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../../categories/approximation/" rel="tag">approximation</a></li>
+            <li><a class="tag p-category" href="../../categories/finite-elements/" rel="tag">finite elements</a></li>
+            <li><a class="tag p-category" href="../../categories/interpolation/" rel="tag">interpolation</a></li>
+            <li><a class="tag p-category" href="../../categories/python/" rel="tag">python</a></li>
+            <li><a class="tag p-category" href="../../categories/sympy/" rel="tag">sympy</a></li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="previous">
+                <a href="../herramientas-investigacion/" rel="prev" title="Herramientas (auxiliares) para Investigación">Previous post</a>
+            </li>
+            <li class="next">
+                <a href="../matplotlib_styles/" rel="next" title="Using style sheets with matplotlib">Next post</a>
+            </li>
+        </ul></nav></aside><section class="comments hidden-print"><h2>Comments</h2>
+        
+        
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="nicoguaro-github",
+            disqus_url="https://nicoguaro.github.io/posts/hermite_interp/",
+        disqus_title="Piecewise Hermite interpolation",
+        disqus_identifier="cache/posts/hermite_interp.html",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
+        </script></article><script>var disqus_shortname="nicoguaro-github";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><footer id="footer"><p>Contents © 2021 <a href="mailto:nicoguarin@gmail.com">Nicolás Guarín-Zapata</a> - Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a> 
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+<img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png"></a></p>
+            
+        </footer>
+</div>
+    </div>
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+    
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-145359674-1', 'auto');
+ga('send', 'pageview');
+</script><script src="../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>

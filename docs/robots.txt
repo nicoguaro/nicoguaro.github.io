@@ -1,0 +1,4 @@
+Sitemap: https://nicoguaro.github.io/sitemapindex.xml
+
+User-Agent: *
+Host: nicoguaro.github.io

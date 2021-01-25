@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html prefix="" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="How to make isometric drawings using Inkscape.">
+<meta name="viewport" content="width=device-width">
+<title>Isometric graphics in Inkscape | Nicolás' blog</title>
+<link href="../../assets/css/all.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+<link rel="alternate" type="application/rss+xml" title="RSS (en)" href="../../rss.xml">
+<link rel="alternate" type="application/rss+xml" title="RSS (es)" href="../../es/rss.xml">
+<link rel="canonical" href="https://nicoguaro.github.io/posts/isometric_inkscape/">
+<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Nicolás Guarín-Zapata">
+<link rel="prev" href="../infinite_fdm/" title="Finite differences in infinite domains" type="text/html">
+<link rel="next" href="../isometric_inkscape2/" title="Isometric graphics in Inkscape: Part 2" type="text/html">
+<meta property="og:site_name" content="Nicolás' blog">
+<meta property="og:title" content="Isometric graphics in Inkscape">
+<meta property="og:url" content="https://nicoguaro.github.io/posts/isometric_inkscape/">
+<meta property="og:description" content="How to make isometric drawings using Inkscape.">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2018-05-24T15:42:02-05:00">
+<meta property="article:tag" content="computer graphics">
+<meta property="article:tag" content="inkscape">
+<meta property="article:tag" content="linear algebra">
+<meta property="article:tag" content="tutorial">
+<link rel="alternate" hreflang="es" href="../../es/posts/isometric_inkscape/">
+</head>
+<body>
+    <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+            styles, `#sidebar-checkbox` for behavior. -->
+    <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox"><!-- Toggleable sidebar --><div class="sidebar" id="sidebar">
+        <div class="sidebar-item">
+            <p>A reserved <a href="https://getnikola.com" target="_blank">Nikola</a> theme that places the utmost gravity on content with a hidden drawer. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a> for Jekyll,
+            ported to Nikola by <a href="https://twitter.com/ralsina" target="_blank">@ralsina</a>.</p>
+        </div>
+        
+    <nav id="menu" role="navigation" class="sidebar-nav"><a class="sidebar-nav-item" href="../../pages/about/">About</a>
+        <a class="sidebar-nav-item" href="../../index.html">Blog</a>
+        <a class="sidebar-nav-item" href="../../pages/preprints-archive/">Preprints</a>
+        <a class="sidebar-nav-item" href="../../pages/links/">Links</a>
+        <a class="sidebar-nav-item" href="../../archive.html">Archive</a>
+        <a class="sidebar-nav-item" href="../../categories/">Tags</a>
+        <a class="sidebar-nav-item" href="../../rss.xml">RSS feed</a>
+    
+    
+    </nav>
+</div>
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          
+    <h3 id="brand" class="masthead-title">
+      <a href="https://nicoguaro.github.io/" title="Nicolás' blog" rel="home">Nicolás' blog</a>
+    </h3>
+
+        </div>
+      </div>
+
+      <div class="container content" id="content">
+        
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="post-title p-name entry-title" itemprop="headline name"><a href="." class="u-url">Isometric graphics in Inkscape</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
+            <p class="dateline"><a href="." rel="bookmark"><time class="post-date published dt-published" datetime="2018-05-24T15:42:02-05:00" itemprop="datePublished" title="2018-05-24 15:42">2018-05-24 15:42</time></a></p>
+                <p class="commentline">
+        
+    <a href="#disqus_thread" data-disqus-identifier="cache/posts/isometric_inkscape.html">Comments</a>
+
+
+                <meta name="description" itemprop="description" content="How to make isometric drawings using Inkscape."></p>
+</div>
+        
+        <div class="metadata posttranslations translations">
+            <h3 class="posttranslations-intro">Also available in:</h3>
+                <p><a href="../../es/posts/isometric_inkscape/" rel="alternate" hreflang="es">Español</a></p>
+        </div>
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p>Sometimes I find myself in need of making a schematic using an
+<a class="reference external" href="https://en.wikipedia.org/wiki/Isometric_projection">isometric projection</a>.
+When the schematic is complicated the best shot is to use some
+CAD like <a class="reference external" href="https://freecadweb.org/">FreeCAD</a>, but sometimes it's just
+needed in simple diagrams. Another situation where this is a common needed
+is in <a class="reference external" href="https://en.wikipedia.org/wiki/Isometric_graphics_in_video_games_and_pixel_art">video games</a>,
+where <a class="reference external" href="https://youtu.be/toWMFcWB4HA">"isometric art"</a> and
+<a class="reference external" href="https://en.wikipedia.org/wiki/Pixel_art">pixel art</a> are pretty common.</p>
+<p>What we want is depicted in the following figure.</p>
+<img alt="Views names in third angle representation" class="align-center" src="../../images/isometric_inkscape/isometric_example.svg" style="width: 400px;"><p>That is, we want to start with some information that is drawn, or
+written in the case of the example, and we want to obtain how would it
+been seen on one of the faces of an isometric box.</p>
+<p>Following, I will describe briefly the transformations involved in this process.
+If you are just interested in the recipe for doing this in Inkscape, skip to
+the end of this post.</p>
+<div class="section" id="transformations-involved">
+<h2>Transformations involved</h2>
+<p>Since we are working on a computer screen, we are talking of 2 dimensions.
+Hence, all transformations are represented by 2×2 matrices. In the particular
+example of interest in this post we need the following transformations:</p>
+<ol class="arabic simple">
+<li><p>Vertical scaling</p></li>
+<li><p>Horizontal skew</p></li>
+<li><p>Rotation</p></li>
+</ol>
+<p>Following are the transformation matrices.</p>
+<div class="section" id="scaling-in-the-vertical-direction">
+<h3>Scaling in the vertical direction</h3>
+<p>The matrix is given by</p>
+<div class="math">
+\begin{equation*}
+M_\text{scaling} = \begin{bmatrix} 1 &amp;0\\ 0 &amp;a\end{bmatrix}\, ,
+\end{equation*}
+</div>
+<p>where <span class="math">\(a\)</span> is the scaling factor.</p>
+</div>
+<div class="section" id="horizontal-skew">
+<h3>Horizontal skew</h3>
+<p>The matrix is given by</p>
+<div class="math">
+\begin{equation*}
+M_\text{skew} = \begin{bmatrix} 1 &amp;\tan a\\ 0 &amp;1\end{bmatrix}\, ,
+\end{equation*}
+</div>
+<p>where <span class="math">\(a\)</span> is the skewing angle.</p>
+</div>
+<div class="section" id="rotation">
+<h3>Rotation</h3>
+<p>The matrix is given by</p>
+<div class="math">
+\begin{equation*}
+M_\text{rotation} = \begin{bmatrix} \cos a &amp;-\sin a\\ \sin a &amp;\cos a\end{bmatrix}\, ,
+\end{equation*}
+</div>
+<p>where <span class="math">\(a\)</span> is the rotation angle.</p>
+</div>
+<div class="section" id="complete-transformation">
+<h3>Complete transformation</h3>
+<p>The complete transformation is given by</p>
+<div class="math">
+\begin{equation*}
+M_\text{complete} = M_\text{rotation} M_\text{skew} M_\text{scaling}\, ,
+\end{equation*}
+</div>
+<p>particularly,</p>
+<div class="math">
+\begin{align*}
+&amp;M_\text{side} =
+  \frac{1}{2}\begin{bmatrix} \sqrt{3} &amp; 0\\ -1 &amp;2\end{bmatrix}\approx
+  \begin{bmatrix} 0.866 &amp; 0.000\\ -0.500 &amp;1.000\end{bmatrix}\, , \\
+&amp;M_\text{front} = \frac{1}{2}\begin{bmatrix} \sqrt{3} &amp; 0\\ 1 &amp;2\end{bmatrix}\approx
+  \begin{bmatrix} 0.866 &amp; 0.000\\ 0.500 &amp;1.000\end{bmatrix}\, , \\
+&amp;M_\text{plant} = \frac{1}{2}\begin{bmatrix} \sqrt{3} &amp; -\sqrt{3}\\ -1 &amp;1\end{bmatrix}\approx
+  \begin{bmatrix} 0.866 &amp; -0.866\\ 0.500 &amp;0.500\end{bmatrix}\, .
+\end{align*}
+</div>
+<p>The values seem a bit arbitrary, but they can be obtained from the
+<a class="reference external" href="https://en.wikipedia.org/wiki/Isometric_projection#Mathematics">isometric projection</a>
+itself. But that explanation would be a bit too long for this post.</p>
+</div>
+<div class="section" id="tranformation-in-inkscape">
+<h3>Tranformation in Inkscape</h3>
+<p>We already have the transformation matrices and we can use them in Inkscape.
+But first, we need to understand how it works. Inkscape uses
+<a class="reference external" href="https://en.wikipedia.org/wiki/Scalable_Vector_Graphics">SVG</a>, the web
+standard for vector graphics. <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/transform">Transformations</a> in SVG are done using the following
+matrix</p>
+<div class="math">
+\begin{equation*}
+\begin{bmatrix} a &amp;c &amp;e\\ b &amp;d &amp;f\\ 0 &amp;0 &amp;1\end{bmatrix}\, ,
+\end{equation*}
+</div>
+<p>that uses <a class="reference external" href="https://en.wikipedia.org/wiki/Homogeneous_coordinates">homogeneous coordinates</a>. So, one can just press <code class="docutils literal">Shift + Ctrl + M</code>
+and type the components of the matrices obtained above for
+<span class="math">\(a\)</span>, <span class="math">\(b\)</span>, <span class="math">\(c\)</span>, and <span class="math">\(d\)</span>; leaving
+<span class="math">\(e\)</span> and <span class="math">\(f\)</span> as zero.</p>
+<p>My preferred method, though, is to apply each transformation after the
+other in the <cite>Transform</cite> dialog (<code class="docutils literal">Shift + Ctrl + M</code>). And, this is the
+method presented in the cheatsheet at the bottom of this post.</p>
+</div>
+</div>
+<div class="section" id="tl-dr">
+<h2>TL;DR</h2>
+<p>If you are just interested in the transformations needed in Inkscape
+you can check the cheatsheet below. It uses third-angle as presented
+below.</p>
+<img alt="Views names in third angle representation" class="align-center" src="../../images/isometric_inkscape/third_angle.svg" style="width: 400px;"><div class="section" id="cheatsheet">
+<h3>Cheatsheet</h3>
+<p>Keep in mind that Inkscape treats clockwise rotation as positive. Opposite
+to common notation in mathematics.</p>
+<img alt="Cheatsheet for isometric schematics in Inkscape" class="align-center" src="../../images/isometric_inkscape/isometric_instructions.svg" style="width: 500px;">
+</div>
+</div>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../../categories/computer-graphics/" rel="tag">computer graphics</a></li>
+            <li><a class="tag p-category" href="../../categories/inkscape/" rel="tag">inkscape</a></li>
+            <li><a class="tag p-category" href="../../categories/linear-algebra/" rel="tag">linear algebra</a></li>
+            <li><a class="tag p-category" href="../../categories/tutorial/" rel="tag">tutorial</a></li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="previous">
+                <a href="../infinite_fdm/" rel="prev" title="Finite differences in infinite domains">Previous post</a>
+            </li>
+            <li class="next">
+                <a href="../isometric_inkscape2/" rel="next" title="Isometric graphics in Inkscape: Part 2">Next post</a>
+            </li>
+        </ul></nav></aside><section class="comments hidden-print"><h2>Comments</h2>
+        
+        
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="nicoguaro-github",
+            disqus_url="https://nicoguaro.github.io/posts/isometric_inkscape/",
+        disqus_title="Isometric graphics in Inkscape",
+        disqus_identifier="cache/posts/isometric_inkscape.html",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
+        </script></article><script>var disqus_shortname="nicoguaro-github";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><footer id="footer"><p>Contents © 2021 <a href="mailto:nicoguarin@gmail.com">Nicolás Guarín-Zapata</a> - Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a> 
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+<img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png"></a></p>
+            
+        </footer>
+</div>
+    </div>
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+    
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-145359674-1', 'auto');
+ga('send', 'pageview');
+</script><script src="../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>
