@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nicolás' blog (Posts about variational methods)</title><link>https://nicoguaro.github.io/</link><description></description><atom:link href="https://nicoguaro.github.io/categories/variational-methods.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2021 &lt;a href="mailto:nicoguarin@gmail.com"&gt;Nicolás Guarín-Zapata&lt;/a&gt; 
+&lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
+&lt;img alt="Creative Commons License"
+style="border-width:0"
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Mon, 25 Jan 2021 21:54:24 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Solution of the Schrödinger equation using Ritz method</title><link>https://nicoguaro.github.io/posts/hermite_ritz_qm/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;In this post, we describe the solution of the Schrödinger equation
+using the Ritz method and
+&lt;a class="reference external" href="https://en.wikipedia.org/wiki/Hermite_polynomials#Hermite_functions"&gt;Hermite functions&lt;/a&gt;
+basis. This basis seems to be a good choice for the 1D Schrödinger equation
+since its an orthogonal basis over &lt;span class="math"&gt;\((-\infty, \infty)\)&lt;/span&gt;.&lt;/p&gt;
+&lt;div class="section" id="transforming-the-equation-to-an-algebraic-one"&gt;
+&lt;h2&gt;Transforming the equation to an algebraic one&lt;/h2&gt;
+&lt;p&gt;We want so solve the time-independent
+&lt;a class="reference external" href="https://en.wikipedia.org/wiki/Schr%C3%B6dinger_equation"&gt;Schrödinger equation&lt;/a&gt;&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+\left[-\frac{1}{2}\nabla^2 + V(x)\right] \psi = E\psi\, ,
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;where we are using
+&lt;a class="reference external" href="https://en.wikipedia.org/wiki/Natural_units"&gt;natural units&lt;/a&gt;
+since they are a good choice for numeric calculations.&lt;/p&gt;
+&lt;p&gt;Solving this equation is equivalent to solve the following
+variational equation&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+\delta \Pi[\psi] = 0\, ,
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;with&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+\Pi[\psi] = \frac{1}{2} \langle \nabla \psi, \nabla\psi\rangle +
+              \langle \psi, V(x) \psi\rangle -
+               E\langle \psi, \psi\rangle \, ,
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;being &lt;span class="math"&gt;\(\psi\)&lt;/span&gt; the wave function, &lt;span class="math"&gt;\(V(x)\)&lt;/span&gt; the potential and
+&lt;span class="math"&gt;\(E\)&lt;/span&gt; the energy. This variational formulation is equivalent to the
+time-independent Schrödinger equation, and &lt;span class="math"&gt;\(E\)&lt;/span&gt; works as a Lagrange
+multiplier to enforce that the probability over the whole domain is 1.&lt;/p&gt;
+&lt;p&gt;We can expand the wave function in an orthonormal basis, namely&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+\psi = \sum_{n=0}^N c_n u_n(x)\, ,
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;where &lt;span class="math"&gt;\(u_n(x) \equiv \mu_n H_n(x) e^{-x^2/2}\)&lt;/span&gt; is a normalized
+Hermite function, &lt;span class="math"&gt;\(\mu_n\)&lt;/span&gt; is the inverse of magnitude of the
+:math:&lt;a href="https://nicoguaro.github.io/posts/hermite_ritz_qm/#id1"&gt;&lt;span class="problematic" id="id2"&gt;`&lt;/span&gt;&lt;/a&gt;n`th Hermite polynomial&lt;/p&gt;
+&lt;div class="system-message" id="id1"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;span class="docutils literal"&gt;&amp;lt;string&amp;gt;&lt;/span&gt;, line 46); &lt;em&gt;&lt;a href="https://nicoguaro.github.io/posts/hermite_ritz_qm/#id2"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Inline interpreted text or phrase reference start-string without end-string.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+\mu_n = \frac{1}{\sqrt{\pi^{1/2} n! 2^n}}\, ,
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;and &lt;span class="math"&gt;\(c_n\)&lt;/span&gt; are the coefficients of the expansion. This
+representation is exact in the limit &lt;span class="math"&gt;\(N \rightarrow \infty\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;If we replace the expansion in the functional, we obtain&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+\Pi_N = \sum_{m=0}^N\sum_{n=0}^N c_m c_n\left[
+          \frac{1}{2} \langle \nabla u_m, \nabla u_n\rangle +
+          \langle u_m, V(x) u_n\rangle -
+          E^N \delta_{mn}\right]\, .
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;The integrand of the integral involving the two derivatives reads&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{align*}
+u_m' u_n' =&amp;amp; \left[2m \frac{\mu_{m-1}}{\mu_m}u_{m-1} - x u_m\right]
+            \left[2n \frac{\mu_{n-1}}{\mu_n}u_{n-1} - x u_n\right]\\
+          =&amp;amp; 4mn\frac{\mu_{m-1} \mu_{n-1}}{\mu_m \mu_n} u_{n-1} u_{m-1}
+           - 2m\frac{\mu_{m-1}}{\mu_{m}}x u_{m-1} u_n\\
+           &amp;amp;- 2n\frac{\mu_{n-1}}{\mu_{n}}x u_{n-1} u_m + x^2 u_m u_n
+\end{align*}
+&lt;/div&gt;
+&lt;p&gt;Thus, the kinetic energy term reads&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{align*}
+\langle \nabla u_m, \nabla u_n \rangle =&amp;amp;
+    4mn\frac{\mu_{m-1} \mu_{n-1}}{\mu_m \mu_n} \langle u_{n-1}, u_{m-1}\rangle
+    - 2m\frac{\mu_{m-1}}{\mu_{m}} \langle u_{m-1}, x u_n\rangle\\
+    &amp;amp;- 2n\frac{\mu_{n-1}}{\mu_{n}} \langle u_{m}, x u_{n - 1}\rangle
+     + \langle u_m, x^2 u_n\rangle\\
+    =&amp;amp; 4mn \frac{\mu_{m-1}^2}{\mu_m^2}\delta_{mn} -
+      2m \frac{\mu_{m-1}}{\mu_m} \alpha_{m-1, n} -
+      2n \frac{\mu_{n-1}}{\mu_n} \alpha_{m, n-1} + \beta_{mn} \, ,
+\end{align*}
+&lt;/div&gt;
+&lt;p&gt;with&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+\alpha_{m,n} \equiv \langle u_{m}, x u_n\rangle = \begin{cases}
+\sqrt{\frac{n + 1}{2}} &amp;amp; m=n +1\\
+\sqrt{\frac{n}{2}} &amp;amp; m=n - 1\\
+0 &amp;amp; \text{otherwise}\end{cases}\, ,
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;and&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+\beta_{m,n} \equiv \langle u_{m}, x^2 u_n\rangle = \begin{cases}
+\frac{\sqrt{n(n-1)}}{2} &amp;amp; m = n - 2\\
+\frac{2n + 1}{2} &amp;amp; m = n \\
+\frac{\sqrt{(n+1)(n+1)}}{2} &amp;amp; m = n + 2 \\
+0 &amp;amp; \text{otherwise}\end{cases}\, .
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;The functional is rewritten as&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{align*}
+\Pi_N =&amp;amp; \sum_{m=0}^N \sum_{n=0}^N c_m c_n
+  \left[2mn \frac{\mu^2_{m-1}}{\mu^2_m}\delta_{mn}
+  - m\frac{\mu_{m-1}}{\mu_m}\alpha_{m - 1, n}
+  - n\frac{\mu_{n-1}}{\mu_n}\delta_{m, n-1} \right.\nonumber \\
+  &amp;amp;\left. - \frac{1}{2}\beta_{mn} + \langle u_m, V(x) u_n\rangle
+  - E^N \delta_{mn}\right] \, .
+\end{align*}
+&lt;/div&gt;
+&lt;p&gt;Taking the variation&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+\delta \Pi_N = 0\, ,
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;that in this case is equivalent to&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+\frac{\partial \Pi_N}{\partial c_i} = 0\quad \forall i=0, 1, \cdots N\, ,
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;yields to&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+[H]\lbrace c\rbrace = E^N\lbrace c\rbrace \, ,
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;where the components of the matrix &lt;span class="math"&gt;\([H]\)&lt;/span&gt; are given by&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+H_{mn} = 2mn \frac{\mu^2_{m-1}}{\mu^2_m}\delta_{mn}
+  - m\frac{\mu_{m-1}}{\mu_m}\alpha_{m - 1, n}
+  - n\frac{\mu_{n-1}}{\mu_n}\delta_{m, n-1}
+  - \frac{1}{2}\beta_{mn} + \langle u_m, V(x) u_n\rangle\, .
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;The last integral can be computed using
+&lt;a class="reference external" href="https://en.wikipedia.org/wiki/Gauss%E2%80%93Hermite_quadrature"&gt;Gauss-Hermite quadrature&lt;/a&gt;.
+And we will need more Gauss points if we want to integrate higher-order
+polynomials. This method would work fine for functions that can be
+approximated by polynomials.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="examples"&gt;
+&lt;h2&gt;Examples&lt;/h2&gt;
+&lt;p&gt;A Python implementation of this method is presented in
+&lt;a class="reference external" href="https://github.com/nicoguaro/FEM_resources/blob/master/quantum_mechanics/hermite_QM.py"&gt;this repo&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;For all the examples we use the following imports&lt;/p&gt;
+&lt;pre class="code ipython"&gt;&lt;a name="rest_code_25563968cf2c4fef8f6cc7803429f4b9-1"&gt;&lt;/a&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;__future__&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;division&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;print_function&lt;/span&gt;
+&lt;a name="rest_code_25563968cf2c4fef8f6cc7803429f4b9-2"&gt;&lt;/a&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
+&lt;a name="rest_code_25563968cf2c4fef8f6cc7803429f4b9-3"&gt;&lt;/a&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;hermite_QM&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
+&lt;/pre&gt;&lt;div class="section" id="id3"&gt;
+&lt;h3&gt;&lt;a class="reference external" href="https://en.wikipedia.org/wiki/Quantum_harmonic_oscillator"&gt;Quantum harmonic oscilator&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;In this case the (normalized) potential is given by&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+V(x) = \frac{1}{2} x^2
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;and the exact normalized eigenvalues are given by&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+E_n = n + \frac{1}{2}
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;The following snippet computes the first 10 eigenvalues and plot
+the corresponding eigenstates&lt;/p&gt;
+&lt;pre class="code ipython"&gt;&lt;a name="rest_code_10e0b47bbc2644d0bd4aae9896902037-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;potential&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;a name="rest_code_10e0b47bbc2644d0bd4aae9896902037-2"&gt;&lt;/a&gt;&lt;span class="n"&gt;vals&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;vecs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;eigenstates&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;potential&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;nterms&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ngpts&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_10e0b47bbc2644d0bd4aae9896902037-3"&gt;&lt;/a&gt;&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;round&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;vals&lt;/span&gt;&lt;span class="p"&gt;[:&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;a name="rest_code_10e0b47bbc2644d0bd4aae9896902037-4"&gt;&lt;/a&gt;&lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ax&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;subplots&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_10e0b47bbc2644d0bd4aae9896902037-5"&gt;&lt;/a&gt;&lt;span class="n"&gt;plot_eigenstates&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;vals&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;vecs&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;potential&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;p&gt;with results&lt;/p&gt;
+&lt;pre class="code text"&gt;&lt;a name="rest_code_8ed906bce97a4885bd04418ce66988c1-1"&gt;&lt;/a&gt;[ 0.5  1.5  2.5  3.5  4.5  5.5  6.5  7.5  8.5  9.5]
+&lt;/pre&gt;&lt;img alt="/images/hermite_ritz_harmonic.svg" src="https://nicoguaro.github.io/images/hermite_ritz_harmonic.svg"&gt;
+&lt;/div&gt;
+&lt;div class="section" id="absolute-value-potential"&gt;
+&lt;h3&gt;Absolute value potential&lt;/h3&gt;
+&lt;pre class="code ipython"&gt;&lt;a name="rest_code_ebf977f6e34b4178a67b9fbb5376c8b7-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;potential&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;abs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_ebf977f6e34b4178a67b9fbb5376c8b7-2"&gt;&lt;/a&gt;&lt;span class="n"&gt;vals&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;vecs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;eigenstates&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;potential&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_ebf977f6e34b4178a67b9fbb5376c8b7-3"&gt;&lt;/a&gt;&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;round&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;vals&lt;/span&gt;&lt;span class="p"&gt;[:&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;a name="rest_code_ebf977f6e34b4178a67b9fbb5376c8b7-4"&gt;&lt;/a&gt;&lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ax&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;subplots&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_ebf977f6e34b4178a67b9fbb5376c8b7-5"&gt;&lt;/a&gt;&lt;span class="n"&gt;plot_eigenstates&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;vals&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;vecs&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;potential&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;lims&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+&lt;/pre&gt;&lt;p&gt;with results&lt;/p&gt;
+&lt;pre class="code text"&gt;&lt;a name="rest_code_693399fad24640a3b5c2e097d8d4341f-1"&gt;&lt;/a&gt;[ 0.811203  1.855725  2.57894   3.244576  3.826353  4.38189   4.895365
+&lt;a name="rest_code_693399fad24640a3b5c2e097d8d4341f-2"&gt;&lt;/a&gt;  5.396614  5.911591  6.421015]
+&lt;/pre&gt;&lt;img alt="/images/hermite_ritz_abs.svg" src="https://nicoguaro.github.io/images/hermite_ritz_abs.svg"&gt;
+&lt;/div&gt;
+&lt;div class="section" id="cubic-potential"&gt;
+&lt;h3&gt;Cubic potential&lt;/h3&gt;
+&lt;pre class="code ipython"&gt;&lt;a name="rest_code_38ac028fb3d543c1b5f1876285ba5b47-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;potential&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;abs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;
+&lt;a name="rest_code_38ac028fb3d543c1b5f1876285ba5b47-2"&gt;&lt;/a&gt;&lt;span class="n"&gt;vals&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;vecs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;eigenstates&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;potential&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_38ac028fb3d543c1b5f1876285ba5b47-3"&gt;&lt;/a&gt;&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;round&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;vals&lt;/span&gt;&lt;span class="p"&gt;[:&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;a name="rest_code_38ac028fb3d543c1b5f1876285ba5b47-4"&gt;&lt;/a&gt;&lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ax&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;subplots&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_38ac028fb3d543c1b5f1876285ba5b47-5"&gt;&lt;/a&gt;&lt;span class="n"&gt;plot_eigenstates&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;vals&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;vecs&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;potential&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;lims&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+&lt;/pre&gt;&lt;p&gt;with results&lt;/p&gt;
+&lt;pre class="code text"&gt;&lt;a name="rest_code_c681f22fffc2477d909cc55bcb3b5e34-1"&gt;&lt;/a&gt;[ 0.180588  0.609153  1.124594  1.681002  2.272087  2.889805  3.530901
+&lt;a name="rest_code_c681f22fffc2477d909cc55bcb3b5e34-2"&gt;&lt;/a&gt;  4.191962  4.871133  5.566413]
+&lt;/pre&gt;&lt;img alt="/images/hermite_ritz_cubic.svg" src="https://nicoguaro.github.io/images/hermite_ritz_cubic.svg"&gt;
+&lt;/div&gt;
+&lt;div class="section" id="harmonic-with-quartic-perturbation"&gt;
+&lt;h3&gt;Harmonic with quartic perturbation&lt;/h3&gt;
+&lt;pre class="code ipython"&gt;&lt;a name="rest_code_7d64243a99fb46608d39eeb28f6c6ead-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;potential&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mf"&gt;0.1&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;
+&lt;a name="rest_code_7d64243a99fb46608d39eeb28f6c6ead-2"&gt;&lt;/a&gt;&lt;span class="n"&gt;vals&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;vecs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;eigenstates&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;potential&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;nterms&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ngpts&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;22&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_7d64243a99fb46608d39eeb28f6c6ead-3"&gt;&lt;/a&gt;&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;round&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;vals&lt;/span&gt;&lt;span class="p"&gt;[:&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;a name="rest_code_7d64243a99fb46608d39eeb28f6c6ead-4"&gt;&lt;/a&gt;&lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ax&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;subplots&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_7d64243a99fb46608d39eeb28f6c6ead-5"&gt;&lt;/a&gt;&lt;span class="n"&gt;plot_eigenstates&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;vals&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;vecs&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;potential&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;lims&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;&lt;p&gt;with results&lt;/p&gt;
+&lt;pre class="code text"&gt;&lt;a name="rest_code_040f1c377c1b470e85c8dd6eb3d6ad86-1"&gt;&lt;/a&gt;[  0.559146   1.769503   3.138624   4.628884   6.220303   7.899789
+&lt;a name="rest_code_040f1c377c1b470e85c8dd6eb3d6ad86-2"&gt;&lt;/a&gt;   9.658703  11.489094  13.38638   15.361055]
+&lt;/pre&gt;&lt;img alt="/images/hermite_ritz_pert_harm.svg" src="https://nicoguaro.github.io/images/hermite_ritz_pert_harm.svg"&gt;
+&lt;p&gt;A Jupyter Notebook with the examples can be found
+&lt;a class="reference external" href="https://github.com/nicoguaro/FEM_resources/blob/master/quantum_mechanics/Ritz_Hermite_QM.ipynb"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/div&gt;</description><category>finite elements</category><category>Hermite polynomials</category><category>variational methods</category><guid>https://nicoguaro.github.io/posts/hermite_ritz_qm/</guid><pubDate>Wed, 12 Jul 2017 00:04:57 GMT</pubDate></item></channel></rss>

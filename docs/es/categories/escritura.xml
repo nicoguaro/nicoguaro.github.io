@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nicolás' blog (Publicaciones sobre escritura)</title><link>https://nicoguaro.github.io/</link><description></description><atom:link href="https://nicoguaro.github.io/es/categories/escritura.xml" rel="self" type="application/rss+xml"></atom:link><language>es</language><copyright>Contents © 2021 &lt;a href="mailto:nicoguarin@gmail.com"&gt;Nicolás Guarín-Zapata&lt;/a&gt; 
+&lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
+&lt;img alt="Creative Commons License"
+style="border-width:0"
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Mon, 25 Jan 2021 21:54:27 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Escritura técnica: usando matemáticas</title><link>https://nicoguaro.github.io/es/posts/tech_writing_math/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;En una &lt;a class="reference external" href="https://nicoguaro.github.io/es/posts/tech_writing"&gt;publicación anterior&lt;/a&gt; mencioné algunos aspectos
+generales de la escritura técnica. En este me gustaría hablar sobre la
+inclusión de expresiones matemáticas en documentos técnicos.&lt;/p&gt;
+&lt;p&gt;Hay dos formas principales de incluir matemáticas en documentos:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;utilizando texto; y&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;utilizando una interfaz gráfica.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Usar una interfaz gráfica, como el editor de ecuaciones en LibreOffice Writer o
+MS Word, o &lt;a class="reference external" href="http://www.dessci.com/en/products/mathtype/"&gt;MathType&lt;/a&gt; es
+conveniente. No es necesario memorizar nada y se pueden mirar las expresiones
+mientras se crean. Sin embargo, puede ser algo lento en comparación con el uso
+de entrada de texto —una vez que se está cómodo con la sintaxis—.&lt;/p&gt;
+&lt;p&gt;Hay dos tipos de ecuaciones utilizadas en Internet:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://en.wikipedia.org/wiki/MathML"&gt;MathML&lt;/a&gt; es un
+&lt;a class="reference external" href="https://en.wikipedia.org/wiki/World_Wide_Web_Consortium"&gt;estándar W3C&lt;/a&gt;
+para ecuaciones y está incluido en HTML5, por lo que funcionaría en todos los
+navegadores modernos. El problema con este es que no está diseñado para ser
+escrito a mano. Por tanto, uno puede usarlo si tiene alguna forma automática
+de generar el código.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://www.overleaf.com/learn/latex/Mathematical_expressions"&gt;LaTeX&lt;/a&gt;
+es mi forma sugerida de escribir ecuaciones. La curva de aprendizaje podría
+ser un un poco empinada al principio pero vale la pena.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Una herramienta que ayuda con las ecuaciones es
+&lt;a class="reference external" href="https://mathpix.com/"&gt;MathPix Snip&lt;/a&gt; que genera automáticamente código
+LaTeX o MathML a partir de una imagen, incluso una escrita a mano. Otra
+herramienta que es realmente útil es
+&lt;a class="reference external" href="http://detexify.kirelabs.org/classify.html"&gt;Detexify&lt;/a&gt; que permite
+dibujar un símbolo y proporciona la sintaxis de LaTeX de este.&lt;/p&gt;
+&lt;p&gt;En el resto de la publicación mostraré mis sugerencias para trabajar
+con ecuaciones en LibreOffice y MS Word. Si estás utilizando LaTeX o
+MarkDown/ReStructuredText para tus documentos ya estás utilizando
+LaTeX para tus ecuaciones.&lt;/p&gt;
+&lt;div class="section" id="libreoffice"&gt;
+&lt;h2&gt;LibreOffice&lt;/h2&gt;
+&lt;p&gt;LibreOffice tiene su propio editor de ecuaciones con su propia sintaxis y
+funciona bien para expresiones pequeñas, pero se complica para ecuaciones
+grandes o largas manipulaciones algebraicas. Para LibreOffice sugeriría usar
+&lt;a class="reference external" href="http://roland65.free.fr/texmaths/install.html"&gt;TexMaths&lt;/a&gt;, es fácil de
+usar y funciona para el procesador de textos (Writer) y presentaciones (Impress).
+Supongo que también funciona para hojas de cálculo (Calc), pero no recuerdo
+haber usado ecuaciones en una.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="ms-office"&gt;
+&lt;h2&gt;MS Office&lt;/h2&gt;
+&lt;p&gt;MS Office también tiene su propio editor de ecuaciones, funciona bien y es
+fácil de usar. Sin embargo, el mismo problema aparece cuando quieres expresiones
+largas. Una opción es usar directamente
+&lt;a class="reference external" href="https://docs.microsoft.com/en-us/archive/blogs/murrays/latex-math-in-office"&gt;LaTeX en Office&lt;/a&gt;
+pero prefiero usar
+&lt;a class="reference external" href="http://www.jonathanleroux.org/software/iguanatex/download.html"&gt;IguanaTex&lt;/a&gt;.
+Es un complemento que permite ingresar ecuaciones de forma similar a TexMaths en
+LibreOffice.&lt;/p&gt;
+&lt;p&gt;También puede pegar directamente las ecuaciones MathML en MS Word (&amp;gt;2013 y Windows).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="usa-sympy"&gt;
+&lt;h2&gt;Usa SymPy&lt;/h2&gt;
+&lt;p&gt;Independientemente de la herramienta que use para escribir sus documentos,
+sugiero usar un &lt;a class="reference external" href="https://es.wikipedia.org/wiki/Sistema_algebraico_computacional"&gt;CAS&lt;/a&gt;
+(del inglés Computer Algebra System), como Mathematica o SymPy. Estos programas
+permiten la generación automática de LaTeX y MathML a partir de expresiones y
+esto facilita mucho el proceso.&lt;/p&gt;
+&lt;p&gt;Veamos un ejemplo. Supongamos que tenemos la función&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+f(x) = \exp(-x^2) \sin(3*x)
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;y queremos calcular su segunda derivada&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+f''(x) = \left(- 12 x \cos{\left(3 x \right)} + 2 \left(2 x^{2} - 1\right) \sin{\left(3 x \right)} - 9 \sin{\left(3 x \right)}\right) e^{- x^{2}}
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;El siguiente bloque de código nos da el código LaTex&lt;/p&gt;
+&lt;pre class="code python"&gt;&lt;a name="rest_code_83eef001808a499aba112e9e609011bc-1"&gt;&lt;/a&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sympy&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
+&lt;a name="rest_code_83eef001808a499aba112e9e609011bc-2"&gt;&lt;/a&gt;&lt;span class="n"&gt;init_session&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;a name="rest_code_83eef001808a499aba112e9e609011bc-3"&gt;&lt;/a&gt;&lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;exp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;sin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_83eef001808a499aba112e9e609011bc-4"&gt;&lt;/a&gt;&lt;span class="n"&gt;fxx&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;diff&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_83eef001808a499aba112e9e609011bc-5"&gt;&lt;/a&gt;&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;latex&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fxx&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;&lt;p&gt;que es&lt;/p&gt;
+&lt;pre class="code latex"&gt;&lt;a name="rest_code_e699667206a74783bf364b3773efe193-1"&gt;&lt;/a&gt;&lt;span class="k"&gt;\left&lt;/span&gt;(- 12 x &lt;span class="k"&gt;\cos&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;&lt;span class="k"&gt;\left&lt;/span&gt;(3 x &lt;span class="k"&gt;\right&lt;/span&gt;)&lt;span class="nb"&gt;}&lt;/span&gt; + 2 &lt;span class="k"&gt;\left&lt;/span&gt;(2 x&lt;span class="nb"&gt;^{&lt;/span&gt;2&lt;span class="nb"&gt;}&lt;/span&gt; - 1&lt;span class="k"&gt;\right&lt;/span&gt;) &lt;span class="k"&gt;\sin&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;&lt;span class="k"&gt;\left&lt;/span&gt;(3 x &lt;span class="k"&gt;\right&lt;/span&gt;)&lt;span class="nb"&gt;}&lt;/span&gt; - 9 &lt;span class="k"&gt;\sin&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;&lt;span class="k"&gt;\left&lt;/span&gt;(3 x &lt;span class="k"&gt;\right&lt;/span&gt;)&lt;span class="nb"&gt;}&lt;/span&gt;&lt;span class="k"&gt;\right&lt;/span&gt;) e&lt;span class="nb"&gt;^{&lt;/span&gt;- x&lt;span class="nb"&gt;^{&lt;/span&gt;2&lt;span class="nb"&gt;}}&lt;/span&gt;
+&lt;/pre&gt;&lt;p&gt;Este corresponde con el código que usé arriba para representar la ecuación.&lt;/p&gt;
+&lt;p&gt;Si quisiéramos el código MathML de esa expresión podríamos usar
+el siguiente fragmento de código&lt;/p&gt;
+&lt;pre class="code python"&gt;&lt;a name="rest_code_04808d42b9dc43cea279ac213bbe34ae-1"&gt;&lt;/a&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sympy&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
+&lt;a name="rest_code_04808d42b9dc43cea279ac213bbe34ae-2"&gt;&lt;/a&gt;&lt;span class="n"&gt;init_session&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;a name="rest_code_04808d42b9dc43cea279ac213bbe34ae-3"&gt;&lt;/a&gt;&lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;exp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;sin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_04808d42b9dc43cea279ac213bbe34ae-4"&gt;&lt;/a&gt;&lt;span class="n"&gt;fxx&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;diff&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_04808d42b9dc43cea279ac213bbe34ae-5"&gt;&lt;/a&gt;&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mathml&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fxx&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;printer&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"presentation"&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;&lt;p&gt;observe el argumento opcional &lt;code class="docutils literal"&gt;printer = "presentation"&lt;/code&gt;. Si queremos agregar
+esto a MS Word, por ejemplo, podríamos agregar la salida (que no voy a
+mostrar porque es realmente larga) dentro del siguiente código&lt;/p&gt;
+&lt;pre class="code xml"&gt;&lt;a name="rest_code_b0cae1dccdea42e8927afcd1a10de939-1"&gt;&lt;/a&gt;&lt;span class="nt"&gt;&amp;lt;math&lt;/span&gt; &lt;span class="na"&gt;xmlns =&lt;/span&gt; &lt;span class="s"&gt;"http://www.w3.org/1998/Math/MathML"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+&lt;a name="rest_code_b0cae1dccdea42e8927afcd1a10de939-2"&gt;&lt;/a&gt;&lt;span class="nt"&gt;&amp;lt;/math&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;p&gt;Cuando se usa Jupyter Notebook, esto se puede hacer gráficamente con un
+clic derecho sobre la expresión. Y se muestra el siguiente menú.&lt;/p&gt;
+&lt;img alt="/images/jupyter_export_eqs.png" src="https://nicoguaro.github.io/images/jupyter_export_eqs.png"&gt;
+&lt;/div&gt;
+&lt;div class="section" id="referencias"&gt;
+&lt;h2&gt;Referencias&lt;/h2&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;&lt;p&gt;“How to Insert Equations in Microsoft Word.” WikiHow,
+&lt;a class="reference external" href="https://www.wikihow.com/Insert-Equations-in-Microsoft-Word"&gt;https://www.wikihow.com/Insert-Equations-in-Microsoft-Word&lt;/a&gt;.
+Fecha de acceso: Agosto 3, 2020.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;“Copy MathML into Word to Use as Equation.” Stack Overflow,
+&lt;a class="reference external" href="https://stackoverflow.com/questions/25430775/copy-mathml-into-word-to-use-as-equation"&gt;https://stackoverflow.com/questions/25430775/copy-mathml-into-word-to-use-as-equation&lt;/a&gt;.
+Fecha de acceso: Agosto 3, 2020.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;“Python - Output Sympy Equation to Word Using Mathml.” Stack Overflow,
+&lt;a class="reference external" href="https://stackoverflow.com/questions/40921128/output-sympy-equation-to-word-using-mathml"&gt;https://stackoverflow.com/questions/40921128/output-sympy-equation-to-word-using-mathml&lt;/a&gt;.
+Fecha de acceso: Agosto 3, 2020.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;OERPUB (2016), “Mathconverter”, &lt;a class="reference external" href="https://github.com/oerpub/mathconverter"&gt;https://github.com/oerpub/mathconverter&lt;/a&gt;,
+Fecha de acceso: Agosto 3, 2020.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;&lt;/div&gt;</description><category>escritura</category><category>investigación</category><category>latex</category><category>libreoffice</category><category>matemáticas</category><category>ms-word</category><category>tipografía</category><guid>https://nicoguaro.github.io/es/posts/tech_writing_math/</guid><pubDate>Sun, 02 Aug 2020 23:00:00 GMT</pubDate></item></channel></rss>

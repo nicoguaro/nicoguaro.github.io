@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html prefix="" lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="Blog y sitio web personales">
+<meta name="viewport" content="width=device-width">
+<title>Nicolás' blog (publicaciones antiguas, página 5) | Nicolás' blog</title>
+<link href="../assets/css/all.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+<link rel="alternate" type="application/rss+xml" title="RSS (en)" href="../rss.xml">
+<link rel="alternate" type="application/rss+xml" title="RSS (es)" href="rss.xml">
+<link rel="canonical" href="https://nicoguaro.github.io/es/index-5.html">
+<link rel="prev" href="." type="text/html">
+<link rel="next" href="index-4.html" type="text/html">
+<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]-->
+</head>
+<body>
+    <a href="#content" class="sr-only sr-only-focusable">Ir al contenido principal</a>
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+            styles, `#sidebar-checkbox` for behavior. -->
+    <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox"><!-- Toggleable sidebar --><div class="sidebar" id="sidebar">
+        <div class="sidebar-item">
+            <p>A reserved <a href="https://getnikola.com" target="_blank">Nikola</a> theme that places the utmost gravity on content with a hidden drawer. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a> for Jekyll,
+            ported to Nikola by <a href="https://twitter.com/ralsina" target="_blank">@ralsina</a>.</p>
+        </div>
+        
+    <nav id="menu" role="navigation" class="sidebar-nav"><a class="sidebar-nav-item" href="../pages/about/">About</a>
+        <a class="sidebar-nav-item" href="../index.html">Blog</a>
+        <a class="sidebar-nav-item" href="../pages/preprints-archive/">Preprints</a>
+        <a class="sidebar-nav-item" href="../pages/links/">Links</a>
+        <a class="sidebar-nav-item" href="../archive.html">Archive</a>
+        <a class="sidebar-nav-item" href="../categories/">Tags</a>
+        <a class="sidebar-nav-item" href="../rss.xml">RSS feed</a>
+    
+    
+    </nav>
+</div>
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          
+    <h3 id="brand" class="masthead-title">
+      <a href="https://nicoguaro.github.io/es/" title="Nicolás' blog" rel="home">Nicolás' blog</a>
+    </h3>
+
+        </div>
+      </div>
+
+      <div class="container content" id="content">
+        
+
+<div class="posts">
+    <article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/putnam_prob/" class="u-url">Probabilidad de que un tetraedro en una esfera contenga su centro</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
+            <p class="dateline"><a href="posts/putnam_prob/" rel="bookmark"><time class="post-date published dt-published" datetime="2017-12-13T15:24:52-05:00" title="2017-12-13 15:24">2017-12-13 15:24</time></a></p>
+                <p class="commentline">
+        
+    <a href="posts/putnam_prob/#disqus_thread" data-disqus-identifier="cache/posts/putnam_prob.html">Comentarios</a>
+
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <div>
+<p>Me interesé en este problema viendo el canal de YouTube
+<a class="reference external" href="https://www.youtube.com/channel/UCYO_jab_esuFRV4b17AJtAw">3Blue1Brown</a>,
+de Grant Sanderson, donde explica una forma de abordar el problema que
+es simplemente ... elegante.</p>
+<p>Este canal me gusta mucho. Por ejemplo, su acercamiento al álgebra
+lineal en
+<a class="reference external" href="https://www.youtube.com/watch?v=kjBOesZCoqc&amp;list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab">La esencia del álgebra lineal</a>
+es realmente bueno.</p>
+<div class="section" id="el-problema">
+<h2>El problema</h2>
+<p>Entremeos en materia. El problema fue originalmente parte de la 53
+<a class="reference external" href="http://kskedlaya.org/putnam-archive/1992.pdf">Competencia de Putnam en 1992</a>.
+El problema está planteado de la siguiente manera.</p>
+<blockquote>
+<p>Se eligen cuatro puntos al azar en la superficie de un
+esfera. ¿Cuál es la probabilidad de que el centro de la
+la esfera se encuentra dentro del tetraedro cuyos vértices están en
+los cuatro puntos? (Se entiende que cada punto es
+elegido de forma dependiente en relación con una distribución
+uniforme en la esfera.)</p>
+</blockquote>
+<p>Como se muestra en el video mencionado, la probabilidad es
+<span class="math">\(1/8\)</span>. Vamos a escribir un algoritmo para obtener este resultado,
+aproximadamente, al menos.</p>
+</div>
+<div class="section" id="el-enfoque-propuesto">
+<h2>El enfoque propuesto.</h2>
+<p>El enfoque que vamos a utilizar es bastante sencillo. Vamps a obtener
+una muestra de conjuntos aleatorios (independientes), con cuatro puntos
+cada uno, y vamos a verificar cuántos satisfacen la condición de estar
+adentro del tetraedro con los puntos como vértices.</p>
+<p>Para que este enfoque funcione, necesitamos dos cosas:</p>
+<ol class="arabic simple">
+<li><p>Una forma de generar números aleatorios distribuidos uniformemente.
+Esto ya lo tenemos en <code class="docutils literal">numpy.random.uniform</code>, por lo que no
+necesitamos hacer mucho al respecto.</p></li>
+<li><p>Una forma de verificar si un punto está dentro de un tetraedro.</p></li>
+</ol>
+<div class="section" id="verificar-que-un-punto-esta-dentro-de-un-tetraedro">
+<h3>Verificar que un punto está dentro de un tetraedro</h3>
+<p>Para encontrar si un punto está dentro de un tetraedro, podríamos calcular
+sus <a class="reference external" href="https://en.wikipedia.org/wiki/Barycentric_coordinate_system">coordenadas barcéntricas</a>
+y verificar que todas tienen el mismo signo. Equivalentemente,
+como se propone <a class="reference external" href="http://steve.hollasch.net/cgindex/geometry/ptintet.html">aquí</a>,
+podemos comprobar que los determinantes de las matrices</p>
+<div class="math">
+\begin{equation*}
+M_0 =
+\begin{bmatrix}
+x_0 &amp;y_0 &amp;z_0 &amp;1\\
+x_1 &amp;y_1 &amp;z_1 &amp;1\\
+x_2 &amp;y_2 &amp;z_2 &amp;1\\
+x_3 &amp;y_3 &amp;z_3 &amp;1
+\end{bmatrix}\, ,
+\end{equation*}
+</div>
+<div class="math">
+\begin{equation*}
+M_1 =
+\begin{bmatrix}
+x &amp;y &amp;z &amp;1\\
+x_1 &amp;y_1 &amp;z_1 &amp;1\\
+x_2 &amp;y_2 &amp;z_2 &amp;1\\
+x_3 &amp;y_3 &amp;z_3 &amp;1
+\end{bmatrix}\, ,
+\end{equation*}
+</div>
+<div class="math">
+\begin{equation*}
+M_2 =
+\begin{bmatrix}
+x_0 &amp;y_0 &amp;z_0 &amp;1\\
+x &amp;y &amp; &amp;1\\
+x_2 &amp;y_2 &amp;z_2 &amp;1\\
+x_3 &amp;y_3 &amp;z_3 &amp;1
+\end{bmatrix}\, ,
+\end{equation*}
+</div>
+<div class="math">
+\begin{equation*}
+M_3 =
+\begin{bmatrix}
+x_0 &amp;y_0 &amp;z_0 &amp;1\\
+x_1 &amp;y_1 &amp;z_1 &amp;1\\
+x &amp;y &amp;z &amp;1\\
+x_3 &amp;y_3 &amp;z_3 &amp;1
+\end{bmatrix}\, ,
+\end{equation*}
+</div>
+<div class="math">
+\begin{equation*}
+M_4 =
+\begin{bmatrix}
+x_0 &amp;y_0 &amp;z_0 &amp;1\\
+x_1 &amp;y_1 &amp;z_1 &amp;1\\
+x_2 &amp;y_2 &amp;z_2 &amp;1\\
+x &amp;y &amp;z &amp;1
+\end{bmatrix}\, ,
+\end{equation*}
+</div>
+<p>tienen el mismo signo. En este caso, <span class="math">\((x, y, z)\)</span> es el punto de
+interés y <span class="math">\((x_i, y_i, z_i)\)</span> son las coordenadas de cada vértice.</p>
+</div>
+</div>
+<div class="section" id="el-algoritmo">
+<h2>El algoritmo</h2>
+<p>A continuación se muestra una implementación de Python del enfoque
+discutido anteriormente</p>
+<pre class="code python"><a name="rest_code_8f17d5d34308406095baf2cd95bf0764-1"></a><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span>
+<a name="rest_code_8f17d5d34308406095baf2cd95bf0764-2"></a><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="p">(</span><span class="n">random</span><span class="p">,</span> <span class="n">pi</span><span class="p">,</span> <span class="n">cos</span><span class="p">,</span> <span class="n">sin</span><span class="p">,</span> <span class="n">sign</span><span class="p">,</span> <span class="n">hstack</span><span class="p">,</span>
+<a name="rest_code_8f17d5d34308406095baf2cd95bf0764-3"></a>                   <span class="n">column_stack</span><span class="p">,</span> <span class="n">logspace</span><span class="p">)</span>
+<a name="rest_code_8f17d5d34308406095baf2cd95bf0764-4"></a><span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="kn">import</span> <span class="n">det</span>
+<a name="rest_code_8f17d5d34308406095baf2cd95bf0764-5"></a><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<a name="rest_code_8f17d5d34308406095baf2cd95bf0764-6"></a>
+<a name="rest_code_8f17d5d34308406095baf2cd95bf0764-7"></a>
+<a name="rest_code_8f17d5d34308406095baf2cd95bf0764-8"></a><span class="k">def</span> <span class="nf">in_tet</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">pt</span><span class="p">):</span>
+<a name="rest_code_8f17d5d34308406095baf2cd95bf0764-9"></a>    <span class="sd">"""</span>
+<a name="rest_code_8f17d5d34308406095baf2cd95bf0764-10"></a><span class="sd">    Determina si un punto pt está al interior de</span>
+<a name="rest_code_8f17d5d34308406095baf2cd95bf0764-11"></a><span class="sd">    un tetraedro con vértices x, y, z</span>
+<a name="rest_code_8f17d5d34308406095baf2cd95bf0764-12"></a><span class="sd">    """</span>
+<a name="rest_code_8f17d5d34308406095baf2cd95bf0764-13"></a>    <span class="n">mat0</span> <span class="o">=</span> <span class="n">column_stack</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]))</span>
+<a name="rest_code_8f17d5d34308406095baf2cd95bf0764-14"></a>    <span class="n">det0</span> <span class="o">=</span> <span class="n">det</span><span class="p">(</span><span class="n">mat0</span><span class="p">)</span>
+<a name="rest_code_8f17d5d34308406095baf2cd95bf0764-15"></a>    <span class="k">for</span> <span class="n">cont</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+<a name="rest_code_8f17d5d34308406095baf2cd95bf0764-16"></a>        <span class="n">mat</span> <span class="o">=</span> <span class="n">mat0</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<a name="rest_code_8f17d5d34308406095baf2cd95bf0764-17"></a>        <span class="n">mat</span><span class="p">[</span><span class="n">cont</span><span class="p">]</span> <span class="o">=</span> <span class="n">hstack</span><span class="p">((</span><span class="n">pt</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<a name="rest_code_8f17d5d34308406095baf2cd95bf0764-18"></a>        <span class="k">if</span> <span class="n">sign</span><span class="p">(</span><span class="n">det</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span><span class="o">*</span><span class="n">det0</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+<a name="rest_code_8f17d5d34308406095baf2cd95bf0764-19"></a>            <span class="n">inside</span> <span class="o">=</span> <span class="kc">False</span>
+<a name="rest_code_8f17d5d34308406095baf2cd95bf0764-20"></a>            <span class="k">break</span>
+<a name="rest_code_8f17d5d34308406095baf2cd95bf0764-21"></a>        <span class="k">else</span><span class="p">:</span>
+<a name="rest_code_8f17d5d34308406095baf2cd95bf0764-22"></a>            <span class="n">inside</span> <span class="o">=</span> <span class="kc">True</span>
+<a name="rest_code_8f17d5d34308406095baf2cd95bf0764-23"></a>    <span class="k">return</span> <span class="n">inside</span>
+<a name="rest_code_8f17d5d34308406095baf2cd95bf0764-24"></a>
+<a name="rest_code_8f17d5d34308406095baf2cd95bf0764-25"></a>
+<a name="rest_code_8f17d5d34308406095baf2cd95bf0764-26"></a><span class="c1">#%% Cálculo</span>
+<a name="rest_code_8f17d5d34308406095baf2cd95bf0764-27"></a><span class="n">prob</span> <span class="o">=</span> <span class="p">[]</span>
+<a name="rest_code_8f17d5d34308406095baf2cd95bf0764-28"></a><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<a name="rest_code_8f17d5d34308406095baf2cd95bf0764-29"></a><span class="n">N_min</span> <span class="o">=</span> <span class="mi">1</span>
+<a name="rest_code_8f17d5d34308406095baf2cd95bf0764-30"></a><span class="n">N_max</span> <span class="o">=</span> <span class="mi">5</span>
+<a name="rest_code_8f17d5d34308406095baf2cd95bf0764-31"></a><span class="n">N_vals</span> <span class="o">=</span> <span class="n">logspace</span><span class="p">(</span><span class="n">N_min</span><span class="p">,</span> <span class="n">N_max</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+<a name="rest_code_8f17d5d34308406095baf2cd95bf0764-32"></a><span class="k">for</span> <span class="n">N</span> <span class="ow">in</span> <span class="n">N_vals</span><span class="p">:</span>
+<a name="rest_code_8f17d5d34308406095baf2cd95bf0764-33"></a>    <span class="n">inside_cont</span> <span class="o">=</span> <span class="mi">0</span>
+<a name="rest_code_8f17d5d34308406095baf2cd95bf0764-34"></a>    <span class="k">for</span> <span class="n">cont_pts</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+<a name="rest_code_8f17d5d34308406095baf2cd95bf0764-35"></a>        <span class="n">phi</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<a name="rest_code_8f17d5d34308406095baf2cd95bf0764-36"></a>        <span class="n">theta</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="n">pi</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<a name="rest_code_8f17d5d34308406095baf2cd95bf0764-37"></a>        <span class="n">x</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span>
+<a name="rest_code_8f17d5d34308406095baf2cd95bf0764-38"></a>        <span class="n">y</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span>
+<a name="rest_code_8f17d5d34308406095baf2cd95bf0764-39"></a>        <span class="n">z</span> <span class="o">=</span> <span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+<a name="rest_code_8f17d5d34308406095baf2cd95bf0764-40"></a>        <span class="k">if</span> <span class="n">in_tet</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]):</span>
+<a name="rest_code_8f17d5d34308406095baf2cd95bf0764-41"></a>            <span class="n">inside_cont</span> <span class="o">+=</span> <span class="mi">1</span>
+<a name="rest_code_8f17d5d34308406095baf2cd95bf0764-42"></a>
+<a name="rest_code_8f17d5d34308406095baf2cd95bf0764-43"></a>    <span class="n">prob</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">inside_cont</span><span class="o">/</span><span class="n">N</span><span class="p">)</span>
+<a name="rest_code_8f17d5d34308406095baf2cd95bf0764-44"></a>
+<a name="rest_code_8f17d5d34308406095baf2cd95bf0764-45"></a>
+<a name="rest_code_8f17d5d34308406095baf2cd95bf0764-46"></a><span class="c1">#%% Graficación</span>
+<a name="rest_code_8f17d5d34308406095baf2cd95bf0764-47"></a><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<a name="rest_code_8f17d5d34308406095baf2cd95bf0764-48"></a><span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="mf">0.125</span><span class="p">,</span> <span class="mi">10</span><span class="o">**</span><span class="n">N_min</span><span class="p">,</span> <span class="mi">10</span><span class="o">**</span><span class="n">N_max</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"#3f3f3f"</span><span class="p">)</span>
+<a name="rest_code_8f17d5d34308406095baf2cd95bf0764-49"></a><span class="n">plt</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="n">N_vals</span><span class="p">,</span> <span class="n">prob</span><span class="p">,</span> <span class="s2">"o"</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<a name="rest_code_8f17d5d34308406095baf2cd95bf0764-50"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"Number of trials"</span><span class="p">)</span>
+<a name="rest_code_8f17d5d34308406095baf2cd95bf0764-51"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"Computed probability"</span><span class="p">)</span>
+<a name="rest_code_8f17d5d34308406095baf2cd95bf0764-52"></a><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<a name="rest_code_8f17d5d34308406095baf2cd95bf0764-53"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre>
+<p>Como se esperaba, cuando el número de muestras es suficientemente grande,
+la probabilidad estimada es cercana al valor teórico: 0,125. Esto
+se puede ver en la siguiente figura.</p>
+<img alt="Probabilidad estimada para diferentes tamaños de muestras." class="align-center" src="../images/random_tets.svg" style="width: 600px;">
+</div>
+</div>
+    </div>
+    </article>
+</div>
+
+        <nav class="postindexpager"><ul class="pager">
+<li class="previous">
+                <a href="." rel="prev">Publicaciones posteriores</a>
+            </li>
+            <li class="next">
+                <a href="index-4.html" rel="next">Publicaciones anteriores</a>
+            </li>
+        </ul></nav><script>var disqus_shortname="nicoguaro-github";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
+        </script><footer id="footer"><p>Contents © 2021 <a href="mailto:nicoguarin@gmail.com">Nicolás Guarín-Zapata</a> - Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a> 
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+<img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png"></a></p>
+            
+        </footer>
+</div>
+    </div>
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+    
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-145359674-1', 'auto');
+ga('send', 'pageview');
+</script><script src="../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+    moment.locale("es");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>

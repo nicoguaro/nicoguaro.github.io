@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html prefix="" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Herramientas (auxiliares) para Investigación | Nicolás' blog</title>
+<link href="../../assets/css/all.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+<link rel="alternate" type="application/rss+xml" title="RSS (en)" href="../../rss.xml">
+<link rel="alternate" type="application/rss+xml" title="RSS (es)" href="../../es/rss.xml">
+<link rel="canonical" href="https://nicoguaro.github.io/posts/herramientas-investigacion/">
+<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Nicolás Guarín-Zapata">
+<link rel="prev" href="../la-zorra-y-las-uvas/" title="La zorra y las uvas" type="text/html">
+<link rel="next" href="../hermite_interp/" title="Piecewise Hermite interpolation" type="text/html">
+<meta property="og:site_name" content="Nicolás' blog">
+<meta property="og:title" content="Herramientas (auxiliares) para Investigación">
+<meta property="og:url" content="https://nicoguaro.github.io/posts/herramientas-investigacion/">
+<meta property="og:description" content="En esta entrada quiero hablar de algunas herramientas (...o algo así)
+que son útiles en el día a día de la investigación, pero que no suelen
+ser tan populares por ser en cierta forma tangenciales al á">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2014-07-12T04:24:00-05:00">
+<meta property="article:tag" content="investigación">
+<meta property="article:tag" content="scientific visualization">
+<meta property="article:tag" content="visualización científica">
+<link rel="alternate" hreflang="es" href="../../es/posts/herramientas-investigacion/">
+</head>
+<body>
+    <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+            styles, `#sidebar-checkbox` for behavior. -->
+    <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox"><!-- Toggleable sidebar --><div class="sidebar" id="sidebar">
+        <div class="sidebar-item">
+            <p>A reserved <a href="https://getnikola.com" target="_blank">Nikola</a> theme that places the utmost gravity on content with a hidden drawer. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a> for Jekyll,
+            ported to Nikola by <a href="https://twitter.com/ralsina" target="_blank">@ralsina</a>.</p>
+        </div>
+        
+    <nav id="menu" role="navigation" class="sidebar-nav"><a class="sidebar-nav-item" href="../../pages/about/">About</a>
+        <a class="sidebar-nav-item" href="../../index.html">Blog</a>
+        <a class="sidebar-nav-item" href="../../pages/preprints-archive/">Preprints</a>
+        <a class="sidebar-nav-item" href="../../pages/links/">Links</a>
+        <a class="sidebar-nav-item" href="../../archive.html">Archive</a>
+        <a class="sidebar-nav-item" href="../../categories/">Tags</a>
+        <a class="sidebar-nav-item" href="../../rss.xml">RSS feed</a>
+    
+    
+    </nav>
+</div>
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          
+    <h3 id="brand" class="masthead-title">
+      <a href="https://nicoguaro.github.io/" title="Nicolás' blog" rel="home">Nicolás' blog</a>
+    </h3>
+
+        </div>
+      </div>
+
+      <div class="container content" id="content">
+        
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="post-title p-name entry-title" itemprop="headline name"><a href="." class="u-url">Herramientas (auxiliares) para Investigación</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
+            <p class="dateline"><a href="." rel="bookmark"><time class="post-date published dt-published" datetime="2014-07-12T04:24:00-05:00" itemprop="datePublished" title="2014-07-12 04:24">2014-07-12 04:24</time></a></p>
+                <p class="commentline">
+        
+    <a href="#disqus_thread" data-disqus-identifier="cache/posts/herramientas-investigacion.html">Comments</a>
+
+
+        </p>
+</div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p>En esta entrada quiero hablar de algunas herramientas (...o algo así)
+que son útiles en el día a día de la investigación, pero que no suelen
+ser tan populares por ser en cierta forma <em>tangenciales</em> al área
+específica en la que cada uno trabaja.</p>
+<div class="section" id="scripting">
+<h2>Scripting</h2>
+<p>Un <a class="reference external" href="http://en.wikipedia.org/wiki/Scripting_language">script</a>  es un
+programa <em>usualmente</em> simple que realiza una serie de tareas. ¡Lo
+siento! trato de ceñirme al castellano pero no me gustan las
+traducciones para este término (archivo de órdenes, archivo de
+procesamiento por lotes o guion). Si existe una tarea que debe ser
+hecha más de... cinco veces (el número varía de acuerdo a la
+paciencia), entonces creo que es algo que podemos pedirle al
+computador que haga esta tarea por nosotros. En otras palabras:
+podemos automatizar ese trabajo. Algunas tareas que pueden ser una
+buena alternativa para automatizar son: renombrar 100 archivos,
+convertir un archivo de un formato a otro (p. ej., STL a OBJ), leer
+387 archivos con información sobre el clima y graficar su evolución
+temporal (temperatura mínima, máxima y promedio). Estas tareas pueden
+ser fáciles de hacer a mano, pero por la cantidad de trabajo que
+involucran son tediosas.</p>
+<p>Lo primero es hacernos con un lenguaje de scripting. Algunas opciones
+son <a class="reference external" href="https://www.python.org/">Python</a>,
+<a class="reference external" href="http://www.gnu.org/software/bash/">Bash</a>,
+<a class="reference external" href="http://julialang.org/">Julia</a>,
+<a class="reference external" href="http://www.mathworks.com/products/matlab/">Matlab</a>/<a class="reference external" href="http://www.gnu.org/software/octave/">Octave</a>,
+<a class="reference external" href="http://www.scilab.org/">Scilab</a>. Dejándome llevar por el sesgo,
+recomiendo usar Python.</p>
+</div>
+<div class="section" id="graficos-y-esquemas">
+<h2>Gráficos y esquemas</h2>
+<p>Una imagen vale más que mil palabras, o eso dice el dicho.
+Personalmente, me parece absolutamente cierto y trato de hacer
+<em>dibujitos</em> para poder entender mejor algo o lograrlo explicar mejor.
+Lo primero que me gustaría mencionar es la diferencia entre imágenes
+de mapas de bits (o ráster) e imágenes vectoriales.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://en.wikipedia.org/wiki/Raster_graphics">Imagen de mapa de
+bits</a>: es una imagen
+que está representada por un arreglo (o rejilla rectangular) de
+pixeles. Dicho de otro modo, se almacena la información de color que
+hay en cada punto de la imagen. Los formatos más populares almacenan
+la información comprimida. Para gráficos con alto contraste (como
+esquemas o diagramas) el mejor formato es PNG. Si se tiene una
+animación, GIF sería preferible. Y para el caso de fotografías es
+mejor utilizar JPG.</p></li>
+<li><p><a class="reference external" href="http://en.wikipedia.org/wiki/Vector_graphics">Imagen vectorial</a>:
+es una imagen que está formada por entidades geométricas. En esta no
+se almacena la información punto a punto sino <em>la construcción</em> de
+las formas que la constituyen. Por esta razón, estas imágenes no se
+<em>pixelan</em> pues la información que se tiene es de cómo construirla.
+Este tipo de imágenes es la mejor opciones para esquemas y diagramas,
+pues sólo se almacena la información de los trazos y texto que se
+añadan en ellas (ver Figura 1). El estándar <em>de facto</em> para este tipo
+de imágenes es PDF —es el que suelo para incluir en mis documentos
+\(\LaTeX\), aunque existe forma de embeber SVG en \(\LaTeX\)
+pero es algo que aún no exploro—. A pesar de que PDF sea el
+<em>estándar</em>, el formato a preferir es <a class="reference external" href="http://en.wikipedia.org/wiki/Scalable_Vector_Graphics">SVG (Scalable Vector
+Graphics)</a>
+que es un estándar a través de la internet y la mayoría de
+navegadores <em>modernos</em> permiten visualizar.</p></li>
+</ul>
+<p>Recapitulando, deberíamos usar imágenes JPG para fotografías y SVG
+para esquemas/diagramas. Otro atributo que puede ser de utilidad es el
+manejo de capas, SVG permite esto.... y de formatos ráster tenemos la
+opción de usar TIFF.</p>
+<p>En cuanto a software para generar/editar este tipo de imágenes debo
+decir que existen gran cantidad de programas que permiten exportar a
+estos formatos: Python/Matplotlib, Matlab, Inkscape, Adobe
+Illustrator, GIMP, Photoshop, LibreOffice. Si el gráfico es generado a
+partir de un cálculo o de una serie de datos yo uso Matplotlib. Si en
+cambio, queremos hacer un esquema o —como suelo decir— un muñeco mi
+herramienta favorita es <a class="reference external" href="http://www.inkscape.org/">Inkscape.</a> Este
+programa pretende ser una alternativa libre a programas como Adobe
+Illustrator —y sí que lo consigue. Obviamente, se podría usar
+Illustrator o Corel Draw para esta tarea. Si el único uso sería hacer
+esquemas técnico, creo que sería un desperdicio.</p>
+<table>
+<colgroup><col style="width: 100%"></colgroup>
+<tbody>
+<tr>
+<td><img alt="/images/sensor_hall.png" src="../../images/sensor_hall.png"></td>
+</tr>
+<tr>
+<td><p><strong>Figura 1.</strong> Esquema de sensado de campo magnético de <a class="reference external" href="http://en.wikipedia.org/wiki/Neodymium_magnet">imanes
+permanentes</a> por
+<a class="reference external" href="http://en.wikipedia.org/wiki/Hall_effect">efecto Hall</a>. Sacado
+de mi <a class="reference external" href="https://goo.gl/G9RRhC">trabajo de grado</a> de Ingeniería
+Física.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="tomar-notas">
+<h2>Tomar notas</h2>
+<p>Supongo que para algunos parecería un poco trivial hablar de "tomar
+notas" y mucho más viniendo de alguien que no tenía cuadernos en el
+bachillerato, pero como soy un poco terco creo que igual escribiré un
+poco sobre esto. Lo primero que me gustaría mencionar es que recuerdo
+que me hablaran de este tema en el colegio, pero nunca hubo nada
+formal respecto a desarrollar estas habilidades. Buscando en la web,
+hay gran cantidad de información. Incluso el artículo de <a class="reference external" href="http://en.wikipedia.org/wiki/Note-taking">Wikipedia en
+inglés</a> es interesante.
+No hay nada mejor para escribir que tener una pluma y un papel de buen
+gramaje, por eso es que aún uso un cuaderno en donde llevo cuenta de
+lo que hago en mi investigación y tomo notas. Sin embargo, este
+esquema es bastante lineal y deja por fuera oportunidades más
+<em>contemporáneas.</em> Es decir ¿por qué conformarse con un documento en
+este tiempo de hiper-documentos? Las ventajas de tomar notas
+digitalmente saltan a la vista, en un hiper-documento se pueden tener
+enlaces, embeber imágenes, video y sonido.</p>
+<p>En cuanto a herramientas, acá incluyo una pequeña lista:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://evernote.com/">Evernote</a> es probablemente la herramienta
+más popular para tomar notas. Es multiplataforma, Freemium
+(funcionalidad básica gratuita y avanzada paga), y cuenta con muchas
+opciones. Yo la uso, pero no mucho en mi investigación.</p></li>
+<li><p><a class="reference external" href="http://zim-wiki.org/">Zim</a> es una wiki offline. Tiene gran
+cantidad de opciones como calendario, ecuaciones con código
+<span class="math">\(\LaTeX\)</span>, imágenes... en fin. El pero que le encuentro es que no
+he logrado configurar las ecuaciones en Windows (y en mi oficina debo
+usar Ruindows :-/).</p></li>
+<li><p><a class="reference external" href="http://www.docear.org/">Docear</a> esta es una herramienta pensada,
+principalmente, para manejar bibliografía. Sin embargo, permite tomar
+notas y, en general, manejar la información de la investigación. La
+característica más (o menos) atractiva es que funciona alrededor de
+mapas mentales.</p></li>
+<li><p><a class="reference external" href="https://www.zotero.org/">Zotero</a> también es una herramienta para
+manejar bibliografía, aunque permite manejar algo de toma de notas
+(al menos alrededor de la bibliografía).</p></li>
+<li><p><a class="reference external" href="http://www.mendeley.com/">Mendeley</a> es muy parecido al anterior,
+aunque con más funcionalidades. El pero más grande que le encuentro
+es que en 2013 fue comprado por Elsevier.</p></li>
+</ul>
+<p>En cuanto a manejo de bibliografía también me gustaría mencionar
+<a class="reference external" href="http://endnote.com/">EndNote</a> que es el programa con mayor
+trayectoria y  <a class="reference external" href="http://jabref.sourceforge.net/">JabRef</a>que es el
+que he usado por más tiempo. Algunas referencias interesantes
+comparando manejadores de bibliografía están acá:
+<a class="reference external" href="https://www.researchgate.net/post/alternative_to_Endnote?_tpcectx=qa_overview_following">[A]</a>
+<a class="reference external" href="http://www.docear.org/2013/10/14/what-makes-a-bad-reference-manager/">[B]</a>
+<a class="reference external" href="http://www.docear.org/2014/01/15/comprehensive-comparison-of-reference-managers-mendeley-vs-zotero-vs-docear/">[C]</a>.</p>
+</div>
+<div class="section" id="reconstruccion-de-graficos">
+<h2>Reconstrucción de gráficos</h2>
+<p>Es común encontrarse con información presentada en forma de gráficos.
+También es común que queramos tener los datos numéricos de estos
+gráficos para poder compararlos con los nuestros. Para saber si
+nuestras medidas/simulaciones/métodos dan resultados similares a otros
+presentados en la literatura. Para esta tarea se pueden usar potentes
+software de procesamiento de imágenes, u otros más modestos diseñados
+específicamente para este fin.</p>
+<table>
+<colgroup><col style="width: 100%"></colgroup>
+<tbody>
+<tr>
+<td><img alt="/images/pointplot.jpg" src="../../images/pointplot.jpg"></td>
+</tr>
+<tr>
+<td><p><strong>Figura 2.</strong> Gráfico original.</p></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup><col style="width: 100%"></colgroup>
+<tbody>
+<tr>
+<td><img alt="/images/digitized_pts.png" src="../../images/digitized_pts.png"></td>
+</tr>
+<tr>
+<td><p><strong>Figura 3.</strong> Gráfico procesado en Engauge Digitizer. Algunos puntos
+fueron seleccionados (automáticamente) para obtener sus coordenadas.</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p><a class="reference external" href="http://extensions.libreoffice.org/extension-center/digitizer-of-xy-chart">Digitizer of XY
+chart</a>
+este es un plugin para Libreoffice/OpenOffice y exporta el resultado
+a la hoja de cálculo actual, es simple y fácil de usar.</p></li>
+<li><p><a class="reference external" href="http://digitizer.sourceforge.net/">Engauge Digitizer</a>, es el que
+normalmente uso cuando necesito hacer esta tarea (ver Figuras XX). Es
+de código abierto (y libre) y tiene una buena cantidad de opciones
+para facilitar la tarea.</p></li>
+<li><p><a class="reference external" href="http://plotdigitizer.sourceforge.net/">Plot Digitizer</a> no tengo
+mucha información sobre este (pues nunca lo he usado), salvo que está
+escrito en Java.</p></li>
+<li><p><a class="reference external" href="http://imagej.nih.gov/ij/">ImageJ</a> este es un (completo) programa
+de procesamiento de imágenes que está escrito en Java. No lo he usado
+para esta tarea de manera regular, pero podría usarse para ello.</p></li>
+</ul>
+</div>
+<div class="section" id="visualizacion-cientifica">
+<h2>Visualización científica</h2>
+<p>La <a class="reference external" href="https://en.wikipedia.org/wiki/Scientific_visualization">visualización
+científica</a>
+que se encarga de generar gráficos que permitan visualizar "datos
+científicos" para facilitar el entendimiento que hay detrás de los
+datos. Para esta labor muchos hemos usado lenguajes de scripting como
+Matlab/Octave, Scilab o Python (con Matplotlib o Mayavi). Sin embargo,
+como la visualización se trata de algo visual —¿como si no?—, es bueno
+contar con una herramienta que permita generar y cambiar los gráficos
+de manera interactiva, aunque siempre debemos automatizar la mayor
+cantidad de trabajo posible (la pereza siempre ha sido uno de los
+móviles más grandes de la humanidad, hay que aceptarlo).</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://code.enthought.com/projects/mayavi/">MayaVi</a>, este es un
+programa escrito en Python que usa
+<a class="reference external" href="http://en.wikipedia.org/wiki/VTK">VTK</a>. Es una herramienta muy
+versátil y la gran ventaja que tiene es que puede usarse dentro de
+<a class="reference external" href="https://scipy-lectures.github.io/packages/3d_plotting/index.html">scripts</a>
+de Python.</p></li>
+<li><p><a class="reference external" href="http://www.paraview.org/">Paraview</a>, este programa también está
+basado en VTK y permite paralelizar las labores (para los
+computadores con múltiple núcleo y los clusters). Abajo incluyo un
+video generado en Paraview para mostrar sus capacidades.</p></li>
+<li><p><a class="reference external" href="https://wci.llnl.gov/simulation/computer-codes/visit">Visit</a>,
+este programa también está basado en VTK, nunca lo he usado pero
+quise incluirlo porque la gente dice que puede ser más intuitivo que
+Paraview.</p></li>
+<li><p><a class="reference external" href="http://www.tecplot.com/">Tecplot,</a> este programa es muy popular
+en Purdue. Creo que inicialmente fue pensado para CFD, pero se ha
+expandido mucho. En cuanto a gráficos 3D no me parece mejor que
+ParaView, sin embargo, las capacidades de gráficos 2D (gráficos XY, y
+demás) lo hacen atractivo.</p></li>
+<li><p><a class="reference external" href="http://jwork.org/scavis/">Scavis</a>, este está escrito en Java. No
+lo conocía hasta que inicie la escritura de esta entrada pero me
+llamó la atención y quise incluirlo en la lista. Algo que me llagmó
+la atención es que permite scripting en varios lenguajes: Java,
+Python, Ruby, BeanShell y Matlab/Octave.</p></li>
+<li><p><a class="reference external" href="http://www.originlab.com/">Origin</a>, nunca lo he usado pero no lo
+quise dejar por fuera porque siempre he oído hablar maravillas de él
+(probablemente compárandolo con Excel... pero no puedo opinar).</p></li>
+</ul>
+<iframe src="https://player.vimeo.com/video/2016815" width="640" height="483" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>
+</iframe>
+<p>
+    <ahref>Simulación de fuego cruzado en <a href="https://vimeo.com">Vimeo</a>.
+</ahref></p>
+</div>
+<div class="section" id="manejo-de-versiones">
+<h2>Manejo de versiones</h2>
+<p>El <a class="reference external" href="http://en.wikipedia.org/wiki/Revision_control">manejo de
+versiones</a> es la
+administración de cambios en documentos, código fuente y otro tipo de
+información. Esto puede hacerse de forma manual, pero es fácil cometer
+errores o remplazar la versión de un código fácilmente, y por esto es
+recomendable usar un software que facilite el trabajo. La idea es
+tener un <em>lugar</em> (repositorio) en donde se almacenan las versiones y
+los cambios, y llevar un registro de estos. De esta forma se puede
+volver a una versión anterior de los documentos y varias personas
+pueden trabajar conjuntamente.  Existen dos paradigmas (o
+arquitecturas) para el manejo de versiones: centralizada y
+distribuida. En la primera existe un repositorio centralizado en donde
+se encuentra toda la información. En la arquitectura distribuida cada
+usuario tiene una copia del respositorio. Personalmente sólo he usado
+<a class="reference external" href="http://git-scm.com/">Git</a>, que entra en la categoría distribuida y
+es uno de los software de manejo de versiones más populares
+actualmente; lo usan compañías como Google, Facebook y Netflix.</p>
+<p>Un ejemplo puede verse en este
+<a class="reference external" href="https://github.com/bebopsan/SEC-Thesis">repositorio</a>, en donde
+está el documento de trabajo de grado de Santiago Echeverri, el cual
+tuve la oportunidad de asesorar. Este documento lo editamos
+conjuntamente mientras él estaba en Medellín  y yo me encontraba en
+Estados Unidos. El documento se hizo en el lenguaje de marcadores
+<span class="math">\(\LaTeX\)</span>.</p>
+<p>Además de tener un control sobre las versiones y poder acceder a
+versiones anteriores, es útil poder almacenar la información en un
+lugar asequible desde cualquier lugar del mundo con una conexión a
+internet. Esto puede lograrse con un servidor propio, obviamente, o
+también a través de un proveedor externo. Dos proyectos que  son muy
+populares para alojar repositorios y manejar sus versiones son
+(<a class="reference external" href="http://www.infoworld.com/d/application-development/bitbucket-vs-github-which-project-host-has-the-most-227061">comparación entre Github y
+BitBucket</a>):</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/">Github</a>  es el más popular en este momento.
+Permite tener proyectos con un número ilimitado de colaboradores.
+Para tener un repositorio privado es necesario pagar.</p></li>
+<li><p><a class="reference external" href="https://bitbucket.org/">BitBucket</a> la principal ventaja es que
+permite tener repositorios privados sin la necesidad de pagar. Sólo
+es gratuito para proyectos con 5 colaboradores o menos (o para
+proyectos <a class="reference external" href="https://bitbucket.org/account/user/nicoguaro/plans/">académicos</a>).</p></li>
+</ul>
+</div>
+<div class="section" id="enlaces-sugeridos">
+<h2>Enlaces sugeridos</h2>
+<ol class="arabic simple">
+<li><p>Software Carpentry. <a class="reference external" href="http://software-carpentry.org/">http://software-carpentry.org/</a></p></li>
+<li><p>Python Scientific Lecture Notes. <a class="reference external" href="https://scipy-lectures.github.io/">https://scipy-lectures.github.io/</a></p></li>
+</ol>
+<p>Seguro dejé mucho temas por fuera así como herramientas dentro de
+algún tópico. Si ese es el caso, agradecería que me lo digan en los
+comentarios.</p>
+</div>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../../categories/investigacion/" rel="tag">investigación</a></li>
+            <li><a class="tag p-category" href="../../categories/scientific-visualization/" rel="tag">scientific visualization</a></li>
+            <li><a class="tag p-category" href="../../categories/visualizacion-cientifica/" rel="tag">visualización científica</a></li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="previous">
+                <a href="../la-zorra-y-las-uvas/" rel="prev" title="La zorra y las uvas">Previous post</a>
+            </li>
+            <li class="next">
+                <a href="../hermite_interp/" rel="next" title="Piecewise Hermite interpolation">Next post</a>
+            </li>
+        </ul></nav></aside><section class="comments hidden-print"><h2>Comments</h2>
+        
+        
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="nicoguaro-github",
+            disqus_url="https://nicoguaro.github.io/posts/herramientas-investigacion/",
+        disqus_title="Herramientas (auxiliares) para Investigaci\u00f3n",
+        disqus_identifier="cache/posts/herramientas-investigacion.html",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section></article><script>var disqus_shortname="nicoguaro-github";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><footer id="footer"><p>Contents © 2021 <a href="mailto:nicoguarin@gmail.com">Nicolás Guarín-Zapata</a> - Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a> 
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+<img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png"></a></p>
+            
+        </footer>
+</div>
+    </div>
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+    
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-145359674-1', 'auto');
+ga('send', 'pageview');
+</script><script src="../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>
