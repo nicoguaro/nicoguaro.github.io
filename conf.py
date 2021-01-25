@@ -648,7 +648,7 @@ REDIRECTIONS = []
 # For more details, read the manual:
 # https://getnikola.com/handbook.html#deploying-to-github
 # You will need to configure the deployment branch on GitHub.
-GITHUB_SOURCE_BRANCH = 'src'
+GITHUB_SOURCE_BRANCH = 'master'
 GITHUB_DEPLOY_BRANCH = 'master'
 
 # The name of the remote where you wish to push to, using github_deploy.
@@ -661,7 +661,7 @@ GITHUB_COMMIT_SOURCE = True
 # Where the output site should be located
 # If you don't use an absolute path, it will be considered as relative
 # to the location of conf.py
-# OUTPUT_FOLDER = 'output'
+OUTPUT_FOLDER = 'docs'
 
 # where the "cache" of partial generated content should be located
 # default: 'cache'
