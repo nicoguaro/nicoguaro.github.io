@@ -3,7 +3,7 @@
 &lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
 &lt;img alt="Creative Commons License"
 style="border-width:0"
-src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Mon, 25 Jan 2021 21:54:23 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Isometric graphics in Inkscape</title><link>https://nicoguaro.github.io/posts/isometric_inkscape/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;Sometimes I find myself in need of making a schematic using an
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Mon, 25 Jan 2021 23:59:31 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Isometric graphics in Inkscape</title><link>https://nicoguaro.github.io/posts/isometric_inkscape/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;Sometimes I find myself in need of making a schematic using an
 &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Isometric_projection"&gt;isometric projection&lt;/a&gt;.
 When the schematic is complicated the best shot is to use some
 CAD like &lt;a class="reference external" href="https://freecadweb.org/"&gt;FreeCAD&lt;/a&gt;, but sometimes it's just

@@ -1,7 +1,5 @@
-
 ## Suggested by Nikola
 cache/
-output/
 .doit.db
 .doit.db.bak
 .doit.db.dat

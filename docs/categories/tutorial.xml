@@ -3,7 +3,7 @@
 &lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
 &lt;img alt="Creative Commons License"
 style="border-width:0"
-src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Mon, 25 Jan 2021 21:54:25 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Downloading videos from MS Stream</title><link>https://nicoguaro.github.io/posts/download_stream/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;This week a student asked me about downloading the videos from one of the
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Mon, 25 Jan 2021 23:59:27 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Downloading videos from MS Stream</title><link>https://nicoguaro.github.io/posts/download_stream/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;This week a student asked me about downloading the videos from one of the
 courses from MS Stream. The problem is that if you are not a proprietary
 of the video you cannot download it. So, I will show you an option to
 download videos without being a proprietary of them.&lt;/p&gt;
@@ -22,10 +22,10 @@ the copyright of the videos.&lt;/p&gt;
 &lt;h2&gt;&lt;code class="docutils literal"&gt;destreamer&lt;/code&gt; installation&lt;/h2&gt;
 &lt;p&gt;After getting the prerequisites you can download
 &lt;a class="reference external" href="https://github.com/snobu/destreamer"&gt;destreamer&lt;/a&gt; using&lt;/p&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_04e5f097668e4203a00352706a2cceee-1"&gt;&lt;/a&gt;$ git clone https://github.com/snobu/destreamer
-&lt;a name="rest_code_04e5f097668e4203a00352706a2cceee-2"&gt;&lt;/a&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; destreamer
-&lt;a name="rest_code_04e5f097668e4203a00352706a2cceee-3"&gt;&lt;/a&gt;$ npm install
-&lt;a name="rest_code_04e5f097668e4203a00352706a2cceee-4"&gt;&lt;/a&gt;$ npm run build
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_c8b37c61b8ea43afae7909d8037c3978-1"&gt;&lt;/a&gt;$ git clone https://github.com/snobu/destreamer
+&lt;a name="rest_code_c8b37c61b8ea43afae7909d8037c3978-2"&gt;&lt;/a&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; destreamer
+&lt;a name="rest_code_c8b37c61b8ea43afae7909d8037c3978-3"&gt;&lt;/a&gt;$ npm install
+&lt;a name="rest_code_c8b37c61b8ea43afae7909d8037c3978-4"&gt;&lt;/a&gt;$ npm run build
 &lt;/pre&gt;&lt;p&gt;in a terminal.&lt;/p&gt;
 &lt;p&gt;If you do not want to play with
 &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Environment_variable"&gt;environment variables&lt;/a&gt;,
@@ -35,15 +35,15 @@ I suggest that you just add &lt;code class="docutils literal"&gt;ffmpeg&lt;/code
 &lt;h2&gt;Downloading&lt;/h2&gt;
 &lt;p&gt;After that, you need to navigate to the folder where you downloaded
 &lt;code class="docutils literal"&gt;destreamer&lt;/code&gt; and&lt;/p&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_be4db93189224a01a7d5cf16ac2cca17-1"&gt;&lt;/a&gt;$ ./destreamer.sh -i &lt;span class="s2"&gt;"https://web.microsoftstream.com/video/VIDEO_ID"&lt;/span&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_2a825c7ad8e74187bb7d9bce84a19ae9-1"&gt;&lt;/a&gt;$ ./destreamer.sh -i &lt;span class="s2"&gt;"https://web.microsoftstream.com/video/VIDEO_ID"&lt;/span&gt;
 &lt;/pre&gt;&lt;p&gt;in Mac or Linux,&lt;/p&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_a623b9c46d67427aa593da7b180b0b49-1"&gt;&lt;/a&gt;$ destreamer.cmd -i &lt;span class="s2"&gt;"https://web.microsoftstream.com/video/VIDEO_ID"&lt;/span&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_7513208a26ee4b8587efe71fc4e7c17c-1"&gt;&lt;/a&gt;$ destreamer.cmd -i &lt;span class="s2"&gt;"https://web.microsoftstream.com/video/VIDEO_ID"&lt;/span&gt;
 &lt;/pre&gt;&lt;p&gt;in the command prompt in Windows, and&lt;/p&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_985b6343575342fbafaaf72ddeb539a0-1"&gt;&lt;/a&gt;$ destreamer.ps1 -i &lt;span class="s2"&gt;"https://web.microsoftstream.com/video/VIDEO_ID"&lt;/span&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_c0ca588272544cc2a45dc0b574b9706f-1"&gt;&lt;/a&gt;$ destreamer.ps1 -i &lt;span class="s2"&gt;"https://web.microsoftstream.com/video/VIDEO_ID"&lt;/span&gt;
 &lt;/pre&gt;&lt;p&gt;in PowerShell.``VIDEO_ID`` refers to the identifier in MS Stream.&lt;/p&gt;
 &lt;p&gt;If you want to download several files (like a complete course), you
 can create a file with the URLs and use&lt;/p&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_de2bd4de6a9e44f4b507c251ff400948-1"&gt;&lt;/a&gt;$ destreamer.cmd -f filename.txt
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_6ac5f8411f454aaab9a974bb928757ed-1"&gt;&lt;/a&gt;$ destreamer.cmd -f filename.txt
 &lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</description><category>nodejs</category><category>tutorial</category><category>videos</category><guid>https://nicoguaro.github.io/posts/download_stream/</guid><pubDate>Fri, 12 Jun 2020 20:31:22 GMT</pubDate></item><item><title>Revisión ortográfica en Jupyter Notebook</title><link>https://nicoguaro.github.io/posts/ortografia_jupyter/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;El objetivo de esta publicación es mostrar cómo tener revisión automática
 de ortografía en Jupyter Notebook &lt;a class="footnote-reference brackets" href="https://nicoguaro.github.io/posts/ortografia_jupyter/#id2" id="id1"&gt;*&lt;/a&gt; para español, como se muestra a
 continuación.&lt;/p&gt;
@@ -68,10 +68,10 @@ una ruta relativa respecto a la carpeta en donde se encuentra el complemento.&lt
 &lt;p&gt;Existe una lista de complementos que agregan algunas funcionalidades
 comúnmente usadas a Jupyter notebook.&lt;/p&gt;
 &lt;p&gt;Escriba lo siguiente en una terminal, para instalarlo usando PIP.&lt;/p&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_83c20bbfa0304bcab2385304ae8cd580-1"&gt;&lt;/a&gt;pip install jupyter_contrib_nbextensions
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_7dc72b42981440ab87728fcf2da08f17-1"&gt;&lt;/a&gt;pip install jupyter_contrib_nbextensions
 &lt;/pre&gt;&lt;p&gt;Sin embargo, si se está usando Anaconda el &lt;strong&gt;método recomendado&lt;/strong&gt; es usar
 &lt;code class="docutils literal"&gt;conda&lt;/code&gt;, como se muestra a continuación.&lt;/p&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_3118c9cfb0d640e5adb0b6adef1ee8f6-1"&gt;&lt;/a&gt;conda install -c conda-forge jupyter_contrib_nbextensions
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_26e0b3c5920847989483161dd91d8d83-1"&gt;&lt;/a&gt;conda install -c conda-forge jupyter_contrib_nbextensions
 &lt;/pre&gt;&lt;p&gt;Esto debe instalar los complementos y también la
 &lt;a class="reference external" href="https://github.com/Jupyter-contrib/jupyter_nbextensions_configurator"&gt;interfaz de configuración&lt;/a&gt;.
 En el menú principal de Jupyter notebook aparecerá una nueva pestaña
@@ -94,9 +94,9 @@ diccionario debe tener codificación &lt;a class="reference external" href="http
 Pueden descargarse en &lt;a class="reference external" href="https://nicoguaro.github.io/downloads/dict_es_ES.zip"&gt;este enlace&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Una vez que se tienen los diccionarios se deben ubicar en la ruta del
 complemento. En mi computador esta sería&lt;/p&gt;
-&lt;pre class="code text"&gt;&lt;a name="rest_code_7e0d3a10e5ec4aecb7f6d6fa10152385-1"&gt;&lt;/a&gt;~/.local/share/jupyter/nbextensions/spellchecker/
+&lt;pre class="code text"&gt;&lt;a name="rest_code_c4fa579a3e9644f18bf50f4fd4d578a4-1"&gt;&lt;/a&gt;~/.local/share/jupyter/nbextensions/spellchecker/
 &lt;/pre&gt;&lt;p&gt;y dentro de esta los ubicaremos en&lt;/p&gt;
-&lt;pre class="code text"&gt;&lt;a name="rest_code_0c964f2524d642d48557ef20e3bb707f-1"&gt;&lt;/a&gt;~/.local/share/jupyter/nbextensions/spellchecker/typo/dictionaries
+&lt;pre class="code text"&gt;&lt;a name="rest_code_44221d0abaa140d4876c971b165d563f-1"&gt;&lt;/a&gt;~/.local/share/jupyter/nbextensions/spellchecker/typo/dictionaries
 &lt;/pre&gt;&lt;p&gt;Esta ubicación es arbitraria, lo importante es que necesitamos conocer
 la ruta relativa al complemento.&lt;/p&gt;
 &lt;/div&gt;

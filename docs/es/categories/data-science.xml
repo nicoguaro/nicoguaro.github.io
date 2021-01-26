@@ -3,7 +3,7 @@
 &lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
 &lt;img alt="Creative Commons License"
 style="border-width:0"
-src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Mon, 25 Jan 2021 21:54:30 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Revisión ortográfica en Jupyter Notebook</title><link>https://nicoguaro.github.io/es/posts/ortografia_jupyter/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;El objetivo de esta publicación es mostrar cómo tener revisión automática
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Mon, 25 Jan 2021 23:59:29 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Revisión ortográfica en Jupyter Notebook</title><link>https://nicoguaro.github.io/es/posts/ortografia_jupyter/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;El objetivo de esta publicación es mostrar cómo tener revisión automática
 de ortografía en Jupyter Notebook &lt;a class="footnote-reference brackets" href="https://nicoguaro.github.io/es/posts/ortografia_jupyter/#id2" id="id1"&gt;*&lt;/a&gt; para español, como se muestra a
 continuación.&lt;/p&gt;
 &lt;img alt="Ejemplo de corrección ortográfica en Jupyter Notebook." class="align-center" src="https://nicoguaro.github.io/images/ortografia_jupyter/ejemplo_ortografia.png" style="width: 600px;"&gt;
@@ -27,10 +27,10 @@ una ruta relativa respecto a la carpeta en donde se encuentra el complemento.&lt
 &lt;p&gt;Existe una lista de complementos que agregan algunas funcionalidades
 comúnmente usadas a Jupyter notebook.&lt;/p&gt;
 &lt;p&gt;Escriba lo siguiente en una terminal, para instalarlo usando PIP.&lt;/p&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_83c20bbfa0304bcab2385304ae8cd580-1"&gt;&lt;/a&gt;pip install jupyter_contrib_nbextensions
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_7dc72b42981440ab87728fcf2da08f17-1"&gt;&lt;/a&gt;pip install jupyter_contrib_nbextensions
 &lt;/pre&gt;&lt;p&gt;Sin embargo, si se está usando Anaconda el &lt;strong&gt;método recomendado&lt;/strong&gt; es usar
 &lt;code class="docutils literal"&gt;conda&lt;/code&gt;, como se muestra a continuación.&lt;/p&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_3118c9cfb0d640e5adb0b6adef1ee8f6-1"&gt;&lt;/a&gt;conda install -c conda-forge jupyter_contrib_nbextensions
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_26e0b3c5920847989483161dd91d8d83-1"&gt;&lt;/a&gt;conda install -c conda-forge jupyter_contrib_nbextensions
 &lt;/pre&gt;&lt;p&gt;Esto debe instalar los complementos y también la
 &lt;a class="reference external" href="https://github.com/Jupyter-contrib/jupyter_nbextensions_configurator"&gt;interfaz de configuración&lt;/a&gt;.
 En el menú principal de Jupyter notebook aparecerá una nueva pestaña
@@ -53,9 +53,9 @@ diccionario debe tener codificación &lt;a class="reference external" href="http
 Pueden descargarse en &lt;a class="reference external" href="https://nicoguaro.github.io/downloads/dict_es_ES.zip"&gt;este enlace&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Una vez que se tienen los diccionarios se deben ubicar en la ruta del
 complemento. En mi computador esta sería&lt;/p&gt;
-&lt;pre class="code text"&gt;&lt;a name="rest_code_7e0d3a10e5ec4aecb7f6d6fa10152385-1"&gt;&lt;/a&gt;~/.local/share/jupyter/nbextensions/spellchecker/
+&lt;pre class="code text"&gt;&lt;a name="rest_code_c4fa579a3e9644f18bf50f4fd4d578a4-1"&gt;&lt;/a&gt;~/.local/share/jupyter/nbextensions/spellchecker/
 &lt;/pre&gt;&lt;p&gt;y dentro de esta los ubicaremos en&lt;/p&gt;
-&lt;pre class="code text"&gt;&lt;a name="rest_code_0c964f2524d642d48557ef20e3bb707f-1"&gt;&lt;/a&gt;~/.local/share/jupyter/nbextensions/spellchecker/typo/dictionaries
+&lt;pre class="code text"&gt;&lt;a name="rest_code_44221d0abaa140d4876c971b165d563f-1"&gt;&lt;/a&gt;~/.local/share/jupyter/nbextensions/spellchecker/typo/dictionaries
 &lt;/pre&gt;&lt;p&gt;Esta ubicación es arbitraria, lo importante es que necesitamos conocer
 la ruta relativa al complemento.&lt;/p&gt;
 &lt;/div&gt;

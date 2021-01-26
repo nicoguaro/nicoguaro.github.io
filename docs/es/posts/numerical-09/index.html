@@ -105,53 +105,53 @@ f(x) = \frac{1}{1 + e^{-x}}
 <p>Following are the codes.</p>
 <div class="section" id="python">
 <h3>Python</h3>
-<pre class="code python"><a name="rest_code_083e7c07ae4345a58a750699c2f0da96-1"></a><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
-<a name="rest_code_083e7c07ae4345a58a750699c2f0da96-2"></a><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">zeros_like</span><span class="p">,</span> <span class="n">linspace</span><span class="p">,</span> <span class="n">exp</span><span class="p">,</span> <span class="n">prod</span>
-<a name="rest_code_083e7c07ae4345a58a750699c2f0da96-3"></a><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<a name="rest_code_083e7c07ae4345a58a750699c2f0da96-4"></a>
-<a name="rest_code_083e7c07ae4345a58a750699c2f0da96-5"></a>
-<a name="rest_code_083e7c07ae4345a58a750699c2f0da96-6"></a><span class="k">def</span> <span class="nf">lagrange</span><span class="p">(</span><span class="n">x_int</span><span class="p">,</span> <span class="n">y_int</span><span class="p">,</span> <span class="n">x_new</span><span class="p">):</span>
-<a name="rest_code_083e7c07ae4345a58a750699c2f0da96-7"></a>    <span class="n">y_new</span> <span class="o">=</span> <span class="n">zeros_like</span><span class="p">(</span><span class="n">x_new</span><span class="p">)</span>
-<a name="rest_code_083e7c07ae4345a58a750699c2f0da96-8"></a>    <span class="k">for</span> <span class="n">xi</span><span class="p">,</span> <span class="n">yi</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">x_int</span><span class="p">,</span> <span class="n">y_int</span><span class="p">):</span>
-<a name="rest_code_083e7c07ae4345a58a750699c2f0da96-9"></a>        <span class="n">y_new</span> <span class="o">+=</span> <span class="n">yi</span><span class="o">*</span><span class="n">prod</span><span class="p">([(</span><span class="n">x_new</span> <span class="o">-</span> <span class="n">xj</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">xi</span> <span class="o">-</span> <span class="n">xj</span><span class="p">)</span>
-<a name="rest_code_083e7c07ae4345a58a750699c2f0da96-10"></a>                         <span class="k">for</span> <span class="n">xj</span> <span class="ow">in</span> <span class="n">x_int</span> <span class="k">if</span> <span class="n">xi</span><span class="o">!=</span><span class="n">xj</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<a name="rest_code_083e7c07ae4345a58a750699c2f0da96-11"></a>    <span class="k">return</span> <span class="n">y_new</span>
-<a name="rest_code_083e7c07ae4345a58a750699c2f0da96-12"></a>
-<a name="rest_code_083e7c07ae4345a58a750699c2f0da96-13"></a>
-<a name="rest_code_083e7c07ae4345a58a750699c2f0da96-14"></a><span class="n">x_int</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
-<a name="rest_code_083e7c07ae4345a58a750699c2f0da96-15"></a><span class="n">y_int</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x_int</span><span class="p">))</span>
-<a name="rest_code_083e7c07ae4345a58a750699c2f0da96-16"></a><span class="n">x_new</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
-<a name="rest_code_083e7c07ae4345a58a750699c2f0da96-17"></a><span class="n">y_new</span> <span class="o">=</span> <span class="n">lagrange</span><span class="p">(</span><span class="n">x_int</span><span class="p">,</span> <span class="n">y_int</span><span class="p">,</span> <span class="n">x_new</span><span class="p">)</span>
-<a name="rest_code_083e7c07ae4345a58a750699c2f0da96-18"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_int</span><span class="p">,</span> <span class="n">y_int</span><span class="p">,</span> <span class="s2">"ok"</span><span class="p">)</span>
-<a name="rest_code_083e7c07ae4345a58a750699c2f0da96-19"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_new</span><span class="p">,</span> <span class="n">y_new</span><span class="p">)</span>
-<a name="rest_code_083e7c07ae4345a58a750699c2f0da96-20"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<pre class="code python"><a name="rest_code_9469ebf26e7e4ab4b73121a27403d5c7-1"></a><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
+<a name="rest_code_9469ebf26e7e4ab4b73121a27403d5c7-2"></a><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">zeros_like</span><span class="p">,</span> <span class="n">linspace</span><span class="p">,</span> <span class="n">exp</span><span class="p">,</span> <span class="n">prod</span>
+<a name="rest_code_9469ebf26e7e4ab4b73121a27403d5c7-3"></a><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<a name="rest_code_9469ebf26e7e4ab4b73121a27403d5c7-4"></a>
+<a name="rest_code_9469ebf26e7e4ab4b73121a27403d5c7-5"></a>
+<a name="rest_code_9469ebf26e7e4ab4b73121a27403d5c7-6"></a><span class="k">def</span> <span class="nf">lagrange</span><span class="p">(</span><span class="n">x_int</span><span class="p">,</span> <span class="n">y_int</span><span class="p">,</span> <span class="n">x_new</span><span class="p">):</span>
+<a name="rest_code_9469ebf26e7e4ab4b73121a27403d5c7-7"></a>    <span class="n">y_new</span> <span class="o">=</span> <span class="n">zeros_like</span><span class="p">(</span><span class="n">x_new</span><span class="p">)</span>
+<a name="rest_code_9469ebf26e7e4ab4b73121a27403d5c7-8"></a>    <span class="k">for</span> <span class="n">xi</span><span class="p">,</span> <span class="n">yi</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">x_int</span><span class="p">,</span> <span class="n">y_int</span><span class="p">):</span>
+<a name="rest_code_9469ebf26e7e4ab4b73121a27403d5c7-9"></a>        <span class="n">y_new</span> <span class="o">+=</span> <span class="n">yi</span><span class="o">*</span><span class="n">prod</span><span class="p">([(</span><span class="n">x_new</span> <span class="o">-</span> <span class="n">xj</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">xi</span> <span class="o">-</span> <span class="n">xj</span><span class="p">)</span>
+<a name="rest_code_9469ebf26e7e4ab4b73121a27403d5c7-10"></a>                         <span class="k">for</span> <span class="n">xj</span> <span class="ow">in</span> <span class="n">x_int</span> <span class="k">if</span> <span class="n">xi</span><span class="o">!=</span><span class="n">xj</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<a name="rest_code_9469ebf26e7e4ab4b73121a27403d5c7-11"></a>    <span class="k">return</span> <span class="n">y_new</span>
+<a name="rest_code_9469ebf26e7e4ab4b73121a27403d5c7-12"></a>
+<a name="rest_code_9469ebf26e7e4ab4b73121a27403d5c7-13"></a>
+<a name="rest_code_9469ebf26e7e4ab4b73121a27403d5c7-14"></a><span class="n">x_int</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<a name="rest_code_9469ebf26e7e4ab4b73121a27403d5c7-15"></a><span class="n">y_int</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x_int</span><span class="p">))</span>
+<a name="rest_code_9469ebf26e7e4ab4b73121a27403d5c7-16"></a><span class="n">x_new</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<a name="rest_code_9469ebf26e7e4ab4b73121a27403d5c7-17"></a><span class="n">y_new</span> <span class="o">=</span> <span class="n">lagrange</span><span class="p">(</span><span class="n">x_int</span><span class="p">,</span> <span class="n">y_int</span><span class="p">,</span> <span class="n">x_new</span><span class="p">)</span>
+<a name="rest_code_9469ebf26e7e4ab4b73121a27403d5c7-18"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_int</span><span class="p">,</span> <span class="n">y_int</span><span class="p">,</span> <span class="s2">"ok"</span><span class="p">)</span>
+<a name="rest_code_9469ebf26e7e4ab4b73121a27403d5c7-19"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_new</span><span class="p">,</span> <span class="n">y_new</span><span class="p">)</span>
+<a name="rest_code_9469ebf26e7e4ab4b73121a27403d5c7-20"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre>
 </div>
 <div class="section" id="julia">
 <h3>Julia</h3>
-<pre class="code julia"><a name="rest_code_54bc054cbd4b4fcebea0a421f9f64557-1"></a><span class="k">using</span> <span class="n">PyPlot</span>
-<a name="rest_code_54bc054cbd4b4fcebea0a421f9f64557-2"></a>
-<a name="rest_code_54bc054cbd4b4fcebea0a421f9f64557-3"></a><span class="k">function</span> <span class="n">lagrange</span><span class="p">(</span><span class="n">x_int</span><span class="p">,</span> <span class="n">y_int</span><span class="p">,</span> <span class="n">x_new</span><span class="p">)</span>
-<a name="rest_code_54bc054cbd4b4fcebea0a421f9f64557-4"></a>    <span class="n">y_new</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">x_new</span><span class="p">)</span>
-<a name="rest_code_54bc054cbd4b4fcebea0a421f9f64557-5"></a>    <span class="k">for</span> <span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">yi</span><span class="p">)</span> <span class="kp">in</span> <span class="n">zip</span><span class="p">(</span><span class="n">x_int</span><span class="p">,</span> <span class="n">y_int</span><span class="p">)</span>
-<a name="rest_code_54bc054cbd4b4fcebea0a421f9f64557-6"></a>        <span class="n">prod</span> <span class="o">=</span> <span class="n">ones</span><span class="p">(</span><span class="n">x_new</span><span class="p">)</span>
-<a name="rest_code_54bc054cbd4b4fcebea0a421f9f64557-7"></a>        <span class="k">for</span> <span class="n">xj</span> <span class="kp">in</span> <span class="n">x_int</span>
-<a name="rest_code_54bc054cbd4b4fcebea0a421f9f64557-8"></a>            <span class="k">if</span> <span class="n">xi</span> <span class="o">!=</span> <span class="n">xj</span>
-<a name="rest_code_54bc054cbd4b4fcebea0a421f9f64557-9"></a>                <span class="n">prod</span> <span class="o">=</span> <span class="n">prod</span><span class="o">.*</span> <span class="p">(</span><span class="n">x_new</span> <span class="o">-</span> <span class="n">xj</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">xi</span> <span class="o">-</span> <span class="n">xj</span><span class="p">)</span>
-<a name="rest_code_54bc054cbd4b4fcebea0a421f9f64557-10"></a>            <span class="k">end</span>
-<a name="rest_code_54bc054cbd4b4fcebea0a421f9f64557-11"></a>        <span class="k">end</span>
-<a name="rest_code_54bc054cbd4b4fcebea0a421f9f64557-12"></a>        <span class="n">y_new</span> <span class="o">+=</span> <span class="n">yi</span><span class="o">*</span><span class="n">prod</span>
-<a name="rest_code_54bc054cbd4b4fcebea0a421f9f64557-13"></a>    <span class="k">end</span>
-<a name="rest_code_54bc054cbd4b4fcebea0a421f9f64557-14"></a>    <span class="k">return</span> <span class="n">y_new</span>
-<a name="rest_code_54bc054cbd4b4fcebea0a421f9f64557-15"></a><span class="k">end</span>
-<a name="rest_code_54bc054cbd4b4fcebea0a421f9f64557-16"></a>
-<a name="rest_code_54bc054cbd4b4fcebea0a421f9f64557-17"></a>
-<a name="rest_code_54bc054cbd4b4fcebea0a421f9f64557-18"></a><span class="n">x_int</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
-<a name="rest_code_54bc054cbd4b4fcebea0a421f9f64557-19"></a><span class="n">y_int</span> <span class="o">=</span> <span class="mf">1.</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">exp</span><span class="o">.</span><span class="p">(</span><span class="o">-</span><span class="n">x_int</span><span class="p">))</span>
-<a name="rest_code_54bc054cbd4b4fcebea0a421f9f64557-20"></a><span class="n">x_new</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
-<a name="rest_code_54bc054cbd4b4fcebea0a421f9f64557-21"></a><span class="n">y_new</span> <span class="o">=</span> <span class="n">lagrange</span><span class="p">(</span><span class="n">x_int</span><span class="p">,</span> <span class="n">y_int</span><span class="p">,</span> <span class="n">x_new</span><span class="p">)</span>
-<a name="rest_code_54bc054cbd4b4fcebea0a421f9f64557-22"></a><span class="n">plot</span><span class="p">(</span><span class="n">x_int</span><span class="p">,</span> <span class="n">y_int</span><span class="p">,</span> <span class="s">"ok"</span><span class="p">)</span>
-<a name="rest_code_54bc054cbd4b4fcebea0a421f9f64557-23"></a><span class="n">plot</span><span class="p">(</span><span class="n">x_new</span><span class="p">,</span> <span class="n">y_new</span><span class="p">)</span>
+<pre class="code julia"><a name="rest_code_4cfee0d81ec240c6ae95834ee50c802a-1"></a><span class="k">using</span> <span class="n">PyPlot</span>
+<a name="rest_code_4cfee0d81ec240c6ae95834ee50c802a-2"></a>
+<a name="rest_code_4cfee0d81ec240c6ae95834ee50c802a-3"></a><span class="k">function</span> <span class="n">lagrange</span><span class="p">(</span><span class="n">x_int</span><span class="p">,</span> <span class="n">y_int</span><span class="p">,</span> <span class="n">x_new</span><span class="p">)</span>
+<a name="rest_code_4cfee0d81ec240c6ae95834ee50c802a-4"></a>    <span class="n">y_new</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">x_new</span><span class="p">)</span>
+<a name="rest_code_4cfee0d81ec240c6ae95834ee50c802a-5"></a>    <span class="k">for</span> <span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">yi</span><span class="p">)</span> <span class="kp">in</span> <span class="n">zip</span><span class="p">(</span><span class="n">x_int</span><span class="p">,</span> <span class="n">y_int</span><span class="p">)</span>
+<a name="rest_code_4cfee0d81ec240c6ae95834ee50c802a-6"></a>        <span class="n">prod</span> <span class="o">=</span> <span class="n">ones</span><span class="p">(</span><span class="n">x_new</span><span class="p">)</span>
+<a name="rest_code_4cfee0d81ec240c6ae95834ee50c802a-7"></a>        <span class="k">for</span> <span class="n">xj</span> <span class="kp">in</span> <span class="n">x_int</span>
+<a name="rest_code_4cfee0d81ec240c6ae95834ee50c802a-8"></a>            <span class="k">if</span> <span class="n">xi</span> <span class="o">!=</span> <span class="n">xj</span>
+<a name="rest_code_4cfee0d81ec240c6ae95834ee50c802a-9"></a>                <span class="n">prod</span> <span class="o">=</span> <span class="n">prod</span><span class="o">.*</span> <span class="p">(</span><span class="n">x_new</span> <span class="o">-</span> <span class="n">xj</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">xi</span> <span class="o">-</span> <span class="n">xj</span><span class="p">)</span>
+<a name="rest_code_4cfee0d81ec240c6ae95834ee50c802a-10"></a>            <span class="k">end</span>
+<a name="rest_code_4cfee0d81ec240c6ae95834ee50c802a-11"></a>        <span class="k">end</span>
+<a name="rest_code_4cfee0d81ec240c6ae95834ee50c802a-12"></a>        <span class="n">y_new</span> <span class="o">+=</span> <span class="n">yi</span><span class="o">*</span><span class="n">prod</span>
+<a name="rest_code_4cfee0d81ec240c6ae95834ee50c802a-13"></a>    <span class="k">end</span>
+<a name="rest_code_4cfee0d81ec240c6ae95834ee50c802a-14"></a>    <span class="k">return</span> <span class="n">y_new</span>
+<a name="rest_code_4cfee0d81ec240c6ae95834ee50c802a-15"></a><span class="k">end</span>
+<a name="rest_code_4cfee0d81ec240c6ae95834ee50c802a-16"></a>
+<a name="rest_code_4cfee0d81ec240c6ae95834ee50c802a-17"></a>
+<a name="rest_code_4cfee0d81ec240c6ae95834ee50c802a-18"></a><span class="n">x_int</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<a name="rest_code_4cfee0d81ec240c6ae95834ee50c802a-19"></a><span class="n">y_int</span> <span class="o">=</span> <span class="mf">1.</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">exp</span><span class="o">.</span><span class="p">(</span><span class="o">-</span><span class="n">x_int</span><span class="p">))</span>
+<a name="rest_code_4cfee0d81ec240c6ae95834ee50c802a-20"></a><span class="n">x_new</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<a name="rest_code_4cfee0d81ec240c6ae95834ee50c802a-21"></a><span class="n">y_new</span> <span class="o">=</span> <span class="n">lagrange</span><span class="p">(</span><span class="n">x_int</span><span class="p">,</span> <span class="n">y_int</span><span class="p">,</span> <span class="n">x_new</span><span class="p">)</span>
+<a name="rest_code_4cfee0d81ec240c6ae95834ee50c802a-22"></a><span class="n">plot</span><span class="p">(</span><span class="n">x_int</span><span class="p">,</span> <span class="n">y_int</span><span class="p">,</span> <span class="s">"ok"</span><span class="p">)</span>
+<a name="rest_code_4cfee0d81ec240c6ae95834ee50c802a-23"></a><span class="n">plot</span><span class="p">(</span><span class="n">x_new</span><span class="p">,</span> <span class="n">y_new</span><span class="p">)</span>
 </pre>
 <p>In both cases the result is the following plot.</p>
 <img alt="Lagrange interpolation." class="align-center" src="../../../images/lagrange_interp.svg" style="width: 400px;">
@@ -162,26 +162,26 @@ f(x) = \frac{1}{1 + e^{-x}}
 in execution time is done with <code class="docutils literal">%timeit</code> magic command in IPython and
 <code class="docutils literal">@benchmark</code> in Julia.</p>
 <p>For Python:</p>
-<pre class="code IPython"><a name="rest_code_ac8682e29f4a49348eb173003047343e-1"></a><span class="o">%</span><span class="k">timeit</span> lagrange(x_int, y_int, x_new)
+<pre class="code IPython"><a name="rest_code_5fe2ba4ad82241a0bc96935e51edda97-1"></a><span class="o">%</span><span class="k">timeit</span> lagrange(x_int, y_int, x_new)
 </pre>
 <p>with result</p>
-<pre class="code text"><a name="rest_code_f55993f2c96046b4bbaa9356518c71dd-1"></a>1000 loops, best of 3: 1.55 ms per loop
+<pre class="code text"><a name="rest_code_7c383e4a4c1f444c94278c5cf4e6186f-1"></a>1000 loops, best of 3: 1.55 ms per loop
 </pre>
 <p>For Julia:</p>
-<pre class="code julia"><a name="rest_code_4a4ef82be7fc4149b8ab51e978be6fdd-1"></a><span class="nd">@benchmark</span> <span class="n">newton_opt</span><span class="p">(</span><span class="n">rosen</span><span class="p">,</span> <span class="n">rosen_grad</span><span class="p">,</span> <span class="n">rosen_hess</span><span class="p">,</span> <span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+<pre class="code julia"><a name="rest_code_0d2af8fb65fb4ba981e4035e06b04170-1"></a><span class="nd">@benchmark</span> <span class="n">newton_opt</span><span class="p">(</span><span class="n">rosen</span><span class="p">,</span> <span class="n">rosen_grad</span><span class="p">,</span> <span class="n">rosen_hess</span><span class="p">,</span> <span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
 </pre>
 <p>with result</p>
-<pre class="code julia"><a name="rest_code_dc667db96c024fbab1be7b4b974caa7b-1"></a><span class="n">BenchmarkTools</span><span class="o">.</span><span class="n">Trial</span><span class="o">:</span>
-<a name="rest_code_dc667db96c024fbab1be7b4b974caa7b-2"></a>  <span class="n">memory</span> <span class="n">estimate</span><span class="o">:</span>  <span class="mf">1.97</span> <span class="n">MiB</span>
-<a name="rest_code_dc667db96c024fbab1be7b4b974caa7b-3"></a>  <span class="n">allocs</span> <span class="n">estimate</span><span class="o">:</span>  <span class="mi">254</span>
-<a name="rest_code_dc667db96c024fbab1be7b4b974caa7b-4"></a>  <span class="o">--------------</span>
-<a name="rest_code_dc667db96c024fbab1be7b4b974caa7b-5"></a>  <span class="n">minimum</span> <span class="n">time</span><span class="o">:</span>     <span class="mf">737.665</span> <span class="n">μs</span> <span class="p">(</span><span class="mf">0.00</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
-<a name="rest_code_dc667db96c024fbab1be7b4b974caa7b-6"></a>  <span class="n">median</span> <span class="n">time</span><span class="o">:</span>      <span class="mf">811.633</span> <span class="n">μs</span> <span class="p">(</span><span class="mf">0.00</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
-<a name="rest_code_dc667db96c024fbab1be7b4b974caa7b-7"></a>  <span class="n">mean</span> <span class="n">time</span><span class="o">:</span>        <span class="mf">916.450</span> <span class="n">μs</span> <span class="p">(</span><span class="mf">10.77</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
-<a name="rest_code_dc667db96c024fbab1be7b4b974caa7b-8"></a>  <span class="n">maximum</span> <span class="n">time</span><span class="o">:</span>     <span class="mf">3.119</span> <span class="n">ms</span> <span class="p">(</span><span class="mf">64.40</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
-<a name="rest_code_dc667db96c024fbab1be7b4b974caa7b-9"></a>  <span class="o">--------------</span>
-<a name="rest_code_dc667db96c024fbab1be7b4b974caa7b-10"></a>  <span class="n">samples</span><span class="o">:</span>          <span class="mi">5433</span>
-<a name="rest_code_dc667db96c024fbab1be7b4b974caa7b-11"></a>  <span class="n">evals</span><span class="o">/</span><span class="n">sample</span><span class="o">:</span>     <span class="mi">1</span>
+<pre class="code julia"><a name="rest_code_a3647a231c6b4b8cb4cb6fe8ec87ef1c-1"></a><span class="n">BenchmarkTools</span><span class="o">.</span><span class="n">Trial</span><span class="o">:</span>
+<a name="rest_code_a3647a231c6b4b8cb4cb6fe8ec87ef1c-2"></a>  <span class="n">memory</span> <span class="n">estimate</span><span class="o">:</span>  <span class="mf">1.97</span> <span class="n">MiB</span>
+<a name="rest_code_a3647a231c6b4b8cb4cb6fe8ec87ef1c-3"></a>  <span class="n">allocs</span> <span class="n">estimate</span><span class="o">:</span>  <span class="mi">254</span>
+<a name="rest_code_a3647a231c6b4b8cb4cb6fe8ec87ef1c-4"></a>  <span class="o">--------------</span>
+<a name="rest_code_a3647a231c6b4b8cb4cb6fe8ec87ef1c-5"></a>  <span class="n">minimum</span> <span class="n">time</span><span class="o">:</span>     <span class="mf">737.665</span> <span class="n">μs</span> <span class="p">(</span><span class="mf">0.00</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
+<a name="rest_code_a3647a231c6b4b8cb4cb6fe8ec87ef1c-6"></a>  <span class="n">median</span> <span class="n">time</span><span class="o">:</span>      <span class="mf">811.633</span> <span class="n">μs</span> <span class="p">(</span><span class="mf">0.00</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
+<a name="rest_code_a3647a231c6b4b8cb4cb6fe8ec87ef1c-7"></a>  <span class="n">mean</span> <span class="n">time</span><span class="o">:</span>        <span class="mf">916.450</span> <span class="n">μs</span> <span class="p">(</span><span class="mf">10.77</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
+<a name="rest_code_a3647a231c6b4b8cb4cb6fe8ec87ef1c-8"></a>  <span class="n">maximum</span> <span class="n">time</span><span class="o">:</span>     <span class="mf">3.119</span> <span class="n">ms</span> <span class="p">(</span><span class="mf">64.40</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
+<a name="rest_code_a3647a231c6b4b8cb4cb6fe8ec87ef1c-9"></a>  <span class="o">--------------</span>
+<a name="rest_code_a3647a231c6b4b8cb4cb6fe8ec87ef1c-10"></a>  <span class="n">samples</span><span class="o">:</span>          <span class="mi">5433</span>
+<a name="rest_code_a3647a231c6b4b8cb4cb6fe8ec87ef1c-11"></a>  <span class="n">evals</span><span class="o">/</span><span class="n">sample</span><span class="o">:</span>     <span class="mi">1</span>
 </pre>
 <p>In this case, we can say that the Python code is roughly 2 times slower
 than the Julia one, where probably I am not using the best approach for

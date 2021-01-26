@@ -3,7 +3,7 @@
 &lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
 &lt;img alt="Creative Commons License"
 style="border-width:0"
-src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Mon, 25 Jan 2021 21:54:27 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Gráficos isométricos en Inkscape</title><link>https://nicoguaro.github.io/es/posts/isometric_inkscape/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;A veces me encuentro en la necesidad de hacer un diagrama usando una
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Mon, 25 Jan 2021 23:59:31 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Gráficos isométricos en Inkscape</title><link>https://nicoguaro.github.io/es/posts/isometric_inkscape/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;A veces me encuentro en la necesidad de hacer un diagrama usando una
 &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Isometric_projection"&gt;proyección isométrica&lt;/a&gt;.
 Cuando el diagrama es complicado la mejor opción es usar algún software de
 CAD como &lt;a class="reference external" href="https://freecadweb.org/"&gt;FreeCAD&lt;/a&gt;, pero a veces sólo se necesita
