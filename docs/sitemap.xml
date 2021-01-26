@@ -371,7 +371,7 @@
  </url>
  <url>
   <loc>https://nicoguaro.github.io/es/categories/</loc>
-  <lastmod>2021-01-25T23:56:00Z</lastmod>
+  <lastmod>2021-01-26T14:28:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/es/categories/algebra-lineal/</loc>
@@ -570,6 +570,10 @@
   <lastmod>2021-01-25T23:56:00Z</lastmod>
  </url>
  <url>
+  <loc>https://nicoguaro.github.io/es/categories/optimizacion/</loc>
+  <lastmod>2021-01-26T14:28:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://nicoguaro.github.io/es/categories/optimization/</loc>
   <lastmod>2021-01-25T23:56:00Z</lastmod>
  </url>
@@ -683,7 +687,7 @@
  </url>
  <url>
   <loc>https://nicoguaro.github.io/es/index-2.html</loc>
-  <lastmod>2021-01-25T23:59:00Z</lastmod>
+  <lastmod>2021-01-26T17:24:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/es/index-3.html</loc>
@@ -988,7 +992,7 @@
  </url>
  <url>
   <loc>https://nicoguaro.github.io/index-2.html</loc>
-  <lastmod>2021-01-25T23:59:00Z</lastmod>
+  <lastmod>2021-01-26T17:12:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/index-3.html</loc>
@@ -1125,22 +1129,27 @@
  <url>
   <loc>https://nicoguaro.github.io/posts/numerical-06/</loc>
   <lastmod>2021-01-25T23:56:00Z</lastmod>
+  <xhtml:link rel="alternate" hreflang="es" href="https://nicoguaro.github.io/es/posts/numerical-06/" />
  </url>
  <url>
   <loc>https://nicoguaro.github.io/posts/numerical-07/</loc>
   <lastmod>2021-01-25T23:56:00Z</lastmod>
+  <xhtml:link rel="alternate" hreflang="es" href="https://nicoguaro.github.io/es/posts/numerical-07/" />
  </url>
  <url>
   <loc>https://nicoguaro.github.io/posts/numerical-08/</loc>
   <lastmod>2021-01-25T23:56:00Z</lastmod>
+  <xhtml:link rel="alternate" hreflang="es" href="https://nicoguaro.github.io/es/posts/numerical-08/" />
  </url>
  <url>
   <loc>https://nicoguaro.github.io/posts/numerical-09/</loc>
   <lastmod>2021-01-25T23:56:00Z</lastmod>
+  <xhtml:link rel="alternate" hreflang="es" href="https://nicoguaro.github.io/es/posts/numerical-09/" />
  </url>
  <url>
   <loc>https://nicoguaro.github.io/posts/numerical-10/</loc>
   <lastmod>2021-01-25T23:56:00Z</lastmod>
+  <xhtml:link rel="alternate" hreflang="es" href="https://nicoguaro.github.io/es/posts/numerical-10/" />
  </url>
  <url>
   <loc>https://nicoguaro.github.io/posts/numerical-11/</loc>

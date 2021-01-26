@@ -214,6 +214,6 @@ The appearance of this faster convergence does not come for free, of course.
 When using Newton's method we have two major drawbacks:
 
 - We need to compute the Hessian of the function, that might prove
-  really difficult, even if we have the analytical expression for our
+  really difficult even if we have the analytical expression for our
   function.
 - We need to solve a system of equation in each iteration.

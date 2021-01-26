@@ -3,28 +3,28 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
-<title>Numerical methods challenge: Day 9 | Nicolás' blog</title>
+<title>Reto de métodos numéricos: Día 9 | Nicolás' blog</title>
 <link href="../../../assets/css/all.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
 <link rel="alternate" type="application/rss+xml" title="RSS (en)" href="../../../rss.xml">
 <link rel="alternate" type="application/rss+xml" title="RSS (es)" href="../../rss.xml">
 <link rel="canonical" href="https://nicoguaro.github.io/es/posts/numerical-09/">
 <!--[if lt IE 9]><script src="../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Nicolás Guarín-Zapata">
-<link rel="prev" href="../numerical-08/" title="Numerical methods challenge: Day 8" type="text/html">
+<link rel="prev" href="../numerical-08/" title="Reto de métodos numéricos: Día 8" type="text/html">
 <link rel="next" href="../numerical-10/" title="Numerical methods challenge: Day 10" type="text/html">
 <meta property="og:site_name" content="Nicolás' blog">
-<meta property="og:title" content="Numerical methods challenge: Day 9">
+<meta property="og:title" content="Reto de métodos numéricos: Día 9">
 <meta property="og:url" content="https://nicoguaro.github.io/es/posts/numerical-09/">
-<meta property="og:description" content="During October (2017) I will write a program per day for some well-known
-numerical methods in both Python and Julia. It is intended to be an exercise
-then don't expect the code to be good enough for r">
+<meta property="og:description" content="Durante octubre (2017) estaré escribiendo un programa por día para algunos
+métodos numéricos famosos en Python y Julia. Esto está pensado como
+un ejercicio, no esperen que el código sea lo suficientem">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2017-10-09T21:17:56-05:00">
-<meta property="article:tag" content="interpolation">
+<meta property="article:tag" content="computación científica">
+<meta property="article:tag" content="interpolación">
 <meta property="article:tag" content="julia">
-<meta property="article:tag" content="numerical methods">
+<meta property="article:tag" content="métodos numéricos">
 <meta property="article:tag" content="python">
-<meta property="article:tag" content="scientific computing">
 <link rel="alternate" hreflang="en" href="../../../posts/numerical-09/">
 </head>
 <body>
@@ -64,7 +64,7 @@ then don't expect the code to be good enough for r">
 
       <div class="container content" id="content">
         
-<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="post-title p-name entry-title" itemprop="headline name"><a href="." class="u-url">Numerical methods challenge: Day 9</a></h1>
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="post-title p-name entry-title" itemprop="headline name"><a href="." class="u-url">Reto de métodos numéricos: Día 9</a></h1>
 
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
@@ -77,129 +77,133 @@ then don't expect the code to be good enough for r">
         </p>
 </div>
         
+        <div class="metadata posttranslations translations">
+            <h3 class="posttranslations-intro">También disponible en:</h3>
+                <p><a href="../../../posts/numerical-09/" rel="alternate" hreflang="en">English</a></p>
+        </div>
 
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
-<p>During October (2017) I will write a program per day for some well-known
-numerical methods in both Python and Julia. It is intended to be an exercise
-then don't expect the code to be good enough for real use. Also,
-I should mention that I have almost no experience with Julia, so it
-probably won't be idiomatic Julia but more Python-like Julia.</p>
-<div class="section" id="lagrange-interpolation">
-<h2>Lagrange interpolation</h2>
-<p>Today we have
-<a class="reference external" href="https://en.wikipedia.org/wiki/Lagrange_polynomial">Lagrange interpolation</a>.
-This is defined by</p>
+<p>Durante octubre (2017) estaré escribiendo un programa por día para algunos
+métodos numéricos famosos en Python y Julia. Esto está pensado como
+un ejercicio, no esperen que el código sea lo suficientemente bueno para
+usarse en la "vida real". Además, también debo mencionar que casi que no
+tengo experiencia con Julia, así que probablemente no escriba un Julia
+idiomático y se parezca más a Python.</p>
+<div class="section" id="interpolacion-de-lagrange">
+<h2>Interpolación de Lagrange</h2>
+<p>Hoy tenemos la <a class="reference external" href="https://es.wikipedia.org/wiki/Interpolaci%C3%B3n_polin%C3%B3mica_de_Lagrange">interpolación de Lagrange</a>.
+Esta se define con</p>
 <div class="math">
 \begin{equation*}
 L(x) = \sum_{j=0}^{k} y_j \prod_{m\neq j}\frac{x - x_m}{x_j - x_m}
 \end{equation*}
 </div>
-<p>with <span class="math">\(x\)</span> the point/points where we want to interpolate.</p>
-<p>We will test the method with a sigmoid</p>
+<p>donde <span class="math">\(x\)</span> son los puntos en donde queremos interpolar.</p>
+<p>Probaremos el meodo con una sigmoide</p>
 <div class="math">
 \begin{equation*}
 f(x) = \frac{1}{1 + e^{-x}}
 \end{equation*}
 </div>
-<p>Following are the codes.</p>
+<p>A continuación se presentan los códigos.</p>
 <div class="section" id="python">
 <h3>Python</h3>
-<pre class="code python"><a name="rest_code_9469ebf26e7e4ab4b73121a27403d5c7-1"></a><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
-<a name="rest_code_9469ebf26e7e4ab4b73121a27403d5c7-2"></a><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">zeros_like</span><span class="p">,</span> <span class="n">linspace</span><span class="p">,</span> <span class="n">exp</span><span class="p">,</span> <span class="n">prod</span>
-<a name="rest_code_9469ebf26e7e4ab4b73121a27403d5c7-3"></a><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<a name="rest_code_9469ebf26e7e4ab4b73121a27403d5c7-4"></a>
-<a name="rest_code_9469ebf26e7e4ab4b73121a27403d5c7-5"></a>
-<a name="rest_code_9469ebf26e7e4ab4b73121a27403d5c7-6"></a><span class="k">def</span> <span class="nf">lagrange</span><span class="p">(</span><span class="n">x_int</span><span class="p">,</span> <span class="n">y_int</span><span class="p">,</span> <span class="n">x_new</span><span class="p">):</span>
-<a name="rest_code_9469ebf26e7e4ab4b73121a27403d5c7-7"></a>    <span class="n">y_new</span> <span class="o">=</span> <span class="n">zeros_like</span><span class="p">(</span><span class="n">x_new</span><span class="p">)</span>
-<a name="rest_code_9469ebf26e7e4ab4b73121a27403d5c7-8"></a>    <span class="k">for</span> <span class="n">xi</span><span class="p">,</span> <span class="n">yi</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">x_int</span><span class="p">,</span> <span class="n">y_int</span><span class="p">):</span>
-<a name="rest_code_9469ebf26e7e4ab4b73121a27403d5c7-9"></a>        <span class="n">y_new</span> <span class="o">+=</span> <span class="n">yi</span><span class="o">*</span><span class="n">prod</span><span class="p">([(</span><span class="n">x_new</span> <span class="o">-</span> <span class="n">xj</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">xi</span> <span class="o">-</span> <span class="n">xj</span><span class="p">)</span>
-<a name="rest_code_9469ebf26e7e4ab4b73121a27403d5c7-10"></a>                         <span class="k">for</span> <span class="n">xj</span> <span class="ow">in</span> <span class="n">x_int</span> <span class="k">if</span> <span class="n">xi</span><span class="o">!=</span><span class="n">xj</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<a name="rest_code_9469ebf26e7e4ab4b73121a27403d5c7-11"></a>    <span class="k">return</span> <span class="n">y_new</span>
-<a name="rest_code_9469ebf26e7e4ab4b73121a27403d5c7-12"></a>
-<a name="rest_code_9469ebf26e7e4ab4b73121a27403d5c7-13"></a>
-<a name="rest_code_9469ebf26e7e4ab4b73121a27403d5c7-14"></a><span class="n">x_int</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
-<a name="rest_code_9469ebf26e7e4ab4b73121a27403d5c7-15"></a><span class="n">y_int</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x_int</span><span class="p">))</span>
-<a name="rest_code_9469ebf26e7e4ab4b73121a27403d5c7-16"></a><span class="n">x_new</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
-<a name="rest_code_9469ebf26e7e4ab4b73121a27403d5c7-17"></a><span class="n">y_new</span> <span class="o">=</span> <span class="n">lagrange</span><span class="p">(</span><span class="n">x_int</span><span class="p">,</span> <span class="n">y_int</span><span class="p">,</span> <span class="n">x_new</span><span class="p">)</span>
-<a name="rest_code_9469ebf26e7e4ab4b73121a27403d5c7-18"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_int</span><span class="p">,</span> <span class="n">y_int</span><span class="p">,</span> <span class="s2">"ok"</span><span class="p">)</span>
-<a name="rest_code_9469ebf26e7e4ab4b73121a27403d5c7-19"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_new</span><span class="p">,</span> <span class="n">y_new</span><span class="p">)</span>
-<a name="rest_code_9469ebf26e7e4ab4b73121a27403d5c7-20"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<pre class="code python"><a name="rest_code_62ea5f5fa8e4417f8a89e0eb2872c335-1"></a><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
+<a name="rest_code_62ea5f5fa8e4417f8a89e0eb2872c335-2"></a><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">zeros_like</span><span class="p">,</span> <span class="n">linspace</span><span class="p">,</span> <span class="n">exp</span><span class="p">,</span> <span class="n">prod</span>
+<a name="rest_code_62ea5f5fa8e4417f8a89e0eb2872c335-3"></a><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<a name="rest_code_62ea5f5fa8e4417f8a89e0eb2872c335-4"></a>
+<a name="rest_code_62ea5f5fa8e4417f8a89e0eb2872c335-5"></a>
+<a name="rest_code_62ea5f5fa8e4417f8a89e0eb2872c335-6"></a><span class="k">def</span> <span class="nf">lagrange</span><span class="p">(</span><span class="n">x_int</span><span class="p">,</span> <span class="n">y_int</span><span class="p">,</span> <span class="n">x_new</span><span class="p">):</span>
+<a name="rest_code_62ea5f5fa8e4417f8a89e0eb2872c335-7"></a>    <span class="n">y_new</span> <span class="o">=</span> <span class="n">zeros_like</span><span class="p">(</span><span class="n">x_new</span><span class="p">)</span>
+<a name="rest_code_62ea5f5fa8e4417f8a89e0eb2872c335-8"></a>    <span class="k">for</span> <span class="n">xi</span><span class="p">,</span> <span class="n">yi</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">x_int</span><span class="p">,</span> <span class="n">y_int</span><span class="p">):</span>
+<a name="rest_code_62ea5f5fa8e4417f8a89e0eb2872c335-9"></a>        <span class="n">y_new</span> <span class="o">+=</span> <span class="n">yi</span><span class="o">*</span><span class="n">prod</span><span class="p">([(</span><span class="n">x_new</span> <span class="o">-</span> <span class="n">xj</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">xi</span> <span class="o">-</span> <span class="n">xj</span><span class="p">)</span>
+<a name="rest_code_62ea5f5fa8e4417f8a89e0eb2872c335-10"></a>                         <span class="k">for</span> <span class="n">xj</span> <span class="ow">in</span> <span class="n">x_int</span> <span class="k">if</span> <span class="n">xi</span><span class="o">!=</span><span class="n">xj</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<a name="rest_code_62ea5f5fa8e4417f8a89e0eb2872c335-11"></a>    <span class="k">return</span> <span class="n">y_new</span>
+<a name="rest_code_62ea5f5fa8e4417f8a89e0eb2872c335-12"></a>
+<a name="rest_code_62ea5f5fa8e4417f8a89e0eb2872c335-13"></a>
+<a name="rest_code_62ea5f5fa8e4417f8a89e0eb2872c335-14"></a><span class="n">x_int</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<a name="rest_code_62ea5f5fa8e4417f8a89e0eb2872c335-15"></a><span class="n">y_int</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x_int</span><span class="p">))</span>
+<a name="rest_code_62ea5f5fa8e4417f8a89e0eb2872c335-16"></a><span class="n">x_new</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<a name="rest_code_62ea5f5fa8e4417f8a89e0eb2872c335-17"></a><span class="n">y_new</span> <span class="o">=</span> <span class="n">lagrange</span><span class="p">(</span><span class="n">x_int</span><span class="p">,</span> <span class="n">y_int</span><span class="p">,</span> <span class="n">x_new</span><span class="p">)</span>
+<a name="rest_code_62ea5f5fa8e4417f8a89e0eb2872c335-18"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_int</span><span class="p">,</span> <span class="n">y_int</span><span class="p">,</span> <span class="s2">"ok"</span><span class="p">)</span>
+<a name="rest_code_62ea5f5fa8e4417f8a89e0eb2872c335-19"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_new</span><span class="p">,</span> <span class="n">y_new</span><span class="p">)</span>
+<a name="rest_code_62ea5f5fa8e4417f8a89e0eb2872c335-20"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre>
 </div>
 <div class="section" id="julia">
 <h3>Julia</h3>
-<pre class="code julia"><a name="rest_code_4cfee0d81ec240c6ae95834ee50c802a-1"></a><span class="k">using</span> <span class="n">PyPlot</span>
-<a name="rest_code_4cfee0d81ec240c6ae95834ee50c802a-2"></a>
-<a name="rest_code_4cfee0d81ec240c6ae95834ee50c802a-3"></a><span class="k">function</span> <span class="n">lagrange</span><span class="p">(</span><span class="n">x_int</span><span class="p">,</span> <span class="n">y_int</span><span class="p">,</span> <span class="n">x_new</span><span class="p">)</span>
-<a name="rest_code_4cfee0d81ec240c6ae95834ee50c802a-4"></a>    <span class="n">y_new</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">x_new</span><span class="p">)</span>
-<a name="rest_code_4cfee0d81ec240c6ae95834ee50c802a-5"></a>    <span class="k">for</span> <span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">yi</span><span class="p">)</span> <span class="kp">in</span> <span class="n">zip</span><span class="p">(</span><span class="n">x_int</span><span class="p">,</span> <span class="n">y_int</span><span class="p">)</span>
-<a name="rest_code_4cfee0d81ec240c6ae95834ee50c802a-6"></a>        <span class="n">prod</span> <span class="o">=</span> <span class="n">ones</span><span class="p">(</span><span class="n">x_new</span><span class="p">)</span>
-<a name="rest_code_4cfee0d81ec240c6ae95834ee50c802a-7"></a>        <span class="k">for</span> <span class="n">xj</span> <span class="kp">in</span> <span class="n">x_int</span>
-<a name="rest_code_4cfee0d81ec240c6ae95834ee50c802a-8"></a>            <span class="k">if</span> <span class="n">xi</span> <span class="o">!=</span> <span class="n">xj</span>
-<a name="rest_code_4cfee0d81ec240c6ae95834ee50c802a-9"></a>                <span class="n">prod</span> <span class="o">=</span> <span class="n">prod</span><span class="o">.*</span> <span class="p">(</span><span class="n">x_new</span> <span class="o">-</span> <span class="n">xj</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">xi</span> <span class="o">-</span> <span class="n">xj</span><span class="p">)</span>
-<a name="rest_code_4cfee0d81ec240c6ae95834ee50c802a-10"></a>            <span class="k">end</span>
-<a name="rest_code_4cfee0d81ec240c6ae95834ee50c802a-11"></a>        <span class="k">end</span>
-<a name="rest_code_4cfee0d81ec240c6ae95834ee50c802a-12"></a>        <span class="n">y_new</span> <span class="o">+=</span> <span class="n">yi</span><span class="o">*</span><span class="n">prod</span>
-<a name="rest_code_4cfee0d81ec240c6ae95834ee50c802a-13"></a>    <span class="k">end</span>
-<a name="rest_code_4cfee0d81ec240c6ae95834ee50c802a-14"></a>    <span class="k">return</span> <span class="n">y_new</span>
-<a name="rest_code_4cfee0d81ec240c6ae95834ee50c802a-15"></a><span class="k">end</span>
-<a name="rest_code_4cfee0d81ec240c6ae95834ee50c802a-16"></a>
-<a name="rest_code_4cfee0d81ec240c6ae95834ee50c802a-17"></a>
-<a name="rest_code_4cfee0d81ec240c6ae95834ee50c802a-18"></a><span class="n">x_int</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
-<a name="rest_code_4cfee0d81ec240c6ae95834ee50c802a-19"></a><span class="n">y_int</span> <span class="o">=</span> <span class="mf">1.</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">exp</span><span class="o">.</span><span class="p">(</span><span class="o">-</span><span class="n">x_int</span><span class="p">))</span>
-<a name="rest_code_4cfee0d81ec240c6ae95834ee50c802a-20"></a><span class="n">x_new</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
-<a name="rest_code_4cfee0d81ec240c6ae95834ee50c802a-21"></a><span class="n">y_new</span> <span class="o">=</span> <span class="n">lagrange</span><span class="p">(</span><span class="n">x_int</span><span class="p">,</span> <span class="n">y_int</span><span class="p">,</span> <span class="n">x_new</span><span class="p">)</span>
-<a name="rest_code_4cfee0d81ec240c6ae95834ee50c802a-22"></a><span class="n">plot</span><span class="p">(</span><span class="n">x_int</span><span class="p">,</span> <span class="n">y_int</span><span class="p">,</span> <span class="s">"ok"</span><span class="p">)</span>
-<a name="rest_code_4cfee0d81ec240c6ae95834ee50c802a-23"></a><span class="n">plot</span><span class="p">(</span><span class="n">x_new</span><span class="p">,</span> <span class="n">y_new</span><span class="p">)</span>
+<pre class="code julia"><a name="rest_code_cad87fccb5bf4b15bb7f40290d5e6f83-1"></a><span class="k">using</span> <span class="n">PyPlot</span>
+<a name="rest_code_cad87fccb5bf4b15bb7f40290d5e6f83-2"></a>
+<a name="rest_code_cad87fccb5bf4b15bb7f40290d5e6f83-3"></a><span class="k">function</span> <span class="n">lagrange</span><span class="p">(</span><span class="n">x_int</span><span class="p">,</span> <span class="n">y_int</span><span class="p">,</span> <span class="n">x_new</span><span class="p">)</span>
+<a name="rest_code_cad87fccb5bf4b15bb7f40290d5e6f83-4"></a>    <span class="n">y_new</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">x_new</span><span class="p">)</span>
+<a name="rest_code_cad87fccb5bf4b15bb7f40290d5e6f83-5"></a>    <span class="k">for</span> <span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">yi</span><span class="p">)</span> <span class="kp">in</span> <span class="n">zip</span><span class="p">(</span><span class="n">x_int</span><span class="p">,</span> <span class="n">y_int</span><span class="p">)</span>
+<a name="rest_code_cad87fccb5bf4b15bb7f40290d5e6f83-6"></a>        <span class="n">prod</span> <span class="o">=</span> <span class="n">ones</span><span class="p">(</span><span class="n">x_new</span><span class="p">)</span>
+<a name="rest_code_cad87fccb5bf4b15bb7f40290d5e6f83-7"></a>        <span class="k">for</span> <span class="n">xj</span> <span class="kp">in</span> <span class="n">x_int</span>
+<a name="rest_code_cad87fccb5bf4b15bb7f40290d5e6f83-8"></a>            <span class="k">if</span> <span class="n">xi</span> <span class="o">!=</span> <span class="n">xj</span>
+<a name="rest_code_cad87fccb5bf4b15bb7f40290d5e6f83-9"></a>                <span class="n">prod</span> <span class="o">=</span> <span class="n">prod</span><span class="o">.*</span> <span class="p">(</span><span class="n">x_new</span> <span class="o">-</span> <span class="n">xj</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">xi</span> <span class="o">-</span> <span class="n">xj</span><span class="p">)</span>
+<a name="rest_code_cad87fccb5bf4b15bb7f40290d5e6f83-10"></a>            <span class="k">end</span>
+<a name="rest_code_cad87fccb5bf4b15bb7f40290d5e6f83-11"></a>        <span class="k">end</span>
+<a name="rest_code_cad87fccb5bf4b15bb7f40290d5e6f83-12"></a>        <span class="n">y_new</span> <span class="o">+=</span> <span class="n">yi</span><span class="o">*</span><span class="n">prod</span>
+<a name="rest_code_cad87fccb5bf4b15bb7f40290d5e6f83-13"></a>    <span class="k">end</span>
+<a name="rest_code_cad87fccb5bf4b15bb7f40290d5e6f83-14"></a>    <span class="k">return</span> <span class="n">y_new</span>
+<a name="rest_code_cad87fccb5bf4b15bb7f40290d5e6f83-15"></a><span class="k">end</span>
+<a name="rest_code_cad87fccb5bf4b15bb7f40290d5e6f83-16"></a>
+<a name="rest_code_cad87fccb5bf4b15bb7f40290d5e6f83-17"></a>
+<a name="rest_code_cad87fccb5bf4b15bb7f40290d5e6f83-18"></a><span class="n">x_int</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<a name="rest_code_cad87fccb5bf4b15bb7f40290d5e6f83-19"></a><span class="n">y_int</span> <span class="o">=</span> <span class="mf">1.</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">exp</span><span class="o">.</span><span class="p">(</span><span class="o">-</span><span class="n">x_int</span><span class="p">))</span>
+<a name="rest_code_cad87fccb5bf4b15bb7f40290d5e6f83-20"></a><span class="n">x_new</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<a name="rest_code_cad87fccb5bf4b15bb7f40290d5e6f83-21"></a><span class="n">y_new</span> <span class="o">=</span> <span class="n">lagrange</span><span class="p">(</span><span class="n">x_int</span><span class="p">,</span> <span class="n">y_int</span><span class="p">,</span> <span class="n">x_new</span><span class="p">)</span>
+<a name="rest_code_cad87fccb5bf4b15bb7f40290d5e6f83-22"></a><span class="n">plot</span><span class="p">(</span><span class="n">x_int</span><span class="p">,</span> <span class="n">y_int</span><span class="p">,</span> <span class="s">"ok"</span><span class="p">)</span>
+<a name="rest_code_cad87fccb5bf4b15bb7f40290d5e6f83-23"></a><span class="n">plot</span><span class="p">(</span><span class="n">x_new</span><span class="p">,</span> <span class="n">y_new</span><span class="p">)</span>
 </pre>
-<p>In both cases the result is the following plot.</p>
-<img alt="Lagrange interpolation." class="align-center" src="../../../images/lagrange_interp.svg" style="width: 400px;">
+<p>En ambos casos el resultado es el siguiente gráfico</p>
+<img alt="Interpolación de Lagrange." class="align-center" src="../../../images/lagrange_interp.svg" style="width: 400px;">
 </div>
-<div class="section" id="comparison-python-julia">
-<h3>Comparison Python/Julia</h3>
-<p>Regarding number of lines we have: 34 in Python and 37 in Julia. The comparison
-in execution time is done with <code class="docutils literal">%timeit</code> magic command in IPython and
-<code class="docutils literal">@benchmark</code> in Julia.</p>
-<p>For Python:</p>
-<pre class="code IPython"><a name="rest_code_5fe2ba4ad82241a0bc96935e51edda97-1"></a><span class="o">%</span><span class="k">timeit</span> lagrange(x_int, y_int, x_new)
+<div class="section" id="comparacion-python-julia">
+<h3>Comparación Python/Julia</h3>
+<p>Respecto al número de líneas tenemos: 34 en Python y 37 en Julia. La comparación
+en tiempo de ejecución se realizó con el comando mágico de IPython <code class="docutils literal">%timeit</code>
+y con <code class="docutils literal">@benchmark</code> en Julia.</p>
+<p>Para Python:</p>
+<pre class="code IPython"><a name="rest_code_b80f2ba445534f8fba1dc0591814b364-1"></a><span class="o">%</span><span class="k">timeit</span> lagrange(x_int, y_int, x_new)
 </pre>
-<p>with result</p>
-<pre class="code text"><a name="rest_code_7c383e4a4c1f444c94278c5cf4e6186f-1"></a>1000 loops, best of 3: 1.55 ms per loop
+<p>con resultado</p>
+<pre class="code text"><a name="rest_code_5e906b9350db4713a6c0606e39a19a14-1"></a>1000 loops, best of 3: 1.55 ms per loop
 </pre>
-<p>For Julia:</p>
-<pre class="code julia"><a name="rest_code_0d2af8fb65fb4ba981e4035e06b04170-1"></a><span class="nd">@benchmark</span> <span class="n">newton_opt</span><span class="p">(</span><span class="n">rosen</span><span class="p">,</span> <span class="n">rosen_grad</span><span class="p">,</span> <span class="n">rosen_hess</span><span class="p">,</span> <span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+<p>Para Julia:</p>
+<pre class="code julia"><a name="rest_code_3acdcee87de442069a03c8b6ad80885f-1"></a><span class="nd">@benchmark</span> <span class="n">newton_opt</span><span class="p">(</span><span class="n">rosen</span><span class="p">,</span> <span class="n">rosen_grad</span><span class="p">,</span> <span class="n">rosen_hess</span><span class="p">,</span> <span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
 </pre>
-<p>with result</p>
-<pre class="code julia"><a name="rest_code_a3647a231c6b4b8cb4cb6fe8ec87ef1c-1"></a><span class="n">BenchmarkTools</span><span class="o">.</span><span class="n">Trial</span><span class="o">:</span>
-<a name="rest_code_a3647a231c6b4b8cb4cb6fe8ec87ef1c-2"></a>  <span class="n">memory</span> <span class="n">estimate</span><span class="o">:</span>  <span class="mf">1.97</span> <span class="n">MiB</span>
-<a name="rest_code_a3647a231c6b4b8cb4cb6fe8ec87ef1c-3"></a>  <span class="n">allocs</span> <span class="n">estimate</span><span class="o">:</span>  <span class="mi">254</span>
-<a name="rest_code_a3647a231c6b4b8cb4cb6fe8ec87ef1c-4"></a>  <span class="o">--------------</span>
-<a name="rest_code_a3647a231c6b4b8cb4cb6fe8ec87ef1c-5"></a>  <span class="n">minimum</span> <span class="n">time</span><span class="o">:</span>     <span class="mf">737.665</span> <span class="n">μs</span> <span class="p">(</span><span class="mf">0.00</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
-<a name="rest_code_a3647a231c6b4b8cb4cb6fe8ec87ef1c-6"></a>  <span class="n">median</span> <span class="n">time</span><span class="o">:</span>      <span class="mf">811.633</span> <span class="n">μs</span> <span class="p">(</span><span class="mf">0.00</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
-<a name="rest_code_a3647a231c6b4b8cb4cb6fe8ec87ef1c-7"></a>  <span class="n">mean</span> <span class="n">time</span><span class="o">:</span>        <span class="mf">916.450</span> <span class="n">μs</span> <span class="p">(</span><span class="mf">10.77</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
-<a name="rest_code_a3647a231c6b4b8cb4cb6fe8ec87ef1c-8"></a>  <span class="n">maximum</span> <span class="n">time</span><span class="o">:</span>     <span class="mf">3.119</span> <span class="n">ms</span> <span class="p">(</span><span class="mf">64.40</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
-<a name="rest_code_a3647a231c6b4b8cb4cb6fe8ec87ef1c-9"></a>  <span class="o">--------------</span>
-<a name="rest_code_a3647a231c6b4b8cb4cb6fe8ec87ef1c-10"></a>  <span class="n">samples</span><span class="o">:</span>          <span class="mi">5433</span>
-<a name="rest_code_a3647a231c6b4b8cb4cb6fe8ec87ef1c-11"></a>  <span class="n">evals</span><span class="o">/</span><span class="n">sample</span><span class="o">:</span>     <span class="mi">1</span>
+<p>con resultado</p>
+<pre class="code julia"><a name="rest_code_47fc63c17d5748499a73809fe85c589b-1"></a><span class="n">BenchmarkTools</span><span class="o">.</span><span class="n">Trial</span><span class="o">:</span>
+<a name="rest_code_47fc63c17d5748499a73809fe85c589b-2"></a>  <span class="n">memory</span> <span class="n">estimate</span><span class="o">:</span>  <span class="mf">1.97</span> <span class="n">MiB</span>
+<a name="rest_code_47fc63c17d5748499a73809fe85c589b-3"></a>  <span class="n">allocs</span> <span class="n">estimate</span><span class="o">:</span>  <span class="mi">254</span>
+<a name="rest_code_47fc63c17d5748499a73809fe85c589b-4"></a>  <span class="o">--------------</span>
+<a name="rest_code_47fc63c17d5748499a73809fe85c589b-5"></a>  <span class="n">minimum</span> <span class="n">time</span><span class="o">:</span>     <span class="mf">737.665</span> <span class="n">μs</span> <span class="p">(</span><span class="mf">0.00</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
+<a name="rest_code_47fc63c17d5748499a73809fe85c589b-6"></a>  <span class="n">median</span> <span class="n">time</span><span class="o">:</span>      <span class="mf">811.633</span> <span class="n">μs</span> <span class="p">(</span><span class="mf">0.00</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
+<a name="rest_code_47fc63c17d5748499a73809fe85c589b-7"></a>  <span class="n">mean</span> <span class="n">time</span><span class="o">:</span>        <span class="mf">916.450</span> <span class="n">μs</span> <span class="p">(</span><span class="mf">10.77</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
+<a name="rest_code_47fc63c17d5748499a73809fe85c589b-8"></a>  <span class="n">maximum</span> <span class="n">time</span><span class="o">:</span>     <span class="mf">3.119</span> <span class="n">ms</span> <span class="p">(</span><span class="mf">64.40</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
+<a name="rest_code_47fc63c17d5748499a73809fe85c589b-9"></a>  <span class="o">--------------</span>
+<a name="rest_code_47fc63c17d5748499a73809fe85c589b-10"></a>  <span class="n">samples</span><span class="o">:</span>          <span class="mi">5433</span>
+<a name="rest_code_47fc63c17d5748499a73809fe85c589b-11"></a>  <span class="n">evals</span><span class="o">/</span><span class="n">sample</span><span class="o">:</span>     <span class="mi">1</span>
 </pre>
-<p>In this case, we can say that the Python code is roughly 2 times slower
-than the Julia one, where probably I am not using the best approach for
-Julia.</p>
+<p>En este caso, podemos decir que el código de Python es alrededor de 2 veces
+más lento que el de Julia, aunque es probable que no este usando el mejor
+enfoque en Julia.</p>
 </div>
 </div>
 </div>
     </div>
     <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
-<li><a class="tag p-category" href="../../categories/interpolation/" rel="tag">interpolation</a></li>
+<li><a class="tag p-category" href="../../categories/computacion-cientifica/" rel="tag">computación científica</a></li>
+            <li><a class="tag p-category" href="../../categories/interpolacion/" rel="tag">interpolación</a></li>
             <li><a class="tag p-category" href="../../categories/julia/" rel="tag">julia</a></li>
-            <li><a class="tag p-category" href="../../categories/numerical-methods/" rel="tag">numerical methods</a></li>
+            <li><a class="tag p-category" href="../../categories/metodos-numericos/" rel="tag">métodos numéricos</a></li>
             <li><a class="tag p-category" href="../../categories/python/" rel="tag">python</a></li>
-            <li><a class="tag p-category" href="../../categories/scientific-computing/" rel="tag">scientific computing</a></li>
         </ul>
 <ul class="pager hidden-print">
 <li class="previous">
-                <a href="../numerical-08/" rel="prev" title="Numerical methods challenge: Day 8">Publicación anterior</a>
+                <a href="../numerical-08/" rel="prev" title="Reto de métodos numéricos: Día 8">Publicación anterior</a>
             </li>
             <li class="next">
                 <a href="../numerical-10/" rel="next" title="Numerical methods challenge: Day 10">Siguiente publicación</a>
@@ -211,7 +215,7 @@ Julia.</p>
         <script>
         var disqus_shortname ="nicoguaro-github",
             disqus_url="https://nicoguaro.github.io/es/posts/numerical-09/",
-        disqus_title="Numerical methods challenge: Day 9",
+        disqus_title="Reto de m\u00e9todos num\u00e9ricos: D\u00eda 9",
         disqus_identifier="cache/posts/numerical-09.html",
         disqus_config = function () {
             this.language = "es_ES";

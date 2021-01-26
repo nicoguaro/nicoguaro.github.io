@@ -2,7 +2,7 @@
 .. slug: numerical-05
 .. date: 2017-10-05 13:21:41 UTC-05:00
 .. tags: numerical methods, python, julia, scientific computing, root finding
-.. description: Scientific Computing
+.. category: Scientific Computing
 .. type: text
 .. has_math: yes
 

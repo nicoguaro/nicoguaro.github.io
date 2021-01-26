@@ -22,7 +22,7 @@ a point to a new one in the neighbourhood of a differentiable function.
 This is illustrated in the following image, where we can see that the
 steps are given perpendicular to the isocontours of the function. If we think
 the function as the topography of certain region, it would probably be safe
-to think the isocontour of the functios as the path that cows would like to
+to think the isocontour of the functions as the path that cows would like to
 walk, while the gradient direction the path for a mountain goat.
 
 .. image:: https://upload.wikimedia.org/wikipedia/commons/f/ff/Gradient_descent.svg

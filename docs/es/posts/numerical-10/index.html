@@ -3,28 +3,28 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
-<title>Numerical methods challenge: Day 10 | Nicolás' blog</title>
+<title>Reto de métodos numéricos: Día 9 | Nicolás' blog</title>
 <link href="../../../assets/css/all.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
 <link rel="alternate" type="application/rss+xml" title="RSS (en)" href="../../../rss.xml">
 <link rel="alternate" type="application/rss+xml" title="RSS (es)" href="../../rss.xml">
 <link rel="canonical" href="https://nicoguaro.github.io/es/posts/numerical-10/">
 <!--[if lt IE 9]><script src="../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Nicolás Guarín-Zapata">
-<link rel="prev" href="../numerical-09/" title="Numerical methods challenge: Day 9" type="text/html">
+<link rel="prev" href="../numerical-09/" title="Reto de métodos numéricos: Día 9" type="text/html">
 <link rel="next" href="../numerical-11/" title="Numerical methods challenge: Day 11" type="text/html">
 <meta property="og:site_name" content="Nicolás' blog">
-<meta property="og:title" content="Numerical methods challenge: Day 10">
+<meta property="og:title" content="Reto de métodos numéricos: Día 9">
 <meta property="og:url" content="https://nicoguaro.github.io/es/posts/numerical-10/">
-<meta property="og:description" content="During October (2017) I will write a program per day for some well-known
-numerical methods in both Python and Julia. It is intended to be an exercise
-then don't expect the code to be good enough for r">
+<meta property="og:description" content="Durante octubre (2017) estaré escribiendo un programa por día para algunos
+métodos numéricos famosos en Python y Julia. Esto está pensado como
+un ejercicio, no esperen que el código sea lo suficientem">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2017-10-10T21:16:26-05:00">
-<meta property="article:tag" content="interpolation">
+<meta property="article:tag" content="computación científica">
+<meta property="article:tag" content="interpolación">
 <meta property="article:tag" content="julia">
-<meta property="article:tag" content="numerical methods">
+<meta property="article:tag" content="métodos numéricos">
 <meta property="article:tag" content="python">
-<meta property="article:tag" content="scientific computing">
 <link rel="alternate" hreflang="en" href="../../../posts/numerical-10/">
 </head>
 <body>
@@ -64,7 +64,7 @@ then don't expect the code to be good enough for r">
 
       <div class="container content" id="content">
         
-<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="post-title p-name entry-title" itemprop="headline name"><a href="." class="u-url">Numerical methods challenge: Day 10</a></h1>
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="post-title p-name entry-title" itemprop="headline name"><a href="." class="u-url">Reto de métodos numéricos: Día 9</a></h1>
 
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
@@ -77,162 +77,167 @@ then don't expect the code to be good enough for r">
         </p>
 </div>
         
+        <div class="metadata posttranslations translations">
+            <h3 class="posttranslations-intro">También disponible en:</h3>
+                <p><a href="../../../posts/numerical-10/" rel="alternate" hreflang="en">English</a></p>
+        </div>
 
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
-<p>During October (2017) I will write a program per day for some well-known
-numerical methods in both Python and Julia. It is intended to be an exercise
-then don't expect the code to be good enough for real use. Also,
-I should mention that I have almost no experience with Julia, so it
-probably won't be idiomatic Julia but more Python-like Julia.</p>
-<div class="section" id="lagrange-interpolation-runge-phenomenon">
-<h2>Lagrange interpolation: Runge phenomenon</h2>
-<p>Today we have
-<a class="reference external" href="https://en.wikipedia.org/wiki/Lagrange_polynomial">Lagrange interpolation</a>,
-again. Technically, I am not posting about a different method, but just
-using the <a class="reference external" href="../../../posts/numerical-09/">same algorithm for interpolation</a>.
-The difference is that I will change the sampling, that is, I will use
-non-uniform sampling.</p>
-<p>The problem with uniform interpolation is known as
-<a class="reference external" href="https://en.wikipedia.org/wiki/Runge%27s_phenomenon">Runge phenomenon</a>
-and is illustrated in the following image.</p>
-<img alt="Runge phenomenon." class="align-center" src="../../../images/runge_phenomenon.svg" style="width: 500px;"><p>One way to mitigate the problem is to use non-uniform sampling, such as
-<a class="reference external" href="https://en.wikipedia.org/wiki/Chebyshev_nodes">Chebyshev nodes</a> or
-<a class="reference external" href="https://en.wikipedia.org/wiki/Gaussian_quadrature#Gauss.E2.80.93Lobatto_rules">Lobatto nodes</a>. The former set minimizes
-the Runge phenomenon, while the latter maximizes the
-<a class="reference external" href="https://en.wikipedia.org/wiki/Vandermonde_matrix">Vandermonde determinant</a>.</p>
-<p>In the example below we use Lobatto sampling. Lobatto nodes are the zeros of</p>
+<p>Durante octubre (2017) estaré escribiendo un programa por día para algunos
+métodos numéricos famosos en Python y Julia. Esto está pensado como
+un ejercicio, no esperen que el código sea lo suficientemente bueno para
+usarse en la "vida real". Además, también debo mencionar que casi que no
+tengo experiencia con Julia, así que probablemente no escriba un Julia
+idiomático y se parezca más a Python.</p>
+<div class="section" id="interpolacion-de-lagrange-fenomeno-de-runge">
+<h2>Interpolación de Lagrange: fenómeno de Runge</h2>
+<p>Hoy tenemos la <a class="reference external" href="https://es.wikipedia.org/wiki/Interpolaci%C3%B3n_polin%C3%B3mica_de_Lagrange">interpolación de Lagrange</a>,
+de nuevo. Técnicamente, no estoy publicando sobre un método diferente sino
+publicando el <a class="reference external" href="../../../posts/numerical-09/">mismo algoritmo para interpolar</a>.
+La diferencia es que cambiaré el muestreo, es decir, usaré un muestreo que
+no es uniforme.</p>
+<p>El problema con la interpolación uniforme se conoce como
+<a class="reference external" href="https://es.wikipedia.org/wiki/Fen%C3%B3meno_de_Runge">fenómeno de Runge</a>
+y se ilustra con la siguiente imagen.</p>
+<img alt="Fenómeno de Runge." class="align-center" src="../../../images/runge_phenomenon.svg" style="width: 500px;"><p>Una forma de mitigar el problema es usar muestreo no uniforme, como los
+<a class="reference external" href="https://en.wikipedia.org/wiki/Chebyshev_nodes">nodos de Chebyshev</a> o los
+<a class="reference external" href="https://en.wikipedia.org/wiki/Gaussian_quadrature#Gauss.E2.80.93Lobatto_rules">nodos de Lobatto</a>.
+El primero de estos muestreos minimiza el fenómeno de Runge, mientras que el
+segundo maximiza el <a class="reference external" href="https://en.wikipedia.org/wiki/Vandermonde_matrix">determinant de Vandermonde</a>.</p>
+<p>En el ejemplo a continuación usamos el muestreo de Lobatto. Los nodos de Lobatto
+son los ceros de</p>
 <div class="math">
 \begin{equation*}
 (1 - x^2) P'_N(x)
 \end{equation*}
 </div>
-<p>where <span class="math">\(P_N\)</span> refers to the Nth Legendre polynomial. The use of these
-nodes is useful in numerical integration and spectral methods. Finding the
-zeroes of these polynomials might be cumbersome in general. Nevertheless,
-we use an approach originally implemented in
-<a class="reference external" href="http://www.mathworks.com/matlabcentral/fileexchange/4775-legende-gauss-lobatto-nodes-and-weights">MATLAB by Greg von Winckel</a> that use Chebyshev nodes
-as first guess and then update this guess using Newton-Raphson method.</p>
-<p>Following are the codes.</p>
+<p>donde <span class="math">\(P_N\)</span> se refiere al N-ésimo polinomio de Legendre. El uso de estos
+nodos es útil en integración numérica y métodos espectrales. Encontrar los ceros
+de estos polinomios puede ser engorroso, en general. En este caso, usamos
+un método originalmente implementado en <a class="reference external" href="http://www.mathworks.com/matlabcentral/fileexchange/4775-legende-gauss-lobatto-nodes-and-weights">MATLAB por Greg von Winckel</a>
+que usa los nodos de Chebyshev como una aproximación inicial y luego
+actualiza este aproximación usando el método de Newton-Raphson.</p>
+<p>A continuación se presentan los códigos.</p>
 <div class="section" id="python">
 <h3>Python</h3>
-<pre class="code python"><a name="rest_code_957f6143648e4ef8bfae3013af8e593c-1"></a><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
-<a name="rest_code_957f6143648e4ef8bfae3013af8e593c-2"></a><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="p">(</span><span class="n">zeros_like</span><span class="p">,</span> <span class="n">pi</span><span class="p">,</span> <span class="n">cos</span><span class="p">,</span> <span class="n">zeros</span><span class="p">,</span> <span class="n">amax</span><span class="p">,</span> <span class="nb">abs</span><span class="p">,</span>
-<a name="rest_code_957f6143648e4ef8bfae3013af8e593c-3"></a>                   <span class="n">array</span><span class="p">,</span> <span class="n">linspace</span><span class="p">,</span> <span class="n">prod</span><span class="p">)</span>
-<a name="rest_code_957f6143648e4ef8bfae3013af8e593c-4"></a><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<a name="rest_code_957f6143648e4ef8bfae3013af8e593c-5"></a>
-<a name="rest_code_957f6143648e4ef8bfae3013af8e593c-6"></a>
-<a name="rest_code_957f6143648e4ef8bfae3013af8e593c-7"></a><span class="k">def</span> <span class="nf">lagrange</span><span class="p">(</span><span class="n">x_int</span><span class="p">,</span> <span class="n">y_int</span><span class="p">,</span> <span class="n">x_new</span><span class="p">):</span>
-<a name="rest_code_957f6143648e4ef8bfae3013af8e593c-8"></a>    <span class="n">y_new</span> <span class="o">=</span> <span class="n">zeros_like</span><span class="p">(</span><span class="n">x_new</span><span class="p">)</span>
-<a name="rest_code_957f6143648e4ef8bfae3013af8e593c-9"></a>    <span class="k">for</span> <span class="n">xi</span><span class="p">,</span> <span class="n">yi</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">x_int</span><span class="p">,</span> <span class="n">y_int</span><span class="p">):</span>
-<a name="rest_code_957f6143648e4ef8bfae3013af8e593c-10"></a>        <span class="n">y_new</span> <span class="o">+=</span> <span class="n">yi</span><span class="o">*</span><span class="n">prod</span><span class="p">([(</span><span class="n">x_new</span> <span class="o">-</span> <span class="n">xj</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">xi</span> <span class="o">-</span> <span class="n">xj</span><span class="p">)</span>
-<a name="rest_code_957f6143648e4ef8bfae3013af8e593c-11"></a>                         <span class="k">for</span> <span class="n">xj</span> <span class="ow">in</span> <span class="n">x_int</span> <span class="k">if</span> <span class="n">xi</span><span class="o">!=</span><span class="n">xj</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<a name="rest_code_957f6143648e4ef8bfae3013af8e593c-12"></a>    <span class="k">return</span> <span class="n">y_new</span>
-<a name="rest_code_957f6143648e4ef8bfae3013af8e593c-13"></a>
-<a name="rest_code_957f6143648e4ef8bfae3013af8e593c-14"></a>
-<a name="rest_code_957f6143648e4ef8bfae3013af8e593c-15"></a><span class="k">def</span> <span class="nf">gauss_lobatto</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-15</span><span class="p">):</span>
-<a name="rest_code_957f6143648e4ef8bfae3013af8e593c-16"></a>    <span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="n">cos</span><span class="p">(</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">pi</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span>
-<a name="rest_code_957f6143648e4ef8bfae3013af8e593c-17"></a>    <span class="n">P</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span>  <span class="c1"># Vandermonde Matrix</span>
-<a name="rest_code_957f6143648e4ef8bfae3013af8e593c-18"></a>    <span class="n">x_old</span> <span class="o">=</span> <span class="mi">2</span>
-<a name="rest_code_957f6143648e4ef8bfae3013af8e593c-19"></a>    <span class="k">while</span> <span class="n">amax</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">x_old</span><span class="p">))</span> <span class="o">&gt;</span> <span class="n">tol</span><span class="p">:</span>
-<a name="rest_code_957f6143648e4ef8bfae3013af8e593c-20"></a>        <span class="n">x_old</span> <span class="o">=</span> <span class="n">x</span>
-<a name="rest_code_957f6143648e4ef8bfae3013af8e593c-21"></a>        <span class="n">P</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-<a name="rest_code_957f6143648e4ef8bfae3013af8e593c-22"></a>        <span class="n">P</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span>
-<a name="rest_code_957f6143648e4ef8bfae3013af8e593c-23"></a>        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
-<a name="rest_code_957f6143648e4ef8bfae3013af8e593c-24"></a>            <span class="n">P</span><span class="p">[:,</span> <span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="mi">2</span> <span class="o">*</span> <span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">x</span> <span class="o">*</span> <span class="n">P</span><span class="p">[:,</span> <span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span>
-<a name="rest_code_957f6143648e4ef8bfae3013af8e593c-25"></a>                       <span class="p">(</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">P</span><span class="p">[:,</span> <span class="n">k</span> <span class="o">-</span> <span class="mi">2</span><span class="p">])</span> <span class="o">/</span> <span class="n">k</span>
-<a name="rest_code_957f6143648e4ef8bfae3013af8e593c-26"></a>        <span class="n">x</span> <span class="o">=</span> <span class="n">x_old</span> <span class="o">-</span> <span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">P</span><span class="p">[:,</span> <span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">P</span><span class="p">[:,</span> <span class="n">N</span> <span class="o">-</span> <span class="mi">2</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="n">N</span> <span class="o">*</span> <span class="n">P</span><span class="p">[:,</span> <span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span>
-<a name="rest_code_957f6143648e4ef8bfae3013af8e593c-27"></a>        <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<a name="rest_code_957f6143648e4ef8bfae3013af8e593c-28"></a>    <span class="k">return</span> <span class="n">array</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<a name="rest_code_957f6143648e4ef8bfae3013af8e593c-29"></a>
-<a name="rest_code_957f6143648e4ef8bfae3013af8e593c-30"></a>
-<a name="rest_code_957f6143648e4ef8bfae3013af8e593c-31"></a><span class="n">runge</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">25</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-<a name="rest_code_957f6143648e4ef8bfae3013af8e593c-32"></a><span class="n">x</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<a name="rest_code_957f6143648e4ef8bfae3013af8e593c-33"></a><span class="n">x_int</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
-<a name="rest_code_957f6143648e4ef8bfae3013af8e593c-34"></a><span class="n">x_int2</span> <span class="o">=</span> <span class="n">gauss_lobatto</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>
-<a name="rest_code_957f6143648e4ef8bfae3013af8e593c-35"></a><span class="n">x_new</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
-<a name="rest_code_957f6143648e4ef8bfae3013af8e593c-36"></a><span class="n">y_new</span> <span class="o">=</span> <span class="n">lagrange</span><span class="p">(</span><span class="n">x_int</span><span class="p">,</span> <span class="n">runge</span><span class="p">(</span><span class="n">x_int</span><span class="p">),</span> <span class="n">x_new</span><span class="p">)</span>
-<a name="rest_code_957f6143648e4ef8bfae3013af8e593c-37"></a><span class="n">y_new2</span> <span class="o">=</span> <span class="n">lagrange</span><span class="p">(</span><span class="n">x_int2</span><span class="p">,</span> <span class="n">runge</span><span class="p">(</span><span class="n">x_int2</span><span class="p">),</span> <span class="n">x_new</span><span class="p">)</span>
-<a name="rest_code_957f6143648e4ef8bfae3013af8e593c-38"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">runge</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s2">"k"</span><span class="p">)</span>
-<a name="rest_code_957f6143648e4ef8bfae3013af8e593c-39"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_new</span><span class="p">,</span> <span class="n">y_new</span><span class="p">)</span>
-<a name="rest_code_957f6143648e4ef8bfae3013af8e593c-40"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_new</span><span class="p">,</span> <span class="n">y_new2</span><span class="p">)</span>
-<a name="rest_code_957f6143648e4ef8bfae3013af8e593c-41"></a><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">"Runge function"</span><span class="p">,</span>
-<a name="rest_code_957f6143648e4ef8bfae3013af8e593c-42"></a>            <span class="s2">"Uniform interpolation"</span><span class="p">,</span>
-<a name="rest_code_957f6143648e4ef8bfae3013af8e593c-43"></a>            <span class="s2">"Lobatto-sampling interpolation"</span><span class="p">])</span>
-<a name="rest_code_957f6143648e4ef8bfae3013af8e593c-44"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"x"</span><span class="p">)</span>
-<a name="rest_code_957f6143648e4ef8bfae3013af8e593c-45"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"y"</span><span class="p">)</span>
-<a name="rest_code_957f6143648e4ef8bfae3013af8e593c-46"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<pre class="code python"><a name="rest_code_a0ba975421f94d52a5c32f70141cd597-1"></a><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
+<a name="rest_code_a0ba975421f94d52a5c32f70141cd597-2"></a><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="p">(</span><span class="n">zeros_like</span><span class="p">,</span> <span class="n">pi</span><span class="p">,</span> <span class="n">cos</span><span class="p">,</span> <span class="n">zeros</span><span class="p">,</span> <span class="n">amax</span><span class="p">,</span> <span class="nb">abs</span><span class="p">,</span>
+<a name="rest_code_a0ba975421f94d52a5c32f70141cd597-3"></a>                   <span class="n">array</span><span class="p">,</span> <span class="n">linspace</span><span class="p">,</span> <span class="n">prod</span><span class="p">)</span>
+<a name="rest_code_a0ba975421f94d52a5c32f70141cd597-4"></a><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<a name="rest_code_a0ba975421f94d52a5c32f70141cd597-5"></a>
+<a name="rest_code_a0ba975421f94d52a5c32f70141cd597-6"></a>
+<a name="rest_code_a0ba975421f94d52a5c32f70141cd597-7"></a><span class="k">def</span> <span class="nf">lagrange</span><span class="p">(</span><span class="n">x_int</span><span class="p">,</span> <span class="n">y_int</span><span class="p">,</span> <span class="n">x_new</span><span class="p">):</span>
+<a name="rest_code_a0ba975421f94d52a5c32f70141cd597-8"></a>    <span class="n">y_new</span> <span class="o">=</span> <span class="n">zeros_like</span><span class="p">(</span><span class="n">x_new</span><span class="p">)</span>
+<a name="rest_code_a0ba975421f94d52a5c32f70141cd597-9"></a>    <span class="k">for</span> <span class="n">xi</span><span class="p">,</span> <span class="n">yi</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">x_int</span><span class="p">,</span> <span class="n">y_int</span><span class="p">):</span>
+<a name="rest_code_a0ba975421f94d52a5c32f70141cd597-10"></a>        <span class="n">y_new</span> <span class="o">+=</span> <span class="n">yi</span><span class="o">*</span><span class="n">prod</span><span class="p">([(</span><span class="n">x_new</span> <span class="o">-</span> <span class="n">xj</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">xi</span> <span class="o">-</span> <span class="n">xj</span><span class="p">)</span>
+<a name="rest_code_a0ba975421f94d52a5c32f70141cd597-11"></a>                         <span class="k">for</span> <span class="n">xj</span> <span class="ow">in</span> <span class="n">x_int</span> <span class="k">if</span> <span class="n">xi</span><span class="o">!=</span><span class="n">xj</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<a name="rest_code_a0ba975421f94d52a5c32f70141cd597-12"></a>    <span class="k">return</span> <span class="n">y_new</span>
+<a name="rest_code_a0ba975421f94d52a5c32f70141cd597-13"></a>
+<a name="rest_code_a0ba975421f94d52a5c32f70141cd597-14"></a>
+<a name="rest_code_a0ba975421f94d52a5c32f70141cd597-15"></a><span class="k">def</span> <span class="nf">gauss_lobatto</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-15</span><span class="p">):</span>
+<a name="rest_code_a0ba975421f94d52a5c32f70141cd597-16"></a>    <span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="n">cos</span><span class="p">(</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">pi</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span>
+<a name="rest_code_a0ba975421f94d52a5c32f70141cd597-17"></a>    <span class="n">P</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span>  <span class="c1"># Vandermonde Matrix</span>
+<a name="rest_code_a0ba975421f94d52a5c32f70141cd597-18"></a>    <span class="n">x_old</span> <span class="o">=</span> <span class="mi">2</span>
+<a name="rest_code_a0ba975421f94d52a5c32f70141cd597-19"></a>    <span class="k">while</span> <span class="n">amax</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">x_old</span><span class="p">))</span> <span class="o">&gt;</span> <span class="n">tol</span><span class="p">:</span>
+<a name="rest_code_a0ba975421f94d52a5c32f70141cd597-20"></a>        <span class="n">x_old</span> <span class="o">=</span> <span class="n">x</span>
+<a name="rest_code_a0ba975421f94d52a5c32f70141cd597-21"></a>        <span class="n">P</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<a name="rest_code_a0ba975421f94d52a5c32f70141cd597-22"></a>        <span class="n">P</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span>
+<a name="rest_code_a0ba975421f94d52a5c32f70141cd597-23"></a>        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+<a name="rest_code_a0ba975421f94d52a5c32f70141cd597-24"></a>            <span class="n">P</span><span class="p">[:,</span> <span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="mi">2</span> <span class="o">*</span> <span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">x</span> <span class="o">*</span> <span class="n">P</span><span class="p">[:,</span> <span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span>
+<a name="rest_code_a0ba975421f94d52a5c32f70141cd597-25"></a>                       <span class="p">(</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">P</span><span class="p">[:,</span> <span class="n">k</span> <span class="o">-</span> <span class="mi">2</span><span class="p">])</span> <span class="o">/</span> <span class="n">k</span>
+<a name="rest_code_a0ba975421f94d52a5c32f70141cd597-26"></a>        <span class="n">x</span> <span class="o">=</span> <span class="n">x_old</span> <span class="o">-</span> <span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">P</span><span class="p">[:,</span> <span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">P</span><span class="p">[:,</span> <span class="n">N</span> <span class="o">-</span> <span class="mi">2</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="n">N</span> <span class="o">*</span> <span class="n">P</span><span class="p">[:,</span> <span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span>
+<a name="rest_code_a0ba975421f94d52a5c32f70141cd597-27"></a>        <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a name="rest_code_a0ba975421f94d52a5c32f70141cd597-28"></a>    <span class="k">return</span> <span class="n">array</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a name="rest_code_a0ba975421f94d52a5c32f70141cd597-29"></a>
+<a name="rest_code_a0ba975421f94d52a5c32f70141cd597-30"></a>
+<a name="rest_code_a0ba975421f94d52a5c32f70141cd597-31"></a><span class="n">runge</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">25</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<a name="rest_code_a0ba975421f94d52a5c32f70141cd597-32"></a><span class="n">x</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<a name="rest_code_a0ba975421f94d52a5c32f70141cd597-33"></a><span class="n">x_int</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<a name="rest_code_a0ba975421f94d52a5c32f70141cd597-34"></a><span class="n">x_int2</span> <span class="o">=</span> <span class="n">gauss_lobatto</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>
+<a name="rest_code_a0ba975421f94d52a5c32f70141cd597-35"></a><span class="n">x_new</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<a name="rest_code_a0ba975421f94d52a5c32f70141cd597-36"></a><span class="n">y_new</span> <span class="o">=</span> <span class="n">lagrange</span><span class="p">(</span><span class="n">x_int</span><span class="p">,</span> <span class="n">runge</span><span class="p">(</span><span class="n">x_int</span><span class="p">),</span> <span class="n">x_new</span><span class="p">)</span>
+<a name="rest_code_a0ba975421f94d52a5c32f70141cd597-37"></a><span class="n">y_new2</span> <span class="o">=</span> <span class="n">lagrange</span><span class="p">(</span><span class="n">x_int2</span><span class="p">,</span> <span class="n">runge</span><span class="p">(</span><span class="n">x_int2</span><span class="p">),</span> <span class="n">x_new</span><span class="p">)</span>
+<a name="rest_code_a0ba975421f94d52a5c32f70141cd597-38"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">runge</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s2">"k"</span><span class="p">)</span>
+<a name="rest_code_a0ba975421f94d52a5c32f70141cd597-39"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_new</span><span class="p">,</span> <span class="n">y_new</span><span class="p">)</span>
+<a name="rest_code_a0ba975421f94d52a5c32f70141cd597-40"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_new</span><span class="p">,</span> <span class="n">y_new2</span><span class="p">)</span>
+<a name="rest_code_a0ba975421f94d52a5c32f70141cd597-41"></a><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">"Runge function"</span><span class="p">,</span>
+<a name="rest_code_a0ba975421f94d52a5c32f70141cd597-42"></a>            <span class="s2">"Uniform interpolation"</span><span class="p">,</span>
+<a name="rest_code_a0ba975421f94d52a5c32f70141cd597-43"></a>            <span class="s2">"Lobatto-sampling interpolation"</span><span class="p">])</span>
+<a name="rest_code_a0ba975421f94d52a5c32f70141cd597-44"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"x"</span><span class="p">)</span>
+<a name="rest_code_a0ba975421f94d52a5c32f70141cd597-45"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"y"</span><span class="p">)</span>
+<a name="rest_code_a0ba975421f94d52a5c32f70141cd597-46"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre>
 </div>
 <div class="section" id="julia">
 <h3>Julia</h3>
-<pre class="code julia"><a name="rest_code_578c3de2e5c04fd89653df0874dbde01-1"></a><span class="k">using</span> <span class="n">PyPlot</span>
-<a name="rest_code_578c3de2e5c04fd89653df0874dbde01-2"></a>
-<a name="rest_code_578c3de2e5c04fd89653df0874dbde01-3"></a>
-<a name="rest_code_578c3de2e5c04fd89653df0874dbde01-4"></a><span class="k">function</span> <span class="n">lagrange</span><span class="p">(</span><span class="n">x_int</span><span class="p">,</span> <span class="n">y_int</span><span class="p">,</span> <span class="n">x_new</span><span class="p">)</span>
-<a name="rest_code_578c3de2e5c04fd89653df0874dbde01-5"></a>    <span class="n">y_new</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">x_new</span><span class="p">)</span>
-<a name="rest_code_578c3de2e5c04fd89653df0874dbde01-6"></a>    <span class="k">for</span> <span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">yi</span><span class="p">)</span> <span class="kp">in</span> <span class="n">zip</span><span class="p">(</span><span class="n">x_int</span><span class="p">,</span> <span class="n">y_int</span><span class="p">)</span>
-<a name="rest_code_578c3de2e5c04fd89653df0874dbde01-7"></a>        <span class="n">prod</span> <span class="o">=</span> <span class="n">ones</span><span class="p">(</span><span class="n">x_new</span><span class="p">)</span>
-<a name="rest_code_578c3de2e5c04fd89653df0874dbde01-8"></a>        <span class="k">for</span> <span class="n">xj</span> <span class="kp">in</span> <span class="n">x_int</span>
-<a name="rest_code_578c3de2e5c04fd89653df0874dbde01-9"></a>            <span class="k">if</span> <span class="n">xi</span> <span class="o">!=</span> <span class="n">xj</span>
-<a name="rest_code_578c3de2e5c04fd89653df0874dbde01-10"></a>                <span class="n">prod</span> <span class="o">=</span> <span class="n">prod</span><span class="o">.*</span> <span class="p">(</span><span class="n">x_new</span> <span class="o">-</span> <span class="n">xj</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">xi</span> <span class="o">-</span> <span class="n">xj</span><span class="p">)</span>
-<a name="rest_code_578c3de2e5c04fd89653df0874dbde01-11"></a>            <span class="k">end</span>
-<a name="rest_code_578c3de2e5c04fd89653df0874dbde01-12"></a>        <span class="k">end</span>
-<a name="rest_code_578c3de2e5c04fd89653df0874dbde01-13"></a>        <span class="n">y_new</span> <span class="o">+=</span> <span class="n">yi</span><span class="o">*</span><span class="n">prod</span>
-<a name="rest_code_578c3de2e5c04fd89653df0874dbde01-14"></a>    <span class="k">end</span>
-<a name="rest_code_578c3de2e5c04fd89653df0874dbde01-15"></a>    <span class="k">return</span> <span class="n">y_new</span>
-<a name="rest_code_578c3de2e5c04fd89653df0874dbde01-16"></a><span class="k">end</span>
-<a name="rest_code_578c3de2e5c04fd89653df0874dbde01-17"></a>
-<a name="rest_code_578c3de2e5c04fd89653df0874dbde01-18"></a>
-<a name="rest_code_578c3de2e5c04fd89653df0874dbde01-19"></a><span class="k">function</span> <span class="n">gauss_lobatto</span><span class="p">(</span><span class="n">N</span><span class="p">;</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-15</span><span class="p">)</span>
-<a name="rest_code_578c3de2e5c04fd89653df0874dbde01-20"></a>    <span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="n">cos</span><span class="o">.</span><span class="p">(</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">pi</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span>
-<a name="rest_code_578c3de2e5c04fd89653df0874dbde01-21"></a>    <span class="n">P</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>  <span class="c"># Vandermonde Matrix</span>
-<a name="rest_code_578c3de2e5c04fd89653df0874dbde01-22"></a>    <span class="n">x_old</span> <span class="o">=</span> <span class="mi">2</span>
-<a name="rest_code_578c3de2e5c04fd89653df0874dbde01-23"></a>    <span class="k">while</span> <span class="n">maximum</span><span class="p">(</span><span class="n">abs</span><span class="o">.</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">x_old</span><span class="p">))</span> <span class="o">&gt;</span> <span class="n">tol</span>
-<a name="rest_code_578c3de2e5c04fd89653df0874dbde01-24"></a>        <span class="n">x_old</span> <span class="o">=</span> <span class="n">x</span>
-<a name="rest_code_578c3de2e5c04fd89653df0874dbde01-25"></a>        <span class="n">P</span><span class="p">[</span><span class="o">:</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-<a name="rest_code_578c3de2e5c04fd89653df0874dbde01-26"></a>        <span class="n">P</span><span class="p">[</span><span class="o">:</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span>
-<a name="rest_code_578c3de2e5c04fd89653df0874dbde01-27"></a>        <span class="k">for</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">3</span><span class="o">:</span><span class="n">N</span>
-<a name="rest_code_578c3de2e5c04fd89653df0874dbde01-28"></a>            <span class="n">P</span><span class="p">[</span><span class="o">:</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="mi">2</span> <span class="o">*</span> <span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">x</span> <span class="o">.*</span> <span class="n">P</span><span class="p">[</span><span class="o">:</span><span class="p">,</span> <span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span>
-<a name="rest_code_578c3de2e5c04fd89653df0874dbde01-29"></a>                       <span class="p">(</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">P</span><span class="p">[</span><span class="o">:</span><span class="p">,</span> <span class="n">k</span> <span class="o">-</span> <span class="mi">2</span><span class="p">])</span> <span class="o">/</span> <span class="n">k</span>
-<a name="rest_code_578c3de2e5c04fd89653df0874dbde01-30"></a>        <span class="k">end</span>
-<a name="rest_code_578c3de2e5c04fd89653df0874dbde01-31"></a>        <span class="n">x</span> <span class="o">=</span> <span class="n">x_old</span> <span class="o">-</span> <span class="p">(</span><span class="n">x</span> <span class="o">.*</span> <span class="n">P</span><span class="p">[</span><span class="o">:</span><span class="p">,</span> <span class="n">N</span><span class="p">]</span> <span class="o">-</span> <span class="n">P</span><span class="p">[</span><span class="o">:</span><span class="p">,</span> <span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span> <span class="o">./</span> <span class="p">(</span><span class="n">N</span><span class="o">*</span> <span class="n">P</span><span class="p">[</span><span class="o">:</span><span class="p">,</span> <span class="n">N</span><span class="p">])</span>
-<a name="rest_code_578c3de2e5c04fd89653df0874dbde01-32"></a>    <span class="k">end</span>
-<a name="rest_code_578c3de2e5c04fd89653df0874dbde01-33"></a>    <span class="k">return</span> <span class="n">x</span>
-<a name="rest_code_578c3de2e5c04fd89653df0874dbde01-34"></a><span class="k">end</span>
-<a name="rest_code_578c3de2e5c04fd89653df0874dbde01-35"></a>
-<a name="rest_code_578c3de2e5c04fd89653df0874dbde01-36"></a>
-<a name="rest_code_578c3de2e5c04fd89653df0874dbde01-37"></a><span class="n">runge</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span>  <span class="mf">1.</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">25</span><span class="o">*</span><span class="n">x</span><span class="o">.^</span><span class="mi">2</span><span class="p">)</span>
-<a name="rest_code_578c3de2e5c04fd89653df0874dbde01-38"></a><span class="n">x</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<a name="rest_code_578c3de2e5c04fd89653df0874dbde01-39"></a><span class="n">x_int</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
-<a name="rest_code_578c3de2e5c04fd89653df0874dbde01-40"></a><span class="n">x_int2</span> <span class="o">=</span> <span class="n">gauss_lobatto</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>
-<a name="rest_code_578c3de2e5c04fd89653df0874dbde01-41"></a><span class="n">x_new</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
-<a name="rest_code_578c3de2e5c04fd89653df0874dbde01-42"></a><span class="n">y_new</span> <span class="o">=</span> <span class="n">lagrange</span><span class="p">(</span><span class="n">x_int</span><span class="p">,</span> <span class="n">runge</span><span class="p">(</span><span class="n">x_int</span><span class="p">),</span> <span class="n">x_new</span><span class="p">)</span>
-<a name="rest_code_578c3de2e5c04fd89653df0874dbde01-43"></a><span class="n">y_new2</span> <span class="o">=</span> <span class="n">lagrange</span><span class="p">(</span><span class="n">x_int2</span><span class="p">,</span> <span class="n">runge</span><span class="p">(</span><span class="n">x_int2</span><span class="p">),</span> <span class="n">x_new</span><span class="p">)</span>
-<a name="rest_code_578c3de2e5c04fd89653df0874dbde01-44"></a><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">runge</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s">"k"</span><span class="p">)</span>
-<a name="rest_code_578c3de2e5c04fd89653df0874dbde01-45"></a><span class="n">plot</span><span class="p">(</span><span class="n">x_new</span><span class="p">,</span> <span class="n">y_new</span><span class="p">)</span>
-<a name="rest_code_578c3de2e5c04fd89653df0874dbde01-46"></a><span class="n">plot</span><span class="p">(</span><span class="n">x_new</span><span class="p">,</span> <span class="n">y_new2</span><span class="p">)</span>
-<a name="rest_code_578c3de2e5c04fd89653df0874dbde01-47"></a><span class="n">legend</span><span class="p">([</span><span class="s">"Runge function"</span><span class="p">,</span>
-<a name="rest_code_578c3de2e5c04fd89653df0874dbde01-48"></a>            <span class="s">"Uniform interpolation"</span><span class="p">,</span>
-<a name="rest_code_578c3de2e5c04fd89653df0874dbde01-49"></a>            <span class="s">"Lobatto-sampling interpolation"</span><span class="p">])</span>
-<a name="rest_code_578c3de2e5c04fd89653df0874dbde01-50"></a><span class="n">xlabel</span><span class="p">(</span><span class="s">"x"</span><span class="p">)</span>
-<a name="rest_code_578c3de2e5c04fd89653df0874dbde01-51"></a><span class="n">ylabel</span><span class="p">(</span><span class="s">"y"</span><span class="p">)</span>
+<pre class="code julia"><a name="rest_code_5d9023c32573410488edaa0dd997a829-1"></a><span class="k">using</span> <span class="n">PyPlot</span>
+<a name="rest_code_5d9023c32573410488edaa0dd997a829-2"></a>
+<a name="rest_code_5d9023c32573410488edaa0dd997a829-3"></a>
+<a name="rest_code_5d9023c32573410488edaa0dd997a829-4"></a><span class="k">function</span> <span class="n">lagrange</span><span class="p">(</span><span class="n">x_int</span><span class="p">,</span> <span class="n">y_int</span><span class="p">,</span> <span class="n">x_new</span><span class="p">)</span>
+<a name="rest_code_5d9023c32573410488edaa0dd997a829-5"></a>    <span class="n">y_new</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">x_new</span><span class="p">)</span>
+<a name="rest_code_5d9023c32573410488edaa0dd997a829-6"></a>    <span class="k">for</span> <span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">yi</span><span class="p">)</span> <span class="kp">in</span> <span class="n">zip</span><span class="p">(</span><span class="n">x_int</span><span class="p">,</span> <span class="n">y_int</span><span class="p">)</span>
+<a name="rest_code_5d9023c32573410488edaa0dd997a829-7"></a>        <span class="n">prod</span> <span class="o">=</span> <span class="n">ones</span><span class="p">(</span><span class="n">x_new</span><span class="p">)</span>
+<a name="rest_code_5d9023c32573410488edaa0dd997a829-8"></a>        <span class="k">for</span> <span class="n">xj</span> <span class="kp">in</span> <span class="n">x_int</span>
+<a name="rest_code_5d9023c32573410488edaa0dd997a829-9"></a>            <span class="k">if</span> <span class="n">xi</span> <span class="o">!=</span> <span class="n">xj</span>
+<a name="rest_code_5d9023c32573410488edaa0dd997a829-10"></a>                <span class="n">prod</span> <span class="o">=</span> <span class="n">prod</span><span class="o">.*</span> <span class="p">(</span><span class="n">x_new</span> <span class="o">-</span> <span class="n">xj</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">xi</span> <span class="o">-</span> <span class="n">xj</span><span class="p">)</span>
+<a name="rest_code_5d9023c32573410488edaa0dd997a829-11"></a>            <span class="k">end</span>
+<a name="rest_code_5d9023c32573410488edaa0dd997a829-12"></a>        <span class="k">end</span>
+<a name="rest_code_5d9023c32573410488edaa0dd997a829-13"></a>        <span class="n">y_new</span> <span class="o">+=</span> <span class="n">yi</span><span class="o">*</span><span class="n">prod</span>
+<a name="rest_code_5d9023c32573410488edaa0dd997a829-14"></a>    <span class="k">end</span>
+<a name="rest_code_5d9023c32573410488edaa0dd997a829-15"></a>    <span class="k">return</span> <span class="n">y_new</span>
+<a name="rest_code_5d9023c32573410488edaa0dd997a829-16"></a><span class="k">end</span>
+<a name="rest_code_5d9023c32573410488edaa0dd997a829-17"></a>
+<a name="rest_code_5d9023c32573410488edaa0dd997a829-18"></a>
+<a name="rest_code_5d9023c32573410488edaa0dd997a829-19"></a><span class="k">function</span> <span class="n">gauss_lobatto</span><span class="p">(</span><span class="n">N</span><span class="p">;</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-15</span><span class="p">)</span>
+<a name="rest_code_5d9023c32573410488edaa0dd997a829-20"></a>    <span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="n">cos</span><span class="o">.</span><span class="p">(</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">pi</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span>
+<a name="rest_code_5d9023c32573410488edaa0dd997a829-21"></a>    <span class="n">P</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>  <span class="c"># Vandermonde Matrix</span>
+<a name="rest_code_5d9023c32573410488edaa0dd997a829-22"></a>    <span class="n">x_old</span> <span class="o">=</span> <span class="mi">2</span>
+<a name="rest_code_5d9023c32573410488edaa0dd997a829-23"></a>    <span class="k">while</span> <span class="n">maximum</span><span class="p">(</span><span class="n">abs</span><span class="o">.</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">x_old</span><span class="p">))</span> <span class="o">&gt;</span> <span class="n">tol</span>
+<a name="rest_code_5d9023c32573410488edaa0dd997a829-24"></a>        <span class="n">x_old</span> <span class="o">=</span> <span class="n">x</span>
+<a name="rest_code_5d9023c32573410488edaa0dd997a829-25"></a>        <span class="n">P</span><span class="p">[</span><span class="o">:</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<a name="rest_code_5d9023c32573410488edaa0dd997a829-26"></a>        <span class="n">P</span><span class="p">[</span><span class="o">:</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span>
+<a name="rest_code_5d9023c32573410488edaa0dd997a829-27"></a>        <span class="k">for</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">3</span><span class="o">:</span><span class="n">N</span>
+<a name="rest_code_5d9023c32573410488edaa0dd997a829-28"></a>            <span class="n">P</span><span class="p">[</span><span class="o">:</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="mi">2</span> <span class="o">*</span> <span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">x</span> <span class="o">.*</span> <span class="n">P</span><span class="p">[</span><span class="o">:</span><span class="p">,</span> <span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span>
+<a name="rest_code_5d9023c32573410488edaa0dd997a829-29"></a>                       <span class="p">(</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">P</span><span class="p">[</span><span class="o">:</span><span class="p">,</span> <span class="n">k</span> <span class="o">-</span> <span class="mi">2</span><span class="p">])</span> <span class="o">/</span> <span class="n">k</span>
+<a name="rest_code_5d9023c32573410488edaa0dd997a829-30"></a>        <span class="k">end</span>
+<a name="rest_code_5d9023c32573410488edaa0dd997a829-31"></a>        <span class="n">x</span> <span class="o">=</span> <span class="n">x_old</span> <span class="o">-</span> <span class="p">(</span><span class="n">x</span> <span class="o">.*</span> <span class="n">P</span><span class="p">[</span><span class="o">:</span><span class="p">,</span> <span class="n">N</span><span class="p">]</span> <span class="o">-</span> <span class="n">P</span><span class="p">[</span><span class="o">:</span><span class="p">,</span> <span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span> <span class="o">./</span> <span class="p">(</span><span class="n">N</span><span class="o">*</span> <span class="n">P</span><span class="p">[</span><span class="o">:</span><span class="p">,</span> <span class="n">N</span><span class="p">])</span>
+<a name="rest_code_5d9023c32573410488edaa0dd997a829-32"></a>    <span class="k">end</span>
+<a name="rest_code_5d9023c32573410488edaa0dd997a829-33"></a>    <span class="k">return</span> <span class="n">x</span>
+<a name="rest_code_5d9023c32573410488edaa0dd997a829-34"></a><span class="k">end</span>
+<a name="rest_code_5d9023c32573410488edaa0dd997a829-35"></a>
+<a name="rest_code_5d9023c32573410488edaa0dd997a829-36"></a>
+<a name="rest_code_5d9023c32573410488edaa0dd997a829-37"></a><span class="n">runge</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span>  <span class="mf">1.</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">25</span><span class="o">*</span><span class="n">x</span><span class="o">.^</span><span class="mi">2</span><span class="p">)</span>
+<a name="rest_code_5d9023c32573410488edaa0dd997a829-38"></a><span class="n">x</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<a name="rest_code_5d9023c32573410488edaa0dd997a829-39"></a><span class="n">x_int</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<a name="rest_code_5d9023c32573410488edaa0dd997a829-40"></a><span class="n">x_int2</span> <span class="o">=</span> <span class="n">gauss_lobatto</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>
+<a name="rest_code_5d9023c32573410488edaa0dd997a829-41"></a><span class="n">x_new</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<a name="rest_code_5d9023c32573410488edaa0dd997a829-42"></a><span class="n">y_new</span> <span class="o">=</span> <span class="n">lagrange</span><span class="p">(</span><span class="n">x_int</span><span class="p">,</span> <span class="n">runge</span><span class="p">(</span><span class="n">x_int</span><span class="p">),</span> <span class="n">x_new</span><span class="p">)</span>
+<a name="rest_code_5d9023c32573410488edaa0dd997a829-43"></a><span class="n">y_new2</span> <span class="o">=</span> <span class="n">lagrange</span><span class="p">(</span><span class="n">x_int2</span><span class="p">,</span> <span class="n">runge</span><span class="p">(</span><span class="n">x_int2</span><span class="p">),</span> <span class="n">x_new</span><span class="p">)</span>
+<a name="rest_code_5d9023c32573410488edaa0dd997a829-44"></a><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">runge</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s">"k"</span><span class="p">)</span>
+<a name="rest_code_5d9023c32573410488edaa0dd997a829-45"></a><span class="n">plot</span><span class="p">(</span><span class="n">x_new</span><span class="p">,</span> <span class="n">y_new</span><span class="p">)</span>
+<a name="rest_code_5d9023c32573410488edaa0dd997a829-46"></a><span class="n">plot</span><span class="p">(</span><span class="n">x_new</span><span class="p">,</span> <span class="n">y_new2</span><span class="p">)</span>
+<a name="rest_code_5d9023c32573410488edaa0dd997a829-47"></a><span class="n">legend</span><span class="p">([</span><span class="s">"Runge function"</span><span class="p">,</span>
+<a name="rest_code_5d9023c32573410488edaa0dd997a829-48"></a>            <span class="s">"Uniform interpolation"</span><span class="p">,</span>
+<a name="rest_code_5d9023c32573410488edaa0dd997a829-49"></a>            <span class="s">"Lobatto-sampling interpolation"</span><span class="p">])</span>
+<a name="rest_code_5d9023c32573410488edaa0dd997a829-50"></a><span class="n">xlabel</span><span class="p">(</span><span class="s">"x"</span><span class="p">)</span>
+<a name="rest_code_5d9023c32573410488edaa0dd997a829-51"></a><span class="n">ylabel</span><span class="p">(</span><span class="s">"y"</span><span class="p">)</span>
 </pre>
-<p>In both cases the result is plot shown above.</p>
+<p>En cambos casos el resultado es el gráfico que se muestra a continuación</p>
 </div>
 </div>
 </div>
     </div>
     <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
-<li><a class="tag p-category" href="../../categories/interpolation/" rel="tag">interpolation</a></li>
+<li><a class="tag p-category" href="../../categories/computacion-cientifica/" rel="tag">computación científica</a></li>
+            <li><a class="tag p-category" href="../../categories/interpolacion/" rel="tag">interpolación</a></li>
             <li><a class="tag p-category" href="../../categories/julia/" rel="tag">julia</a></li>
-            <li><a class="tag p-category" href="../../categories/numerical-methods/" rel="tag">numerical methods</a></li>
+            <li><a class="tag p-category" href="../../categories/metodos-numericos/" rel="tag">métodos numéricos</a></li>
             <li><a class="tag p-category" href="../../categories/python/" rel="tag">python</a></li>
-            <li><a class="tag p-category" href="../../categories/scientific-computing/" rel="tag">scientific computing</a></li>
         </ul>
 <ul class="pager hidden-print">
 <li class="previous">
-                <a href="../numerical-09/" rel="prev" title="Numerical methods challenge: Day 9">Publicación anterior</a>
+                <a href="../numerical-09/" rel="prev" title="Reto de métodos numéricos: Día 9">Publicación anterior</a>
             </li>
             <li class="next">
                 <a href="../numerical-11/" rel="next" title="Numerical methods challenge: Day 11">Siguiente publicación</a>
@@ -244,7 +249,7 @@ as first guess and then update this guess using Newton-Raphson method.</p>
         <script>
         var disqus_shortname ="nicoguaro-github",
             disqus_url="https://nicoguaro.github.io/es/posts/numerical-10/",
-        disqus_title="Numerical methods challenge: Day 10",
+        disqus_title="Reto de m\u00e9todos num\u00e9ricos: D\u00eda 9",
         disqus_identifier="cache/posts/numerical-10.html",
         disqus_config = function () {
             this.language = "es_ES";
