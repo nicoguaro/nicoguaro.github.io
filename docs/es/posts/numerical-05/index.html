@@ -9,7 +9,7 @@
 <link rel="alternate" type="application/rss+xml" title="RSS (en)" href="../../../rss.xml">
 <link rel="alternate" type="application/rss+xml" title="RSS (es)" href="../../rss.xml">
 <link rel="canonical" href="https://nicoguaro.github.io/es/posts/numerical-05/">
-<!--[if lt IE 9]><script src="../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Nicolás Guarín-Zapata">
+<!--[if lt IE 9]><script src="../../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Nicolás Guarín-Zapata">
 <link rel="prev" href="../numerical-04/" title="Reto de métodos numéricos: Día 4" type="text/html">
 <link rel="next" href="../numerical-06/" title="Reto de métodos numéricos: Día 6" type="text/html">
 <meta property="og:site_name" content="Nicolás' blog">
@@ -115,85 +115,85 @@ con solución <span class="math">\(\mathbf{x} = (0, 1)\)</span>.</p>
 <p>A continuación se presentan los códigos.</p>
 <div class="section" id="python">
 <h3>Python</h3>
-<pre class="code python"><a name="rest_code_cc06277d54cb40759d59a59ac1d7b67f-1"></a><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span>
-<a name="rest_code_cc06277d54cb40759d59a59ac1d7b67f-2"></a><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">array</span><span class="p">,</span> <span class="n">outer</span><span class="p">,</span> <span class="n">dot</span>
-<a name="rest_code_cc06277d54cb40759d59a59ac1d7b67f-3"></a><span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="kn">import</span> <span class="n">solve</span><span class="p">,</span> <span class="n">norm</span><span class="p">,</span> <span class="n">det</span>
-<a name="rest_code_cc06277d54cb40759d59a59ac1d7b67f-4"></a>
-<a name="rest_code_cc06277d54cb40759d59a59ac1d7b67f-5"></a><span class="k">def</span> <span class="nf">broyden</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="n">jaco</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">niter</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">ftol</span><span class="o">=</span><span class="mf">1e-12</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-<a name="rest_code_cc06277d54cb40759d59a59ac1d7b67f-6"></a>    <span class="n">msg</span> <span class="o">=</span> <span class="s2">"Maximum number of iterations reached."</span>
-<a name="rest_code_cc06277d54cb40759d59a59ac1d7b67f-7"></a>    <span class="n">J</span> <span class="o">=</span> <span class="n">jaco</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<a name="rest_code_cc06277d54cb40759d59a59ac1d7b67f-8"></a>    <span class="k">for</span> <span class="n">cont</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">niter</span><span class="p">):</span>
-<a name="rest_code_cc06277d54cb40759d59a59ac1d7b67f-9"></a>        <span class="k">if</span> <span class="n">det</span><span class="p">(</span><span class="n">J</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">ftol</span><span class="p">:</span>
-<a name="rest_code_cc06277d54cb40759d59a59ac1d7b67f-10"></a>            <span class="n">x</span> <span class="o">=</span> <span class="kc">None</span>
-<a name="rest_code_cc06277d54cb40759d59a59ac1d7b67f-11"></a>            <span class="n">msg</span> <span class="o">=</span> <span class="s2">"Derivative near to zero."</span>
-<a name="rest_code_cc06277d54cb40759d59a59ac1d7b67f-12"></a>            <span class="k">break</span>
-<a name="rest_code_cc06277d54cb40759d59a59ac1d7b67f-13"></a>        <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
-<a name="rest_code_cc06277d54cb40759d59a59ac1d7b67f-14"></a>            <span class="nb">print</span><span class="p">(</span><span class="s2">"n: </span><span class="si">{}</span><span class="s2">, x: </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cont</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
-<a name="rest_code_cc06277d54cb40759d59a59ac1d7b67f-15"></a>        <span class="n">f_old</span> <span class="o">=</span> <span class="n">fun</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<a name="rest_code_cc06277d54cb40759d59a59ac1d7b67f-16"></a>        <span class="n">dx</span> <span class="o">=</span> <span class="o">-</span><span class="n">solve</span><span class="p">(</span><span class="n">J</span><span class="p">,</span> <span class="n">f_old</span><span class="p">)</span>
-<a name="rest_code_cc06277d54cb40759d59a59ac1d7b67f-17"></a>        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">dx</span>
-<a name="rest_code_cc06277d54cb40759d59a59ac1d7b67f-18"></a>        <span class="n">f</span> <span class="o">=</span> <span class="n">fun</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<a name="rest_code_cc06277d54cb40759d59a59ac1d7b67f-19"></a>        <span class="n">df</span> <span class="o">=</span> <span class="n">f</span> <span class="o">-</span> <span class="n">f_old</span>
-<a name="rest_code_cc06277d54cb40759d59a59ac1d7b67f-20"></a>        <span class="n">J</span> <span class="o">=</span> <span class="n">J</span> <span class="o">+</span> <span class="n">outer</span><span class="p">(</span><span class="n">df</span> <span class="o">-</span> <span class="n">dot</span><span class="p">(</span><span class="n">J</span><span class="p">,</span> <span class="n">dx</span><span class="p">),</span> <span class="n">dx</span><span class="p">)</span><span class="o">/</span><span class="n">dot</span><span class="p">(</span><span class="n">dx</span><span class="p">,</span> <span class="n">dx</span><span class="p">)</span>
-<a name="rest_code_cc06277d54cb40759d59a59ac1d7b67f-21"></a>        <span class="k">if</span> <span class="n">norm</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">ftol</span><span class="p">:</span>
-<a name="rest_code_cc06277d54cb40759d59a59ac1d7b67f-22"></a>            <span class="n">msg</span> <span class="o">=</span> <span class="s2">"Root found with desired accuracy."</span>
-<a name="rest_code_cc06277d54cb40759d59a59ac1d7b67f-23"></a>            <span class="k">break</span>
-<a name="rest_code_cc06277d54cb40759d59a59ac1d7b67f-24"></a>    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">msg</span>
-<a name="rest_code_cc06277d54cb40759d59a59ac1d7b67f-25"></a>
-<a name="rest_code_cc06277d54cb40759d59a59ac1d7b67f-26"></a>
-<a name="rest_code_cc06277d54cb40759d59a59ac1d7b67f-27"></a><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-<a name="rest_code_cc06277d54cb40759d59a59ac1d7b67f-28"></a>    <span class="k">return</span> <span class="n">array</span><span class="p">([</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span><span class="p">])</span>
-<a name="rest_code_cc06277d54cb40759d59a59ac1d7b67f-29"></a>
-<a name="rest_code_cc06277d54cb40759d59a59ac1d7b67f-30"></a>
-<a name="rest_code_cc06277d54cb40759d59a59ac1d7b67f-31"></a><span class="k">def</span> <span class="nf">jaco</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-<a name="rest_code_cc06277d54cb40759d59a59ac1d7b67f-32"></a>    <span class="k">return</span> <span class="n">array</span><span class="p">([</span>
-<a name="rest_code_cc06277d54cb40759d59a59ac1d7b67f-33"></a>            <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
-<a name="rest_code_cc06277d54cb40759d59a59ac1d7b67f-34"></a>            <span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">8</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]]])</span>
-<a name="rest_code_cc06277d54cb40759d59a59ac1d7b67f-35"></a>
-<a name="rest_code_cc06277d54cb40759d59a59ac1d7b67f-36"></a>
-<a name="rest_code_cc06277d54cb40759d59a59ac1d7b67f-37"></a><span class="nb">print</span><span class="p">(</span><span class="n">broyden</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="n">jaco</span><span class="p">,</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">]))</span>
+<pre class="code python"><a name="rest_code_dba2dfedee544902b0462b9bbc063f7c-1"></a><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span>
+<a name="rest_code_dba2dfedee544902b0462b9bbc063f7c-2"></a><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">array</span><span class="p">,</span> <span class="n">outer</span><span class="p">,</span> <span class="n">dot</span>
+<a name="rest_code_dba2dfedee544902b0462b9bbc063f7c-3"></a><span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="kn">import</span> <span class="n">solve</span><span class="p">,</span> <span class="n">norm</span><span class="p">,</span> <span class="n">det</span>
+<a name="rest_code_dba2dfedee544902b0462b9bbc063f7c-4"></a>
+<a name="rest_code_dba2dfedee544902b0462b9bbc063f7c-5"></a><span class="k">def</span> <span class="nf">broyden</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="n">jaco</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">niter</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">ftol</span><span class="o">=</span><span class="mf">1e-12</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<a name="rest_code_dba2dfedee544902b0462b9bbc063f7c-6"></a>    <span class="n">msg</span> <span class="o">=</span> <span class="s2">"Maximum number of iterations reached."</span>
+<a name="rest_code_dba2dfedee544902b0462b9bbc063f7c-7"></a>    <span class="n">J</span> <span class="o">=</span> <span class="n">jaco</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a name="rest_code_dba2dfedee544902b0462b9bbc063f7c-8"></a>    <span class="k">for</span> <span class="n">cont</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">niter</span><span class="p">):</span>
+<a name="rest_code_dba2dfedee544902b0462b9bbc063f7c-9"></a>        <span class="k">if</span> <span class="n">det</span><span class="p">(</span><span class="n">J</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">ftol</span><span class="p">:</span>
+<a name="rest_code_dba2dfedee544902b0462b9bbc063f7c-10"></a>            <span class="n">x</span> <span class="o">=</span> <span class="kc">None</span>
+<a name="rest_code_dba2dfedee544902b0462b9bbc063f7c-11"></a>            <span class="n">msg</span> <span class="o">=</span> <span class="s2">"Derivative near to zero."</span>
+<a name="rest_code_dba2dfedee544902b0462b9bbc063f7c-12"></a>            <span class="k">break</span>
+<a name="rest_code_dba2dfedee544902b0462b9bbc063f7c-13"></a>        <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+<a name="rest_code_dba2dfedee544902b0462b9bbc063f7c-14"></a>            <span class="nb">print</span><span class="p">(</span><span class="s2">"n: </span><span class="si">{}</span><span class="s2">, x: </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cont</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
+<a name="rest_code_dba2dfedee544902b0462b9bbc063f7c-15"></a>        <span class="n">f_old</span> <span class="o">=</span> <span class="n">fun</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a name="rest_code_dba2dfedee544902b0462b9bbc063f7c-16"></a>        <span class="n">dx</span> <span class="o">=</span> <span class="o">-</span><span class="n">solve</span><span class="p">(</span><span class="n">J</span><span class="p">,</span> <span class="n">f_old</span><span class="p">)</span>
+<a name="rest_code_dba2dfedee544902b0462b9bbc063f7c-17"></a>        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">dx</span>
+<a name="rest_code_dba2dfedee544902b0462b9bbc063f7c-18"></a>        <span class="n">f</span> <span class="o">=</span> <span class="n">fun</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a name="rest_code_dba2dfedee544902b0462b9bbc063f7c-19"></a>        <span class="n">df</span> <span class="o">=</span> <span class="n">f</span> <span class="o">-</span> <span class="n">f_old</span>
+<a name="rest_code_dba2dfedee544902b0462b9bbc063f7c-20"></a>        <span class="n">J</span> <span class="o">=</span> <span class="n">J</span> <span class="o">+</span> <span class="n">outer</span><span class="p">(</span><span class="n">df</span> <span class="o">-</span> <span class="n">dot</span><span class="p">(</span><span class="n">J</span><span class="p">,</span> <span class="n">dx</span><span class="p">),</span> <span class="n">dx</span><span class="p">)</span><span class="o">/</span><span class="n">dot</span><span class="p">(</span><span class="n">dx</span><span class="p">,</span> <span class="n">dx</span><span class="p">)</span>
+<a name="rest_code_dba2dfedee544902b0462b9bbc063f7c-21"></a>        <span class="k">if</span> <span class="n">norm</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">ftol</span><span class="p">:</span>
+<a name="rest_code_dba2dfedee544902b0462b9bbc063f7c-22"></a>            <span class="n">msg</span> <span class="o">=</span> <span class="s2">"Root found with desired accuracy."</span>
+<a name="rest_code_dba2dfedee544902b0462b9bbc063f7c-23"></a>            <span class="k">break</span>
+<a name="rest_code_dba2dfedee544902b0462b9bbc063f7c-24"></a>    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">msg</span>
+<a name="rest_code_dba2dfedee544902b0462b9bbc063f7c-25"></a>
+<a name="rest_code_dba2dfedee544902b0462b9bbc063f7c-26"></a>
+<a name="rest_code_dba2dfedee544902b0462b9bbc063f7c-27"></a><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<a name="rest_code_dba2dfedee544902b0462b9bbc063f7c-28"></a>    <span class="k">return</span> <span class="n">array</span><span class="p">([</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span><span class="p">])</span>
+<a name="rest_code_dba2dfedee544902b0462b9bbc063f7c-29"></a>
+<a name="rest_code_dba2dfedee544902b0462b9bbc063f7c-30"></a>
+<a name="rest_code_dba2dfedee544902b0462b9bbc063f7c-31"></a><span class="k">def</span> <span class="nf">jaco</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<a name="rest_code_dba2dfedee544902b0462b9bbc063f7c-32"></a>    <span class="k">return</span> <span class="n">array</span><span class="p">([</span>
+<a name="rest_code_dba2dfedee544902b0462b9bbc063f7c-33"></a>            <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+<a name="rest_code_dba2dfedee544902b0462b9bbc063f7c-34"></a>            <span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">8</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]]])</span>
+<a name="rest_code_dba2dfedee544902b0462b9bbc063f7c-35"></a>
+<a name="rest_code_dba2dfedee544902b0462b9bbc063f7c-36"></a>
+<a name="rest_code_dba2dfedee544902b0462b9bbc063f7c-37"></a><span class="nb">print</span><span class="p">(</span><span class="n">broyden</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="n">jaco</span><span class="p">,</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">]))</span>
 </pre>
 </div>
 <div class="section" id="julia">
 <h3>Julia</h3>
-<pre class="code julia"><a name="rest_code_4414b6c25c9b422b963b2f0a67f17732-1"></a><span class="k">function</span> <span class="n">broyden</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="n">jaco</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">niter</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">ftol</span><span class="o">=</span><span class="mf">1e-12</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">false</span><span class="p">)</span>
-<a name="rest_code_4414b6c25c9b422b963b2f0a67f17732-2"></a>    <span class="n">msg</span> <span class="o">=</span> <span class="s">"Maximum number of iterations reached."</span>
-<a name="rest_code_4414b6c25c9b422b963b2f0a67f17732-3"></a>    <span class="n">J</span> <span class="o">=</span> <span class="n">jaco</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<a name="rest_code_4414b6c25c9b422b963b2f0a67f17732-4"></a>    <span class="k">for</span> <span class="n">cont</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="n">niter</span>
-<a name="rest_code_4414b6c25c9b422b963b2f0a67f17732-5"></a>        <span class="k">if</span> <span class="n">det</span><span class="p">(</span><span class="n">J</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">ftol</span>
-<a name="rest_code_4414b6c25c9b422b963b2f0a67f17732-6"></a>            <span class="n">x</span> <span class="o">=</span> <span class="nb">nothing</span>
-<a name="rest_code_4414b6c25c9b422b963b2f0a67f17732-7"></a>            <span class="n">msg</span> <span class="o">=</span> <span class="s">"Derivative near to zero."</span>
-<a name="rest_code_4414b6c25c9b422b963b2f0a67f17732-8"></a>            <span class="k">break</span>
-<a name="rest_code_4414b6c25c9b422b963b2f0a67f17732-9"></a>        <span class="k">end</span>
-<a name="rest_code_4414b6c25c9b422b963b2f0a67f17732-10"></a>        <span class="k">if</span> <span class="n">verbose</span>
-<a name="rest_code_4414b6c25c9b422b963b2f0a67f17732-11"></a>            <span class="n">println</span><span class="p">(</span><span class="s">"n: </span><span class="si">$</span><span class="p">(</span><span class="n">cont</span><span class="p">)</span><span class="s">, x: </span><span class="si">$</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="s">"</span><span class="p">)</span>
-<a name="rest_code_4414b6c25c9b422b963b2f0a67f17732-12"></a>        <span class="k">end</span>
-<a name="rest_code_4414b6c25c9b422b963b2f0a67f17732-13"></a>        <span class="n">f_old</span> <span class="o">=</span> <span class="n">fun</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<a name="rest_code_4414b6c25c9b422b963b2f0a67f17732-14"></a>        <span class="n">dx</span> <span class="o">=</span> <span class="o">-</span><span class="n">J</span><span class="o">\</span><span class="n">f_old</span>
-<a name="rest_code_4414b6c25c9b422b963b2f0a67f17732-15"></a>        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">dx</span>
-<a name="rest_code_4414b6c25c9b422b963b2f0a67f17732-16"></a>        <span class="n">f</span> <span class="o">=</span> <span class="n">fun</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<a name="rest_code_4414b6c25c9b422b963b2f0a67f17732-17"></a>        <span class="n">df</span> <span class="o">=</span> <span class="n">f</span> <span class="o">-</span> <span class="n">f_old</span>
-<a name="rest_code_4414b6c25c9b422b963b2f0a67f17732-18"></a>        <span class="n">J</span> <span class="o">=</span> <span class="n">J</span> <span class="o">+</span> <span class="p">(</span><span class="n">df</span> <span class="o">-</span> <span class="n">J</span><span class="o">*</span><span class="n">dx</span><span class="p">)</span> <span class="o">*</span> <span class="n">dx</span><span class="o">'/</span> <span class="p">(</span><span class="n">dx</span><span class="o">'</span> <span class="o">*</span> <span class="n">dx</span><span class="p">)</span>
-<a name="rest_code_4414b6c25c9b422b963b2f0a67f17732-19"></a>        <span class="k">if</span> <span class="n">norm</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">ftol</span>
-<a name="rest_code_4414b6c25c9b422b963b2f0a67f17732-20"></a>            <span class="n">msg</span> <span class="o">=</span> <span class="s">"Root found with desired accuracy."</span>
-<a name="rest_code_4414b6c25c9b422b963b2f0a67f17732-21"></a>            <span class="k">break</span>
-<a name="rest_code_4414b6c25c9b422b963b2f0a67f17732-22"></a>        <span class="k">end</span>
-<a name="rest_code_4414b6c25c9b422b963b2f0a67f17732-23"></a>    <span class="k">end</span>
-<a name="rest_code_4414b6c25c9b422b963b2f0a67f17732-24"></a>    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">msg</span>
-<a name="rest_code_4414b6c25c9b422b963b2f0a67f17732-25"></a><span class="k">end</span>
-<a name="rest_code_4414b6c25c9b422b963b2f0a67f17732-26"></a>
-<a name="rest_code_4414b6c25c9b422b963b2f0a67f17732-27"></a><span class="k">function</span> <span class="n">fun</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<a name="rest_code_4414b6c25c9b422b963b2f0a67f17732-28"></a>    <span class="k">return</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">^</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span><span class="p">]</span>
-<a name="rest_code_4414b6c25c9b422b963b2f0a67f17732-29"></a><span class="k">end</span>
-<a name="rest_code_4414b6c25c9b422b963b2f0a67f17732-30"></a>
-<a name="rest_code_4414b6c25c9b422b963b2f0a67f17732-31"></a>
-<a name="rest_code_4414b6c25c9b422b963b2f0a67f17732-32"></a><span class="k">function</span> <span class="n">jaco</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<a name="rest_code_4414b6c25c9b422b963b2f0a67f17732-33"></a>    <span class="k">return</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">2</span><span class="p">;</span>
-<a name="rest_code_4414b6c25c9b422b963b2f0a67f17732-34"></a>           <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="mi">8</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span>
-<a name="rest_code_4414b6c25c9b422b963b2f0a67f17732-35"></a><span class="k">end</span>
-<a name="rest_code_4414b6c25c9b422b963b2f0a67f17732-36"></a>
-<a name="rest_code_4414b6c25c9b422b963b2f0a67f17732-37"></a>
-<a name="rest_code_4414b6c25c9b422b963b2f0a67f17732-38"></a><span class="n">println</span><span class="p">(</span><span class="n">broyden</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="n">jaco</span><span class="p">,</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">]))</span>
+<pre class="code julia"><a name="rest_code_86598bb5d27f4159a8c5a9a353477026-1"></a><span class="k">function</span> <span class="n">broyden</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="n">jaco</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">niter</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">ftol</span><span class="o">=</span><span class="mf">1e-12</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">false</span><span class="p">)</span>
+<a name="rest_code_86598bb5d27f4159a8c5a9a353477026-2"></a>    <span class="n">msg</span> <span class="o">=</span> <span class="s">"Maximum number of iterations reached."</span>
+<a name="rest_code_86598bb5d27f4159a8c5a9a353477026-3"></a>    <span class="n">J</span> <span class="o">=</span> <span class="n">jaco</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a name="rest_code_86598bb5d27f4159a8c5a9a353477026-4"></a>    <span class="k">for</span> <span class="n">cont</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="n">niter</span>
+<a name="rest_code_86598bb5d27f4159a8c5a9a353477026-5"></a>        <span class="k">if</span> <span class="n">det</span><span class="p">(</span><span class="n">J</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">ftol</span>
+<a name="rest_code_86598bb5d27f4159a8c5a9a353477026-6"></a>            <span class="n">x</span> <span class="o">=</span> <span class="nb">nothing</span>
+<a name="rest_code_86598bb5d27f4159a8c5a9a353477026-7"></a>            <span class="n">msg</span> <span class="o">=</span> <span class="s">"Derivative near to zero."</span>
+<a name="rest_code_86598bb5d27f4159a8c5a9a353477026-8"></a>            <span class="k">break</span>
+<a name="rest_code_86598bb5d27f4159a8c5a9a353477026-9"></a>        <span class="k">end</span>
+<a name="rest_code_86598bb5d27f4159a8c5a9a353477026-10"></a>        <span class="k">if</span> <span class="n">verbose</span>
+<a name="rest_code_86598bb5d27f4159a8c5a9a353477026-11"></a>            <span class="n">println</span><span class="p">(</span><span class="s">"n: </span><span class="si">$</span><span class="p">(</span><span class="n">cont</span><span class="p">)</span><span class="s">, x: </span><span class="si">$</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="s">"</span><span class="p">)</span>
+<a name="rest_code_86598bb5d27f4159a8c5a9a353477026-12"></a>        <span class="k">end</span>
+<a name="rest_code_86598bb5d27f4159a8c5a9a353477026-13"></a>        <span class="n">f_old</span> <span class="o">=</span> <span class="n">fun</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a name="rest_code_86598bb5d27f4159a8c5a9a353477026-14"></a>        <span class="n">dx</span> <span class="o">=</span> <span class="o">-</span><span class="n">J</span><span class="o">\</span><span class="n">f_old</span>
+<a name="rest_code_86598bb5d27f4159a8c5a9a353477026-15"></a>        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">dx</span>
+<a name="rest_code_86598bb5d27f4159a8c5a9a353477026-16"></a>        <span class="n">f</span> <span class="o">=</span> <span class="n">fun</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a name="rest_code_86598bb5d27f4159a8c5a9a353477026-17"></a>        <span class="n">df</span> <span class="o">=</span> <span class="n">f</span> <span class="o">-</span> <span class="n">f_old</span>
+<a name="rest_code_86598bb5d27f4159a8c5a9a353477026-18"></a>        <span class="n">J</span> <span class="o">=</span> <span class="n">J</span> <span class="o">+</span> <span class="p">(</span><span class="n">df</span> <span class="o">-</span> <span class="n">J</span><span class="o">*</span><span class="n">dx</span><span class="p">)</span> <span class="o">*</span> <span class="n">dx</span><span class="o">'/</span> <span class="p">(</span><span class="n">dx</span><span class="o">'</span> <span class="o">*</span> <span class="n">dx</span><span class="p">)</span>
+<a name="rest_code_86598bb5d27f4159a8c5a9a353477026-19"></a>        <span class="k">if</span> <span class="n">norm</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">ftol</span>
+<a name="rest_code_86598bb5d27f4159a8c5a9a353477026-20"></a>            <span class="n">msg</span> <span class="o">=</span> <span class="s">"Root found with desired accuracy."</span>
+<a name="rest_code_86598bb5d27f4159a8c5a9a353477026-21"></a>            <span class="k">break</span>
+<a name="rest_code_86598bb5d27f4159a8c5a9a353477026-22"></a>        <span class="k">end</span>
+<a name="rest_code_86598bb5d27f4159a8c5a9a353477026-23"></a>    <span class="k">end</span>
+<a name="rest_code_86598bb5d27f4159a8c5a9a353477026-24"></a>    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">msg</span>
+<a name="rest_code_86598bb5d27f4159a8c5a9a353477026-25"></a><span class="k">end</span>
+<a name="rest_code_86598bb5d27f4159a8c5a9a353477026-26"></a>
+<a name="rest_code_86598bb5d27f4159a8c5a9a353477026-27"></a><span class="k">function</span> <span class="n">fun</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a name="rest_code_86598bb5d27f4159a8c5a9a353477026-28"></a>    <span class="k">return</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">^</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span><span class="p">]</span>
+<a name="rest_code_86598bb5d27f4159a8c5a9a353477026-29"></a><span class="k">end</span>
+<a name="rest_code_86598bb5d27f4159a8c5a9a353477026-30"></a>
+<a name="rest_code_86598bb5d27f4159a8c5a9a353477026-31"></a>
+<a name="rest_code_86598bb5d27f4159a8c5a9a353477026-32"></a><span class="k">function</span> <span class="n">jaco</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a name="rest_code_86598bb5d27f4159a8c5a9a353477026-33"></a>    <span class="k">return</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">2</span><span class="p">;</span>
+<a name="rest_code_86598bb5d27f4159a8c5a9a353477026-34"></a>           <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="mi">8</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span>
+<a name="rest_code_86598bb5d27f4159a8c5a9a353477026-35"></a><span class="k">end</span>
+<a name="rest_code_86598bb5d27f4159a8c5a9a353477026-36"></a>
+<a name="rest_code_86598bb5d27f4159a8c5a9a353477026-37"></a>
+<a name="rest_code_86598bb5d27f4159a8c5a9a353477026-38"></a><span class="n">println</span><span class="p">(</span><span class="n">broyden</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="n">jaco</span><span class="p">,</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">]))</span>
 </pre>
 </div>
 <div class="section" id="comparacion-python-julia">
@@ -202,26 +202,26 @@ con solución <span class="math">\(\mathbf{x} = (0, 1)\)</span>.</p>
 en tiempo de ejecución se realizó con el comando mágico de IPython <code class="docutils literal">%timeit</code>
 y con <code class="docutils literal">@benchmark</code> en Julia.</p>
 <p>Para Python:</p>
-<pre class="code IPython"><a name="rest_code_4bf056e2232d4ee8beb1b9b012f5d541-1"></a><span class="o">%</span><span class="k">timeit</span> broyden(fun, jaco, [1.0, 2.0])
+<pre class="code IPython"><a name="rest_code_86f80ebd98b94a4a97a379c1d48cd390-1"></a><span class="o">%</span><span class="k">timeit</span> broyden(fun, jaco, [1.0, 2.0])
 </pre>
 <p>con resultado</p>
-<pre class="code text"><a name="rest_code_d2a33d6754ee40008cf175d96bb9e80c-1"></a>1000 loops, best of 3: 703 µs per loop
+<pre class="code text"><a name="rest_code_a814c3a85a4541b99008335ba5e6929f-1"></a>1000 loops, best of 3: 703 µs per loop
 </pre>
 <p>Para Julia:</p>
-<pre class="code julia"><a name="rest_code_04aab7a6f6634c97ad2477c0e74e8db7-1"></a><span class="nd">@benchmark</span> <span class="n">broyden</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="n">jaco</span><span class="p">,</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">])</span>
+<pre class="code julia"><a name="rest_code_3ef889a2501545318bd0c3b580d8e456-1"></a><span class="nd">@benchmark</span> <span class="n">broyden</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="n">jaco</span><span class="p">,</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">])</span>
 </pre>
 <p>con resultado</p>
-<pre class="code julia"><a name="rest_code_48a2b4db9afe4374b92c15b44cab8c2a-1"></a><span class="n">BenchmarkTools</span><span class="o">.</span><span class="n">Trial</span><span class="o">:</span>
-<a name="rest_code_48a2b4db9afe4374b92c15b44cab8c2a-2"></a>  <span class="n">memory</span> <span class="n">estimate</span><span class="o">:</span>  <span class="mf">14.41</span> <span class="n">KiB</span>
-<a name="rest_code_48a2b4db9afe4374b92c15b44cab8c2a-3"></a>  <span class="n">allocs</span> <span class="n">estimate</span><span class="o">:</span>  <span class="mi">220</span>
-<a name="rest_code_48a2b4db9afe4374b92c15b44cab8c2a-4"></a>  <span class="o">--------------</span>
-<a name="rest_code_48a2b4db9afe4374b92c15b44cab8c2a-5"></a>  <span class="n">minimum</span> <span class="n">time</span><span class="o">:</span>     <span class="mf">12.099</span> <span class="n">μs</span> <span class="p">(</span><span class="mf">0.00</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
-<a name="rest_code_48a2b4db9afe4374b92c15b44cab8c2a-6"></a>  <span class="n">median</span> <span class="n">time</span><span class="o">:</span>      <span class="mf">12.867</span> <span class="n">μs</span> <span class="p">(</span><span class="mf">0.00</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
-<a name="rest_code_48a2b4db9afe4374b92c15b44cab8c2a-7"></a>  <span class="n">mean</span> <span class="n">time</span><span class="o">:</span>        <span class="mf">15.378</span> <span class="n">μs</span> <span class="p">(</span><span class="mf">10.78</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
-<a name="rest_code_48a2b4db9afe4374b92c15b44cab8c2a-8"></a>  <span class="n">maximum</span> <span class="n">time</span><span class="o">:</span>     <span class="mf">3.511</span> <span class="n">ms</span> <span class="p">(</span><span class="mf">97.53</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
-<a name="rest_code_48a2b4db9afe4374b92c15b44cab8c2a-9"></a>  <span class="o">--------------</span>
-<a name="rest_code_48a2b4db9afe4374b92c15b44cab8c2a-10"></a>  <span class="n">samples</span><span class="o">:</span>          <span class="mi">10000</span>
-<a name="rest_code_48a2b4db9afe4374b92c15b44cab8c2a-11"></a>  <span class="n">evals</span><span class="o">/</span><span class="n">sample</span><span class="o">:</span>     <span class="mi">1</span>
+<pre class="code julia"><a name="rest_code_8f234eb6eda0499d98d31d9c70d58e35-1"></a><span class="n">BenchmarkTools</span><span class="o">.</span><span class="n">Trial</span><span class="o">:</span>
+<a name="rest_code_8f234eb6eda0499d98d31d9c70d58e35-2"></a>  <span class="n">memory</span> <span class="n">estimate</span><span class="o">:</span>  <span class="mf">14.41</span> <span class="n">KiB</span>
+<a name="rest_code_8f234eb6eda0499d98d31d9c70d58e35-3"></a>  <span class="n">allocs</span> <span class="n">estimate</span><span class="o">:</span>  <span class="mi">220</span>
+<a name="rest_code_8f234eb6eda0499d98d31d9c70d58e35-4"></a>  <span class="o">--------------</span>
+<a name="rest_code_8f234eb6eda0499d98d31d9c70d58e35-5"></a>  <span class="n">minimum</span> <span class="n">time</span><span class="o">:</span>     <span class="mf">12.099</span> <span class="n">μs</span> <span class="p">(</span><span class="mf">0.00</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
+<a name="rest_code_8f234eb6eda0499d98d31d9c70d58e35-6"></a>  <span class="n">median</span> <span class="n">time</span><span class="o">:</span>      <span class="mf">12.867</span> <span class="n">μs</span> <span class="p">(</span><span class="mf">0.00</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
+<a name="rest_code_8f234eb6eda0499d98d31d9c70d58e35-7"></a>  <span class="n">mean</span> <span class="n">time</span><span class="o">:</span>        <span class="mf">15.378</span> <span class="n">μs</span> <span class="p">(</span><span class="mf">10.78</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
+<a name="rest_code_8f234eb6eda0499d98d31d9c70d58e35-8"></a>  <span class="n">maximum</span> <span class="n">time</span><span class="o">:</span>     <span class="mf">3.511</span> <span class="n">ms</span> <span class="p">(</span><span class="mf">97.53</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
+<a name="rest_code_8f234eb6eda0499d98d31d9c70d58e35-9"></a>  <span class="o">--------------</span>
+<a name="rest_code_8f234eb6eda0499d98d31d9c70d58e35-10"></a>  <span class="n">samples</span><span class="o">:</span>          <span class="mi">10000</span>
+<a name="rest_code_8f234eb6eda0499d98d31d9c70d58e35-11"></a>  <span class="n">evals</span><span class="o">/</span><span class="n">sample</span><span class="o">:</span>     <span class="mi">1</span>
 </pre>
 <p>En este caso, podemos decir que el código de Python es alrededor de 50
 veces más lento que el de Julia.</p>
@@ -233,9 +233,9 @@ la función <span class="math">\(\mathbf{x}^T \mathbf{x} + \mathbf{x}\)</span> p
 <div class="section" id="id2">
 <h4>Python</h4>
 <p>El código para la función y el jacobiano es</p>
-<pre class="code Python"><a name="rest_code_b95f7cb761954590a2a86d5772817a35-1"></a><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">diag</span>
-<a name="rest_code_b95f7cb761954590a2a86d5772817a35-2"></a><span class="n">fun</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x</span>
-<a name="rest_code_b95f7cb761954590a2a86d5772817a35-3"></a><span class="n">jaco</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">diag</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<pre class="code Python"><a name="rest_code_12bcef93b9404563a963359a971c614d-1"></a><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">diag</span>
+<a name="rest_code_12bcef93b9404563a963359a971c614d-2"></a><span class="n">fun</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x</span>
+<a name="rest_code_12bcef93b9404563a963359a971c614d-3"></a><span class="n">jaco</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">diag</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 </pre>
 <p>y los resultados son:</p>
 <table>
@@ -271,8 +271,8 @@ la función <span class="math">\(\mathbf{x}^T \mathbf{x} + \mathbf{x}\)</span> p
 <div class="section" id="id3">
 <h4>Julia</h4>
 <p>El código para la función y el jacobiano es</p>
-<pre class="code julia"><a name="rest_code_77612f9d35974fc38bf3ced183d35f4a-1"></a><span class="n">fun</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="n">x</span><span class="o">'</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">x</span>
-<a name="rest_code_77612f9d35974fc38bf3ced183d35f4a-2"></a><span class="n">jaco</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="n">diagm</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<pre class="code julia"><a name="rest_code_6bb151fdea7744519f016a2d43083f68-1"></a><span class="n">fun</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="n">x</span><span class="o">'</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">x</span>
+<a name="rest_code_6bb151fdea7744519f016a2d43083f68-2"></a><span class="n">jaco</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="n">diagm</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 </pre>
 <p>y los resultados son:</p>
 <table>

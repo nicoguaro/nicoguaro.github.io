@@ -103,68 +103,68 @@ and the initial interval is [0, 1].</p>
 <p>The following are the codes:</p>
 <div class="section" id="python">
 <h3>Python</h3>
-<pre class="code python"><a name="rest_code_a6127a6df48a46a48d4999c15a8aeae7-1"></a><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span>
-<a name="rest_code_a6127a6df48a46a48d4999c15a8aeae7-2"></a><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">log2</span><span class="p">,</span> <span class="n">ceil</span><span class="p">,</span> <span class="nb">abs</span><span class="p">,</span> <span class="n">cos</span>
-<a name="rest_code_a6127a6df48a46a48d4999c15a8aeae7-3"></a>
-<a name="rest_code_a6127a6df48a46a48d4999c15a8aeae7-4"></a><span class="k">def</span> <span class="nf">bisection</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">xtol</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">ftol</span><span class="o">=</span><span class="mf">1e-12</span><span class="p">):</span>
-<a name="rest_code_a6127a6df48a46a48d4999c15a8aeae7-5"></a>    <span class="k">if</span> <span class="n">fun</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="n">fun</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-<a name="rest_code_a6127a6df48a46a48d4999c15a8aeae7-6"></a>        <span class="n">c</span> <span class="o">=</span> <span class="kc">None</span>
-<a name="rest_code_a6127a6df48a46a48d4999c15a8aeae7-7"></a>        <span class="n">msg</span> <span class="o">=</span> <span class="s2">"The function should have a sign change in the interval."</span>
-<a name="rest_code_a6127a6df48a46a48d4999c15a8aeae7-8"></a>    <span class="k">else</span><span class="p">:</span>
-<a name="rest_code_a6127a6df48a46a48d4999c15a8aeae7-9"></a>        <span class="n">nmax</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">ceil</span><span class="p">(</span><span class="n">log2</span><span class="p">((</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="n">xtol</span><span class="p">)))</span>
-<a name="rest_code_a6127a6df48a46a48d4999c15a8aeae7-10"></a>        <span class="k">for</span> <span class="n">cont</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nmax</span><span class="p">):</span>
-<a name="rest_code_a6127a6df48a46a48d4999c15a8aeae7-11"></a>            <span class="n">c</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
-<a name="rest_code_a6127a6df48a46a48d4999c15a8aeae7-12"></a>            <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">fun</span><span class="p">(</span><span class="n">c</span><span class="p">))</span> <span class="o">&lt;</span> <span class="n">ftol</span><span class="p">:</span>
-<a name="rest_code_a6127a6df48a46a48d4999c15a8aeae7-13"></a>                <span class="n">msg</span> <span class="o">=</span> <span class="s2">"Root found with desired accuracy."</span>
-<a name="rest_code_a6127a6df48a46a48d4999c15a8aeae7-14"></a>                <span class="k">break</span>
-<a name="rest_code_a6127a6df48a46a48d4999c15a8aeae7-15"></a>            <span class="k">elif</span> <span class="n">fun</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="n">fun</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-<a name="rest_code_a6127a6df48a46a48d4999c15a8aeae7-16"></a>                <span class="n">b</span> <span class="o">=</span> <span class="n">c</span>
-<a name="rest_code_a6127a6df48a46a48d4999c15a8aeae7-17"></a>            <span class="k">elif</span> <span class="n">fun</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="n">fun</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-<a name="rest_code_a6127a6df48a46a48d4999c15a8aeae7-18"></a>                <span class="n">a</span> <span class="o">=</span> <span class="n">c</span>
-<a name="rest_code_a6127a6df48a46a48d4999c15a8aeae7-19"></a>            <span class="n">msg</span> <span class="o">=</span> <span class="s2">"Maximum number of iterations reached."</span>
-<a name="rest_code_a6127a6df48a46a48d4999c15a8aeae7-20"></a>    <span class="k">return</span> <span class="n">c</span><span class="p">,</span> <span class="n">msg</span>
-<a name="rest_code_a6127a6df48a46a48d4999c15a8aeae7-21"></a>
-<a name="rest_code_a6127a6df48a46a48d4999c15a8aeae7-22"></a><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-<a name="rest_code_a6127a6df48a46a48d4999c15a8aeae7-23"></a>    <span class="k">return</span> <span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
-<a name="rest_code_a6127a6df48a46a48d4999c15a8aeae7-24"></a>
-<a name="rest_code_a6127a6df48a46a48d4999c15a8aeae7-25"></a><span class="nb">print</span><span class="p">(</span><span class="n">bisection</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span>
+<pre class="code python"><a name="rest_code_bee99b6f15f64b2e921dc4004fe29f3d-1"></a><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span>
+<a name="rest_code_bee99b6f15f64b2e921dc4004fe29f3d-2"></a><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">log2</span><span class="p">,</span> <span class="n">ceil</span><span class="p">,</span> <span class="nb">abs</span><span class="p">,</span> <span class="n">cos</span>
+<a name="rest_code_bee99b6f15f64b2e921dc4004fe29f3d-3"></a>
+<a name="rest_code_bee99b6f15f64b2e921dc4004fe29f3d-4"></a><span class="k">def</span> <span class="nf">bisection</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">xtol</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">ftol</span><span class="o">=</span><span class="mf">1e-12</span><span class="p">):</span>
+<a name="rest_code_bee99b6f15f64b2e921dc4004fe29f3d-5"></a>    <span class="k">if</span> <span class="n">fun</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="n">fun</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+<a name="rest_code_bee99b6f15f64b2e921dc4004fe29f3d-6"></a>        <span class="n">c</span> <span class="o">=</span> <span class="kc">None</span>
+<a name="rest_code_bee99b6f15f64b2e921dc4004fe29f3d-7"></a>        <span class="n">msg</span> <span class="o">=</span> <span class="s2">"The function should have a sign change in the interval."</span>
+<a name="rest_code_bee99b6f15f64b2e921dc4004fe29f3d-8"></a>    <span class="k">else</span><span class="p">:</span>
+<a name="rest_code_bee99b6f15f64b2e921dc4004fe29f3d-9"></a>        <span class="n">nmax</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">ceil</span><span class="p">(</span><span class="n">log2</span><span class="p">((</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="n">xtol</span><span class="p">)))</span>
+<a name="rest_code_bee99b6f15f64b2e921dc4004fe29f3d-10"></a>        <span class="k">for</span> <span class="n">cont</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nmax</span><span class="p">):</span>
+<a name="rest_code_bee99b6f15f64b2e921dc4004fe29f3d-11"></a>            <span class="n">c</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+<a name="rest_code_bee99b6f15f64b2e921dc4004fe29f3d-12"></a>            <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">fun</span><span class="p">(</span><span class="n">c</span><span class="p">))</span> <span class="o">&lt;</span> <span class="n">ftol</span><span class="p">:</span>
+<a name="rest_code_bee99b6f15f64b2e921dc4004fe29f3d-13"></a>                <span class="n">msg</span> <span class="o">=</span> <span class="s2">"Root found with desired accuracy."</span>
+<a name="rest_code_bee99b6f15f64b2e921dc4004fe29f3d-14"></a>                <span class="k">break</span>
+<a name="rest_code_bee99b6f15f64b2e921dc4004fe29f3d-15"></a>            <span class="k">elif</span> <span class="n">fun</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="n">fun</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+<a name="rest_code_bee99b6f15f64b2e921dc4004fe29f3d-16"></a>                <span class="n">b</span> <span class="o">=</span> <span class="n">c</span>
+<a name="rest_code_bee99b6f15f64b2e921dc4004fe29f3d-17"></a>            <span class="k">elif</span> <span class="n">fun</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="n">fun</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+<a name="rest_code_bee99b6f15f64b2e921dc4004fe29f3d-18"></a>                <span class="n">a</span> <span class="o">=</span> <span class="n">c</span>
+<a name="rest_code_bee99b6f15f64b2e921dc4004fe29f3d-19"></a>            <span class="n">msg</span> <span class="o">=</span> <span class="s2">"Maximum number of iterations reached."</span>
+<a name="rest_code_bee99b6f15f64b2e921dc4004fe29f3d-20"></a>    <span class="k">return</span> <span class="n">c</span><span class="p">,</span> <span class="n">msg</span>
+<a name="rest_code_bee99b6f15f64b2e921dc4004fe29f3d-21"></a>
+<a name="rest_code_bee99b6f15f64b2e921dc4004fe29f3d-22"></a><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<a name="rest_code_bee99b6f15f64b2e921dc4004fe29f3d-23"></a>    <span class="k">return</span> <span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+<a name="rest_code_bee99b6f15f64b2e921dc4004fe29f3d-24"></a>
+<a name="rest_code_bee99b6f15f64b2e921dc4004fe29f3d-25"></a><span class="nb">print</span><span class="p">(</span><span class="n">bisection</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span>
 </pre>
 <p>With result</p>
-<pre class="code python"><a name="rest_code_66dbdc68ad2546f9a5d3dfd15d7ebedf-1"></a><span class="p">(</span><span class="mf">0.824131965637207</span><span class="p">,</span> <span class="s1">'Maximum number of iterations reached.'</span><span class="p">)</span>
+<pre class="code python"><a name="rest_code_c25c9fd9a0d3439d99a09402ca53d9f6-1"></a><span class="p">(</span><span class="mf">0.824131965637207</span><span class="p">,</span> <span class="s1">'Maximum number of iterations reached.'</span><span class="p">)</span>
 </pre>
 </div>
 <div class="section" id="julia">
 <h3>Julia</h3>
-<pre class="code julia"><a name="rest_code_57c14a3bf3b8417db94c9b5b269e250b-1"></a><span class="k">function</span> <span class="n">bisection</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">xtol</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">ftol</span><span class="o">=</span><span class="mf">1e-12</span><span class="p">)</span>
-<a name="rest_code_57c14a3bf3b8417db94c9b5b269e250b-2"></a>    <span class="k">if</span> <span class="n">fun</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="n">fun</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
-<a name="rest_code_57c14a3bf3b8417db94c9b5b269e250b-3"></a>        <span class="n">c</span> <span class="o">=</span> <span class="nb">nothing</span>
-<a name="rest_code_57c14a3bf3b8417db94c9b5b269e250b-4"></a>        <span class="n">msg</span> <span class="o">=</span> <span class="s">"The function should have a sign change in the interval."</span>
-<a name="rest_code_57c14a3bf3b8417db94c9b5b269e250b-5"></a>    <span class="k">else</span>
-<a name="rest_code_57c14a3bf3b8417db94c9b5b269e250b-6"></a>        <span class="n">nmax</span> <span class="o">=</span> <span class="n">ceil</span><span class="p">(</span><span class="n">log2</span><span class="p">((</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="n">xtol</span><span class="p">))</span>
-<a name="rest_code_57c14a3bf3b8417db94c9b5b269e250b-7"></a>        <span class="k">for</span> <span class="n">cont</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="n">nmax</span>
-<a name="rest_code_57c14a3bf3b8417db94c9b5b269e250b-8"></a>            <span class="n">c</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
-<a name="rest_code_57c14a3bf3b8417db94c9b5b269e250b-9"></a>            <span class="k">if</span> <span class="n">abs</span><span class="p">(</span><span class="n">fun</span><span class="p">(</span><span class="n">c</span><span class="p">))</span> <span class="o">&lt;</span> <span class="n">ftol</span>
-<a name="rest_code_57c14a3bf3b8417db94c9b5b269e250b-10"></a>                <span class="n">msg</span> <span class="o">=</span> <span class="s">"Root found with desired accuracy."</span>
-<a name="rest_code_57c14a3bf3b8417db94c9b5b269e250b-11"></a>                <span class="k">break</span>
-<a name="rest_code_57c14a3bf3b8417db94c9b5b269e250b-12"></a>            <span class="k">elseif</span> <span class="n">fun</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="n">fun</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span>
-<a name="rest_code_57c14a3bf3b8417db94c9b5b269e250b-13"></a>                <span class="n">b</span> <span class="o">=</span> <span class="n">c</span>
-<a name="rest_code_57c14a3bf3b8417db94c9b5b269e250b-14"></a>            <span class="k">elseif</span> <span class="n">fun</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="n">fun</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span>
-<a name="rest_code_57c14a3bf3b8417db94c9b5b269e250b-15"></a>                <span class="n">a</span> <span class="o">=</span> <span class="n">c</span>
-<a name="rest_code_57c14a3bf3b8417db94c9b5b269e250b-16"></a>            <span class="k">end</span>
-<a name="rest_code_57c14a3bf3b8417db94c9b5b269e250b-17"></a>            <span class="n">msg</span> <span class="o">=</span> <span class="s">"Maximum number of iterations reached."</span>
-<a name="rest_code_57c14a3bf3b8417db94c9b5b269e250b-18"></a>        <span class="k">end</span>
-<a name="rest_code_57c14a3bf3b8417db94c9b5b269e250b-19"></a>    <span class="k">end</span>
-<a name="rest_code_57c14a3bf3b8417db94c9b5b269e250b-20"></a>    <span class="k">return</span> <span class="n">c</span><span class="p">,</span> <span class="n">msg</span>
-<a name="rest_code_57c14a3bf3b8417db94c9b5b269e250b-21"></a><span class="k">end</span>
-<a name="rest_code_57c14a3bf3b8417db94c9b5b269e250b-22"></a>
-<a name="rest_code_57c14a3bf3b8417db94c9b5b269e250b-23"></a><span class="k">function</span> <span class="n">fun</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<a name="rest_code_57c14a3bf3b8417db94c9b5b269e250b-24"></a>    <span class="k">return</span> <span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">x</span><span class="o">^</span><span class="mi">2</span>
-<a name="rest_code_57c14a3bf3b8417db94c9b5b269e250b-25"></a><span class="k">end</span>
-<a name="rest_code_57c14a3bf3b8417db94c9b5b269e250b-26"></a>
-<a name="rest_code_57c14a3bf3b8417db94c9b5b269e250b-27"></a><span class="n">println</span><span class="p">(</span><span class="n">bisection</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span>
+<pre class="code julia"><a name="rest_code_18f8fb6a29534a9189b8ff7b5d2297bc-1"></a><span class="k">function</span> <span class="n">bisection</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">xtol</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">ftol</span><span class="o">=</span><span class="mf">1e-12</span><span class="p">)</span>
+<a name="rest_code_18f8fb6a29534a9189b8ff7b5d2297bc-2"></a>    <span class="k">if</span> <span class="n">fun</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="n">fun</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+<a name="rest_code_18f8fb6a29534a9189b8ff7b5d2297bc-3"></a>        <span class="n">c</span> <span class="o">=</span> <span class="nb">nothing</span>
+<a name="rest_code_18f8fb6a29534a9189b8ff7b5d2297bc-4"></a>        <span class="n">msg</span> <span class="o">=</span> <span class="s">"The function should have a sign change in the interval."</span>
+<a name="rest_code_18f8fb6a29534a9189b8ff7b5d2297bc-5"></a>    <span class="k">else</span>
+<a name="rest_code_18f8fb6a29534a9189b8ff7b5d2297bc-6"></a>        <span class="n">nmax</span> <span class="o">=</span> <span class="n">ceil</span><span class="p">(</span><span class="n">log2</span><span class="p">((</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="n">xtol</span><span class="p">))</span>
+<a name="rest_code_18f8fb6a29534a9189b8ff7b5d2297bc-7"></a>        <span class="k">for</span> <span class="n">cont</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="n">nmax</span>
+<a name="rest_code_18f8fb6a29534a9189b8ff7b5d2297bc-8"></a>            <span class="n">c</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+<a name="rest_code_18f8fb6a29534a9189b8ff7b5d2297bc-9"></a>            <span class="k">if</span> <span class="n">abs</span><span class="p">(</span><span class="n">fun</span><span class="p">(</span><span class="n">c</span><span class="p">))</span> <span class="o">&lt;</span> <span class="n">ftol</span>
+<a name="rest_code_18f8fb6a29534a9189b8ff7b5d2297bc-10"></a>                <span class="n">msg</span> <span class="o">=</span> <span class="s">"Root found with desired accuracy."</span>
+<a name="rest_code_18f8fb6a29534a9189b8ff7b5d2297bc-11"></a>                <span class="k">break</span>
+<a name="rest_code_18f8fb6a29534a9189b8ff7b5d2297bc-12"></a>            <span class="k">elseif</span> <span class="n">fun</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="n">fun</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span>
+<a name="rest_code_18f8fb6a29534a9189b8ff7b5d2297bc-13"></a>                <span class="n">b</span> <span class="o">=</span> <span class="n">c</span>
+<a name="rest_code_18f8fb6a29534a9189b8ff7b5d2297bc-14"></a>            <span class="k">elseif</span> <span class="n">fun</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="n">fun</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span>
+<a name="rest_code_18f8fb6a29534a9189b8ff7b5d2297bc-15"></a>                <span class="n">a</span> <span class="o">=</span> <span class="n">c</span>
+<a name="rest_code_18f8fb6a29534a9189b8ff7b5d2297bc-16"></a>            <span class="k">end</span>
+<a name="rest_code_18f8fb6a29534a9189b8ff7b5d2297bc-17"></a>            <span class="n">msg</span> <span class="o">=</span> <span class="s">"Maximum number of iterations reached."</span>
+<a name="rest_code_18f8fb6a29534a9189b8ff7b5d2297bc-18"></a>        <span class="k">end</span>
+<a name="rest_code_18f8fb6a29534a9189b8ff7b5d2297bc-19"></a>    <span class="k">end</span>
+<a name="rest_code_18f8fb6a29534a9189b8ff7b5d2297bc-20"></a>    <span class="k">return</span> <span class="n">c</span><span class="p">,</span> <span class="n">msg</span>
+<a name="rest_code_18f8fb6a29534a9189b8ff7b5d2297bc-21"></a><span class="k">end</span>
+<a name="rest_code_18f8fb6a29534a9189b8ff7b5d2297bc-22"></a>
+<a name="rest_code_18f8fb6a29534a9189b8ff7b5d2297bc-23"></a><span class="k">function</span> <span class="n">fun</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a name="rest_code_18f8fb6a29534a9189b8ff7b5d2297bc-24"></a>    <span class="k">return</span> <span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">x</span><span class="o">^</span><span class="mi">2</span>
+<a name="rest_code_18f8fb6a29534a9189b8ff7b5d2297bc-25"></a><span class="k">end</span>
+<a name="rest_code_18f8fb6a29534a9189b8ff7b5d2297bc-26"></a>
+<a name="rest_code_18f8fb6a29534a9189b8ff7b5d2297bc-27"></a><span class="n">println</span><span class="p">(</span><span class="n">bisection</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span>
 </pre>
 <p>With result</p>
-<pre class="code julia"><a name="rest_code_ce327d4bdb0d4dbb86f22b83af643d12-1"></a><span class="p">(</span><span class="mf">0.824131965637207</span><span class="p">,</span> <span class="s">"Maximum number of iterations reached."</span><span class="p">)</span>
+<pre class="code julia"><a name="rest_code_77f0fa9169264a0da7139039aabd956a-1"></a><span class="p">(</span><span class="mf">0.824131965637207</span><span class="p">,</span> <span class="s">"Maximum number of iterations reached."</span><span class="p">)</span>
 </pre>
 <p>In this case, both codes are really close to each other. The Python code
 has 25 lines, while the Julia one has 27. As expected, the results given by
@@ -176,26 +176,26 @@ them are the same.</p>
 I used <code class="docutils literal">%timeit</code> for IPython and <code class="docutils literal">@benchmark</code> (from <code class="docutils literal">BenchmarkTools</code>)
 for Julia.</p>
 <p>In IPython, we have</p>
-<pre class="code IPython"><a name="rest_code_9611c23ce6924a1b959687716629459e-1"></a><span class="o">%</span><span class="k">timeit</span> bisection(fun, 0.0, 2.0)
+<pre class="code IPython"><a name="rest_code_ba35a80cf6af47baa7c6755326d6e097-1"></a><span class="o">%</span><span class="k">timeit</span> bisection(fun, 0.0, 2.0)
 </pre>
 <p>with result</p>
-<pre class="code IPython"><a name="rest_code_c64e944dfa784ec5af595e06e659240a-1"></a><span class="mi">10000</span> <span class="n">loops</span><span class="p">,</span> <span class="n">best</span> <span class="n">of</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">107</span> <span class="n">µs</span> <span class="n">per</span> <span class="n">loop</span>
+<pre class="code IPython"><a name="rest_code_7438d6bb6ed0494484a740e3926a4400-1"></a><span class="mi">10000</span> <span class="n">loops</span><span class="p">,</span> <span class="n">best</span> <span class="n">of</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">107</span> <span class="n">µs</span> <span class="n">per</span> <span class="n">loop</span>
 </pre>
 <p>And in Julia, we have</p>
-<pre class="code julia"><a name="rest_code_26195be875c048398e6d5fc6a5370f29-1"></a><span class="nd">@benchmark</span> <span class="n">bisection</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>
+<pre class="code julia"><a name="rest_code_f0b448eecfd34d44b1b9ffc2276adcc0-1"></a><span class="nd">@benchmark</span> <span class="n">bisection</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>
 </pre>
 <p>with result</p>
-<pre class="code julia"><a name="rest_code_ba55b255fb3d451ca0ec395dd217ac86-1"></a><span class="n">BenchmarkTools</span><span class="o">.</span><span class="n">Trial</span><span class="o">:</span>
-<a name="rest_code_ba55b255fb3d451ca0ec395dd217ac86-2"></a>  <span class="n">memory</span> <span class="n">estimate</span><span class="o">:</span>  <span class="mi">48</span> <span class="n">bytes</span>
-<a name="rest_code_ba55b255fb3d451ca0ec395dd217ac86-3"></a>  <span class="n">allocs</span> <span class="n">estimate</span><span class="o">:</span>  <span class="mi">2</span>
-<a name="rest_code_ba55b255fb3d451ca0ec395dd217ac86-4"></a>  <span class="o">--------------</span>
-<a name="rest_code_ba55b255fb3d451ca0ec395dd217ac86-5"></a>  <span class="n">minimum</span> <span class="n">time</span><span class="o">:</span>     <span class="mf">1.505</span> <span class="n">μs</span> <span class="p">(</span><span class="mf">0.00</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
-<a name="rest_code_ba55b255fb3d451ca0ec395dd217ac86-6"></a>  <span class="n">median</span> <span class="n">time</span><span class="o">:</span>      <span class="mf">1.548</span> <span class="n">μs</span> <span class="p">(</span><span class="mf">0.00</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
-<a name="rest_code_ba55b255fb3d451ca0ec395dd217ac86-7"></a>  <span class="n">mean</span> <span class="n">time</span><span class="o">:</span>        <span class="mf">1.604</span> <span class="n">μs</span> <span class="p">(</span><span class="mf">0.00</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
-<a name="rest_code_ba55b255fb3d451ca0ec395dd217ac86-8"></a>  <span class="n">maximum</span> <span class="n">time</span><span class="o">:</span>     <span class="mf">38.425</span> <span class="n">μs</span> <span class="p">(</span><span class="mf">0.00</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
-<a name="rest_code_ba55b255fb3d451ca0ec395dd217ac86-9"></a>  <span class="o">--------------</span>
-<a name="rest_code_ba55b255fb3d451ca0ec395dd217ac86-10"></a>  <span class="n">samples</span><span class="o">:</span>          <span class="mi">10000</span>
-<a name="rest_code_ba55b255fb3d451ca0ec395dd217ac86-11"></a>  <span class="n">evals</span><span class="o">/</span><span class="n">sample</span><span class="o">:</span>     <span class="mi">10</span>
+<pre class="code julia"><a name="rest_code_6a1a50c7ffe149228bcb631825c21b6c-1"></a><span class="n">BenchmarkTools</span><span class="o">.</span><span class="n">Trial</span><span class="o">:</span>
+<a name="rest_code_6a1a50c7ffe149228bcb631825c21b6c-2"></a>  <span class="n">memory</span> <span class="n">estimate</span><span class="o">:</span>  <span class="mi">48</span> <span class="n">bytes</span>
+<a name="rest_code_6a1a50c7ffe149228bcb631825c21b6c-3"></a>  <span class="n">allocs</span> <span class="n">estimate</span><span class="o">:</span>  <span class="mi">2</span>
+<a name="rest_code_6a1a50c7ffe149228bcb631825c21b6c-4"></a>  <span class="o">--------------</span>
+<a name="rest_code_6a1a50c7ffe149228bcb631825c21b6c-5"></a>  <span class="n">minimum</span> <span class="n">time</span><span class="o">:</span>     <span class="mf">1.505</span> <span class="n">μs</span> <span class="p">(</span><span class="mf">0.00</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
+<a name="rest_code_6a1a50c7ffe149228bcb631825c21b6c-6"></a>  <span class="n">median</span> <span class="n">time</span><span class="o">:</span>      <span class="mf">1.548</span> <span class="n">μs</span> <span class="p">(</span><span class="mf">0.00</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
+<a name="rest_code_6a1a50c7ffe149228bcb631825c21b6c-7"></a>  <span class="n">mean</span> <span class="n">time</span><span class="o">:</span>        <span class="mf">1.604</span> <span class="n">μs</span> <span class="p">(</span><span class="mf">0.00</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
+<a name="rest_code_6a1a50c7ffe149228bcb631825c21b6c-8"></a>  <span class="n">maximum</span> <span class="n">time</span><span class="o">:</span>     <span class="mf">38.425</span> <span class="n">μs</span> <span class="p">(</span><span class="mf">0.00</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
+<a name="rest_code_6a1a50c7ffe149228bcb631825c21b6c-9"></a>  <span class="o">--------------</span>
+<a name="rest_code_6a1a50c7ffe149228bcb631825c21b6c-10"></a>  <span class="n">samples</span><span class="o">:</span>          <span class="mi">10000</span>
+<a name="rest_code_6a1a50c7ffe149228bcb631825c21b6c-11"></a>  <span class="n">evals</span><span class="o">/</span><span class="n">sample</span><span class="o">:</span>     <span class="mi">10</span>
 </pre>
 <p>And it seems that the Julia version is around 100 times faster than
 the Python counterpart.</p>

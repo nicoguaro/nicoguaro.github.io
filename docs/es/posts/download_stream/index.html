@@ -9,7 +9,7 @@
 <link rel="alternate" type="application/rss+xml" title="RSS (en)" href="../../../rss.xml">
 <link rel="alternate" type="application/rss+xml" title="RSS (es)" href="../../rss.xml">
 <link rel="canonical" href="https://nicoguaro.github.io/es/posts/download_stream/">
-<!--[if lt IE 9]><script src="../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Nicolás Guarín-Zapata">
+<!--[if lt IE 9]><script src="../../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Nicolás Guarín-Zapata">
 <link rel="prev" href="../marking-tetrahedron/" title="Marcado Aleatorio de un Tetraedro" type="text/html">
 <link rel="next" href="../tech_writing_math/" title="Escritura técnica: usando matemáticas" type="text/html">
 <meta property="og:site_name" content="Nicolás' blog">
@@ -102,10 +102,10 @@ organización sobre los derechos de autor de los videos.</p>
 </h2>
 <p>Después de obtener los requisitos previos, puedes descargar
 <a class="reference external" href="https://github.com/snobu/destreamer">destreamer</a> usando</p>
-<pre class="code bash"><a name="rest_code_bb9ca15e349d4ecab66840d8ad779711-1"></a>$ git clone https://github.com/snobu/destreamer
-<a name="rest_code_bb9ca15e349d4ecab66840d8ad779711-2"></a>$ <span class="nb">cd</span> destreamer
-<a name="rest_code_bb9ca15e349d4ecab66840d8ad779711-3"></a>$ npm install
-<a name="rest_code_bb9ca15e349d4ecab66840d8ad779711-4"></a>$ npm run build
+<pre class="code bash"><a name="rest_code_e6bfe98f67714513954e0dad61a7b4f6-1"></a>$ git clone https://github.com/snobu/destreamer
+<a name="rest_code_e6bfe98f67714513954e0dad61a7b4f6-2"></a>$ <span class="nb">cd</span> destreamer
+<a name="rest_code_e6bfe98f67714513954e0dad61a7b4f6-3"></a>$ npm install
+<a name="rest_code_e6bfe98f67714513954e0dad61a7b4f6-4"></a>$ npm run build
 </pre>
 <p>en una terminal.</p>
 <p>Si no se quiere jugar con
@@ -116,19 +116,19 @@ sugiero agregar <code class="docutils literal">ffmpeg</code> a la misma carpeta 
 <div class="section" id="descarga">
 <h2>Descarga</h2>
 <p>Después de eso, debe navegar a la carpeta donde descargaste <code class="docutils literal">destreamer</code> y</p>
-<pre class="code bash"><a name="rest_code_160acef97e544c8fabd70040c835f665-1"></a>$ ./destreamer.sh -i <span class="s2">"https://web.microsoftstream.com/video/VIDEO_ID"</span>
+<pre class="code bash"><a name="rest_code_75ab903f7a974eb2af69e6565caed9ae-1"></a>$ ./destreamer.sh -i <span class="s2">"https://web.microsoftstream.com/video/VIDEO_ID"</span>
 </pre>
 <p>en Mac o Linux,</p>
-<pre class="code bash"><a name="rest_code_4423890a60dd4e9c941670873be511c4-1"></a>$ destreamer.cmd -i <span class="s2">"https://web.microsoftstream.com/video/VIDEO_ID"</span>
+<pre class="code bash"><a name="rest_code_19d495e4afb145a3ba46e1ac9bf4ab03-1"></a>$ destreamer.cmd -i <span class="s2">"https://web.microsoftstream.com/video/VIDEO_ID"</span>
 </pre>
 <p>en el <em>command prompt</em> en Windows, y</p>
-<pre class="code bash"><a name="rest_code_7f81b92878a24f789b6c2c715ade78c7-1"></a>$ destreamer.ps1 -i <span class="s2">"https://web.microsoftstream.com/video/VIDEO_ID"</span>
+<pre class="code bash"><a name="rest_code_bc735f124db444a8abd64b03e1b72f95-1"></a>$ destreamer.ps1 -i <span class="s2">"https://web.microsoftstream.com/video/VIDEO_ID"</span>
 </pre>
 <p>en PowerShell. <code class="docutils literal">VIDEO_ID</code> se refiere al identificador del video
 en MS Stream.</p>
 <p>Si deseas descargar varios archivos (como un curso completo),
 puedes crear un archivo con las URL y usar</p>
-<pre class="code bash"><a name="rest_code_eef028b784a449a09396affce2de269c-1"></a>$ destreamer.cmd -f filename.txt
+<pre class="code bash"><a name="rest_code_de4dc51268934ddfaddbcf9f5f6f821e-1"></a>$ destreamer.cmd -f filename.txt
 </pre>
 </div>
 </div>

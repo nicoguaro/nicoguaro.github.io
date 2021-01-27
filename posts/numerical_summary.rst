@@ -103,7 +103,7 @@ Conclusions
   dirty with Julia.
 
 - Implementing the Boundary Element Method in one day seems to be rough. I
-  knew this beforehand, but I gave it a try anyways ... without succcess.
+  knew this beforehand, but I gave it a try anyways … without succcess.
 
 - Julia syntax is somewhat in a sweetspot between Python and MATLAB. This makes
   it really easy to use, although the documentation of some packages is at

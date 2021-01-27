@@ -160,29 +160,29 @@ f''(x) = \left(- 12 x \cos{\left(3 x \right)} + 2 \left(2 x^{2} - 1\right) \sin{
 \end{equation*}
 </div>
 <p>The following code gives us the LaTex code</p>
-<pre class="code python"><a name="rest_code_5b9b3b26a6bf474592a035111b0921a0-1"></a><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
-<a name="rest_code_5b9b3b26a6bf474592a035111b0921a0-2"></a><span class="n">init_session</span><span class="p">()</span>
-<a name="rest_code_5b9b3b26a6bf474592a035111b0921a0-3"></a><span class="n">f</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
-<a name="rest_code_5b9b3b26a6bf474592a035111b0921a0-4"></a><span class="n">fxx</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<a name="rest_code_5b9b3b26a6bf474592a035111b0921a0-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">latex</span><span class="p">(</span><span class="n">fxx</span><span class="p">))</span>
+<pre class="code python"><a name="rest_code_fbc065be302449a4a2ece1c2e2888b32-1"></a><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
+<a name="rest_code_fbc065be302449a4a2ece1c2e2888b32-2"></a><span class="n">init_session</span><span class="p">()</span>
+<a name="rest_code_fbc065be302449a4a2ece1c2e2888b32-3"></a><span class="n">f</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+<a name="rest_code_fbc065be302449a4a2ece1c2e2888b32-4"></a><span class="n">fxx</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<a name="rest_code_fbc065be302449a4a2ece1c2e2888b32-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">latex</span><span class="p">(</span><span class="n">fxx</span><span class="p">))</span>
 </pre>
 <p>that is</p>
-<pre class="code latex"><a name="rest_code_a04bb05aa97e4c75895084c622c13d6f-1"></a><span class="k">\left</span>(- 12 x <span class="k">\cos</span><span class="nb">{</span><span class="k">\left</span>(3 x <span class="k">\right</span>)<span class="nb">}</span> + 2 <span class="k">\left</span>(2 x<span class="nb">^{</span>2<span class="nb">}</span> - 1<span class="k">\right</span>) <span class="k">\sin</span><span class="nb">{</span><span class="k">\left</span>(3 x <span class="k">\right</span>)<span class="nb">}</span> - 9 <span class="k">\sin</span><span class="nb">{</span><span class="k">\left</span>(3 x <span class="k">\right</span>)<span class="nb">}</span><span class="k">\right</span>) e<span class="nb">^{</span>- x<span class="nb">^{</span>2<span class="nb">}}</span>
+<pre class="code latex"><a name="rest_code_a98faf2fef6f40ab8e8293210bb62e0b-1"></a><span class="k">\left</span>(- 12 x <span class="k">\cos</span><span class="nb">{</span><span class="k">\left</span>(3 x <span class="k">\right</span>)<span class="nb">}</span> + 2 <span class="k">\left</span>(2 x<span class="nb">^{</span>2<span class="nb">}</span> - 1<span class="k">\right</span>) <span class="k">\sin</span><span class="nb">{</span><span class="k">\left</span>(3 x <span class="k">\right</span>)<span class="nb">}</span> - 9 <span class="k">\sin</span><span class="nb">{</span><span class="k">\left</span>(3 x <span class="k">\right</span>)<span class="nb">}</span><span class="k">\right</span>) e<span class="nb">^{</span>- x<span class="nb">^{</span>2<span class="nb">}}</span>
 </pre>
 <p>That corresponds to the code that I used above to render the equation</p>
 <p>If, we wanted the MathML code of that expression we could use
 the following snippet</p>
-<pre class="code python"><a name="rest_code_c472f6ce0e8342c583f9240bfc1b7acc-1"></a><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
-<a name="rest_code_c472f6ce0e8342c583f9240bfc1b7acc-2"></a><span class="n">init_session</span><span class="p">()</span>
-<a name="rest_code_c472f6ce0e8342c583f9240bfc1b7acc-3"></a><span class="n">f</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
-<a name="rest_code_c472f6ce0e8342c583f9240bfc1b7acc-4"></a><span class="n">fxx</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<a name="rest_code_c472f6ce0e8342c583f9240bfc1b7acc-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">mathml</span><span class="p">(</span><span class="n">fxx</span><span class="p">,</span> <span class="n">printer</span><span class="o">=</span><span class="s2">"presentation"</span><span class="p">))</span>
+<pre class="code python"><a name="rest_code_20c3e2e06b00440f85e3dd3731300ef1-1"></a><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
+<a name="rest_code_20c3e2e06b00440f85e3dd3731300ef1-2"></a><span class="n">init_session</span><span class="p">()</span>
+<a name="rest_code_20c3e2e06b00440f85e3dd3731300ef1-3"></a><span class="n">f</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+<a name="rest_code_20c3e2e06b00440f85e3dd3731300ef1-4"></a><span class="n">fxx</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<a name="rest_code_20c3e2e06b00440f85e3dd3731300ef1-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">mathml</span><span class="p">(</span><span class="n">fxx</span><span class="p">,</span> <span class="n">printer</span><span class="o">=</span><span class="s2">"presentation"</span><span class="p">))</span>
 </pre>
 <p>notice the extra argument <code class="docutils literal"><span class="pre">printer="presentation"</span></code>. If we want to add
 this to MS Word, for example, we could add the output (that I will not
 show because is really long) inside the following</p>
-<pre class="code xml"><a name="rest_code_eda8bbe97ce944539a81231cd343a5b8-1"></a><span class="nt">&lt;math</span> <span class="na">xmlns =</span> <span class="s">"http://www.w3.org/1998/Math/MathML"</span><span class="nt">&gt;</span>
-<a name="rest_code_eda8bbe97ce944539a81231cd343a5b8-2"></a><span class="nt">&lt;/math&gt;</span>
+<pre class="code xml"><a name="rest_code_60da72735a934a9586a90093d50d4330-1"></a><span class="nt">&lt;math</span> <span class="na">xmlns =</span> <span class="s">"http://www.w3.org/1998/Math/MathML"</span><span class="nt">&gt;</span>
+<a name="rest_code_60da72735a934a9586a90093d50d4330-2"></a><span class="nt">&lt;/math&gt;</span>
 </pre>
 <p>When using Jupyter Notebook this can be done graphically with a
 right click over the expression. Then, the following menu is

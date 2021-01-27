@@ -47,7 +47,9 @@ where :math:`P_N` refers to the Nth Legendre polynomial. The use of these
 nodes is useful in numerical integration and spectral methods. Finding the
 zeroes of these polynomials might be cumbersome in general. Nevertheless,
 we use an approach originally implemented in
-`MATLAB by Greg von Winckel <http://www.mathworks.com/matlabcentral/fileexchange/4775-legende-gauss-lobatto-nodes-and-weights>`_ that use Chebyshev nodes
+`MATLAB by Greg von Winckel
+<http://www.mathworks.com/matlabcentral/fileexchange/4775-legende-gauss-lobatto-nodes-and-weights>`_
+that use Chebyshev nodes
 as first guess and then update this guess using Newton-Raphson method.
 
 Following are the codes.

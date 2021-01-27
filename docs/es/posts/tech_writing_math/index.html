@@ -10,7 +10,7 @@
 <link rel="alternate" type="application/rss+xml" title="RSS (en)" href="../../../rss.xml">
 <link rel="alternate" type="application/rss+xml" title="RSS (es)" href="../../rss.xml">
 <link rel="canonical" href="https://nicoguaro.github.io/es/posts/tech_writing_math/">
-<!--[if lt IE 9]><script src="../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Nicolás Guarín-Zapata">
+<!--[if lt IE 9]><script src="../../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Nicolás Guarín-Zapata">
 <link rel="prev" href="../download_stream/" title="Descargar videos de MS Stream" type="text/html">
 <meta property="og:site_name" content="Nicolás' blog">
 <meta property="og:title" content="Escritura técnica: usando matemáticas">
@@ -161,29 +161,29 @@ f''(x) = \left(- 12 x \cos{\left(3 x \right)} + 2 \left(2 x^{2} - 1\right) \sin{
 \end{equation*}
 </div>
 <p>El siguiente bloque de código nos da el código LaTex</p>
-<pre class="code python"><a name="rest_code_fdecc556a66f405db7cc57eb64b890ce-1"></a><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
-<a name="rest_code_fdecc556a66f405db7cc57eb64b890ce-2"></a><span class="n">init_session</span><span class="p">()</span>
-<a name="rest_code_fdecc556a66f405db7cc57eb64b890ce-3"></a><span class="n">f</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
-<a name="rest_code_fdecc556a66f405db7cc57eb64b890ce-4"></a><span class="n">fxx</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<a name="rest_code_fdecc556a66f405db7cc57eb64b890ce-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">latex</span><span class="p">(</span><span class="n">fxx</span><span class="p">))</span>
+<pre class="code python"><a name="rest_code_946ce17259dc49afb4993da4ed003032-1"></a><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
+<a name="rest_code_946ce17259dc49afb4993da4ed003032-2"></a><span class="n">init_session</span><span class="p">()</span>
+<a name="rest_code_946ce17259dc49afb4993da4ed003032-3"></a><span class="n">f</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+<a name="rest_code_946ce17259dc49afb4993da4ed003032-4"></a><span class="n">fxx</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<a name="rest_code_946ce17259dc49afb4993da4ed003032-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">latex</span><span class="p">(</span><span class="n">fxx</span><span class="p">))</span>
 </pre>
 <p>que es</p>
-<pre class="code latex"><a name="rest_code_59e3d2c122dc4a0792ee5065a5f56f3d-1"></a><span class="k">\left</span>(- 12 x <span class="k">\cos</span><span class="nb">{</span><span class="k">\left</span>(3 x <span class="k">\right</span>)<span class="nb">}</span> + 2 <span class="k">\left</span>(2 x<span class="nb">^{</span>2<span class="nb">}</span> - 1<span class="k">\right</span>) <span class="k">\sin</span><span class="nb">{</span><span class="k">\left</span>(3 x <span class="k">\right</span>)<span class="nb">}</span> - 9 <span class="k">\sin</span><span class="nb">{</span><span class="k">\left</span>(3 x <span class="k">\right</span>)<span class="nb">}</span><span class="k">\right</span>) e<span class="nb">^{</span>- x<span class="nb">^{</span>2<span class="nb">}}</span>
+<pre class="code latex"><a name="rest_code_e403f9a73ef3413a846a0d723788671e-1"></a><span class="k">\left</span>(- 12 x <span class="k">\cos</span><span class="nb">{</span><span class="k">\left</span>(3 x <span class="k">\right</span>)<span class="nb">}</span> + 2 <span class="k">\left</span>(2 x<span class="nb">^{</span>2<span class="nb">}</span> - 1<span class="k">\right</span>) <span class="k">\sin</span><span class="nb">{</span><span class="k">\left</span>(3 x <span class="k">\right</span>)<span class="nb">}</span> - 9 <span class="k">\sin</span><span class="nb">{</span><span class="k">\left</span>(3 x <span class="k">\right</span>)<span class="nb">}</span><span class="k">\right</span>) e<span class="nb">^{</span>- x<span class="nb">^{</span>2<span class="nb">}}</span>
 </pre>
 <p>Este corresponde con el código que usé arriba para representar la ecuación.</p>
 <p>Si quisiéramos el código MathML de esa expresión podríamos usar
 el siguiente fragmento de código</p>
-<pre class="code python"><a name="rest_code_f6b7d4165965481fb7b501190f18d9dc-1"></a><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
-<a name="rest_code_f6b7d4165965481fb7b501190f18d9dc-2"></a><span class="n">init_session</span><span class="p">()</span>
-<a name="rest_code_f6b7d4165965481fb7b501190f18d9dc-3"></a><span class="n">f</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
-<a name="rest_code_f6b7d4165965481fb7b501190f18d9dc-4"></a><span class="n">fxx</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<a name="rest_code_f6b7d4165965481fb7b501190f18d9dc-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">mathml</span><span class="p">(</span><span class="n">fxx</span><span class="p">,</span> <span class="n">printer</span><span class="o">=</span><span class="s2">"presentation"</span><span class="p">))</span>
+<pre class="code python"><a name="rest_code_ab9da2f890834378b677782b87f13a8d-1"></a><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
+<a name="rest_code_ab9da2f890834378b677782b87f13a8d-2"></a><span class="n">init_session</span><span class="p">()</span>
+<a name="rest_code_ab9da2f890834378b677782b87f13a8d-3"></a><span class="n">f</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+<a name="rest_code_ab9da2f890834378b677782b87f13a8d-4"></a><span class="n">fxx</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<a name="rest_code_ab9da2f890834378b677782b87f13a8d-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">mathml</span><span class="p">(</span><span class="n">fxx</span><span class="p">,</span> <span class="n">printer</span><span class="o">=</span><span class="s2">"presentation"</span><span class="p">))</span>
 </pre>
 <p>observe el argumento opcional <code class="docutils literal">printer = "presentation"</code>. Si queremos agregar
 esto a MS Word, por ejemplo, podríamos agregar la salida (que no voy a
 mostrar porque es realmente larga) dentro del siguiente código</p>
-<pre class="code xml"><a name="rest_code_a782e1eaff2f4826a64a1b6569d4847a-1"></a><span class="nt">&lt;math</span> <span class="na">xmlns =</span> <span class="s">"http://www.w3.org/1998/Math/MathML"</span><span class="nt">&gt;</span>
-<a name="rest_code_a782e1eaff2f4826a64a1b6569d4847a-2"></a><span class="nt">&lt;/math&gt;</span>
+<pre class="code xml"><a name="rest_code_0b790f8d6bd24a80b8b4f07f5f6e0b2e-1"></a><span class="nt">&lt;math</span> <span class="na">xmlns =</span> <span class="s">"http://www.w3.org/1998/Math/MathML"</span><span class="nt">&gt;</span>
+<a name="rest_code_0b790f8d6bd24a80b8b4f07f5f6e0b2e-2"></a><span class="nt">&lt;/math&gt;</span>
 </pre>
 <p>Cuando se usa Jupyter Notebook, esto se puede hacer gráficamente con un
 clic derecho sobre la expresión. Y se muestra el siguiente menú.</p>

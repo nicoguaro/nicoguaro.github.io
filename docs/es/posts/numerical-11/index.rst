@@ -1,50 +1,50 @@
-.. title: Numerical methods challenge: Day 11
+.. title: Reto de métodos numéricos: Día 11
 .. slug: numerical-11
 .. date: 2017-10-11 12:25:10 UTC-05:00
-.. tags: numerical methods, python, julia, scientific computing, interpolation
+.. tags: métodos numéricos, python, julia, computación científica, interpolación
 .. category: Scientific Computing
 .. type: text
 .. has_math: yes
 
-During October (2017) I will write a program per day for some well-known
-numerical methods in both Python and Julia. It is intended to be an exercise
-then don't expect the code to be good enough for real use. Also,
-I should mention that I have almost no experience with Julia, so it
-probably won't be idiomatic Julia but more Python-like Julia.
+Durante octubre (2017) estaré escribiendo un programa por día para algunos
+métodos numéricos famosos en Python y Julia. Esto está pensado como
+un ejercicio, no esperen que el código sea lo suficientemente bueno para
+usarse en la "vida real". Además, también debo mencionar que casi que no
+tengo experiencia con Julia, así que probablemente no escriba un Julia
+idiomático y se parezca más a Python.
 
-Lagrange interpolation: Inverting Vandermonde matrix
+Interpolación: Invirtiendo la matriz de Vandermonde
 ====================================================
 
-Today we have
-`Lagrange interpolation <https://en.wikipedia.org/wiki/Lagrange_polynomial>`_,
-yet one more time. I will have a different approach to compute the
-interpolation; I will form the `Vandermonde matrix <https://en.wikipedia.org/wiki/Vandermonde_matrix>`_ :math:`V` and solve the system
+Hoy tenemos `Lagrange interpolation
+<https://en.wikipedia.org/wiki/Lagrange_polynomial>`_, una vez más.
+Esta vez usaré un enfoque diferente para calcular la interpolación;
+construiré la `matriz de Vandermonde
+<https://en.wikipedia.org/wiki/Vandermonde_matrix>`_ :math:`V` y resolveré
+el sistema de ecuaciones.
 
 .. math::
     V\mathbf{c} = I
 
-where :math:`\mathbf{c}` is the vector of coefficients and :math:`I` is
-the identity matrix. This method, and the `previous one <posts/numerical-09/>`_
-are not stable and should not be used for the computation of higher order
-interpolants, even for optimally chosed sampling. It will start failing
-around 40 points. A better approach is to use the
-`barycentric form <https://en.wikipedia.org/wiki/Lagrange_polynomial#Barycentric_form>`_
-of the interpolation.
+donde :math:`\mathbf{c}` es el vector de coeficientes y :math:`I` es la matriz
+identidad. Este método, y `el anterior <posts/numerical-09/>`_
+no son estables y no deberían usarse para el cálculo de interpoladores de alto
+orden, incluso para muestreos optimamente seleccionados. Fallará alrededor
+de 40 puntos. Un mejor enfoque es usar la `forma baricéntrica
+<https://en.wikipedia.org/wiki/Lagrange_polynomial#Barycentric_form>`_
+de la interpolación.
 
-
-
-In the example below we use
-`Chebyshev nodes <https://en.wikipedia.org/wiki/Chebyshev_nodes>`_.
-The nodes are given by
+En el ejemplo abajo usamos los `nodos de Chebyshev
+<https://en.wikipedia.org/wiki/Chebyshev_nodes>`_.
+Los nodos están dados por 
 
 .. math::
 
     x_k = \cos\left(\frac{2k-1}{2n}\pi\right), \quad k = 1, \ldots, n
 
-where :math:`n` is the degree of the polynomial.
+donde :math:`n` es el grado del polinomio.
 
-
-Following are the codes.
+A continuación se presentan los códigos.
 
 Python
 ------
@@ -146,31 +146,30 @@ Julia
     ylim(0, 1.2)
     show()
 
-
-In both cases the result is the plot below.
+En ambos casos el resultado es el siguiente gráfico.
 
 .. image:: /images/lagrange_vandermonde.svg
    :width: 500 px
-   :alt: Lagrange interpolation using Vandermonde matrix.
+   :alt: Interpolación de Lagrange usando la matriz de Vandermonde.
    :align:  center
 
-And, if we try with a high :math:`n`, say :math:`n=45`, we can see the
-problems.
+Y, si intentamos con un :math:`n` alto, digamos :math:`n=45`, podemos ver los
+problemas.
 
 .. image:: /images/lagrange_vandermonde-n-45.svg
    :width: 500 px
-   :alt: Lagrange interpolation using Vandermonde matrix.
+   :alt: Interpolación de Lagrange usando la matriz de Vandermonde para 45 puntos.
    :align:  center
 
 
-Comparison Python/Julia
+Comparación Python/Julia
 -----------------------
 
-Regarding number of lines we have: 41 in Python and 44 in Julia. The comparison
-in execution time is done with ``%%timeit`` magic command in IPython and
-``@benchmark`` in Julia.
+Respecto al número de líneas tenemos: 41 en Python y 44 en Julia.  La comparación
+en tiempo de ejecución se realizó con el comando mágico de IPython ``%timeit``
+y con ``@benchmark`` en Julia.
 
-For Python:
+Para Python:
 
 .. code:: IPython
 
@@ -181,13 +180,13 @@ For Python:
     x_eval = np.linspace(-1, 1, 500)
     interp_f = compute_interp(x, f, x_eval)
 
-with result
+con resultado
 
 .. code::
 
     100 loops, best of 3: 7.86 ms per loop
 
-For Julia:
+Para Julia:
 
 .. code:: julia
 
@@ -200,7 +199,7 @@ For Julia:
     end
     @benchmark bench()
 
-with result
+con resultado
 
 .. code:: julia
 
@@ -216,9 +215,5 @@ with result
       samples:          39
       evals/sample:     1
 
-
-
-
-In this case, we can say that the Python code is roughly 16 times faster
-than the Julia one.
-
+En este caso, podemos decir que el código de Python es alrededor de 16
+veces más rápido que el de Julia.

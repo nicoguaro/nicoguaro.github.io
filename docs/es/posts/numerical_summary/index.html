@@ -3,27 +3,27 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
-<title>Numerical methods challenge: Summary | Nicolás' blog</title>
+<title>Reto de métodos numéricos: resumen | Nicolás' blog</title>
 <link href="../../../assets/css/all.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
 <link rel="alternate" type="application/rss+xml" title="RSS (en)" href="../../../rss.xml">
 <link rel="alternate" type="application/rss+xml" title="RSS (es)" href="../../rss.xml">
 <link rel="canonical" href="https://nicoguaro.github.io/es/posts/numerical_summary/">
-<!--[if lt IE 9]><script src="../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Nicolás Guarín-Zapata">
+<!--[if lt IE 9]><script src="../../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Nicolás Guarín-Zapata">
 <link rel="prev" href="../numerical-31/" title="Numerical methods challenge: Day 31" type="text/html">
 <link rel="next" href="../putnam_prob/" title="Probabilidad de que un tetraedro en una esfera contenga su centro" type="text/html">
 <meta property="og:site_name" content="Nicolás' blog">
-<meta property="og:title" content="Numerical methods challenge: Summary">
+<meta property="og:title" content="Reto de métodos numéricos: resumen">
 <meta property="og:url" content="https://nicoguaro.github.io/es/posts/numerical_summary/">
-<meta property="og:description" content="During October (2017) I wrote a program per day for some well-known numerical
-methods in both Python and Julia. It was intended to be an exercise, then don't
-expect the code to be good enough for real">
+<meta property="og:description" content="Durante octubre (2017) escribí un programa por día para algunos
+métodos numéricos famosos en Python y Julia. Esto está pensado como
+un ejercicio, no esperen que el código sea lo suficientemente bueno ">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2017-11-14T11:22:23-05:00">
+<meta property="article:tag" content="computación científica">
 <meta property="article:tag" content="julia">
-<meta property="article:tag" content="numerical methods">
+<meta property="article:tag" content="métodos numéricos">
 <meta property="article:tag" content="python">
-<meta property="article:tag" content="scientific computing">
 <link rel="alternate" hreflang="en" href="../../../posts/numerical_summary/">
 </head>
 <body>
@@ -63,7 +63,7 @@ expect the code to be good enough for real">
 
       <div class="container content" id="content">
         
-<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="post-title p-name entry-title" itemprop="headline name"><a href="." class="u-url">Numerical methods challenge: Summary</a></h1>
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="post-title p-name entry-title" itemprop="headline name"><a href="." class="u-url">Reto de métodos numéricos: resumen</a></h1>
 
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
@@ -76,39 +76,44 @@ expect the code to be good enough for real">
         </p>
 </div>
         
+        <div class="metadata posttranslations translations">
+            <h3 class="posttranslations-intro">También disponible en:</h3>
+                <p><a href="../../../posts/numerical_summary/" rel="alternate" hreflang="en">English</a></p>
+        </div>
 
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
-<p>During October (2017) I wrote a program per day for some well-known numerical
-methods in both Python and Julia. It was intended to be an exercise, then don't
-expect the code to be good enough for real use. Also, I should mention that I
-had almost no experience with Julia, so it probably is not idiomatic Julia but
-more Python-like Julia.</p>
-<div class="section" id="summary">
-<h2>Summary</h2>
-<p>This post is a summary of that challenge. For the source code you can check
-<a class="reference external" href="https://github.com/nicoguaro/numerical_challenge_2017">the repository</a>.</p>
-<div class="section" id="the-verdict">
-<h3>The verdict</h3>
-<p>Since the challenge is with myself, and the main purpose was to learn some
-Julia the verdict is: <strong>success</strong>. Nevertheless, I failed during day 26
-with the Boundary Element Method.</p>
+<p>Durante octubre (2017) escribí un programa por día para algunos
+métodos numéricos famosos en Python y Julia. Esto está pensado como
+un ejercicio, no esperen que el código sea lo suficientemente bueno para
+usarse en la "vida real". Además, también debo mencionar que casi que no
+tenía experiencia con Julia, así que probablemente no escriba un Julia
+idiomático y se parezca más a Python.</p>
+<div class="section" id="resumen">
+<h2>Resumen</h2>
+<p>Esta publicación resume el reto. Para ver el código fuente pueden remitirse
+<a class="reference external" href="https://github.com/nicoguaro/numerical_challenge_2017">al repositorio</a>.</p>
+<div class="section" id="el-veredicto">
+<h3>El veredicto</h3>
+<p>Ya que el reto es conmigo mismo, y el propósito era aprender algo de
+Julia, el veredicto es: <strong>exitoso</strong>. Sin embargo, fallé en el día 26
+con el Método de Elementos de Frontera.</p>
 </div>
-<div class="section" id="the-list-of-methods">
-<h3>The list of methods</h3>
+<div class="section" id="la-lista-de-metodos">
+<h3>La lista de métodos</h3>
 <table>
 <colgroup>
 <col style="width: 35%">
 <col style="width: 65%">
 </colgroup>
 <thead><tr>
-<th class="head"><p>Day</p></th>
-<th class="head"><p>Numerical method</p></th>
+<th class="head"><p>Día</p></th>
+<th class="head"><p>Método numérico</p></th>
 </tr></thead>
 <tbody>
 <tr>
 <td><p><a class="reference external" href="../numerical-01">01</a></p></td>
-<td><p>Bisection</p></td>
+<td><p>Bisección</p></td>
 </tr>
 <tr>
 <td><p><a class="reference external" href="../numerical-02">02</a></p></td>
@@ -120,7 +125,7 @@ with the Boundary Element Method.</p>
 </tr>
 <tr>
 <td><p><a class="reference external" href="../numerical-04">04</a></p></td>
-<td><p>Newton multivariate</p></td>
+<td><p>Newton multivariable</p></td>
 </tr>
 <tr>
 <td><p><a class="reference external" href="../numerical-05">05</a></p></td>
@@ -128,7 +133,7 @@ with the Boundary Element Method.</p>
 </tr>
 <tr>
 <td><p><a class="reference external" href="../numerical-06">06</a></p></td>
-<td><p>Gradient descent</p></td>
+<td><p>Descenso del gradiente</p></td>
 </tr>
 <tr>
 <td><p><a class="reference external" href="../numerical-07">07</a></p></td>
@@ -136,126 +141,126 @@ with the Boundary Element Method.</p>
 </tr>
 <tr>
 <td><p><a class="reference external" href="../numerical-08">08</a></p></td>
-<td><p>Newton for optimization</p></td>
+<td><p>Newton para optimización</p></td>
 </tr>
 <tr>
 <td><p><a class="reference external" href="../numerical-09">09</a></p></td>
-<td><p>Lagrange interpolation</p></td>
+<td><p>Interpolación de Lagrange</p></td>
 </tr>
 <tr>
 <td><p><a class="reference external" href="../numerical-10">10</a></p></td>
-<td><p>Lagrange interpolation with Lobatto sampling</p></td>
+<td><p>Interpolación de Lagrange con muestreo de Lobatto</p></td>
 </tr>
 <tr>
 <td><p><a class="reference external" href="../numerical-11">11</a></p></td>
-<td><p>Lagrange interpolation using Vandermonde matrix</p></td>
+<td><p>Interpolación de Lagrange con matriz de Vandermonde</p></td>
 </tr>
 <tr>
 <td><p><a class="reference external" href="../numerical-12">12</a></p></td>
-<td><p>Hermite interpolation</p></td>
+<td><p>Interpolación de Hermite</p></td>
 </tr>
 <tr>
 <td><p><a class="reference external" href="../numerical-13">13</a></p></td>
-<td><p>Spline interpolation</p></td>
+<td><p>Interpolación spline</p></td>
 </tr>
 <tr>
 <td><p><a class="reference external" href="../numerical-14">14</a></p></td>
-<td><p>Trapezoid quadrature</p></td>
+<td><p>Cuadratura trapezoidal</p></td>
 </tr>
 <tr>
 <td><p><a class="reference external" href="../numerical-15">15</a></p></td>
-<td><p>Simpson quadrature</p></td>
+<td><p>Cuadratura de Simpson</p></td>
 </tr>
 <tr>
 <td><p><a class="reference external" href="../numerical-16">16</a></p></td>
-<td><p>Clenshaw-Curtis quadrature</p></td>
+<td><p>Cuadratura de Clenshaw-Curtis</p></td>
 </tr>
 <tr>
 <td><p><a class="reference external" href="../numerical-17">17</a></p></td>
-<td><p>Euler integration</p></td>
+<td><p>Integración de Euler</p></td>
 </tr>
 <tr>
 <td><p><a class="reference external" href="../numerical-18">18</a></p></td>
-<td><p>Runge-Kutta integration</p></td>
+<td><p>Integración de Runge-Kutta</p></td>
 </tr>
 <tr>
 <td><p><a class="reference external" href="../numerical-19">19</a></p></td>
-<td><p>Verlet integration</p></td>
+<td><p>Integración de Verlet</p></td>
 </tr>
 <tr>
 <td><p><a class="reference external" href="../numerical-20">20</a></p></td>
-<td><p>Shooting method</p></td>
+<td><p>Método del disparo</p></td>
 </tr>
 <tr>
 <td><p><a class="reference external" href="../numerical-21">21</a></p></td>
-<td><p>Finite differences with Jacobi method</p></td>
+<td><p>Diferencias finitas con método de Jacobi</p></td>
 </tr>
 <tr>
 <td><p><a class="reference external" href="../numerical-22">22</a></p></td>
-<td><p>Finite differences for eigenvalues</p></td>
+<td><p>Diferencias finitas para valores propios</p></td>
 </tr>
 <tr>
 <td><p><a class="reference external" href="../numerical-23">23</a></p></td>
-<td><p>Ritz method</p></td>
+<td><p>Método de Ritz</p></td>
 </tr>
 <tr>
 <td><p><a class="reference external" href="../numerical-24">24</a></p></td>
-<td><p>Finite element method in 1D</p></td>
+<td><p>Elementos finitos en 1D</p></td>
 </tr>
 <tr>
 <td><p><a class="reference external" href="../numerical-25">25</a></p></td>
-<td><p>Finite element method in 2D</p></td>
+<td><p>Elementos finitos en 2D</p></td>
 </tr>
 <tr>
 <td><p><a class="reference external" href="../numerical-26">26</a></p></td>
-<td><p>Boundary element method</p></td>
+<td><p>Método de elementos de frontera</p></td>
 </tr>
 <tr>
 <td><p><a class="reference external" href="../numerical-27">27</a></p></td>
-<td><p>Monte-Carlo integration</p></td>
+<td><p>Integración Monte-Carlo</p></td>
 </tr>
 <tr>
 <td><p><a class="reference external" href="../numerical-28">28</a></p></td>
-<td><p>LU factorization</p></td>
+<td><p>Factorización LU factorization</p></td>
 </tr>
 <tr>
 <td><p><a class="reference external" href="../numerical-29">29</a></p></td>
-<td><p>Cholesky factorization</p></td>
+<td><p>Factorización de Cholesky</p></td>
 </tr>
 <tr>
 <td><p><a class="reference external" href="../numerical-30">30</a></p></td>
-<td><p>Conjugate gradient</p></td>
+<td><p>Gradiente conjugado</p></td>
 </tr>
 <tr>
 <td><p><a class="reference external" href="../numerical-31">31</a></p></td>
-<td><p>Finite element method with solver</p></td>
+<td><p>Elementos finitos con solucionador</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="conclusions">
-<h3>Conclusions</h3>
+<div class="section" id="conclusiones">
+<h3>Conclusiones</h3>
 <ul class="simple">
-<li><p>This was an exercise of code-kata to learn some of the details of Julia for
-scientific computing. As such, it was really useful for me to get my hands
-dirty with Julia.</p></li>
-<li><p>Implementing the Boundary Element Method in one day seems to be rough. I
-knew this beforehand, but I gave it a try anyways ... without succcess.</p></li>
-<li><p>Julia syntax is somewhat in a sweetspot between Python and MATLAB. This makes
-it really easy to use, although the documentation of some packages is at
-an arcane stage right now.</p></li>
-<li><p>I won't take a challenge like this in a while. It takes a lot of atttention
-to get it done.</p></li>
+<li><p>Este era un ejercicio de kata de código para aprender algunos detalles sobre
+Julia para computación científica. Como tal, fue muy útil para mí ensuciarme
+las manos con Julia.</p></li>
+<li><p>Implementar el Método de Elementos de Frontera en un día parece algo difícil.
+Yo ya lo sabía de antemano, pero lo intenté de todas formas … sin éxito.</p></li>
+<li><p>La sintaxis de Julia está en un punto intermedio entre Python y Matlab. Esto
+hace que sea fácil de usar, aunque la documentación de algunas paquetes está
+en una etapa preliminar en este momento.</p></li>
+<li><p>No volveré a hacer un reto como estos en un rato. Requiere de mucha atención
+realizarlo.</p></li>
 </ul>
 </div>
 </div>
 </div>
     </div>
     <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
-<li><a class="tag p-category" href="../../categories/julia/" rel="tag">julia</a></li>
-            <li><a class="tag p-category" href="../../categories/numerical-methods/" rel="tag">numerical methods</a></li>
+<li><a class="tag p-category" href="../../categories/computacion-cientifica/" rel="tag">computación científica</a></li>
+            <li><a class="tag p-category" href="../../categories/julia/" rel="tag">julia</a></li>
+            <li><a class="tag p-category" href="../../categories/metodos-numericos/" rel="tag">métodos numéricos</a></li>
             <li><a class="tag p-category" href="../../categories/python/" rel="tag">python</a></li>
-            <li><a class="tag p-category" href="../../categories/scientific-computing/" rel="tag">scientific computing</a></li>
         </ul>
 <ul class="pager hidden-print">
 <li class="previous">
@@ -271,7 +276,7 @@ to get it done.</p></li>
         <script>
         var disqus_shortname ="nicoguaro-github",
             disqus_url="https://nicoguaro.github.io/es/posts/numerical_summary/",
-        disqus_title="Numerical methods challenge: Summary",
+        disqus_title="Reto de m\u00e9todos num\u00e9ricos: resumen",
         disqus_identifier="cache/posts/numerical_summary.html",
         disqus_config = function () {
             this.language = "es_ES";
