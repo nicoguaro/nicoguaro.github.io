@@ -3,7 +3,7 @@
 &lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
 &lt;img alt="Creative Commons License"
 style="border-width:0"
-src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Wed, 27 Jan 2021 21:14:29 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Technical writing: using math</title><link>https://nicoguaro.github.io/posts/tech_writing_math/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;In a &lt;a class="reference external" href="https://nicoguaro.github.io/posts/tech_writing"&gt;previous post&lt;/a&gt; I mentioned some general aspects of
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Wed, 03 Feb 2021 21:27:33 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Technical writing: using math</title><link>https://nicoguaro.github.io/posts/tech_writing_math/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;In a &lt;a class="reference external" href="https://nicoguaro.github.io/posts/tech_writing"&gt;previous post&lt;/a&gt; I mentioned some general aspects of
 technical writing. In this one, I would like to talk about including
 mathematical expressions in technical documents.&lt;/p&gt;
 &lt;p&gt;There are two main ways to include math in your documents:&lt;/p&gt;

@@ -15,14 +15,15 @@ probably won't be idiomatic Julia but more Python-like Julia.
 Cubic splines
 =============
 
-Today we have `cubic spline interpolation <https://en.wikipedia.org/wiki/Spline_(mathematics)>`_. Cubic splines are commonly  used because it provides
+Today we have `cubic spline interpolation
+<https://en.wikipedia.org/wiki/Spline_(mathematics)>`_.
+Cubic splines are commonly  used because it provides
 an approximation of a function with continuity up to second derivatives.
-For more details you can check
-`this algorithm <https://en.wikipedia.org/wiki/Spline_(mathematics)#Algorithm_for_computing_natural_cubic_splines>`_. Our
-main difference is that we will form the matrix and then solve the system.
+For more details you can check `this algorithm
+<https://en.wikipedia.org/wiki/Spline_(mathematics)#Algorithm_for_computing_natural_cubic_splines>`_.
+Our main difference is that we will form the matrix and then solve the system.
 It is more common to directly solve the system of equation since it is
 a tridiagonal one.
-
 
 Following are the codes.
 

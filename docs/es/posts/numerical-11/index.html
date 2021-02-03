@@ -9,9 +9,9 @@
 <link rel="alternate" type="application/rss+xml" title="RSS (en)" href="../../../rss.xml">
 <link rel="alternate" type="application/rss+xml" title="RSS (es)" href="../../rss.xml">
 <link rel="canonical" href="https://nicoguaro.github.io/es/posts/numerical-11/">
-<!--[if lt IE 9]><script src="../../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Nicolás Guarín-Zapata">
+<!--[if lt IE 9]><script src="../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Nicolás Guarín-Zapata">
 <link rel="prev" href="../numerical-10/" title="Reto de métodos numéricos: Día 10" type="text/html">
-<link rel="next" href="../numerical-12/" title="Numerical methods challenge: Day 12" type="text/html">
+<link rel="next" href="../numerical-12/" title="Reto de métodos numéricos: Día 12" type="text/html">
 <meta property="og:site_name" content="Nicolás' blog">
 <meta property="og:title" content="Reto de métodos numéricos: Día 11">
 <meta property="og:url" content="https://nicoguaro.github.io/es/posts/numerical-11/">
@@ -118,95 +118,95 @@ x_k = \cos\left(\frac{2k-1}{2n}\pi\right), \quad k = 1, \ldots, n
 <p>A continuación se presentan los códigos.</p>
 <div class="section" id="python">
 <h3>Python</h3>
-<pre class="code python"><a name="rest_code_6bc293af3fcb4170aef8dee881184e38-1"></a><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span>
-<a name="rest_code_6bc293af3fcb4170aef8dee881184e38-2"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<a name="rest_code_6bc293af3fcb4170aef8dee881184e38-3"></a><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<a name="rest_code_6bc293af3fcb4170aef8dee881184e38-4"></a>
-<a name="rest_code_6bc293af3fcb4170aef8dee881184e38-5"></a>
-<a name="rest_code_6bc293af3fcb4170aef8dee881184e38-6"></a><span class="k">def</span> <span class="nf">vander_mat</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-<a name="rest_code_6bc293af3fcb4170aef8dee881184e38-7"></a>    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<a name="rest_code_6bc293af3fcb4170aef8dee881184e38-8"></a>    <span class="n">van</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
-<a name="rest_code_6bc293af3fcb4170aef8dee881184e38-9"></a>    <span class="n">power</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
-<a name="rest_code_6bc293af3fcb4170aef8dee881184e38-10"></a>    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-<a name="rest_code_6bc293af3fcb4170aef8dee881184e38-11"></a>        <span class="n">van</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">row</span><span class="p">]</span><span class="o">**</span><span class="n">power</span>
-<a name="rest_code_6bc293af3fcb4170aef8dee881184e38-12"></a>    <span class="k">return</span> <span class="n">van</span>
-<a name="rest_code_6bc293af3fcb4170aef8dee881184e38-13"></a>
-<a name="rest_code_6bc293af3fcb4170aef8dee881184e38-14"></a>
-<a name="rest_code_6bc293af3fcb4170aef8dee881184e38-15"></a><span class="k">def</span> <span class="nf">inter_coef</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-<a name="rest_code_6bc293af3fcb4170aef8dee881184e38-16"></a>    <span class="n">vand_mat</span> <span class="o">=</span> <span class="n">vander_mat</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<a name="rest_code_6bc293af3fcb4170aef8dee881184e38-17"></a>    <span class="n">coef</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">vand_mat</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
-<a name="rest_code_6bc293af3fcb4170aef8dee881184e38-18"></a>    <span class="k">return</span> <span class="n">coef</span>
-<a name="rest_code_6bc293af3fcb4170aef8dee881184e38-19"></a>
-<a name="rest_code_6bc293af3fcb4170aef8dee881184e38-20"></a>
-<a name="rest_code_6bc293af3fcb4170aef8dee881184e38-21"></a><span class="k">def</span> <span class="nf">compute_interp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">x_eval</span><span class="p">):</span>
-<a name="rest_code_6bc293af3fcb4170aef8dee881184e38-22"></a>    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<a name="rest_code_6bc293af3fcb4170aef8dee881184e38-23"></a>    <span class="n">coef</span> <span class="o">=</span> <span class="n">inter_coef</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<a name="rest_code_6bc293af3fcb4170aef8dee881184e38-24"></a>    <span class="n">f_eval</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">x_eval</span><span class="p">)</span>
-<a name="rest_code_6bc293af3fcb4170aef8dee881184e38-25"></a>    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-<a name="rest_code_6bc293af3fcb4170aef8dee881184e38-26"></a>        <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-<a name="rest_code_6bc293af3fcb4170aef8dee881184e38-27"></a>            <span class="n">f_eval</span> <span class="o">+=</span> <span class="n">coef</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span><span class="o">*</span><span class="n">x_eval</span><span class="o">**</span><span class="n">row</span><span class="o">*</span><span class="n">f</span><span class="p">[</span><span class="n">col</span><span class="p">]</span>
-<a name="rest_code_6bc293af3fcb4170aef8dee881184e38-28"></a>    <span class="k">return</span> <span class="n">f_eval</span>
-<a name="rest_code_6bc293af3fcb4170aef8dee881184e38-29"></a>
-<a name="rest_code_6bc293af3fcb4170aef8dee881184e38-30"></a>
-<a name="rest_code_6bc293af3fcb4170aef8dee881184e38-31"></a><span class="n">n</span> <span class="o">=</span> <span class="mi">11</span>
-<a name="rest_code_6bc293af3fcb4170aef8dee881184e38-32"></a><span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
-<a name="rest_code_6bc293af3fcb4170aef8dee881184e38-33"></a><span class="n">f</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">25</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-<a name="rest_code_6bc293af3fcb4170aef8dee881184e38-34"></a><span class="n">x_eval</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
-<a name="rest_code_6bc293af3fcb4170aef8dee881184e38-35"></a><span class="n">interp_f</span> <span class="o">=</span> <span class="n">compute_interp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">x_eval</span><span class="p">)</span>
-<a name="rest_code_6bc293af3fcb4170aef8dee881184e38-36"></a><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<a name="rest_code_6bc293af3fcb4170aef8dee881184e38-37"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_eval</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">25</span><span class="o">*</span><span class="n">x_eval</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
-<a name="rest_code_6bc293af3fcb4170aef8dee881184e38-38"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_eval</span><span class="p">,</span> <span class="n">interp_f</span><span class="p">)</span>
-<a name="rest_code_6bc293af3fcb4170aef8dee881184e38-39"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="s2">"."</span><span class="p">)</span>
-<a name="rest_code_6bc293af3fcb4170aef8dee881184e38-40"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">)</span>
-<a name="rest_code_6bc293af3fcb4170aef8dee881184e38-41"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<pre class="code python"><a name="rest_code_42fb6d237dfe4e4f92400b4c77c30dea-1"></a><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span>
+<a name="rest_code_42fb6d237dfe4e4f92400b4c77c30dea-2"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<a name="rest_code_42fb6d237dfe4e4f92400b4c77c30dea-3"></a><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<a name="rest_code_42fb6d237dfe4e4f92400b4c77c30dea-4"></a>
+<a name="rest_code_42fb6d237dfe4e4f92400b4c77c30dea-5"></a>
+<a name="rest_code_42fb6d237dfe4e4f92400b4c77c30dea-6"></a><span class="k">def</span> <span class="nf">vander_mat</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<a name="rest_code_42fb6d237dfe4e4f92400b4c77c30dea-7"></a>    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a name="rest_code_42fb6d237dfe4e4f92400b4c77c30dea-8"></a>    <span class="n">van</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+<a name="rest_code_42fb6d237dfe4e4f92400b4c77c30dea-9"></a>    <span class="n">power</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+<a name="rest_code_42fb6d237dfe4e4f92400b4c77c30dea-10"></a>    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<a name="rest_code_42fb6d237dfe4e4f92400b4c77c30dea-11"></a>        <span class="n">van</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">row</span><span class="p">]</span><span class="o">**</span><span class="n">power</span>
+<a name="rest_code_42fb6d237dfe4e4f92400b4c77c30dea-12"></a>    <span class="k">return</span> <span class="n">van</span>
+<a name="rest_code_42fb6d237dfe4e4f92400b4c77c30dea-13"></a>
+<a name="rest_code_42fb6d237dfe4e4f92400b4c77c30dea-14"></a>
+<a name="rest_code_42fb6d237dfe4e4f92400b4c77c30dea-15"></a><span class="k">def</span> <span class="nf">inter_coef</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<a name="rest_code_42fb6d237dfe4e4f92400b4c77c30dea-16"></a>    <span class="n">vand_mat</span> <span class="o">=</span> <span class="n">vander_mat</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a name="rest_code_42fb6d237dfe4e4f92400b4c77c30dea-17"></a>    <span class="n">coef</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">vand_mat</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+<a name="rest_code_42fb6d237dfe4e4f92400b4c77c30dea-18"></a>    <span class="k">return</span> <span class="n">coef</span>
+<a name="rest_code_42fb6d237dfe4e4f92400b4c77c30dea-19"></a>
+<a name="rest_code_42fb6d237dfe4e4f92400b4c77c30dea-20"></a>
+<a name="rest_code_42fb6d237dfe4e4f92400b4c77c30dea-21"></a><span class="k">def</span> <span class="nf">compute_interp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">x_eval</span><span class="p">):</span>
+<a name="rest_code_42fb6d237dfe4e4f92400b4c77c30dea-22"></a>    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a name="rest_code_42fb6d237dfe4e4f92400b4c77c30dea-23"></a>    <span class="n">coef</span> <span class="o">=</span> <span class="n">inter_coef</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a name="rest_code_42fb6d237dfe4e4f92400b4c77c30dea-24"></a>    <span class="n">f_eval</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">x_eval</span><span class="p">)</span>
+<a name="rest_code_42fb6d237dfe4e4f92400b4c77c30dea-25"></a>    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<a name="rest_code_42fb6d237dfe4e4f92400b4c77c30dea-26"></a>        <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<a name="rest_code_42fb6d237dfe4e4f92400b4c77c30dea-27"></a>            <span class="n">f_eval</span> <span class="o">+=</span> <span class="n">coef</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span><span class="o">*</span><span class="n">x_eval</span><span class="o">**</span><span class="n">row</span><span class="o">*</span><span class="n">f</span><span class="p">[</span><span class="n">col</span><span class="p">]</span>
+<a name="rest_code_42fb6d237dfe4e4f92400b4c77c30dea-28"></a>    <span class="k">return</span> <span class="n">f_eval</span>
+<a name="rest_code_42fb6d237dfe4e4f92400b4c77c30dea-29"></a>
+<a name="rest_code_42fb6d237dfe4e4f92400b4c77c30dea-30"></a>
+<a name="rest_code_42fb6d237dfe4e4f92400b4c77c30dea-31"></a><span class="n">n</span> <span class="o">=</span> <span class="mi">11</span>
+<a name="rest_code_42fb6d237dfe4e4f92400b4c77c30dea-32"></a><span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+<a name="rest_code_42fb6d237dfe4e4f92400b4c77c30dea-33"></a><span class="n">f</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">25</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<a name="rest_code_42fb6d237dfe4e4f92400b4c77c30dea-34"></a><span class="n">x_eval</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+<a name="rest_code_42fb6d237dfe4e4f92400b4c77c30dea-35"></a><span class="n">interp_f</span> <span class="o">=</span> <span class="n">compute_interp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">x_eval</span><span class="p">)</span>
+<a name="rest_code_42fb6d237dfe4e4f92400b4c77c30dea-36"></a><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<a name="rest_code_42fb6d237dfe4e4f92400b4c77c30dea-37"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_eval</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">25</span><span class="o">*</span><span class="n">x_eval</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+<a name="rest_code_42fb6d237dfe4e4f92400b4c77c30dea-38"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_eval</span><span class="p">,</span> <span class="n">interp_f</span><span class="p">)</span>
+<a name="rest_code_42fb6d237dfe4e4f92400b4c77c30dea-39"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="s2">"."</span><span class="p">)</span>
+<a name="rest_code_42fb6d237dfe4e4f92400b4c77c30dea-40"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">)</span>
+<a name="rest_code_42fb6d237dfe4e4f92400b4c77c30dea-41"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre>
 </div>
 <div class="section" id="julia">
 <h3>Julia</h3>
-<pre class="code julia"><a name="rest_code_0d569c86a6504e2b9df1c10204b4a1e4-1"></a><span class="k">using</span> <span class="n">PyPlot</span>
-<a name="rest_code_0d569c86a6504e2b9df1c10204b4a1e4-2"></a>
-<a name="rest_code_0d569c86a6504e2b9df1c10204b4a1e4-3"></a>
-<a name="rest_code_0d569c86a6504e2b9df1c10204b4a1e4-4"></a><span class="k">function</span> <span class="n">vander_mat</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<a name="rest_code_0d569c86a6504e2b9df1c10204b4a1e4-5"></a>    <span class="n">n</span> <span class="o">=</span> <span class="n">length</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<a name="rest_code_0d569c86a6504e2b9df1c10204b4a1e4-6"></a>    <span class="n">van</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
-<a name="rest_code_0d569c86a6504e2b9df1c10204b4a1e4-7"></a>    <span class="n">power</span> <span class="o">=</span> <span class="mi">0</span><span class="o">:</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span>
-<a name="rest_code_0d569c86a6504e2b9df1c10204b4a1e4-8"></a>    <span class="k">for</span> <span class="n">row</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="n">n</span>
-<a name="rest_code_0d569c86a6504e2b9df1c10204b4a1e4-9"></a>        <span class="n">van</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="o">:</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">row</span><span class="p">]</span><span class="o">.^</span><span class="n">power</span>
-<a name="rest_code_0d569c86a6504e2b9df1c10204b4a1e4-10"></a>    <span class="k">end</span>
-<a name="rest_code_0d569c86a6504e2b9df1c10204b4a1e4-11"></a>    <span class="k">return</span> <span class="n">van</span>
-<a name="rest_code_0d569c86a6504e2b9df1c10204b4a1e4-12"></a><span class="k">end</span>
-<a name="rest_code_0d569c86a6504e2b9df1c10204b4a1e4-13"></a>
-<a name="rest_code_0d569c86a6504e2b9df1c10204b4a1e4-14"></a>
-<a name="rest_code_0d569c86a6504e2b9df1c10204b4a1e4-15"></a><span class="k">function</span> <span class="n">inter_coef</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<a name="rest_code_0d569c86a6504e2b9df1c10204b4a1e4-16"></a>    <span class="n">vand_mat</span> <span class="o">=</span> <span class="n">vander_mat</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<a name="rest_code_0d569c86a6504e2b9df1c10204b4a1e4-17"></a>    <span class="n">coef</span> <span class="o">=</span> <span class="n">vand_mat</span> <span class="o">\</span> <span class="n">eye</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<a name="rest_code_0d569c86a6504e2b9df1c10204b4a1e4-18"></a>    <span class="k">return</span> <span class="n">coef</span>
-<a name="rest_code_0d569c86a6504e2b9df1c10204b4a1e4-19"></a><span class="k">end</span>
-<a name="rest_code_0d569c86a6504e2b9df1c10204b4a1e4-20"></a>
-<a name="rest_code_0d569c86a6504e2b9df1c10204b4a1e4-21"></a>
-<a name="rest_code_0d569c86a6504e2b9df1c10204b4a1e4-22"></a><span class="k">function</span> <span class="n">compute_interp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">x_eval</span><span class="p">)</span>
-<a name="rest_code_0d569c86a6504e2b9df1c10204b4a1e4-23"></a>    <span class="n">n</span> <span class="o">=</span> <span class="n">length</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<a name="rest_code_0d569c86a6504e2b9df1c10204b4a1e4-24"></a>    <span class="n">coef</span> <span class="o">=</span> <span class="n">inter_coef</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<a name="rest_code_0d569c86a6504e2b9df1c10204b4a1e4-25"></a>    <span class="n">f_eval</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">x_eval</span><span class="p">)</span>
-<a name="rest_code_0d569c86a6504e2b9df1c10204b4a1e4-26"></a>    <span class="k">for</span> <span class="n">row</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="n">n</span>
-<a name="rest_code_0d569c86a6504e2b9df1c10204b4a1e4-27"></a>        <span class="k">for</span> <span class="n">col</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="n">n</span>
-<a name="rest_code_0d569c86a6504e2b9df1c10204b4a1e4-28"></a>            <span class="n">f_eval</span> <span class="o">+=</span> <span class="n">coef</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span><span class="o">*</span><span class="n">x_eval</span><span class="o">.^</span><span class="p">(</span><span class="n">row</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">f</span><span class="p">[</span><span class="n">col</span><span class="p">]</span>
-<a name="rest_code_0d569c86a6504e2b9df1c10204b4a1e4-29"></a>        <span class="k">end</span>
-<a name="rest_code_0d569c86a6504e2b9df1c10204b4a1e4-30"></a>    <span class="k">end</span>
-<a name="rest_code_0d569c86a6504e2b9df1c10204b4a1e4-31"></a>    <span class="k">return</span> <span class="n">f_eval</span>
-<a name="rest_code_0d569c86a6504e2b9df1c10204b4a1e4-32"></a><span class="k">end</span>
-<a name="rest_code_0d569c86a6504e2b9df1c10204b4a1e4-33"></a>
-<a name="rest_code_0d569c86a6504e2b9df1c10204b4a1e4-34"></a>
-<a name="rest_code_0d569c86a6504e2b9df1c10204b4a1e4-35"></a><span class="n">n</span> <span class="o">=</span> <span class="mi">11</span>
-<a name="rest_code_0d569c86a6504e2b9df1c10204b4a1e4-36"></a><span class="n">x</span> <span class="o">=</span> <span class="o">-</span> <span class="n">cos</span><span class="o">.</span><span class="p">(</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">pi</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
-<a name="rest_code_0d569c86a6504e2b9df1c10204b4a1e4-37"></a><span class="n">f</span> <span class="o">=</span> <span class="mf">1.</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">25</span><span class="o">*</span><span class="n">x</span><span class="o">.^</span><span class="mi">2</span><span class="p">)</span>
-<a name="rest_code_0d569c86a6504e2b9df1c10204b4a1e4-38"></a><span class="n">x_eval</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
-<a name="rest_code_0d569c86a6504e2b9df1c10204b4a1e4-39"></a><span class="n">interp_f</span> <span class="o">=</span> <span class="n">compute_interp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">x_eval</span><span class="p">)</span>
-<a name="rest_code_0d569c86a6504e2b9df1c10204b4a1e4-40"></a><span class="n">plot</span><span class="p">(</span><span class="n">x_eval</span><span class="p">,</span> <span class="mf">1.</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">25</span><span class="o">*</span><span class="n">x_eval</span><span class="o">.^</span><span class="mi">2</span><span class="p">))</span>
-<a name="rest_code_0d569c86a6504e2b9df1c10204b4a1e4-41"></a><span class="n">plot</span><span class="p">(</span><span class="n">x_eval</span><span class="p">,</span> <span class="n">interp_f</span><span class="p">)</span>
-<a name="rest_code_0d569c86a6504e2b9df1c10204b4a1e4-42"></a><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="s">"."</span><span class="p">)</span>
-<a name="rest_code_0d569c86a6504e2b9df1c10204b4a1e4-43"></a><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">)</span>
-<a name="rest_code_0d569c86a6504e2b9df1c10204b4a1e4-44"></a><span class="n">show</span><span class="p">()</span>
+<pre class="code julia"><a name="rest_code_8d9f573a3d8d4873bb459a8bb0b549ea-1"></a><span class="k">using</span> <span class="n">PyPlot</span>
+<a name="rest_code_8d9f573a3d8d4873bb459a8bb0b549ea-2"></a>
+<a name="rest_code_8d9f573a3d8d4873bb459a8bb0b549ea-3"></a>
+<a name="rest_code_8d9f573a3d8d4873bb459a8bb0b549ea-4"></a><span class="k">function</span> <span class="n">vander_mat</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a name="rest_code_8d9f573a3d8d4873bb459a8bb0b549ea-5"></a>    <span class="n">n</span> <span class="o">=</span> <span class="n">length</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a name="rest_code_8d9f573a3d8d4873bb459a8bb0b549ea-6"></a>    <span class="n">van</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<a name="rest_code_8d9f573a3d8d4873bb459a8bb0b549ea-7"></a>    <span class="n">power</span> <span class="o">=</span> <span class="mi">0</span><span class="o">:</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span>
+<a name="rest_code_8d9f573a3d8d4873bb459a8bb0b549ea-8"></a>    <span class="k">for</span> <span class="n">row</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="n">n</span>
+<a name="rest_code_8d9f573a3d8d4873bb459a8bb0b549ea-9"></a>        <span class="n">van</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="o">:</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">row</span><span class="p">]</span><span class="o">.^</span><span class="n">power</span>
+<a name="rest_code_8d9f573a3d8d4873bb459a8bb0b549ea-10"></a>    <span class="k">end</span>
+<a name="rest_code_8d9f573a3d8d4873bb459a8bb0b549ea-11"></a>    <span class="k">return</span> <span class="n">van</span>
+<a name="rest_code_8d9f573a3d8d4873bb459a8bb0b549ea-12"></a><span class="k">end</span>
+<a name="rest_code_8d9f573a3d8d4873bb459a8bb0b549ea-13"></a>
+<a name="rest_code_8d9f573a3d8d4873bb459a8bb0b549ea-14"></a>
+<a name="rest_code_8d9f573a3d8d4873bb459a8bb0b549ea-15"></a><span class="k">function</span> <span class="n">inter_coef</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a name="rest_code_8d9f573a3d8d4873bb459a8bb0b549ea-16"></a>    <span class="n">vand_mat</span> <span class="o">=</span> <span class="n">vander_mat</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a name="rest_code_8d9f573a3d8d4873bb459a8bb0b549ea-17"></a>    <span class="n">coef</span> <span class="o">=</span> <span class="n">vand_mat</span> <span class="o">\</span> <span class="n">eye</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<a name="rest_code_8d9f573a3d8d4873bb459a8bb0b549ea-18"></a>    <span class="k">return</span> <span class="n">coef</span>
+<a name="rest_code_8d9f573a3d8d4873bb459a8bb0b549ea-19"></a><span class="k">end</span>
+<a name="rest_code_8d9f573a3d8d4873bb459a8bb0b549ea-20"></a>
+<a name="rest_code_8d9f573a3d8d4873bb459a8bb0b549ea-21"></a>
+<a name="rest_code_8d9f573a3d8d4873bb459a8bb0b549ea-22"></a><span class="k">function</span> <span class="n">compute_interp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">x_eval</span><span class="p">)</span>
+<a name="rest_code_8d9f573a3d8d4873bb459a8bb0b549ea-23"></a>    <span class="n">n</span> <span class="o">=</span> <span class="n">length</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a name="rest_code_8d9f573a3d8d4873bb459a8bb0b549ea-24"></a>    <span class="n">coef</span> <span class="o">=</span> <span class="n">inter_coef</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a name="rest_code_8d9f573a3d8d4873bb459a8bb0b549ea-25"></a>    <span class="n">f_eval</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">x_eval</span><span class="p">)</span>
+<a name="rest_code_8d9f573a3d8d4873bb459a8bb0b549ea-26"></a>    <span class="k">for</span> <span class="n">row</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="n">n</span>
+<a name="rest_code_8d9f573a3d8d4873bb459a8bb0b549ea-27"></a>        <span class="k">for</span> <span class="n">col</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="n">n</span>
+<a name="rest_code_8d9f573a3d8d4873bb459a8bb0b549ea-28"></a>            <span class="n">f_eval</span> <span class="o">+=</span> <span class="n">coef</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span><span class="o">*</span><span class="n">x_eval</span><span class="o">.^</span><span class="p">(</span><span class="n">row</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">f</span><span class="p">[</span><span class="n">col</span><span class="p">]</span>
+<a name="rest_code_8d9f573a3d8d4873bb459a8bb0b549ea-29"></a>        <span class="k">end</span>
+<a name="rest_code_8d9f573a3d8d4873bb459a8bb0b549ea-30"></a>    <span class="k">end</span>
+<a name="rest_code_8d9f573a3d8d4873bb459a8bb0b549ea-31"></a>    <span class="k">return</span> <span class="n">f_eval</span>
+<a name="rest_code_8d9f573a3d8d4873bb459a8bb0b549ea-32"></a><span class="k">end</span>
+<a name="rest_code_8d9f573a3d8d4873bb459a8bb0b549ea-33"></a>
+<a name="rest_code_8d9f573a3d8d4873bb459a8bb0b549ea-34"></a>
+<a name="rest_code_8d9f573a3d8d4873bb459a8bb0b549ea-35"></a><span class="n">n</span> <span class="o">=</span> <span class="mi">11</span>
+<a name="rest_code_8d9f573a3d8d4873bb459a8bb0b549ea-36"></a><span class="n">x</span> <span class="o">=</span> <span class="o">-</span> <span class="n">cos</span><span class="o">.</span><span class="p">(</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">pi</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+<a name="rest_code_8d9f573a3d8d4873bb459a8bb0b549ea-37"></a><span class="n">f</span> <span class="o">=</span> <span class="mf">1.</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">25</span><span class="o">*</span><span class="n">x</span><span class="o">.^</span><span class="mi">2</span><span class="p">)</span>
+<a name="rest_code_8d9f573a3d8d4873bb459a8bb0b549ea-38"></a><span class="n">x_eval</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+<a name="rest_code_8d9f573a3d8d4873bb459a8bb0b549ea-39"></a><span class="n">interp_f</span> <span class="o">=</span> <span class="n">compute_interp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">x_eval</span><span class="p">)</span>
+<a name="rest_code_8d9f573a3d8d4873bb459a8bb0b549ea-40"></a><span class="n">plot</span><span class="p">(</span><span class="n">x_eval</span><span class="p">,</span> <span class="mf">1.</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">25</span><span class="o">*</span><span class="n">x_eval</span><span class="o">.^</span><span class="mi">2</span><span class="p">))</span>
+<a name="rest_code_8d9f573a3d8d4873bb459a8bb0b549ea-41"></a><span class="n">plot</span><span class="p">(</span><span class="n">x_eval</span><span class="p">,</span> <span class="n">interp_f</span><span class="p">)</span>
+<a name="rest_code_8d9f573a3d8d4873bb459a8bb0b549ea-42"></a><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="s">"."</span><span class="p">)</span>
+<a name="rest_code_8d9f573a3d8d4873bb459a8bb0b549ea-43"></a><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">)</span>
+<a name="rest_code_8d9f573a3d8d4873bb459a8bb0b549ea-44"></a><span class="n">show</span><span class="p">()</span>
 </pre>
 <p>En ambos casos el resultado es el siguiente gráfico.</p>
 <img alt="Interpolación de Lagrange usando la matriz de Vandermonde." class="align-center" src="../../../images/lagrange_vandermonde.svg" style="width: 500px;"><p>Y, si intentamos con un <span class="math">\(n\)</span> alto, digamos <span class="math">\(n=45\)</span>, podemos ver los
@@ -225,38 +225,38 @@ problemas.</p>
 en tiempo de ejecución se realizó con el comando mágico de IPython <code class="docutils literal">%timeit</code>
 y con <code class="docutils literal">@benchmark</code> en Julia.</p>
 <p>Para Python:</p>
-<pre class="code IPython"><a name="rest_code_65415ca8d1354f6fb3b95f19de0704c8-1"></a><span class="o">%%time</span>it -n 100
-<a name="rest_code_65415ca8d1354f6fb3b95f19de0704c8-2"></a><span class="n">n</span> <span class="o">=</span> <span class="mi">11</span>
-<a name="rest_code_65415ca8d1354f6fb3b95f19de0704c8-3"></a><span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
-<a name="rest_code_65415ca8d1354f6fb3b95f19de0704c8-4"></a><span class="n">f</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">25</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-<a name="rest_code_65415ca8d1354f6fb3b95f19de0704c8-5"></a><span class="n">x_eval</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
-<a name="rest_code_65415ca8d1354f6fb3b95f19de0704c8-6"></a><span class="n">interp_f</span> <span class="o">=</span> <span class="n">compute_interp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">x_eval</span><span class="p">)</span>
+<pre class="code IPython"><a name="rest_code_b9711f182d764ae7bfdd10f6078c4267-1"></a><span class="o">%%time</span>it -n 100
+<a name="rest_code_b9711f182d764ae7bfdd10f6078c4267-2"></a><span class="n">n</span> <span class="o">=</span> <span class="mi">11</span>
+<a name="rest_code_b9711f182d764ae7bfdd10f6078c4267-3"></a><span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+<a name="rest_code_b9711f182d764ae7bfdd10f6078c4267-4"></a><span class="n">f</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">25</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<a name="rest_code_b9711f182d764ae7bfdd10f6078c4267-5"></a><span class="n">x_eval</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+<a name="rest_code_b9711f182d764ae7bfdd10f6078c4267-6"></a><span class="n">interp_f</span> <span class="o">=</span> <span class="n">compute_interp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">x_eval</span><span class="p">)</span>
 </pre>
 <p>con resultado</p>
-<pre class="code text"><a name="rest_code_4ee0bb016649457a9608db4d591b6fe3-1"></a>100 loops, best of 3: 7.86 ms per loop
+<pre class="code text"><a name="rest_code_12d8d16c610e4c2e85b8b97dd7827379-1"></a>100 loops, best of 3: 7.86 ms per loop
 </pre>
 <p>Para Julia:</p>
-<pre class="code julia"><a name="rest_code_2baebb66225a4cdcbbc9d8a67e76a5ca-1"></a><span class="k">function</span> <span class="n">bench</span><span class="p">()</span>
-<a name="rest_code_2baebb66225a4cdcbbc9d8a67e76a5ca-2"></a>   <span class="n">x</span> <span class="o">=</span> <span class="o">-</span> <span class="n">cos</span><span class="o">.</span><span class="p">(</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">pi</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
-<a name="rest_code_2baebb66225a4cdcbbc9d8a67e76a5ca-3"></a>   <span class="n">f</span> <span class="o">=</span> <span class="mf">1.</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">25</span><span class="o">*</span><span class="n">x</span><span class="o">.^</span><span class="mi">2</span><span class="p">)</span>
-<a name="rest_code_2baebb66225a4cdcbbc9d8a67e76a5ca-4"></a>   <span class="n">x_eval</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
-<a name="rest_code_2baebb66225a4cdcbbc9d8a67e76a5ca-5"></a>   <span class="n">interp_f</span> <span class="o">=</span> <span class="n">compute_interp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">x_eval</span><span class="p">)</span>
-<a name="rest_code_2baebb66225a4cdcbbc9d8a67e76a5ca-6"></a>   <span class="k">return</span> <span class="nb">nothing</span>
-<a name="rest_code_2baebb66225a4cdcbbc9d8a67e76a5ca-7"></a><span class="k">end</span>
-<a name="rest_code_2baebb66225a4cdcbbc9d8a67e76a5ca-8"></a><span class="nd">@benchmark</span> <span class="n">bench</span><span class="p">()</span>
+<pre class="code julia"><a name="rest_code_aabe52f047c94544bcd732be457486a9-1"></a><span class="k">function</span> <span class="n">bench</span><span class="p">()</span>
+<a name="rest_code_aabe52f047c94544bcd732be457486a9-2"></a>   <span class="n">x</span> <span class="o">=</span> <span class="o">-</span> <span class="n">cos</span><span class="o">.</span><span class="p">(</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">pi</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+<a name="rest_code_aabe52f047c94544bcd732be457486a9-3"></a>   <span class="n">f</span> <span class="o">=</span> <span class="mf">1.</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">25</span><span class="o">*</span><span class="n">x</span><span class="o">.^</span><span class="mi">2</span><span class="p">)</span>
+<a name="rest_code_aabe52f047c94544bcd732be457486a9-4"></a>   <span class="n">x_eval</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+<a name="rest_code_aabe52f047c94544bcd732be457486a9-5"></a>   <span class="n">interp_f</span> <span class="o">=</span> <span class="n">compute_interp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">x_eval</span><span class="p">)</span>
+<a name="rest_code_aabe52f047c94544bcd732be457486a9-6"></a>   <span class="k">return</span> <span class="nb">nothing</span>
+<a name="rest_code_aabe52f047c94544bcd732be457486a9-7"></a><span class="k">end</span>
+<a name="rest_code_aabe52f047c94544bcd732be457486a9-8"></a><span class="nd">@benchmark</span> <span class="n">bench</span><span class="p">()</span>
 </pre>
 <p>con resultado</p>
-<pre class="code julia"><a name="rest_code_0342baebe32341cfae9dd39f1a403a20-1"></a><span class="n">BenchmarkTools</span><span class="o">.</span><span class="n">Trial</span><span class="o">:</span>
-<a name="rest_code_0342baebe32341cfae9dd39f1a403a20-2"></a>  <span class="n">memory</span> <span class="n">estimate</span><span class="o">:</span>  <span class="mf">32.23</span> <span class="n">MiB</span>
-<a name="rest_code_0342baebe32341cfae9dd39f1a403a20-3"></a>  <span class="n">allocs</span> <span class="n">estimate</span><span class="o">:</span>  <span class="mi">8277</span>
-<a name="rest_code_0342baebe32341cfae9dd39f1a403a20-4"></a>  <span class="o">--------------</span>
-<a name="rest_code_0342baebe32341cfae9dd39f1a403a20-5"></a>  <span class="n">minimum</span> <span class="n">time</span><span class="o">:</span>     <span class="mf">114.282</span> <span class="n">ms</span> <span class="p">(</span><span class="mf">1.50</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
-<a name="rest_code_0342baebe32341cfae9dd39f1a403a20-6"></a>  <span class="n">median</span> <span class="n">time</span><span class="o">:</span>      <span class="mf">122.061</span> <span class="n">ms</span> <span class="p">(</span><span class="mf">1.46</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
-<a name="rest_code_0342baebe32341cfae9dd39f1a403a20-7"></a>  <span class="n">mean</span> <span class="n">time</span><span class="o">:</span>        <span class="mf">129.733</span> <span class="n">ms</span> <span class="p">(</span><span class="mf">1.90</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
-<a name="rest_code_0342baebe32341cfae9dd39f1a403a20-8"></a>  <span class="n">maximum</span> <span class="n">time</span><span class="o">:</span>     <span class="mf">163.716</span> <span class="n">ms</span> <span class="p">(</span><span class="mf">1.98</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
-<a name="rest_code_0342baebe32341cfae9dd39f1a403a20-9"></a>  <span class="o">--------------</span>
-<a name="rest_code_0342baebe32341cfae9dd39f1a403a20-10"></a>  <span class="n">samples</span><span class="o">:</span>          <span class="mi">39</span>
-<a name="rest_code_0342baebe32341cfae9dd39f1a403a20-11"></a>  <span class="n">evals</span><span class="o">/</span><span class="n">sample</span><span class="o">:</span>     <span class="mi">1</span>
+<pre class="code julia"><a name="rest_code_b0b06ad7d3004d53bfde2a766c948395-1"></a><span class="n">BenchmarkTools</span><span class="o">.</span><span class="n">Trial</span><span class="o">:</span>
+<a name="rest_code_b0b06ad7d3004d53bfde2a766c948395-2"></a>  <span class="n">memory</span> <span class="n">estimate</span><span class="o">:</span>  <span class="mf">32.23</span> <span class="n">MiB</span>
+<a name="rest_code_b0b06ad7d3004d53bfde2a766c948395-3"></a>  <span class="n">allocs</span> <span class="n">estimate</span><span class="o">:</span>  <span class="mi">8277</span>
+<a name="rest_code_b0b06ad7d3004d53bfde2a766c948395-4"></a>  <span class="o">--------------</span>
+<a name="rest_code_b0b06ad7d3004d53bfde2a766c948395-5"></a>  <span class="n">minimum</span> <span class="n">time</span><span class="o">:</span>     <span class="mf">114.282</span> <span class="n">ms</span> <span class="p">(</span><span class="mf">1.50</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
+<a name="rest_code_b0b06ad7d3004d53bfde2a766c948395-6"></a>  <span class="n">median</span> <span class="n">time</span><span class="o">:</span>      <span class="mf">122.061</span> <span class="n">ms</span> <span class="p">(</span><span class="mf">1.46</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
+<a name="rest_code_b0b06ad7d3004d53bfde2a766c948395-7"></a>  <span class="n">mean</span> <span class="n">time</span><span class="o">:</span>        <span class="mf">129.733</span> <span class="n">ms</span> <span class="p">(</span><span class="mf">1.90</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
+<a name="rest_code_b0b06ad7d3004d53bfde2a766c948395-8"></a>  <span class="n">maximum</span> <span class="n">time</span><span class="o">:</span>     <span class="mf">163.716</span> <span class="n">ms</span> <span class="p">(</span><span class="mf">1.98</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
+<a name="rest_code_b0b06ad7d3004d53bfde2a766c948395-9"></a>  <span class="o">--------------</span>
+<a name="rest_code_b0b06ad7d3004d53bfde2a766c948395-10"></a>  <span class="n">samples</span><span class="o">:</span>          <span class="mi">39</span>
+<a name="rest_code_b0b06ad7d3004d53bfde2a766c948395-11"></a>  <span class="n">evals</span><span class="o">/</span><span class="n">sample</span><span class="o">:</span>     <span class="mi">1</span>
 </pre>
 <p>En este caso, podemos decir que el código de Python es alrededor de 16
 veces más rápido que el de Julia.</p>
@@ -276,7 +276,7 @@ veces más rápido que el de Julia.</p>
                 <a href="../numerical-10/" rel="prev" title="Reto de métodos numéricos: Día 10">Publicación anterior</a>
             </li>
             <li class="next">
-                <a href="../numerical-12/" rel="next" title="Numerical methods challenge: Day 12">Siguiente publicación</a>
+                <a href="../numerical-12/" rel="next" title="Reto de métodos numéricos: Día 12">Siguiente publicación</a>
             </li>
         </ul></nav></aside><section class="comments hidden-print"><h2>Comentarios</h2>
         

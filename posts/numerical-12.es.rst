@@ -201,8 +201,8 @@ En ambos casos el resultado es el siguiente gráfico.
    :alt: Interpolación de Hermite usando la matriz de Vandermonde.
    :align:  center
 
-And, if we try with a high :math:`n`, say :math:`n=43`, we can see the
-problems.
+Y, si probamos con un :math:`n` grande, digamos :math:`n=43`, podemos ver los
+problemas.
 
 .. image:: /images/hermite_vandermonde-n-23.svg
    :width: 500 px
@@ -264,6 +264,7 @@ con resultado
       --------------
       samples:          100
       evals/sample:     1
+
 
 En este caso, podemos decir que el código de Python es tan rápido como el de
 Julia.

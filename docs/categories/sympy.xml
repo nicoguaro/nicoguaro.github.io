@@ -3,7 +3,7 @@
 &lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
 &lt;img alt="Creative Commons License"
 style="border-width:0"
-src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Wed, 27 Jan 2021 21:14:18 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Piecewise Hermite interpolation</title><link>https://nicoguaro.github.io/posts/hermite_interp/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;In this post, we find the Hermite interpolation functions for the
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Wed, 03 Feb 2021 21:27:30 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Piecewise Hermite interpolation</title><link>https://nicoguaro.github.io/posts/hermite_interp/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;In this post, we find the Hermite interpolation functions for the
 domain [-1, 1]. And then, we use it for a pieciwise interpolation. Notice
 that this interpolation has &lt;span class="math"&gt;\(C^1\)&lt;/span&gt; continuity compared to the
 &lt;span class="math"&gt;\(C^0\)&lt;/span&gt; continuity that is common in Lagrange interpolation.&lt;/p&gt;
