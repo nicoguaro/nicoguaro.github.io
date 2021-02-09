@@ -3,28 +3,28 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
-<title>Numerical methods challenge: Day 17 | Nicolás' blog</title>
+<title>Reto de métodos numéricos: Día 17 | Nicolás' blog</title>
 <link href="../../../assets/css/all.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
 <link rel="alternate" type="application/rss+xml" title="RSS (en)" href="../../../rss.xml">
 <link rel="alternate" type="application/rss+xml" title="RSS (es)" href="../../rss.xml">
 <link rel="canonical" href="https://nicoguaro.github.io/es/posts/numerical-17/">
 <!--[if lt IE 9]><script src="../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Nicolás Guarín-Zapata">
-<link rel="prev" href="../numerical-16/" title="Numerical methods challenge: Day 16" type="text/html">
-<link rel="next" href="../numerical-18/" title="Numerical methods challenge: Day 18" type="text/html">
+<link rel="prev" href="../numerical-16/" title="Reto de métodos numéricos: Día 16" type="text/html">
+<link rel="next" href="../numerical-18/" title="Reto de métodos numéricos: Día 18" type="text/html">
 <meta property="og:site_name" content="Nicolás' blog">
-<meta property="og:title" content="Numerical methods challenge: Day 17">
+<meta property="og:title" content="Reto de métodos numéricos: Día 17">
 <meta property="og:url" content="https://nicoguaro.github.io/es/posts/numerical-17/">
-<meta property="og:description" content="During October (2017) I will write a program per day for some well-known
-numerical methods in both Python and Julia. It is intended to be an exercise
-then don't expect the code to be good enough for r">
+<meta property="og:description" content="Durante octubre (2017) estaré escribiendo un programa por día para algunos
+métodos numéricos famosos en Python y Julia. Esto está pensado como
+un ejercicio, no esperen que el código sea lo suficientem">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2017-10-17T16:29:05-05:00">
+<meta property="article:tag" content="computación científica">
+<meta property="article:tag" content="edo">
 <meta property="article:tag" content="julia">
-<meta property="article:tag" content="numerical methods">
-<meta property="article:tag" content="ode">
+<meta property="article:tag" content="métodos numéricos">
 <meta property="article:tag" content="python">
-<meta property="article:tag" content="scientific computing">
 <link rel="alternate" hreflang="en" href="../../../posts/numerical-17/">
 </head>
 <body>
@@ -64,7 +64,7 @@ then don't expect the code to be good enough for r">
 
       <div class="container content" id="content">
         
-<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="post-title p-name entry-title" itemprop="headline name"><a href="." class="u-url">Numerical methods challenge: Day 17</a></h1>
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="post-title p-name entry-title" itemprop="headline name"><a href="." class="u-url">Reto de métodos numéricos: Día 17</a></h1>
 
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
@@ -77,147 +77,153 @@ then don't expect the code to be good enough for r">
         </p>
 </div>
         
+        <div class="metadata posttranslations translations">
+            <h3 class="posttranslations-intro">También disponible en:</h3>
+                <p><a href="../../../posts/numerical-17/" rel="alternate" hreflang="en">English</a></p>
+        </div>
 
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
-<p>During October (2017) I will write a program per day for some well-known
-numerical methods in both Python and Julia. It is intended to be an exercise
-then don't expect the code to be good enough for real use. Also,
-I should mention that I have almost no experience with Julia, so it
-probably won't be idiomatic Julia but more Python-like Julia.</p>
-<div class="section" id="euler-method">
-<h2>Euler method</h2>
-<p>Today we have the <a class="reference external" href="https://en.wikipedia.org/wiki/Euler_method">Euler method</a>.
-Which is the simplest of <a class="reference external" href="https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_method">Runge-Kutta methods</a>, and was named after Leonhard Euler who used
-in the 18th century.</p>
-<p>The method consist in making updates of the function using the slope
-value with the formula</p>
+<p>Durante octubre (2017) estaré escribiendo un programa por día para algunos
+métodos numéricos famosos en Python y Julia. Esto está pensado como
+un ejercicio, no esperen que el código sea lo suficientemente bueno para
+usarse en la "vida real". Además, también debo mencionar que casi que no
+tengo experiencia con Julia, así que probablemente no escriba un Julia
+idiomático y se parezca más a Python.</p>
+<div class="section" id="metodo-de-euler">
+<h2>Método de Euler</h2>
+<p>Hoy tenemos el <a class="reference external" href="https://en.wikipedia.org/wiki/Euler_method">método de Euler</a>.
+Que es el <a class="reference external" href="https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_method">método de Runge-Kutta</a>,
+más simple y lleva su nombre por Leonhard Euler que lo usó en el siglo 18.</p>
+<p>El método consiste en realizar actualizacion de la función usando el valor de
+la pendiente con la fórmula</p>
 <div class="math">
 \begin{equation*}
 y_{n + 1} = y_n + hf(t_n, y_n)
 \end{equation*}
 </div>
-<p>Following are the codes.</p>
+<p>A continuación se presentan los códigos.</p>
 <div class="section" id="python">
 <h3>Python</h3>
-<pre class="code python"><a name="rest_code_5fe67e0a89e34391893cd9b311082daf-1"></a><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span>
-<a name="rest_code_5fe67e0a89e34391893cd9b311082daf-2"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<a name="rest_code_5fe67e0a89e34391893cd9b311082daf-3"></a><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<a name="rest_code_5fe67e0a89e34391893cd9b311082daf-4"></a>
-<a name="rest_code_5fe67e0a89e34391893cd9b311082daf-5"></a>
-<a name="rest_code_5fe67e0a89e34391893cd9b311082daf-6"></a><span class="k">def</span> <span class="nf">euler</span><span class="p">(</span><span class="n">dydt</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">()):</span>
-<a name="rest_code_5fe67e0a89e34391893cd9b311082daf-7"></a>    <span class="n">ndof</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y0</span><span class="p">)</span>
-<a name="rest_code_5fe67e0a89e34391893cd9b311082daf-8"></a>    <span class="n">ntimes</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-<a name="rest_code_5fe67e0a89e34391893cd9b311082daf-9"></a>    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">ndof</span><span class="p">,</span> <span class="n">ntimes</span><span class="p">))</span>
-<a name="rest_code_5fe67e0a89e34391893cd9b311082daf-10"></a>    <span class="n">y</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">y0</span>
-<a name="rest_code_5fe67e0a89e34391893cd9b311082daf-11"></a>    <span class="k">for</span> <span class="n">cont</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">ntimes</span><span class="p">):</span>
-<a name="rest_code_5fe67e0a89e34391893cd9b311082daf-12"></a>        <span class="n">h</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">cont</span><span class="p">]</span> <span class="o">-</span> <span class="n">t</span><span class="p">[</span><span class="n">cont</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
-<a name="rest_code_5fe67e0a89e34391893cd9b311082daf-13"></a>        <span class="n">y</span><span class="p">[:,</span> <span class="n">cont</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span><span class="p">[:,</span> <span class="n">cont</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">dydt</span><span class="p">(</span><span class="n">y</span><span class="p">[:,</span> <span class="n">cont</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span> <span class="n">t</span><span class="p">[</span><span class="n">cont</span><span class="p">],</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
-<a name="rest_code_5fe67e0a89e34391893cd9b311082daf-14"></a>    <span class="k">return</span> <span class="n">y</span>
-<a name="rest_code_5fe67e0a89e34391893cd9b311082daf-15"></a>
-<a name="rest_code_5fe67e0a89e34391893cd9b311082daf-16"></a>
-<a name="rest_code_5fe67e0a89e34391893cd9b311082daf-17"></a><span class="k">def</span> <span class="nf">pend</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
-<a name="rest_code_5fe67e0a89e34391893cd9b311082daf-18"></a>    <span class="n">theta</span><span class="p">,</span> <span class="n">omega</span> <span class="o">=</span> <span class="n">y</span>
-<a name="rest_code_5fe67e0a89e34391893cd9b311082daf-19"></a>    <span class="n">dydt</span> <span class="o">=</span> <span class="p">[</span><span class="n">omega</span><span class="p">,</span> <span class="o">-</span><span class="n">b</span><span class="o">*</span><span class="n">omega</span> <span class="o">-</span> <span class="n">c</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)]</span>
-<a name="rest_code_5fe67e0a89e34391893cd9b311082daf-20"></a>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dydt</span><span class="p">)</span>
-<a name="rest_code_5fe67e0a89e34391893cd9b311082daf-21"></a>
-<a name="rest_code_5fe67e0a89e34391893cd9b311082daf-22"></a>
-<a name="rest_code_5fe67e0a89e34391893cd9b311082daf-23"></a><span class="n">b</span> <span class="o">=</span> <span class="mf">0.25</span>
-<a name="rest_code_5fe67e0a89e34391893cd9b311082daf-24"></a><span class="n">c</span> <span class="o">=</span> <span class="mf">5.0</span>
-<a name="rest_code_5fe67e0a89e34391893cd9b311082daf-25"></a><span class="n">y0</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">-</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
-<a name="rest_code_5fe67e0a89e34391893cd9b311082daf-26"></a><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10001</span><span class="p">)</span>
-<a name="rest_code_5fe67e0a89e34391893cd9b311082daf-27"></a><span class="n">y</span> <span class="o">=</span> <span class="n">euler</span><span class="p">(</span><span class="n">pend</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">))</span>
-<a name="rest_code_5fe67e0a89e34391893cd9b311082daf-28"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:])</span>
-<a name="rest_code_5fe67e0a89e34391893cd9b311082daf-29"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:])</span>
-<a name="rest_code_5fe67e0a89e34391893cd9b311082daf-30"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$t$"</span><span class="p">)</span>
-<a name="rest_code_5fe67e0a89e34391893cd9b311082daf-31"></a><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="sa">r</span><span class="s2">"$\theta(t)$"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"$\omega(t)$"</span><span class="p">])</span>
-<a name="rest_code_5fe67e0a89e34391893cd9b311082daf-32"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<pre class="code python"><a name="rest_code_89f6c81548374069944484f726b561a4-1"></a><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span>
+<a name="rest_code_89f6c81548374069944484f726b561a4-2"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<a name="rest_code_89f6c81548374069944484f726b561a4-3"></a><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<a name="rest_code_89f6c81548374069944484f726b561a4-4"></a>
+<a name="rest_code_89f6c81548374069944484f726b561a4-5"></a>
+<a name="rest_code_89f6c81548374069944484f726b561a4-6"></a><span class="k">def</span> <span class="nf">euler</span><span class="p">(</span><span class="n">dydt</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">()):</span>
+<a name="rest_code_89f6c81548374069944484f726b561a4-7"></a>    <span class="n">ndof</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y0</span><span class="p">)</span>
+<a name="rest_code_89f6c81548374069944484f726b561a4-8"></a>    <span class="n">ntimes</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<a name="rest_code_89f6c81548374069944484f726b561a4-9"></a>    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">ndof</span><span class="p">,</span> <span class="n">ntimes</span><span class="p">))</span>
+<a name="rest_code_89f6c81548374069944484f726b561a4-10"></a>    <span class="n">y</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">y0</span>
+<a name="rest_code_89f6c81548374069944484f726b561a4-11"></a>    <span class="k">for</span> <span class="n">cont</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">ntimes</span><span class="p">):</span>
+<a name="rest_code_89f6c81548374069944484f726b561a4-12"></a>        <span class="n">h</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">cont</span><span class="p">]</span> <span class="o">-</span> <span class="n">t</span><span class="p">[</span><span class="n">cont</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+<a name="rest_code_89f6c81548374069944484f726b561a4-13"></a>        <span class="n">y</span><span class="p">[:,</span> <span class="n">cont</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span><span class="p">[:,</span> <span class="n">cont</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">dydt</span><span class="p">(</span><span class="n">y</span><span class="p">[:,</span> <span class="n">cont</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span> <span class="n">t</span><span class="p">[</span><span class="n">cont</span><span class="p">],</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
+<a name="rest_code_89f6c81548374069944484f726b561a4-14"></a>    <span class="k">return</span> <span class="n">y</span>
+<a name="rest_code_89f6c81548374069944484f726b561a4-15"></a>
+<a name="rest_code_89f6c81548374069944484f726b561a4-16"></a>
+<a name="rest_code_89f6c81548374069944484f726b561a4-17"></a><span class="k">def</span> <span class="nf">pend</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+<a name="rest_code_89f6c81548374069944484f726b561a4-18"></a>    <span class="n">theta</span><span class="p">,</span> <span class="n">omega</span> <span class="o">=</span> <span class="n">y</span>
+<a name="rest_code_89f6c81548374069944484f726b561a4-19"></a>    <span class="n">dydt</span> <span class="o">=</span> <span class="p">[</span><span class="n">omega</span><span class="p">,</span> <span class="o">-</span><span class="n">b</span><span class="o">*</span><span class="n">omega</span> <span class="o">-</span> <span class="n">c</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)]</span>
+<a name="rest_code_89f6c81548374069944484f726b561a4-20"></a>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dydt</span><span class="p">)</span>
+<a name="rest_code_89f6c81548374069944484f726b561a4-21"></a>
+<a name="rest_code_89f6c81548374069944484f726b561a4-22"></a>
+<a name="rest_code_89f6c81548374069944484f726b561a4-23"></a><span class="n">b</span> <span class="o">=</span> <span class="mf">0.25</span>
+<a name="rest_code_89f6c81548374069944484f726b561a4-24"></a><span class="n">c</span> <span class="o">=</span> <span class="mf">5.0</span>
+<a name="rest_code_89f6c81548374069944484f726b561a4-25"></a><span class="n">y0</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">-</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
+<a name="rest_code_89f6c81548374069944484f726b561a4-26"></a><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10001</span><span class="p">)</span>
+<a name="rest_code_89f6c81548374069944484f726b561a4-27"></a><span class="n">y</span> <span class="o">=</span> <span class="n">euler</span><span class="p">(</span><span class="n">pend</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">))</span>
+<a name="rest_code_89f6c81548374069944484f726b561a4-28"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:])</span>
+<a name="rest_code_89f6c81548374069944484f726b561a4-29"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:])</span>
+<a name="rest_code_89f6c81548374069944484f726b561a4-30"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$t$"</span><span class="p">)</span>
+<a name="rest_code_89f6c81548374069944484f726b561a4-31"></a><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="sa">r</span><span class="s2">"$\theta(t)$"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"$\omega(t)$"</span><span class="p">])</span>
+<a name="rest_code_89f6c81548374069944484f726b561a4-32"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre>
 </div>
 <div class="section" id="julia">
 <h3>Julia</h3>
-<pre class="code julia"><a name="rest_code_ea8fccddfce5400db1b48b6f73bd1948-1"></a><span class="k">using</span> <span class="n">PyPlot</span>
-<a name="rest_code_ea8fccddfce5400db1b48b6f73bd1948-2"></a>
-<a name="rest_code_ea8fccddfce5400db1b48b6f73bd1948-3"></a>
-<a name="rest_code_ea8fccddfce5400db1b48b6f73bd1948-4"></a><span class="k">function</span> <span class="n">euler</span><span class="p">(</span><span class="n">dydt</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">t</span><span class="p">;</span> <span class="n">args</span><span class="o">=</span><span class="p">())</span>
-<a name="rest_code_ea8fccddfce5400db1b48b6f73bd1948-5"></a>    <span class="n">ndof</span> <span class="o">=</span> <span class="n">length</span><span class="p">(</span><span class="n">y0</span><span class="p">)</span>
-<a name="rest_code_ea8fccddfce5400db1b48b6f73bd1948-6"></a>    <span class="n">ntimes</span> <span class="o">=</span> <span class="n">length</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-<a name="rest_code_ea8fccddfce5400db1b48b6f73bd1948-7"></a>    <span class="n">y</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">ndof</span><span class="p">,</span> <span class="n">ntimes</span><span class="p">)</span>
-<a name="rest_code_ea8fccddfce5400db1b48b6f73bd1948-8"></a>    <span class="n">y</span><span class="p">[</span><span class="o">:</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">y0</span>
-<a name="rest_code_ea8fccddfce5400db1b48b6f73bd1948-9"></a>    <span class="k">for</span> <span class="n">cont</span> <span class="o">=</span> <span class="mi">2</span><span class="o">:</span><span class="n">ntimes</span>
-<a name="rest_code_ea8fccddfce5400db1b48b6f73bd1948-10"></a>        <span class="n">h</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">cont</span><span class="p">]</span> <span class="o">-</span> <span class="n">t</span><span class="p">[</span><span class="n">cont</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
-<a name="rest_code_ea8fccddfce5400db1b48b6f73bd1948-11"></a>        <span class="n">y</span><span class="p">[</span><span class="o">:</span><span class="p">,</span> <span class="n">cont</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="o">:</span><span class="p">,</span> <span class="n">cont</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">dydt</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="o">:</span><span class="p">,</span> <span class="n">cont</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span> <span class="n">t</span><span class="p">[</span><span class="n">cont</span><span class="p">],</span> <span class="n">args</span><span class="o">...</span><span class="p">)</span>
-<a name="rest_code_ea8fccddfce5400db1b48b6f73bd1948-12"></a>    <span class="k">end</span>
-<a name="rest_code_ea8fccddfce5400db1b48b6f73bd1948-13"></a>    <span class="k">return</span> <span class="n">y</span>
-<a name="rest_code_ea8fccddfce5400db1b48b6f73bd1948-14"></a><span class="k">end</span>
-<a name="rest_code_ea8fccddfce5400db1b48b6f73bd1948-15"></a>
-<a name="rest_code_ea8fccddfce5400db1b48b6f73bd1948-16"></a>
-<a name="rest_code_ea8fccddfce5400db1b48b6f73bd1948-17"></a><span class="k">function</span> <span class="n">pend</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
-<a name="rest_code_ea8fccddfce5400db1b48b6f73bd1948-18"></a>    <span class="n">theta</span><span class="p">,</span> <span class="n">omega</span> <span class="o">=</span> <span class="n">y</span>
-<a name="rest_code_ea8fccddfce5400db1b48b6f73bd1948-19"></a>    <span class="n">dydt</span> <span class="o">=</span> <span class="p">[</span><span class="n">omega</span><span class="p">,</span> <span class="o">-</span><span class="n">b</span><span class="o">*</span><span class="n">omega</span> <span class="o">-</span> <span class="n">c</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)]</span>
-<a name="rest_code_ea8fccddfce5400db1b48b6f73bd1948-20"></a>    <span class="k">return</span> <span class="n">dydt</span>
-<a name="rest_code_ea8fccddfce5400db1b48b6f73bd1948-21"></a><span class="k">end</span>
-<a name="rest_code_ea8fccddfce5400db1b48b6f73bd1948-22"></a>
-<a name="rest_code_ea8fccddfce5400db1b48b6f73bd1948-23"></a>
-<a name="rest_code_ea8fccddfce5400db1b48b6f73bd1948-24"></a><span class="n">b</span> <span class="o">=</span> <span class="mf">0.25</span>
-<a name="rest_code_ea8fccddfce5400db1b48b6f73bd1948-25"></a><span class="n">c</span> <span class="o">=</span> <span class="mf">5.0</span>
-<a name="rest_code_ea8fccddfce5400db1b48b6f73bd1948-26"></a><span class="n">y0</span> <span class="o">=</span> <span class="p">[</span><span class="nb">pi</span> <span class="o">-</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
-<a name="rest_code_ea8fccddfce5400db1b48b6f73bd1948-27"></a><span class="n">t</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1001</span><span class="p">)</span>
-<a name="rest_code_ea8fccddfce5400db1b48b6f73bd1948-28"></a><span class="n">y</span> <span class="o">=</span> <span class="n">euler</span><span class="p">(</span><span class="n">pend</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">))</span>
-<a name="rest_code_ea8fccddfce5400db1b48b6f73bd1948-29"></a><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">:</span><span class="p">])</span>
-<a name="rest_code_ea8fccddfce5400db1b48b6f73bd1948-30"></a><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="o">:</span><span class="p">])</span>
-<a name="rest_code_ea8fccddfce5400db1b48b6f73bd1948-31"></a><span class="n">xlabel</span><span class="p">(</span><span class="n">L</span><span class="s">"</span><span class="si">$t</span><span class="s">$"</span><span class="p">)</span>
-<a name="rest_code_ea8fccddfce5400db1b48b6f73bd1948-32"></a><span class="n">legend</span><span class="p">([</span><span class="n">L</span><span class="s">"$</span><span class="se">\t</span><span class="s">heta(t)$"</span><span class="p">,</span> <span class="n">L</span><span class="s">"$\omega(t)$"</span><span class="p">])</span>
-<a name="rest_code_ea8fccddfce5400db1b48b6f73bd1948-33"></a><span class="n">show</span><span class="p">()</span>
+<pre class="code julia"><a name="rest_code_3650a8bf66f44dcdbd1aea95039534c1-1"></a><span class="k">using</span> <span class="n">PyPlot</span>
+<a name="rest_code_3650a8bf66f44dcdbd1aea95039534c1-2"></a>
+<a name="rest_code_3650a8bf66f44dcdbd1aea95039534c1-3"></a>
+<a name="rest_code_3650a8bf66f44dcdbd1aea95039534c1-4"></a><span class="k">function</span> <span class="n">euler</span><span class="p">(</span><span class="n">dydt</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">t</span><span class="p">;</span> <span class="n">args</span><span class="o">=</span><span class="p">())</span>
+<a name="rest_code_3650a8bf66f44dcdbd1aea95039534c1-5"></a>    <span class="n">ndof</span> <span class="o">=</span> <span class="n">length</span><span class="p">(</span><span class="n">y0</span><span class="p">)</span>
+<a name="rest_code_3650a8bf66f44dcdbd1aea95039534c1-6"></a>    <span class="n">ntimes</span> <span class="o">=</span> <span class="n">length</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<a name="rest_code_3650a8bf66f44dcdbd1aea95039534c1-7"></a>    <span class="n">y</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">ndof</span><span class="p">,</span> <span class="n">ntimes</span><span class="p">)</span>
+<a name="rest_code_3650a8bf66f44dcdbd1aea95039534c1-8"></a>    <span class="n">y</span><span class="p">[</span><span class="o">:</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">y0</span>
+<a name="rest_code_3650a8bf66f44dcdbd1aea95039534c1-9"></a>    <span class="k">for</span> <span class="n">cont</span> <span class="o">=</span> <span class="mi">2</span><span class="o">:</span><span class="n">ntimes</span>
+<a name="rest_code_3650a8bf66f44dcdbd1aea95039534c1-10"></a>        <span class="n">h</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">cont</span><span class="p">]</span> <span class="o">-</span> <span class="n">t</span><span class="p">[</span><span class="n">cont</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+<a name="rest_code_3650a8bf66f44dcdbd1aea95039534c1-11"></a>        <span class="n">y</span><span class="p">[</span><span class="o">:</span><span class="p">,</span> <span class="n">cont</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="o">:</span><span class="p">,</span> <span class="n">cont</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">dydt</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="o">:</span><span class="p">,</span> <span class="n">cont</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span> <span class="n">t</span><span class="p">[</span><span class="n">cont</span><span class="p">],</span> <span class="n">args</span><span class="o">...</span><span class="p">)</span>
+<a name="rest_code_3650a8bf66f44dcdbd1aea95039534c1-12"></a>    <span class="k">end</span>
+<a name="rest_code_3650a8bf66f44dcdbd1aea95039534c1-13"></a>    <span class="k">return</span> <span class="n">y</span>
+<a name="rest_code_3650a8bf66f44dcdbd1aea95039534c1-14"></a><span class="k">end</span>
+<a name="rest_code_3650a8bf66f44dcdbd1aea95039534c1-15"></a>
+<a name="rest_code_3650a8bf66f44dcdbd1aea95039534c1-16"></a>
+<a name="rest_code_3650a8bf66f44dcdbd1aea95039534c1-17"></a><span class="k">function</span> <span class="n">pend</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+<a name="rest_code_3650a8bf66f44dcdbd1aea95039534c1-18"></a>    <span class="n">theta</span><span class="p">,</span> <span class="n">omega</span> <span class="o">=</span> <span class="n">y</span>
+<a name="rest_code_3650a8bf66f44dcdbd1aea95039534c1-19"></a>    <span class="n">dydt</span> <span class="o">=</span> <span class="p">[</span><span class="n">omega</span><span class="p">,</span> <span class="o">-</span><span class="n">b</span><span class="o">*</span><span class="n">omega</span> <span class="o">-</span> <span class="n">c</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)]</span>
+<a name="rest_code_3650a8bf66f44dcdbd1aea95039534c1-20"></a>    <span class="k">return</span> <span class="n">dydt</span>
+<a name="rest_code_3650a8bf66f44dcdbd1aea95039534c1-21"></a><span class="k">end</span>
+<a name="rest_code_3650a8bf66f44dcdbd1aea95039534c1-22"></a>
+<a name="rest_code_3650a8bf66f44dcdbd1aea95039534c1-23"></a>
+<a name="rest_code_3650a8bf66f44dcdbd1aea95039534c1-24"></a><span class="n">b</span> <span class="o">=</span> <span class="mf">0.25</span>
+<a name="rest_code_3650a8bf66f44dcdbd1aea95039534c1-25"></a><span class="n">c</span> <span class="o">=</span> <span class="mf">5.0</span>
+<a name="rest_code_3650a8bf66f44dcdbd1aea95039534c1-26"></a><span class="n">y0</span> <span class="o">=</span> <span class="p">[</span><span class="nb">pi</span> <span class="o">-</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
+<a name="rest_code_3650a8bf66f44dcdbd1aea95039534c1-27"></a><span class="n">t</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1001</span><span class="p">)</span>
+<a name="rest_code_3650a8bf66f44dcdbd1aea95039534c1-28"></a><span class="n">y</span> <span class="o">=</span> <span class="n">euler</span><span class="p">(</span><span class="n">pend</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">))</span>
+<a name="rest_code_3650a8bf66f44dcdbd1aea95039534c1-29"></a><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">:</span><span class="p">])</span>
+<a name="rest_code_3650a8bf66f44dcdbd1aea95039534c1-30"></a><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="o">:</span><span class="p">])</span>
+<a name="rest_code_3650a8bf66f44dcdbd1aea95039534c1-31"></a><span class="n">xlabel</span><span class="p">(</span><span class="n">L</span><span class="s">"</span><span class="si">$t</span><span class="s">$"</span><span class="p">)</span>
+<a name="rest_code_3650a8bf66f44dcdbd1aea95039534c1-32"></a><span class="n">legend</span><span class="p">([</span><span class="n">L</span><span class="s">"$</span><span class="se">\t</span><span class="s">heta(t)$"</span><span class="p">,</span> <span class="n">L</span><span class="s">"$\omega(t)$"</span><span class="p">])</span>
+<a name="rest_code_3650a8bf66f44dcdbd1aea95039534c1-33"></a><span class="n">show</span><span class="p">()</span>
 </pre>
-<p>In both cases the result is the following plot</p>
-<img alt="Solution for a pendulum using Euler method." class="align-center" src="../../../images/euler.svg" style="width: 500px;">
+<p>En ambos casos el resultado es la siguiente gráfica</p>
+<img alt="Solución para un péndulo usando el método de Euler." class="align-center" src="../../../images/euler.svg" style="width: 500px;">
 </div>
-<div class="section" id="comparison-python-julia">
-<h3>Comparison Python/Julia</h3>
-<p>Regarding number of lines we have: 32 in Python and 33 in Julia. The comparison
-in execution time is done with <code class="docutils literal">%timeit</code> magic command in IPython and
-<code class="docutils literal">@benchmark</code> in Julia.</p>
-<p>For Python:</p>
-<pre class="code IPython"><a name="rest_code_ce0b9a3da6ab4efa985d280a50afc8a0-1"></a><span class="o">%</span><span class="k">timeit</span> euler(pend, y0, t, args=(b, c))
+<div class="section" id="comparacion-python-julia">
+<h3>Comparación Python/Julia</h3>
+<p>Respecto al número de líneas tenemos: 32 en Python y 33 en Julia.  La comparación
+en tiempo de ejecución se realizó con el comando mágico de IPython <code class="docutils literal">%timeit</code>
+y con <code class="docutils literal">@benchmark</code> en Julia.</p>
+<p>Para Python:</p>
+<pre class="code IPython"><a name="rest_code_2d1eb30e4bf2475f8c524d8fdc672307-1"></a><span class="o">%</span><span class="k">timeit</span> euler(pend, y0, t, args=(b, c))
 </pre>
-<p>with result</p>
-<pre class="code text"><a name="rest_code_0186f06e726b40a28bd6dca2ddda78e1-1"></a>100 loops, best of 3: 18.5 ms per loop
+<p>con resultado</p>
+<pre class="code text"><a name="rest_code_75cc6d457d894a99b3f5e9dc242c9947-1"></a>100 loops, best of 3: 18.5 ms per loop
 </pre>
-<p>For Julia:</p>
-<pre class="code julia"><a name="rest_code_8e8ceb12e0a648ddb950ac579d6928bc-1"></a><span class="nd">@benchmark</span> <span class="n">euler</span><span class="p">(</span><span class="n">pend</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">))</span>
+<p>Para Julia:</p>
+<pre class="code julia"><a name="rest_code_65434d34876c475fbcd0bd0d976d6cc3-1"></a><span class="nd">@benchmark</span> <span class="n">euler</span><span class="p">(</span><span class="n">pend</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">))</span>
 </pre>
-<p>with result</p>
-<pre class="code julia"><a name="rest_code_3edfad7561c44807b438334181ef8438-1"></a><span class="n">BenchmarkTools</span><span class="o">.</span><span class="n">Trial</span><span class="o">:</span>
-<a name="rest_code_3edfad7561c44807b438334181ef8438-2"></a>  <span class="n">memory</span> <span class="n">estimate</span><span class="o">:</span>  <span class="mf">648.33</span> <span class="n">KiB</span>
-<a name="rest_code_3edfad7561c44807b438334181ef8438-3"></a>  <span class="n">allocs</span> <span class="n">estimate</span><span class="o">:</span>  <span class="mi">15473</span>
-<a name="rest_code_3edfad7561c44807b438334181ef8438-4"></a>  <span class="o">--------------</span>
-<a name="rest_code_3edfad7561c44807b438334181ef8438-5"></a>  <span class="n">minimum</span> <span class="n">time</span><span class="o">:</span>     <span class="mf">366.236</span> <span class="n">μs</span> <span class="p">(</span><span class="mf">0.00</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
-<a name="rest_code_3edfad7561c44807b438334181ef8438-6"></a>  <span class="n">median</span> <span class="n">time</span><span class="o">:</span>      <span class="mf">399.615</span> <span class="n">μs</span> <span class="p">(</span><span class="mf">0.00</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
-<a name="rest_code_3edfad7561c44807b438334181ef8438-7"></a>  <span class="n">mean</span> <span class="n">time</span><span class="o">:</span>        <span class="mf">486.364</span> <span class="n">μs</span> <span class="p">(</span><span class="mf">16.96</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
-<a name="rest_code_3edfad7561c44807b438334181ef8438-8"></a>  <span class="n">maximum</span> <span class="n">time</span><span class="o">:</span>     <span class="mf">4.613</span> <span class="n">ms</span> <span class="p">(</span><span class="mf">80.26</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
-<a name="rest_code_3edfad7561c44807b438334181ef8438-9"></a>  <span class="o">--------------</span>
-<a name="rest_code_3edfad7561c44807b438334181ef8438-10"></a>  <span class="n">samples</span><span class="o">:</span>          <span class="mi">10000</span>
-<a name="rest_code_3edfad7561c44807b438334181ef8438-11"></a>  <span class="n">evals</span><span class="o">/</span><span class="n">sample</span><span class="o">:</span>     <span class="mi">1</span>
+<p>con resultado</p>
+<pre class="code julia"><a name="rest_code_4d5baca411314cd481ae1cf4c3aa07a6-1"></a><span class="n">BenchmarkTools</span><span class="o">.</span><span class="n">Trial</span><span class="o">:</span>
+<a name="rest_code_4d5baca411314cd481ae1cf4c3aa07a6-2"></a>  <span class="n">memory</span> <span class="n">estimate</span><span class="o">:</span>  <span class="mf">648.33</span> <span class="n">KiB</span>
+<a name="rest_code_4d5baca411314cd481ae1cf4c3aa07a6-3"></a>  <span class="n">allocs</span> <span class="n">estimate</span><span class="o">:</span>  <span class="mi">15473</span>
+<a name="rest_code_4d5baca411314cd481ae1cf4c3aa07a6-4"></a>  <span class="o">--------------</span>
+<a name="rest_code_4d5baca411314cd481ae1cf4c3aa07a6-5"></a>  <span class="n">minimum</span> <span class="n">time</span><span class="o">:</span>     <span class="mf">366.236</span> <span class="n">μs</span> <span class="p">(</span><span class="mf">0.00</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
+<a name="rest_code_4d5baca411314cd481ae1cf4c3aa07a6-6"></a>  <span class="n">median</span> <span class="n">time</span><span class="o">:</span>      <span class="mf">399.615</span> <span class="n">μs</span> <span class="p">(</span><span class="mf">0.00</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
+<a name="rest_code_4d5baca411314cd481ae1cf4c3aa07a6-7"></a>  <span class="n">mean</span> <span class="n">time</span><span class="o">:</span>        <span class="mf">486.364</span> <span class="n">μs</span> <span class="p">(</span><span class="mf">16.96</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
+<a name="rest_code_4d5baca411314cd481ae1cf4c3aa07a6-8"></a>  <span class="n">maximum</span> <span class="n">time</span><span class="o">:</span>     <span class="mf">4.613</span> <span class="n">ms</span> <span class="p">(</span><span class="mf">80.26</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
+<a name="rest_code_4d5baca411314cd481ae1cf4c3aa07a6-9"></a>  <span class="o">--------------</span>
+<a name="rest_code_4d5baca411314cd481ae1cf4c3aa07a6-10"></a>  <span class="n">samples</span><span class="o">:</span>          <span class="mi">10000</span>
+<a name="rest_code_4d5baca411314cd481ae1cf4c3aa07a6-11"></a>  <span class="n">evals</span><span class="o">/</span><span class="n">sample</span><span class="o">:</span>     <span class="mi">1</span>
 </pre>
-<p>In this case, we can say that the Python code is roughly 40 times slower than Julia.</p>
+<p>En este caso, podemos decir que el código de Python es alrededor de 40
+veces más lento que el de Julia.</p>
 </div>
 </div>
 </div>
     </div>
     <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
-<li><a class="tag p-category" href="../../categories/julia/" rel="tag">julia</a></li>
-            <li><a class="tag p-category" href="../../categories/numerical-methods/" rel="tag">numerical methods</a></li>
-            <li><a class="tag p-category" href="../../categories/ode/" rel="tag">ode</a></li>
+<li><a class="tag p-category" href="../../categories/computacion-cientifica/" rel="tag">computación científica</a></li>
+            <li><a class="tag p-category" href="../../categories/edo/" rel="tag">edo</a></li>
+            <li><a class="tag p-category" href="../../categories/julia/" rel="tag">julia</a></li>
+            <li><a class="tag p-category" href="../../categories/metodos-numericos/" rel="tag">métodos numéricos</a></li>
             <li><a class="tag p-category" href="../../categories/python/" rel="tag">python</a></li>
-            <li><a class="tag p-category" href="../../categories/scientific-computing/" rel="tag">scientific computing</a></li>
         </ul>
 <ul class="pager hidden-print">
 <li class="previous">
-                <a href="../numerical-16/" rel="prev" title="Numerical methods challenge: Day 16">Publicación anterior</a>
+                <a href="../numerical-16/" rel="prev" title="Reto de métodos numéricos: Día 16">Publicación anterior</a>
             </li>
             <li class="next">
-                <a href="../numerical-18/" rel="next" title="Numerical methods challenge: Day 18">Siguiente publicación</a>
+                <a href="../numerical-18/" rel="next" title="Reto de métodos numéricos: Día 18">Siguiente publicación</a>
             </li>
         </ul></nav></aside><section class="comments hidden-print"><h2>Comentarios</h2>
         
@@ -226,7 +232,7 @@ in execution time is done with <code class="docutils literal">%timeit</code> mag
         <script>
         var disqus_shortname ="nicoguaro-github",
             disqus_url="https://nicoguaro.github.io/es/posts/numerical-17/",
-        disqus_title="Numerical methods challenge: Day 17",
+        disqus_title="Reto de m\u00e9todos num\u00e9ricos: D\u00eda 17",
         disqus_identifier="cache/posts/numerical-17.html",
         disqus_config = function () {
             this.language = "es_ES";

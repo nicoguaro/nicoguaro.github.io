@@ -371,7 +371,7 @@
  </url>
  <url>
   <loc>https://nicoguaro.github.io/es/categories/</loc>
-  <lastmod>2021-01-29T02:11:00Z</lastmod>
+  <lastmod>2021-02-09T23:53:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/es/categories/algebra-lineal/</loc>
@@ -446,6 +446,10 @@
   <lastmod>2021-01-25T23:56:00Z</lastmod>
  </url>
  <url>
+  <loc>https://nicoguaro.github.io/es/categories/cuadratura/</loc>
+  <lastmod>2021-02-09T22:36:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://nicoguaro.github.io/es/categories/cuentas-de-servilleta/</loc>
   <lastmod>2021-01-25T23:56:00Z</lastmod>
  </url>
@@ -456,6 +460,10 @@
  <url>
   <loc>https://nicoguaro.github.io/es/categories/diferencias-finitas/</loc>
   <lastmod>2021-01-25T23:56:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://nicoguaro.github.io/es/categories/edo/</loc>
+  <lastmod>2021-02-09T22:36:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/es/categories/edp/</loc>
@@ -502,6 +510,10 @@
   <lastmod>2021-01-25T23:56:00Z</lastmod>
  </url>
  <url>
+  <loc>https://nicoguaro.github.io/es/categories/integracion-de-verlet/</loc>
+  <lastmod>2021-02-09T23:53:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://nicoguaro.github.io/es/categories/interpolacion/</loc>
   <lastmod>2021-01-29T02:07:00Z</lastmod>
  </url>
@@ -536,6 +548,10 @@
  <url>
   <loc>https://nicoguaro.github.io/es/categories/matplotlib/</loc>
   <lastmod>2021-01-25T23:56:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://nicoguaro.github.io/es/categories/metodo-del-disparo/</loc>
+  <lastmod>2021-02-09T23:53:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/es/categories/metodos-numericos/</loc>
@@ -687,11 +703,11 @@
  </url>
  <url>
   <loc>https://nicoguaro.github.io/es/index-2.html</loc>
-  <lastmod>2021-02-03T22:00:00Z</lastmod>
+  <lastmod>2021-02-09T22:37:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/es/index-3.html</loc>
-  <lastmod>2021-02-03T22:00:00Z</lastmod>
+  <lastmod>2021-02-09T23:56:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/es/index-4.html</loc>
@@ -996,7 +1012,7 @@
  </url>
  <url>
   <loc>https://nicoguaro.github.io/index-3.html</loc>
-  <lastmod>2021-02-03T22:00:00Z</lastmod>
+  <lastmod>2021-02-09T23:53:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/index-4.html</loc>
@@ -1169,30 +1185,37 @@
  <url>
   <loc>https://nicoguaro.github.io/posts/numerical-14/</loc>
   <lastmod>2021-01-29T02:08:00Z</lastmod>
+  <xhtml:link rel="alternate" hreflang="es" href="https://nicoguaro.github.io/es/posts/numerical-14/" />
  </url>
  <url>
   <loc>https://nicoguaro.github.io/posts/numerical-15/</loc>
   <lastmod>2021-01-29T02:08:00Z</lastmod>
+  <xhtml:link rel="alternate" hreflang="es" href="https://nicoguaro.github.io/es/posts/numerical-15/" />
  </url>
  <url>
   <loc>https://nicoguaro.github.io/posts/numerical-16/</loc>
   <lastmod>2021-01-29T02:08:00Z</lastmod>
+  <xhtml:link rel="alternate" hreflang="es" href="https://nicoguaro.github.io/es/posts/numerical-16/" />
  </url>
  <url>
   <loc>https://nicoguaro.github.io/posts/numerical-17/</loc>
   <lastmod>2021-01-29T02:08:00Z</lastmod>
+  <xhtml:link rel="alternate" hreflang="es" href="https://nicoguaro.github.io/es/posts/numerical-17/" />
  </url>
  <url>
   <loc>https://nicoguaro.github.io/posts/numerical-18/</loc>
   <lastmod>2021-01-29T02:09:00Z</lastmod>
+  <xhtml:link rel="alternate" hreflang="es" href="https://nicoguaro.github.io/es/posts/numerical-18/" />
  </url>
  <url>
   <loc>https://nicoguaro.github.io/posts/numerical-19/</loc>
   <lastmod>2021-01-29T02:09:00Z</lastmod>
+  <xhtml:link rel="alternate" hreflang="es" href="https://nicoguaro.github.io/es/posts/numerical-19/" />
  </url>
  <url>
   <loc>https://nicoguaro.github.io/posts/numerical-20/</loc>
   <lastmod>2021-01-29T02:08:00Z</lastmod>
+  <xhtml:link rel="alternate" hreflang="es" href="https://nicoguaro.github.io/es/posts/numerical-20/" />
  </url>
  <url>
   <loc>https://nicoguaro.github.io/posts/numerical-21/</loc>

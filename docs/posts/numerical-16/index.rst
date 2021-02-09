@@ -15,7 +15,8 @@ probably won't be idiomatic Julia but more Python-like Julia.
 Clenshaw-Curtis quadrature
 ==========================
 
-Today we have the `Simpson's rule <https://en.wikipedia.org/wiki/Clenshaw%E2%80%93Curtis_quadrature>`_.
+Today we have the `Clenshaw-Curtis quadrature
+<https://en.wikipedia.org/wiki/Clenshaw%E2%80%93Curtis_quadrature>`_.
 This method is based in the expansion of the integrand in
 `Chebyshev polynomials <https://en.wikipedia.org/wiki/Chebyshev_polynomials>`_.
 

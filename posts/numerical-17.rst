@@ -16,8 +16,9 @@ Euler method
 ============
 
 Today we have the `Euler method <https://en.wikipedia.org/wiki/Euler_method>`_.
-Which is the simplest of `Runge-Kutta methods <https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_method>`_, and was named after Leonhard Euler who used
-in the 18th century.
+Which is the simplest of `Runge-Kutta methods
+<https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_method>`_, and was named after
+Leonhard Euler who used in the 18th century.
 
 The method consist in making updates of the function using the slope
 value with the formula
