@@ -1,26 +1,25 @@
-.. title: Numerical methods challenge: Day 31
+.. title: Reto de métodos numéricos: Día 31
 .. slug: numerical-31
 .. date: 2017-10-31 20:45:09 UTC-05:00
-.. tags: numerical methods, python, julia, scientific computing, conjugate gradient, finite element
+.. tags: métodos numéricos, python, julia, computación científica, gradiente conjugado, método de elementos finitos
 .. category: Scientific Computing
 .. type: text
 .. has_math: yes
 
-During October (2017) I wrote a program per day for some well-known
-numerical methods in both Python and Julia. It was intended to be an exercise,
-then don't expect the code to be good enough for real use. Also,
-I should mention that I had almost no experience with Julia, so it
-probably is not idiomatic Julia but more Python-like Julia.
+Durante octubre (2017) estaré escribiendo un programa por día para algunos
+métodos numéricos famosos en Python y Julia. Esto está pensado como
+un ejercicio, no esperen que el código sea lo suficientemente bueno para
+usarse en la "vida real". Además, también debo mencionar que casi que no
+tengo experiencia con Julia, así que probablemente no escriba un Julia
+idiomático y se parezca más a Python.
 
-Putting some things together
-============================
+Poniendo todo junto
+====================
 
-Today, I am putting some things together, namely, I am going to solve the
-system of equations that results in the finite element using the conjugate
-gradient.
+Hoy, estoy juntando partes, es decir, voy a resolver un sistema de ecuaciones
+que resulta de elementos finitos usando gradiente conjugado.
 
-
-Following are the codes
+A continuación el código.
 
 Python
 ------
@@ -88,8 +87,6 @@ Python
     plt.ylabel("Number of iterations")
     plt.tight_layout()
     plt.show()
-
-
 
 
 
@@ -166,12 +163,11 @@ Julia
     show()
 
 
-
-In this case, we are analyzing the error of the solution as a function
-of the number of nodes. This, and the number of iterations required
-in the conjugate gradient are shown in the following image
+En este caso, vamos a analizar el error de la solución como función del número
+de nodos. Se muestra esto y el número de iteraciones requeridas en el gradiente
+conjugado.
 
 .. image:: /images/FEM1D_convergence.svg
    :width: 800 px
-   :alt: Relative error in the solution.
+   :alt: Error relativo en la solución.
    :align:  center

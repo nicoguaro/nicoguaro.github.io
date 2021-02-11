@@ -1,28 +1,29 @@
-.. title: Numerical methods challenge: Day 30
+.. title: Reto de métodos numéricos: Día 30
 .. slug: numerical-30
 .. date: 2017-10-30 19:38:03 UTC-05:00
-.. tags: numerical methods, python, julia, scientific computing, conjugate gradient
+.. tags: métodos numéricos, python, julia, computación científica, gradiente conjugado
 .. category: Scientific Computing
 .. type: text
 .. has_math: yes
 
-During October (2017) I will write a program per day for some well-known
-numerical methods in both Python and Julia. It is intended to be an exercise
-then don't expect the code to be good enough for real use. Also,
-I should mention that I have almost no experience with Julia, so it
-probably won't be idiomatic Julia but more Python-like Julia.
+Durante octubre (2017) estaré escribiendo un programa por día para algunos
+métodos numéricos famosos en Python y Julia. Esto está pensado como
+un ejercicio, no esperen que el código sea lo suficientemente bueno para
+usarse en la "vida real". Además, también debo mencionar que casi que no
+tengo experiencia con Julia, así que probablemente no escriba un Julia
+idiomático y se parezca más a Python.
 
-Conjugate gradient
-==================
+Gradiente conjugado
+===================
 
-Today we have the `conjugate gradient method <https://en.wikipedia.org/wiki/Conjugate_gradient_method>`_.
-This method is commonly used to solve positive-definite linear systems of
-equations. Compared with gradient descent, we choose as descent direction
-a direction that is conjugated with the residual, that is, it is
-orthogonal with the matrix as weighting.
+Hoy tenemos el `método del gradiente conjugado
+<https://en.wikipedia.org/wiki/Conjugate_gradient_method>`_.
+Este método se usa comúnmente para resolver sistemas lineales positivos
+definidos. En comparación con el descenso del gradiente, escogemos una
+dirección de descenso que es conjugado con su residual, es decir, es ortogonal
+con una matriz de ponderación.
 
-
-Following are the codes
+A continuación se presenta el código.
 
 Python
 ------
@@ -91,39 +92,39 @@ Julia
     x0 = ones(N)
     x, niter, accu = conj_grad(A, b, x0)
 
-In this case, we are testing the method with a matrix that comes from
-the discretization of the second order derivative using finite differences.
+
+En este caso, vamos a probar el método con una matriz que viene de una 
+discretización de una derivada de segundo orden usando diferencias finitas.
 
 
-Comparison Python/Julia
------------------------
+Comparación Python/Julia
+------------------------
 
-Regarding number of lines we have: 27 in Python and 27 in Julia. The comparison
-in execution time is done with ``%timeit`` magic command in IPython and
-``@benchmark`` in Julia.
+Respecto al número de líneas tenemos: 27 en Python y 27 en Julia.  La comparación
+en tiempo de ejecución se realizó con el comando mágico de IPython ``%timeit``
+y con ``@benchmark`` en Julia.
 
-For Python:
+Para Python:
 
 .. code:: IPython
 
     %timeit conj_grad(A, b, x0)
 
-with result
+con resultado
 
 .. code::
 
      10 loops, best of 3: 107 ms per loop
 
 
-For Julia:
+Para Julia:
 
 .. code:: julia
 
     @benchmark conj_grad(A, b, x0)
 
 
-
-with result
+con resultado
 
 .. code:: julia
 
@@ -140,5 +141,5 @@ with result
       evals/sample:     1
 
 
-In this case, we can say that the Python code is roughly 2 times faster than
-Julia code.
+En este caso, podemos decir que el código de Python es alrededor de 2 veces más
+rápido que el de Julia.

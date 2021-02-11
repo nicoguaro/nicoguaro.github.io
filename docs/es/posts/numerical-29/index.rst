@@ -1,26 +1,28 @@
-.. title: Numerical methods challenge: Day 29
+.. title: Reto de métodos numéricos: Día 29
 .. slug: numerical-29
 .. date: 2017-10-29 21:10:08 UTC-05:00
-.. tags: numerical methods, python, julia, scientific computing, cholesky decomposition
+.. tags: métodos numéricos, python, julia, computación científica, descomposición de cholesky
 .. category: Scientific Computing
 .. type: text
 .. has_math: yes
 
-During October (2017) I will write a program per day for some well-known
-numerical methods in both Python and Julia. It is intended to be an exercise
-then don't expect the code to be good enough for real use. Also,
-I should mention that I have almost no experience with Julia, so it
-probably won't be idiomatic Julia but more Python-like Julia.
+Durante octubre (2017) estaré escribiendo un programa por día para algunos
+métodos numéricos famosos en Python y Julia. Esto está pensado como
+un ejercicio, no esperen que el código sea lo suficientemente bueno para
+usarse en la "vida real". Además, también debo mencionar que casi que no
+tengo experiencia con Julia, así que probablemente no escriba un Julia
+idiomático y se parezca más a Python.
 
-Cholesky decomposition
-======================
+Descomposición de Cholesky
+==========================
 
-Today we have `Cholesky decomposition <https://en.wikipedia.org/wiki/Cholesky_decomposition>`_.
-It is a factorization of a Hermitian, positive-definite matrix into
-a lower and upper matrix, the main difference with LU decomposition
-is that it the lower matrix is the Hermitian transpose of the upper one.
+Hoy tenemos la `descomposición de Cholesky
+<https://en.wikipedia.org/wiki/Cholesky_decomposition>`_.
+Es una factorización de una matriz hermítica, positiva definita en matrices
+triangulares inferior y superior. La diferencia principal con la descomposición LU
+es que la matriz inferior es la transpuesta hermítica de la superior.
 
-Following are the codes
+A continuación se presenta el código.
 
 Python
 ------
@@ -83,7 +85,7 @@ Julia
     B = cholesky(A)
 
 
-As an example we have the matrix
+Como ejemplo tenemos la siguiente matriz
 
 .. math::
 
@@ -93,7 +95,7 @@ As an example we have the matrix
          1 &2.75 &3.5
         \end{bmatrix}
 
-And, the answer of both codes is
+Y la respuesta en ambos códigos es
 
 .. code::
 
@@ -103,34 +105,34 @@ And, the answer of both codes is
 
 
 
-Comparison Python/Julia
------------------------
+Comparación Python/Julia
+------------------------
 
-Regarding number of lines we have: 23 in Python and 22 in Julia. The comparison
-in execution time is done with ``%timeit`` magic command in IPython and
-``@benchmark`` in Julia.
+Respecto al número de líneas tenemos: 23 en Python y 22 en Julia.  La comparación
+en tiempo de ejecución se realizó con el comando mágico de IPython ``%timeit``
+y con ``@benchmark`` en Julia.
 
-For Python:
+Para Python:
 
 .. code:: IPython
 
     %timeit cholesky(np.eye(100))
 
-with result
+con resultado
 
 .. code::
 
      100 loops, best of 3: 13 ms per loop
 
 
-For Julia:
+Para Julia:
 
 .. code:: julia
 
     @benchmark cholesky(eye(100))
 
 
-with result
+con resultado
 
 .. code:: julia
 
@@ -147,5 +149,5 @@ with result
       evals/sample:     1
 
 
-In this case, we can say that the Python code is roughly 10 times slower than
-Julia code.
+En este caso, podemos decir que el código de Python es alrededor de 10 veces
+más lento que el de Julia.

@@ -3,29 +3,29 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
-<title>Numerical methods challenge: Day 31 | Nicolás' blog</title>
+<title>Reto de métodos numéricos: Día 31 | Nicolás' blog</title>
 <link href="../../../assets/css/all.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
 <link rel="alternate" type="application/rss+xml" title="RSS (en)" href="../../../rss.xml">
 <link rel="alternate" type="application/rss+xml" title="RSS (es)" href="../../rss.xml">
 <link rel="canonical" href="https://nicoguaro.github.io/es/posts/numerical-31/">
-<!--[if lt IE 9]><script src="../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Nicolás Guarín-Zapata">
-<link rel="prev" href="../numerical-30/" title="Numerical methods challenge: Day 30" type="text/html">
+<!--[if lt IE 9]><script src="../../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Nicolás Guarín-Zapata">
+<link rel="prev" href="../numerical-30/" title="Reto de métodos numéricos: Día 30" type="text/html">
 <link rel="next" href="../numerical_summary/" title="Reto de métodos numéricos: resumen" type="text/html">
 <meta property="og:site_name" content="Nicolás' blog">
-<meta property="og:title" content="Numerical methods challenge: Day 31">
+<meta property="og:title" content="Reto de métodos numéricos: Día 31">
 <meta property="og:url" content="https://nicoguaro.github.io/es/posts/numerical-31/">
-<meta property="og:description" content="During October (2017) I wrote a program per day for some well-known
-numerical methods in both Python and Julia. It was intended to be an exercise,
-then don't expect the code to be good enough for real">
+<meta property="og:description" content="Durante octubre (2017) estaré escribiendo un programa por día para algunos
+métodos numéricos famosos en Python y Julia. Esto está pensado como
+un ejercicio, no esperen que el código sea lo suficientem">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2017-10-31T20:45:09-05:00">
-<meta property="article:tag" content="conjugate gradient">
-<meta property="article:tag" content="finite element">
+<meta property="article:tag" content="computación científica">
+<meta property="article:tag" content="gradiente conjugado">
 <meta property="article:tag" content="julia">
-<meta property="article:tag" content="numerical methods">
+<meta property="article:tag" content="método de elementos finitos">
+<meta property="article:tag" content="métodos numéricos">
 <meta property="article:tag" content="python">
-<meta property="article:tag" content="scientific computing">
 <link rel="alternate" hreflang="en" href="../../../posts/numerical-31/">
 </head>
 <body>
@@ -65,7 +65,7 @@ then don't expect the code to be good enough for real">
 
       <div class="container content" id="content">
         
-<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="post-title p-name entry-title" itemprop="headline name"><a href="." class="u-url">Numerical methods challenge: Day 31</a></h1>
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="post-title p-name entry-title" itemprop="headline name"><a href="." class="u-url">Reto de métodos numéricos: Día 31</a></h1>
 
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
@@ -78,173 +78,177 @@ then don't expect the code to be good enough for real">
         </p>
 </div>
         
+        <div class="metadata posttranslations translations">
+            <h3 class="posttranslations-intro">También disponible en:</h3>
+                <p><a href="../../../posts/numerical-31/" rel="alternate" hreflang="en">English</a></p>
+        </div>
 
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
-<p>During October (2017) I wrote a program per day for some well-known
-numerical methods in both Python and Julia. It was intended to be an exercise,
-then don't expect the code to be good enough for real use. Also,
-I should mention that I had almost no experience with Julia, so it
-probably is not idiomatic Julia but more Python-like Julia.</p>
-<div class="section" id="putting-some-things-together">
-<h2>Putting some things together</h2>
-<p>Today, I am putting some things together, namely, I am going to solve the
-system of equations that results in the finite element using the conjugate
-gradient.</p>
-<p>Following are the codes</p>
+<p>Durante octubre (2017) estaré escribiendo un programa por día para algunos
+métodos numéricos famosos en Python y Julia. Esto está pensado como
+un ejercicio, no esperen que el código sea lo suficientemente bueno para
+usarse en la "vida real". Además, también debo mencionar que casi que no
+tengo experiencia con Julia, así que probablemente no escriba un Julia
+idiomático y se parezca más a Python.</p>
+<div class="section" id="poniendo-todo-junto">
+<h2>Poniendo todo junto</h2>
+<p>Hoy, estoy juntando partes, es decir, voy a resolver un sistema de ecuaciones
+que resulta de elementos finitos usando gradiente conjugado.</p>
+<p>A continuación el código.</p>
 <div class="section" id="python">
 <h3>Python</h3>
-<pre class="code python"><a name="rest_code_d6b873109a7c4f0487378640febb5a41-1"></a><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-2"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-3"></a><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-4"></a>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-5"></a>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-6"></a><span class="k">def</span> <span class="nf">FEM1D</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">source</span><span class="p">):</span>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-7"></a>    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">coords</span><span class="p">)</span>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-8"></a>    <span class="n">stiff_loc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">2.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">]])</span>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-9"></a>    <span class="n">eles</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">cont</span><span class="p">,</span> <span class="n">cont</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">cont</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)]</span>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-10"></a>    <span class="n">stiff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-11"></a>    <span class="n">rhs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-12"></a>    <span class="k">for</span> <span class="n">ele</span> <span class="ow">in</span> <span class="n">eles</span><span class="p">:</span>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-13"></a>        <span class="n">jaco</span> <span class="o">=</span> <span class="n">coords</span><span class="p">[</span><span class="n">ele</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">-</span> <span class="n">coords</span><span class="p">[</span><span class="n">ele</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-14"></a>        <span class="n">rhs</span><span class="p">[</span><span class="n">ele</span><span class="p">]</span> <span class="o">=</span> <span class="n">rhs</span><span class="p">[</span><span class="n">ele</span><span class="p">]</span> <span class="o">+</span> <span class="n">jaco</span><span class="o">*</span><span class="n">source</span><span class="p">(</span><span class="n">coords</span><span class="p">[</span><span class="n">ele</span><span class="p">])</span>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-15"></a>        <span class="k">for</span> <span class="n">cont1</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ele</span><span class="p">):</span>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-16"></a>            <span class="k">for</span> <span class="n">cont2</span><span class="p">,</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ele</span><span class="p">):</span>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-17"></a>                <span class="n">stiff</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">stiff</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span> <span class="o">+</span>  <span class="n">stiff_loc</span><span class="p">[</span><span class="n">cont1</span><span class="p">,</span> <span class="n">cont2</span><span class="p">]</span><span class="o">/</span><span class="n">jaco</span>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-18"></a>    <span class="k">return</span> <span class="n">stiff</span><span class="p">,</span> <span class="n">rhs</span>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-19"></a>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-20"></a>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-21"></a><span class="k">def</span> <span class="nf">conj_grad</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">):</span>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-22"></a>    <span class="n">r</span> <span class="o">=</span> <span class="n">b</span> <span class="o">-</span> <span class="n">A</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-23"></a>    <span class="n">p</span> <span class="o">=</span> <span class="n">r</span>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-24"></a>    <span class="n">rsq_old</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-25"></a>    <span class="k">for</span> <span class="n">cont</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">)):</span>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-26"></a>        <span class="n">Ap</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-27"></a>        <span class="n">alpha</span> <span class="o">=</span> <span class="n">rsq_old</span> <span class="o">/</span> <span class="n">p</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Ap</span><span class="p">)</span>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-28"></a>        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">alpha</span><span class="o">*</span><span class="n">p</span>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-29"></a>        <span class="n">r</span> <span class="o">=</span> <span class="n">r</span> <span class="o">-</span> <span class="n">alpha</span><span class="o">*</span><span class="n">Ap</span>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-30"></a>        <span class="n">rsq_new</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-31"></a>        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">rsq_new</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">tol</span><span class="p">:</span>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-32"></a>            <span class="k">break</span>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-33"></a>        <span class="n">p</span> <span class="o">=</span> <span class="n">r</span> <span class="o">+</span> <span class="p">(</span><span class="n">rsq_new</span> <span class="o">/</span> <span class="n">rsq_old</span><span class="p">)</span> <span class="o">*</span> <span class="n">p</span>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-34"></a>        <span class="n">rsq_old</span> <span class="o">=</span> <span class="n">rsq_new</span>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-35"></a>    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">cont</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">rsq_new</span><span class="p">)</span>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-36"></a>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-37"></a>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-38"></a><span class="n">fun</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-39"></a><span class="n">N_vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-40"></a><span class="n">err_vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">N_vec</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-41"></a><span class="n">niter_vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">N_vec</span><span class="p">)</span>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-42"></a><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-43"></a><span class="k">for</span> <span class="n">cont</span><span class="p">,</span> <span class="n">N</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">N_vec</span><span class="p">):</span>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-44"></a>    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-45"></a>    <span class="n">stiff</span><span class="p">,</span> <span class="n">rhs</span> <span class="o">=</span> <span class="n">FEM1D</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fun</span><span class="p">)</span>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-46"></a>    <span class="n">sol</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-47"></a>    <span class="n">sol</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">niter</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">conj_grad</span><span class="p">(</span><span class="n">stiff</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="o">-</span><span class="n">rhs</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">rhs</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-48"></a>    <span class="n">err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">sol</span> <span class="o">-</span> <span class="n">x</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">4</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">20</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">4</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">20</span><span class="p">)</span>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-49"></a>    <span class="n">err_vec</span><span class="p">[</span><span class="n">cont</span><span class="p">]</span> <span class="o">=</span> <span class="n">err</span>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-50"></a>    <span class="n">niter_vec</span><span class="p">[</span><span class="n">cont</span><span class="p">]</span> <span class="o">=</span> <span class="n">niter</span>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-51"></a>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-52"></a><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-53"></a><span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">N_vec</span><span class="p">,</span> <span class="n">err_vec</span><span class="p">)</span>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-54"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"Number of nodes"</span><span class="p">)</span>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-55"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"Relative error"</span><span class="p">)</span>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-56"></a><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-57"></a><span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">N_vec</span><span class="p">,</span> <span class="n">niter_vec</span><span class="p">)</span>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-58"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"Number of nodes"</span><span class="p">)</span>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-59"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"Number of iterations"</span><span class="p">)</span>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-60"></a><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<a name="rest_code_d6b873109a7c4f0487378640febb5a41-61"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<pre class="code python"><a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-1"></a><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-2"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-3"></a><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-4"></a>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-5"></a>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-6"></a><span class="k">def</span> <span class="nf">FEM1D</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">source</span><span class="p">):</span>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-7"></a>    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">coords</span><span class="p">)</span>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-8"></a>    <span class="n">stiff_loc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">2.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">]])</span>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-9"></a>    <span class="n">eles</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">cont</span><span class="p">,</span> <span class="n">cont</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">cont</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)]</span>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-10"></a>    <span class="n">stiff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-11"></a>    <span class="n">rhs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-12"></a>    <span class="k">for</span> <span class="n">ele</span> <span class="ow">in</span> <span class="n">eles</span><span class="p">:</span>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-13"></a>        <span class="n">jaco</span> <span class="o">=</span> <span class="n">coords</span><span class="p">[</span><span class="n">ele</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">-</span> <span class="n">coords</span><span class="p">[</span><span class="n">ele</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-14"></a>        <span class="n">rhs</span><span class="p">[</span><span class="n">ele</span><span class="p">]</span> <span class="o">=</span> <span class="n">rhs</span><span class="p">[</span><span class="n">ele</span><span class="p">]</span> <span class="o">+</span> <span class="n">jaco</span><span class="o">*</span><span class="n">source</span><span class="p">(</span><span class="n">coords</span><span class="p">[</span><span class="n">ele</span><span class="p">])</span>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-15"></a>        <span class="k">for</span> <span class="n">cont1</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ele</span><span class="p">):</span>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-16"></a>            <span class="k">for</span> <span class="n">cont2</span><span class="p">,</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ele</span><span class="p">):</span>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-17"></a>                <span class="n">stiff</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">stiff</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span> <span class="o">+</span>  <span class="n">stiff_loc</span><span class="p">[</span><span class="n">cont1</span><span class="p">,</span> <span class="n">cont2</span><span class="p">]</span><span class="o">/</span><span class="n">jaco</span>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-18"></a>    <span class="k">return</span> <span class="n">stiff</span><span class="p">,</span> <span class="n">rhs</span>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-19"></a>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-20"></a>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-21"></a><span class="k">def</span> <span class="nf">conj_grad</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">):</span>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-22"></a>    <span class="n">r</span> <span class="o">=</span> <span class="n">b</span> <span class="o">-</span> <span class="n">A</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-23"></a>    <span class="n">p</span> <span class="o">=</span> <span class="n">r</span>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-24"></a>    <span class="n">rsq_old</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-25"></a>    <span class="k">for</span> <span class="n">cont</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">)):</span>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-26"></a>        <span class="n">Ap</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-27"></a>        <span class="n">alpha</span> <span class="o">=</span> <span class="n">rsq_old</span> <span class="o">/</span> <span class="n">p</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Ap</span><span class="p">)</span>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-28"></a>        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">alpha</span><span class="o">*</span><span class="n">p</span>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-29"></a>        <span class="n">r</span> <span class="o">=</span> <span class="n">r</span> <span class="o">-</span> <span class="n">alpha</span><span class="o">*</span><span class="n">Ap</span>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-30"></a>        <span class="n">rsq_new</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-31"></a>        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">rsq_new</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">tol</span><span class="p">:</span>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-32"></a>            <span class="k">break</span>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-33"></a>        <span class="n">p</span> <span class="o">=</span> <span class="n">r</span> <span class="o">+</span> <span class="p">(</span><span class="n">rsq_new</span> <span class="o">/</span> <span class="n">rsq_old</span><span class="p">)</span> <span class="o">*</span> <span class="n">p</span>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-34"></a>        <span class="n">rsq_old</span> <span class="o">=</span> <span class="n">rsq_new</span>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-35"></a>    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">cont</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">rsq_new</span><span class="p">)</span>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-36"></a>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-37"></a>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-38"></a><span class="n">fun</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-39"></a><span class="n">N_vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-40"></a><span class="n">err_vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">N_vec</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-41"></a><span class="n">niter_vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">N_vec</span><span class="p">)</span>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-42"></a><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-43"></a><span class="k">for</span> <span class="n">cont</span><span class="p">,</span> <span class="n">N</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">N_vec</span><span class="p">):</span>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-44"></a>    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-45"></a>    <span class="n">stiff</span><span class="p">,</span> <span class="n">rhs</span> <span class="o">=</span> <span class="n">FEM1D</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fun</span><span class="p">)</span>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-46"></a>    <span class="n">sol</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-47"></a>    <span class="n">sol</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">niter</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">conj_grad</span><span class="p">(</span><span class="n">stiff</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="o">-</span><span class="n">rhs</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">rhs</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-48"></a>    <span class="n">err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">sol</span> <span class="o">-</span> <span class="n">x</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">4</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">20</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">4</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">20</span><span class="p">)</span>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-49"></a>    <span class="n">err_vec</span><span class="p">[</span><span class="n">cont</span><span class="p">]</span> <span class="o">=</span> <span class="n">err</span>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-50"></a>    <span class="n">niter_vec</span><span class="p">[</span><span class="n">cont</span><span class="p">]</span> <span class="o">=</span> <span class="n">niter</span>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-51"></a>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-52"></a><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-53"></a><span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">N_vec</span><span class="p">,</span> <span class="n">err_vec</span><span class="p">)</span>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-54"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"Number of nodes"</span><span class="p">)</span>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-55"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"Relative error"</span><span class="p">)</span>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-56"></a><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-57"></a><span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">N_vec</span><span class="p">,</span> <span class="n">niter_vec</span><span class="p">)</span>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-58"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"Number of nodes"</span><span class="p">)</span>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-59"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"Number of iterations"</span><span class="p">)</span>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-60"></a><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<a name="rest_code_f3a12b76f13e4b0c898e1ef0192b044e-61"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre>
 </div>
 <div class="section" id="julia">
 <h3>Julia</h3>
-<pre class="code julia"><a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-1"></a><span class="k">using</span> <span class="n">PyPlot</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-2"></a>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-3"></a>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-4"></a><span class="k">function</span> <span class="n">FEM1D</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">source</span><span class="p">)</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-5"></a>    <span class="n">N</span> <span class="o">=</span> <span class="n">length</span><span class="p">(</span><span class="n">coords</span><span class="p">)</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-6"></a>    <span class="n">stiff_loc</span> <span class="o">=</span> <span class="p">[</span><span class="mf">2.0</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">;</span> <span class="o">-</span><span class="mf">2.0</span> <span class="mf">2.0</span><span class="p">]</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-7"></a>    <span class="n">eles</span> <span class="o">=</span> <span class="p">[[</span><span class="n">cont</span><span class="p">,</span> <span class="n">cont</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">cont</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-8"></a>    <span class="n">stiff</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-9"></a>    <span class="n">rhs</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-10"></a>    <span class="k">for</span> <span class="n">ele</span> <span class="kp">in</span> <span class="n">eles</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-11"></a>        <span class="n">jaco</span> <span class="o">=</span> <span class="n">coords</span><span class="p">[</span><span class="n">ele</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span> <span class="o">-</span> <span class="n">coords</span><span class="p">[</span><span class="n">ele</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-12"></a>        <span class="n">rhs</span><span class="p">[</span><span class="n">ele</span><span class="p">]</span> <span class="o">=</span> <span class="n">rhs</span><span class="p">[</span><span class="n">ele</span><span class="p">]</span> <span class="o">+</span> <span class="n">jaco</span><span class="o">*</span><span class="n">source</span><span class="p">(</span><span class="n">coords</span><span class="p">[</span><span class="n">ele</span><span class="p">])</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-13"></a>        <span class="n">stiff</span><span class="p">[</span><span class="n">ele</span><span class="p">,</span> <span class="n">ele</span><span class="p">]</span> <span class="o">=</span> <span class="n">stiff</span><span class="p">[</span><span class="n">ele</span><span class="p">,</span> <span class="n">ele</span><span class="p">]</span> <span class="o">+</span>  <span class="n">stiff_loc</span><span class="o">/</span><span class="n">jaco</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-14"></a>    <span class="k">end</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-15"></a>    <span class="k">return</span> <span class="n">stiff</span><span class="p">,</span> <span class="n">rhs</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-16"></a><span class="k">end</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-17"></a>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-18"></a>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-19"></a><span class="k">function</span> <span class="n">conj_grad</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">x</span><span class="p">;</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">)</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-20"></a>    <span class="n">r</span> <span class="o">=</span> <span class="n">b</span> <span class="o">-</span> <span class="n">A</span> <span class="o">*</span> <span class="n">x</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-21"></a>    <span class="n">p</span> <span class="o">=</span> <span class="n">r</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-22"></a>    <span class="n">rsq_old</span> <span class="o">=</span> <span class="n">dot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-23"></a>    <span class="n">niter</span> <span class="o">=</span> <span class="mi">1</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-24"></a>    <span class="k">for</span> <span class="n">cont</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="n">length</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-25"></a>        <span class="n">Ap</span> <span class="o">=</span> <span class="n">A</span> <span class="o">*</span> <span class="n">p</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-26"></a>        <span class="n">alpha</span> <span class="o">=</span> <span class="n">rsq_old</span> <span class="o">/</span> <span class="n">dot</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">Ap</span><span class="p">)</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-27"></a>        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">alpha</span><span class="o">*</span><span class="n">p</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-28"></a>        <span class="n">r</span> <span class="o">=</span> <span class="n">r</span> <span class="o">-</span> <span class="n">alpha</span><span class="o">*</span><span class="n">Ap</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-29"></a>        <span class="n">rsq_new</span> <span class="o">=</span> <span class="n">dot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-30"></a>        <span class="k">if</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">rsq_new</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">tol</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-31"></a>            <span class="k">break</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-32"></a>        <span class="k">end</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-33"></a>        <span class="n">p</span> <span class="o">=</span> <span class="n">r</span> <span class="o">+</span> <span class="p">(</span><span class="n">rsq_new</span> <span class="o">/</span> <span class="n">rsq_old</span><span class="p">)</span> <span class="o">*</span> <span class="n">p</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-34"></a>        <span class="n">rsq_old</span> <span class="o">=</span> <span class="n">rsq_new</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-35"></a>        <span class="n">niter</span> <span class="o">+=</span> <span class="mi">1</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-36"></a>    <span class="k">end</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-37"></a>    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">niter</span><span class="p">,</span> <span class="n">norm</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-38"></a><span class="k">end</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-39"></a>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-40"></a>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-41"></a>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-42"></a><span class="n">fun</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="n">x</span><span class="o">.^</span><span class="mi">3</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-43"></a><span class="n">N_vec</span> <span class="o">=</span> <span class="n">round</span><span class="o">.</span><span class="p">(</span><span class="n">logspace</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">50</span><span class="p">))</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-44"></a><span class="n">err_vec</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">N_vec</span><span class="p">)</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-45"></a><span class="n">niter_vec</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">N_vec</span><span class="p">)</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-46"></a><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-47"></a><span class="k">for</span> <span class="p">(</span><span class="n">cont</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span> <span class="kp">in</span> <span class="n">enumerate</span><span class="p">(</span><span class="n">N_vec</span><span class="p">)</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-48"></a>    <span class="n">x</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-49"></a>    <span class="n">stiff</span><span class="p">,</span> <span class="n">rhs</span> <span class="o">=</span> <span class="n">FEM1D</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fun</span><span class="p">)</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-50"></a>    <span class="n">sol</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-51"></a>    <span class="n">sol</span><span class="p">[</span><span class="mi">2</span><span class="o">:</span><span class="k">end</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">niter</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">conj_grad</span><span class="p">(</span><span class="n">stiff</span><span class="p">[</span><span class="mi">2</span><span class="o">:</span><span class="k">end</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">:</span><span class="k">end</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-52"></a>                                <span class="o">-</span><span class="n">rhs</span><span class="p">[</span><span class="mi">2</span><span class="o">:</span><span class="k">end</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">rhs</span><span class="p">[</span><span class="mi">2</span><span class="o">:</span><span class="k">end</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-53"></a>    <span class="n">err</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="n">sol</span> <span class="o">-</span> <span class="n">x</span><span class="o">.*</span><span class="p">(</span><span class="n">x</span><span class="o">.^</span><span class="mi">4</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">20</span><span class="p">)</span><span class="o">/</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="o">.*</span><span class="p">(</span><span class="n">x</span><span class="o">.^</span><span class="mi">4</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">20</span><span class="p">)</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-54"></a>    <span class="n">err_vec</span><span class="p">[</span><span class="n">cont</span><span class="p">]</span> <span class="o">=</span> <span class="n">err</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-55"></a>    <span class="n">niter_vec</span><span class="p">[</span><span class="n">cont</span><span class="p">]</span> <span class="o">=</span> <span class="n">niter</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-56"></a><span class="k">end</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-57"></a><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-58"></a><span class="n">loglog</span><span class="p">(</span><span class="n">N_vec</span><span class="p">,</span> <span class="n">err_vec</span><span class="p">)</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-59"></a><span class="n">xlabel</span><span class="p">(</span><span class="s">"Number of nodes"</span><span class="p">)</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-60"></a><span class="n">ylabel</span><span class="p">(</span><span class="s">"Relative error"</span><span class="p">)</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-61"></a><span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-62"></a><span class="n">loglog</span><span class="p">(</span><span class="n">N_vec</span><span class="p">,</span> <span class="n">niter_vec</span><span class="p">)</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-63"></a><span class="n">xlabel</span><span class="p">(</span><span class="s">"Number of nodes"</span><span class="p">)</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-64"></a><span class="n">ylabel</span><span class="p">(</span><span class="s">"Number of iterations"</span><span class="p">)</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-65"></a><span class="n">tight_layout</span><span class="p">()</span>
-<a name="rest_code_3d49c9e8183c4042998e8f9c5108f6d3-66"></a><span class="n">show</span><span class="p">()</span>
+<pre class="code julia"><a name="rest_code_15710e1fa23241899527e197e0abffe3-1"></a><span class="k">using</span> <span class="n">PyPlot</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-2"></a>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-3"></a>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-4"></a><span class="k">function</span> <span class="n">FEM1D</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">source</span><span class="p">)</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-5"></a>    <span class="n">N</span> <span class="o">=</span> <span class="n">length</span><span class="p">(</span><span class="n">coords</span><span class="p">)</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-6"></a>    <span class="n">stiff_loc</span> <span class="o">=</span> <span class="p">[</span><span class="mf">2.0</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">;</span> <span class="o">-</span><span class="mf">2.0</span> <span class="mf">2.0</span><span class="p">]</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-7"></a>    <span class="n">eles</span> <span class="o">=</span> <span class="p">[[</span><span class="n">cont</span><span class="p">,</span> <span class="n">cont</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">cont</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-8"></a>    <span class="n">stiff</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-9"></a>    <span class="n">rhs</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-10"></a>    <span class="k">for</span> <span class="n">ele</span> <span class="kp">in</span> <span class="n">eles</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-11"></a>        <span class="n">jaco</span> <span class="o">=</span> <span class="n">coords</span><span class="p">[</span><span class="n">ele</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span> <span class="o">-</span> <span class="n">coords</span><span class="p">[</span><span class="n">ele</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-12"></a>        <span class="n">rhs</span><span class="p">[</span><span class="n">ele</span><span class="p">]</span> <span class="o">=</span> <span class="n">rhs</span><span class="p">[</span><span class="n">ele</span><span class="p">]</span> <span class="o">+</span> <span class="n">jaco</span><span class="o">*</span><span class="n">source</span><span class="p">(</span><span class="n">coords</span><span class="p">[</span><span class="n">ele</span><span class="p">])</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-13"></a>        <span class="n">stiff</span><span class="p">[</span><span class="n">ele</span><span class="p">,</span> <span class="n">ele</span><span class="p">]</span> <span class="o">=</span> <span class="n">stiff</span><span class="p">[</span><span class="n">ele</span><span class="p">,</span> <span class="n">ele</span><span class="p">]</span> <span class="o">+</span>  <span class="n">stiff_loc</span><span class="o">/</span><span class="n">jaco</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-14"></a>    <span class="k">end</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-15"></a>    <span class="k">return</span> <span class="n">stiff</span><span class="p">,</span> <span class="n">rhs</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-16"></a><span class="k">end</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-17"></a>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-18"></a>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-19"></a><span class="k">function</span> <span class="n">conj_grad</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">x</span><span class="p">;</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">)</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-20"></a>    <span class="n">r</span> <span class="o">=</span> <span class="n">b</span> <span class="o">-</span> <span class="n">A</span> <span class="o">*</span> <span class="n">x</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-21"></a>    <span class="n">p</span> <span class="o">=</span> <span class="n">r</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-22"></a>    <span class="n">rsq_old</span> <span class="o">=</span> <span class="n">dot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-23"></a>    <span class="n">niter</span> <span class="o">=</span> <span class="mi">1</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-24"></a>    <span class="k">for</span> <span class="n">cont</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="n">length</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-25"></a>        <span class="n">Ap</span> <span class="o">=</span> <span class="n">A</span> <span class="o">*</span> <span class="n">p</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-26"></a>        <span class="n">alpha</span> <span class="o">=</span> <span class="n">rsq_old</span> <span class="o">/</span> <span class="n">dot</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">Ap</span><span class="p">)</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-27"></a>        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">alpha</span><span class="o">*</span><span class="n">p</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-28"></a>        <span class="n">r</span> <span class="o">=</span> <span class="n">r</span> <span class="o">-</span> <span class="n">alpha</span><span class="o">*</span><span class="n">Ap</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-29"></a>        <span class="n">rsq_new</span> <span class="o">=</span> <span class="n">dot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-30"></a>        <span class="k">if</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">rsq_new</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">tol</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-31"></a>            <span class="k">break</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-32"></a>        <span class="k">end</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-33"></a>        <span class="n">p</span> <span class="o">=</span> <span class="n">r</span> <span class="o">+</span> <span class="p">(</span><span class="n">rsq_new</span> <span class="o">/</span> <span class="n">rsq_old</span><span class="p">)</span> <span class="o">*</span> <span class="n">p</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-34"></a>        <span class="n">rsq_old</span> <span class="o">=</span> <span class="n">rsq_new</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-35"></a>        <span class="n">niter</span> <span class="o">+=</span> <span class="mi">1</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-36"></a>    <span class="k">end</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-37"></a>    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">niter</span><span class="p">,</span> <span class="n">norm</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-38"></a><span class="k">end</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-39"></a>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-40"></a>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-41"></a>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-42"></a><span class="n">fun</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="n">x</span><span class="o">.^</span><span class="mi">3</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-43"></a><span class="n">N_vec</span> <span class="o">=</span> <span class="n">round</span><span class="o">.</span><span class="p">(</span><span class="n">logspace</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">50</span><span class="p">))</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-44"></a><span class="n">err_vec</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">N_vec</span><span class="p">)</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-45"></a><span class="n">niter_vec</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">N_vec</span><span class="p">)</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-46"></a><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-47"></a><span class="k">for</span> <span class="p">(</span><span class="n">cont</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span> <span class="kp">in</span> <span class="n">enumerate</span><span class="p">(</span><span class="n">N_vec</span><span class="p">)</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-48"></a>    <span class="n">x</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-49"></a>    <span class="n">stiff</span><span class="p">,</span> <span class="n">rhs</span> <span class="o">=</span> <span class="n">FEM1D</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fun</span><span class="p">)</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-50"></a>    <span class="n">sol</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-51"></a>    <span class="n">sol</span><span class="p">[</span><span class="mi">2</span><span class="o">:</span><span class="k">end</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">niter</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">conj_grad</span><span class="p">(</span><span class="n">stiff</span><span class="p">[</span><span class="mi">2</span><span class="o">:</span><span class="k">end</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">:</span><span class="k">end</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-52"></a>                                <span class="o">-</span><span class="n">rhs</span><span class="p">[</span><span class="mi">2</span><span class="o">:</span><span class="k">end</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">rhs</span><span class="p">[</span><span class="mi">2</span><span class="o">:</span><span class="k">end</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-53"></a>    <span class="n">err</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="n">sol</span> <span class="o">-</span> <span class="n">x</span><span class="o">.*</span><span class="p">(</span><span class="n">x</span><span class="o">.^</span><span class="mi">4</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">20</span><span class="p">)</span><span class="o">/</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="o">.*</span><span class="p">(</span><span class="n">x</span><span class="o">.^</span><span class="mi">4</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">20</span><span class="p">)</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-54"></a>    <span class="n">err_vec</span><span class="p">[</span><span class="n">cont</span><span class="p">]</span> <span class="o">=</span> <span class="n">err</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-55"></a>    <span class="n">niter_vec</span><span class="p">[</span><span class="n">cont</span><span class="p">]</span> <span class="o">=</span> <span class="n">niter</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-56"></a><span class="k">end</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-57"></a><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-58"></a><span class="n">loglog</span><span class="p">(</span><span class="n">N_vec</span><span class="p">,</span> <span class="n">err_vec</span><span class="p">)</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-59"></a><span class="n">xlabel</span><span class="p">(</span><span class="s">"Number of nodes"</span><span class="p">)</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-60"></a><span class="n">ylabel</span><span class="p">(</span><span class="s">"Relative error"</span><span class="p">)</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-61"></a><span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-62"></a><span class="n">loglog</span><span class="p">(</span><span class="n">N_vec</span><span class="p">,</span> <span class="n">niter_vec</span><span class="p">)</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-63"></a><span class="n">xlabel</span><span class="p">(</span><span class="s">"Number of nodes"</span><span class="p">)</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-64"></a><span class="n">ylabel</span><span class="p">(</span><span class="s">"Number of iterations"</span><span class="p">)</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-65"></a><span class="n">tight_layout</span><span class="p">()</span>
+<a name="rest_code_15710e1fa23241899527e197e0abffe3-66"></a><span class="n">show</span><span class="p">()</span>
 </pre>
-<p>In this case, we are analyzing the error of the solution as a function
-of the number of nodes. This, and the number of iterations required
-in the conjugate gradient are shown in the following image</p>
-<img alt="Relative error in the solution." class="align-center" src="../../../images/FEM1D_convergence.svg" style="width: 800px;">
+<p>En este caso, vamos a analizar el error de la solución como función del número
+de nodos. Se muestra esto y el número de iteraciones requeridas en el gradiente
+conjugado.</p>
+<img alt="Error relativo en la solución." class="align-center" src="../../../images/FEM1D_convergence.svg" style="width: 800px;">
 </div>
 </div>
 </div>
     </div>
     <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
-<li><a class="tag p-category" href="../../categories/conjugate-gradient/" rel="tag">conjugate gradient</a></li>
-            <li><a class="tag p-category" href="../../categories/finite-element/" rel="tag">finite element</a></li>
+<li><a class="tag p-category" href="../../categories/computacion-cientifica/" rel="tag">computación científica</a></li>
+            <li><a class="tag p-category" href="../../categories/gradiente-conjugado/" rel="tag">gradiente conjugado</a></li>
             <li><a class="tag p-category" href="../../categories/julia/" rel="tag">julia</a></li>
-            <li><a class="tag p-category" href="../../categories/numerical-methods/" rel="tag">numerical methods</a></li>
+            <li><a class="tag p-category" href="../../categories/metodo-de-elementos-finitos/" rel="tag">método de elementos finitos</a></li>
+            <li><a class="tag p-category" href="../../categories/metodos-numericos/" rel="tag">métodos numéricos</a></li>
             <li><a class="tag p-category" href="../../categories/python/" rel="tag">python</a></li>
-            <li><a class="tag p-category" href="../../categories/scientific-computing/" rel="tag">scientific computing</a></li>
         </ul>
 <ul class="pager hidden-print">
 <li class="previous">
-                <a href="../numerical-30/" rel="prev" title="Numerical methods challenge: Day 30">Publicación anterior</a>
+                <a href="../numerical-30/" rel="prev" title="Reto de métodos numéricos: Día 30">Publicación anterior</a>
             </li>
             <li class="next">
                 <a href="../numerical_summary/" rel="next" title="Reto de métodos numéricos: resumen">Siguiente publicación</a>
@@ -256,7 +260,7 @@ in the conjugate gradient are shown in the following image</p>
         <script>
         var disqus_shortname ="nicoguaro-github",
             disqus_url="https://nicoguaro.github.io/es/posts/numerical-31/",
-        disqus_title="Numerical methods challenge: Day 31",
+        disqus_title="Reto de m\u00e9todos num\u00e9ricos: D\u00eda 31",
         disqus_identifier="cache/posts/numerical-31.html",
         disqus_config = function () {
             this.language = "es_ES";

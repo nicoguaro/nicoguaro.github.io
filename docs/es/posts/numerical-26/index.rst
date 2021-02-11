@@ -1,36 +1,37 @@
-.. title: Numerical methods challenge: Day 26
+.. title: Reto de métodos numéricos: Día 26
 .. slug: numerical-26
 .. date: 2017-10-26 19:15:08 UTC-05:00
-.. tags: numerical methods, python, julia, scientific computing, boundary element method
+.. tags: métodos numéricos, python, julia, computación científica, método de elementos de frontera
 .. category: Scientific Computing
 .. type: text
 .. has_math: yes
 
-During October (2017) I will write a program per day for some well-known
-numerical methods in both Python and Julia. It is intended to be an exercise
-then don't expect the code to be good enough for real use. Also,
-I should mention that I have almost no experience with Julia, so it
-probably won't be idiomatic Julia but more Python-like Julia.
+Durante octubre (2017) estaré escribiendo un programa por día para algunos
+métodos numéricos famosos en Python y Julia. Esto está pensado como
+un ejercicio, no esperen que el código sea lo suficientemente bueno para
+usarse en la "vida real". Además, también debo mencionar que casi que no
+tengo experiencia con Julia, así que probablemente no escriba un Julia
+idiomático y se parezca más a Python.
 
-Boundary element method
-=======================
+Método de elementos de frontera
+===============================
 
-Today we have the `Boundary element method <https://en.wikipedia.org/wiki/Boundary_element_method>`_
-, or, an attempt. We want so solve the equation
+Hoy tenemos el `método de elementos de frontera
+<https://en.wikipedia.org/wiki/Boundary_element_method>`_, o, un intento de él.
+Queremos resolver la ecuación
 
 .. math::
 
     \nabla^2 u = -f(x)
 
-with
+con
 
 .. math::
 
     u(x) = g(x),\quad \forall (x, y)\in \partial \Omega
 
-
-For this method, we need to use an integral representation of the equation,
-that in this case is
+Para este método, necesitamos la repreentación integral de la ecuación, que 
+en este caso es
 
 .. math::
 
@@ -38,59 +39,58 @@ that in this case is
               \int_{V} f(x) G(x, \xi) dV(x)
 
 
-with
+con
 
 .. math::
 
     G(x,\xi)= -\frac{1}{2\pi}\ln|x- \xi|
 
-and
+y
 
 .. math::
 
     F(x,\xi) = -\frac{1}{2\pi |x- \xi|^2}(x - \xi)\cdot\hat{n}
 
 
-Then, we can form a system of equations
+Entonces, podemos formar el sistema de ecuaciones
 
 .. math::
 
     [G]\{q\} = [F]\{u\}\, ,
 
-that we obtain by discretization of the boundary. If we take constant
-variables over the discretization, the integral can be computed analytically
-by
+Que obtenemos de discretizar la frontera. Si tomamos variables constantes a lo
+largo de la discretización, las integrales se pueden calcular analíticamente
 
 .. math::
 
     G_{nm} = -\frac{1}{2\pi}\left[r \sin\theta\left(\ln|r| - 1\right)
              + \theta r\cos\theta\right]^{\theta_B, r_B}_{\theta_A, r_A}
 
-and
+y
 
 .. math::
 
     F_{nm} = \left[\frac{\theta}{2\pi}\right]^{\theta_B}_{\theta_A}
 
-for points :math:`n` and :math:`m` in different elements, and the subindices
-:math:`A,B` refer to the endpoints of the evaluation element. For diagonal
-terms the integrals evaluate to
+para :math:`n` y :math:`m` en diferentes elementos, y los subíndices
+:math:`A,B` se refieren a los puntos finales del elemento a evaluar.
+Para los términos en la diagonal las integrales son
 
 
 .. math::
 
     G_{nn} = -\frac{L}{2\pi}\left(\ln\left\vert\frac{L}{2}\right\vert - 1\right)
 
-and
+y
 
 .. math::
 
     F_{nn} = - \frac{1}{2\pi}
 
-with :math:`L` the size of the element.
+con :math:`L`, el tamaño del elemento.
 
-Below is the Python code. In this case, I did not succeed and the
-code is not working right now.
+A continuación se muestra el código de Python. En este caso, no tuve éxito en 
+hacer que el código funcionara.
 
 .. code:: python
 

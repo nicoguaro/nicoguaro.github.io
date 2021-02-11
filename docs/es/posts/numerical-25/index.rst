@@ -1,47 +1,49 @@
-.. title: Numerical methods challenge: Day 25
+.. title: Reto de métodos numéricos: Día 25
 .. slug: numerical-25
 .. date: 2017-10-25 21:41:53 UTC-05:00
-.. tags: numerical methods, python, julia, scientific computing, finite element method
+.. tags: métodos numéricos, python, julia, computación científica, método de elementos finitos
 .. category: Scientific Computing
 .. type: text
 .. has_math: yes
 
-During October (2017) I will write a program per day for some well-known
-numerical methods in both Python and Julia. It is intended to be an exercise
-then don't expect the code to be good enough for real use. Also,
-I should mention that I have almost no experience with Julia, so it
-probably won't be idiomatic Julia but more Python-like Julia.
+Durante octubre (2017) estaré escribiendo un programa por día para algunos
+métodos numéricos famosos en Python y Julia. Esto está pensado como
+un ejercicio, no esperen que el código sea lo suficientemente bueno para
+usarse en la "vida real". Además, también debo mencionar que casi que no
+tengo experiencia con Julia, así que probablemente no escriba un Julia
+idiomático y se parezca más a Python.
 
-Finite element method
-=====================
+Método de elementos finitos
+===========================
 
-Today we have the `Finite element method <https://en.wikipedia.org/wiki/Finite_element_method>`_
-to solve the equation:
+Hoy tenemos el `método de elementos finitos
+<https://en.wikipedia.org/wiki/Finite_element_method>`_ para resolver la
+ecuación:
 
 .. math::
 
     \nabla^2 u = -f(x)
 
-with
+con
 
 .. math::
 
     u(\sqrt{3}, 1) = 0
 
-As in the `Ritz method <posts/numerical-23>`_ we form
-a functional that is *equivalent* to the
-differential equation, propose an approximation as a linear combination of
-a set of basis functions and find the *best* set of coefficients for that
-combination. That *best* solution is found minimizing the functional.
+Como en el `método de Ritz <posts/numerical-23>`_ formamos un funcional
+que es *equivalente* a la ecuación diferencial, proponemos una aproximación que
+es una combinación lineal de funciones base y encontramos el *mejor* conjunto
+de coeficientes para esta combinación. La *mejor* solución se encuentra
+minimizando el funcional.
 
-The functional for this differential equation is
+El funcional para este ecuación diferencial es
 
 .. math::
 
     \Pi[u] = -\int_\Omega \left(\nabla u\right)^2 d\Omega
              -\int_\Omega  u f(x) d\Omega
 
-Using linear triangles, the local stiffness matrices read
+Usando triángulos lineales, las matrices de rigidez son
 
 .. math::
 
@@ -52,22 +54,21 @@ Using linear triangles, the local stiffness matrices read
             -1 & 0 &1\\
         \end{bmatrix}
 
-and
+y
 
 .. math::
 
     b_\text{local} = -|J| f(x_m) \mathbf{1}_3\, ,
 
-where :math:`|J|` is the Jacobian determinant of the transformation and
-:math:`x_m` is the centroid of the triangle. I am
-skipping a great deal about assembling, but it would be just too extensive
-to describe the complete process.
+donde :math:`|J|` es el determinante jacobiano de la transformación y
+:math:`x_m` es el centroide del triángulo. Me estoy
+saltando muchos detalles respecto al ensamblaje; sería muy costoso describir
+el proceso completo.
 
-We will solve the problem in a mesh with 6 triangles forming
-a regular hexagon
+Vamos a resolver el problema en una malla de 6 triángulos que forman un
+hexágono regular.
 
-
-Following are the codes.
+A continuación se presenta el código.
 
 Python
 ------
@@ -188,44 +189,42 @@ Julia
     axis("image")
     show()
 
-Both have the same result, as follows
+En ambos casos tenemos el mismo resultado.
 
 .. image:: /images/FEM2D.svg
    :width: 500 px
-   :alt: Finite element method approximation.
+   :alt: Aproximación por el método de elementos finitos.
    :align:  center
 
+Comparación Python/Julia
+------------------------
 
+Respecto al número de líneas tenemos: 51 en Python y 56 en Julia.  La comparación
+en tiempo de ejecución se realizó con el comando mágico de IPython ``%timeit``
+y con ``@benchmark`` en Julia. Para la comparación solo estamos considerando el
+tiempo que toma formar las matrices.
 
-Comparison Python/Julia
------------------------
-
-Regarding number of lines we have: 51 in Python and 56 in Julia. The comparison
-in execution time is done with ``%timeit`` magic command in IPython and
-``@benchmark`` in Julia. For the test we are just comparing the time it takes
-to generate the matrices.
-
-For Python:
+Para Python:
 
 .. code:: IPython
 
     %timeit assem(coords, elems, source)
 
-with result
+con resultado
 
 .. code::
 
      1000 loops, best of 3: 671 µs per loop
 
 
-For Julia:
+Para Julia:
 
 .. code:: julia
 
     @benchmark assem(coords, elems, source)
 
 
-with result
+con resultado
 
 .. code:: julia
 
@@ -242,6 +241,5 @@ with result
       evals/sample:     4
 
 
-
-In this case, we can say that the Python code is about 70 times slower than
-Julia code.
+En este caso, podemos decir que el código de Python es alrededor de 70 veces más
+lento que el de Julia.

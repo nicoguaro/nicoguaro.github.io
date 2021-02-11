@@ -103,7 +103,7 @@ is illustrated in the following animation.
 
 .. image:: https://upload.wikimedia.org/wikipedia/commons/8/84/Pi_30K.gif
    :width: 500 px
-   :alt: Finite element method approximation.
+   :alt: Pi approximation using Monte Carlo.
    :align:  center
 
 

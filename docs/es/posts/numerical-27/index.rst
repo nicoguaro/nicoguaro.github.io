@@ -1,44 +1,46 @@
-.. title: Numerical methods challenge: Day 27
+.. title: Reto de métodos numéricos: Día 27
 .. slug: numerical-27
 .. date: 2017-10-27 21:27:06 UTC-05:00
-.. tags: numerical methods, python, julia, scientific computing, monte carlo
+.. tags: métodos numéricos, python, julia, computación científica, monte carlo
 .. category: Scientific Computing
 .. type: text
 .. has_math: yes
 
-During October (2017) I will write a program per day for some well-known
-numerical methods in both Python and Julia. It is intended to be an exercise
-then don't expect the code to be good enough for real use. Also,
-I should mention that I have almost no experience with Julia, so it
-probably won't be idiomatic Julia but more Python-like Julia.
+Durante octubre (2017) estaré escribiendo un programa por día para algunos
+métodos numéricos famosos en Python y Julia. Esto está pensado como
+un ejercicio, no esperen que el código sea lo suficientemente bueno para
+usarse en la "vida real". Además, también debo mencionar que casi que no
+tengo experiencia con Julia, así que probablemente no escriba un Julia
+idiomático y se parezca más a Python.
 
-Monte Carlo integration
-=======================
+Integración Monte Carlo
+========================
 
-Today we have `Monte Carlo integration <https://en.wikipedia.org/wiki/Monte_Carlo_integration>`_.
-Where we use random sampling to numerically compute an integral. This
-method is important when we want to evaluate higher-dimensional
-integrals since common quadrature techniques imply an exponential
-growing in the number of sampling points.
+Hoy tenemos la `integración Monte Carlo
+<https://en.wikipedia.org/wiki/Monte_Carlo_integration>`_.
+En donde usamos muestreo aleatorio para calcular una integral numéricamente.
+Este método es importante cuando tenemos que evaluar integrales 
+multidimensionales ya que las técnicas de cuadratura usuales implican un
+crecimiento exponencial con el número de puntos de muestreo.
 
-The method computes an integral
+El método cálcula una integral
 
 .. math::
 
     I = \int_\Omega f(x) dx
 
-where :math:`\Omega` has volume :math:`V`.
+donde :math:`\Omega` tiene volumen :math:`V`.
 
-The integral is approximated as
+La integral es aproximada como
 
 .. math::
 
     I \approx \frac{V}{N} \sum_{i=1}^{N} f(x_i)
 
-where the :math:`x_i` distribute uniform over :math:`\Omega`.
+donde :math:`x_i` está distribuido de manera uniforme sobre :math:`\Omega`.
 
 
-Following are the codes
+A continuación se presenta el código.
 
 Python
 ------
@@ -98,43 +100,43 @@ Julia
     inte = monte_carlo_int(circ, N, low, high, args=(rad,))
 
 
-One of the most common examples is the computation of :math:`\pi`, this
-is illustrated in the following animation.
+Una de los ejemplos más comunes es el cálculo de :math:`\pi`, esto se
+ilustra en la siguiente animación.
 
 .. image:: https://upload.wikimedia.org/wikipedia/commons/8/84/Pi_30K.gif
    :width: 500 px
-   :alt: Finite element method approximation.
+   :alt: Aproximación de pi usando Monte Carlo.
    :align:  center
 
 
-Comparison Python/Julia
------------------------
+Comparación Python/Julia
+------------------------
 
-Regarding number of lines we have: 20 in Python and 24 in Julia. The comparison
-in execution time is done with ``%timeit`` magic command in IPython and
-``@benchmark`` in Julia.
+Respecto al número de líneas tenemos: 20 en Python y 24 en Julia.  La comparación
+en tiempo de ejecución se realizó con el comando mágico de IPython ``%timeit``
+y con ``@benchmark`` en Julia.
 
-For Python:
+Para Python:
 
 .. code:: IPython
 
     %timeit monte_carlo_int(circ, N, low, high, args=(rad,))
 
-with result
+con resultado
 
 .. code::
 
      10 loops, best of 3: 53.2 ms per loop
 
 
-For Julia:
+Para Julia:
 
 .. code:: julia
 
     @benchmark monte_carlo_int(circ, N, low, high, args=(rad,))
 
 
-with result
+con result
 
 .. code:: julia
 
@@ -151,6 +153,5 @@ with result
       evals/sample:     1
 
 
-
-In this case, we can say that the Python code is roughly 3 times faster than
-Julia code.
+En este caso, podemos decir que el código de Python es alrededor de 3 veces más
+rápido que el de Julia.

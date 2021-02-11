@@ -1,25 +1,28 @@
-.. title: Numerical methods challenge: Day 28
+.. title: Reto de métodos numéricos: Día 28
 .. slug: numerical-28
 .. date: 2017-10-28 17:02:38 UTC-05:00
-.. tags: numerical methods, python, julia, scientific computing, lu factorization
+.. tags: métodos numéricos, python, julia, computación científica, factorización lu
 .. category: Scientific Computing
 .. type: text
 .. has_math: yes
 
-During October (2017) I will write a program per day for some well-known
-numerical methods in both Python and Julia. It is intended to be an exercise
-then don't expect the code to be good enough for real use. Also,
-I should mention that I have almost no experience with Julia, so it
-probably won't be idiomatic Julia but more Python-like Julia.
+Durante octubre (2017) estaré escribiendo un programa por día para algunos
+métodos numéricos famosos en Python y Julia. Esto está pensado como
+un ejercicio, no esperen que el código sea lo suficientemente bueno para
+usarse en la "vida real". Además, también debo mencionar que casi que no
+tengo experiencia con Julia, así que probablemente no escriba un Julia
+idiomático y se parezca más a Python.
 
-LU factorization
+Factorización LU
 ================
 
-Today we have `LU decomposition <https://en.wikipedia.org/wiki/LU_decomposition>`_.
-That is a factorization of a matrix into a lower (L) and upper (U) matrix.
-Basically it stores de steps of a Gauss elimination in matrices.
+Hoy tenemos la `descomposición LU
+<https://en.wikipedia.org/wiki/LU_decomposition>`_.
+Este es la factorización de una matriz en su formas triangulares inferior (L)
+y superior (U). Básicamente, almacena cada uno de los pasos de una eliminación
+gaussiana en matrices.
 
-Following are the codes
+A continuación el código.
 
 Python
 ------
@@ -80,7 +83,7 @@ Julia
     B = LU(A)
 
 
-As an example we have the matrix
+Como un ejemplo tenemos la matriz
 
 .. math::
 
@@ -103,7 +106,7 @@ As an example we have the matrix
         0 &0 &0 &-13
         \end{bmatrix}
 
-And, the answer of both codes is
+Y, la respuesta en ámbos códigos es
 
 .. code::
 
@@ -113,34 +116,34 @@ And, the answer of both codes is
      [ -1.,  -3.,   0., -13.]]
 
 
-Comparison Python/Julia
------------------------
+Comparación Python/Julia
+------------------------
 
-Regarding number of lines we have: 23 in Python and 22 in Julia. The comparison
-in execution time is done with ``%timeit`` magic command in IPython and
-``@benchmark`` in Julia.
+Respecto al número de líneas tenemos: 23 en Python y 22 en Julia.  La comparación
+en tiempo de ejecución se realizó con el comando mágico de IPython ``%timeit``
+y con ``@benchmark`` en Julia.
 
-For Python:
+Para Python:
 
 .. code:: IPython
 
     %timeit LU(np.random.rand(10, 10))
 
-with result
+con resultado
 
 .. code::
 
      1000 loops, best of 3: 303 µs per loop
 
 
-For Julia:
+Para Julia:
 
 .. code:: julia
 
     @benchmark LU(rand(10, 10))
 
 
-with result
+con resultado
 
 .. code:: julia
 
@@ -157,5 +160,5 @@ with result
       evals/sample:     1
 
 
-In this case, we can say that the Python code is roughly 30 times slower than
-Julia code.
+En este caso, podemos decir que el código de Python es alrededor de 30 veces
+más lento que el de Julia.
