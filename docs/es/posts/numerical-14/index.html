@@ -9,7 +9,7 @@
 <link rel="alternate" type="application/rss+xml" title="RSS (en)" href="../../../rss.xml">
 <link rel="alternate" type="application/rss+xml" title="RSS (es)" href="../../rss.xml">
 <link rel="canonical" href="https://nicoguaro.github.io/es/posts/numerical-14/">
-<!--[if lt IE 9]><script src="../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Nicolás Guarín-Zapata">
+<!--[if lt IE 9]><script src="../../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Nicolás Guarín-Zapata">
 <link rel="prev" href="../numerical-13/" title="Reto de métodos numéricos: Día 13" type="text/html">
 <link rel="next" href="../numerical-15/" title="Reto de métodos numéricos: Día 15" type="text/html">
 <meta property="og:site_name" content="Nicolás' blog">
@@ -99,52 +99,52 @@ la interpolación de Lagrange con puntos equidistantes.</p>
 <p>A continuación se presentan los códigos.</p>
 <div class="section" id="python">
 <h3>Python</h3>
-<pre class="code python"><a name="rest_code_ad97081b92a84752b79330690d87bc55-1"></a><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span>
-<a name="rest_code_ad97081b92a84752b79330690d87bc55-2"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<a name="rest_code_ad97081b92a84752b79330690d87bc55-3"></a>
-<a name="rest_code_ad97081b92a84752b79330690d87bc55-4"></a>
-<a name="rest_code_ad97081b92a84752b79330690d87bc55-5"></a><span class="k">def</span> <span class="nf">trapz</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
-<a name="rest_code_ad97081b92a84752b79330690d87bc55-6"></a>    <span class="k">if</span> <span class="n">x</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<a name="rest_code_ad97081b92a84752b79330690d87bc55-7"></a>        <span class="n">inte</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">dx</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-<a name="rest_code_ad97081b92a84752b79330690d87bc55-8"></a>    <span class="k">else</span><span class="p">:</span>
-<a name="rest_code_ad97081b92a84752b79330690d87bc55-9"></a>        <span class="n">dx</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<a name="rest_code_ad97081b92a84752b79330690d87bc55-10"></a>        <span class="n">inte</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">y</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">dx</span><span class="p">)</span>
-<a name="rest_code_ad97081b92a84752b79330690d87bc55-11"></a>    <span class="k">return</span> <span class="n">inte</span>
-<a name="rest_code_ad97081b92a84752b79330690d87bc55-12"></a>
-<a name="rest_code_ad97081b92a84752b79330690d87bc55-13"></a>
-<a name="rest_code_ad97081b92a84752b79330690d87bc55-14"></a><span class="n">dx</span> <span class="o">=</span> <span class="mf">0.001</span>
-<a name="rest_code_ad97081b92a84752b79330690d87bc55-15"></a><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">dx</span><span class="p">)</span>
-<a name="rest_code_ad97081b92a84752b79330690d87bc55-16"></a><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<a name="rest_code_ad97081b92a84752b79330690d87bc55-17"></a><span class="nb">print</span><span class="p">(</span><span class="n">trapz</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span><span class="n">dx</span><span class="p">))</span>
-<a name="rest_code_ad97081b92a84752b79330690d87bc55-18"></a><span class="nb">print</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<pre class="code python"><a name="rest_code_17e2ade91c0f4d2d97cbe015b19f436d-1"></a><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span>
+<a name="rest_code_17e2ade91c0f4d2d97cbe015b19f436d-2"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<a name="rest_code_17e2ade91c0f4d2d97cbe015b19f436d-3"></a>
+<a name="rest_code_17e2ade91c0f4d2d97cbe015b19f436d-4"></a>
+<a name="rest_code_17e2ade91c0f4d2d97cbe015b19f436d-5"></a><span class="k">def</span> <span class="nf">trapz</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+<a name="rest_code_17e2ade91c0f4d2d97cbe015b19f436d-6"></a>    <span class="k">if</span> <span class="n">x</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<a name="rest_code_17e2ade91c0f4d2d97cbe015b19f436d-7"></a>        <span class="n">inte</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">dx</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<a name="rest_code_17e2ade91c0f4d2d97cbe015b19f436d-8"></a>    <span class="k">else</span><span class="p">:</span>
+<a name="rest_code_17e2ade91c0f4d2d97cbe015b19f436d-9"></a>        <span class="n">dx</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<a name="rest_code_17e2ade91c0f4d2d97cbe015b19f436d-10"></a>        <span class="n">inte</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">y</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">dx</span><span class="p">)</span>
+<a name="rest_code_17e2ade91c0f4d2d97cbe015b19f436d-11"></a>    <span class="k">return</span> <span class="n">inte</span>
+<a name="rest_code_17e2ade91c0f4d2d97cbe015b19f436d-12"></a>
+<a name="rest_code_17e2ade91c0f4d2d97cbe015b19f436d-13"></a>
+<a name="rest_code_17e2ade91c0f4d2d97cbe015b19f436d-14"></a><span class="n">dx</span> <span class="o">=</span> <span class="mf">0.001</span>
+<a name="rest_code_17e2ade91c0f4d2d97cbe015b19f436d-15"></a><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">dx</span><span class="p">)</span>
+<a name="rest_code_17e2ade91c0f4d2d97cbe015b19f436d-16"></a><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a name="rest_code_17e2ade91c0f4d2d97cbe015b19f436d-17"></a><span class="nb">print</span><span class="p">(</span><span class="n">trapz</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span><span class="n">dx</span><span class="p">))</span>
+<a name="rest_code_17e2ade91c0f4d2d97cbe015b19f436d-18"></a><span class="nb">print</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 </pre>
 <p>con resultado</p>
-<pre class="code python"><a name="rest_code_83f8c0eb6a314e41b1e6e85da468ed13-1"></a><span class="mf">1.83961497726</span>
-<a name="rest_code_83f8c0eb6a314e41b1e6e85da468ed13-2"></a><span class="mf">1.83907152908</span>
+<pre class="code python"><a name="rest_code_9a7cf62727f84acfbbc2f793de5238aa-1"></a><span class="mf">1.83961497726</span>
+<a name="rest_code_9a7cf62727f84acfbbc2f793de5238aa-2"></a><span class="mf">1.83907152908</span>
 </pre>
 </div>
 <div class="section" id="julia">
 <h3>Julia</h3>
-<pre class="code julia"><a name="rest_code_e7290c5a46684a12b8adb0962633c3a1-1"></a><span class="k">function</span> <span class="n">trapz</span><span class="p">(</span><span class="n">y</span><span class="p">;</span> <span class="n">x</span><span class="o">=</span><span class="nb">nothing</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
-<a name="rest_code_e7290c5a46684a12b8adb0962633c3a1-2"></a>    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="nb">nothing</span>
-<a name="rest_code_e7290c5a46684a12b8adb0962633c3a1-3"></a>        <span class="n">inte</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">dx</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sum</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="o">:</span><span class="k">end</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">y</span><span class="p">[</span><span class="k">end</span><span class="p">])</span>
-<a name="rest_code_e7290c5a46684a12b8adb0962633c3a1-4"></a>    <span class="k">else</span>
-<a name="rest_code_e7290c5a46684a12b8adb0962633c3a1-5"></a>        <span class="n">dx</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="o">:</span><span class="k">end</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="o">:</span><span class="k">end</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<a name="rest_code_e7290c5a46684a12b8adb0962633c3a1-6"></a>        <span class="n">inte</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span> <span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="o">:</span><span class="k">end</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="o">:</span><span class="k">end</span><span class="p">])</span><span class="o">'</span> <span class="o">*</span> <span class="n">dx</span>
-<a name="rest_code_e7290c5a46684a12b8adb0962633c3a1-7"></a>    <span class="k">end</span>
-<a name="rest_code_e7290c5a46684a12b8adb0962633c3a1-8"></a>    <span class="k">return</span> <span class="n">inte</span>
-<a name="rest_code_e7290c5a46684a12b8adb0962633c3a1-9"></a><span class="k">end</span>
-<a name="rest_code_e7290c5a46684a12b8adb0962633c3a1-10"></a>
-<a name="rest_code_e7290c5a46684a12b8adb0962633c3a1-11"></a>
-<a name="rest_code_e7290c5a46684a12b8adb0962633c3a1-12"></a><span class="n">dx</span> <span class="o">=</span> <span class="mf">0.001</span>
-<a name="rest_code_e7290c5a46684a12b8adb0962633c3a1-13"></a><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="o">:</span><span class="n">dx</span><span class="o">:</span><span class="mi">10</span>
-<a name="rest_code_e7290c5a46684a12b8adb0962633c3a1-14"></a><span class="n">y</span> <span class="o">=</span> <span class="n">sin</span><span class="o">.</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<a name="rest_code_e7290c5a46684a12b8adb0962633c3a1-15"></a><span class="n">println</span><span class="p">(</span><span class="n">trapz</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span><span class="n">dx</span><span class="p">))</span>
-<a name="rest_code_e7290c5a46684a12b8adb0962633c3a1-16"></a><span class="n">println</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">cos</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<pre class="code julia"><a name="rest_code_0cdfe2f8237240759e6c8e7be88c8254-1"></a><span class="k">function</span> <span class="n">trapz</span><span class="p">(</span><span class="n">y</span><span class="p">;</span> <span class="n">x</span><span class="o">=</span><span class="nb">nothing</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<a name="rest_code_0cdfe2f8237240759e6c8e7be88c8254-2"></a>    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="nb">nothing</span>
+<a name="rest_code_0cdfe2f8237240759e6c8e7be88c8254-3"></a>        <span class="n">inte</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">dx</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sum</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="o">:</span><span class="k">end</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">y</span><span class="p">[</span><span class="k">end</span><span class="p">])</span>
+<a name="rest_code_0cdfe2f8237240759e6c8e7be88c8254-4"></a>    <span class="k">else</span>
+<a name="rest_code_0cdfe2f8237240759e6c8e7be88c8254-5"></a>        <span class="n">dx</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="o">:</span><span class="k">end</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="o">:</span><span class="k">end</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<a name="rest_code_0cdfe2f8237240759e6c8e7be88c8254-6"></a>        <span class="n">inte</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span> <span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="o">:</span><span class="k">end</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="o">:</span><span class="k">end</span><span class="p">])</span><span class="o">'</span> <span class="o">*</span> <span class="n">dx</span>
+<a name="rest_code_0cdfe2f8237240759e6c8e7be88c8254-7"></a>    <span class="k">end</span>
+<a name="rest_code_0cdfe2f8237240759e6c8e7be88c8254-8"></a>    <span class="k">return</span> <span class="n">inte</span>
+<a name="rest_code_0cdfe2f8237240759e6c8e7be88c8254-9"></a><span class="k">end</span>
+<a name="rest_code_0cdfe2f8237240759e6c8e7be88c8254-10"></a>
+<a name="rest_code_0cdfe2f8237240759e6c8e7be88c8254-11"></a>
+<a name="rest_code_0cdfe2f8237240759e6c8e7be88c8254-12"></a><span class="n">dx</span> <span class="o">=</span> <span class="mf">0.001</span>
+<a name="rest_code_0cdfe2f8237240759e6c8e7be88c8254-13"></a><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="o">:</span><span class="n">dx</span><span class="o">:</span><span class="mi">10</span>
+<a name="rest_code_0cdfe2f8237240759e6c8e7be88c8254-14"></a><span class="n">y</span> <span class="o">=</span> <span class="n">sin</span><span class="o">.</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a name="rest_code_0cdfe2f8237240759e6c8e7be88c8254-15"></a><span class="n">println</span><span class="p">(</span><span class="n">trapz</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span><span class="n">dx</span><span class="p">))</span>
+<a name="rest_code_0cdfe2f8237240759e6c8e7be88c8254-16"></a><span class="n">println</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">cos</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 </pre>
 <p>con resultado</p>
-<pre class="code julia"><a name="rest_code_551c77c65104404d898acca4c0632bb2-1"></a><span class="mf">1.8390713758204895</span>
-<a name="rest_code_551c77c65104404d898acca4c0632bb2-2"></a><span class="mf">1.8390715290764525</span>
+<pre class="code julia"><a name="rest_code_40b0eb21281647bbb09266ca5790b939-1"></a><span class="mf">1.8390713758204895</span>
+<a name="rest_code_40b0eb21281647bbb09266ca5790b939-2"></a><span class="mf">1.8390715290764525</span>
 </pre>
 </div>
 <div class="section" id="comparacion-python-julia">
@@ -153,26 +153,26 @@ la interpolación de Lagrange con puntos equidistantes.</p>
 en tiempo de ejecución se realizó con el comando mágico de IPython <code class="docutils literal">%timeit</code>
 y con <code class="docutils literal">@benchmark</code> en Julia.</p>
 <p>Para Python:</p>
-<pre class="code IPython"><a name="rest_code_368e253d2d404e12829177c034157997-1"></a><span class="o">%</span><span class="k">timeit</span> trapz(y, dx=dx)
+<pre class="code IPython"><a name="rest_code_a68de0b8b6704ddf86e1df7280c48380-1"></a><span class="o">%</span><span class="k">timeit</span> trapz(y, dx=dx)
 </pre>
 <p>con resultado</p>
-<pre class="code text"><a name="rest_code_cfdbf124f84f48dd86cb30ad52dce405-1"></a>100000 loops, best of 3: 16.9 µs per loop
+<pre class="code text"><a name="rest_code_bb2983feaa3c4950942460410874e375-1"></a>100000 loops, best of 3: 16.9 µs per loop
 </pre>
 <p>Para Julia:</p>
-<pre class="code julia"><a name="rest_code_521d4af3ff7e4c5baa8905494ff2bc5e-1"></a><span class="nd">@benchmark</span> <span class="n">trapz</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span><span class="n">dx</span><span class="p">)</span>
+<pre class="code julia"><a name="rest_code_7f0ff826213f450188f02d239d0a36ad-1"></a><span class="nd">@benchmark</span> <span class="n">trapz</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span><span class="n">dx</span><span class="p">)</span>
 </pre>
 <p>con resultado</p>
-<pre class="code julia"><a name="rest_code_b4a1916592b343ea94f1390a25460c2d-1"></a><span class="n">BenchmarkTools</span><span class="o">.</span><span class="n">Trial</span><span class="o">:</span>
-<a name="rest_code_b4a1916592b343ea94f1390a25460c2d-2"></a>  <span class="n">memory</span> <span class="n">estimate</span><span class="o">:</span>  <span class="mf">78.31</span> <span class="n">KiB</span>
-<a name="rest_code_b4a1916592b343ea94f1390a25460c2d-3"></a>  <span class="n">allocs</span> <span class="n">estimate</span><span class="o">:</span>  <span class="mi">4</span>
-<a name="rest_code_b4a1916592b343ea94f1390a25460c2d-4"></a>  <span class="o">--------------</span>
-<a name="rest_code_b4a1916592b343ea94f1390a25460c2d-5"></a>  <span class="n">minimum</span> <span class="n">time</span><span class="o">:</span>     <span class="mf">13.080</span> <span class="n">μs</span> <span class="p">(</span><span class="mf">0.00</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
-<a name="rest_code_b4a1916592b343ea94f1390a25460c2d-6"></a>  <span class="n">median</span> <span class="n">time</span><span class="o">:</span>      <span class="mf">16.333</span> <span class="n">μs</span> <span class="p">(</span><span class="mf">0.00</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
-<a name="rest_code_b4a1916592b343ea94f1390a25460c2d-7"></a>  <span class="n">mean</span> <span class="n">time</span><span class="o">:</span>        <span class="mf">20.099</span> <span class="n">μs</span> <span class="p">(</span><span class="mf">12.66</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
-<a name="rest_code_b4a1916592b343ea94f1390a25460c2d-8"></a>  <span class="n">maximum</span> <span class="n">time</span><span class="o">:</span>     <span class="mf">963.732</span> <span class="n">μs</span> <span class="p">(</span><span class="mf">90.60</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
-<a name="rest_code_b4a1916592b343ea94f1390a25460c2d-9"></a>  <span class="o">--------------</span>
-<a name="rest_code_b4a1916592b343ea94f1390a25460c2d-10"></a>  <span class="n">samples</span><span class="o">:</span>          <span class="mi">10000</span>
-<a name="rest_code_b4a1916592b343ea94f1390a25460c2d-11"></a>  <span class="n">evals</span><span class="o">/</span><span class="n">sample</span><span class="o">:</span>     <span class="mi">1</span>
+<pre class="code julia"><a name="rest_code_d77851ce7e3f497099a716a8ed7f38cd-1"></a><span class="n">BenchmarkTools</span><span class="o">.</span><span class="n">Trial</span><span class="o">:</span>
+<a name="rest_code_d77851ce7e3f497099a716a8ed7f38cd-2"></a>  <span class="n">memory</span> <span class="n">estimate</span><span class="o">:</span>  <span class="mf">78.31</span> <span class="n">KiB</span>
+<a name="rest_code_d77851ce7e3f497099a716a8ed7f38cd-3"></a>  <span class="n">allocs</span> <span class="n">estimate</span><span class="o">:</span>  <span class="mi">4</span>
+<a name="rest_code_d77851ce7e3f497099a716a8ed7f38cd-4"></a>  <span class="o">--------------</span>
+<a name="rest_code_d77851ce7e3f497099a716a8ed7f38cd-5"></a>  <span class="n">minimum</span> <span class="n">time</span><span class="o">:</span>     <span class="mf">13.080</span> <span class="n">μs</span> <span class="p">(</span><span class="mf">0.00</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
+<a name="rest_code_d77851ce7e3f497099a716a8ed7f38cd-6"></a>  <span class="n">median</span> <span class="n">time</span><span class="o">:</span>      <span class="mf">16.333</span> <span class="n">μs</span> <span class="p">(</span><span class="mf">0.00</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
+<a name="rest_code_d77851ce7e3f497099a716a8ed7f38cd-7"></a>  <span class="n">mean</span> <span class="n">time</span><span class="o">:</span>        <span class="mf">20.099</span> <span class="n">μs</span> <span class="p">(</span><span class="mf">12.66</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
+<a name="rest_code_d77851ce7e3f497099a716a8ed7f38cd-8"></a>  <span class="n">maximum</span> <span class="n">time</span><span class="o">:</span>     <span class="mf">963.732</span> <span class="n">μs</span> <span class="p">(</span><span class="mf">90.60</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
+<a name="rest_code_d77851ce7e3f497099a716a8ed7f38cd-9"></a>  <span class="o">--------------</span>
+<a name="rest_code_d77851ce7e3f497099a716a8ed7f38cd-10"></a>  <span class="n">samples</span><span class="o">:</span>          <span class="mi">10000</span>
+<a name="rest_code_d77851ce7e3f497099a716a8ed7f38cd-11"></a>  <span class="n">evals</span><span class="o">/</span><span class="n">sample</span><span class="o">:</span>     <span class="mi">1</span>
 </pre>
 <p>En este caso, podemos decir que el código de Python es tan rápido como
 el de Julia.</p>

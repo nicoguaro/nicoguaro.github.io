@@ -3,7 +3,7 @@
 &lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
 &lt;img alt="Creative Commons License"
 style="border-width:0"
-src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Tue, 09 Feb 2021 23:53:58 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Revisión ortográfica en Jupyter Notebook</title><link>https://nicoguaro.github.io/posts/ortografia_jupyter/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;El objetivo de esta publicación es mostrar cómo tener revisión automática
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Thu, 11 Feb 2021 00:03:06 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Revisión ortográfica en Jupyter Notebook</title><link>https://nicoguaro.github.io/posts/ortografia_jupyter/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;El objetivo de esta publicación es mostrar cómo tener revisión automática
 de ortografía en Jupyter Notebook &lt;a class="footnote-reference brackets" href="https://nicoguaro.github.io/posts/ortografia_jupyter/#id2" id="id1"&gt;*&lt;/a&gt; para español, como se muestra a
 continuación.&lt;/p&gt;
 &lt;img alt="Ejemplo de corrección ortográfica en Jupyter Notebook." class="align-center" src="https://nicoguaro.github.io/images/ortografia_jupyter/ejemplo_ortografia.png" style="width: 600px;"&gt;

@@ -118,7 +118,7 @@ Python
     plt.plot(x, x*(x**4 - 1)/20, linestyle="dashed")
     plt.xlabel(r"$x$")
     plt.ylabel(r"$y$")
-    plt.legend(["Ritz solution", "Exact solution"])
+    plt.legend(["FEM solution", "Exact solution"])
     plt.tight_layout()
     plt.show()
 

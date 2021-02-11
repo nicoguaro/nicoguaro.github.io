@@ -1,83 +1,84 @@
-.. title: Numerical methods challenge: Day 24
+.. title: Reto de métodos numéricos: Día 24
 .. slug: numerical-24
 .. date: 2017-10-24 15:17:58 UTC-05:00
-.. tags: numerical methods, python, julia, scientific computing, finite element method
+.. tags: métodos numéricos, python, julia, computación científica, método de elementos finitos
 .. category: Scientific Computing
 .. type: text
 .. has_math: yes
 
-During October (2017) I will write a program per day for some well-known
-numerical methods in both Python and Julia. It is intended to be an exercise
-then don't expect the code to be good enough for real use. Also,
-I should mention that I have almost no experience with Julia, so it
-probably won't be idiomatic Julia but more Python-like Julia.
+Durante octubre (2017) estaré escribiendo un programa por día para algunos
+métodos numéricos famosos en Python y Julia. Esto está pensado como
+un ejercicio, no esperen que el código sea lo suficientemente bueno para
+usarse en la "vida real". Además, también debo mencionar que casi que no
+tengo experiencia con Julia, así que probablemente no escriba un Julia
+idiomático y se parezca más a Python.
 
-Finite element method
-=====================
+Método de elementos finitos
+===========================
 
-Today we have the `Finite element method <https://en.wikipedia.org/wiki/Finite_element_method>`_
-to solve the equation:
+Hoy tenemos el `método de elementos finitos
+<https://en.wikipedia.org/wiki/Finite_element_method>`_ para resolver la
+ecuación:
 
 .. math::
 
     \frac{d^2 u}{dx^2} = f(x)
 
-with
+con
 
 .. math::
 
     u(0) = u(1)  = 0
 
-As in the `Ritz method <posts/numerical-23>`_ we form
-a functional that is *equivalent* to the
-differential equation, propose an approximation as a linear combination of
-a set of basis functions and find the *best* set of coefficients for that
-combination. That *best* solution is found minimizing the functional.
+Como en el `método de Ritz <posts/numerical-23>`_ formamos un funcional
+que es *equivalente* a la ecuación diferencial, proponemos una aproximación que
+es una combinación lineal de funciones base y encontramos el *mejor* conjunto
+de coeficientes para esta combinación. La *mejor* solución se encuentra
+minimizando el funcional.
 
-The functional for this differential equation is
+El funcional para este ecuación diferencial es
 
 .. math::
 
     \Pi[u] = -\int_{0}^{1} \left(\frac{d u}{d x}\right)^2 dx
              -\int_{0}^{1}  u f(x) dx
 
-The main difference is that we use a piecewise interpolation for the basis
-functions,
+La diferencia principal es que usamos interpolación por tramos como funciones
+base,
 
 .. math::
     \hat{u}(x) = \sum_{n=0}^{N} u_n N_n(x)\, ,
 
-this leads to the system of equations
+Esto lleva al siguiente sistema de ecuaciones
 
 .. math::
 
     [K]\{\mathbf{c}\} = \{\mathbf{b}\}
 
-where the local stiffness matrices read
+donde las matrices de rigidez locales están dadas por
 
 .. math::
 
     K_\text{local} =  \frac{1}{|J|}\begin{bmatrix} 2 & -2\\ -2 &2\end{bmatrix}
 
-and
+y
 
 .. math::
 
     b_\text{local} = -|J|\begin{bmatrix} f(x_m)\\ f(x_{n})\end{bmatrix}\, ,
 
-where :math:`|J|` is the Jacobian determinant of the transformation. I am
-skipping a great deal about assembling, but it would be just too extensive
-to describe the complete process.
+donde :math:`|J|` es el determinante jacobian de la transformación. Me estoy
+saltando muchos detalles respecto al ensamblaje; sería muy costoso describir
+el proceso completo.
 
-We will test the implementation with the function :math:`f(x) = x^3`, that
-leads to the solution
-
+Probaremos la implementación con la función :math:`f(x) = x^3`, que lleva a
+la solución
 .. math::
 
     u(x) = \frac{x (x^4 - 1)}{20}
 
 
-Following are the codes.
+A continuacón se presenta el código.
 
 Python
 ------
@@ -118,7 +119,7 @@ Python
     plt.plot(x, x*(x**4 - 1)/20, linestyle="dashed")
     plt.xlabel(r"$x$")
     plt.ylabel(r"$y$")
-    plt.legend(["Ritz solution", "Exact solution"])
+    plt.legend(["FEM solution", "Exact solution"])
     plt.tight_layout()
     plt.show()
 
@@ -163,44 +164,44 @@ Julia
     tight_layout()
     show()
 
-Both have the same result, as follows
+Ambos presentan el mismo resultado que se ve a continuación.
 
 .. image:: /images/FEM1D.svg
    :width: 400 px
-   :alt: Finite element method approximation.
+   :alt: Aproximación por el método de elementos finitos.
    :align:  center
 
 
 
-Comparison Python/Julia
------------------------
+Comparación Python/Julia
+------------------------
 
-Regarding number of lines we have: 37 in Python and 35 in Julia. The comparison
-in execution time is done with ``%timeit`` magic command in IPython and
-``@benchmark`` in Julia. For the test we are just comparing the time it takes
-to generate the matrices.
+Respecto al número de líneas tenemos: 37 en Python y 35 en Julia.  La comparación
+en tiempo de ejecución se realizó con el comando mágico de IPython ``%timeit``
+y con ``@benchmark`` en Julia. Para la comparación solo estamos considerando el
+tiempo que toma formar las matrices.
 
-For Python:
+Para Python:
 
 .. code:: IPython
 
     %timeit FEM1D(x, fun)
 
-with result
+con resultado
 
 .. code::
 
      100 loops, best of 3: 2.15 ms per loop
 
 
-For Julia:
+Para Julia:
 
 .. code:: julia
 
     @benchmark FEM1D(x, fun)
 
 
-with result
+con resultado
 
 .. code:: julia
 
@@ -217,5 +218,5 @@ with result
       evals/sample:     1
 
 
-In this case, we can say that the Python code is roughly 30 times slower than
-Julia code.
+En este caso, podemos decir que el código de Python es alrededor de 30 veces
+más lento que el de Julia.

@@ -3,28 +3,28 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
-<title>Numerical methods challenge: Day 22 | Nicolás' blog</title>
+<title>Reto de métodos numéricos: Día 22 | Nicolás' blog</title>
 <link href="../../../assets/css/all.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
 <link rel="alternate" type="application/rss+xml" title="RSS (en)" href="../../../rss.xml">
 <link rel="alternate" type="application/rss+xml" title="RSS (es)" href="../../rss.xml">
 <link rel="canonical" href="https://nicoguaro.github.io/es/posts/numerical-22/">
-<!--[if lt IE 9]><script src="../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Nicolás Guarín-Zapata">
-<link rel="prev" href="../numerical-21/" title="Numerical methods challenge: Day 21" type="text/html">
-<link rel="next" href="../numerical-23/" title="Numerical methods challenge: Day 23" type="text/html">
+<!--[if lt IE 9]><script src="../../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Nicolás Guarín-Zapata">
+<link rel="prev" href="../numerical-21/" title="Reto de métodos numéricos: Día 21" type="text/html">
+<link rel="next" href="../numerical-23/" title="Reto de métodos numéricos: Día 23" type="text/html">
 <meta property="og:site_name" content="Nicolás' blog">
-<meta property="og:title" content="Numerical methods challenge: Day 22">
+<meta property="og:title" content="Reto de métodos numéricos: Día 22">
 <meta property="og:url" content="https://nicoguaro.github.io/es/posts/numerical-22/">
-<meta property="og:description" content="During October (2017) I will write a program per day for some well-known
-numerical methods in both Python and Julia. It is intended to be an exercise
-then don't expect the code to be good enough for r">
+<meta property="og:description" content="Durante octubre (2017) estaré escribiendo un programa por día para algunos
+métodos numéricos famosos en Python y Julia. Esto está pensado como
+un ejercicio, no esperen que el código sea lo suficientem">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2017-10-22T10:51:10-05:00">
-<meta property="article:tag" content="finite differences">
+<meta property="article:tag" content="computación científica">
+<meta property="article:tag" content="diferencias finitas">
 <meta property="article:tag" content="julia">
-<meta property="article:tag" content="numerical methods">
+<meta property="article:tag" content="métodos numéricos">
 <meta property="article:tag" content="python">
-<meta property="article:tag" content="scientific computing">
 <link rel="alternate" hreflang="en" href="../../../posts/numerical-22/">
 </head>
 <body>
@@ -64,7 +64,7 @@ then don't expect the code to be good enough for r">
 
       <div class="container content" id="content">
         
-<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="post-title p-name entry-title" itemprop="headline name"><a href="." class="u-url">Numerical methods challenge: Day 22</a></h1>
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="post-title p-name entry-title" itemprop="headline name"><a href="." class="u-url">Reto de métodos numéricos: Día 22</a></h1>
 
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
@@ -77,165 +77,171 @@ then don't expect the code to be good enough for r">
         </p>
 </div>
         
+        <div class="metadata posttranslations translations">
+            <h3 class="posttranslations-intro">También disponible en:</h3>
+                <p><a href="../../../posts/numerical-22/" rel="alternate" hreflang="en">English</a></p>
+        </div>
 
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
-<p>During October (2017) I will write a program per day for some well-known
-numerical methods in both Python and Julia. It is intended to be an exercise
-then don't expect the code to be good enough for real use. Also,
-I should mention that I have almost no experience with Julia, so it
-probably won't be idiomatic Julia but more Python-like Julia.</p>
-<div class="section" id="finite-difference-eigenproblems">
-<h2>Finite Difference: Eigenproblems</h2>
-<p>Today we have a <a class="reference external" href="https://en.wikipedia.org/wiki/Finite_difference_method">Finite difference method</a>
-to compute the vibration modes of a beam. The equation of interest is</p>
+<p>Durante octubre (2017) estaré escribiendo un programa por día para algunos
+métodos numéricos famosos en Python y Julia. Esto está pensado como
+un ejercicio, no esperen que el código sea lo suficientemente bueno para
+usarse en la "vida real". Además, también debo mencionar que casi que no
+tengo experiencia con Julia, así que probablemente no escriba un Julia
+idiomático y se parezca más a Python.</p>
+<div class="section" id="diferencias-finitas-problemas-de-valores-propios">
+<h2>Diferencias finitas: problemas de valores propios</h2>
+<p>Hoy tenemos el <a class="reference external" href="https://en.wikipedia.org/wiki/Finite_difference_method">método de diferencias finitas</a>
+para calcular los modos de vibración de una viga. La ecuación de interés
+es</p>
 <div class="math">
 \begin{equation*}
 \nabla^ 4 u = k^2 u
 \end{equation*}
 </div>
-<p>with</p>
+<p>con</p>
 <div class="math">
 \begin{equation*}
 u(0) = u(L)  = 0
 \end{equation*}
 </div>
-<p>Following are the codes.</p>
+<p>A continuación se presenta el código.</p>
 <div class="section" id="python">
 <h3>Python</h3>
-<pre class="code python"><a name="rest_code_6df9f217e94d4ee49bcfc22f405e36f6-1"></a><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span>
-<a name="rest_code_6df9f217e94d4ee49bcfc22f405e36f6-2"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<a name="rest_code_6df9f217e94d4ee49bcfc22f405e36f6-3"></a><span class="kn">from</span> <span class="nn">scipy.linalg</span> <span class="kn">import</span> <span class="n">eigh</span> <span class="k">as</span> <span class="n">eigsh</span>
-<a name="rest_code_6df9f217e94d4ee49bcfc22f405e36f6-4"></a><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<a name="rest_code_6df9f217e94d4ee49bcfc22f405e36f6-5"></a>
-<a name="rest_code_6df9f217e94d4ee49bcfc22f405e36f6-6"></a>
-<a name="rest_code_6df9f217e94d4ee49bcfc22f405e36f6-7"></a><span class="k">def</span> <span class="nf">beam_FDM_eigs</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
-<a name="rest_code_6df9f217e94d4ee49bcfc22f405e36f6-8"></a>    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
-<a name="rest_code_6df9f217e94d4ee49bcfc22f405e36f6-9"></a>    <span class="n">dx</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<a name="rest_code_6df9f217e94d4ee49bcfc22f405e36f6-10"></a>    <span class="n">stiff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="mi">6</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">2</span><span class="p">))</span> <span class="o">-</span>\
-<a name="rest_code_6df9f217e94d4ee49bcfc22f405e36f6-11"></a>            <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">3</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">3</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span>\
-<a name="rest_code_6df9f217e94d4ee49bcfc22f405e36f6-12"></a>            <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="mi">1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">4</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="mi">1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">4</span><span class="p">),</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
-<a name="rest_code_6df9f217e94d4ee49bcfc22f405e36f6-13"></a>    <span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span> <span class="o">=</span> <span class="n">eigsh</span><span class="p">(</span><span class="n">stiff</span><span class="o">/</span><span class="n">dx</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span>
-<a name="rest_code_6df9f217e94d4ee49bcfc22f405e36f6-14"></a>    <span class="k">return</span> <span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span><span class="p">,</span> <span class="n">x</span>
-<a name="rest_code_6df9f217e94d4ee49bcfc22f405e36f6-15"></a>
-<a name="rest_code_6df9f217e94d4ee49bcfc22f405e36f6-16"></a>
-<a name="rest_code_6df9f217e94d4ee49bcfc22f405e36f6-17"></a><span class="n">N</span> <span class="o">=</span> <span class="mi">1001</span>
-<a name="rest_code_6df9f217e94d4ee49bcfc22f405e36f6-18"></a><span class="n">nvals</span> <span class="o">=</span> <span class="mi">20</span>
-<a name="rest_code_6df9f217e94d4ee49bcfc22f405e36f6-19"></a><span class="n">nvecs</span> <span class="o">=</span> <span class="mi">4</span>
-<a name="rest_code_6df9f217e94d4ee49bcfc22f405e36f6-20"></a><span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">beam_FDM_eigs</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
-<a name="rest_code_6df9f217e94d4ee49bcfc22f405e36f6-21"></a>
-<a name="rest_code_6df9f217e94d4ee49bcfc22f405e36f6-22"></a><span class="c1">#%% Plotting</span>
-<a name="rest_code_6df9f217e94d4ee49bcfc22f405e36f6-23"></a><span class="n">num</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">nvals</span><span class="p">,</span> <span class="n">nvals</span><span class="p">)</span>
-<a name="rest_code_6df9f217e94d4ee49bcfc22f405e36f6-24"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"mathtext.fontset"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"cm"</span>
-<a name="rest_code_6df9f217e94d4ee49bcfc22f405e36f6-25"></a><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-<a name="rest_code_6df9f217e94d4ee49bcfc22f405e36f6-26"></a><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<a name="rest_code_6df9f217e94d4ee49bcfc22f405e36f6-27"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">vals</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">nvals</span><span class="p">]),</span> <span class="s2">"o"</span><span class="p">)</span>
-<a name="rest_code_6df9f217e94d4ee49bcfc22f405e36f6-28"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$N$"</span><span class="p">)</span>
-<a name="rest_code_6df9f217e94d4ee49bcfc22f405e36f6-29"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$\omega\sqrt{\frac{\lambda}</span><span class="si">{EI}</span><span class="s2">}$"</span><span class="p">)</span>
-<a name="rest_code_6df9f217e94d4ee49bcfc22f405e36f6-30"></a><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<a name="rest_code_6df9f217e94d4ee49bcfc22f405e36f6-31"></a><span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nvecs</span><span class="p">):</span>
-<a name="rest_code_6df9f217e94d4ee49bcfc22f405e36f6-32"></a>    <span class="n">vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
-<a name="rest_code_6df9f217e94d4ee49bcfc22f405e36f6-33"></a>    <span class="n">vec</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">vecs</span><span class="p">[:,</span> <span class="n">k</span><span class="p">]</span>
-<a name="rest_code_6df9f217e94d4ee49bcfc22f405e36f6-34"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">vec</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">'$n=</span><span class="si">%i</span><span class="s1">$'</span><span class="o">%</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
-<a name="rest_code_6df9f217e94d4ee49bcfc22f405e36f6-35"></a>
-<a name="rest_code_6df9f217e94d4ee49bcfc22f405e36f6-36"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$x$"</span><span class="p">)</span>
-<a name="rest_code_6df9f217e94d4ee49bcfc22f405e36f6-37"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$w$"</span><span class="p">)</span>
-<a name="rest_code_6df9f217e94d4ee49bcfc22f405e36f6-38"></a><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">ncol</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">framealpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<a name="rest_code_6df9f217e94d4ee49bcfc22f405e36f6-39"></a><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<a name="rest_code_6df9f217e94d4ee49bcfc22f405e36f6-40"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<pre class="code python"><a name="rest_code_915b3d977fcd4a3ba27b855cc831c3fd-1"></a><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span>
+<a name="rest_code_915b3d977fcd4a3ba27b855cc831c3fd-2"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<a name="rest_code_915b3d977fcd4a3ba27b855cc831c3fd-3"></a><span class="kn">from</span> <span class="nn">scipy.linalg</span> <span class="kn">import</span> <span class="n">eigh</span> <span class="k">as</span> <span class="n">eigsh</span>
+<a name="rest_code_915b3d977fcd4a3ba27b855cc831c3fd-4"></a><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<a name="rest_code_915b3d977fcd4a3ba27b855cc831c3fd-5"></a>
+<a name="rest_code_915b3d977fcd4a3ba27b855cc831c3fd-6"></a>
+<a name="rest_code_915b3d977fcd4a3ba27b855cc831c3fd-7"></a><span class="k">def</span> <span class="nf">beam_FDM_eigs</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+<a name="rest_code_915b3d977fcd4a3ba27b855cc831c3fd-8"></a>    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<a name="rest_code_915b3d977fcd4a3ba27b855cc831c3fd-9"></a>    <span class="n">dx</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<a name="rest_code_915b3d977fcd4a3ba27b855cc831c3fd-10"></a>    <span class="n">stiff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="mi">6</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">2</span><span class="p">))</span> <span class="o">-</span>\
+<a name="rest_code_915b3d977fcd4a3ba27b855cc831c3fd-11"></a>            <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">3</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">3</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span>\
+<a name="rest_code_915b3d977fcd4a3ba27b855cc831c3fd-12"></a>            <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="mi">1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">4</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="mi">1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">4</span><span class="p">),</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<a name="rest_code_915b3d977fcd4a3ba27b855cc831c3fd-13"></a>    <span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span> <span class="o">=</span> <span class="n">eigsh</span><span class="p">(</span><span class="n">stiff</span><span class="o">/</span><span class="n">dx</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span>
+<a name="rest_code_915b3d977fcd4a3ba27b855cc831c3fd-14"></a>    <span class="k">return</span> <span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span><span class="p">,</span> <span class="n">x</span>
+<a name="rest_code_915b3d977fcd4a3ba27b855cc831c3fd-15"></a>
+<a name="rest_code_915b3d977fcd4a3ba27b855cc831c3fd-16"></a>
+<a name="rest_code_915b3d977fcd4a3ba27b855cc831c3fd-17"></a><span class="n">N</span> <span class="o">=</span> <span class="mi">1001</span>
+<a name="rest_code_915b3d977fcd4a3ba27b855cc831c3fd-18"></a><span class="n">nvals</span> <span class="o">=</span> <span class="mi">20</span>
+<a name="rest_code_915b3d977fcd4a3ba27b855cc831c3fd-19"></a><span class="n">nvecs</span> <span class="o">=</span> <span class="mi">4</span>
+<a name="rest_code_915b3d977fcd4a3ba27b855cc831c3fd-20"></a><span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">beam_FDM_eigs</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<a name="rest_code_915b3d977fcd4a3ba27b855cc831c3fd-21"></a>
+<a name="rest_code_915b3d977fcd4a3ba27b855cc831c3fd-22"></a><span class="c1">#%% Plotting</span>
+<a name="rest_code_915b3d977fcd4a3ba27b855cc831c3fd-23"></a><span class="n">num</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">nvals</span><span class="p">,</span> <span class="n">nvals</span><span class="p">)</span>
+<a name="rest_code_915b3d977fcd4a3ba27b855cc831c3fd-24"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"mathtext.fontset"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"cm"</span>
+<a name="rest_code_915b3d977fcd4a3ba27b855cc831c3fd-25"></a><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<a name="rest_code_915b3d977fcd4a3ba27b855cc831c3fd-26"></a><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<a name="rest_code_915b3d977fcd4a3ba27b855cc831c3fd-27"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">vals</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">nvals</span><span class="p">]),</span> <span class="s2">"o"</span><span class="p">)</span>
+<a name="rest_code_915b3d977fcd4a3ba27b855cc831c3fd-28"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$N$"</span><span class="p">)</span>
+<a name="rest_code_915b3d977fcd4a3ba27b855cc831c3fd-29"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$\omega\sqrt{\frac{\lambda}</span><span class="si">{EI}</span><span class="s2">}$"</span><span class="p">)</span>
+<a name="rest_code_915b3d977fcd4a3ba27b855cc831c3fd-30"></a><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<a name="rest_code_915b3d977fcd4a3ba27b855cc831c3fd-31"></a><span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nvecs</span><span class="p">):</span>
+<a name="rest_code_915b3d977fcd4a3ba27b855cc831c3fd-32"></a>    <span class="n">vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<a name="rest_code_915b3d977fcd4a3ba27b855cc831c3fd-33"></a>    <span class="n">vec</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">vecs</span><span class="p">[:,</span> <span class="n">k</span><span class="p">]</span>
+<a name="rest_code_915b3d977fcd4a3ba27b855cc831c3fd-34"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">vec</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">'$n=</span><span class="si">%i</span><span class="s1">$'</span><span class="o">%</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+<a name="rest_code_915b3d977fcd4a3ba27b855cc831c3fd-35"></a>
+<a name="rest_code_915b3d977fcd4a3ba27b855cc831c3fd-36"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$x$"</span><span class="p">)</span>
+<a name="rest_code_915b3d977fcd4a3ba27b855cc831c3fd-37"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$w$"</span><span class="p">)</span>
+<a name="rest_code_915b3d977fcd4a3ba27b855cc831c3fd-38"></a><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">ncol</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">framealpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<a name="rest_code_915b3d977fcd4a3ba27b855cc831c3fd-39"></a><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<a name="rest_code_915b3d977fcd4a3ba27b855cc831c3fd-40"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre>
 </div>
 <div class="section" id="julia">
 <h3>Julia</h3>
-<pre class="code julia"><a name="rest_code_5772b0020cf74f6e8319b42ff2eaac91-1"></a><span class="k">using</span> <span class="n">PyPlot</span>
-<a name="rest_code_5772b0020cf74f6e8319b42ff2eaac91-2"></a>
-<a name="rest_code_5772b0020cf74f6e8319b42ff2eaac91-3"></a>
-<a name="rest_code_5772b0020cf74f6e8319b42ff2eaac91-4"></a><span class="k">function</span> <span class="n">beam_FDM_eigs</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
-<a name="rest_code_5772b0020cf74f6e8319b42ff2eaac91-5"></a>    <span class="n">x</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
-<a name="rest_code_5772b0020cf74f6e8319b42ff2eaac91-6"></a>    <span class="n">dx</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<a name="rest_code_5772b0020cf74f6e8319b42ff2eaac91-7"></a>    <span class="n">stiff</span> <span class="o">=</span> <span class="n">diagm</span><span class="p">(</span><span class="mi">6</span><span class="o">*</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">2</span><span class="p">))</span> <span class="o">-</span>
-<a name="rest_code_5772b0020cf74f6e8319b42ff2eaac91-8"></a>            <span class="n">diagm</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">3</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">diagm</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">3</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span>
-<a name="rest_code_5772b0020cf74f6e8319b42ff2eaac91-9"></a>            <span class="n">diagm</span><span class="p">(</span><span class="mi">1</span><span class="o">*</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">4</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">diagm</span><span class="p">(</span><span class="mi">1</span><span class="o">*</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">4</span><span class="p">),</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
-<a name="rest_code_5772b0020cf74f6e8319b42ff2eaac91-10"></a>    <span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span> <span class="o">=</span> <span class="n">eig</span><span class="p">(</span><span class="n">stiff</span><span class="o">/</span><span class="n">dx</span><span class="o">^</span><span class="mi">4</span><span class="p">)</span>
-<a name="rest_code_5772b0020cf74f6e8319b42ff2eaac91-11"></a>    <span class="k">return</span> <span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span><span class="p">,</span> <span class="n">x</span>
-<a name="rest_code_5772b0020cf74f6e8319b42ff2eaac91-12"></a><span class="k">end</span>
-<a name="rest_code_5772b0020cf74f6e8319b42ff2eaac91-13"></a>
-<a name="rest_code_5772b0020cf74f6e8319b42ff2eaac91-14"></a>
-<a name="rest_code_5772b0020cf74f6e8319b42ff2eaac91-15"></a><span class="n">N</span> <span class="o">=</span> <span class="mi">1001</span>
-<a name="rest_code_5772b0020cf74f6e8319b42ff2eaac91-16"></a><span class="n">nvals</span> <span class="o">=</span> <span class="mi">20</span>
-<a name="rest_code_5772b0020cf74f6e8319b42ff2eaac91-17"></a><span class="n">nvecs</span> <span class="o">=</span> <span class="mi">4</span>
-<a name="rest_code_5772b0020cf74f6e8319b42ff2eaac91-18"></a><span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">beam_FDM_eigs</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
-<a name="rest_code_5772b0020cf74f6e8319b42ff2eaac91-19"></a>
-<a name="rest_code_5772b0020cf74f6e8319b42ff2eaac91-20"></a><span class="c">#%% Plotting</span>
-<a name="rest_code_5772b0020cf74f6e8319b42ff2eaac91-21"></a><span class="n">num</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="n">nvals</span>
-<a name="rest_code_5772b0020cf74f6e8319b42ff2eaac91-22"></a><span class="c"># Missing line for setting the math font</span>
-<a name="rest_code_5772b0020cf74f6e8319b42ff2eaac91-23"></a><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-<a name="rest_code_5772b0020cf74f6e8319b42ff2eaac91-24"></a><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<a name="rest_code_5772b0020cf74f6e8319b42ff2eaac91-25"></a><span class="n">plot</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">sqrt</span><span class="o">.</span><span class="p">(</span><span class="n">vals</span><span class="p">[</span><span class="mi">1</span><span class="o">:</span><span class="n">nvals</span><span class="p">]),</span> <span class="s">"o"</span><span class="p">)</span>
-<a name="rest_code_5772b0020cf74f6e8319b42ff2eaac91-26"></a><span class="n">xlabel</span><span class="p">(</span><span class="n">L</span><span class="s">"</span><span class="si">$N</span><span class="s">$"</span><span class="p">)</span>
-<a name="rest_code_5772b0020cf74f6e8319b42ff2eaac91-27"></a><span class="n">ylabel</span><span class="p">(</span><span class="n">L</span><span class="s">"$\omega\sqrt{</span><span class="se">\f</span><span class="s">rac{\lambda}{EI}}$"</span><span class="p">)</span>
-<a name="rest_code_5772b0020cf74f6e8319b42ff2eaac91-28"></a><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<a name="rest_code_5772b0020cf74f6e8319b42ff2eaac91-29"></a><span class="k">for</span> <span class="n">k</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">nvecs</span>
-<a name="rest_code_5772b0020cf74f6e8319b42ff2eaac91-30"></a>    <span class="n">vec</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
-<a name="rest_code_5772b0020cf74f6e8319b42ff2eaac91-31"></a>    <span class="n">vec</span><span class="p">[</span><span class="mi">2</span><span class="o">:</span><span class="k">end</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">vecs</span><span class="p">[</span><span class="o">:</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span>
-<a name="rest_code_5772b0020cf74f6e8319b42ff2eaac91-32"></a>    <span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">vec</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"n=</span><span class="si">$</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="s">"</span><span class="p">)</span>
-<a name="rest_code_5772b0020cf74f6e8319b42ff2eaac91-33"></a><span class="k">end</span>
-<a name="rest_code_5772b0020cf74f6e8319b42ff2eaac91-34"></a>
-<a name="rest_code_5772b0020cf74f6e8319b42ff2eaac91-35"></a><span class="n">xlabel</span><span class="p">(</span><span class="n">L</span><span class="s">"</span><span class="si">$x</span><span class="s">$"</span><span class="p">)</span>
-<a name="rest_code_5772b0020cf74f6e8319b42ff2eaac91-36"></a><span class="n">ylabel</span><span class="p">(</span><span class="n">L</span><span class="s">"</span><span class="si">$w</span><span class="s">$"</span><span class="p">)</span>
-<a name="rest_code_5772b0020cf74f6e8319b42ff2eaac91-37"></a><span class="n">legend</span><span class="p">(</span><span class="n">ncol</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">framealpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<a name="rest_code_5772b0020cf74f6e8319b42ff2eaac91-38"></a><span class="n">tight_layout</span><span class="p">()</span>
-<a name="rest_code_5772b0020cf74f6e8319b42ff2eaac91-39"></a><span class="n">show</span><span class="p">()</span>
+<pre class="code julia"><a name="rest_code_8ae68b6f4c9d4ea6ba0e42e0acc0264d-1"></a><span class="k">using</span> <span class="n">PyPlot</span>
+<a name="rest_code_8ae68b6f4c9d4ea6ba0e42e0acc0264d-2"></a>
+<a name="rest_code_8ae68b6f4c9d4ea6ba0e42e0acc0264d-3"></a>
+<a name="rest_code_8ae68b6f4c9d4ea6ba0e42e0acc0264d-4"></a><span class="k">function</span> <span class="n">beam_FDM_eigs</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<a name="rest_code_8ae68b6f4c9d4ea6ba0e42e0acc0264d-5"></a>    <span class="n">x</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<a name="rest_code_8ae68b6f4c9d4ea6ba0e42e0acc0264d-6"></a>    <span class="n">dx</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<a name="rest_code_8ae68b6f4c9d4ea6ba0e42e0acc0264d-7"></a>    <span class="n">stiff</span> <span class="o">=</span> <span class="n">diagm</span><span class="p">(</span><span class="mi">6</span><span class="o">*</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">2</span><span class="p">))</span> <span class="o">-</span>
+<a name="rest_code_8ae68b6f4c9d4ea6ba0e42e0acc0264d-8"></a>            <span class="n">diagm</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">3</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">diagm</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">3</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span>
+<a name="rest_code_8ae68b6f4c9d4ea6ba0e42e0acc0264d-9"></a>            <span class="n">diagm</span><span class="p">(</span><span class="mi">1</span><span class="o">*</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">4</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">diagm</span><span class="p">(</span><span class="mi">1</span><span class="o">*</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">4</span><span class="p">),</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<a name="rest_code_8ae68b6f4c9d4ea6ba0e42e0acc0264d-10"></a>    <span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span> <span class="o">=</span> <span class="n">eig</span><span class="p">(</span><span class="n">stiff</span><span class="o">/</span><span class="n">dx</span><span class="o">^</span><span class="mi">4</span><span class="p">)</span>
+<a name="rest_code_8ae68b6f4c9d4ea6ba0e42e0acc0264d-11"></a>    <span class="k">return</span> <span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span><span class="p">,</span> <span class="n">x</span>
+<a name="rest_code_8ae68b6f4c9d4ea6ba0e42e0acc0264d-12"></a><span class="k">end</span>
+<a name="rest_code_8ae68b6f4c9d4ea6ba0e42e0acc0264d-13"></a>
+<a name="rest_code_8ae68b6f4c9d4ea6ba0e42e0acc0264d-14"></a>
+<a name="rest_code_8ae68b6f4c9d4ea6ba0e42e0acc0264d-15"></a><span class="n">N</span> <span class="o">=</span> <span class="mi">1001</span>
+<a name="rest_code_8ae68b6f4c9d4ea6ba0e42e0acc0264d-16"></a><span class="n">nvals</span> <span class="o">=</span> <span class="mi">20</span>
+<a name="rest_code_8ae68b6f4c9d4ea6ba0e42e0acc0264d-17"></a><span class="n">nvecs</span> <span class="o">=</span> <span class="mi">4</span>
+<a name="rest_code_8ae68b6f4c9d4ea6ba0e42e0acc0264d-18"></a><span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">beam_FDM_eigs</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<a name="rest_code_8ae68b6f4c9d4ea6ba0e42e0acc0264d-19"></a>
+<a name="rest_code_8ae68b6f4c9d4ea6ba0e42e0acc0264d-20"></a><span class="c">#%% Plotting</span>
+<a name="rest_code_8ae68b6f4c9d4ea6ba0e42e0acc0264d-21"></a><span class="n">num</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="n">nvals</span>
+<a name="rest_code_8ae68b6f4c9d4ea6ba0e42e0acc0264d-22"></a><span class="c"># Missing line for setting the math font</span>
+<a name="rest_code_8ae68b6f4c9d4ea6ba0e42e0acc0264d-23"></a><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<a name="rest_code_8ae68b6f4c9d4ea6ba0e42e0acc0264d-24"></a><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<a name="rest_code_8ae68b6f4c9d4ea6ba0e42e0acc0264d-25"></a><span class="n">plot</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">sqrt</span><span class="o">.</span><span class="p">(</span><span class="n">vals</span><span class="p">[</span><span class="mi">1</span><span class="o">:</span><span class="n">nvals</span><span class="p">]),</span> <span class="s">"o"</span><span class="p">)</span>
+<a name="rest_code_8ae68b6f4c9d4ea6ba0e42e0acc0264d-26"></a><span class="n">xlabel</span><span class="p">(</span><span class="n">L</span><span class="s">"</span><span class="si">$N</span><span class="s">$"</span><span class="p">)</span>
+<a name="rest_code_8ae68b6f4c9d4ea6ba0e42e0acc0264d-27"></a><span class="n">ylabel</span><span class="p">(</span><span class="n">L</span><span class="s">"$\omega\sqrt{</span><span class="se">\f</span><span class="s">rac{\lambda}{EI}}$"</span><span class="p">)</span>
+<a name="rest_code_8ae68b6f4c9d4ea6ba0e42e0acc0264d-28"></a><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<a name="rest_code_8ae68b6f4c9d4ea6ba0e42e0acc0264d-29"></a><span class="k">for</span> <span class="n">k</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">nvecs</span>
+<a name="rest_code_8ae68b6f4c9d4ea6ba0e42e0acc0264d-30"></a>    <span class="n">vec</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<a name="rest_code_8ae68b6f4c9d4ea6ba0e42e0acc0264d-31"></a>    <span class="n">vec</span><span class="p">[</span><span class="mi">2</span><span class="o">:</span><span class="k">end</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">vecs</span><span class="p">[</span><span class="o">:</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span>
+<a name="rest_code_8ae68b6f4c9d4ea6ba0e42e0acc0264d-32"></a>    <span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">vec</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"n=</span><span class="si">$</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="s">"</span><span class="p">)</span>
+<a name="rest_code_8ae68b6f4c9d4ea6ba0e42e0acc0264d-33"></a><span class="k">end</span>
+<a name="rest_code_8ae68b6f4c9d4ea6ba0e42e0acc0264d-34"></a>
+<a name="rest_code_8ae68b6f4c9d4ea6ba0e42e0acc0264d-35"></a><span class="n">xlabel</span><span class="p">(</span><span class="n">L</span><span class="s">"</span><span class="si">$x</span><span class="s">$"</span><span class="p">)</span>
+<a name="rest_code_8ae68b6f4c9d4ea6ba0e42e0acc0264d-36"></a><span class="n">ylabel</span><span class="p">(</span><span class="n">L</span><span class="s">"</span><span class="si">$w</span><span class="s">$"</span><span class="p">)</span>
+<a name="rest_code_8ae68b6f4c9d4ea6ba0e42e0acc0264d-37"></a><span class="n">legend</span><span class="p">(</span><span class="n">ncol</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">framealpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<a name="rest_code_8ae68b6f4c9d4ea6ba0e42e0acc0264d-38"></a><span class="n">tight_layout</span><span class="p">()</span>
+<a name="rest_code_8ae68b6f4c9d4ea6ba0e42e0acc0264d-39"></a><span class="n">show</span><span class="p">()</span>
 </pre>
-<p>Both have (almost) the same result, as follows</p>
-<img alt="Vibration modes of an encastred beam." class="align-center" src="../../../images/beam_modes.svg" style="width: 800px;">
+<p>Ambos tienen (casi) el mismo resultado, presentado a continuación</p>
+<img alt="Modos de vibración de una viga empotrada." class="align-center" src="../../../images/beam_modes.svg" style="width: 800px;">
 </div>
-<div class="section" id="comparison-python-julia">
-<h3>Comparison Python/Julia</h3>
-<p>Regarding number of lines we have: 40 in Python and 39 in Julia. The comparison
-in execution time is done with <code class="docutils literal">%timeit</code> magic command in IPython and
-<code class="docutils literal">@benchmark</code> in Julia.</p>
-<p>For Python:</p>
-<pre class="code IPython"><a name="rest_code_6588133077fc48c0be8b723c4776151c-1"></a><span class="o">%</span><span class="k">timeit</span> beam_FDM_eigs(1.0, N)
+<div class="section" id="comparacion-python-julia">
+<h3>Comparación Python/Julia</h3>
+<p>Respecto al número de líneas tenemos: 40 en Python y 39 en Julia.  La comparación
+en tiempo de ejecución se realizó con el comando mágico de IPython <code class="docutils literal">%timeit</code>
+y con <code class="docutils literal">@benchmark</code> en Julia.</p>
+<p>Para Python:</p>
+<pre class="code IPython"><a name="rest_code_073e18e8990b4c128b9890a53fed3b67-1"></a><span class="o">%</span><span class="k">timeit</span> beam_FDM_eigs(1.0, N)
 </pre>
-<p>with result</p>
-<pre class="code text"><a name="rest_code_fd64e074ecfc45c79bfac7e7c6d5a7e0-1"></a>10 loops, best of 3: 196 ms per loop
+<p>con resultado</p>
+<pre class="code text"><a name="rest_code_47ddbaa1dbe348a88a929f954218d8ef-1"></a>10 loops, best of 3: 196 ms per loop
 </pre>
-<p>For Julia:</p>
-<pre class="code julia"><a name="rest_code_c08937a4f0964cefb80487c447f8b080-1"></a><span class="nd">@benchmark</span> <span class="n">beam_FDM_eigs</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<p>Para Julia:</p>
+<pre class="code julia"><a name="rest_code_b2516f1c43264d06a5a98630e2ed5a1e-1"></a><span class="nd">@benchmark</span> <span class="n">beam_FDM_eigs</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
 </pre>
-<p>with result</p>
-<pre class="code julia"><a name="rest_code_871f1425f3b8480fa6b28f58fdb19b4e-1"></a><span class="n">BenchmarkTools</span><span class="o">.</span><span class="n">Trial</span><span class="o">:</span>
-<a name="rest_code_871f1425f3b8480fa6b28f58fdb19b4e-2"></a>  <span class="n">memory</span> <span class="n">estimate</span><span class="o">:</span>  <span class="mf">99.42</span> <span class="n">MiB</span>
-<a name="rest_code_871f1425f3b8480fa6b28f58fdb19b4e-3"></a>  <span class="n">allocs</span> <span class="n">estimate</span><span class="o">:</span>  <span class="mi">55</span>
-<a name="rest_code_871f1425f3b8480fa6b28f58fdb19b4e-4"></a>  <span class="o">--------------</span>
-<a name="rest_code_871f1425f3b8480fa6b28f58fdb19b4e-5"></a>  <span class="n">minimum</span> <span class="n">time</span><span class="o">:</span>     <span class="mf">665.152</span> <span class="n">ms</span> <span class="p">(</span><span class="mf">17.14</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
-<a name="rest_code_871f1425f3b8480fa6b28f58fdb19b4e-6"></a>  <span class="n">median</span> <span class="n">time</span><span class="o">:</span>      <span class="mf">775.441</span> <span class="n">ms</span> <span class="p">(</span><span class="mf">21.76</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
-<a name="rest_code_871f1425f3b8480fa6b28f58fdb19b4e-7"></a>  <span class="n">mean</span> <span class="n">time</span><span class="o">:</span>        <span class="mf">853.401</span> <span class="n">ms</span> <span class="p">(</span><span class="mf">16.86</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
-<a name="rest_code_871f1425f3b8480fa6b28f58fdb19b4e-8"></a>  <span class="n">maximum</span> <span class="n">time</span><span class="o">:</span>     <span class="mf">1.236</span> <span class="n">s</span> <span class="p">(</span><span class="mf">15.68</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
-<a name="rest_code_871f1425f3b8480fa6b28f58fdb19b4e-9"></a>  <span class="o">--------------</span>
-<a name="rest_code_871f1425f3b8480fa6b28f58fdb19b4e-10"></a>  <span class="n">samples</span><span class="o">:</span>          <span class="mi">6</span>
-<a name="rest_code_871f1425f3b8480fa6b28f58fdb19b4e-11"></a>  <span class="n">evals</span><span class="o">/</span><span class="n">sample</span><span class="o">:</span>     <span class="mi">1</span>
+<p>con resultado</p>
+<pre class="code julia"><a name="rest_code_69cf5f70dc114c20b1e706eff281e27a-1"></a><span class="n">BenchmarkTools</span><span class="o">.</span><span class="n">Trial</span><span class="o">:</span>
+<a name="rest_code_69cf5f70dc114c20b1e706eff281e27a-2"></a>  <span class="n">memory</span> <span class="n">estimate</span><span class="o">:</span>  <span class="mf">99.42</span> <span class="n">MiB</span>
+<a name="rest_code_69cf5f70dc114c20b1e706eff281e27a-3"></a>  <span class="n">allocs</span> <span class="n">estimate</span><span class="o">:</span>  <span class="mi">55</span>
+<a name="rest_code_69cf5f70dc114c20b1e706eff281e27a-4"></a>  <span class="o">--------------</span>
+<a name="rest_code_69cf5f70dc114c20b1e706eff281e27a-5"></a>  <span class="n">minimum</span> <span class="n">time</span><span class="o">:</span>     <span class="mf">665.152</span> <span class="n">ms</span> <span class="p">(</span><span class="mf">17.14</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
+<a name="rest_code_69cf5f70dc114c20b1e706eff281e27a-6"></a>  <span class="n">median</span> <span class="n">time</span><span class="o">:</span>      <span class="mf">775.441</span> <span class="n">ms</span> <span class="p">(</span><span class="mf">21.76</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
+<a name="rest_code_69cf5f70dc114c20b1e706eff281e27a-7"></a>  <span class="n">mean</span> <span class="n">time</span><span class="o">:</span>        <span class="mf">853.401</span> <span class="n">ms</span> <span class="p">(</span><span class="mf">16.86</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
+<a name="rest_code_69cf5f70dc114c20b1e706eff281e27a-8"></a>  <span class="n">maximum</span> <span class="n">time</span><span class="o">:</span>     <span class="mf">1.236</span> <span class="n">s</span> <span class="p">(</span><span class="mf">15.68</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
+<a name="rest_code_69cf5f70dc114c20b1e706eff281e27a-9"></a>  <span class="o">--------------</span>
+<a name="rest_code_69cf5f70dc114c20b1e706eff281e27a-10"></a>  <span class="n">samples</span><span class="o">:</span>          <span class="mi">6</span>
+<a name="rest_code_69cf5f70dc114c20b1e706eff281e27a-11"></a>  <span class="n">evals</span><span class="o">/</span><span class="n">sample</span><span class="o">:</span>     <span class="mi">1</span>
 </pre>
-<p>In this case, we can say that the Python code is roughly 4 times faster than
-Julia.</p>
+<p>En este caso, podemos decir que el código de Python es alrededor de 4
+veces más rápido que el de Julia.</p>
 </div>
 </div>
 </div>
     </div>
     <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
-<li><a class="tag p-category" href="../../categories/finite-differences/" rel="tag">finite differences</a></li>
+<li><a class="tag p-category" href="../../categories/computacion-cientifica/" rel="tag">computación científica</a></li>
+            <li><a class="tag p-category" href="../../categories/diferencias-finitas/" rel="tag">diferencias finitas</a></li>
             <li><a class="tag p-category" href="../../categories/julia/" rel="tag">julia</a></li>
-            <li><a class="tag p-category" href="../../categories/numerical-methods/" rel="tag">numerical methods</a></li>
+            <li><a class="tag p-category" href="../../categories/metodos-numericos/" rel="tag">métodos numéricos</a></li>
             <li><a class="tag p-category" href="../../categories/python/" rel="tag">python</a></li>
-            <li><a class="tag p-category" href="../../categories/scientific-computing/" rel="tag">scientific computing</a></li>
         </ul>
 <ul class="pager hidden-print">
 <li class="previous">
-                <a href="../numerical-21/" rel="prev" title="Numerical methods challenge: Day 21">Publicación anterior</a>
+                <a href="../numerical-21/" rel="prev" title="Reto de métodos numéricos: Día 21">Publicación anterior</a>
             </li>
             <li class="next">
-                <a href="../numerical-23/" rel="next" title="Numerical methods challenge: Day 23">Siguiente publicación</a>
+                <a href="../numerical-23/" rel="next" title="Reto de métodos numéricos: Día 23">Siguiente publicación</a>
             </li>
         </ul></nav></aside><section class="comments hidden-print"><h2>Comentarios</h2>
         
@@ -244,7 +250,7 @@ Julia.</p>
         <script>
         var disqus_shortname ="nicoguaro-github",
             disqus_url="https://nicoguaro.github.io/es/posts/numerical-22/",
-        disqus_title="Numerical methods challenge: Day 22",
+        disqus_title="Reto de m\u00e9todos num\u00e9ricos: D\u00eda 22",
         disqus_identifier="cache/posts/numerical-22.html",
         disqus_config = function () {
             this.language = "es_ES";

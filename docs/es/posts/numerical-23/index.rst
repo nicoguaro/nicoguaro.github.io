@@ -1,52 +1,53 @@
-.. title: Numerical methods challenge: Day 23
+.. title: Reto de métodos numéricos: Día 23
 .. slug: numerical-23
 .. date: 2017-10-23 20:30:03 UTC-05:00
-.. tags: numerical methods, python, julia, scientific computing, ritz method
+.. tags: métodos numéricos, python, julia, computación científica, método de ritz
 .. type: text
 .. has_math: yes
 
-During October (2017) I will write a program per day for some well-known
-numerical methods in both Python and Julia. It is intended to be an exercise
-then don't expect the code to be good enough for real use. Also,
-I should mention that I have almost no experience with Julia, so it
-probably won't be idiomatic Julia but more Python-like Julia.
+Durante octubre (2017) estaré escribiendo un programa por día para algunos
+métodos numéricos famosos en Python y Julia. Esto está pensado como
+un ejercicio, no esperen que el código sea lo suficientemente bueno para
+usarse en la "vida real". Además, también debo mencionar que casi que no
+tengo experiencia con Julia, así que probablemente no escriba un Julia
+idiomático y se parezca más a Python.
 
-Ritz method
-===========
+Método de Ritz
+==============
 
-Today we have the `Ritz method <https://en.wikipedia.org/wiki/Ritz_method>`_
-to solve the equation:
+Hoy tenemos el `método de Ritz <https://en.wikipedia.org/wiki/Ritz_method>`_
+para resolver la ecuación:
 
 .. math::
 
     \frac{d^2 u}{dx^2} = f(x)
 
-with
+con
 
 .. math::
 
     u(0) = u(1)  = 0
 
-The method consist in forming a functional that is *equivalent* to the
-differential equation, propose an approximation as a linear combination of
-a set of basis functions and find the *best* set of coefficients for that
-combination. That *best* solution is found minimizing the functional.
+El método consiste en formar un funcional que es *equivalente* a la ecuación
+diferencial, proponer una aproximación como una combinación lineal de un 
+conjunto de funciones base y encontrar el *mejor* conjunto de coeficientes
+para esta combinación. Este *mejor* solución se encuentra minimizando el 
+funcional.
 
-The functional for this differential equation is
+El funcional para esta ecuación diferencial es
 
 .. math::
 
     \Pi[u] = -\int_{0}^{1} \left(\frac{d u}{d x}\right)^2 dx
              -\int_{0}^{1}  u f(x) dx
 
-In this case, we are using the approximation
+En este caso, estamos usando la aproximación
 
 .. math::
     \hat{u}(x) = x (1 - x)\sum_{n=0}^{N} c_n x^n\, ,
 
-where we picked the factor :math:`x (1 - x)` to enforce that the basis
-functions satisfy the boundary conditions. The approximated functional
-reads
+en donde escogimos el factor :math:`x (1 - x)` para forzar que las funciones
+satisfagan las condiciones de frontera. El funcional aproximado es
 
 .. math::
 
@@ -54,42 +55,42 @@ reads
         \left[\frac{2 + 2m + 2n + 2mn}{(n + m + 1)(n + m + 2)(n + m +3)}\right]
         -\\ \sum_{n=0}^{N} c_n\int_{0}^{1} x^{n + 1}(1 - x) f(x) dx
 
-where, in general, we will need to perform numerical integration for the
-second term.
+en donde, en general, necesitamos realizar una integración numérica para el
+segundo término.
 
-Minimizing the functional
+Minimizando el funcional
 
 .. math::
 
     \frac{\partial \Pi[\hat{u}]}{\partial c_m} = 0\, ,
 
-we obtain the system of equations
+obtenmos el siguiente sistema de ecuaciones
 
 .. math::
 
     [K]\{\mathbf{c}\} = \{\mathbf{b}\}
 
-with
+con
 
 .. math::
 
     K_{mn} = \frac{2 + 2m + 2n + 2mn}{(n + m + 1)(n + m + 2)(n + m +3)}
 
-abd
+y
 
 .. math::
 
     b_m = -\int_{0}^{1} x^{m + 1}(1 - x) f(x) dx\, .
 
-We will test the implementation with the function :math:`f(x) = x^3`, that
-leads to the solution
+Probaremos la implementación con la función :math:`f(x) = x^3`, que
+lleva a la solución
 
 .. math::
 
     u(x) = \frac{x (x^4 - 1)}{20}
 
 
-Following are the codes.
+A continuación se presenta el código.
 
 Python
 ------
@@ -182,29 +183,29 @@ Julia
     tight_layout()
     show()
 
-Both have (almost) the same result, as follows
+Ambos tiene (casi) el mismo resultado y se muestra a continuación
 
 .. image:: /images/ritz.svg
    :width: 400 px
-   :alt: Ritz method approximation using 2 terms.
+   :alt: Método de Ritz usando 2 términos.
    :align:  center
 
-And if we consider 3 terms in the expansion, we get
+Y si consideramos 3 términos en la expansion, obtenemos
 
 .. image:: /images/ritz-N-3.svg
    :width: 400 px
-   :alt: Ritz method approximation using 3 terms.
+   :alt: Método de Ritz usando 3 términos.
    :align:  center
 
 
-Comparison Python/Julia
------------------------
+Comparación Python/Julia
+------------------------
 
-Regarding number of lines we have: 38 in Python and 38 in Julia. The comparison
-in execution time is done with ``%timeit`` magic command in IPython and
-``@benchmark`` in Julia.
+Respecto al número de líneas tenemos: 38 en Python y 38 en Julia.  La comparación
+en tiempo de ejecución se realizó con el comando mágico de IPython ``%timeit``
+y con ``@benchmark`` en Julia.
 
-For Python:
+Para Python:
 
 .. code:: IPython
 
@@ -212,14 +213,14 @@ For Python:
     mat, rhs = ritz(5, source)
     c = solve(mat, -rhs)
 
-with result
+con resultado
 
 .. code::
 
      1000 loops, best of 3: 228 µs per loop
 
 
-For Julia:
+Para Julia:
 
 .. code:: julia
 
@@ -230,9 +231,7 @@ For Julia:
     @benchmark bench()
 
 
-
-
-with result
+con resultado
 
 .. code:: julia
 
@@ -248,5 +247,5 @@ with result
       samples:          10000
       evals/sample:     1
 
-In this case, we can say that the Python code is roughly 14 times slowe than
-Julia.
+En este caso, podemos decir que el código de Python es alrededor de 14 veces
+más lento que el de Julia.

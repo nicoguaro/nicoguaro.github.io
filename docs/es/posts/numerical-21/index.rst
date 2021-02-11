@@ -1,37 +1,38 @@
-.. title: Numerical methods challenge: Day 21
+.. title: Reto de métodos numéricos: Día 21
 .. slug: numerical-21
 .. date: 2017-10-21 14:57:55 UTC-05:00
-.. tags: numerical methods, python, julia, scientific computing, pde, finite differences
+.. tags: métodos numéricos, python, julia, computación científica, edp, diferencias finitas
 .. category: Scientific Computing
 .. type: text
 .. has_math: yes
 
-During October (2017) I will write a program per day for some well-known
-numerical methods in both Python and Julia. It is intended to be an exercise
-then don't expect the code to be good enough for real use. Also,
-I should mention that I have almost no experience with Julia, so it
-probably won't be idiomatic Julia but more Python-like Julia.
+Durante octubre (2017) estaré escribiendo un programa por día para algunos
+métodos numéricos famosos en Python y Julia. Esto está pensado como
+un ejercicio, no esperen que el código sea lo suficientemente bueno para
+usarse en la "vida real". Además, también debo mencionar que casi que no
+tengo experiencia con Julia, así que probablemente no escriba un Julia
+idiomático y se parezca más a Python.
 
-Jacobi iteration
-================
+Itearación de Jacobi
+====================
 
-Today we have a `Finite difference method <https://en.wikipedia.org/wiki/Finite_difference_method>`_
-combined with `Jacobi method <https://en.wikipedia.org/wiki/Jacobi_method>`_
-We are solving the Laplace equation.
+Hoy tenemos el `método de diferencias finitas
+<https://en.wikipedia.org/wiki/Finite_difference_method>`_ combinado con
+el `método de Jacobi <https://en.wikipedia.org/wiki/Jacobi_method>`_.
+Vamos a resolver la ecuación de Laplace.
 
 .. math::
 
     \nabla^ 2 u = 0
 
-with
+con
 
 .. math::
     
     u(0, y) = 1 -y,\quad u(x, 0) = 1 - x,\\
     u(1, y) = u(x, 1) = 0
 
-
-Following are the codes.
+A continuación se presenta el código.
 
 Python
 ------
@@ -133,37 +134,37 @@ Julia
 
 .. image:: /images/jacobi_heat.svg
    :width: 600 px
-   :alt: Solution of the differential equation that satisfy the boundary conditions.
+   :alt: Solución de la ecuación diferencial que satisface las condicionse de frontera.
    :align:  center
 
 
-Comparison Python/Julia
------------------------
+Comparación Python/Julia
+------------------------
 
-Regarding number of lines we have: 40 in Python and 45 in Julia. The comparison
-in execution time is done with ``%timeit`` magic command in IPython and
-``@benchmark`` in Julia.
+Respecto al número de líneas tenemos: 40 en Python y 45 en Julia.  La comparación
+en tiempo de ejecución se realizó con el comando mágico de IPython ``%timeit``
+y con ``@benchmark`` en Julia.
 
-For Python:
+Para Python:
 
 .. code:: IPython
 
     %timeit jacobi(u0, heat_FDM, tol=1e-12, niter=1000)
 
-with result
+con resultado
 
 .. code::
 
     10 loops, best of 3: 29.6 ms per loop
 
-For Julia:
+Para Julia:
 
 .. code:: julia
 
     @benchmark jacobi(u0, heat_FDM, tol=1e-12, niter=1000)
 
 
-with result
+con resultado
 
 .. code:: julia
 
@@ -180,5 +181,5 @@ with result
       evals/sample:     1
 
 
-In this case, we can say that the Python code is roughly 10 times faster than
-Julia.
+En este caso, podemos decir que el código de Python es alrededor de 10 veces
+más rápido que el de Julia.

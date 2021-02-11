@@ -75,7 +75,7 @@ with
 
     K_{mn} = \frac{2 + 2m + 2n + 2mn}{(n + m + 1)(n + m + 2)(n + m +3)}
 
-abd
+and
 
 .. math::
 
@@ -248,5 +248,5 @@ with result
       samples:          10000
       evals/sample:     1
 
-In this case, we can say that the Python code is roughly 14 times slowe than
+In this case, we can say that the Python code is roughly 14 times slower than
 Julia.
