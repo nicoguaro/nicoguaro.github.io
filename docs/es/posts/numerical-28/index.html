@@ -9,7 +9,7 @@
 <link rel="alternate" type="application/rss+xml" title="RSS (en)" href="../../../rss.xml">
 <link rel="alternate" type="application/rss+xml" title="RSS (es)" href="../../rss.xml">
 <link rel="canonical" href="https://nicoguaro.github.io/es/posts/numerical-28/">
-<!--[if lt IE 9]><script src="../../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Nicolás Guarín-Zapata">
+<!--[if lt IE 9]><script src="../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Nicolás Guarín-Zapata">
 <link rel="prev" href="../numerical-27/" title="Reto de métodos numéricos: Día 27" type="text/html">
 <link rel="next" href="../numerical-29/" title="Reto de métodos numéricos: Día 29" type="text/html">
 <meta property="og:site_name" content="Nicolás' blog">
@@ -99,55 +99,55 @@ gaussiana en matrices.</p>
 <p>A continuación el código.</p>
 <div class="section" id="python">
 <h3>Python</h3>
-<pre class="code python"><a name="rest_code_bc99157059be4fa098d2124ad6686777-1"></a><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span>
-<a name="rest_code_bc99157059be4fa098d2124ad6686777-2"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<a name="rest_code_bc99157059be4fa098d2124ad6686777-3"></a>
-<a name="rest_code_bc99157059be4fa098d2124ad6686777-4"></a>
-<a name="rest_code_bc99157059be4fa098d2124ad6686777-5"></a><span class="k">def</span> <span class="nf">LU</span><span class="p">(</span><span class="n">mat</span><span class="p">):</span>
-<a name="rest_code_bc99157059be4fa098d2124ad6686777-6"></a>    <span class="n">m</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">mat</span><span class="o">.</span><span class="n">shape</span>
-<a name="rest_code_bc99157059be4fa098d2124ad6686777-7"></a>    <span class="n">mat</span> <span class="o">=</span> <span class="n">mat</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<a name="rest_code_bc99157059be4fa098d2124ad6686777-8"></a>    <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
-<a name="rest_code_bc99157059be4fa098d2124ad6686777-9"></a>        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">col</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">m</span><span class="p">):</span>
-<a name="rest_code_bc99157059be4fa098d2124ad6686777-10"></a>            <span class="k">if</span> <span class="n">mat</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span> <span class="o">!=</span> <span class="mf">0.0</span><span class="p">:</span>
-<a name="rest_code_bc99157059be4fa098d2124ad6686777-11"></a>                <span class="n">lam</span> <span class="o">=</span> <span class="n">mat</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span><span class="o">/</span><span class="n">mat</span><span class="p">[</span><span class="n">col</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span>
-<a name="rest_code_bc99157059be4fa098d2124ad6686777-12"></a>                <span class="n">mat</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:</span><span class="n">m</span><span class="p">]</span> <span class="o">=</span> <span class="n">mat</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:</span><span class="n">m</span><span class="p">]</span> <span class="o">-</span>\
-<a name="rest_code_bc99157059be4fa098d2124ad6686777-13"></a>                                      <span class="n">lam</span> <span class="o">*</span> <span class="n">mat</span><span class="p">[</span><span class="n">col</span><span class="p">,</span> <span class="n">col</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:</span><span class="n">m</span><span class="p">]</span>
-<a name="rest_code_bc99157059be4fa098d2124ad6686777-14"></a>                <span class="n">mat</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">lam</span>
-<a name="rest_code_bc99157059be4fa098d2124ad6686777-15"></a>    <span class="k">return</span> <span class="n">mat</span>
-<a name="rest_code_bc99157059be4fa098d2124ad6686777-16"></a>
-<a name="rest_code_bc99157059be4fa098d2124ad6686777-17"></a>
-<a name="rest_code_bc99157059be4fa098d2124ad6686777-18"></a><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
-<a name="rest_code_bc99157059be4fa098d2124ad6686777-19"></a>    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
-<a name="rest_code_bc99157059be4fa098d2124ad6686777-20"></a>    <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-<a name="rest_code_bc99157059be4fa098d2124ad6686777-21"></a>    <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
-<a name="rest_code_bc99157059be4fa098d2124ad6686777-22"></a>    <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
-<a name="rest_code_bc99157059be4fa098d2124ad6686777-23"></a><span class="n">B</span> <span class="o">=</span> <span class="n">LU</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<pre class="code python"><a name="rest_code_62ca340ccb13415586ee5d182a7da411-1"></a><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span>
+<a name="rest_code_62ca340ccb13415586ee5d182a7da411-2"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<a name="rest_code_62ca340ccb13415586ee5d182a7da411-3"></a>
+<a name="rest_code_62ca340ccb13415586ee5d182a7da411-4"></a>
+<a name="rest_code_62ca340ccb13415586ee5d182a7da411-5"></a><span class="k">def</span> <span class="nf">LU</span><span class="p">(</span><span class="n">mat</span><span class="p">):</span>
+<a name="rest_code_62ca340ccb13415586ee5d182a7da411-6"></a>    <span class="n">m</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">mat</span><span class="o">.</span><span class="n">shape</span>
+<a name="rest_code_62ca340ccb13415586ee5d182a7da411-7"></a>    <span class="n">mat</span> <span class="o">=</span> <span class="n">mat</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<a name="rest_code_62ca340ccb13415586ee5d182a7da411-8"></a>    <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+<a name="rest_code_62ca340ccb13415586ee5d182a7da411-9"></a>        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">col</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">m</span><span class="p">):</span>
+<a name="rest_code_62ca340ccb13415586ee5d182a7da411-10"></a>            <span class="k">if</span> <span class="n">mat</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span> <span class="o">!=</span> <span class="mf">0.0</span><span class="p">:</span>
+<a name="rest_code_62ca340ccb13415586ee5d182a7da411-11"></a>                <span class="n">lam</span> <span class="o">=</span> <span class="n">mat</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span><span class="o">/</span><span class="n">mat</span><span class="p">[</span><span class="n">col</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span>
+<a name="rest_code_62ca340ccb13415586ee5d182a7da411-12"></a>                <span class="n">mat</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:</span><span class="n">m</span><span class="p">]</span> <span class="o">=</span> <span class="n">mat</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:</span><span class="n">m</span><span class="p">]</span> <span class="o">-</span>\
+<a name="rest_code_62ca340ccb13415586ee5d182a7da411-13"></a>                                      <span class="n">lam</span> <span class="o">*</span> <span class="n">mat</span><span class="p">[</span><span class="n">col</span><span class="p">,</span> <span class="n">col</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:</span><span class="n">m</span><span class="p">]</span>
+<a name="rest_code_62ca340ccb13415586ee5d182a7da411-14"></a>                <span class="n">mat</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">lam</span>
+<a name="rest_code_62ca340ccb13415586ee5d182a7da411-15"></a>    <span class="k">return</span> <span class="n">mat</span>
+<a name="rest_code_62ca340ccb13415586ee5d182a7da411-16"></a>
+<a name="rest_code_62ca340ccb13415586ee5d182a7da411-17"></a>
+<a name="rest_code_62ca340ccb13415586ee5d182a7da411-18"></a><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+<a name="rest_code_62ca340ccb13415586ee5d182a7da411-19"></a>    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+<a name="rest_code_62ca340ccb13415586ee5d182a7da411-20"></a>    <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+<a name="rest_code_62ca340ccb13415586ee5d182a7da411-21"></a>    <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+<a name="rest_code_62ca340ccb13415586ee5d182a7da411-22"></a>    <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+<a name="rest_code_62ca340ccb13415586ee5d182a7da411-23"></a><span class="n">B</span> <span class="o">=</span> <span class="n">LU</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 </pre>
 </div>
 <div class="section" id="julia">
 <h3>Julia</h3>
-<pre class="code julia"><a name="rest_code_f615432b8a6b437b85074ac2d9adffd9-1"></a><span class="k">function</span> <span class="n">LU</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
-<a name="rest_code_f615432b8a6b437b85074ac2d9adffd9-2"></a>    <span class="n">m</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">size</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
-<a name="rest_code_f615432b8a6b437b85074ac2d9adffd9-3"></a>    <span class="n">mat</span> <span class="o">=</span> <span class="n">copy</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
-<a name="rest_code_f615432b8a6b437b85074ac2d9adffd9-4"></a>    <span class="k">for</span> <span class="n">col</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="n">m</span> <span class="o">-</span> <span class="mi">2</span>
-<a name="rest_code_f615432b8a6b437b85074ac2d9adffd9-5"></a>        <span class="k">for</span> <span class="n">row</span> <span class="o">=</span> <span class="n">col</span> <span class="o">+</span> <span class="mi">1</span><span class="o">:</span><span class="n">m</span>
-<a name="rest_code_f615432b8a6b437b85074ac2d9adffd9-6"></a>            <span class="k">if</span> <span class="n">mat</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span> <span class="o">!=</span> <span class="mf">0.0</span>
-<a name="rest_code_f615432b8a6b437b85074ac2d9adffd9-7"></a>                <span class="n">lam</span> <span class="o">=</span> <span class="n">mat</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span><span class="o">/</span><span class="n">mat</span><span class="p">[</span><span class="n">col</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span>
-<a name="rest_code_f615432b8a6b437b85074ac2d9adffd9-8"></a>                <span class="n">mat</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span> <span class="o">+</span> <span class="mi">1</span><span class="o">:</span><span class="n">m</span><span class="p">]</span> <span class="o">=</span> <span class="n">mat</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span> <span class="o">+</span> <span class="mi">1</span><span class="o">:</span><span class="n">m</span><span class="p">]</span> <span class="o">-</span>
-<a name="rest_code_f615432b8a6b437b85074ac2d9adffd9-9"></a>                                      <span class="n">lam</span> <span class="o">*</span> <span class="n">mat</span><span class="p">[</span><span class="n">col</span><span class="p">,</span> <span class="n">col</span> <span class="o">+</span> <span class="mi">1</span><span class="o">:</span><span class="n">m</span><span class="p">]</span>
-<a name="rest_code_f615432b8a6b437b85074ac2d9adffd9-10"></a>                <span class="n">mat</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">lam</span>
-<a name="rest_code_f615432b8a6b437b85074ac2d9adffd9-11"></a>            <span class="k">end</span>
-<a name="rest_code_f615432b8a6b437b85074ac2d9adffd9-12"></a>        <span class="k">end</span>
-<a name="rest_code_f615432b8a6b437b85074ac2d9adffd9-13"></a>    <span class="k">end</span>
-<a name="rest_code_f615432b8a6b437b85074ac2d9adffd9-14"></a>    <span class="k">return</span> <span class="n">mat</span>
-<a name="rest_code_f615432b8a6b437b85074ac2d9adffd9-15"></a><span class="k">end</span>
-<a name="rest_code_f615432b8a6b437b85074ac2d9adffd9-16"></a>
-<a name="rest_code_f615432b8a6b437b85074ac2d9adffd9-17"></a>
-<a name="rest_code_f615432b8a6b437b85074ac2d9adffd9-18"></a><span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span> <span class="mf">1.0</span> <span class="mf">0.0</span> <span class="mf">3.0</span><span class="p">;</span>
-<a name="rest_code_f615432b8a6b437b85074ac2d9adffd9-19"></a>    <span class="mf">2.0</span> <span class="mf">1.0</span> <span class="o">-</span><span class="mf">1.0</span> <span class="mf">1.0</span><span class="p">;</span>
-<a name="rest_code_f615432b8a6b437b85074ac2d9adffd9-20"></a>    <span class="mf">3.0</span> <span class="o">-</span><span class="mf">1.0</span> <span class="o">-</span><span class="mf">1.0</span> <span class="mf">2.0</span><span class="p">;</span>
-<a name="rest_code_f615432b8a6b437b85074ac2d9adffd9-21"></a>    <span class="o">-</span><span class="mf">1.0</span> <span class="mf">2.0</span> <span class="mf">3.0</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">]</span>
-<a name="rest_code_f615432b8a6b437b85074ac2d9adffd9-22"></a><span class="n">B</span> <span class="o">=</span> <span class="n">LU</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<pre class="code julia"><a name="rest_code_388007e4cd2f4fcebe25b57bbf57cf4f-1"></a><span class="k">function</span> <span class="n">LU</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
+<a name="rest_code_388007e4cd2f4fcebe25b57bbf57cf4f-2"></a>    <span class="n">m</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">size</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
+<a name="rest_code_388007e4cd2f4fcebe25b57bbf57cf4f-3"></a>    <span class="n">mat</span> <span class="o">=</span> <span class="n">copy</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
+<a name="rest_code_388007e4cd2f4fcebe25b57bbf57cf4f-4"></a>    <span class="k">for</span> <span class="n">col</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="n">m</span> <span class="o">-</span> <span class="mi">2</span>
+<a name="rest_code_388007e4cd2f4fcebe25b57bbf57cf4f-5"></a>        <span class="k">for</span> <span class="n">row</span> <span class="o">=</span> <span class="n">col</span> <span class="o">+</span> <span class="mi">1</span><span class="o">:</span><span class="n">m</span>
+<a name="rest_code_388007e4cd2f4fcebe25b57bbf57cf4f-6"></a>            <span class="k">if</span> <span class="n">mat</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span> <span class="o">!=</span> <span class="mf">0.0</span>
+<a name="rest_code_388007e4cd2f4fcebe25b57bbf57cf4f-7"></a>                <span class="n">lam</span> <span class="o">=</span> <span class="n">mat</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span><span class="o">/</span><span class="n">mat</span><span class="p">[</span><span class="n">col</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span>
+<a name="rest_code_388007e4cd2f4fcebe25b57bbf57cf4f-8"></a>                <span class="n">mat</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span> <span class="o">+</span> <span class="mi">1</span><span class="o">:</span><span class="n">m</span><span class="p">]</span> <span class="o">=</span> <span class="n">mat</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span> <span class="o">+</span> <span class="mi">1</span><span class="o">:</span><span class="n">m</span><span class="p">]</span> <span class="o">-</span>
+<a name="rest_code_388007e4cd2f4fcebe25b57bbf57cf4f-9"></a>                                      <span class="n">lam</span> <span class="o">*</span> <span class="n">mat</span><span class="p">[</span><span class="n">col</span><span class="p">,</span> <span class="n">col</span> <span class="o">+</span> <span class="mi">1</span><span class="o">:</span><span class="n">m</span><span class="p">]</span>
+<a name="rest_code_388007e4cd2f4fcebe25b57bbf57cf4f-10"></a>                <span class="n">mat</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">lam</span>
+<a name="rest_code_388007e4cd2f4fcebe25b57bbf57cf4f-11"></a>            <span class="k">end</span>
+<a name="rest_code_388007e4cd2f4fcebe25b57bbf57cf4f-12"></a>        <span class="k">end</span>
+<a name="rest_code_388007e4cd2f4fcebe25b57bbf57cf4f-13"></a>    <span class="k">end</span>
+<a name="rest_code_388007e4cd2f4fcebe25b57bbf57cf4f-14"></a>    <span class="k">return</span> <span class="n">mat</span>
+<a name="rest_code_388007e4cd2f4fcebe25b57bbf57cf4f-15"></a><span class="k">end</span>
+<a name="rest_code_388007e4cd2f4fcebe25b57bbf57cf4f-16"></a>
+<a name="rest_code_388007e4cd2f4fcebe25b57bbf57cf4f-17"></a>
+<a name="rest_code_388007e4cd2f4fcebe25b57bbf57cf4f-18"></a><span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span> <span class="mf">1.0</span> <span class="mf">0.0</span> <span class="mf">3.0</span><span class="p">;</span>
+<a name="rest_code_388007e4cd2f4fcebe25b57bbf57cf4f-19"></a>    <span class="mf">2.0</span> <span class="mf">1.0</span> <span class="o">-</span><span class="mf">1.0</span> <span class="mf">1.0</span><span class="p">;</span>
+<a name="rest_code_388007e4cd2f4fcebe25b57bbf57cf4f-20"></a>    <span class="mf">3.0</span> <span class="o">-</span><span class="mf">1.0</span> <span class="o">-</span><span class="mf">1.0</span> <span class="mf">2.0</span><span class="p">;</span>
+<a name="rest_code_388007e4cd2f4fcebe25b57bbf57cf4f-21"></a>    <span class="o">-</span><span class="mf">1.0</span> <span class="mf">2.0</span> <span class="mf">3.0</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">]</span>
+<a name="rest_code_388007e4cd2f4fcebe25b57bbf57cf4f-22"></a><span class="n">B</span> <span class="o">=</span> <span class="n">LU</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 </pre>
 <p>Como un ejemplo tenemos la matriz</p>
 <div class="math">
@@ -173,10 +173,10 @@ A = \begin{bmatrix}
 \end{equation*}
 </div>
 <p>Y, la respuesta en ámbos códigos es</p>
-<pre class="code text"><a name="rest_code_6b9c6ac3a39f4d21939f11e8d8ce04dd-1"></a>[[  1.,   1.,   0.,   3.],
-<a name="rest_code_6b9c6ac3a39f4d21939f11e8d8ce04dd-2"></a> [  2.,  -1.,  -1.,  -5.],
-<a name="rest_code_6b9c6ac3a39f4d21939f11e8d8ce04dd-3"></a> [  3.,   4.,   3.,  13.],
-<a name="rest_code_6b9c6ac3a39f4d21939f11e8d8ce04dd-4"></a> [ -1.,  -3.,   0., -13.]]
+<pre class="code text"><a name="rest_code_cc81f5aaa9f24f698d052cb6bef53e64-1"></a>[[  1.,   1.,   0.,   3.],
+<a name="rest_code_cc81f5aaa9f24f698d052cb6bef53e64-2"></a> [  2.,  -1.,  -1.,  -5.],
+<a name="rest_code_cc81f5aaa9f24f698d052cb6bef53e64-3"></a> [  3.,   4.,   3.,  13.],
+<a name="rest_code_cc81f5aaa9f24f698d052cb6bef53e64-4"></a> [ -1.,  -3.,   0., -13.]]
 </pre>
 </div>
 <div class="section" id="comparacion-python-julia">
@@ -185,26 +185,26 @@ A = \begin{bmatrix}
 en tiempo de ejecución se realizó con el comando mágico de IPython <code class="docutils literal">%timeit</code>
 y con <code class="docutils literal">@benchmark</code> en Julia.</p>
 <p>Para Python:</p>
-<pre class="code IPython"><a name="rest_code_786c6f3f578c496ba8b7500a4a34a7b4-1"></a><span class="o">%</span><span class="k">timeit</span> LU(np.random.rand(10, 10))
+<pre class="code IPython"><a name="rest_code_c1663992217e4c6fab8088c7e8e15643-1"></a><span class="o">%</span><span class="k">timeit</span> LU(np.random.rand(10, 10))
 </pre>
 <p>con resultado</p>
-<pre class="code text"><a name="rest_code_68fd318d988d4eeeacd5f1bfe8a387c3-1"></a>1000 loops, best of 3: 303 µs per loop
+<pre class="code text"><a name="rest_code_308ddbac5b3c4ea7be2aef747c3a0144-1"></a>1000 loops, best of 3: 303 µs per loop
 </pre>
 <p>Para Julia:</p>
-<pre class="code julia"><a name="rest_code_e950575462f546129c42213d78ca6ada-1"></a><span class="nd">@benchmark</span> <span class="n">LU</span><span class="p">(</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<pre class="code julia"><a name="rest_code_05bba7e766b9450988df61be23f6edf8-1"></a><span class="nd">@benchmark</span> <span class="n">LU</span><span class="p">(</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 </pre>
 <p>con resultado</p>
-<pre class="code julia"><a name="rest_code_23d7432d5cda475284201a95645b0f33-1"></a><span class="n">BenchmarkTools</span><span class="o">.</span><span class="n">Trial</span><span class="o">:</span>
-<a name="rest_code_23d7432d5cda475284201a95645b0f33-2"></a>  <span class="n">memory</span> <span class="n">estimate</span><span class="o">:</span>  <span class="mf">29.25</span> <span class="n">KiB</span>
-<a name="rest_code_23d7432d5cda475284201a95645b0f33-3"></a>  <span class="n">allocs</span> <span class="n">estimate</span><span class="o">:</span>  <span class="mi">310</span>
-<a name="rest_code_23d7432d5cda475284201a95645b0f33-4"></a>  <span class="o">--------------</span>
-<a name="rest_code_23d7432d5cda475284201a95645b0f33-5"></a>  <span class="n">minimum</span> <span class="n">time</span><span class="o">:</span>     <span class="mf">9.993</span> <span class="n">μs</span> <span class="p">(</span><span class="mf">0.00</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
-<a name="rest_code_23d7432d5cda475284201a95645b0f33-6"></a>  <span class="n">median</span> <span class="n">time</span><span class="o">:</span>      <span class="mf">11.725</span> <span class="n">μs</span> <span class="p">(</span><span class="mf">0.00</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
-<a name="rest_code_23d7432d5cda475284201a95645b0f33-7"></a>  <span class="n">mean</span> <span class="n">time</span><span class="o">:</span>        <span class="mf">14.943</span> <span class="n">μs</span> <span class="p">(</span><span class="mf">15.90</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
-<a name="rest_code_23d7432d5cda475284201a95645b0f33-8"></a>  <span class="n">maximum</span> <span class="n">time</span><span class="o">:</span>     <span class="mf">3.285</span> <span class="n">ms</span> <span class="p">(</span><span class="mf">95.64</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
-<a name="rest_code_23d7432d5cda475284201a95645b0f33-9"></a>  <span class="o">--------------</span>
-<a name="rest_code_23d7432d5cda475284201a95645b0f33-10"></a>  <span class="n">samples</span><span class="o">:</span>          <span class="mi">10000</span>
-<a name="rest_code_23d7432d5cda475284201a95645b0f33-11"></a>  <span class="n">evals</span><span class="o">/</span><span class="n">sample</span><span class="o">:</span>     <span class="mi">1</span>
+<pre class="code julia"><a name="rest_code_a471f3e142ca421c8107c5a16550fcb4-1"></a><span class="n">BenchmarkTools</span><span class="o">.</span><span class="n">Trial</span><span class="o">:</span>
+<a name="rest_code_a471f3e142ca421c8107c5a16550fcb4-2"></a>  <span class="n">memory</span> <span class="n">estimate</span><span class="o">:</span>  <span class="mf">29.25</span> <span class="n">KiB</span>
+<a name="rest_code_a471f3e142ca421c8107c5a16550fcb4-3"></a>  <span class="n">allocs</span> <span class="n">estimate</span><span class="o">:</span>  <span class="mi">310</span>
+<a name="rest_code_a471f3e142ca421c8107c5a16550fcb4-4"></a>  <span class="o">--------------</span>
+<a name="rest_code_a471f3e142ca421c8107c5a16550fcb4-5"></a>  <span class="n">minimum</span> <span class="n">time</span><span class="o">:</span>     <span class="mf">9.993</span> <span class="n">μs</span> <span class="p">(</span><span class="mf">0.00</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
+<a name="rest_code_a471f3e142ca421c8107c5a16550fcb4-6"></a>  <span class="n">median</span> <span class="n">time</span><span class="o">:</span>      <span class="mf">11.725</span> <span class="n">μs</span> <span class="p">(</span><span class="mf">0.00</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
+<a name="rest_code_a471f3e142ca421c8107c5a16550fcb4-7"></a>  <span class="n">mean</span> <span class="n">time</span><span class="o">:</span>        <span class="mf">14.943</span> <span class="n">μs</span> <span class="p">(</span><span class="mf">15.90</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
+<a name="rest_code_a471f3e142ca421c8107c5a16550fcb4-8"></a>  <span class="n">maximum</span> <span class="n">time</span><span class="o">:</span>     <span class="mf">3.285</span> <span class="n">ms</span> <span class="p">(</span><span class="mf">95.64</span><span class="o">%</span> <span class="n">GC</span><span class="p">)</span>
+<a name="rest_code_a471f3e142ca421c8107c5a16550fcb4-9"></a>  <span class="o">--------------</span>
+<a name="rest_code_a471f3e142ca421c8107c5a16550fcb4-10"></a>  <span class="n">samples</span><span class="o">:</span>          <span class="mi">10000</span>
+<a name="rest_code_a471f3e142ca421c8107c5a16550fcb4-11"></a>  <span class="n">evals</span><span class="o">/</span><span class="n">sample</span><span class="o">:</span>     <span class="mi">1</span>
 </pre>
 <p>En este caso, podemos decir que el código de Python es alrededor de 30 veces
 más lento que el de Julia.</p>

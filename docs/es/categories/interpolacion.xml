@@ -3,7 +3,7 @@
 &lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
 &lt;img alt="Creative Commons License"
 style="border-width:0"
-src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Wed, 10 Feb 2021 23:09:03 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Reto de métodos numéricos: Día 13</title><link>https://nicoguaro.github.io/es/posts/numerical-13/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;Durante octubre (2017) estaré escribiendo un programa por día para algunos
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Mon, 15 Feb 2021 20:11:53 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Reto de métodos numéricos: Día 13</title><link>https://nicoguaro.github.io/es/posts/numerical-13/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;Durante octubre (2017) estaré escribiendo un programa por día para algunos
 métodos numéricos famosos en Python y Julia. Esto está pensado como
 un ejercicio, no esperen que el código sea lo suficientemente bueno para
 usarse en la "vida real". Además, también debo mencionar que casi que no
