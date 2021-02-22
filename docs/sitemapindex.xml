@@ -19,7 +19,7 @@
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/categories/boundary-element-method.xml</loc>
-  <lastmod>2021-02-03T21:27:00Z</lastmod>
+  <lastmod>2021-02-22T17:27:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/categories/cat_computer-graphics.xml</loc>
@@ -35,7 +35,7 @@
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/categories/cat_scientific-computing.xml</loc>
-  <lastmod>2021-02-15T20:11:00Z</lastmod>
+  <lastmod>2021-02-22T17:27:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/categories/cat_tutorial.xml</loc>
@@ -43,7 +43,7 @@
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/categories/cat_visualization.xml</loc>
-  <lastmod>2021-02-03T21:27:00Z</lastmod>
+  <lastmod>2021-02-22T16:34:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/categories/cat_writing.xml</loc>
@@ -147,7 +147,7 @@
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/categories/matplotlib.xml</loc>
-  <lastmod>2021-02-03T21:27:00Z</lastmod>
+  <lastmod>2021-02-22T16:34:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/categories/monte-carlo.xml</loc>
@@ -167,7 +167,7 @@
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/categories/numerical-methods.xml</loc>
-  <lastmod>2021-02-15T20:11:00Z</lastmod>
+  <lastmod>2021-02-22T17:27:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/categories/ode.xml</loc>
@@ -195,7 +195,7 @@
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/categories/python.xml</loc>
-  <lastmod>2021-02-15T20:11:00Z</lastmod>
+  <lastmod>2021-02-22T17:27:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/categories/quadrature.xml</loc>
@@ -235,7 +235,7 @@
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/categories/scientific-computing.xml</loc>
-  <lastmod>2021-02-15T20:11:00Z</lastmod>
+  <lastmod>2021-02-22T17:27:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/categories/scientific-visualization.xml</loc>
@@ -287,7 +287,7 @@
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/categories/visualization.xml</loc>
-  <lastmod>2021-02-03T21:27:00Z</lastmod>
+  <lastmod>2021-02-22T16:34:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/categories/words.xml</loc>
@@ -319,7 +319,7 @@
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/boundary-element-method.xml</loc>
-  <lastmod>2021-02-03T21:27:00Z</lastmod>
+  <lastmod>2021-02-22T17:01:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/busqueda-de-raices.xml</loc>
@@ -339,7 +339,7 @@
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/cat_scientific-computing.xml</loc>
-  <lastmod>2021-02-15T20:11:00Z</lastmod>
+  <lastmod>2021-02-22T17:27:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/cat_tutorial.xml</loc>
@@ -347,7 +347,7 @@
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/cat_visualization.xml</loc>
-  <lastmod>2021-02-03T21:27:00Z</lastmod>
+  <lastmod>2021-02-22T16:34:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/cat_writing.xml</loc>
@@ -367,7 +367,7 @@
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/computacion-cientifica.xml</loc>
-  <lastmod>2021-02-15T20:11:00Z</lastmod>
+  <lastmod>2021-02-22T17:27:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/conjugate-gradient.xml</loc>
@@ -467,7 +467,7 @@
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/julia.xml</loc>
-  <lastmod>2021-02-15T20:11:00Z</lastmod>
+  <lastmod>2021-02-22T17:27:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/latex.xml</loc>
@@ -487,11 +487,11 @@
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/matplotlib.xml</loc>
-  <lastmod>2021-02-03T21:27:00Z</lastmod>
+  <lastmod>2021-02-22T16:34:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/metodo-de-elementos-de-frontera.xml</loc>
-  <lastmod>2021-02-15T20:11:00Z</lastmod>
+  <lastmod>2021-02-22T17:27:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/metodo-de-elementos-finitos.xml</loc>
@@ -507,7 +507,7 @@
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/metodos-numericos.xml</loc>
-  <lastmod>2021-02-15T20:11:00Z</lastmod>
+  <lastmod>2021-02-22T17:27:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/metodos-variacionales.xml</loc>
@@ -531,7 +531,7 @@
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/numerical-methods.xml</loc>
-  <lastmod>2021-02-10T23:08:00Z</lastmod>
+  <lastmod>2021-02-22T17:01:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/ode.xml</loc>
@@ -559,7 +559,7 @@
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/python.xml</loc>
-  <lastmod>2021-02-15T20:11:00Z</lastmod>
+  <lastmod>2021-02-22T17:27:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/quadrature.xml</loc>
@@ -587,7 +587,7 @@
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/scientific-computing.xml</loc>
-  <lastmod>2021-02-15T20:11:00Z</lastmod>
+  <lastmod>2021-02-22T17:27:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/scientific-visualization.xml</loc>
@@ -639,7 +639,7 @@
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/visualizacionn.xml</loc>
-  <lastmod>2021-02-03T21:27:00Z</lastmod>
+  <lastmod>2021-02-22T16:34:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/words.xml</loc>
@@ -651,14 +651,14 @@
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/rss.xml</loc>
-  <lastmod>2021-02-15T20:11:00Z</lastmod>
+  <lastmod>2021-02-22T17:27:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/rss.xml</loc>
-  <lastmod>2021-02-15T20:11:00Z</lastmod>
+  <lastmod>2021-02-22T17:27:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/sitemap.xml</loc>
-  <lastmod>2021-02-15T20:12:00Z</lastmod>
+  <lastmod>2021-02-22T17:27:00Z</lastmod>
  </sitemap>
 </sitemapindex>

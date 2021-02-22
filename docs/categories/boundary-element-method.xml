@@ -3,7 +3,247 @@
 &lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
 &lt;img alt="Creative Commons License"
 style="border-width:0"
-src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Wed, 03 Feb 2021 21:27:27 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Numerical methods challenge: Day 26</title><link>https://nicoguaro.github.io/posts/numerical-26/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;During October (2017) I will write a program per day for some well-known
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Mon, 22 Feb 2021 17:27:21 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Coming back to the Boundary element method</title><link>https://nicoguaro.github.io/posts/bem_corrected/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;During October (2017) I wrote a program per day for some well-known numerical
+methods in both Python and Julia. It was intended to be an exercise to learn
+some Julia. You can see a &lt;a class="reference external" href="https://nicoguaro.github.io/posts/numerical_summary"&gt;summary here&lt;/a&gt;. I succeeded
+in 30 of the challenges, except for the BEM
+(&lt;a class="reference external" href="https://en.wikipedia.org/wiki/Boundary_element_method"&gt;Boundary Element Method&lt;/a&gt;),
+where I could not figure out what was wrong that day. The original
+post is &lt;a class="reference external" href="https://nicoguaro.github.io/posts/numerical-26"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Thomas Klimpel found the mistake and wrote an email where he described my
+mistakes. So, I am creating a new post with a correct implementation
+of the BEM.&lt;/p&gt;
+&lt;div class="section" id="the-boundary-element-method"&gt;
+&lt;h2&gt;The Boundary Element Method&lt;/h2&gt;
+&lt;p&gt;We want so solve the equation&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+\nabla^2 u = -f(x, y)\quad \forall (x, y) \in \Omega\, ,
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;with&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+u(x) = g(x, y), \quad \forall (x, y)\in \partial \Omega \, .
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;For this method, we need to use an integral representation of the equation,
+that, in this case, is&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+u(\boldsymbol{\xi})  = \int_{S} [u(\mathbf{x}) F(\mathbf{x}, \boldsymbol{\xi})
+    - q(\mathbf{x})G(\mathbf{x}, \boldsymbol{\xi})]\mathrm{d}S(\mathbf{x})
+    + \int_{V} f(\mathbf{x}) G(\mathbf{x}, \boldsymbol{\xi}) \mathrm{d}V(\mathbf{x})
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;with&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+G(\mathbf{x}, \boldsymbol{\xi})= -\frac{1}{2\pi}\ln|\mathbf{x} - \xi|
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;and&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+F(\mathbf{x}, \boldsymbol{\xi}) =
+  -\frac{1}{2\pi |\mathbf{x} - \boldsymbol{\xi}|^2}
+  (\mathbf{x} - \boldsymbol{\xi})\cdot\hat{\mathbf{n}}
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;Then, we can form a system of equations&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+[G]\{q\} = [F]\{u\}\, ,
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;that we obtain by discretization of the boundary. If we take constant
+variables over the discretization, the integral can be computed analytically
+by&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+G_{nm} = -\frac{1}{2\pi}\left[r \sin\theta\left(\ln|r| - 1\right)
+         + \theta r\cos\theta\right]^{\theta_B, r_B}_{\theta_A, r_A}
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;and&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+F_{nm} = \left[\frac{\theta}{2\pi}\right]^{\theta_B}_{\theta_A}
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;for points &lt;span class="math"&gt;\(n\)&lt;/span&gt; and &lt;span class="math"&gt;\(m\)&lt;/span&gt; in different elements, and the subindices
+&lt;span class="math"&gt;\(A,B\)&lt;/span&gt; refer to the endpoints of the evaluation element. We should be
+careful evaluating this expression since both &lt;span class="math"&gt;\(r_A\)&lt;/span&gt; and &lt;span class="math"&gt;\(r_B\)&lt;/span&gt; can
+be (close to) zero and make it &lt;em&gt;explode&lt;/em&gt;. Also, here it was the main problem
+since I forgot to compute the angles with respect to elements that are,
+in general, not aligned with horizontal or vertical axes.&lt;/p&gt;
+&lt;p&gt;For diagonal terms the integrals evaluate to&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+G_{nn} = -\frac{L}{2\pi}\left(\ln\left\vert\frac{L}{2}\right\vert - 1\right)
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;and&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+F_{nn} = - \frac{1}{2}
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;with &lt;span class="math"&gt;\(L\)&lt;/span&gt; the size of the element.&lt;/p&gt;
+&lt;p&gt;Following is the code. Keep in mind that this code works for purely Dirichlet
+problems. For mixed Dirichlet-Neumann the influence matrices would need
+rearranging to separate known and unknowns in opposite sides of the equation.&lt;/p&gt;
+&lt;p&gt;You can download the files for this &lt;a class="reference external" href="https://nicoguaro.github.io/downloads/bem.zip"&gt;project here&lt;/a&gt;.
+It includes a YML file to create a conda environment with the dependencies
+listed. For example, it uses version 3.0 of
+&lt;a class="reference external" href="https://github.com/nschloe/meshio"&gt;Meshio&lt;/a&gt;.&lt;/p&gt;
+&lt;pre class="code python"&gt;&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-1"&gt;&lt;/a&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-2"&gt;&lt;/a&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;arctan2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;pi&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;mean&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;arctan&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-3"&gt;&lt;/a&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;numpy.linalg&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;norm&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;solve&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-4"&gt;&lt;/a&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-5"&gt;&lt;/a&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;mpl_toolkits.mplot3d&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Axes3D&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-6"&gt;&lt;/a&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;meshio&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-7"&gt;&lt;/a&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-8"&gt;&lt;/a&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-9"&gt;&lt;/a&gt;  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;assem&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;coords&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;elems&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-10"&gt;&lt;/a&gt;      &lt;span class="sd"&gt;"""Assembly matrices for the BEM problem&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-11"&gt;&lt;/a&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-12"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      Parameters&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-13"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      ----------&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-14"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      coords : ndarray, float&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-15"&gt;&lt;/a&gt;&lt;span class="sd"&gt;          Coordinates for the nodes.&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-16"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      elems : ndarray, int&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-17"&gt;&lt;/a&gt;&lt;span class="sd"&gt;          Connectivity for the elements.&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-18"&gt;&lt;/a&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-19"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      Returns&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-20"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      -------&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-21"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      Gmat : ndarray, float&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-22"&gt;&lt;/a&gt;&lt;span class="sd"&gt;          Influence matrix for the flow.&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-23"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      Fmat : ndarray, float&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-24"&gt;&lt;/a&gt;&lt;span class="sd"&gt;          Influence matrix for primary variable.&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-25"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      """&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-26"&gt;&lt;/a&gt;      &lt;span class="n"&gt;nelems&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;elems&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-27"&gt;&lt;/a&gt;      &lt;span class="n"&gt;Gmat&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;zeros&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;nelems&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;nelems&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-28"&gt;&lt;/a&gt;      &lt;span class="n"&gt;Fmat&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;zeros&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;nelems&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;nelems&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-29"&gt;&lt;/a&gt;      &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;ev_cont&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;elem1&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;enumerate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;elems&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-30"&gt;&lt;/a&gt;          &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;col_cont&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;elem2&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;enumerate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;elems&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-31"&gt;&lt;/a&gt;              &lt;span class="n"&gt;pt_col&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;mean&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;coords&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;elem2&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;axis&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-32"&gt;&lt;/a&gt;              &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;ev_cont&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;col_cont&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-33"&gt;&lt;/a&gt;                  &lt;span class="n"&gt;L&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;norm&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;coords&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;elem1&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]]&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;coords&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;elem1&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]])&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-34"&gt;&lt;/a&gt;                  &lt;span class="n"&gt;Gmat&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;ev_cont&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ev_cont&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;L&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;L&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-35"&gt;&lt;/a&gt;                  &lt;span class="n"&gt;Fmat&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;ev_cont&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ev_cont&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mf"&gt;0.5&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-36"&gt;&lt;/a&gt;              &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-37"&gt;&lt;/a&gt;                  &lt;span class="n"&gt;Gij&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Fij&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;influence_coeff&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;elem1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;coords&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;pt_col&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-38"&gt;&lt;/a&gt;                  &lt;span class="n"&gt;Gmat&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;ev_cont&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;col_cont&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Gij&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-39"&gt;&lt;/a&gt;                  &lt;span class="n"&gt;Fmat&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;ev_cont&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;col_cont&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Fij&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-40"&gt;&lt;/a&gt;      &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;Gmat&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Fmat&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-41"&gt;&lt;/a&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-42"&gt;&lt;/a&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-43"&gt;&lt;/a&gt;  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;influence_coeff&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;elem&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;coords&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;pt_col&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-44"&gt;&lt;/a&gt;      &lt;span class="sd"&gt;"""Compute influence coefficients&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-45"&gt;&lt;/a&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-46"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      Parameters&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-47"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      ----------&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-48"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      elems : ndarray, int&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-49"&gt;&lt;/a&gt;&lt;span class="sd"&gt;          Connectivity for the elements.&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-50"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      coords : ndarray, float&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-51"&gt;&lt;/a&gt;&lt;span class="sd"&gt;          Coordinates for the nodes.&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-52"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      pt_col : ndarray&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-53"&gt;&lt;/a&gt;&lt;span class="sd"&gt;          Coordinates of the colocation point.&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-54"&gt;&lt;/a&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-55"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      Returns&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-56"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      -------&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-57"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      G_coeff : float&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-58"&gt;&lt;/a&gt;&lt;span class="sd"&gt;          Influence coefficient for flows.&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-59"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      F_coeff : float&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-60"&gt;&lt;/a&gt;&lt;span class="sd"&gt;          Influence coefficient for primary variable.&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-61"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      """&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-62"&gt;&lt;/a&gt;      &lt;span class="n"&gt;dcos&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;coords&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;elem&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]]&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;coords&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;elem&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]]&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-63"&gt;&lt;/a&gt;      &lt;span class="n"&gt;dcos&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;dcos&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="n"&gt;norm&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dcos&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-64"&gt;&lt;/a&gt;      &lt;span class="n"&gt;rotmat&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;([[&lt;/span&gt;&lt;span class="n"&gt;dcos&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dcos&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]],&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-65"&gt;&lt;/a&gt;                      &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;dcos&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;dcos&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]]])&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-66"&gt;&lt;/a&gt;      &lt;span class="n"&gt;r_A&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;rotmat&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;coords&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;elem&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]]&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;pt_col&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-67"&gt;&lt;/a&gt;      &lt;span class="n"&gt;r_B&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;rotmat&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;coords&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;elem&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]]&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;pt_col&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-68"&gt;&lt;/a&gt;      &lt;span class="n"&gt;theta_A&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;arctan2&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;r_A&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;r_A&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-69"&gt;&lt;/a&gt;      &lt;span class="n"&gt;theta_B&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;arctan2&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;r_B&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;r_B&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-70"&gt;&lt;/a&gt;      &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;norm&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;r_A&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mf"&gt;1e-6&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-71"&gt;&lt;/a&gt;          &lt;span class="n"&gt;G_coeff&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;r_B&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;norm&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;r_B&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;theta_B&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;r_B&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-72"&gt;&lt;/a&gt;      &lt;span class="k"&gt;elif&lt;/span&gt; &lt;span class="n"&gt;norm&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;r_B&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mf"&gt;1e-6&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-73"&gt;&lt;/a&gt;          &lt;span class="n"&gt;G_coeff&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;r_A&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;norm&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;r_A&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;theta_A&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;r_A&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-74"&gt;&lt;/a&gt;      &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-75"&gt;&lt;/a&gt;          &lt;span class="n"&gt;G_coeff&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;r_B&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;norm&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;r_B&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;theta_B&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;r_B&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;\
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-76"&gt;&lt;/a&gt;                  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;r_A&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;norm&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;r_A&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;theta_A&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;r_A&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-77"&gt;&lt;/a&gt;      &lt;span class="n"&gt;F_coeff&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;theta_B&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;theta_A&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-78"&gt;&lt;/a&gt;      &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;G_coeff&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;F_coeff&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-79"&gt;&lt;/a&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-80"&gt;&lt;/a&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-81"&gt;&lt;/a&gt;  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;eval_sol&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ev_coords&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;coords&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;elems&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;u_boundary&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;q_boundary&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-82"&gt;&lt;/a&gt;      &lt;span class="sd"&gt;"""Evaluate the solution in a set of points&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-83"&gt;&lt;/a&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-84"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      Parameters&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-85"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      ----------&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-86"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      ev_coords : ndarray, float&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-87"&gt;&lt;/a&gt;&lt;span class="sd"&gt;          Coordinates of the evaluation points.&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-88"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      coords : ndarray, float&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-89"&gt;&lt;/a&gt;&lt;span class="sd"&gt;          Coordinates for the nodes.&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-90"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      elems : ndarray, int&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-91"&gt;&lt;/a&gt;&lt;span class="sd"&gt;          Connectivity for the elements.&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-92"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      u_boundary : ndarray, float&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-93"&gt;&lt;/a&gt;&lt;span class="sd"&gt;          Primary variable in the nodes.&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-94"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      q_boundary : [type]&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-95"&gt;&lt;/a&gt;&lt;span class="sd"&gt;          Flows in the nodes.&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-96"&gt;&lt;/a&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-97"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      Returns&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-98"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      -------&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-99"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      solution : ndarray, float&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-100"&gt;&lt;/a&gt;&lt;span class="sd"&gt;          Solution evaluated in the given points.&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-101"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      """&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-102"&gt;&lt;/a&gt;      &lt;span class="n"&gt;npts&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ev_coords&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-103"&gt;&lt;/a&gt;      &lt;span class="n"&gt;solution&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;zeros&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;npts&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-104"&gt;&lt;/a&gt;      &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;k&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;npts&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-105"&gt;&lt;/a&gt;          &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;ev_cont&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;elem&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;enumerate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;elems&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-106"&gt;&lt;/a&gt;              &lt;span class="n"&gt;pt_col&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ev_coords&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-107"&gt;&lt;/a&gt;              &lt;span class="n"&gt;G&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;F&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;influence_coeff&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;elem&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;coords&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;pt_col&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-108"&gt;&lt;/a&gt;              &lt;span class="n"&gt;solution&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="n"&gt;u_boundary&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;ev_cont&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;F&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;q_boundary&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;ev_cont&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;G&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-109"&gt;&lt;/a&gt;      &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;solution&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-110"&gt;&lt;/a&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-111"&gt;&lt;/a&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-112"&gt;&lt;/a&gt;&lt;span class="c1"&gt;#%% Simulation&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-113"&gt;&lt;/a&gt;&lt;span class="n"&gt;mesh&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;meshio&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"disk.msh"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-114"&gt;&lt;/a&gt;&lt;span class="n"&gt;elems&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;mesh&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cells&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"line"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-115"&gt;&lt;/a&gt;&lt;span class="n"&gt;bound_nodes&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;set&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;elems&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;flatten&lt;/span&gt;&lt;span class="p"&gt;()))&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-116"&gt;&lt;/a&gt;&lt;span class="n"&gt;coords&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;mesh&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;points&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;bound_nodes&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-117"&gt;&lt;/a&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;coords&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;T&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-118"&gt;&lt;/a&gt;&lt;span class="n"&gt;x_m&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y_m&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;coords&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;elems&lt;/span&gt;&lt;span class="p"&gt;[:,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]]&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;coords&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;elems&lt;/span&gt;&lt;span class="p"&gt;[:,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]])&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;T&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-119"&gt;&lt;/a&gt;&lt;span class="n"&gt;theta&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;arctan2&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;y_m&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x_m&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-120"&gt;&lt;/a&gt;&lt;span class="n"&gt;u_boundary&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cos&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;theta&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-121"&gt;&lt;/a&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-122"&gt;&lt;/a&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-123"&gt;&lt;/a&gt;&lt;span class="c1"&gt;#%% Assembly&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-124"&gt;&lt;/a&gt;&lt;span class="n"&gt;Gmat&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Fmat&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;assem&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;coords&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;elems&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-125"&gt;&lt;/a&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-126"&gt;&lt;/a&gt;&lt;span class="c1"&gt;#%% Solution&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-127"&gt;&lt;/a&gt;&lt;span class="n"&gt;q_boundary&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;solve&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Gmat&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Fmat&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;u_boundary&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-128"&gt;&lt;/a&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-129"&gt;&lt;/a&gt;&lt;span class="c1"&gt;#%% Evaluation&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-130"&gt;&lt;/a&gt;&lt;span class="n"&gt;ev_coords&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;  &lt;span class="n"&gt;mesh&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;points&lt;/span&gt;&lt;span class="p"&gt;[:,&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-131"&gt;&lt;/a&gt;&lt;span class="n"&gt;ev_x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ev_y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ev_coords&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;T&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-132"&gt;&lt;/a&gt;&lt;span class="n"&gt;solution&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;eval_sol&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ev_coords&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;coords&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;elems&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;u_boundary&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;q_boundary&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-133"&gt;&lt;/a&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-134"&gt;&lt;/a&gt;&lt;span class="c1"&gt;#%% Visualization&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-135"&gt;&lt;/a&gt;&lt;span class="n"&gt;tris&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;mesh&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cells&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"triangle"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-136"&gt;&lt;/a&gt;&lt;span class="n"&gt;fig&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-137"&gt;&lt;/a&gt;&lt;span class="n"&gt;ax&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add_subplot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;111&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;projection&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'3d'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-138"&gt;&lt;/a&gt;&lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot_trisurf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ev_x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ev_y&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;solution&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;cmap&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"RdYlBu"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;lw&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-139"&gt;&lt;/a&gt;                &lt;span class="n"&gt;edgecolor&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"#3c3c3c"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-140"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xticks&lt;/span&gt;&lt;span class="p"&gt;([])&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-141"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;yticks&lt;/span&gt;&lt;span class="p"&gt;([])&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-142"&gt;&lt;/a&gt;&lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_zticks&lt;/span&gt;&lt;span class="p"&gt;([])&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-143"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;savefig&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"bem_solution.png"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;bbox_inches&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"tight"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;transparent&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-144"&gt;&lt;/a&gt;            &lt;span class="n"&gt;dpi&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;300&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;p&gt;The result in this case is the following.&lt;/p&gt;
+&lt;img alt="Solution of the differential equation using the BEM." class="align-center" src="https://nicoguaro.github.io/images/bem_solution.png" style="width: 600px;"&gt;
+&lt;/div&gt;&lt;/div&gt;</description><category>boundary element method</category><category>numerical methods</category><category>python</category><category>scientific computing</category><guid>https://nicoguaro.github.io/posts/bem_corrected/</guid><pubDate>Mon, 22 Feb 2021 15:00:00 GMT</pubDate></item><item><title>Numerical methods challenge: Day 26</title><link>https://nicoguaro.github.io/posts/numerical-26/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;During October (2017) I will write a program per day for some well-known
 numerical methods in both Python and Julia. It is intended to be an exercise
 then don't expect the code to be good enough for real use. Also,
 I should mention that I have almost no experience with Julia, so it

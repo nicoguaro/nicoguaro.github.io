@@ -11,7 +11,7 @@
 <link rel="alternate" type="application/rss+xml" title="RSS (es)" href="es/rss.xml">
 <link rel="canonical" href="https://nicoguaro.github.io/">
 <link rel="next" href="index-5.html" type="text/html">
-<!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link rel="prefetch" href="posts/tech_writing_math/" type="text/html">
+<!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link rel="prefetch" href="posts/bem_corrected/" type="text/html">
 </head>
 <body>
     <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -52,7 +52,264 @@
         
 
 <div class="posts">
-    <article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/tech_writing_math/" class="u-url">Technical writing: using math</a></h1>
+    <article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/bem_corrected/" class="u-url">Coming back to the Boundary element method</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
+            <p class="dateline"><a href="posts/bem_corrected/" rel="bookmark"><time class="post-date published dt-published" datetime="2021-02-22T10:00:00-05:00" title="2021-02-22 10:00">2021-02-22 10:00</time></a></p>
+                <p class="commentline">
+        
+    <a href="posts/bem_corrected/#disqus_thread" data-disqus-identifier="cache/posts/bem_corrected.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <div>
+<p>During October (2017) I wrote a program per day for some well-known numerical
+methods in both Python and Julia. It was intended to be an exercise to learn
+some Julia. You can see a <a class="reference external" href="posts/numerical_summary">summary here</a>. I succeeded
+in 30 of the challenges, except for the BEM
+(<a class="reference external" href="https://en.wikipedia.org/wiki/Boundary_element_method">Boundary Element Method</a>),
+where I could not figure out what was wrong that day. The original
+post is <a class="reference external" href="posts/numerical-26">here</a>.</p>
+<p>Thomas Klimpel found the mistake and wrote an email where he described my
+mistakes. So, I am creating a new post with a correct implementation
+of the BEM.</p>
+<div class="section" id="the-boundary-element-method">
+<h2>The Boundary Element Method</h2>
+<p>We want so solve the equation</p>
+<div class="math">
+\begin{equation*}
+\nabla^2 u = -f(x, y)\quad \forall (x, y) \in \Omega\, ,
+\end{equation*}
+</div>
+<p>with</p>
+<div class="math">
+\begin{equation*}
+u(x) = g(x, y), \quad \forall (x, y)\in \partial \Omega \, .
+\end{equation*}
+</div>
+<p>For this method, we need to use an integral representation of the equation,
+that, in this case, is</p>
+<div class="math">
+\begin{equation*}
+u(\boldsymbol{\xi})  = \int_{S} [u(\mathbf{x}) F(\mathbf{x}, \boldsymbol{\xi})
+    - q(\mathbf{x})G(\mathbf{x}, \boldsymbol{\xi})]\mathrm{d}S(\mathbf{x})
+    + \int_{V} f(\mathbf{x}) G(\mathbf{x}, \boldsymbol{\xi}) \mathrm{d}V(\mathbf{x})
+\end{equation*}
+</div>
+<p>with</p>
+<div class="math">
+\begin{equation*}
+G(\mathbf{x}, \boldsymbol{\xi})= -\frac{1}{2\pi}\ln|\mathbf{x} - \xi|
+\end{equation*}
+</div>
+<p>and</p>
+<div class="math">
+\begin{equation*}
+F(\mathbf{x}, \boldsymbol{\xi}) =
+  -\frac{1}{2\pi |\mathbf{x} - \boldsymbol{\xi}|^2}
+  (\mathbf{x} - \boldsymbol{\xi})\cdot\hat{\mathbf{n}}
+\end{equation*}
+</div>
+<p>Then, we can form a system of equations</p>
+<div class="math">
+\begin{equation*}
+[G]\{q\} = [F]\{u\}\, ,
+\end{equation*}
+</div>
+<p>that we obtain by discretization of the boundary. If we take constant
+variables over the discretization, the integral can be computed analytically
+by</p>
+<div class="math">
+\begin{equation*}
+G_{nm} = -\frac{1}{2\pi}\left[r \sin\theta\left(\ln|r| - 1\right)
+         + \theta r\cos\theta\right]^{\theta_B, r_B}_{\theta_A, r_A}
+\end{equation*}
+</div>
+<p>and</p>
+<div class="math">
+\begin{equation*}
+F_{nm} = \left[\frac{\theta}{2\pi}\right]^{\theta_B}_{\theta_A}
+\end{equation*}
+</div>
+<p>for points <span class="math">\(n\)</span> and <span class="math">\(m\)</span> in different elements, and the subindices
+<span class="math">\(A,B\)</span> refer to the endpoints of the evaluation element. We should be
+careful evaluating this expression since both <span class="math">\(r_A\)</span> and <span class="math">\(r_B\)</span> can
+be (close to) zero and make it <em>explode</em>. Also, here it was the main problem
+since I forgot to compute the angles with respect to elements that are,
+in general, not aligned with horizontal or vertical axes.</p>
+<p>For diagonal terms the integrals evaluate to</p>
+<div class="math">
+\begin{equation*}
+G_{nn} = -\frac{L}{2\pi}\left(\ln\left\vert\frac{L}{2}\right\vert - 1\right)
+\end{equation*}
+</div>
+<p>and</p>
+<div class="math">
+\begin{equation*}
+F_{nn} = - \frac{1}{2}
+\end{equation*}
+</div>
+<p>with <span class="math">\(L\)</span> the size of the element.</p>
+<p>Following is the code. Keep in mind that this code works for purely Dirichlet
+problems. For mixed Dirichlet-Neumann the influence matrices would need
+rearranging to separate known and unknowns in opposite sides of the equation.</p>
+<p>You can download the files for this <a class="reference external" href="downloads/bem.zip">project here</a>.
+It includes a YML file to create a conda environment with the dependencies
+listed. For example, it uses version 3.0 of
+<a class="reference external" href="https://github.com/nschloe/meshio">Meshio</a>.</p>
+<pre class="code python"><a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-2"></a><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">log</span><span class="p">,</span> <span class="n">arctan2</span><span class="p">,</span> <span class="n">pi</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">arctan</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-3"></a><span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="kn">import</span> <span class="n">norm</span><span class="p">,</span> <span class="n">solve</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-4"></a><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-5"></a><span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-6"></a><span class="kn">import</span> <span class="nn">meshio</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-7"></a>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-8"></a>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-9"></a>  <span class="k">def</span> <span class="nf">assem</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">elems</span><span class="p">):</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-10"></a>      <span class="sd">"""Assembly matrices for the BEM problem</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-11"></a>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-12"></a><span class="sd">      Parameters</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-13"></a><span class="sd">      ----------</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-14"></a><span class="sd">      coords : ndarray, float</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-15"></a><span class="sd">          Coordinates for the nodes.</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-16"></a><span class="sd">      elems : ndarray, int</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-17"></a><span class="sd">          Connectivity for the elements.</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-18"></a>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-19"></a><span class="sd">      Returns</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-20"></a><span class="sd">      -------</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-21"></a><span class="sd">      Gmat : ndarray, float</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-22"></a><span class="sd">          Influence matrix for the flow.</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-23"></a><span class="sd">      Fmat : ndarray, float</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-24"></a><span class="sd">          Influence matrix for primary variable.</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-25"></a><span class="sd">      """</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-26"></a>      <span class="n">nelems</span> <span class="o">=</span> <span class="n">elems</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-27"></a>      <span class="n">Gmat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nelems</span><span class="p">,</span> <span class="n">nelems</span><span class="p">))</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-28"></a>      <span class="n">Fmat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nelems</span><span class="p">,</span> <span class="n">nelems</span><span class="p">))</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-29"></a>      <span class="k">for</span> <span class="n">ev_cont</span><span class="p">,</span> <span class="n">elem1</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">elems</span><span class="p">):</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-30"></a>          <span class="k">for</span> <span class="n">col_cont</span><span class="p">,</span> <span class="n">elem2</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">elems</span><span class="p">):</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-31"></a>              <span class="n">pt_col</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">coords</span><span class="p">[</span><span class="n">elem2</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-32"></a>              <span class="k">if</span> <span class="n">ev_cont</span> <span class="o">==</span> <span class="n">col_cont</span><span class="p">:</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-33"></a>                  <span class="n">L</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="n">coords</span><span class="p">[</span><span class="n">elem1</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">-</span> <span class="n">coords</span><span class="p">[</span><span class="n">elem1</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-34"></a>                  <span class="n">Gmat</span><span class="p">[</span><span class="n">ev_cont</span><span class="p">,</span> <span class="n">ev_cont</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span> <span class="n">L</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="n">L</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-35"></a>                  <span class="n">Fmat</span><span class="p">[</span><span class="n">ev_cont</span><span class="p">,</span> <span class="n">ev_cont</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span> <span class="mf">0.5</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-36"></a>              <span class="k">else</span><span class="p">:</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-37"></a>                  <span class="n">Gij</span><span class="p">,</span> <span class="n">Fij</span> <span class="o">=</span> <span class="n">influence_coeff</span><span class="p">(</span><span class="n">elem1</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">pt_col</span><span class="p">)</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-38"></a>                  <span class="n">Gmat</span><span class="p">[</span><span class="n">ev_cont</span><span class="p">,</span> <span class="n">col_cont</span><span class="p">]</span> <span class="o">=</span> <span class="n">Gij</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-39"></a>                  <span class="n">Fmat</span><span class="p">[</span><span class="n">ev_cont</span><span class="p">,</span> <span class="n">col_cont</span><span class="p">]</span> <span class="o">=</span> <span class="n">Fij</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-40"></a>      <span class="k">return</span> <span class="n">Gmat</span><span class="p">,</span> <span class="n">Fmat</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-41"></a>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-42"></a>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-43"></a>  <span class="k">def</span> <span class="nf">influence_coeff</span><span class="p">(</span><span class="n">elem</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">pt_col</span><span class="p">):</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-44"></a>      <span class="sd">"""Compute influence coefficients</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-45"></a>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-46"></a><span class="sd">      Parameters</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-47"></a><span class="sd">      ----------</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-48"></a><span class="sd">      elems : ndarray, int</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-49"></a><span class="sd">          Connectivity for the elements.</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-50"></a><span class="sd">      coords : ndarray, float</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-51"></a><span class="sd">          Coordinates for the nodes.</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-52"></a><span class="sd">      pt_col : ndarray</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-53"></a><span class="sd">          Coordinates of the colocation point.</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-54"></a>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-55"></a><span class="sd">      Returns</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-56"></a><span class="sd">      -------</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-57"></a><span class="sd">      G_coeff : float</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-58"></a><span class="sd">          Influence coefficient for flows.</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-59"></a><span class="sd">      F_coeff : float</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-60"></a><span class="sd">          Influence coefficient for primary variable.</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-61"></a><span class="sd">      """</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-62"></a>      <span class="n">dcos</span> <span class="o">=</span> <span class="n">coords</span><span class="p">[</span><span class="n">elem</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">-</span> <span class="n">coords</span><span class="p">[</span><span class="n">elem</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-63"></a>      <span class="n">dcos</span> <span class="o">=</span> <span class="n">dcos</span> <span class="o">/</span> <span class="n">norm</span><span class="p">(</span><span class="n">dcos</span><span class="p">)</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-64"></a>      <span class="n">rotmat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">dcos</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="o">-</span><span class="n">dcos</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-65"></a>                      <span class="p">[</span><span class="n">dcos</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dcos</span><span class="p">[</span><span class="mi">1</span><span class="p">]]])</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-66"></a>      <span class="n">r_A</span> <span class="o">=</span> <span class="n">rotmat</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">coords</span><span class="p">[</span><span class="n">elem</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">-</span> <span class="n">pt_col</span><span class="p">)</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-67"></a>      <span class="n">r_B</span> <span class="o">=</span> <span class="n">rotmat</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">coords</span><span class="p">[</span><span class="n">elem</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">-</span> <span class="n">pt_col</span><span class="p">)</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-68"></a>      <span class="n">theta_A</span> <span class="o">=</span> <span class="n">arctan2</span><span class="p">(</span><span class="n">r_A</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">r_A</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-69"></a>      <span class="n">theta_B</span> <span class="o">=</span> <span class="n">arctan2</span><span class="p">(</span><span class="n">r_B</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">r_B</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-70"></a>      <span class="k">if</span> <span class="n">norm</span><span class="p">(</span><span class="n">r_A</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mf">1e-6</span><span class="p">:</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-71"></a>          <span class="n">G_coeff</span> <span class="o">=</span> <span class="n">r_B</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="n">norm</span><span class="p">(</span><span class="n">r_B</span><span class="p">))</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">theta_B</span><span class="o">*</span><span class="n">r_B</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-72"></a>      <span class="k">elif</span> <span class="n">norm</span><span class="p">(</span><span class="n">r_B</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mf">1e-6</span><span class="p">:</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-73"></a>          <span class="n">G_coeff</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">r_A</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="n">norm</span><span class="p">(</span><span class="n">r_A</span><span class="p">))</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">theta_A</span><span class="o">*</span><span class="n">r_A</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-74"></a>      <span class="k">else</span><span class="p">:</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-75"></a>          <span class="n">G_coeff</span> <span class="o">=</span> <span class="n">r_B</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="n">norm</span><span class="p">(</span><span class="n">r_B</span><span class="p">))</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">theta_B</span><span class="o">*</span><span class="n">r_B</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span>\
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-76"></a>                  <span class="p">(</span><span class="n">r_A</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="n">norm</span><span class="p">(</span><span class="n">r_A</span><span class="p">))</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">theta_A</span><span class="o">*</span><span class="n">r_A</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-77"></a>      <span class="n">F_coeff</span> <span class="o">=</span> <span class="n">theta_B</span> <span class="o">-</span> <span class="n">theta_A</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-78"></a>      <span class="k">return</span> <span class="o">-</span><span class="n">G_coeff</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">),</span> <span class="n">F_coeff</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">)</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-79"></a>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-80"></a>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-81"></a>  <span class="k">def</span> <span class="nf">eval_sol</span><span class="p">(</span><span class="n">ev_coords</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">elems</span><span class="p">,</span> <span class="n">u_boundary</span><span class="p">,</span> <span class="n">q_boundary</span><span class="p">):</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-82"></a>      <span class="sd">"""Evaluate the solution in a set of points</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-83"></a>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-84"></a><span class="sd">      Parameters</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-85"></a><span class="sd">      ----------</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-86"></a><span class="sd">      ev_coords : ndarray, float</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-87"></a><span class="sd">          Coordinates of the evaluation points.</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-88"></a><span class="sd">      coords : ndarray, float</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-89"></a><span class="sd">          Coordinates for the nodes.</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-90"></a><span class="sd">      elems : ndarray, int</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-91"></a><span class="sd">          Connectivity for the elements.</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-92"></a><span class="sd">      u_boundary : ndarray, float</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-93"></a><span class="sd">          Primary variable in the nodes.</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-94"></a><span class="sd">      q_boundary : [type]</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-95"></a><span class="sd">          Flows in the nodes.</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-96"></a>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-97"></a><span class="sd">      Returns</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-98"></a><span class="sd">      -------</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-99"></a><span class="sd">      solution : ndarray, float</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-100"></a><span class="sd">          Solution evaluated in the given points.</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-101"></a><span class="sd">      """</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-102"></a>      <span class="n">npts</span> <span class="o">=</span> <span class="n">ev_coords</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-103"></a>      <span class="n">solution</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">npts</span><span class="p">)</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-104"></a>      <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">npts</span><span class="p">):</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-105"></a>          <span class="k">for</span> <span class="n">ev_cont</span><span class="p">,</span> <span class="n">elem</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">elems</span><span class="p">):</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-106"></a>              <span class="n">pt_col</span> <span class="o">=</span> <span class="n">ev_coords</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-107"></a>              <span class="n">G</span><span class="p">,</span> <span class="n">F</span> <span class="o">=</span> <span class="n">influence_coeff</span><span class="p">(</span><span class="n">elem</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">pt_col</span><span class="p">)</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-108"></a>              <span class="n">solution</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">+=</span> <span class="n">u_boundary</span><span class="p">[</span><span class="n">ev_cont</span><span class="p">]</span><span class="o">*</span><span class="n">F</span> <span class="o">-</span> <span class="n">q_boundary</span><span class="p">[</span><span class="n">ev_cont</span><span class="p">]</span><span class="o">*</span><span class="n">G</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-109"></a>      <span class="k">return</span> <span class="n">solution</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-110"></a>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-111"></a>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-112"></a><span class="c1">#%% Simulation</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-113"></a><span class="n">mesh</span> <span class="o">=</span> <span class="n">meshio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">"disk.msh"</span><span class="p">)</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-114"></a><span class="n">elems</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">cells</span><span class="p">[</span><span class="s2">"line"</span><span class="p">]</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-115"></a><span class="n">bound_nodes</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">elems</span><span class="o">.</span><span class="n">flatten</span><span class="p">()))</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-116"></a><span class="n">coords</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">points</span><span class="p">[</span><span class="n">bound_nodes</span><span class="p">,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-117"></a><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">coords</span><span class="o">.</span><span class="n">T</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-118"></a><span class="n">x_m</span><span class="p">,</span> <span class="n">y_m</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">coords</span><span class="p">[</span><span class="n">elems</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]]</span> <span class="o">+</span> <span class="n">coords</span><span class="p">[</span><span class="n">elems</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]])</span><span class="o">.</span><span class="n">T</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-119"></a><span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">y_m</span><span class="p">,</span> <span class="n">x_m</span><span class="p">)</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-120"></a><span class="n">u_boundary</span> <span class="o">=</span> <span class="mi">3</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">6</span><span class="o">*</span><span class="n">theta</span><span class="p">)</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-121"></a>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-122"></a>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-123"></a><span class="c1">#%% Assembly</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-124"></a><span class="n">Gmat</span><span class="p">,</span> <span class="n">Fmat</span> <span class="o">=</span> <span class="n">assem</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">elems</span><span class="p">)</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-125"></a>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-126"></a><span class="c1">#%% Solution</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-127"></a><span class="n">q_boundary</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">Gmat</span><span class="p">,</span> <span class="n">Fmat</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">u_boundary</span><span class="p">))</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-128"></a>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-129"></a><span class="c1">#%% Evaluation</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-130"></a><span class="n">ev_coords</span> <span class="o">=</span>  <span class="n">mesh</span><span class="o">.</span><span class="n">points</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-131"></a><span class="n">ev_x</span><span class="p">,</span> <span class="n">ev_y</span> <span class="o">=</span> <span class="n">ev_coords</span><span class="o">.</span><span class="n">T</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-132"></a><span class="n">solution</span> <span class="o">=</span> <span class="n">eval_sol</span><span class="p">(</span><span class="n">ev_coords</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">elems</span><span class="p">,</span> <span class="n">u_boundary</span><span class="p">,</span> <span class="n">q_boundary</span><span class="p">)</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-133"></a>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-134"></a><span class="c1">#%% Visualization</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-135"></a><span class="n">tris</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">cells</span><span class="p">[</span><span class="s2">"triangle"</span><span class="p">]</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-136"></a><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-137"></a><span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">'3d'</span><span class="p">)</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-138"></a><span class="n">ax</span><span class="o">.</span><span class="n">plot_trisurf</span><span class="p">(</span><span class="n">ev_x</span><span class="p">,</span> <span class="n">ev_y</span><span class="p">,</span> <span class="n">solution</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">"RdYlBu"</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-139"></a>                <span class="n">edgecolor</span><span class="o">=</span><span class="s2">"#3c3c3c"</span><span class="p">)</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-140"></a><span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([])</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-141"></a><span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-142"></a><span class="n">ax</span><span class="o">.</span><span class="n">set_zticks</span><span class="p">([])</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-143"></a><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">"bem_solution.png"</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">"tight"</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-144"></a>            <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+</pre>
+<p>The result in this case is the following.</p>
+<img alt="Solution of the differential equation using the BEM." class="align-center" src="images/bem_solution.png" style="width: 600px;">
+</div>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/tech_writing_math/" class="u-url">Technical writing: using math</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
             <p class="dateline"><a href="posts/tech_writing_math/" rel="bookmark"><time class="post-date published dt-published" datetime="2020-08-02T18:00:00-05:00" title="2020-08-02 18:00">2020-08-02 18:00</time></a></p>
@@ -1272,239 +1529,6 @@ are placed in the center of the interval.</p>
     <a href="http://nbviewer.jupyter.org/url/nicoguaro.github.io/downloads/notebooks/finite_diff_map.ipynb">nbviewer</a>.
   <i>
 </i></i></small>
-</div>
-</div>
-    </div>
-    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/cyclic_colormaps/" class="u-url">Cyclic colormaps comparison</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
-            <p class="dateline"><a href="posts/cyclic_colormaps/" rel="bookmark"><time class="post-date published dt-published" datetime="2018-01-02T18:55:41-05:00" title="2018-01-02 18:55">2018-01-02 18:55</time></a></p>
-                <p class="commentline">
-        
-    <a href="posts/cyclic_colormaps/#disqus_thread" data-disqus-identifier="cache/posts/cyclic_colormaps.html">Comments</a>
-
-
-        </p>
-</div>
-    </header><div class="e-content entry-content">
-    <div>
-<p>I started this post looking for a
-<a class="reference external" href="https://en.wikipedia.org/wiki/Diffusion_map">diffusion map</a> on Python,
-that I didn't find. Then I continued following an
-<a class="reference external" href="http://scikit-learn.org/stable/auto_examples/manifold/plot_compare_methods.html#sphx-glr-auto-examples-manifold-plot-compare-methods-py">example</a>
-on <a class="reference external" href="https://en.wikipedia.org/wiki/Nonlinear_dimensionality_reduction">manifold learning</a>
-by <a class="reference external" href="https://jakevdp.github.io/">Jake Vanderplas</a> on a <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Diffusion_map_of_a_torodial_helix.jpg">different dataset</a>.
-It worked nicely,</p>
-<img alt="/images/manifold_learning_toroidal_helix.svg" src="images/manifold_learning_toroidal_helix.svg"><p>but the colormap used is <a class="reference external" href="https://matplotlib.org/examples/color/colormaps_reference.html">Spectral</a>, that is divergent. This made me think about
-using a cyclic colormap, and ended up in
-<a class="reference external" href="https://stackoverflow.com/q/23712207/3358223">this StackOverflow</a> question.
-And I decided to compare some cyclic colormaps.</p>
-<p>I picked up colormaps from different sources</p>
-<ul class="simple">
-<li>
-<p><a class="reference external" href="https://matplotlib.org/cmocean/">cmocean</a>:</p>
-<ul>
-<li><p>phase</p></li>
-</ul>
-</li>
-<li>
-<p><a class="reference external" href="http://paraview.org/">Paraview</a>:</p>
-<ul>
-<li><p>hue_L60</p></li>
-<li><p>erdc_iceFire</p></li>
-<li><p>nic_Edge</p></li>
-</ul>
-</li>
-<li>
-<p><a class="reference external" href="https://github.com/bokeh/colorcet">Colorcet</a>:</p>
-<ul>
-<li><p>colorwheel</p></li>
-<li><p>cyclic_mrybm_35_75_c68</p></li>
-<li><p>cyclic_mygbm_30_95_c78</p></li>
-</ul>
-</li>
-</ul>
-<p>and, of course, <code class="docutils literal">hsv</code>. You can download the colormaps in text
-format from <a class="reference external" href="downloads/cyclic_colormaps.zip">here</a>.</p>
-<div class="section" id="comparison">
-<h2>Comparison</h2>
-<p>For all the examples below the following imports are done:</p>
-<pre class="code python"><a name="rest_code_4bfe8b76cb48447f9f3007237752cd17-1"></a><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span>
-<a name="rest_code_4bfe8b76cb48447f9f3007237752cd17-2"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<a name="rest_code_4bfe8b76cb48447f9f3007237752cd17-3"></a><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<a name="rest_code_4bfe8b76cb48447f9f3007237752cd17-4"></a><span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">LinearSegmentedColormap</span>
-<a name="rest_code_4bfe8b76cb48447f9f3007237752cd17-5"></a><span class="kn">from</span> <span class="nn">colorspacious</span> <span class="kn">import</span> <span class="n">cspace_convert</span>
-</pre>
-<div class="section" id="color-map-test-image">
-<h3>Color map test image</h3>
-<p>Peter Kovesi proposed a way to compare cyclic colormaps on a
-<a class="reference external" href="http://peterkovesi.com/projects/colourmaps/colourmaptestimage.html">paper</a>
-on 2015. It consists of a spiral ramp with an undulation. In polar coordinates
-it reads</p>
-<div class="math">
-\begin{equation*}
-c = (A \rho^p \sin(n \theta) + \theta)\, \mathrm{mod}\, 2\pi
-\end{equation*}
-</div>
-<p>with <span class="math">\(A\)</span> the amplitude of the oscilation, <span class="math">\(\rho\)</span> the normalized
-radius in [0, 1], <span class="math">\(p\)</span> a positive number, and <span class="math">\(n\)</span> the number
-of cycles.</p>
-<p>And the following function creates the grid in Python</p>
-<pre class="code python"><a name="rest_code_c6f8bdd681e0468495e9d1b4f416afb4-1"></a><span class="k">def</span> <span class="nf">circle_sine_ramp</span><span class="p">(</span><span class="n">r_max</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">r_min</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">amp</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">5</span><span class="p">,</span> <span class="n">cycles</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
-<a name="rest_code_c6f8bdd681e0468495e9d1b4f416afb4-2"></a>                     <span class="n">power</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">nr</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">ntheta</span><span class="o">=</span><span class="mi">1025</span><span class="p">):</span>
-<a name="rest_code_c6f8bdd681e0468495e9d1b4f416afb4-3"></a><span class="n">r</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mgrid</span><span class="p">[</span><span class="n">r_min</span><span class="p">:</span><span class="n">r_max</span><span class="p">:</span><span class="n">nr</span><span class="o">*</span><span class="mi">1</span><span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">:</span><span class="n">ntheta</span><span class="o">*</span><span class="mi">1</span><span class="n">j</span><span class="p">]</span>
-<a name="rest_code_c6f8bdd681e0468495e9d1b4f416afb4-4"></a><span class="n">r_norm</span> <span class="o">=</span> <span class="p">(</span><span class="n">r</span> <span class="o">-</span> <span class="n">r_min</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">r_max</span> <span class="o">-</span> <span class="n">r_min</span><span class="p">)</span>
-<a name="rest_code_c6f8bdd681e0468495e9d1b4f416afb4-5"></a><span class="n">vals</span> <span class="o">=</span> <span class="n">amp</span> <span class="o">*</span> <span class="n">r_norm</span><span class="o">**</span><span class="n">power</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">cycles</span><span class="o">*</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="n">t</span>
-<a name="rest_code_c6f8bdd681e0468495e9d1b4f416afb4-6"></a><span class="n">vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mod</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
-<a name="rest_code_c6f8bdd681e0468495e9d1b4f416afb4-7"></a><span class="k">return</span> <span class="n">t</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">vals</span>
-</pre>
-<p>The following is the result</p>
-<img alt="/images/sine_helix_cyclic_cmap.png" src="images/sine_helix_cyclic_cmap.png">
-</div>
-<div class="section" id="colorblindness-test">
-<h3>Colorblindness test</h3>
-<pre class="code python"><a name="rest_code_6810d1046f6f4f57933d6cde49e25517-1"></a><span class="n">t</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">vals</span> <span class="o">=</span> <span class="n">circle_sine_ramp</span><span class="p">(</span><span class="n">cycles</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<a name="rest_code_6810d1046f6f4f57933d6cde49e25517-2"></a><span class="n">cmaps</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"hsv"</span><span class="p">,</span>
-<a name="rest_code_6810d1046f6f4f57933d6cde49e25517-3"></a>         <span class="s2">"cmocean_phase"</span><span class="p">,</span>
-<a name="rest_code_6810d1046f6f4f57933d6cde49e25517-4"></a>         <span class="s2">"hue_L60"</span><span class="p">,</span>
-<a name="rest_code_6810d1046f6f4f57933d6cde49e25517-5"></a>         <span class="s2">"erdc_iceFire"</span><span class="p">,</span>
-<a name="rest_code_6810d1046f6f4f57933d6cde49e25517-6"></a>         <span class="s2">"nic_Edge"</span><span class="p">,</span>
-<a name="rest_code_6810d1046f6f4f57933d6cde49e25517-7"></a>         <span class="s2">"colorwheel"</span><span class="p">,</span>
-<a name="rest_code_6810d1046f6f4f57933d6cde49e25517-8"></a>         <span class="s2">"cyclic_mrybm"</span><span class="p">,</span>
-<a name="rest_code_6810d1046f6f4f57933d6cde49e25517-9"></a>         <span class="s2">"cyclic_mygbm"</span><span class="p">]</span>
-<a name="rest_code_6810d1046f6f4f57933d6cde49e25517-10"></a><span class="n">severity</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>
-<a name="rest_code_6810d1046f6f4f57933d6cde49e25517-11"></a><span class="k">for</span> <span class="n">colormap</span> <span class="ow">in</span> <span class="n">cmaps</span><span class="p">:</span>
-<a name="rest_code_6810d1046f6f4f57933d6cde49e25517-12"></a>    <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">colormap</span> <span class="o">+</span> <span class="s2">".txt"</span><span class="p">)</span>
-<a name="rest_code_6810d1046f6f4f57933d6cde49e25517-13"></a>    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<a name="rest_code_6810d1046f6f4f57933d6cde49e25517-14"></a>    <span class="k">for</span> <span class="n">cont</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
-<a name="rest_code_6810d1046f6f4f57933d6cde49e25517-15"></a>        <span class="n">cvd_space</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"sRGB1+CVD"</span><span class="p">,</span>
-<a name="rest_code_6810d1046f6f4f57933d6cde49e25517-16"></a>             <span class="s2">"cvd_type"</span><span class="p">:</span> <span class="n">cvd_type</span><span class="p">[</span><span class="n">cont</span><span class="p">],</span>
-<a name="rest_code_6810d1046f6f4f57933d6cde49e25517-17"></a>             <span class="s2">"severity"</span><span class="p">:</span> <span class="n">severity</span><span class="p">[</span><span class="n">cont</span><span class="p">]}</span>
-<a name="rest_code_6810d1046f6f4f57933d6cde49e25517-18"></a>        <span class="n">data2</span> <span class="o">=</span> <span class="n">cspace_convert</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">cvd_space</span><span class="p">,</span> <span class="s2">"sRGB1"</span><span class="p">)</span>
-<a name="rest_code_6810d1046f6f4f57933d6cde49e25517-19"></a>        <span class="n">data2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">data2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<a name="rest_code_6810d1046f6f4f57933d6cde49e25517-20"></a>        <span class="n">cmap</span> <span class="o">=</span> <span class="n">LinearSegmentedColormap</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span><span class="s1">'my_colormap'</span><span class="p">,</span> <span class="n">data2</span><span class="p">)</span>
-<a name="rest_code_6810d1046f6f4f57933d6cde49e25517-21"></a>        <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">cont</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s2">"polar"</span><span class="p">)</span>
-<a name="rest_code_6810d1046f6f4f57933d6cde49e25517-22"></a>        <span class="n">ax</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">vals</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">)</span>
-<a name="rest_code_6810d1046f6f4f57933d6cde49e25517-23"></a>        <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
-<a name="rest_code_6810d1046f6f4f57933d6cde49e25517-24"></a>        <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
-<a name="rest_code_6810d1046f6f4f57933d6cde49e25517-25"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="n">colormap</span><span class="p">)</span>
-<a name="rest_code_6810d1046f6f4f57933d6cde49e25517-26"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<a name="rest_code_6810d1046f6f4f57933d6cde49e25517-27"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">colormap</span> <span class="o">+</span> <span class="s2">".png"</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
-</pre>
-<div class="figure align-center">
-<img alt="/images/hsv_eval.png" src="images/hsv_eval.png"><p class="caption"><code class="docutils literal">hsv</code> colormap comparison for different color vision deficiencies.</p>
-</div>
-<div class="figure align-center">
-<img alt="/images/cmocean_phase_eval.png" src="images/cmocean_phase_eval.png"><p class="caption"><code class="docutils literal">Phase</code> colormap comparison for different color vision deficiencies.</p>
-</div>
-<div class="figure align-center">
-<img alt="/images/hue_L60_eval.png" src="images/hue_L60_eval.png"><p class="caption"><code class="docutils literal">hue_L60</code> colormap comparison for different color vision deficiencies.</p>
-</div>
-<div class="figure align-center">
-<img alt="/images/erdc_iceFire_eval.png" src="images/erdc_iceFire_eval.png"><p class="caption"><code class="docutils literal">erdc_iceFire</code> colormap comparison for different color vision deficiencies.</p>
-</div>
-<div class="figure align-center">
-<img alt="/images/nic_Edge_eval.png" src="images/nic_Edge_eval.png"><p class="caption"><code class="docutils literal">nic_Edge</code> colormap comparison for different color vision deficiencies.</p>
-</div>
-<div class="figure align-center">
-<img alt="/images/colorwheel_eval.png" src="images/colorwheel_eval.png"><p class="caption"><code class="docutils literal">Colorwheel</code> colormap comparison for different color vision deficiencies.</p>
-</div>
-<div class="figure align-center">
-<img alt="/images/cyclic_mrybm_eval.png" src="images/cyclic_mrybm_eval.png"><p class="caption"><code class="docutils literal">Cyclic_mrybm</code> colormap comparison for different color vision deficiencies.</p>
-</div>
-<div class="figure align-center">
-<img alt="/images/cyclic_mygbm_eval.png" src="images/cyclic_mygbm_eval.png"><p class="caption"><code class="docutils literal">Cyclic_mygbm</code> colormap comparison for different color vision deficiencies.</p>
-</div>
-</div>
-</div>
-<div class="section" id="randomly-generated-cyclic-colormaps">
-<h2>Randomly generated cyclic colormaps</h2>
-<p>What if we generate some random colormaps that are cyclic? How would they
-look like?</p>
-<p>Following are the snippet and resulting colormaps.</p>
-<pre class="code python"><a name="rest_code_ddc1a8d8e94a4ce7a630091fdbb2a9a2-1"></a><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span>
-<a name="rest_code_ddc1a8d8e94a4ce7a630091fdbb2a9a2-2"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<a name="rest_code_ddc1a8d8e94a4ce7a630091fdbb2a9a2-3"></a><span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
-<a name="rest_code_ddc1a8d8e94a4ce7a630091fdbb2a9a2-4"></a><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<a name="rest_code_ddc1a8d8e94a4ce7a630091fdbb2a9a2-5"></a><span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">LinearSegmentedColormap</span>
-<a name="rest_code_ddc1a8d8e94a4ce7a630091fdbb2a9a2-6"></a>
-<a name="rest_code_ddc1a8d8e94a4ce7a630091fdbb2a9a2-7"></a>
-<a name="rest_code_ddc1a8d8e94a4ce7a630091fdbb2a9a2-8"></a><span class="c1"># Next line to silence pyflakes. This import is needed.</span>
-<a name="rest_code_ddc1a8d8e94a4ce7a630091fdbb2a9a2-9"></a><span class="n">Axes3D</span>
-<a name="rest_code_ddc1a8d8e94a4ce7a630091fdbb2a9a2-10"></a>
-<a name="rest_code_ddc1a8d8e94a4ce7a630091fdbb2a9a2-11"></a><span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="s2">"all"</span><span class="p">)</span>
-<a name="rest_code_ddc1a8d8e94a4ce7a630091fdbb2a9a2-12"></a><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<a name="rest_code_ddc1a8d8e94a4ce7a630091fdbb2a9a2-13"></a><span class="n">fig2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<a name="rest_code_ddc1a8d8e94a4ce7a630091fdbb2a9a2-14"></a><span class="n">nx</span> <span class="o">=</span> <span class="mi">4</span>
-<a name="rest_code_ddc1a8d8e94a4ce7a630091fdbb2a9a2-15"></a><span class="n">ny</span> <span class="o">=</span> <span class="mi">4</span>
-<a name="rest_code_ddc1a8d8e94a4ce7a630091fdbb2a9a2-16"></a><span class="n">azimuths</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">361</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<a name="rest_code_ddc1a8d8e94a4ce7a630091fdbb2a9a2-17"></a><span class="n">zeniths</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<a name="rest_code_ddc1a8d8e94a4ce7a630091fdbb2a9a2-18"></a><span class="n">values</span> <span class="o">=</span> <span class="n">azimuths</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">30</span><span class="p">,</span> <span class="mi">361</span><span class="p">))</span>
-<a name="rest_code_ddc1a8d8e94a4ce7a630091fdbb2a9a2-19"></a><span class="k">for</span> <span class="n">cont</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nx</span> <span class="o">*</span> <span class="n">ny</span><span class="p">):</span>
-<a name="rest_code_ddc1a8d8e94a4ce7a630091fdbb2a9a2-20"></a>    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="n">cont</span><span class="p">)</span>
-<a name="rest_code_ddc1a8d8e94a4ce7a630091fdbb2a9a2-21"></a>    <span class="n">rad</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
-<a name="rest_code_ddc1a8d8e94a4ce7a630091fdbb2a9a2-22"></a>    <span class="n">center</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">rad</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">rad</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-<a name="rest_code_ddc1a8d8e94a4ce7a630091fdbb2a9a2-23"></a>    <span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<a name="rest_code_ddc1a8d8e94a4ce7a630091fdbb2a9a2-24"></a>    <span class="n">rot_mat</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">qr</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
-<a name="rest_code_ddc1a8d8e94a4ce7a630091fdbb2a9a2-25"></a>    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">256</span><span class="p">)</span>
-<a name="rest_code_ddc1a8d8e94a4ce7a630091fdbb2a9a2-26"></a>    <span class="n">x</span> <span class="o">=</span> <span class="n">rad</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-<a name="rest_code_ddc1a8d8e94a4ce7a630091fdbb2a9a2-27"></a>    <span class="n">y</span> <span class="o">=</span> <span class="n">rad</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-<a name="rest_code_ddc1a8d8e94a4ce7a630091fdbb2a9a2-28"></a>    <span class="n">z</span> <span class="o">=</span> <span class="mf">0.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-<a name="rest_code_ddc1a8d8e94a4ce7a630091fdbb2a9a2-29"></a>    <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">))</span>
-<a name="rest_code_ddc1a8d8e94a4ce7a630091fdbb2a9a2-30"></a>    <span class="n">X</span> <span class="o">=</span> <span class="n">rot_mat</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">+</span> <span class="n">center</span>
-<a name="rest_code_ddc1a8d8e94a4ce7a630091fdbb2a9a2-31"></a>
-<a name="rest_code_ddc1a8d8e94a4ce7a630091fdbb2a9a2-32"></a>    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">ny</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">cont</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">'polar'</span><span class="p">)</span>
-<a name="rest_code_ddc1a8d8e94a4ce7a630091fdbb2a9a2-33"></a>    <span class="n">cmap</span> <span class="o">=</span> <span class="n">LinearSegmentedColormap</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span><span class="s1">'my_colormap'</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
-<a name="rest_code_ddc1a8d8e94a4ce7a630091fdbb2a9a2-34"></a>    <span class="n">ax</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">azimuths</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">180.0</span><span class="p">,</span> <span class="n">zeniths</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">)</span>
-<a name="rest_code_ddc1a8d8e94a4ce7a630091fdbb2a9a2-35"></a>    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
-<a name="rest_code_ddc1a8d8e94a4ce7a630091fdbb2a9a2-36"></a>    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
-<a name="rest_code_ddc1a8d8e94a4ce7a630091fdbb2a9a2-37"></a>
-<a name="rest_code_ddc1a8d8e94a4ce7a630091fdbb2a9a2-38"></a>    <span class="n">ax2</span> <span class="o">=</span> <span class="n">fig2</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">ny</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">cont</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">'3d'</span><span class="p">)</span>
-<a name="rest_code_ddc1a8d8e94a4ce7a630091fdbb2a9a2-39"></a>    <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:],</span> <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:],</span> <span class="n">X</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="p">:])</span>
-<a name="rest_code_ddc1a8d8e94a4ce7a630091fdbb2a9a2-40"></a>    <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<a name="rest_code_ddc1a8d8e94a4ce7a630091fdbb2a9a2-41"></a>    <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<a name="rest_code_ddc1a8d8e94a4ce7a630091fdbb2a9a2-42"></a>    <span class="n">ax2</span><span class="o">.</span><span class="n">set_zlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<a name="rest_code_ddc1a8d8e94a4ce7a630091fdbb2a9a2-43"></a>    <span class="n">ax2</span><span class="o">.</span><span class="n">view_init</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="o">-</span><span class="mi">60</span><span class="p">)</span>
-<a name="rest_code_ddc1a8d8e94a4ce7a630091fdbb2a9a2-44"></a>    <span class="n">ax2</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
-<a name="rest_code_ddc1a8d8e94a4ce7a630091fdbb2a9a2-45"></a>    <span class="n">ax2</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
-<a name="rest_code_ddc1a8d8e94a4ce7a630091fdbb2a9a2-46"></a>    <span class="n">ax2</span><span class="o">.</span><span class="n">set_zticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
-<a name="rest_code_ddc1a8d8e94a4ce7a630091fdbb2a9a2-47"></a>    <span class="n">ax2</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([])</span>
-<a name="rest_code_ddc1a8d8e94a4ce7a630091fdbb2a9a2-48"></a>    <span class="n">ax2</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">([])</span>
-<a name="rest_code_ddc1a8d8e94a4ce7a630091fdbb2a9a2-49"></a>    <span class="n">ax2</span><span class="o">.</span><span class="n">set_zticklabels</span><span class="p">([])</span>
-<a name="rest_code_ddc1a8d8e94a4ce7a630091fdbb2a9a2-50"></a>
-<a name="rest_code_ddc1a8d8e94a4ce7a630091fdbb2a9a2-51"></a>
-<a name="rest_code_ddc1a8d8e94a4ce7a630091fdbb2a9a2-52"></a><span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">"random_cmaps.png"</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<a name="rest_code_ddc1a8d8e94a4ce7a630091fdbb2a9a2-53"></a><span class="n">fig2</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">"random_cmaps_traj.svg"</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre>
-<div class="figure align-center">
-<img alt="/images/random_cmaps.png" src="images/random_cmaps.png"><p class="caption">16 randomly generated colormaps.</p>
-</div>
-<div class="figure align-center">
-<img alt="/images/random_cmaps_traj.svg" src="images/random_cmaps_traj.svg"><p class="caption">Trajectories in RGB space for the randomly generated colormaps.</p>
-</div>
-<p>A good idea would be to take these colormaps and optimize some perceptual
-parameters such as lightness to get some usable ones.</p>
-</div>
-<div class="section" id="conclusions">
-<h2>Conclusions</h2>
-<p>I probably would use <code class="docutils literal">phase</code>, <code class="docutils literal">colorwheel</code>, or <code class="docutils literal">mrybm</code> in the
-future.</p>
-<div class="figure align-center">
-<img alt="/images/toroidal_helix_phase.svg" src="images/toroidal_helix_phase.svg"><p class="caption">Initial image using <code class="docutils literal">phase</code>.</p>
-</div>
-<div class="figure align-center">
-<img alt="/images/toroidal_helix_colorwheel.svg" src="images/toroidal_helix_colorwheel.svg"><p class="caption">Initial image using <code class="docutils literal">colorwheel</code>.</p>
-</div>
-<div class="figure align-center">
-<img alt="/images/toroidal_helix_mrybm.svg" src="images/toroidal_helix_mrybm.svg"><p class="caption">Initial image using <code class="docutils literal">mrybm</code>.</p>
-</div>
-</div>
-<div class="section" id="references">
-<h2>References</h2>
-<ol class="arabic simple">
-<li><p>Peter Kovesi. Good Colour Maps: How to Design Them.
-arXiv:1509.03700 [cs.GR] 2015</p></li>
-</ol>
 </div>
 </div>
     </div>

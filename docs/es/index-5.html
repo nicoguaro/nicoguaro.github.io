@@ -53,7 +53,253 @@
         
 
 <div class="posts">
-    <article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/putnam_prob/" class="u-url">Probabilidad de que un tetraedro en una esfera contenga su centro</a></h1>
+    <article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/cyclic_colormaps/" class="u-url">Comparación de mapas de colores cíclicos</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
+            <p class="dateline"><a href="posts/cyclic_colormaps/" rel="bookmark"><time class="post-date published dt-published" datetime="2018-01-02T18:55:41-05:00" title="2018-01-02 18:55">2018-01-02 18:55</time></a></p>
+                <p class="commentline">
+        
+    <a href="posts/cyclic_colormaps/#disqus_thread" data-disqus-identifier="cache/posts/cyclic_colormaps.html">Comentarios</a>
+
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <div>
+<p>Empecé esta publicación buscando implementaciones de
+<a class="reference external" href="https://en.wikipedia.org/wiki/Diffusion_map">mapas de difusión</a>
+en Python, que no pude encontrar. Me puse entonces a seguir un
+<a class="reference external" href="http://scikit-learn.org/stable/auto_examples/manifold/plot_compare_methods.html#sphx-glr-auto-examples-manifold-plot-compare-methods-py">ejemplo</a>
+sobre <a class="reference external" href="https://en.wikipedia.org/wiki/Nonlinear_dimensionality_reduction">aprendizaje de variedades</a>
+de <a class="reference external" href="https://jakevdp.github.io/">Jake Vanderplas</a> en un <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Diffusion_map_of_a_torodial_helix.jpg">conjunto de datos diferente</a>.
+Y funcionó bien</p>
+<img alt="/images/manifold_learning_toroidal_helix.svg" src="../images/manifold_learning_toroidal_helix.svg"><p>pero el mapa de color es <a class="reference external" href="https://matplotlib.org/examples/color/colormaps_reference.html">"Spectral"</a>,
+que es divergente. Esto me puso a pensar acerca de usar un mapa de
+colores cícliclo, y terminé en esta pregunta de
+<a class="reference external" href="https://stackoverflow.com/q/23712207/3358223">StackOverflow</a>.
+Y decidí comparar algunos mapas de colores cíclicos.</p>
+<p>Elegí mapas de colores de diferentes fuentes</p>
+<ul class="simple">
+<li>
+<p><a class="reference external" href="https://matplotlib.org/cmocean/">cmocean</a>:</p>
+<ul>
+<li><p>phase</p></li>
+</ul>
+</li>
+<li>
+<p><a class="reference external" href="http://paraview.org/">Paraview</a>:</p>
+<ul>
+<li><p>hue_L60</p></li>
+<li><p>erdc_iceFire</p></li>
+<li><p>nic_Edge</p></li>
+</ul>
+</li>
+<li>
+<p><a class="reference external" href="https://github.com/bokeh/colorcet">Colorcet</a>:</p>
+<ul>
+<li><p>colorwheel</p></li>
+<li><p>cyclic_mrybm_35_75_c68</p></li>
+<li><p>cyclic_mygbm_30_95_c78</p></li>
+</ul>
+</li>
+</ul>
+<p>y, obviamente, <code class="docutils literal">hsv</code>. Los mapas de colores en formato de texto
+plano se pueden descargar <a class="reference external" href="../downloads/cyclic_colormaps.zip">aquí</a>.</p>
+<div class="section" id="comparacion">
+<h2>Comparación</h2>
+<p>Para todos los ejemplos se importaron los siguientes módulos:</p>
+<pre class="code python"><a name="rest_code_33c1a3abd74f43ef888cced59e30ff34-1"></a><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span>
+<a name="rest_code_33c1a3abd74f43ef888cced59e30ff34-2"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<a name="rest_code_33c1a3abd74f43ef888cced59e30ff34-3"></a><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<a name="rest_code_33c1a3abd74f43ef888cced59e30ff34-4"></a><span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">LinearSegmentedColormap</span>
+<a name="rest_code_33c1a3abd74f43ef888cced59e30ff34-5"></a><span class="kn">from</span> <span class="nn">colorspacious</span> <span class="kn">import</span> <span class="n">cspace_convert</span>
+</pre>
+<div class="section" id="imagen-de-prueba">
+<h3>Imagen de prueba</h3>
+<p>Peter Kovesi propuso una manera de comparar mapas de colores
+cíclicos en un
+<a class="reference external" href="http://peterkovesi.com/projects/colourmaps/colourmaptestimage.html">artículo</a>
+en 2015. Consta de una rampa en espiral con ondulaciones. En
+coordenadas polares es</p>
+<div class="math">
+\begin{equation*}
+c = (A \rho^p \sin(n \theta) + \theta)\, \mathrm{mod}\, 2\pi
+\end{equation*}
+</div>
+<p>con <span class="math">\(A\)</span> la amplitud de la oscilación, <span class="math">\(\rho\)</span>
+el radio normalizado en [0, 1], <span class="math">\(p\)</span> un número positivo,
+y <span class="math">\(n\)</span> el número de ciclos.</p>
+<p>Y la siguiente función crea la rejilla en Python.</p>
+<pre class="code python"><a name="rest_code_6589702a3bae4e81b8d8c41d59a6310c-1"></a><span class="k">def</span> <span class="nf">circle_sine_ramp</span><span class="p">(</span><span class="n">r_max</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">r_min</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">amp</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">5</span><span class="p">,</span> <span class="n">cycles</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+<a name="rest_code_6589702a3bae4e81b8d8c41d59a6310c-2"></a>                     <span class="n">power</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">nr</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">ntheta</span><span class="o">=</span><span class="mi">1025</span><span class="p">):</span>
+<a name="rest_code_6589702a3bae4e81b8d8c41d59a6310c-3"></a><span class="n">r</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mgrid</span><span class="p">[</span><span class="n">r_min</span><span class="p">:</span><span class="n">r_max</span><span class="p">:</span><span class="n">nr</span><span class="o">*</span><span class="mi">1</span><span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">:</span><span class="n">ntheta</span><span class="o">*</span><span class="mi">1</span><span class="n">j</span><span class="p">]</span>
+<a name="rest_code_6589702a3bae4e81b8d8c41d59a6310c-4"></a><span class="n">r_norm</span> <span class="o">=</span> <span class="p">(</span><span class="n">r</span> <span class="o">-</span> <span class="n">r_min</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">r_max</span> <span class="o">-</span> <span class="n">r_min</span><span class="p">)</span>
+<a name="rest_code_6589702a3bae4e81b8d8c41d59a6310c-5"></a><span class="n">vals</span> <span class="o">=</span> <span class="n">amp</span> <span class="o">*</span> <span class="n">r_norm</span><span class="o">**</span><span class="n">power</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">cycles</span><span class="o">*</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="n">t</span>
+<a name="rest_code_6589702a3bae4e81b8d8c41d59a6310c-6"></a><span class="n">vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mod</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+<a name="rest_code_6589702a3bae4e81b8d8c41d59a6310c-7"></a><span class="k">return</span> <span class="n">t</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">vals</span>
+</pre>
+<p>El resultado es el siguiente</p>
+<img alt="/images/sine_helix_cyclic_cmap.png" src="../images/sine_helix_cyclic_cmap.png">
+</div>
+<div class="section" id="prueba-para-daltonismo">
+<h3>Prueba para daltonismo</h3>
+<pre class="code python"><a name="rest_code_277a32fd99914932bd2562a842b7075f-1"></a><span class="n">t</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">vals</span> <span class="o">=</span> <span class="n">circle_sine_ramp</span><span class="p">(</span><span class="n">cycles</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<a name="rest_code_277a32fd99914932bd2562a842b7075f-2"></a><span class="n">cmaps</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"hsv"</span><span class="p">,</span>
+<a name="rest_code_277a32fd99914932bd2562a842b7075f-3"></a>         <span class="s2">"cmocean_phase"</span><span class="p">,</span>
+<a name="rest_code_277a32fd99914932bd2562a842b7075f-4"></a>         <span class="s2">"hue_L60"</span><span class="p">,</span>
+<a name="rest_code_277a32fd99914932bd2562a842b7075f-5"></a>         <span class="s2">"erdc_iceFire"</span><span class="p">,</span>
+<a name="rest_code_277a32fd99914932bd2562a842b7075f-6"></a>         <span class="s2">"nic_Edge"</span><span class="p">,</span>
+<a name="rest_code_277a32fd99914932bd2562a842b7075f-7"></a>         <span class="s2">"colorwheel"</span><span class="p">,</span>
+<a name="rest_code_277a32fd99914932bd2562a842b7075f-8"></a>         <span class="s2">"cyclic_mrybm"</span><span class="p">,</span>
+<a name="rest_code_277a32fd99914932bd2562a842b7075f-9"></a>         <span class="s2">"cyclic_mygbm"</span><span class="p">]</span>
+<a name="rest_code_277a32fd99914932bd2562a842b7075f-10"></a><span class="n">severity</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>
+<a name="rest_code_277a32fd99914932bd2562a842b7075f-11"></a><span class="k">for</span> <span class="n">colormap</span> <span class="ow">in</span> <span class="n">cmaps</span><span class="p">:</span>
+<a name="rest_code_277a32fd99914932bd2562a842b7075f-12"></a>    <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">colormap</span> <span class="o">+</span> <span class="s2">".txt"</span><span class="p">)</span>
+<a name="rest_code_277a32fd99914932bd2562a842b7075f-13"></a>    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<a name="rest_code_277a32fd99914932bd2562a842b7075f-14"></a>    <span class="k">for</span> <span class="n">cont</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+<a name="rest_code_277a32fd99914932bd2562a842b7075f-15"></a>        <span class="n">cvd_space</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"sRGB1+CVD"</span><span class="p">,</span>
+<a name="rest_code_277a32fd99914932bd2562a842b7075f-16"></a>             <span class="s2">"cvd_type"</span><span class="p">:</span> <span class="n">cvd_type</span><span class="p">[</span><span class="n">cont</span><span class="p">],</span>
+<a name="rest_code_277a32fd99914932bd2562a842b7075f-17"></a>             <span class="s2">"severity"</span><span class="p">:</span> <span class="n">severity</span><span class="p">[</span><span class="n">cont</span><span class="p">]}</span>
+<a name="rest_code_277a32fd99914932bd2562a842b7075f-18"></a>        <span class="n">data2</span> <span class="o">=</span> <span class="n">cspace_convert</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">cvd_space</span><span class="p">,</span> <span class="s2">"sRGB1"</span><span class="p">)</span>
+<a name="rest_code_277a32fd99914932bd2562a842b7075f-19"></a>        <span class="n">data2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">data2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<a name="rest_code_277a32fd99914932bd2562a842b7075f-20"></a>        <span class="n">cmap</span> <span class="o">=</span> <span class="n">LinearSegmentedColormap</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span><span class="s1">'my_colormap'</span><span class="p">,</span> <span class="n">data2</span><span class="p">)</span>
+<a name="rest_code_277a32fd99914932bd2562a842b7075f-21"></a>        <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">cont</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s2">"polar"</span><span class="p">)</span>
+<a name="rest_code_277a32fd99914932bd2562a842b7075f-22"></a>        <span class="n">ax</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">vals</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">)</span>
+<a name="rest_code_277a32fd99914932bd2562a842b7075f-23"></a>        <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
+<a name="rest_code_277a32fd99914932bd2562a842b7075f-24"></a>        <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
+<a name="rest_code_277a32fd99914932bd2562a842b7075f-25"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="n">colormap</span><span class="p">)</span>
+<a name="rest_code_277a32fd99914932bd2562a842b7075f-26"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<a name="rest_code_277a32fd99914932bd2562a842b7075f-27"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">colormap</span> <span class="o">+</span> <span class="s2">".png"</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+</pre>
+<div class="figure align-center">
+<img alt="/images/hsv_eval.png" src="../images/hsv_eval.png"><p class="caption">Comparación de <code class="docutils literal">hsv</code> para diferentes deficiencias visuales
+del color.</p>
+</div>
+<div class="figure align-center">
+<img alt="/images/cmocean_phase_eval.png" src="../images/cmocean_phase_eval.png"><p class="caption">Comparación de <code class="docutils literal">Phase</code> para diferentes deficiencias visuales
+del color.</p>
+</div>
+<div class="figure align-center">
+<img alt="/images/hue_L60_eval.png" src="../images/hue_L60_eval.png"><p class="caption">Comparación de <code class="docutils literal">hue_L60</code> para diferentes deficiencias visuales
+del color.</p>
+</div>
+<div class="figure align-center">
+<img alt="/images/erdc_iceFire_eval.png" src="../images/erdc_iceFire_eval.png"><p class="caption">Comparación de <code class="docutils literal">erdc_iceFire</code> para diferentes deficiencias visuales
+del color.</p>
+</div>
+<div class="figure align-center">
+<img alt="/images/nic_Edge_eval.png" src="../images/nic_Edge_eval.png"><p class="caption">Comparación de <code class="docutils literal">nic_Edge</code> para diferentes deficiencias visuales
+del color.</p>
+</div>
+<div class="figure align-center">
+<img alt="/images/colorwheel_eval.png" src="../images/colorwheel_eval.png"><p class="caption">Comparación de <code class="docutils literal">Colorwheel</code> para diferentes deficiencias visuales
+del color.</p>
+</div>
+<div class="figure align-center">
+<img alt="/images/cyclic_mrybm_eval.png" src="../images/cyclic_mrybm_eval.png"><p class="caption">Comparación de <code class="docutils literal">Cyclic_mrybm</code> para diferentes deficiencias visuales
+del color.</p>
+</div>
+<div class="figure align-center">
+<img alt="/images/cyclic_mygbm_eval.png" src="../images/cyclic_mygbm_eval.png"><p class="caption">Comparación de <code class="docutils literal">Cyclic_mygbm</code> para diferentes deficiencias visuales
+del color.</p>
+</div>
+</div>
+</div>
+<div class="section" id="mapas-de-colores-ciclicos-generados-aleatoriamente">
+<h2>Mapas de colores cíclicos generados aleatoriamente</h2>
+<p>¿Qué pasa si generamos mapas de colores cíclicos aleatoriamente?
+¿Cómo lucirían?</p>
+<p>A continuación están las piezas de código y mapas de colores
+resultantes.</p>
+<pre class="code python"><a name="rest_code_5892f51906b943ea8dc4c25f0173608b-1"></a><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span>
+<a name="rest_code_5892f51906b943ea8dc4c25f0173608b-2"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<a name="rest_code_5892f51906b943ea8dc4c25f0173608b-3"></a><span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
+<a name="rest_code_5892f51906b943ea8dc4c25f0173608b-4"></a><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<a name="rest_code_5892f51906b943ea8dc4c25f0173608b-5"></a><span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">LinearSegmentedColormap</span>
+<a name="rest_code_5892f51906b943ea8dc4c25f0173608b-6"></a>
+<a name="rest_code_5892f51906b943ea8dc4c25f0173608b-7"></a>
+<a name="rest_code_5892f51906b943ea8dc4c25f0173608b-8"></a><span class="c1"># Next line to silence pyflakes. This import is needed.</span>
+<a name="rest_code_5892f51906b943ea8dc4c25f0173608b-9"></a><span class="n">Axes3D</span>
+<a name="rest_code_5892f51906b943ea8dc4c25f0173608b-10"></a>
+<a name="rest_code_5892f51906b943ea8dc4c25f0173608b-11"></a><span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="s2">"all"</span><span class="p">)</span>
+<a name="rest_code_5892f51906b943ea8dc4c25f0173608b-12"></a><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<a name="rest_code_5892f51906b943ea8dc4c25f0173608b-13"></a><span class="n">fig2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<a name="rest_code_5892f51906b943ea8dc4c25f0173608b-14"></a><span class="n">nx</span> <span class="o">=</span> <span class="mi">4</span>
+<a name="rest_code_5892f51906b943ea8dc4c25f0173608b-15"></a><span class="n">ny</span> <span class="o">=</span> <span class="mi">4</span>
+<a name="rest_code_5892f51906b943ea8dc4c25f0173608b-16"></a><span class="n">azimuths</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">361</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<a name="rest_code_5892f51906b943ea8dc4c25f0173608b-17"></a><span class="n">zeniths</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<a name="rest_code_5892f51906b943ea8dc4c25f0173608b-18"></a><span class="n">values</span> <span class="o">=</span> <span class="n">azimuths</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">30</span><span class="p">,</span> <span class="mi">361</span><span class="p">))</span>
+<a name="rest_code_5892f51906b943ea8dc4c25f0173608b-19"></a><span class="k">for</span> <span class="n">cont</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nx</span> <span class="o">*</span> <span class="n">ny</span><span class="p">):</span>
+<a name="rest_code_5892f51906b943ea8dc4c25f0173608b-20"></a>    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="n">cont</span><span class="p">)</span>
+<a name="rest_code_5892f51906b943ea8dc4c25f0173608b-21"></a>    <span class="n">rad</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<a name="rest_code_5892f51906b943ea8dc4c25f0173608b-22"></a>    <span class="n">center</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">rad</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">rad</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<a name="rest_code_5892f51906b943ea8dc4c25f0173608b-23"></a>    <span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<a name="rest_code_5892f51906b943ea8dc4c25f0173608b-24"></a>    <span class="n">rot_mat</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">qr</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
+<a name="rest_code_5892f51906b943ea8dc4c25f0173608b-25"></a>    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">256</span><span class="p">)</span>
+<a name="rest_code_5892f51906b943ea8dc4c25f0173608b-26"></a>    <span class="n">x</span> <span class="o">=</span> <span class="n">rad</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<a name="rest_code_5892f51906b943ea8dc4c25f0173608b-27"></a>    <span class="n">y</span> <span class="o">=</span> <span class="n">rad</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<a name="rest_code_5892f51906b943ea8dc4c25f0173608b-28"></a>    <span class="n">z</span> <span class="o">=</span> <span class="mf">0.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<a name="rest_code_5892f51906b943ea8dc4c25f0173608b-29"></a>    <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">))</span>
+<a name="rest_code_5892f51906b943ea8dc4c25f0173608b-30"></a>    <span class="n">X</span> <span class="o">=</span> <span class="n">rot_mat</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">+</span> <span class="n">center</span>
+<a name="rest_code_5892f51906b943ea8dc4c25f0173608b-31"></a>
+<a name="rest_code_5892f51906b943ea8dc4c25f0173608b-32"></a>    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">ny</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">cont</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">'polar'</span><span class="p">)</span>
+<a name="rest_code_5892f51906b943ea8dc4c25f0173608b-33"></a>    <span class="n">cmap</span> <span class="o">=</span> <span class="n">LinearSegmentedColormap</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span><span class="s1">'my_colormap'</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+<a name="rest_code_5892f51906b943ea8dc4c25f0173608b-34"></a>    <span class="n">ax</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">azimuths</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">180.0</span><span class="p">,</span> <span class="n">zeniths</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">)</span>
+<a name="rest_code_5892f51906b943ea8dc4c25f0173608b-35"></a>    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
+<a name="rest_code_5892f51906b943ea8dc4c25f0173608b-36"></a>    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
+<a name="rest_code_5892f51906b943ea8dc4c25f0173608b-37"></a>
+<a name="rest_code_5892f51906b943ea8dc4c25f0173608b-38"></a>    <span class="n">ax2</span> <span class="o">=</span> <span class="n">fig2</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">ny</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">cont</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">'3d'</span><span class="p">)</span>
+<a name="rest_code_5892f51906b943ea8dc4c25f0173608b-39"></a>    <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:],</span> <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:],</span> <span class="n">X</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="p">:])</span>
+<a name="rest_code_5892f51906b943ea8dc4c25f0173608b-40"></a>    <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<a name="rest_code_5892f51906b943ea8dc4c25f0173608b-41"></a>    <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<a name="rest_code_5892f51906b943ea8dc4c25f0173608b-42"></a>    <span class="n">ax2</span><span class="o">.</span><span class="n">set_zlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<a name="rest_code_5892f51906b943ea8dc4c25f0173608b-43"></a>    <span class="n">ax2</span><span class="o">.</span><span class="n">view_init</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="o">-</span><span class="mi">60</span><span class="p">)</span>
+<a name="rest_code_5892f51906b943ea8dc4c25f0173608b-44"></a>    <span class="n">ax2</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+<a name="rest_code_5892f51906b943ea8dc4c25f0173608b-45"></a>    <span class="n">ax2</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+<a name="rest_code_5892f51906b943ea8dc4c25f0173608b-46"></a>    <span class="n">ax2</span><span class="o">.</span><span class="n">set_zticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+<a name="rest_code_5892f51906b943ea8dc4c25f0173608b-47"></a>    <span class="n">ax2</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([])</span>
+<a name="rest_code_5892f51906b943ea8dc4c25f0173608b-48"></a>    <span class="n">ax2</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">([])</span>
+<a name="rest_code_5892f51906b943ea8dc4c25f0173608b-49"></a>    <span class="n">ax2</span><span class="o">.</span><span class="n">set_zticklabels</span><span class="p">([])</span>
+<a name="rest_code_5892f51906b943ea8dc4c25f0173608b-50"></a>
+<a name="rest_code_5892f51906b943ea8dc4c25f0173608b-51"></a>
+<a name="rest_code_5892f51906b943ea8dc4c25f0173608b-52"></a><span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">"random_cmaps.png"</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a name="rest_code_5892f51906b943ea8dc4c25f0173608b-53"></a><span class="n">fig2</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">"random_cmaps_traj.svg"</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre>
+<div class="figure align-center">
+<img alt="/images/random_cmaps.png" src="../images/random_cmaps.png"><p class="caption">16 mapas de colores generados aleatoriamente.</p>
+</div>
+<div class="figure align-center">
+<img alt="/images/random_cmaps_traj.svg" src="../images/random_cmaps_traj.svg"><p class="caption">Trayectorias en espacio RGB para los mapas de colores generados
+aleatoriamente.</p>
+</div>
+<p>Una idea interesante sería tomar estos mapas de colores y optimizar
+algunos parámetros perceptuales como luminosidad para obtener
+mapas de colores útiles.</p>
+</div>
+<div class="section" id="conclusiones">
+<h2>Conclusiones</h2>
+<p>Probablemente, yo usaría <code class="docutils literal">phase</code>, <code class="docutils literal">colorwheel</code>, o <code class="docutils literal">mrybm</code> en
+el futuro.</p>
+<div class="figure align-center">
+<img alt="/images/toroidal_helix_phase.svg" src="../images/toroidal_helix_phase.svg"><p class="caption">Imagen inicial usando <code class="docutils literal">phase</code>.</p>
+</div>
+<div class="figure align-center">
+<img alt="/images/toroidal_helix_colorwheel.svg" src="../images/toroidal_helix_colorwheel.svg"><p class="caption">Imagen inicial usando <code class="docutils literal">colorwheel</code>.</p>
+</div>
+<div class="figure align-center">
+<img alt="/images/toroidal_helix_mrybm.svg" src="../images/toroidal_helix_mrybm.svg"><p class="caption">Imagen inicial usando <code class="docutils literal">mrybm</code>.</p>
+</div>
+</div>
+<div class="section" id="referencias">
+<h2>Referencias</h2>
+<ol class="arabic simple">
+<li><p>Peter Kovesi. Good Colour Maps: How to Design Them.
+arXiv:1509.03700 [cs.GR] 2015</p></li>
+</ol>
+</div>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/putnam_prob/" class="u-url">Probabilidad de que un tetraedro en una esfera contenga su centro</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
             <p class="dateline"><a href="posts/putnam_prob/" rel="bookmark"><time class="post-date published dt-published" datetime="2017-12-13T15:24:52-05:00" title="2017-12-13 15:24">2017-12-13 15:24</time></a></p>

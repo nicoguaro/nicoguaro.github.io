@@ -10,7 +10,8 @@
 I started this post looking for a
 `diffusion map <https://en.wikipedia.org/wiki/Diffusion_map>`_ on Python,
 that I didn't find. Then I continued following an
-`example <http://scikit-learn.org/stable/auto_examples/manifold/plot_compare_methods.html#sphx-glr-auto-examples-manifold-plot-compare-methods-py>`_
+`example
+<http://scikit-learn.org/stable/auto_examples/manifold/plot_compare_methods.html#sphx-glr-auto-examples-manifold-plot-compare-methods-py>`_
 on `manifold learning <https://en.wikipedia.org/wiki/Nonlinear_dimensionality_reduction>`_
 by `Jake Vanderplas <https://jakevdp.github.io/>`_ on a `different dataset
 <https://commons.wikimedia.org/wiki/File:Diffusion_map_of_a_torodial_helix.jpg>`_.
@@ -19,7 +20,8 @@ It worked nicely,
 .. image:: /images/manifold_learning_toroidal_helix.svg
 
 
-but the colormap used is `Spectral <https://matplotlib.org/examples/color/colormaps_reference.html>`_, that is divergent. This made me think about
+but the colormap used is `Spectral <https://matplotlib.org/examples/color/colormaps_reference.html>`_,
+that is divergent. This made me think about
 using a cyclic colormap, and ended up in
 `this StackOverflow <https://stackoverflow.com/q/23712207/3358223>`_ question.
 And I decided to compare some cyclic colormaps.
