@@ -28,7 +28,7 @@ ambiente que no sea de producción como se describe en su sitio web:
 Instalación
 ------------
 
-Para instalar debes seguir los siguientes pasos:
+Para instalar debes seguir los siguientes pasos: 
 
 - `Descargar Wolfram Engine <https://www.wolfram.com/engine>`_.
 
