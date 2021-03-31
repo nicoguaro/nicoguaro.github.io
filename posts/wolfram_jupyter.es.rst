@@ -14,7 +14,7 @@ prácticamente, la misma sintaxis. El uso de Wolfram Engine es gratuito en un
 ambiente que no sea de producción como se describe en su sitio web:
 
    Wolfram Engine es gratuito para desarrolladores está disponible para
-   aplicaciones que no son de producción. desarrollo de software.
+   desarrollo de software en aplicaciones que no son de producción.
 
    Puede utilizar este producto para:
 
@@ -155,7 +155,7 @@ Y realicemos un gráfico 3D.
 |
 
 En este caso no tenemos gráficos interactivos. Esto no está implementado aún,
-pero si estás interesado peude ver el
+pero si estás interesado puede ver el
 `issue <https://github.com/WolframResearch/WolframLanguageForJupyter/issues/76>`_
 sobre esto en GitHub.
 
