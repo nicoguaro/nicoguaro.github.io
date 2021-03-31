@@ -53,7 +53,7 @@ We can expand the wave function in an orthonormal basis, namely
 
 where :math:`u_n(x) \equiv \mu_n H_n(x) e^{-x^2/2}` is a normalized
 Hermite function, :math:`\mu_n` is the inverse of magnitude of the
-:math:`n`th Hermite polynomial
+:math:`n`-th Hermite polynomial
 
 .. math:: \mu_n = \frac{1}{\sqrt{\pi^{1/2} n! 2^n}}\, ,
 

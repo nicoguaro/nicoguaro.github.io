@@ -35,11 +35,11 @@
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/categories/cat_scientific-computing.xml</loc>
-  <lastmod>2021-02-22T17:27:00Z</lastmod>
+  <lastmod>2021-03-31T02:43:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/categories/cat_tutorial.xml</loc>
-  <lastmod>2021-02-03T21:27:00Z</lastmod>
+  <lastmod>2021-03-31T02:48:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/categories/cat_visualization.xml</loc>
@@ -64,6 +64,10 @@
  <sitemap>
   <loc>https://nicoguaro.github.io/categories/computational-geometry.xml</loc>
   <lastmod>2021-02-03T21:27:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://nicoguaro.github.io/categories/computer-algebra-system.xml</loc>
+  <lastmod>2021-03-31T02:48:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/categories/computer-graphics.xml</loc>
@@ -103,11 +107,11 @@
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/categories/finite-elements.xml</loc>
-  <lastmod>2021-02-03T21:27:00Z</lastmod>
+  <lastmod>2021-03-31T02:43:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/categories/hermite-polynomials.xml</loc>
-  <lastmod>2021-02-03T21:27:00Z</lastmod>
+  <lastmod>2021-03-31T02:43:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/categories/inkscape.xml</loc>
@@ -124,6 +128,10 @@
  <sitemap>
   <loc>https://nicoguaro.github.io/categories/julia.xml</loc>
   <lastmod>2021-02-15T20:11:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://nicoguaro.github.io/categories/jupyter.xml</loc>
+  <lastmod>2021-03-31T02:48:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/categories/latex.xml</loc>
@@ -144,6 +152,10 @@
  <sitemap>
   <loc>https://nicoguaro.github.io/categories/math.xml</loc>
   <lastmod>2021-02-03T21:27:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://nicoguaro.github.io/categories/mathematica.xml</loc>
+  <lastmod>2021-03-31T02:48:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/categories/matplotlib.xml</loc>
@@ -271,7 +283,7 @@
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/categories/variational-methods.xml</loc>
-  <lastmod>2021-02-03T21:27:00Z</lastmod>
+  <lastmod>2021-03-31T02:43:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/categories/verlet-integration.xml</loc>
@@ -288,6 +300,10 @@
  <sitemap>
   <loc>https://nicoguaro.github.io/categories/visualization.xml</loc>
   <lastmod>2021-02-22T16:34:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://nicoguaro.github.io/categories/wolfram-engine.xml</loc>
+  <lastmod>2021-03-31T02:48:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/categories/words.xml</loc>
@@ -339,11 +355,11 @@
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/cat_scientific-computing.xml</loc>
-  <lastmod>2021-02-22T17:27:00Z</lastmod>
+  <lastmod>2021-03-31T02:43:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/cat_tutorial.xml</loc>
-  <lastmod>2021-02-03T21:27:00Z</lastmod>
+  <lastmod>2021-03-31T02:53:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/cat_visualization.xml</loc>
@@ -368,6 +384,10 @@
  <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/computacion-cientifica.xml</loc>
   <lastmod>2021-02-22T17:27:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://nicoguaro.github.io/es/categories/computer-algebra-system.xml</loc>
+  <lastmod>2021-03-31T02:53:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/conjugate-gradient.xml</loc>
@@ -403,7 +423,7 @@
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/elementos-finitos.xml</loc>
-  <lastmod>2021-02-03T21:27:00Z</lastmod>
+  <lastmod>2021-03-31T02:43:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/escritura.xml</loc>
@@ -470,6 +490,10 @@
   <lastmod>2021-02-22T17:27:00Z</lastmod>
  </sitemap>
  <sitemap>
+  <loc>https://nicoguaro.github.io/es/categories/jupyter.xml</loc>
+  <lastmod>2021-03-31T02:53:00Z</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/latex.xml</loc>
   <lastmod>2021-02-03T21:27:00Z</lastmod>
  </sitemap>
@@ -484,6 +508,10 @@
  <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/matematicas.xml</loc>
   <lastmod>2021-02-03T21:27:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://nicoguaro.github.io/es/categories/mathematica.xml</loc>
+  <lastmod>2021-03-31T02:53:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/matplotlib.xml</loc>
@@ -511,7 +539,7 @@
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/metodos-variacionales.xml</loc>
-  <lastmod>2021-02-03T21:27:00Z</lastmod>
+  <lastmod>2021-03-31T02:43:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/monte-carlo.xml</loc>
@@ -555,7 +583,7 @@
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/polinomios-de-hermite.xml</loc>
-  <lastmod>2021-02-03T21:27:00Z</lastmod>
+  <lastmod>2021-03-31T02:43:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/python.xml</loc>
@@ -642,6 +670,10 @@
   <lastmod>2021-02-22T16:34:00Z</lastmod>
  </sitemap>
  <sitemap>
+  <loc>https://nicoguaro.github.io/es/categories/wolfram-engine.xml</loc>
+  <lastmod>2021-03-31T02:53:00Z</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/words.xml</loc>
   <lastmod>2021-02-03T21:27:00Z</lastmod>
  </sitemap>
@@ -651,14 +683,14 @@
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/rss.xml</loc>
-  <lastmod>2021-02-22T17:27:00Z</lastmod>
+  <lastmod>2021-03-31T02:53:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/rss.xml</loc>
-  <lastmod>2021-02-22T17:27:00Z</lastmod>
+  <lastmod>2021-03-31T02:48:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/sitemap.xml</loc>
-  <lastmod>2021-02-22T17:27:00Z</lastmod>
+  <lastmod>2021-03-31T02:53:00Z</lastmod>
  </sitemap>
 </sitemapindex>

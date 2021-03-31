@@ -39,11 +39,11 @@
  </url>
  <url>
   <loc>https://nicoguaro.github.io/archive.html</loc>
-  <lastmod>2021-02-22T15:15:00Z</lastmod>
+  <lastmod>2021-03-31T02:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/categories/</loc>
-  <lastmod>2021-02-13T16:58:00Z</lastmod>
+  <lastmod>2021-03-31T02:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/categories/approximation/</loc>
@@ -106,6 +106,10 @@
   <lastmod>2021-01-25T23:56:00Z</lastmod>
  </url>
  <url>
+  <loc>https://nicoguaro.github.io/categories/computer-algebra-system/</loc>
+  <lastmod>2021-03-31T02:19:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://nicoguaro.github.io/categories/computer-graphics/</loc>
   <lastmod>2021-01-25T23:56:00Z</lastmod>
  </url>
@@ -166,6 +170,10 @@
   <lastmod>2021-01-25T23:56:00Z</lastmod>
  </url>
  <url>
+  <loc>https://nicoguaro.github.io/categories/jupyter/</loc>
+  <lastmod>2021-03-31T02:19:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://nicoguaro.github.io/categories/latex/</loc>
   <lastmod>2021-01-25T23:56:00Z</lastmod>
  </url>
@@ -184,6 +192,10 @@
  <url>
   <loc>https://nicoguaro.github.io/categories/math/</loc>
   <lastmod>2021-01-25T23:56:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://nicoguaro.github.io/categories/mathematica/</loc>
+  <lastmod>2021-03-31T02:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/categories/matplotlib/</loc>
@@ -330,6 +342,10 @@
   <lastmod>2021-01-25T23:56:00Z</lastmod>
  </url>
  <url>
+  <loc>https://nicoguaro.github.io/categories/wolfram-engine/</loc>
+  <lastmod>2021-03-31T02:19:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://nicoguaro.github.io/categories/words/</loc>
   <lastmod>2021-01-25T23:56:00Z</lastmod>
  </url>
@@ -375,11 +391,11 @@
  </url>
  <url>
   <loc>https://nicoguaro.github.io/es/archive.html</loc>
-  <lastmod>2021-02-22T15:15:00Z</lastmod>
+  <lastmod>2021-03-31T02:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/es/categories/</loc>
-  <lastmod>2021-02-13T17:02:00Z</lastmod>
+  <lastmod>2021-03-31T02:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/es/categories/algebra-lineal/</loc>
@@ -448,6 +464,10 @@
  <url>
   <loc>https://nicoguaro.github.io/es/categories/computacion-cientifica/</loc>
   <lastmod>2021-02-13T16:58:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://nicoguaro.github.io/es/categories/computer-algebra-system/</loc>
+  <lastmod>2021-03-31T02:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/es/categories/conjugate-gradient/</loc>
@@ -550,6 +570,10 @@
   <lastmod>2021-02-13T16:58:00Z</lastmod>
  </url>
  <url>
+  <loc>https://nicoguaro.github.io/es/categories/jupyter/</loc>
+  <lastmod>2021-03-31T02:19:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://nicoguaro.github.io/es/categories/latex/</loc>
   <lastmod>2021-01-25T23:56:00Z</lastmod>
  </url>
@@ -564,6 +588,10 @@
  <url>
   <loc>https://nicoguaro.github.io/es/categories/matematicas/</loc>
   <lastmod>2021-01-25T23:56:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://nicoguaro.github.io/es/categories/mathematica/</loc>
+  <lastmod>2021-03-31T02:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/es/categories/matplotlib/</loc>
@@ -722,6 +750,10 @@
   <lastmod>2021-01-25T23:56:00Z</lastmod>
  </url>
  <url>
+  <loc>https://nicoguaro.github.io/es/categories/wolfram-engine/</loc>
+  <lastmod>2021-03-31T02:19:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://nicoguaro.github.io/es/categories/words/</loc>
   <lastmod>2021-01-25T23:56:00Z</lastmod>
  </url>
@@ -731,11 +763,11 @@
  </url>
  <url>
   <loc>https://nicoguaro.github.io/es/index-1.html</loc>
-  <lastmod>2021-02-03T21:27:00Z</lastmod>
+  <lastmod>2021-03-31T02:43:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/es/index-2.html</loc>
-  <lastmod>2021-02-15T20:11:00Z</lastmod>
+  <lastmod>2021-02-10T23:08:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/es/index-3.html</loc>
@@ -747,7 +779,7 @@
  </url>
  <url>
   <loc>https://nicoguaro.github.io/es/index-5.html</loc>
-  <lastmod>2021-02-22T16:34:00Z</lastmod>
+  <lastmod>2021-03-31T02:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/es/pages/about/</loc>
@@ -1040,8 +1072,13 @@
   <xhtml:link rel="alternate" hreflang="en" href="https://nicoguaro.github.io/posts/teletransportacion-star-trek/" />
  </url>
  <url>
+  <loc>https://nicoguaro.github.io/es/posts/wolfram_jupyter/</loc>
+  <lastmod>2021-03-31T02:19:00Z</lastmod>
+  <xhtml:link rel="alternate" hreflang="en" href="https://nicoguaro.github.io/posts/wolfram_jupyter/" />
+ </url>
+ <url>
   <loc>https://nicoguaro.github.io/index-1.html</loc>
-  <lastmod>2021-02-03T21:27:00Z</lastmod>
+  <lastmod>2021-03-31T02:43:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/index-2.html</loc>
@@ -1049,7 +1086,7 @@
  </url>
  <url>
   <loc>https://nicoguaro.github.io/index-3.html</loc>
-  <lastmod>2021-02-15T20:11:00Z</lastmod>
+  <lastmod>2021-02-10T23:08:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/index-4.html</loc>
@@ -1057,7 +1094,7 @@
  </url>
  <url>
   <loc>https://nicoguaro.github.io/index-5.html</loc>
-  <lastmod>2021-02-22T16:34:00Z</lastmod>
+  <lastmod>2021-03-31T02:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/pages/about/</loc>
@@ -1341,5 +1378,10 @@
  <url>
   <loc>https://nicoguaro.github.io/posts/teletransportacion-star-trek/</loc>
   <lastmod>2021-01-25T23:56:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://nicoguaro.github.io/posts/wolfram_jupyter/</loc>
+  <lastmod>2021-03-31T02:19:00Z</lastmod>
+  <xhtml:link rel="alternate" hreflang="es" href="https://nicoguaro.github.io/es/posts/wolfram_jupyter/" />
  </url>
 </urlset>

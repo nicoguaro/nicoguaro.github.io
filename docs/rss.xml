@@ -3,7 +3,111 @@
 &lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
 &lt;img alt="Creative Commons License"
 style="border-width:0"
-src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Mon, 22 Feb 2021 17:27:21 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Coming back to the Boundary element method</title><link>https://nicoguaro.github.io/posts/bem_corrected/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;During October (2017) I wrote a program per day for some well-known numerical
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Wed, 31 Mar 2021 03:01:21 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Using Wolfram Language in Jupyter: A free alternative to Mathematica</title><link>https://nicoguaro.github.io/posts/wolfram_jupyter/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;In this post I am going to describe how to add the Wolfram Language to
+the Jupyter notebook. This provides a free alternative to Mathematica with,
+pretty much, the same syntax. The use of the Wolfram Engine is free for
+non-production as described in their website:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The Free Wolfram Engine for Developers is available for non-production
+software development.&lt;/p&gt;
+&lt;p&gt;You can use this product to:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;develop a product for yourself or your company&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;conduct personal projects at home, at school, at work&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;explore the Wolfram Language for future production projects&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;div class="section" id="installation"&gt;
+&lt;h2&gt;Installation&lt;/h2&gt;
+&lt;p&gt;To install you should do the following steps:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://www.wolfram.com/engine"&gt;Download Wolfram Engine&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Create a Wolfram account, if you don't have one.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Execute the installer.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Type the following in a terminal&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code text"&gt;&lt;a name="rest_code_2615f7a330a54bfd9ea5bb8b491019c8-1"&gt;&lt;/a&gt;wolframscript
+&lt;/pre&gt;&lt;p&gt;and you should be asked for your email and password.&lt;/p&gt;
+&lt;p&gt;After that you should be in a terminal and see the following&lt;/p&gt;
+&lt;pre class="code text"&gt;&lt;a name="rest_code_90837f75fdb840f7b0126498177df02c-1"&gt;&lt;/a&gt;Wolfram Engine activated. See https://www.wolfram.com/wolframscript/ for more information.
+&lt;a name="rest_code_90837f75fdb840f7b0126498177df02c-2"&gt;&lt;/a&gt;Wolfram Language 12.2.0 Engine for Linux x86 (64-bit)
+&lt;a name="rest_code_90837f75fdb840f7b0126498177df02c-3"&gt;&lt;/a&gt;Copyright 1988-2021 Wolfram Research, Inc.
+&lt;/pre&gt;&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;And we can try that it is working&lt;/p&gt;
+&lt;pre class="code mathematica"&gt;&lt;a name="rest_code_48221182a9c945448cb9500a4205582c-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;In&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;Version&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;a name="rest_code_48221182a9c945448cb9500a4205582c-2"&gt;&lt;/a&gt;
+&lt;a name="rest_code_48221182a9c945448cb9500a4205582c-3"&gt;&lt;/a&gt;&lt;span class="n"&gt;Out&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;12.2.0&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;for&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Linux&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;x86&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;64&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bit&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;January&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;2021&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;a name="rest_code_48221182a9c945448cb9500a4205582c-4"&gt;&lt;/a&gt;
+&lt;a name="rest_code_48221182a9c945448cb9500a4205582c-5"&gt;&lt;/a&gt;&lt;span class="n"&gt;In&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Integrate&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;^&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;a name="rest_code_48221182a9c945448cb9500a4205582c-6"&gt;&lt;/a&gt;
+&lt;a name="rest_code_48221182a9c945448cb9500a4205582c-7"&gt;&lt;/a&gt;&lt;span class="n"&gt;Out&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ArcTan&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Now we need to install
+&lt;a class="reference external" href="https://github.com/WolframResearch/WolframLanguageForJupyter.git"&gt;WolframLanguageForJupyter&lt;/a&gt;.
+For that we can type the following in a terminal&lt;/p&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_cf9207edf488495faff64fa890c237f0-1"&gt;&lt;/a&gt;git clone https://github.com/WolframResearch/WolframLanguageForJupyter.git
+&lt;a name="rest_code_cf9207edf488495faff64fa890c237f0-2"&gt;&lt;/a&gt;
+&lt;a name="rest_code_cf9207edf488495faff64fa890c237f0-3"&gt;&lt;/a&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; WolframLanguageForJupyter/
+&lt;a name="rest_code_cf9207edf488495faff64fa890c237f0-4"&gt;&lt;/a&gt;
+&lt;a name="rest_code_cf9207edf488495faff64fa890c237f0-5"&gt;&lt;/a&gt;./configure-jupyter.wls add
+&lt;/pre&gt;&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;To test that it is installed we can type the following in a terminal&lt;/p&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_d6f8de07fba14d5f8c4bd3fbba3efba7-1"&gt;&lt;/a&gt;jupyter kernelspec list
+&lt;/pre&gt;&lt;p&gt;and it should have an output that includes a line similar to the following&lt;/p&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_4e052254424544ef934dada9213a5160-1"&gt;&lt;/a&gt;wolframlanguage12.   /home/nicoguaro/.local/share/jupyter/kernels/wolframlanguage12.2
+&lt;/pre&gt;&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Or we could also try with&lt;/p&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_dcc8680cf1fe41dda38179c236ca3dd2-1"&gt;&lt;/a&gt;jupyter notebook
+&lt;/pre&gt;&lt;p&gt;and see the following in the kernel menu.&lt;/p&gt;
+&lt;img alt="Kernel menu after installing WolframLanguageForJupyter." class="align-center" src="https://nicoguaro.github.io/images/wolfram_menu.png" style="width: 400px;"&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="test-drive"&gt;
+&lt;h2&gt;Test drive&lt;/h2&gt;
+&lt;p&gt;I tested some of the capabilities and you can download the
+&lt;a class="reference external" href="https://nicoguaro.github.io/downloads/notebooks/wolfram_notebook.ipynb"&gt;notebook&lt;/a&gt; or
+see a static version
+&lt;a class="reference external" href="http://nbviewer.jupyter.org/url/nicoguaro.github.io/downloads/notebooks/wolfram_notebook.ipynb"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Let's compute the integral&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+\int \frac{1}{1 + x^3}\mathrm{d}x\, .
+\end{equation*}
+&lt;/div&gt;
+&lt;pre class="code mathematica"&gt;&lt;a name="rest_code_13e0ab0e456045339b6a3ee041a6327b-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;sol&lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Integrate&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;^&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;a name="rest_code_13e0ab0e456045339b6a3ee041a6327b-2"&gt;&lt;/a&gt;&lt;span class="n"&gt;TeXForm&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;sol&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;div class="math"&gt;
+\begin{equation*}
+-\frac{1}{6} \log \left(x^2-x+1\right)+\frac{1}{3} \log (x+1)+\frac{\tan^{-1}\left(\frac{2 x-1}{\sqrt{3}}\right)}{\sqrt{3}}
+\end{equation*}
+&lt;/div&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;And make a 3D plot.&lt;/p&gt;
+&lt;pre class="code text"&gt;&lt;a name="rest_code_7b127548c020491ebdffbafa5c463bd1-1"&gt;&lt;/a&gt;fun:= Sin[Sqrt[x^2 + y^2]]/Sqrt[x^2 + y^2]
+&lt;a name="rest_code_7b127548c020491ebdffbafa5c463bd1-2"&gt;&lt;/a&gt;Plot3D[fun, {x, -5*Pi, 5*Pi}, {y, -5*Pi, 5*Pi},
+&lt;a name="rest_code_7b127548c020491ebdffbafa5c463bd1-3"&gt;&lt;/a&gt;    PlotPoints -&amp;gt; 100, BoxRatios -&amp;gt; {1, 1, 0.2},
+&lt;a name="rest_code_7b127548c020491ebdffbafa5c463bd1-4"&gt;&lt;/a&gt;    PlotRange -&amp;gt; All]
+&lt;/pre&gt;&lt;img alt="3D plot in the notebook." class="align-center" src="https://nicoguaro.github.io/images/wolfram_plot.png" style="width: 600px;"&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;In this case we don't have an interactive image. This is still not implemented,
+but if you are interested there is an
+&lt;a class="reference external" href="https://github.com/WolframResearch/WolframLanguageForJupyter/issues/76"&gt;open issue&lt;/a&gt;
+about it in GitHub.&lt;/p&gt;
+&lt;/div&gt;&lt;/div&gt;</description><category>computer algebra system</category><category>jupyter</category><category>mathematica</category><category>wolfram engine</category><guid>https://nicoguaro.github.io/posts/wolfram_jupyter/</guid><pubDate>Wed, 31 Mar 2021 00:50:09 GMT</pubDate></item><item><title>Coming back to the Boundary element method</title><link>https://nicoguaro.github.io/posts/bem_corrected/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;During October (2017) I wrote a program per day for some well-known numerical
 methods in both Python and Julia. It was intended to be an exercise to learn
 some Julia. You can see a &lt;a class="reference external" href="https://nicoguaro.github.io/posts/numerical_summary"&gt;summary here&lt;/a&gt;. I succeeded
 in 30 of the challenges, except for the BEM
@@ -1035,273 +1139,4 @@ below.&lt;/p&gt;
 to common notation in mathematics.&lt;/p&gt;
 &lt;img alt="Cheatsheet for isometric schematics in Inkscape" class="align-center" src="https://nicoguaro.github.io/images/isometric_inkscape/isometric_instructions.svg" style="width: 500px;"&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;/div&gt;</description><category>computer graphics</category><category>inkscape</category><category>linear algebra</category><category>tutorial</category><guid>https://nicoguaro.github.io/posts/isometric_inkscape/</guid><pubDate>Thu, 24 May 2018 20:42:02 GMT</pubDate></item><item><title>Finite differences in infinite domains</title><link>https://nicoguaro.github.io/posts/infinite_fdm/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div class="section" id="finite-differences-in-infinite-domains"&gt;
-&lt;h2&gt;Finite differences in infinite domains&lt;/h2&gt;
-&lt;p&gt;Because of my friend, &lt;a class="reference external" href="http://cosmoscalibur.com/"&gt;Edward Villegas&lt;/a&gt;, I
-ended up thinking about using a change of variables when solving an
-eigenvalue problem with finite difference.&lt;/p&gt;
-&lt;div class="section" id="the-problem"&gt;
-&lt;h3&gt;The problem&lt;/h3&gt;
-&lt;p&gt;Let's say that we want to solve a differential equation over an infinite
-domain. A common case is to solve the &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Schr%C3%B6dinger_equation#Time-independent_equation"&gt;Time independent Schrödinger
-equation&lt;/a&gt;
-subject to a potential &lt;span class="math"&gt;\(V(x)\)&lt;/span&gt;. For example&lt;/p&gt;
-&lt;div class="math"&gt;
-\begin{equation*}
--\frac{1}{2}\frac{\mathrm{d}^2}{\mathrm{d}x^2}\psi(x) + V(x) \psi(x) = E\psi(x),\quad \forall x\in (-\infty, \infty),
-\end{equation*}
-&lt;/div&gt;
-&lt;p&gt;where we want to find the pairs of eigenvalues/eigenfunctions
-&lt;span class="math"&gt;\((E_n, \psi_n(x))\)&lt;/span&gt;.&lt;/p&gt;
-&lt;p&gt;What I normally do when using &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Finite_difference_method"&gt;finite
-differences&lt;/a&gt;
-is to regularly divide the domain. Where I take a &lt;em&gt;large enough&lt;/em&gt; domain,
-so the solution have decayed close to zero. What I do in this post is to
-make a change of variable to render the interval finite first and then
-regularly divide the transformed domain in finite intervals.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="my-usual-approach"&gt;
-&lt;h3&gt;My usual approach&lt;/h3&gt;
-&lt;p&gt;My usual approach is to approach the second derivative with a &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Finite_difference_coefficient"&gt;centered
-difference&lt;/a&gt;
-for the point &lt;span class="math"&gt;\(x_i\)&lt;/span&gt; like this&lt;/p&gt;
-&lt;div class="math"&gt;
-\begin{equation*}
-\frac{\mathrm{d}^2 f(x)}{\mathrm{d}x^2} \approx \frac{f(x + \Delta x) - 2 f(x_i) + f(x - \Delta x)}{\Delta x^2}\, ,
-\end{equation*}
-&lt;/div&gt;
-&lt;p&gt;with &lt;span class="math"&gt;\(\Delta x\)&lt;/span&gt; the separation between points.&lt;/p&gt;
-&lt;p&gt;We can solve this in Python with the following snippet:&lt;/p&gt;
-&lt;pre class="code ipython3"&gt;&lt;a name="rest_code_c4d19a06e84645a29ca20e8df3ac6ac0-1"&gt;&lt;/a&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
-&lt;a name="rest_code_c4d19a06e84645a29ca20e8df3ac6ac0-2"&gt;&lt;/a&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;scipy.sparse&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;diags&lt;/span&gt;
-&lt;a name="rest_code_c4d19a06e84645a29ca20e8df3ac6ac0-3"&gt;&lt;/a&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;scipy.sparse.linalg&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;eigs&lt;/span&gt;
-&lt;a name="rest_code_c4d19a06e84645a29ca20e8df3ac6ac0-4"&gt;&lt;/a&gt;
-&lt;a name="rest_code_c4d19a06e84645a29ca20e8df3ac6ac0-5"&gt;&lt;/a&gt;
-&lt;a name="rest_code_c4d19a06e84645a29ca20e8df3ac6ac0-6"&gt;&lt;/a&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;regular_FD&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pot&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;npts&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;101&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x_max&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;nvals&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-&lt;a name="rest_code_c4d19a06e84645a29ca20e8df3ac6ac0-7"&gt;&lt;/a&gt;    &lt;span class="sd"&gt;"""&lt;/span&gt;
-&lt;a name="rest_code_c4d19a06e84645a29ca20e8df3ac6ac0-8"&gt;&lt;/a&gt;&lt;span class="sd"&gt;    Find eigenvalues/eigenfunctions for Schrodinger&lt;/span&gt;
-&lt;a name="rest_code_c4d19a06e84645a29ca20e8df3ac6ac0-9"&gt;&lt;/a&gt;&lt;span class="sd"&gt;    equation for the given potential `pot` using&lt;/span&gt;
-&lt;a name="rest_code_c4d19a06e84645a29ca20e8df3ac6ac0-10"&gt;&lt;/a&gt;&lt;span class="sd"&gt;    finite differences&lt;/span&gt;
-&lt;a name="rest_code_c4d19a06e84645a29ca20e8df3ac6ac0-11"&gt;&lt;/a&gt;&lt;span class="sd"&gt;    """&lt;/span&gt;
-&lt;a name="rest_code_c4d19a06e84645a29ca20e8df3ac6ac0-12"&gt;&lt;/a&gt;    &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;linspace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;x_max&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x_max&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;npts&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_c4d19a06e84645a29ca20e8df3ac6ac0-13"&gt;&lt;/a&gt;    &lt;span class="n"&gt;dx&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-&lt;a name="rest_code_c4d19a06e84645a29ca20e8df3ac6ac0-14"&gt;&lt;/a&gt;    &lt;span class="n"&gt;D2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;diags&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;npts&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;npts&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dx&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;
-&lt;a name="rest_code_c4d19a06e84645a29ca20e8df3ac6ac0-15"&gt;&lt;/a&gt;    &lt;span class="n"&gt;V&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;diags&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-&lt;a name="rest_code_c4d19a06e84645a29ca20e8df3ac6ac0-16"&gt;&lt;/a&gt;    &lt;span class="n"&gt;H&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;D2&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;V&lt;/span&gt;
-&lt;a name="rest_code_c4d19a06e84645a29ca20e8df3ac6ac0-17"&gt;&lt;/a&gt;    &lt;span class="n"&gt;vals&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;vecs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;eigs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;H&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;nvals&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;which&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"SM"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_c4d19a06e84645a29ca20e8df3ac6ac0-18"&gt;&lt;/a&gt;    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;real&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;vals&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;vecs&lt;/span&gt;
-&lt;/pre&gt;&lt;p&gt;Let's setup the plotting details.&lt;/p&gt;
-&lt;pre class="code ipython3"&gt;&lt;a name="rest_code_64157fc468494d8d913e433e67395407-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Jupyter notebook plotting setup &amp;amp; imports&lt;/span&gt;
-&lt;a name="rest_code_64157fc468494d8d913e433e67395407-2"&gt;&lt;/a&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="k"&gt;matplotlib&lt;/span&gt; notebook
-&lt;a name="rest_code_64157fc468494d8d913e433e67395407-3"&gt;&lt;/a&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
-&lt;a name="rest_code_64157fc468494d8d913e433e67395407-4"&gt;&lt;/a&gt;
-&lt;a name="rest_code_64157fc468494d8d913e433e67395407-5"&gt;&lt;/a&gt;&lt;span class="n"&gt;gray&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'#757575'&lt;/span&gt;
-&lt;a name="rest_code_64157fc468494d8d913e433e67395407-6"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rcParams&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"figure.figsize"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;
-&lt;a name="rest_code_64157fc468494d8d913e433e67395407-7"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rcParams&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"mathtext.fontset"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"cm"&lt;/span&gt;
-&lt;a name="rest_code_64157fc468494d8d913e433e67395407-8"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rcParams&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"text.color"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;gray&lt;/span&gt;
-&lt;a name="rest_code_64157fc468494d8d913e433e67395407-9"&gt;&lt;/a&gt;&lt;span class="n"&gt;fontsize&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rcParams&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"font.size"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt;
-&lt;a name="rest_code_64157fc468494d8d913e433e67395407-10"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rcParams&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"xtick.color"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;gray&lt;/span&gt;
-&lt;a name="rest_code_64157fc468494d8d913e433e67395407-11"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rcParams&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"ytick.color"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;gray&lt;/span&gt;
-&lt;a name="rest_code_64157fc468494d8d913e433e67395407-12"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rcParams&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"axes.labelcolor"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;gray&lt;/span&gt;
-&lt;a name="rest_code_64157fc468494d8d913e433e67395407-13"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rcParams&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"axes.edgecolor"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;gray&lt;/span&gt;
-&lt;a name="rest_code_64157fc468494d8d913e433e67395407-14"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rcParams&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"axes.spines.right"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;False&lt;/span&gt;
-&lt;a name="rest_code_64157fc468494d8d913e433e67395407-15"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rcParams&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"axes.spines.top"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;False&lt;/span&gt;
-&lt;/pre&gt;&lt;p&gt;Let's consider the &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Quantum_harmonic_oscillator"&gt;Quantum harmonic
-oscillator&lt;/a&gt;,
-that has as eigenvalues&lt;/p&gt;
-&lt;div class="math"&gt;
-\begin{equation*}
-E_n = n + \frac{1}{2},\quad \forall n = 0, 1, 2 \cdots
-\end{equation*}
-&lt;/div&gt;
-&lt;p&gt;Using the finite difference method we have values that are really close
-to the analytic ones.&lt;/p&gt;
-&lt;pre class="code ipython3"&gt;&lt;a name="rest_code_50307c95910742a6924f9b5c3d6f99ab-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;vals&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;vecs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;regular_FD&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;npts&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;201&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_50307c95910742a6924f9b5c3d6f99ab-2"&gt;&lt;/a&gt;&lt;span class="n"&gt;vals&lt;/span&gt;
-&lt;/pre&gt;&lt;p&gt;with output&lt;/p&gt;
-&lt;pre class="literal-block"&gt;array([0.4996873 , 1.49843574, 2.49593063, 3.49216962, 4.48715031,
-       5.4808703 ])&lt;/pre&gt;
-&lt;p&gt;With the analytic ones&lt;/p&gt;
-&lt;pre class="code text"&gt;&lt;a name="rest_code_edb09bea982346bc90f507eb50595160-1"&gt;&lt;/a&gt;[0.5, 1.5, 2.5, 3.5, 4.5, 5.5])
-&lt;/pre&gt;&lt;p&gt;If we plot these two, we obtain the following.&lt;/p&gt;
-&lt;pre class="code ipython3"&gt;&lt;a name="rest_code_412a7575852f42968345972493ef0f19-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;a name="rest_code_412a7575852f42968345972493ef0f19-2"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;anal_vals&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_412a7575852f42968345972493ef0f19-3"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;vals&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"o"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_412a7575852f42968345972493ef0f19-4"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sa"&gt;r&lt;/span&gt;&lt;span class="s2"&gt;"$n$"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fontsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_412a7575852f42968345972493ef0f19-5"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sa"&gt;r&lt;/span&gt;&lt;span class="s2"&gt;"$E_n$"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fontsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_412a7575852f42968345972493ef0f19-6"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;legend&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="s2"&gt;"Analytic"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"Finite differences"&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
-&lt;a name="rest_code_412a7575852f42968345972493ef0f19-7"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tight_layout&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-&lt;/pre&gt;&lt;img alt="Eigenvalues for the regular finite difference" class="align-center" src="https://nicoguaro.github.io/images/infinite_fdm/eigvals_regular.svg" style="width: 600px;"&gt;
-&lt;p&gt;Let's see the eigenfunctions.&lt;/p&gt;
-&lt;pre class="code ipython3"&gt;&lt;a name="rest_code_c156b37a1ca34c94b777a513e9275410-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;a name="rest_code_c156b37a1ca34c94b777a513e9275410-2"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;abs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;vecs&lt;/span&gt;&lt;span class="p"&gt;[:,&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_c156b37a1ca34c94b777a513e9275410-3"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xlim&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_c156b37a1ca34c94b777a513e9275410-4"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sa"&gt;r&lt;/span&gt;&lt;span class="s2"&gt;"$x$"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fontsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_c156b37a1ca34c94b777a513e9275410-5"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sa"&gt;r&lt;/span&gt;&lt;span class="s2"&gt;"$|\psi_n(x)|^2$"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fontsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_c156b37a1ca34c94b777a513e9275410-6"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;yticks&lt;/span&gt;&lt;span class="p"&gt;([])&lt;/span&gt;
-&lt;a name="rest_code_c156b37a1ca34c94b777a513e9275410-7"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tight_layout&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-&lt;/pre&gt;&lt;img alt="Eigenfunctions for the regular finite difference" class="align-center" src="https://nicoguaro.github.io/images/infinite_fdm/eigvecs_regular.svg" style="width: 600px;"&gt;
-&lt;p&gt;One inconvenient with this method is the redundant sampling towards the
-extreme of the intervals, while under sample the middle part.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="changing-the-domain"&gt;
-&lt;h3&gt;Changing the domain&lt;/h3&gt;
-&lt;p&gt;Let's now consider the case where we transform the infinite domain to a
-finite one with a change of variable&lt;/p&gt;
-&lt;div class="math"&gt;
-\begin{equation*}
-\xi = \xi(x)
-\end{equation*}
-&lt;/div&gt;
-&lt;p&gt;with &lt;span class="math"&gt;\(\xi \in (-1, 1)\)&lt;/span&gt;. Two options for this transformation are:&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;&lt;span class="math"&gt;\(\xi = \tanh x\)&lt;/span&gt;; and&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;span class="math"&gt;\(\xi = \frac{2}{\pi} \arctan x\)&lt;/span&gt;.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Making this change of variable the equation we need to solve the
-following equation&lt;/p&gt;
-&lt;div class="math"&gt;
-\begin{equation*}
--\frac{1}{2}\left(\frac{\mathrm{d}\xi}{\mathrm{d}x}\right)^2\frac{\mathrm{d}^2}{\mathrm{d}\xi^2}\psi(\xi) - \frac{1}{2}\frac{\mathrm{d}^2\xi}{\mathrm{d}x^2}\frac{\mathrm{d}}{\mathrm{d}\xi}\psi(\xi) + V(\xi) \psi(\xi) = E\psi(\xi)
-\end{equation*}
-&lt;/div&gt;
-&lt;p&gt;The following snippet solve the eigenproblem for the mapped domain:&lt;/p&gt;
-&lt;pre class="code ipython3"&gt;&lt;a name="rest_code_468e67bf919242c089d796d8896c4f82-1"&gt;&lt;/a&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;mapped_FD&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pot&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fun&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dxdxi&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dxdxi2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;npts&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;101&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;nvals&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;xi_tol&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;1e-6&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-&lt;a name="rest_code_468e67bf919242c089d796d8896c4f82-2"&gt;&lt;/a&gt;    &lt;span class="sd"&gt;"""&lt;/span&gt;
-&lt;a name="rest_code_468e67bf919242c089d796d8896c4f82-3"&gt;&lt;/a&gt;&lt;span class="sd"&gt;    Find eigenvalues/eigenfunctions for Schrodinger&lt;/span&gt;
-&lt;a name="rest_code_468e67bf919242c089d796d8896c4f82-4"&gt;&lt;/a&gt;&lt;span class="sd"&gt;    equation for the given potential `pot` using&lt;/span&gt;
-&lt;a name="rest_code_468e67bf919242c089d796d8896c4f82-5"&gt;&lt;/a&gt;&lt;span class="sd"&gt;    finite differences over a mapped domain on (-1, 1)&lt;/span&gt;
-&lt;a name="rest_code_468e67bf919242c089d796d8896c4f82-6"&gt;&lt;/a&gt;&lt;span class="sd"&gt;    """&lt;/span&gt;
-&lt;a name="rest_code_468e67bf919242c089d796d8896c4f82-7"&gt;&lt;/a&gt;    &lt;span class="n"&gt;xi&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;linspace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;xi_tol&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;xi_tol&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;npts&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_468e67bf919242c089d796d8896c4f82-8"&gt;&lt;/a&gt;    &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;fun&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;xi&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_468e67bf919242c089d796d8896c4f82-9"&gt;&lt;/a&gt;    &lt;span class="n"&gt;dxi&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;xi&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;xi&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-&lt;a name="rest_code_468e67bf919242c089d796d8896c4f82-10"&gt;&lt;/a&gt;    &lt;span class="n"&gt;D2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;diags&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;npts&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;npts&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dxi&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;
-&lt;a name="rest_code_468e67bf919242c089d796d8896c4f82-11"&gt;&lt;/a&gt;    &lt;span class="n"&gt;D1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;diags&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;npts&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;npts&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dxi&lt;/span&gt;
-&lt;a name="rest_code_468e67bf919242c089d796d8896c4f82-12"&gt;&lt;/a&gt;    &lt;span class="n"&gt;V&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;diags&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-&lt;a name="rest_code_468e67bf919242c089d796d8896c4f82-13"&gt;&lt;/a&gt;    &lt;span class="n"&gt;fac1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;diags&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dxdxi&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;xi&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_468e67bf919242c089d796d8896c4f82-14"&gt;&lt;/a&gt;    &lt;span class="n"&gt;fac2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;diags&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dxdxi2&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;xi&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-&lt;a name="rest_code_468e67bf919242c089d796d8896c4f82-15"&gt;&lt;/a&gt;    &lt;span class="n"&gt;H&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;fac1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;D2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;fac2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;D1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;V&lt;/span&gt;
-&lt;a name="rest_code_468e67bf919242c089d796d8896c4f82-16"&gt;&lt;/a&gt;    &lt;span class="n"&gt;vals&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;vecs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;eigs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;H&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;nvals&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;which&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"SM"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_468e67bf919242c089d796d8896c4f82-17"&gt;&lt;/a&gt;    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;real&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;vals&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;vecs&lt;/span&gt;
-&lt;/pre&gt;&lt;div class="section" id="first-transformation-xi-tanh-x"&gt;
-&lt;h4&gt;First transformation: &lt;span class="math"&gt;\(\xi = \tanh(x)\)&lt;/span&gt;&lt;/h4&gt;
-&lt;p&gt;Let's consider first the transformation&lt;/p&gt;
-&lt;div class="math"&gt;
-\begin{equation*}
-\xi = \tanh(x)\, .
-\end{equation*}
-&lt;/div&gt;
-&lt;p&gt;In this case&lt;/p&gt;
-&lt;div class="math"&gt;
-\begin{equation*}
-\frac{\mathrm{d}\xi}{\mathrm{d}x} = 1 - \tanh^2(x) = 1 - \xi^2\, ,
-\end{equation*}
-&lt;/div&gt;
-&lt;p&gt;and&lt;/p&gt;
-&lt;div class="math"&gt;
-\begin{equation*}
-\frac{\mathrm{d}^2\xi}{\mathrm{d}x^2} = -2\tanh(x)[1 - \tanh^2(x)] = -2\xi[1 - \xi^2]\, .
-\end{equation*}
-&lt;/div&gt;
-&lt;p&gt;We need to define the functions&lt;/p&gt;
-&lt;pre class="code ipython3"&gt;&lt;a name="rest_code_57bc66c1050344d18d5968c75caf7f0f-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;pot&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;
-&lt;a name="rest_code_57bc66c1050344d18d5968c75caf7f0f-2"&gt;&lt;/a&gt;&lt;span class="n"&gt;fun&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;xi&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;arctanh&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;xi&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_57bc66c1050344d18d5968c75caf7f0f-3"&gt;&lt;/a&gt;&lt;span class="n"&gt;dxdxi&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;xi&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;xi&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;
-&lt;a name="rest_code_57bc66c1050344d18d5968c75caf7f0f-4"&gt;&lt;/a&gt;&lt;span class="n"&gt;dxdxi2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;xi&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;xi&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;xi&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;p&gt;and run the function&lt;/p&gt;
-&lt;pre class="code ipython3"&gt;&lt;a name="rest_code_e3c98d7eddcf49848469426c02e17750-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;vals&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;vecs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;mapped_FD&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pot&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fun&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dxdxi&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dxdxi2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;npts&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;201&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_e3c98d7eddcf49848469426c02e17750-2"&gt;&lt;/a&gt;&lt;span class="n"&gt;vals&lt;/span&gt;
-&lt;/pre&gt;&lt;p&gt;And we obtain the following&lt;/p&gt;
-&lt;pre class="literal-block"&gt;array([0.49989989, 1.4984226 , 2.49003572, 3.46934257, 4.46935021,
-       5.59552989])&lt;/pre&gt;
-&lt;p&gt;If we compare with the analytic values we get the following.&lt;/p&gt;
-&lt;pre class="code ipython3"&gt;&lt;a name="rest_code_0c670aa2dfd64df49f5d6f5cf34c3cbc-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;a name="rest_code_0c670aa2dfd64df49f5d6f5cf34c3cbc-2"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;anal_vals&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_0c670aa2dfd64df49f5d6f5cf34c3cbc-3"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;vals&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"o"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_0c670aa2dfd64df49f5d6f5cf34c3cbc-4"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;legend&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="s2"&gt;"Analytic"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"Finite differences"&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
-&lt;a name="rest_code_0c670aa2dfd64df49f5d6f5cf34c3cbc-5"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sa"&gt;r&lt;/span&gt;&lt;span class="s2"&gt;"$n$"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fontsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_0c670aa2dfd64df49f5d6f5cf34c3cbc-6"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sa"&gt;r&lt;/span&gt;&lt;span class="s2"&gt;"$E_n$"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fontsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_0c670aa2dfd64df49f5d6f5cf34c3cbc-7"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tight_layout&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-&lt;/pre&gt;&lt;img alt="Eigenvalues for the first transformation" class="align-center" src="https://nicoguaro.github.io/images/infinite_fdm/eigvals_tanh.svg" style="width: 600px;"&gt;
-&lt;p&gt;And the following are the eigenfunctions.&lt;/p&gt;
-&lt;pre class="code ipython3"&gt;&lt;a name="rest_code_026b444419ea4fe28b3a7a727f7a8994-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;a name="rest_code_026b444419ea4fe28b3a7a727f7a8994-2"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;abs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;vecs&lt;/span&gt;&lt;span class="p"&gt;[:,&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_026b444419ea4fe28b3a7a727f7a8994-3"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xlim&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_026b444419ea4fe28b3a7a727f7a8994-4"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sa"&gt;r&lt;/span&gt;&lt;span class="s2"&gt;"$x$"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fontsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_026b444419ea4fe28b3a7a727f7a8994-5"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sa"&gt;r&lt;/span&gt;&lt;span class="s2"&gt;"$|\psi_n(x)|^2$"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fontsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_026b444419ea4fe28b3a7a727f7a8994-6"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;yticks&lt;/span&gt;&lt;span class="p"&gt;([])&lt;/span&gt;
-&lt;a name="rest_code_026b444419ea4fe28b3a7a727f7a8994-7"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tight_layout&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-&lt;/pre&gt;&lt;img alt="Eigenfunctions for the first transformation" class="align-center" src="https://nicoguaro.github.io/images/infinite_fdm/eigvecs_tanh.svg" style="width: 600px;"&gt;
-&lt;/div&gt;
-&lt;div class="section" id="second-transformation-xi-frac-2-pi-mathrm-atan-x"&gt;
-&lt;h4&gt;Second transformation: &lt;span class="math"&gt;\(\xi = \frac{2}{\pi}\mathrm{atan}(x)\)&lt;/span&gt;&lt;/h4&gt;
-&lt;p&gt;Let's consider first the transformation&lt;/p&gt;
-&lt;div class="math"&gt;
-\begin{equation*}
-\xi = \frac{2}{\pi}\mathrm{atan}(x)\, .
-\end{equation*}
-&lt;/div&gt;
-&lt;p&gt;In this case&lt;/p&gt;
-&lt;div class="math"&gt;
-\begin{equation*}
-\frac{\mathrm{d}\xi}{\mathrm{d}x} = \frac{2}{\pi(1 + x^2)} = \frac{2 \cos^2\xi}{\pi} \, ,
-\end{equation*}
-&lt;/div&gt;
-&lt;p&gt;and&lt;/p&gt;
-&lt;div class="math"&gt;
-\begin{equation*}
-\frac{\mathrm{d}^2\xi}{\mathrm{d}x^2} = -\frac{4x}{\pi(1 + x^2)^2} = -\frac{4 \cos^4\xi \tan \xi}{\pi}\, .
-\end{equation*}
-&lt;/div&gt;
-&lt;p&gt;Once, again, we define the functions.&lt;/p&gt;
-&lt;pre class="code ipython3"&gt;&lt;a name="rest_code_28d81b3d3780477c9e16273dfe2a4217-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;pot&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;
-&lt;a name="rest_code_28d81b3d3780477c9e16273dfe2a4217-2"&gt;&lt;/a&gt;&lt;span class="n"&gt;fun&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;xi&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tan&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;xi&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_28d81b3d3780477c9e16273dfe2a4217-3"&gt;&lt;/a&gt;&lt;span class="n"&gt;dxdxi&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;xi&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cos&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;xi&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;
-&lt;a name="rest_code_28d81b3d3780477c9e16273dfe2a4217-4"&gt;&lt;/a&gt;&lt;span class="n"&gt;dxdxi2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;xi&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cos&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;xi&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tan&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;xi&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;p&gt;and run the function&lt;/p&gt;
-&lt;pre class="code ipython3"&gt;&lt;a name="rest_code_52d0bd014d0140ac9355c421d8ebacdb-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;vals&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;vecs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;mapped_FD&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pot&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fun&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dxdxi&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dxdxi2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;npts&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;201&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_52d0bd014d0140ac9355c421d8ebacdb-2"&gt;&lt;/a&gt;&lt;span class="n"&gt;vals&lt;/span&gt;
-&lt;/pre&gt;&lt;p&gt;to obtain the following eigenvalues&lt;/p&gt;
-&lt;pre class="literal-block"&gt;array([0.49997815, 1.49979632, 2.49930872, 3.49824697, 4.49627555,
-       5.49295665])&lt;/pre&gt;
-&lt;p&gt;with this plot&lt;/p&gt;
-&lt;pre class="code ipython3"&gt;&lt;a name="rest_code_2a1f482354384c3586e1b45e1413f9b1-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;a name="rest_code_2a1f482354384c3586e1b45e1413f9b1-2"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;anal_vals&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_2a1f482354384c3586e1b45e1413f9b1-3"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;vals&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"o"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_2a1f482354384c3586e1b45e1413f9b1-4"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;legend&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="s2"&gt;"Analytic"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"Finite differences"&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
-&lt;a name="rest_code_2a1f482354384c3586e1b45e1413f9b1-5"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sa"&gt;r&lt;/span&gt;&lt;span class="s2"&gt;"$n$"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fontsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_2a1f482354384c3586e1b45e1413f9b1-6"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sa"&gt;r&lt;/span&gt;&lt;span class="s2"&gt;"$E_n$"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fontsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_2a1f482354384c3586e1b45e1413f9b1-7"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tight_layout&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-&lt;/pre&gt;&lt;img alt="Eigenvalues for the second transformation" class="align-center" src="https://nicoguaro.github.io/images/infinite_fdm/eigvals_atan.svg" style="width: 600px;"&gt;
-&lt;p&gt;and the following eigenfunctions.&lt;/p&gt;
-&lt;pre class="code ipython3"&gt;&lt;a name="rest_code_27b4fcd32638405a80efcbebdb494ce7-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;a name="rest_code_27b4fcd32638405a80efcbebdb494ce7-2"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;abs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;vecs&lt;/span&gt;&lt;span class="p"&gt;[:,&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_27b4fcd32638405a80efcbebdb494ce7-3"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sa"&gt;r&lt;/span&gt;&lt;span class="s2"&gt;"$x$"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fontsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_27b4fcd32638405a80efcbebdb494ce7-4"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sa"&gt;r&lt;/span&gt;&lt;span class="s2"&gt;"$|\psi|^2$"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fontsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_27b4fcd32638405a80efcbebdb494ce7-5"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xlim&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_27b4fcd32638405a80efcbebdb494ce7-6"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sa"&gt;r&lt;/span&gt;&lt;span class="s2"&gt;"$x$"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fontsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_27b4fcd32638405a80efcbebdb494ce7-7"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sa"&gt;r&lt;/span&gt;&lt;span class="s2"&gt;"$|\psi_n(x)|^2$"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fontsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_27b4fcd32638405a80efcbebdb494ce7-8"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;yticks&lt;/span&gt;&lt;span class="p"&gt;([])&lt;/span&gt;
-&lt;a name="rest_code_27b4fcd32638405a80efcbebdb494ce7-9"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tight_layout&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-&lt;/pre&gt;&lt;img alt="Eigenfunctions for the second transformation" class="align-center" src="https://nicoguaro.github.io/images/infinite_fdm/eigvecs_atan.svg" style="width: 600px;"&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="conclusion"&gt;
-&lt;h3&gt;Conclusion&lt;/h3&gt;
-&lt;p&gt;The method works fine, although the differential equation is more
-convoluted due to the change of variable. Although there are more
-elegant methods to consider infinite domains, this is simple enough to
-be solved in 10 lines of code.&lt;/p&gt;
-&lt;p&gt;We can see that the mapping &lt;span class="math"&gt;\(\xi = \mathrm{atan}(x)\)&lt;/span&gt;, covers
-better the domain than &lt;span class="math"&gt;\(\xi = \tanh(x)\)&lt;/span&gt;, where most of the points
-are placed in the center of the interval.&lt;/p&gt;
-&lt;p&gt;Thanks for reading!&lt;/p&gt;
-&lt;small&gt;
-  &lt;i&gt;
-    This post was written in the Jupyter notebook. You can
-    &lt;a href="https://nicoguaro.github.io/downloads/notebooks/finite_diff_map.ipynb"&gt;download&lt;/a&gt;
-    this notebook, or see a static view on
-    &lt;a href="http://nbviewer.jupyter.org/url/nicoguaro.github.io/downloads/notebooks/finite_diff_map.ipynb"&gt;nbviewer&lt;/a&gt;.
-  &lt;i&gt;
-&lt;/i&gt;&lt;/i&gt;&lt;/small&gt;&lt;/div&gt;
-&lt;/div&gt;</description><category>finite difference</category><category>pde</category><category>python</category><category>quantum mechanics</category><category>scientific computing</category><guid>https://nicoguaro.github.io/posts/infinite_fdm/</guid><pubDate>Thu, 17 May 2018 20:57:00 GMT</pubDate></item></channel></rss>
+&lt;/div&gt;&lt;/div&gt;</description><category>computer graphics</category><category>inkscape</category><category>linear algebra</category><category>tutorial</category><guid>https://nicoguaro.github.io/posts/isometric_inkscape/</guid><pubDate>Thu, 24 May 2018 20:42:02 GMT</pubDate></item></channel></rss>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nicolás' blog (Posts about mathematica)</title><link>https://nicoguaro.github.io/</link><description></description><atom:link href="https://nicoguaro.github.io/categories/mathematica.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2021 &lt;a href="mailto:nicoguarin@gmail.com"&gt;Nicolás Guarín-Zapata&lt;/a&gt; 
+&lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
+&lt;img alt="Creative Commons License"
+style="border-width:0"
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Wed, 31 Mar 2021 03:01:21 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Using Wolfram Language in Jupyter: A free alternative to Mathematica</title><link>https://nicoguaro.github.io/posts/wolfram_jupyter/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;In this post I am going to describe how to add the Wolfram Language to
+the Jupyter notebook. This provides a free alternative to Mathematica with,
+pretty much, the same syntax. The use of the Wolfram Engine is free for
+non-production as described in their website:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The Free Wolfram Engine for Developers is available for non-production
+software development.&lt;/p&gt;
+&lt;p&gt;You can use this product to:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;develop a product for yourself or your company&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;conduct personal projects at home, at school, at work&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;explore the Wolfram Language for future production projects&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;div class="section" id="installation"&gt;
+&lt;h2&gt;Installation&lt;/h2&gt;
+&lt;p&gt;To install you should do the following steps:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://www.wolfram.com/engine"&gt;Download Wolfram Engine&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Create a Wolfram account, if you don't have one.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Execute the installer.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Type the following in a terminal&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code text"&gt;&lt;a name="rest_code_2615f7a330a54bfd9ea5bb8b491019c8-1"&gt;&lt;/a&gt;wolframscript
+&lt;/pre&gt;&lt;p&gt;and you should be asked for your email and password.&lt;/p&gt;
+&lt;p&gt;After that you should be in a terminal and see the following&lt;/p&gt;
+&lt;pre class="code text"&gt;&lt;a name="rest_code_90837f75fdb840f7b0126498177df02c-1"&gt;&lt;/a&gt;Wolfram Engine activated. See https://www.wolfram.com/wolframscript/ for more information.
+&lt;a name="rest_code_90837f75fdb840f7b0126498177df02c-2"&gt;&lt;/a&gt;Wolfram Language 12.2.0 Engine for Linux x86 (64-bit)
+&lt;a name="rest_code_90837f75fdb840f7b0126498177df02c-3"&gt;&lt;/a&gt;Copyright 1988-2021 Wolfram Research, Inc.
+&lt;/pre&gt;&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;And we can try that it is working&lt;/p&gt;
+&lt;pre class="code mathematica"&gt;&lt;a name="rest_code_48221182a9c945448cb9500a4205582c-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;In&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;Version&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;a name="rest_code_48221182a9c945448cb9500a4205582c-2"&gt;&lt;/a&gt;
+&lt;a name="rest_code_48221182a9c945448cb9500a4205582c-3"&gt;&lt;/a&gt;&lt;span class="n"&gt;Out&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;12.2.0&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;for&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Linux&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;x86&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;64&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bit&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;January&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;2021&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;a name="rest_code_48221182a9c945448cb9500a4205582c-4"&gt;&lt;/a&gt;
+&lt;a name="rest_code_48221182a9c945448cb9500a4205582c-5"&gt;&lt;/a&gt;&lt;span class="n"&gt;In&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Integrate&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;^&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;a name="rest_code_48221182a9c945448cb9500a4205582c-6"&gt;&lt;/a&gt;
+&lt;a name="rest_code_48221182a9c945448cb9500a4205582c-7"&gt;&lt;/a&gt;&lt;span class="n"&gt;Out&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ArcTan&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Now we need to install
+&lt;a class="reference external" href="https://github.com/WolframResearch/WolframLanguageForJupyter.git"&gt;WolframLanguageForJupyter&lt;/a&gt;.
+For that we can type the following in a terminal&lt;/p&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_cf9207edf488495faff64fa890c237f0-1"&gt;&lt;/a&gt;git clone https://github.com/WolframResearch/WolframLanguageForJupyter.git
+&lt;a name="rest_code_cf9207edf488495faff64fa890c237f0-2"&gt;&lt;/a&gt;
+&lt;a name="rest_code_cf9207edf488495faff64fa890c237f0-3"&gt;&lt;/a&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; WolframLanguageForJupyter/
+&lt;a name="rest_code_cf9207edf488495faff64fa890c237f0-4"&gt;&lt;/a&gt;
+&lt;a name="rest_code_cf9207edf488495faff64fa890c237f0-5"&gt;&lt;/a&gt;./configure-jupyter.wls add
+&lt;/pre&gt;&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;To test that it is installed we can type the following in a terminal&lt;/p&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_d6f8de07fba14d5f8c4bd3fbba3efba7-1"&gt;&lt;/a&gt;jupyter kernelspec list
+&lt;/pre&gt;&lt;p&gt;and it should have an output that includes a line similar to the following&lt;/p&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_4e052254424544ef934dada9213a5160-1"&gt;&lt;/a&gt;wolframlanguage12.   /home/nicoguaro/.local/share/jupyter/kernels/wolframlanguage12.2
+&lt;/pre&gt;&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Or we could also try with&lt;/p&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_dcc8680cf1fe41dda38179c236ca3dd2-1"&gt;&lt;/a&gt;jupyter notebook
+&lt;/pre&gt;&lt;p&gt;and see the following in the kernel menu.&lt;/p&gt;
+&lt;img alt="Kernel menu after installing WolframLanguageForJupyter." class="align-center" src="https://nicoguaro.github.io/images/wolfram_menu.png" style="width: 400px;"&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="test-drive"&gt;
+&lt;h2&gt;Test drive&lt;/h2&gt;
+&lt;p&gt;I tested some of the capabilities and you can download the
+&lt;a class="reference external" href="https://nicoguaro.github.io/downloads/notebooks/wolfram_notebook.ipynb"&gt;notebook&lt;/a&gt; or
+see a static version
+&lt;a class="reference external" href="http://nbviewer.jupyter.org/url/nicoguaro.github.io/downloads/notebooks/wolfram_notebook.ipynb"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Let's compute the integral&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+\int \frac{1}{1 + x^3}\mathrm{d}x\, .
+\end{equation*}
+&lt;/div&gt;
+&lt;pre class="code mathematica"&gt;&lt;a name="rest_code_13e0ab0e456045339b6a3ee041a6327b-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;sol&lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Integrate&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;^&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;a name="rest_code_13e0ab0e456045339b6a3ee041a6327b-2"&gt;&lt;/a&gt;&lt;span class="n"&gt;TeXForm&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;sol&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;div class="math"&gt;
+\begin{equation*}
+-\frac{1}{6} \log \left(x^2-x+1\right)+\frac{1}{3} \log (x+1)+\frac{\tan^{-1}\left(\frac{2 x-1}{\sqrt{3}}\right)}{\sqrt{3}}
+\end{equation*}
+&lt;/div&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;And make a 3D plot.&lt;/p&gt;
+&lt;pre class="code text"&gt;&lt;a name="rest_code_7b127548c020491ebdffbafa5c463bd1-1"&gt;&lt;/a&gt;fun:= Sin[Sqrt[x^2 + y^2]]/Sqrt[x^2 + y^2]
+&lt;a name="rest_code_7b127548c020491ebdffbafa5c463bd1-2"&gt;&lt;/a&gt;Plot3D[fun, {x, -5*Pi, 5*Pi}, {y, -5*Pi, 5*Pi},
+&lt;a name="rest_code_7b127548c020491ebdffbafa5c463bd1-3"&gt;&lt;/a&gt;    PlotPoints -&amp;gt; 100, BoxRatios -&amp;gt; {1, 1, 0.2},
+&lt;a name="rest_code_7b127548c020491ebdffbafa5c463bd1-4"&gt;&lt;/a&gt;    PlotRange -&amp;gt; All]
+&lt;/pre&gt;&lt;img alt="3D plot in the notebook." class="align-center" src="https://nicoguaro.github.io/images/wolfram_plot.png" style="width: 600px;"&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;In this case we don't have an interactive image. This is still not implemented,
+but if you are interested there is an
+&lt;a class="reference external" href="https://github.com/WolframResearch/WolframLanguageForJupyter/issues/76"&gt;open issue&lt;/a&gt;
+about it in GitHub.&lt;/p&gt;
+&lt;/div&gt;&lt;/div&gt;</description><category>computer algebra system</category><category>jupyter</category><category>mathematica</category><category>wolfram engine</category><guid>https://nicoguaro.github.io/posts/wolfram_jupyter/</guid><pubDate>Wed, 31 Mar 2021 00:50:09 GMT</pubDate></item></channel></rss>
