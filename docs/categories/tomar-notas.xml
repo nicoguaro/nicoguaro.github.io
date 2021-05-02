@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nicolás' blog (Posts about Tomar Notas)</title><link>https://nicoguaro.github.io/</link><description></description><atom:link href="https://nicoguaro.github.io/categories/tomar-notas.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2021 &lt;a href="mailto:nicoguarin@gmail.com"&gt;Nicolás Guarín-Zapata&lt;/a&gt; 
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nicolás' blog (Posts about tomar notas)</title><link>https://nicoguaro.github.io/</link><description></description><atom:link href="https://nicoguaro.github.io/categories/tomar-notas.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2021 &lt;a href="mailto:nicoguarin@gmail.com"&gt;Nicolás Guarín-Zapata&lt;/a&gt; 
 &lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
 &lt;img alt="Creative Commons License"
 style="border-width:0"
-src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Wed, 03 Feb 2021 21:27:33 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Tomando notas de clase con mi tableta</title><link>https://nicoguaro.github.io/posts/notas-tableta/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;El año pasado el niño dios me regaló una &lt;a class="reference external" href="http://www.samsung.com/us/mobile/galaxy-note/GT-N8013EAVXAR"&gt;Samsung Galaxy Note
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Sun, 02 May 2021 19:18:41 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Tomando notas de clase con mi tableta</title><link>https://nicoguaro.github.io/posts/notas-tableta/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;El año pasado el niño dios me regaló una &lt;a class="reference external" href="http://www.samsung.com/us/mobile/galaxy-note/GT-N8013EAVXAR"&gt;Samsung Galaxy Note
 10.1&lt;/a&gt;
 (modelo 2012). Esta tableta viene diseñada para tomar notas, pues trae
 un S-Pen (fabricado por Wacom, que creo que fabrican la
@@ -94,4 +94,4 @@ puede ser un poco apresurado, pero es realizable. La aplicación que
 viene por defecto (S Note) permite realizar el trabajo "out of the
 box", pero podría ser mejor. Las aplicaciones que me parecen más
 promisorias son: Note Anytime y Quill.&lt;/p&gt;
-&lt;/div&gt;&lt;/div&gt;</description><category>Note taking</category><category>Samsung Galaxy Note</category><category>Tablet</category><category>Tomar Notas</category><guid>https://nicoguaro.github.io/posts/notas-tableta/</guid><pubDate>Wed, 21 May 2014 02:23:00 GMT</pubDate></item></channel></rss>
+&lt;/div&gt;&lt;/div&gt;</description><category>note taking</category><category>old blog</category><category>tablet</category><category>tomar notas</category><guid>https://nicoguaro.github.io/posts/notas-tableta/</guid><pubDate>Wed, 21 May 2014 02:23:00 GMT</pubDate></item></channel></rss>

@@ -31,7 +31,7 @@ Redes sociales
 
 - `Twitter: @nicoguaro <https://twitter.com/nicoguaro>`_
 
-- `Flickr: nicoguaro <https://www.flickr.com/photos/nicoguaro/nicoguaro>`_
+- `Flickr: nicoguaro <https://www.flickr.com/photos/nicoguaro/>`_
 
 
 .. Twitter widget

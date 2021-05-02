@@ -3,7 +3,7 @@
 &lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
 &lt;img alt="Creative Commons License"
 style="border-width:0"
-src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Wed, 03 Feb 2021 21:27:33 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Escritura técnica: usando matemáticas</title><link>https://nicoguaro.github.io/es/posts/tech_writing_math/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;En una &lt;a class="reference external" href="https://nicoguaro.github.io/es/posts/tech_writing"&gt;publicación anterior&lt;/a&gt; mencioné algunos aspectos
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Sun, 02 May 2021 19:22:20 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Escritura técnica: usando matemáticas</title><link>https://nicoguaro.github.io/es/posts/tech_writing_math/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;En una &lt;a class="reference external" href="https://nicoguaro.github.io/es/posts/tech_writing"&gt;publicación anterior&lt;/a&gt; mencioné algunos aspectos
 generales de la escritura técnica. En este me gustaría hablar sobre la
 inclusión de expresiones matemáticas en documentos técnicos.&lt;/p&gt;
 &lt;p&gt;Hay dos formas principales de incluir matemáticas en documentos:&lt;/p&gt;
@@ -228,6 +228,8 @@ Friends of OpenDocument, Inc.&lt;/p&gt;&lt;/li&gt;
 &lt;a class="reference external" href="https://sylvaindeville.net/2015/07/17/writing-academic-papers-in-plain-text-with-markdown-and-jupyter-notebook/"&gt;Writing academic papers in plain text with Markdown and Jupyter notebook&lt;/a&gt;.
 Sylvain Deville.&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
+&lt;p&gt;5. Eric Holscher (2016).
+&lt;a class="reference external" href="https://www.ericholscher.com/blog/2016/jul/1/sphinx-and-rtd-for-writers/"&gt;An introduction to Sphinx and Read the Docs for Technical Writers&lt;/a&gt;&lt;/p&gt;
 &lt;dl class="footnote brackets"&gt;
 &lt;dt class="label" id="id2"&gt;&lt;span class="brackets"&gt;&lt;a class="fn-backref" href="https://nicoguaro.github.io/es/posts/tech_writing/#id1"&gt;*&lt;/a&gt;&lt;/span&gt;&lt;/dt&gt;
 &lt;dd&gt;&lt;p&gt;Esta publicación está (algo) relacionada con una
@@ -359,7 +361,7 @@ opciones. Yo la uso, pero no mucho en mi investigación.&lt;/p&gt;&lt;/li&gt;
 cantidad de opciones como calendario, ecuaciones con código
 &lt;span class="math"&gt;\(\LaTeX\)&lt;/span&gt;, imágenes... en fin. El pero que le encuentro es que no
 he logrado configurar las ecuaciones en Windows (y en mi oficina debo
-usar Ruindows :-/).&lt;/p&gt;&lt;/li&gt;
+usar Windows :-/).&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="http://www.docear.org/"&gt;Docear&lt;/a&gt; esta es una herramienta pensada,
 principalmente, para manejar bibliografía. Sin embargo, permite tomar
 notas y, en general, manejar la información de la investigación. La
@@ -374,7 +376,7 @@ es que en 2013 fue comprado por Elsevier.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;En cuanto a manejo de bibliografía también me gustaría mencionar
 &lt;a class="reference external" href="http://endnote.com/"&gt;EndNote&lt;/a&gt; que es el programa con mayor
-trayectoria y  &lt;a class="reference external" href="http://jabref.sourceforge.net/"&gt;JabRef&lt;/a&gt;que es el
+trayectoria y  &lt;a class="reference external" href="http://jabref.sourceforge.net/"&gt;JabRef&lt;/a&gt; que es el
 que he usado por más tiempo. Algunas referencias interesantes
 comparando manejadores de bibliografía están acá:
 &lt;a class="reference external" href="https://www.researchgate.net/post/alternative_to_Endnote?_tpcectx=qa_overview_following"&gt;[A]&lt;/a&gt;
@@ -454,7 +456,7 @@ versátil y la gran ventaja que tiene es que puede usarse dentro de
 de Python.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="http://www.paraview.org/"&gt;Paraview&lt;/a&gt;, este programa también está
 basado en VTK y permite paralelizar las labores (para los
-computadores con múltiple núcleo y los clusters). Abajo incluyo un
+computadores con múltiple núcleo y los clústers). Abajo incluyo un
 video generado en Paraview para mostrar sus capacidades.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://wci.llnl.gov/simulation/computer-codes/visit"&gt;Visit&lt;/a&gt;,
 este programa también está basado en VTK, nunca lo he usado pero
@@ -467,7 +469,7 @@ ParaView, sin embargo, las capacidades de gráficos 2D (gráficos XY, y
 demás) lo hacen atractivo.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="http://jwork.org/scavis/"&gt;Scavis&lt;/a&gt;, este está escrito en Java. No
 lo conocía hasta que inicie la escritura de esta entrada pero me
-llamó la atención y quise incluirlo en la lista. Algo que me llagmó
+llamó la atención y quise incluirlo en la lista. Algo que me llamó
 la atención es que permite scripting en varios lenguajes: Java,
 Python, Ruby, BeanShell y Matlab/Octave.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="http://www.originlab.com/"&gt;Origin&lt;/a&gt;, nunca lo he usado pero no lo
@@ -507,7 +509,7 @@ Estados Unidos. El documento se hizo en el lenguaje de marcadores
 &lt;span class="math"&gt;\(\LaTeX\)&lt;/span&gt;.&lt;/p&gt;
 &lt;p&gt;Además de tener un control sobre las versiones y poder acceder a
 versiones anteriores, es útil poder almacenar la información en un
-lugar asequible desde cualquier lugar del mundo con una conexión a
+lugar accesible desde cualquier lugar del mundo con una conexión a
 internet. Esto puede lograrse con un servidor propio, obviamente, o
 también a través de un proveedor externo. Dos proyectos que  son muy
 populares para alojar repositorios y manejar sus versiones son
@@ -517,7 +519,7 @@ BitBucket&lt;/a&gt;):&lt;/p&gt;
 &lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://github.com/"&gt;Github&lt;/a&gt;  es el más popular en este momento.
 Permite tener proyectos con un número ilimitado de colaboradores.
 Para tener un repositorio privado es necesario pagar.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://bitbucket.org/"&gt;BitBucket&lt;/a&gt; la principal ventaja es que
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://bitbucket.org/"&gt;BitBucket&lt;/a&gt; tiene como principal ventaja que
 permite tener repositorios privados sin la necesidad de pagar. Sólo
 es gratuito para proyectos con 5 colaboradores o menos (o para
 proyectos &lt;a class="reference external" href="https://bitbucket.org/account/user/nicoguaro/plans/"&gt;académicos&lt;/a&gt;).&lt;/p&gt;&lt;/li&gt;
@@ -532,4 +534,4 @@ proyectos &lt;a class="reference external" href="https://bitbucket.org/account/u
 &lt;p&gt;Seguro dejé mucho temas por fuera así como herramientas dentro de
 algún tópico. Si ese es el caso, agradecería que me lo digan en los
 comentarios.&lt;/p&gt;
-&lt;/div&gt;&lt;/div&gt;</description><guid>https://nicoguaro.github.io/es/posts/herramientas-investigacion/</guid><pubDate>Sat, 12 Jul 2014 09:24:00 GMT</pubDate></item></channel></rss>
+&lt;/div&gt;&lt;/div&gt;</description><category>blog viejo</category><category>investigación</category><category>tomar notas</category><category>visualización científica</category><guid>https://nicoguaro.github.io/es/posts/herramientas-investigacion/</guid><pubDate>Sat, 12 Jul 2014 09:24:00 GMT</pubDate></item></channel></rss>

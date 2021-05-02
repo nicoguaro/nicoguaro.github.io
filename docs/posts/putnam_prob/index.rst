@@ -81,7 +81,7 @@ we can check that the determinants of the matrices
     M_2 =
     \begin{bmatrix}
     x_0 &y_0 &z_0 &1\\
-    x &y & &1\\
+    x &y &z &1\\
     x_2 &y_2 &z_2 &1\\
     x_3 &y_3 &z_3 &1
     \end{bmatrix}\, ,

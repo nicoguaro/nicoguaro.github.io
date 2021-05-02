@@ -3,7 +3,7 @@
 &lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
 &lt;img alt="Creative Commons License"
 style="border-width:0"
-src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Wed, 03 Feb 2021 21:27:33 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Escritura técnica: usando matemáticas</title><link>https://nicoguaro.github.io/es/posts/tech_writing_math/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;En una &lt;a class="reference external" href="https://nicoguaro.github.io/es/posts/tech_writing"&gt;publicación anterior&lt;/a&gt; mencioné algunos aspectos
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Sun, 02 May 2021 03:28:27 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Escritura técnica: usando matemáticas</title><link>https://nicoguaro.github.io/es/posts/tech_writing_math/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;En una &lt;a class="reference external" href="https://nicoguaro.github.io/es/posts/tech_writing"&gt;publicación anterior&lt;/a&gt; mencioné algunos aspectos
 generales de la escritura técnica. En este me gustaría hablar sobre la
 inclusión de expresiones matemáticas en documentos técnicos.&lt;/p&gt;
 &lt;p&gt;Hay dos formas principales de incluir matemáticas en documentos:&lt;/p&gt;
@@ -228,6 +228,8 @@ Friends of OpenDocument, Inc.&lt;/p&gt;&lt;/li&gt;
 &lt;a class="reference external" href="https://sylvaindeville.net/2015/07/17/writing-academic-papers-in-plain-text-with-markdown-and-jupyter-notebook/"&gt;Writing academic papers in plain text with Markdown and Jupyter notebook&lt;/a&gt;.
 Sylvain Deville.&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
+&lt;p&gt;5. Eric Holscher (2016).
+&lt;a class="reference external" href="https://www.ericholscher.com/blog/2016/jul/1/sphinx-and-rtd-for-writers/"&gt;An introduction to Sphinx and Read the Docs for Technical Writers&lt;/a&gt;&lt;/p&gt;
 &lt;dl class="footnote brackets"&gt;
 &lt;dt class="label" id="id2"&gt;&lt;span class="brackets"&gt;&lt;a class="fn-backref" href="https://nicoguaro.github.io/es/posts/tech_writing/#id1"&gt;*&lt;/a&gt;&lt;/span&gt;&lt;/dt&gt;
 &lt;dd&gt;&lt;p&gt;Esta publicación está (algo) relacionada con una

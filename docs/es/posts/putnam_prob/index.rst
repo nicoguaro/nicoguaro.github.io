@@ -12,17 +12,17 @@ de Grant Sanderson, donde explica una forma de abordar el problema que
 es simplemente ... elegante.
 
 Este canal me gusta mucho. Por ejemplo, su acercamiento al álgebra
-lineal en
-`La esencia del álgebra lineal <https://www.youtube.com/watch?v=kjBOesZCoqc&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab>`_
+lineal en `La esencia del álgebra lineal
+<https://www.youtube.com/watch?v=kjBOesZCoqc&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab>`_
 es realmente bueno.
 
 
 El problema
 ===========
 
-Entremeos en materia. El problema fue originalmente parte de la 53
-`Competencia de Putnam en 1992 <http://kskedlaya.org/putnam-archive/1992.pdf>`_.
-El problema está planteado de la siguiente manera.
+Entremos en materia. El problema fue originalmente parte de la
+`Competencia 53 de Putnam en 1992 <http://kskedlaya.org/putnam-archive/1992.pdf>`_.
+Su planteamiento es el siguiente:
 
     Se eligen cuatro puntos al azar en la superficie de un
     esfera. ¿Cuál es la probabilidad de que el centro de la
@@ -39,7 +39,7 @@ aproximadamente, al menos.
 El enfoque propuesto.
 =====================
 
-El enfoque que vamos a utilizar es bastante sencillo. Vamps a obtener
+El enfoque que vamos a utilizar es bastante sencillo. Vamos a obtener
 una muestra de conjuntos aleatorios (independientes), con cuatro puntos
 cada uno, y vamos a verificar cuántos satisfacen la condición de estar
 adentro del tetraedro con los puntos como vértices.
@@ -83,7 +83,7 @@ podemos comprobar que los determinantes de las matrices
     M_2 =
     \begin{bmatrix}
     x_0 &y_0 &z_0 &1\\
-    x &y & &1\\
+    x &y &z &1\\
     x_2 &y_2 &z_2 &1\\
     x_3 &y_3 &z_3 &1
     \end{bmatrix}\, ,

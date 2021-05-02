@@ -3,7 +3,7 @@
 &lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
 &lt;img alt="Creative Commons License"
 style="border-width:0"
-src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Wed, 31 Mar 2021 03:01:21 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Using Wolfram Language in Jupyter: A free alternative to Mathematica</title><link>https://nicoguaro.github.io/posts/wolfram_jupyter/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;In this post I am going to describe how to add the Wolfram Language to
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Sun, 02 May 2021 20:47:18 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Using Wolfram Language in Jupyter: A free alternative to Mathematica</title><link>https://nicoguaro.github.io/posts/wolfram_jupyter/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;In this post I am going to describe how to add the Wolfram Language to
 the Jupyter notebook. This provides a free alternative to Mathematica with,
 pretty much, the same syntax. The use of the Wolfram Engine is free for
 non-production as described in their website:&lt;/p&gt;
@@ -691,6 +691,8 @@ Friends of OpenDocument, Inc.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Deville, S. (2015).
 &lt;a class="reference external" href="https://sylvaindeville.net/2015/07/17/writing-academic-papers-in-plain-text-with-markdown-and-jupyter-notebook/"&gt;Writing academic papers in plain text with Markdown and Jupyter notebook&lt;/a&gt;.
 Sylvain Deville.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Eric Holscher (2016).
+&lt;a class="reference external" href="https://www.ericholscher.com/blog/2016/jul/1/sphinx-and-rtd-for-writers/"&gt;An introduction to Sphinx and Read the Docs for Technical Writers&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;dl class="footnote brackets"&gt;
 &lt;dt class="label" id="id2"&gt;&lt;span class="brackets"&gt;&lt;a class="fn-backref" href="https://nicoguaro.github.io/posts/tech_writing/#id1"&gt;*&lt;/a&gt;&lt;/span&gt;&lt;/dt&gt;

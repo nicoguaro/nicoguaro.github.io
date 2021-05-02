@@ -135,8 +135,13 @@ References
    Friends of OpenDocument, Inc.
 
 4. Deville, S. (2015).
-   `Writing academic papers in plain text with Markdown and Jupyter notebook <https://sylvaindeville.net/2015/07/17/writing-academic-papers-in-plain-text-with-markdown-and-jupyter-notebook/>`_.
+   `Writing academic papers in plain text with Markdown and Jupyter notebook
+   <https://sylvaindeville.net/2015/07/17/writing-academic-papers-in-plain-text-with-markdown-and-jupyter-notebook/>`_.
    Sylvain Deville.
+
+5. Eric Holscher (2016).
+   `An introduction to Sphinx and Read the Docs for Technical Writers
+   <https://www.ericholscher.com/blog/2016/jul/1/sphinx-and-rtd-for-writers/>`__
 
 
 .. [*] This post is (somewhat) related to a

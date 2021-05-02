@@ -1,260 +1,242 @@
-.. title: Herramientas (auxiliares) para Investigación
+.. title: (Auxiliary) Tools for research
 .. slug: herramientas-investigacion
 .. date: 2014-07-12 04:24:00
-.. tags: visualización científica, scientific visualization, investigación,
-         research, mathjax
-.. category: Old blog
+.. tags: scientific visualization, research, note taking, old blog
+.. category: Research
 .. description:
+.. has_math: yes
 
-En esta entrada quiero hablar de algunas herramientas (...o algo así)
-que son útiles en el día a día de la investigación, pero que no suelen
-ser tan populares por ser en cierta forma *tangenciales* al área
-específica en la que cada uno trabaja.
+In this post I want to talk about some tools (or something like that)
+that are useful in the day-to-day research, but usually not so popular
+for being somewhat *tangential* to the area specific in which each one works.
 
 Scripting
 =========
 
-Un `script <http://en.wikipedia.org/wiki/Scripting_language>`__  es un
-programa *usualmente* simple que realiza una serie de tareas. ¡Lo
-siento! trato de ceñirme al castellano pero no me gustan las
-traducciones para este término (archivo de órdenes, archivo de
-procesamiento por lotes o guion). Si existe una tarea que debe ser
-hecha más de... cinco veces (el número varía de acuerdo a la
-paciencia), entonces creo que es algo que podemos pedirle al
-computador que haga esta tarea por nosotros. En otras palabras:
-podemos automatizar ese trabajo. Algunas tareas que pueden ser una
-buena alternativa para automatizar son: renombrar 100 archivos,
-convertir un archivo de un formato a otro (p. ej., STL a OBJ), leer
-387 archivos con información sobre el clima y graficar su evolución
-temporal (temperatura mínima, máxima y promedio). Estas tareas pueden
-ser fáciles de hacer a mano, pero por la cantidad de trabajo que
-involucran son tediosas.
+A `script <http://en.wikipedia.org/wiki/Scripting_language>`__ is a
+*usually* simple program that performs a series of tasks. 
+If there is a task that must be done more than ... five times (the number varies
+according to the patience), then I think it's something we can ask the
+computer to do for us. In other words: we can automate that work. Some tasks
+that can be a good alternative to automate are: rename 100 files,
+convert a file from one format to another (e.g. STL to OBJ), read
+387 files with information on the climate and graph its evolution
+temporary (minimum, maximum and average temperature). These tasks can
+be easy to do by hand, but for the amount of work that
+they involve are tedious.
 
-Lo primero es hacernos con un lenguaje de scripting. Algunas opciones
-son `Python <https://www.python.org/>`__,
+The first thing to do is to get a scripting language. Some options are
+`Python <https://www.python.org/>`__,
 `Bash <http://www.gnu.org/software/bash/>`__,
 `Julia <http://julialang.org/>`__,
 `Matlab <http://www.mathworks.com/products/matlab/>`__/`Octave <http://www.gnu.org/software/octave/>`__,
-`Scilab <http://www.scilab.org/>`__. Dejándome llevar por el sesgo,
-recomiendo usar Python.
+`Scilab <http://www.scilab.org/>`__. Allowing myself to follow my bias,
+I would recommend to use Python.
 
-Gráficos y esquemas
-===================
+Graphics and schematics
+=======================
 
-Una imagen vale más que mil palabras, o eso dice el dicho.
-Personalmente, me parece absolutamente cierto y trato de hacer
-*dibujitos* para poder entender mejor algo o lograrlo explicar mejor.
-Lo primero que me gustaría mencionar es la diferencia entre imágenes
-de mapas de bits (o ráster) e imágenes vectoriales.
+A picture is worth a thousand words, or so the saying goes.
+Personally, it seems absolutely true to me and I try to do
+*scribbles* to better understand something or explain it better.
+The first thing I would like to mention is the difference between images
+bitmap (or raster) and vector images.
 
--  `Imagen de mapa de
-   bits <http://en.wikipedia.org/wiki/Raster_graphics>`__: es una imagen
-   que está representada por un arreglo (o rejilla rectangular) de
-   pixeles. Dicho de otro modo, se almacena la información de color que
-   hay en cada punto de la imagen. Los formatos más populares almacenan
-   la información comprimida. Para gráficos con alto contraste (como
-   esquemas o diagramas) el mejor formato es PNG. Si se tiene una
-   animación, GIF sería preferible. Y para el caso de fotografías es
-   mejor utilizar JPG.
+-  `Bitmap image <http://en.wikipedia.org/wiki/Raster_graphics>`__: it's an image
+   which is represented by an array (or rectangular grid) of pixels. In other
+   words, the color information that there are in each point of the image. The
+   most popular formats store the compressed information. For high contrast
+   graphics (such as schematics or diagrams) the best format is PNG. If you have
+   an animation, GIF would be preferable. And in the case of photographs it is
+   better to use JPG.
 
--  `Imagen vectorial <http://en.wikipedia.org/wiki/Vector_graphics>`__:
-   es una imagen que está formada por entidades geométricas. En esta no
-   se almacena la información punto a punto sino *la construcción* de
-   las formas que la constituyen. Por esta razón, estas imágenes no se
-   *pixelan* pues la información que se tiene es de cómo construirla.
-   Este tipo de imágenes es la mejor opciones para esquemas y diagramas,
-   pues sólo se almacena la información de los trazos y texto que se
-   añadan en ellas (ver Figura 1). El estándar *de facto* para este tipo
-   de imágenes es PDF —es el que suelo para incluir en mis documentos
-   \\(\\LaTeX\\), aunque existe forma de embeber SVG en \\(\\LaTeX\\)
-   pero es algo que aún no exploro—. A pesar de que PDF sea el
-   *estándar*, el formato a preferir es `SVG (Scalable Vector
+-  `Vector image <http://en.wikipedia.org/wiki/Vector_graphics>`__:
+   is an image that is made up of geometric entities. In this case, the
+   stored information is not point-to-point but *the construction* of
+   the shapes that constitute it. For this reason, these images don't
+   *pixelate* because the information you have is how to build it.
+   This type of images is the best options for schematics and diagrams,
+   since the only stored information are the strokes and text added to
+   them (see Figure 1). The *de facto* standard for this type
+   of images is PDF —it is the one I usually include in my documents
+   \\(\\LaTeX\\), although there is a way to embed SVG in \\(\\LaTeX\\)
+   But it's something I haven't yet explored. Although PDF is the
+   *standard*, the preferred format is `SVG (Scalable Vector
    Graphics) <http://en.wikipedia.org/wiki/Scalable_Vector_Graphics>`__
-   que es un estándar a través de la internet y la mayoría de
-   navegadores *modernos* permiten visualizar.
+   which is a standard across the internet and most
+   *modern* browsers allow viewing.
 
-Recapitulando, deberíamos usar imágenes JPG para fotografías y SVG
-para esquemas/diagramas. Otro atributo que puede ser de utilidad es el
-manejo de capas, SVG permite esto.... y de formatos ráster tenemos la
-opción de usar TIFF.
+Recapping, we should use JPG images for photographs and SVG
+for schematics/diagrams. Another attribute that may be useful is the
+Layer management, SVG allows this ... and for raster formats we have the
+option to use TIFF.
 
-En cuanto a software para generar/editar este tipo de imágenes debo
-decir que existen gran cantidad de programas que permiten exportar a
-estos formatos: Python/Matplotlib, Matlab, Inkscape, Adobe
-Illustrator, GIMP, Photoshop, LibreOffice. Si el gráfico es generado a
-partir de un cálculo o de una serie de datos yo uso Matplotlib. Si en
-cambio, queremos hacer un esquema o —como suelo decir— un muñeco mi
-herramienta favorita es `Inkscape. <http://www.inkscape.org/>`__ Este
-programa pretende ser una alternativa libre a programas como Adobe
-Illustrator —y sí que lo consigue. Obviamente, se podría usar
-Illustrator o Corel Draw para esta tarea. Si el único uso sería hacer
-esquemas técnico, creo que sería un desperdicio.
+Regarding software to generate/edit this type of images I must
+say that there are a large number of programs that allow exporting to
+these formats: Python/Matplotlib, Matlab, Inkscape, Adobe
+Illustrator, GIMP, Photoshop, LibreOffice. If the graph is generated
+from a calculation or a data series I use Matplotlib. If
+instead, we want to make a schematic or my tool of choice
+is `Inkscape. <http://www.inkscape.org/>`__ This
+program is intended to be a free alternative to programs like Adobe
+Illustrator —and it does achieve it. Obviously, you could use
+Illustrator or Corel Draw for this task. If the only use would be to make
+Technical schematics, I think it would be a waste.
 
 +-----------------------------------------------------------------------+
 | .. image:: /images/sensor_hall.png                                    |
 +-----------------------------------------------------------------------+
-| **Figura 1.** Esquema de sensado de campo magnético de `imanes        |
-| permanentes <http://en.wikipedia.org/wiki/Neodymium_magnet>`__ por    |
-| `efecto Hall <http://en.wikipedia.org/wiki/Hall_effect>`__. Sacado    |
-| de mi `trabajo de grado <https://goo.gl/G9RRhC>`__ de Ingeniería      |
-| Física.                                                               |
+| **Figure 1.** Schematic for magnetic field sensing for `permanent     |
+| magnets <http://en.wikipedia.org/wiki/Neodymium_magnet>`__ using      |
+| `Hall effect <http://en.wikipedia.org/wiki/Hall_effect>`__. From      |
+| my Engineering Physics `thesis <https://goo.gl/G9RRhC>`__ .           |
 +-----------------------------------------------------------------------+
 
 
 
-Tomar notas
-===========
+Taking notes
+============
 
-Supongo que para algunos parecería un poco trivial hablar de "tomar
-notas" y mucho más viniendo de alguien que no tenía cuadernos en el
-bachillerato, pero como soy un poco terco creo que igual escribiré un
-poco sobre esto. Lo primero que me gustaría mencionar es que recuerdo
-que me hablaran de este tema en el colegio, pero nunca hubo nada
-formal respecto a desarrollar estas habilidades. Buscando en la web,
-hay gran cantidad de información. Incluso el artículo de `Wikipedia en
-inglés <http://en.wikipedia.org/wiki/Note-taking>`__ es interesante.
-No hay nada mejor para escribir que tener una pluma y un papel de buen
-gramaje, por eso es que aún uso un cuaderno en donde llevo cuenta de
-lo que hago en mi investigación y tomo notas. Sin embargo, este
-esquema es bastante lineal y deja por fuera oportunidades más
-*contemporáneas.* Es decir ¿por qué conformarse con un documento en
-este tiempo de hiper-documentos? Las ventajas de tomar notas
-digitalmente saltan a la vista, en un hiper-documento se pueden tener
-enlaces, embeber imágenes, video y sonido.
+I suppose that to some it would seem a bit trivial to speak of "notetaking"
+and much more coming from someone who didn't have notebooks in
+high school, but since I'm a bit stubborn I think I'll still write a
+little about this. The first thing I would like to mention is that I remember
+people talking to me about this at school, but there was never anything
+formal regarding developing these skills. Surfing the web,
+there is a lot of information. Even the `Wikipedia article on
+English <http://en.wikipedia.org/wiki/Note-taking>`__ is interesting.
+There is nothing better to write than to have a good pen and paper with a good
+grammage, that's why I still use a notebook where I keep track of
+what I do in my research and take notes. However, this scheme is quite linear
+and leaves out more *contemporary* options. That is, why settle for a document
+in this time of hyper-documents? The advantages of taking notes
+digitally jump to the eye, in a hyper-document you can have
+links, embed images, video and sound.
 
-En cuanto a herramientas, acá incluyo una pequeña lista:
+Regarding tools, I include a short list here:
 
--  `Evernote <https://evernote.com/>`__ es probablemente la herramienta
-   más popular para tomar notas. Es multiplataforma, Freemium
-   (funcionalidad básica gratuita y avanzada paga), y cuenta con muchas
-   opciones. Yo la uso, pero no mucho en mi investigación.
+-  `Evernote <https://evernote.com/>`__ is probably the most popular tool
+   for taking notes. It's cross-platform, Freemium  (free basic and paid
+   advanced functionality), and has many options. I use it, but not much in my
+   research.
 
--  `Zim <http://zim-wiki.org/>`__ es una wiki offline. Tiene gran
-   cantidad de opciones como calendario, ecuaciones con código
-   :math:`\LaTeX`, imágenes... en fin. El pero que le encuentro es que no
-   he logrado configurar las ecuaciones en Windows (y en mi oficina debo
-   usar Ruindows :-/).
+-  `Zim <http://zim-wiki.org/>`__ it is an offline wiki. Has great
+   number of options like calendar, equations with :math:`\LaTeX`, images ...
+   anyway. The but that I find is that no I have managed to configure the
+   equations in Windows (and in my office I must use Windows :-/).
 
--  `Docear <http://www.docear.org/>`__ esta es una herramienta pensada,
-   principalmente, para manejar bibliografía. Sin embargo, permite tomar
-   notas y, en general, manejar la información de la investigación. La
-   característica más (o menos) atractiva es que funciona alrededor de
-   mapas mentales.
+-  `Docear <http://www.docear.org/>`__ this is a tool thought,
+   mainly, to handle bibliography. However, it allows to take
+   notes and, in general, handle the information of the investigation. The
+   more (or less) appealing feature is that it works around
+   mental maps.
 
--  `Zotero <https://www.zotero.org/>`__ también es una herramienta para
-   manejar bibliografía, aunque permite manejar algo de toma de notas
-   (al menos alrededor de la bibliografía).
+-  `Zotero <https://www.zotero.org/>`__ It is also a tool to handle bibliography,
+   although it allows to handle some note taking (at least around the
+   bibliography).
 
--  `Mendeley <http://www.mendeley.com/>`__ es muy parecido al anterior,
-   aunque con más funcionalidades. El pero más grande que le encuentro
-   es que en 2013 fue comprado por Elsevier.
+-  `Mendeley <http://www.mendeley.com/>`__ it is very similar to the previous one,
+   although with more functionalities. The biggest but that I find it
+   is that in 2013 it was bought by Elsevier.
 
-En cuanto a manejo de bibliografía también me gustaría mencionar
-`EndNote <http://endnote.com/>`__ que es el programa con mayor
-trayectoria y  `JabRef <http://jabref.sourceforge.net/>`__\ que es el
-que he usado por más tiempo. Algunas referencias interesantes
-comparando manejadores de bibliografía están acá:
+Regarding bibliography management I would also like to mention
+`EndNote <http://endnote.com/>`__ which is the program with the longest
+trajectory and `JabRef <http://jabref.sourceforge.net/>`__ which is the one
+that I have used the longest. Some interesting references
+comparing bibliography handlers are::
 `[A] <https://www.researchgate.net/post/alternative_to_Endnote?_tpcectx=qa_overview_following>`__
 `[B] <http://www.docear.org/2013/10/14/what-makes-a-bad-reference-manager/>`__
 `[C] <http://www.docear.org/2014/01/15/comprehensive-comparison-of-reference-managers-mendeley-vs-zotero-vs-docear/>`__.
 
-Reconstrucción de gráficos
-==========================
+Graphic reconstruction
+======================
 
-
-Es común encontrarse con información presentada en forma de gráficos.
-También es común que queramos tener los datos numéricos de estos
-gráficos para poder compararlos con los nuestros. Para saber si
-nuestras medidas/simulaciones/métodos dan resultados similares a otros
-presentados en la literatura. Para esta tarea se pueden usar potentes
-software de procesamiento de imágenes, u otros más modestos diseñados
-específicamente para este fin.
+It is common to find information presented in the form of graphics.
+It is also common that we want to have the numerical data of these
+graphs to be able to compare them with ours. To know if
+our measurements/simulations/methods give results similar to others
+presented in the literature. We could use powerful image processing software,
+or other more modest ones designed specifically for this purpose.
 
 +-----------------------------------+
 | .. image:: /images/pointplot.jpg  |
 +-----------------------------------+
-| **Figura 2.** Gráfico original.   |
+| **Figure 2.** Original graphic.   |
 +-----------------------------------+
-
 
 
 +---------------------------------------------------------------------------+
 | .. image:: /images/digitized_pts.png                                      |
 +---------------------------------------------------------------------------+
-| **Figura 3.** Gráfico procesado en Engauge Digitizer. Algunos puntos      |
-| fueron seleccionados (automáticamente) para obtener sus coordenadas.      |
+| **Figure 3.** Graphic processed in Engauge Digitizer. Some points were    |
+| selected (automatically) to obtain their coordinates.                     |
 +---------------------------------------------------------------------------+
 
 
+-  `Digitizer of XY chart
+   <http://extensions.libreoffice.org/extension-center/digitizer-of-xy-chart>`__
+   this is a plugin for Libreoffice/OpenOffice and it exports the result
+   to the current spreadsheet, it is simple and easy to use.
 
--  `Digitizer of XY
-   chart <http://extensions.libreoffice.org/extension-center/digitizer-of-xy-chart>`__
-   este es un plugin para Libreoffice/OpenOffice y exporta el resultado
-   a la hoja de cálculo actual, es simple y fácil de usar.
+-  `Engauge Digitizer <http://digitizer.sourceforge.net/>`__, is the one
+   I normally use when I need to do this task (see Figures above). It is
+   open source (and free) and has a fair amount of options
+   to make the task easier.
 
--  `Engauge Digitizer <http://digitizer.sourceforge.net/>`__, es el que
-   normalmente uso cuando necesito hacer esta tarea (ver Figuras XX). Es
-   de código abierto (y libre) y tiene una buena cantidad de opciones
-   para facilitar la tarea.
+-  `Plot Digitizer <http://plotdigitizer.sourceforge.net/>`__ I don't have
+   a lot of information about this one (since I have never used it), except that
+   it is written in Java.
 
--  `Plot Digitizer <http://plotdigitizer.sourceforge.net/>`__ no tengo
-   mucha información sobre este (pues nunca lo he usado), salvo que está
-   escrito en Java.
-
--  `ImageJ <http://imagej.nih.gov/ij/>`__ este es un (completo) programa
-   de procesamiento de imágenes que está escrito en Java. No lo he usado
-   para esta tarea de manera regular, pero podría usarse para ello.
-
+-  `ImageJ <http://imagej.nih.gov/ij/>`__ this is a (complete) program for
+   image processing that is written in Java. I have not used it
+   for this task on a regular basis, but could be used for it.
 
 
-Visualización científica
+Scientific visualization
 ========================
 
+`Scientific visualization
+<https://en.wikipedia.org/wiki/Scientific_visualization>`__
+is in charge of generating graphs that allow visualizing "scientific data"
+to facilitate the understanding behind the data. For this work, many of us have
+used scripting languages such as Matlab/Octave, Scilab or Python (with
+Matplotlib or Mayavi). However, as visualization is about something visual
+—what else?—, it is good have a tool that allows you to generate and change
+graphics interactively, although we must always automate as much
+amount of work possible (laziness has always been one of the largest mobiles of
+humanity, you have to accept it).
 
-La `visualización
-científica <https://en.wikipedia.org/wiki/Scientific_visualization>`__
-que se encarga de generar gráficos que permitan visualizar "datos
-científicos" para facilitar el entendimiento que hay detrás de los
-datos. Para esta labor muchos hemos usado lenguajes de scripting como
-Matlab/Octave, Scilab o Python (con Matplotlib o Mayavi). Sin embargo,
-como la visualización se trata de algo visual —¿como si no?—, es bueno
-contar con una herramienta que permita generar y cambiar los gráficos
-de manera interactiva, aunque siempre debemos automatizar la mayor
-cantidad de trabajo posible (la pereza siempre ha sido uno de los
-móviles más grandes de la humanidad, hay que aceptarlo).
+-  `MayaVi <http://code.enthought.com/projects/mayavi/>`__, this is a
+   program written in Python that uses `VTK
+   <http://en.wikipedia.org/wiki/VTK>`__. It is very versatile and the great
+   advantage it has is that it can be used within Python
+   `scripts <https://scipy-lectures.github.io/packages/3d_plotting/index.html>`__.
 
--  `MayaVi <http://code.enthought.com/projects/mayavi/>`__, este es un
-   programa escrito en Python que usa
-   `VTK <http://en.wikipedia.org/wiki/VTK>`__. Es una herramienta muy
-   versátil y la gran ventaja que tiene es que puede usarse dentro de
-   `scripts <https://scipy-lectures.github.io/packages/3d_plotting/index.html>`__
-   de Python.
-
--  `Paraview <http://www.paraview.org/>`__, este programa también está
-   basado en VTK y permite paralelizar las labores (para los
-   computadores con múltiple núcleo y los clusters). Abajo incluyo un
-   video generado en Paraview para mostrar sus capacidades.
+-  `Paraview <http://www.paraview.org/>`__, this program is also
+   based on VTK and allows to parallelize the work (for
+   multi-core computers and clusters). Below I include a
+   video generated in Paraview to show its capabilities.
 
 -  `Visit <https://wci.llnl.gov/simulation/computer-codes/visit>`__,
-   este programa también está basado en VTK, nunca lo he usado pero
-   quise incluirlo porque la gente dice que puede ser más intuitivo que
+   this program is also VTK based, I have never used it but
+   I wanted to include it because people say it can be more intuitive than
    Paraview.
 
--  `Tecplot, <http://www.tecplot.com/>`__ este programa es muy popular
-   en Purdue. Creo que inicialmente fue pensado para CFD, pero se ha
-   expandido mucho. En cuanto a gráficos 3D no me parece mejor que
-   ParaView, sin embargo, las capacidades de gráficos 2D (gráficos XY, y
-   demás) lo hacen atractivo.
+-  `Tecplot, <http://www.tecplot.com/>`__ this program is very popular
+   at Purdue. I think it was initially intended for CFD, but it has been
+   much expanded. Regarding 3D graphics, it does not seem better than
+   ParaView, however, the 2D graphics capabilities (XY graphics, and
+   others) make it attractive.
 
--  `Scavis <http://jwork.org/scavis/>`__, este está escrito en Java. No
-   lo conocía hasta que inicie la escritura de esta entrada pero me
-   llamó la atención y quise incluirlo en la lista. Algo que me llagmó
-   la atención es que permite scripting en varios lenguajes: Java,
-   Python, Ruby, BeanShell y Matlab/Octave.
+-  `Scavis <http://jwork.org/scavis/>`__, this is written in Java. I didn't
+   know it until I started writing this post but it caught my eye and I wante
+   to put it on the list. Something that cught my attention is that it allows
+   scripting in several languages: Java, Python, Ruby, BeanShell, and
+   Matlab/Octave.
 
--  `Origin <http://www.originlab.com/>`__, nunca lo he usado pero no lo
-   quise dejar por fuera porque siempre he oído hablar maravillas de él
-   (probablemente compárandolo con Excel... pero no puedo opinar).
+-  `Origin <http://www.originlab.com/>`__, I have never used it but I didn't
+   want to leave it out because I've always heard great things about it
+   (probably comparing it with Excel ... but I can't comment).
 
 
 .. raw:: html
@@ -269,68 +251,64 @@ móviles más grandes de la humanidad, hay que aceptarlo).
         allowfullscreen>
     </iframe>
     <p>
-        <ahref="https://vimeo.com/2016815">Simulación de fuego cruzado en <a href="https://vimeo.com">Vimeo</a>.
+        <ahref="https://vimeo.com/2016815">
+        Cross fire simulation
+        <a href="https://vimeo.com">Vimeo</a>.
     </p>
 
 
 
-Manejo de versiones
-===================
+Version control
+===============
 
+`Version control <https://en.wikipedia.org/wiki/Version_control>`__ is the
+management of changes in documents, source code and other types of
+information. This can be done manually, but it is easy to make mistakes
+or replace the version of a code easily, and for this it is
+advisable to use software that facilitates the work. The idea is to
+have a *place* (repository) where versions and changes are stored, and keep
+track of them. In this way you can revert to a previous version of documents
+and multiple people can work together. There are two paradigms (or
+architectures) for version control: centralized and distributed. In the first
+there is a centralized repository where you find all the information. In
+distributed architectures each user has a copy of the repository. Personally I
+have only used `Git <http://git-scm.com/>`__, which falls under the distributed
+category and is one of the most popular version contorl software
+at the moment; it is used by companies like Google, Facebook and Netflix.
 
-El `manejo de
-versiones <http://en.wikipedia.org/wiki/Revision_control>`__ es la
-administración de cambios en documentos, código fuente y otro tipo de
-información. Esto puede hacerse de forma manual, pero es fácil cometer
-errores o remplazar la versión de un código fácilmente, y por esto es
-recomendable usar un software que facilite el trabajo. La idea es
-tener un *lugar* (repositorio) en donde se almacenan las versiones y
-los cambios, y llevar un registro de estos. De esta forma se puede
-volver a una versión anterior de los documentos y varias personas
-pueden trabajar conjuntamente.  Existen dos paradigmas (o
-arquitecturas) para el manejo de versiones: centralizada y
-distribuida. En la primera existe un repositorio centralizado en donde
-se encuentra toda la información. En la arquitectura distribuida cada
-usuario tiene una copia del respositorio. Personalmente sólo he usado
-`Git <http://git-scm.com/>`__, que entra en la categoría distribuida y
-es uno de los software de manejo de versiones más populares
-actualmente; lo usan compañías como Google, Facebook y Netflix.
-
-Un ejemplo puede verse en este
-`repositorio <https://github.com/bebopsan/SEC-Thesis>`__, en donde
-está el documento de trabajo de grado de Santiago Echeverri, el cual
-tuve la oportunidad de asesorar. Este documento lo editamos
-conjuntamente mientras él estaba en Medellín  y yo me encontraba en
-Estados Unidos. El documento se hizo en el lenguaje de marcadores
+An example can be seen in this
+`repository <https://github.com/bebopsan/SEC-Thesis>`__, with the
+undergrad thesis document of Santiago Echeverri, which
+I had the opportunity to advise. We edited this document
+together while he was in Medellin and I was in
+USA. The document was made in the markup language
 :math:`\LaTeX`.
 
-Además de tener un control sobre las versiones y poder acceder a
-versiones anteriores, es útil poder almacenar la información en un
-lugar asequible desde cualquier lugar del mundo con una conexión a
-internet. Esto puede lograrse con un servidor propio, obviamente, o
-también a través de un proveedor externo. Dos proyectos que  son muy
-populares para alojar repositorios y manejar sus versiones son
-(`comparación entre Github y
+In addition to having control over the versions and being able to access
+previous versions, it is useful to be able to store the information in a
+accesible location from anywhere in the world with a connection to
+Internet. This can be achieved with your own server, obviously, or
+also through an external provider. Two projects that are very
+popular for hosting repositories are
+(`comparison between Github and
 BitBucket <http://www.infoworld.com/d/application-development/bitbucket-vs-github-which-project-host-has-the-most-227061>`__):
 
--  `Github <https://github.com/>`__  es el más popular en este momento.
-   Permite tener proyectos con un número ilimitado de colaboradores.
-   Para tener un repositorio privado es necesario pagar.
+-  `Github <https://github.com/>`__ is the most popular at the moment.
+   It allows to have projects with an unlimited number of collaborators.
+   To have a private repository it is necessary to pay.
 
--  `BitBucket <https://bitbucket.org/>`__ la principal ventaja es que
-   permite tener repositorios privados sin la necesidad de pagar. Sólo
-   es gratuito para proyectos con 5 colaboradores o menos (o para
-   proyectos `académicos <https://bitbucket.org/account/user/nicoguaro/plans/>`__).
+-  `BitBucket <https://bitbucket.org/>`__ has the main advantage that
+   allows you to have private repositories without the need to pay. It is only
+   free for projects with 5 or fewer collaborators (or for
+   `academic projects <https://bitbucket.org/account/user/nicoguaro/plans/>`__).
 
 
-
-Enlaces sugeridos
+Suggested links
 =================
 
 #. Software Carpentry. http://software-carpentry.org/
 #. Python Scientific Lecture Notes. https://scipy-lectures.github.io/
 
+Surely I left a lot of topics outside as well as tools within a topic. If that's
+the case, I would appreciate if you tell me in the comments.
 
-Seguro dejé mucho temas por fuera así como herramientas dentro de
-algún tópico. Si ese es el caso, agradecería que me lo digan en los
-comentarios.

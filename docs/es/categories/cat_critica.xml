@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nicolás' blog (Publicaciones sobre Crítica)</title><link>https://nicoguaro.github.io/</link><description></description><atom:link href="https://nicoguaro.github.io/es/categories/cat_critica.xml" rel="self" type="application/rss+xml"></atom:link><language>es</language><copyright>Contents © 2021 &lt;a href="mailto:nicoguarin@gmail.com"&gt;Nicolás Guarín-Zapata&lt;/a&gt; 
+&lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
+&lt;img alt="Creative Commons License"
+style="border-width:0"
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Sun, 02 May 2021 20:47:18 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Tomando notas de clase con mi tableta</title><link>https://nicoguaro.github.io/es/posts/notas-tableta/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;El año pasado el niño dios me regaló una &lt;a class="reference external" href="http://www.samsung.com/us/mobile/galaxy-note/GT-N8013EAVXAR"&gt;Samsung Galaxy Note
+10.1&lt;/a&gt;
+(modelo 2012). Esta tableta viene diseñada para tomar notas, pues trae
+un S-Pen (fabricado por Wacom, que creo que fabrican la
+&lt;a class="reference external" href="http://www.wacom.com/en/us/business/technology-solutions"&gt;tecnología&lt;/a&gt;
+para la mayoría de tabletas comerciales) y varias aplicaciones
+pensadas para ello. Como: S Note, PhotoShop Touch, &lt;a class="reference external" href="http://www.crayonphysics.com/"&gt;Crayon
+Physics&lt;/a&gt; (tienen que jugarlo es muy
+divertido).&lt;/p&gt;
+&lt;p&gt;Decidí entonces hacer un experimento tomando notas de clase con mi
+tableta completamente en las dos materias que cursé en el "semestre"
+de primavera de 2014. En Optimización usé el lapiz que viene con la
+tableta y para Física Molecular usé un &lt;a class="reference external" href="http://www.wacom.com/en/us/everyday/bamboo-stylus-feel-samsung-galaxy-note"&gt;Bamboo
+Stylus&lt;/a&gt;
+que, se supone, es diseñado específicamente para esta tableta. Las
+notas las tomé con el software por defecto (S Note) y convertí a PDF
+(las notas fueron hechas enteramente con el software):&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://drive.google.com/file/d/0ByfUxGpgeoJ9TExLUkJ5TGVNYzA/edit?usp=sharing"&gt;Notas de
+Optimización&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://drive.google.com/file/d/0ByfUxGpgeoJ9aEJQejZIYzFHdk0/edit?usp=sharing"&gt;Notas de Física Computacional
+(Bio)Molecular&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Aunque la sensación al tacto del Bamboo Stylus es mucho más agradable,
+el desempeño del S Pen es mucho mejor. En ambos casos, la sensación es
+muy diferente a la de usar papel y lápiz (lapicero/pluma), en gran
+medida porque la fricción es muy poca en comparación (algo que es
+mejor con los lapices conductores). La experiencia de usuario del
+lápiz varía mucho entre una aplicación y otra, lo que genera buenas
+expectativas. En cuanto a tomar notas: es muy recomendado para tomar
+notas cortas (como reuniones); no tanto para tomar notas largas (como
+notas de clase), a menos que se quiera tener una copia digital
+fácilmente.&lt;/p&gt;
+&lt;div class="section" id="apps"&gt;
+&lt;h2&gt;Apps&lt;/h2&gt;
+&lt;p&gt;La tecnología detrás de la tableta es la parte más importante. De
+manera simple y rápida, el lapiz tiene una antena y la tableta una
+rejilla de antenas que están sintonizadas en la misma frecuencia (&lt;a class="reference external" href="http://en.wikipedia.org/wiki/Wacom#Technology"&gt;531
+kHz&lt;/a&gt;, en &lt;a class="reference external" href="http://www.androidauthority.com/break-it-down-how-does-the-s-pen-work-154435/"&gt;este
+enlace&lt;/a&gt;
+explican su funcionamiento un poco mejor). Sin embargo, también es
+importante tener en cuenta el software que se usa para tomar nota:&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://content.samsung.com/us/contents/aboutn/sNoteIntro.do"&gt;S
+Note&lt;/a&gt;&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;Es la aplicación nativa para tomar notas.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Tiene reconocimiento de formas y ecuaciones. Las ecuaciones deben ser
+simples, no esperen tomar notas de Mecánica Cuántica o Mecánica del
+Medio Continuo usado esta herramienta.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Permite insertar imágenes y grabar sonidos dentro de la aplicación.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Tiene "palm rejection".&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;El tamaño de papel no es configurable.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://papyrusapp.com/"&gt;Papyrus&lt;/a&gt;&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;Tiene "palm rejection" y permite configurar el dedo como borrador
+(que puede ser útil).&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Permite tener varios tamaños de papel y diferentes fondos.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Permite hacer rectángulos y elipses.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Los pinceles son muy básicos.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://noteanytime.com/en/"&gt;Note Anytime&lt;/a&gt;&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;Permite tener varios tamaños de papel.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Almacena los trazos vectorialmente y se pueden editar (cambiar color,
+tamaño o estilo) posteriormente.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Tiene varios pinceles y además son configurables.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;No puede convertir las notas en PDF.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;No tiene "palm rejection".&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://code.google.com/p/android-quill/"&gt;Quill&lt;/a&gt;&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;Es open source, aunque si lo adquieren a través de la "Google Store"
+tiene costo.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;El algoritmo de reconocimiento de trazos es mejor que el de los otros
+software (y es ajustable).&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Aún está en una etapa preliminar.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Lástimosamente no hay una versión de
+&lt;a class="reference external" href="https://www.fiftythree.com/paper.html"&gt;Paper&lt;/a&gt; (de
+FiftyThree) para Android, y, aunque existe una versión de &lt;a class="reference external" href="http://www.wacom.com/en/us/everyday/bamboo-paper"&gt;Bamboo
+Paper&lt;/a&gt; (de Wacom)
+para Android no es compatible con esta tableta.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="en-conclusion"&gt;
+&lt;h2&gt;En conclusión&lt;/h2&gt;
+&lt;p&gt;Remplazar la toma de notas "tradicionales" por notas  "digitales"
+puede ser un poco apresurado, pero es realizable. La aplicación que
+viene por defecto (S Note) permite realizar el trabajo "out of the
+box", pero podría ser mejor. Las aplicaciones que me parecen más
+promisorias son: Note Anytime y Quill.&lt;/p&gt;
+&lt;/div&gt;&lt;/div&gt;</description><category>blog viejo</category><category>tablet</category><category>tomar notas</category><guid>https://nicoguaro.github.io/es/posts/notas-tableta/</guid><pubDate>Wed, 21 May 2014 02:23:00 GMT</pubDate></item></channel></rss>

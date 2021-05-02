@@ -43,7 +43,7 @@
  </url>
  <url>
   <loc>https://nicoguaro.github.io/categories/</loc>
-  <lastmod>2021-03-31T02:19:00Z</lastmod>
+  <lastmod>2021-05-02T20:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/categories/approximation/</loc>
@@ -70,8 +70,20 @@
   <lastmod>2021-01-25T23:56:00Z</lastmod>
  </url>
  <url>
+  <loc>https://nicoguaro.github.io/categories/cat_popular-science/</loc>
+  <lastmod>2021-05-02T20:40:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://nicoguaro.github.io/categories/cat_posts/</loc>
   <lastmod>2021-01-25T23:56:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://nicoguaro.github.io/categories/cat_research/</loc>
+  <lastmod>2021-05-02T19:18:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://nicoguaro.github.io/categories/cat_review/</loc>
+  <lastmod>2021-05-02T19:22:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/categories/cat_scientific-computing/</loc>
@@ -198,6 +210,10 @@
   <lastmod>2021-03-31T02:19:00Z</lastmod>
  </url>
  <url>
+  <loc>https://nicoguaro.github.io/categories/mathjax/</loc>
+  <lastmod>2021-05-02T03:28:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://nicoguaro.github.io/categories/matplotlib/</loc>
   <lastmod>2021-01-25T23:56:00Z</lastmod>
  </url>
@@ -226,6 +242,10 @@
   <lastmod>2021-01-25T23:56:00Z</lastmod>
  </url>
  <url>
+  <loc>https://nicoguaro.github.io/categories/old-blog/</loc>
+  <lastmod>2021-05-02T19:11:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://nicoguaro.github.io/categories/optimization/</loc>
   <lastmod>2021-01-25T23:56:00Z</lastmod>
  </url>
@@ -240,6 +260,10 @@
  <url>
   <loc>https://nicoguaro.github.io/categories/pde/</loc>
   <lastmod>2021-01-25T23:56:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://nicoguaro.github.io/categories/popular-science/</loc>
+  <lastmod>2021-05-02T20:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/categories/probability/</loc>
@@ -395,7 +419,7 @@
  </url>
  <url>
   <loc>https://nicoguaro.github.io/es/categories/</loc>
-  <lastmod>2021-03-31T02:19:00Z</lastmod>
+  <lastmod>2021-05-02T20:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/es/categories/algebra-lineal/</loc>
@@ -414,6 +438,10 @@
   <lastmod>2021-01-25T23:56:00Z</lastmod>
  </url>
  <url>
+  <loc>https://nicoguaro.github.io/es/categories/blog-viejo/</loc>
+  <lastmod>2021-05-02T19:18:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://nicoguaro.github.io/es/categories/boundary-element-method/</loc>
   <lastmod>2021-01-25T23:56:00Z</lastmod>
  </url>
@@ -426,12 +454,24 @@
   <lastmod>2021-01-25T23:56:00Z</lastmod>
  </url>
  <url>
+  <loc>https://nicoguaro.github.io/es/categories/cat_critica/</loc>
+  <lastmod>2021-05-02T19:22:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://nicoguaro.github.io/es/categories/cat_old-blog/</loc>
   <lastmod>2021-01-25T23:56:00Z</lastmod>
  </url>
  <url>
+  <loc>https://nicoguaro.github.io/es/categories/cat_popular-science/</loc>
+  <lastmod>2021-05-02T20:40:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://nicoguaro.github.io/es/categories/cat_posts/</loc>
   <lastmod>2021-02-13T16:57:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://nicoguaro.github.io/es/categories/cat_research/</loc>
+  <lastmod>2021-05-02T19:18:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/es/categories/cat_scientific-computing/</loc>
@@ -456,6 +496,10 @@
  <url>
   <loc>https://nicoguaro.github.io/es/categories/ciencia-ficcion/</loc>
   <lastmod>2021-01-25T23:56:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://nicoguaro.github.io/es/categories/ciencia-popular/</loc>
+  <lastmod>2021-05-02T20:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/es/categories/combinatoria/</loc>
@@ -646,6 +690,10 @@
   <lastmod>2021-01-25T23:56:00Z</lastmod>
  </url>
  <url>
+  <loc>https://nicoguaro.github.io/es/categories/old-blog/</loc>
+  <lastmod>2021-05-02T19:18:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://nicoguaro.github.io/es/categories/optimizacion/</loc>
   <lastmod>2021-01-26T14:28:00Z</lastmod>
  </url>
@@ -763,7 +811,7 @@
  </url>
  <url>
   <loc>https://nicoguaro.github.io/es/index-1.html</loc>
-  <lastmod>2021-03-31T02:43:00Z</lastmod>
+  <lastmod>2021-05-02T20:47:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/es/index-2.html</loc>
@@ -779,7 +827,7 @@
  </url>
  <url>
   <loc>https://nicoguaro.github.io/es/index-5.html</loc>
-  <lastmod>2021-03-31T02:19:00Z</lastmod>
+  <lastmod>2021-05-02T03:37:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/es/pages/about/</loc>
@@ -1078,7 +1126,7 @@
  </url>
  <url>
   <loc>https://nicoguaro.github.io/index-1.html</loc>
-  <lastmod>2021-03-31T02:43:00Z</lastmod>
+  <lastmod>2021-05-02T20:47:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/index-2.html</loc>
@@ -1094,7 +1142,7 @@
  </url>
  <url>
   <loc>https://nicoguaro.github.io/index-5.html</loc>
-  <lastmod>2021-03-31T02:19:00Z</lastmod>
+  <lastmod>2021-05-02T03:28:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/pages/about/</loc>
@@ -1162,6 +1210,7 @@
  <url>
   <loc>https://nicoguaro.github.io/posts/herramientas-investigacion/</loc>
   <lastmod>2021-01-25T23:56:00Z</lastmod>
+  <xhtml:link rel="alternate" hreflang="es" href="https://nicoguaro.github.io/es/posts/herramientas-investigacion/" />
  </url>
  <url>
   <loc>https://nicoguaro.github.io/posts/infinite_fdm/</loc>
@@ -1195,6 +1244,7 @@
  <url>
   <loc>https://nicoguaro.github.io/posts/notas-tableta/</loc>
   <lastmod>2021-01-25T23:56:00Z</lastmod>
+  <xhtml:link rel="alternate" hreflang="es" href="https://nicoguaro.github.io/es/posts/notas-tableta/" />
  </url>
  <url>
   <loc>https://nicoguaro.github.io/posts/numerical-01/</loc>
@@ -1378,6 +1428,7 @@
  <url>
   <loc>https://nicoguaro.github.io/posts/teletransportacion-star-trek/</loc>
   <lastmod>2021-01-25T23:56:00Z</lastmod>
+  <xhtml:link rel="alternate" hreflang="es" href="https://nicoguaro.github.io/es/posts/teletransportacion-star-trek/" />
  </url>
  <url>
   <loc>https://nicoguaro.github.io/posts/wolfram_jupyter/</loc>

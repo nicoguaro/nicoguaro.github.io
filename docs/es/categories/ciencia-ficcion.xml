@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nicolás' blog (Publicaciones sobre Ciencia ficción)</title><link>https://nicoguaro.github.io/</link><description></description><atom:link href="https://nicoguaro.github.io/es/categories/ciencia-ficcion.xml" rel="self" type="application/rss+xml"></atom:link><language>es</language><copyright>Contents © 2021 &lt;a href="mailto:nicoguarin@gmail.com"&gt;Nicolás Guarín-Zapata&lt;/a&gt; 
+<?xml-stylesheet type="text/xsl" href="../../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nicolás' blog (Publicaciones sobre ciencia ficción)</title><link>https://nicoguaro.github.io/</link><description></description><atom:link href="https://nicoguaro.github.io/es/categories/ciencia-ficcion.xml" rel="self" type="application/rss+xml"></atom:link><language>es</language><copyright>Contents © 2021 &lt;a href="mailto:nicoguarin@gmail.com"&gt;Nicolás Guarín-Zapata&lt;/a&gt; 
 &lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
 &lt;img alt="Creative Commons License"
 style="border-width:0"
-src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Wed, 03 Feb 2021 21:27:26 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Respecto a la teletransportación en Star Trek</title><link>https://nicoguaro.github.io/es/posts/teletransportacion-star-trek/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;Alguna vez una amiga me preguntó sobre cuál era más fácil de dos métodos para
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Sun, 02 May 2021 20:47:18 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Respecto a la teletransportación en Star Trek</title><link>https://nicoguaro.github.io/es/posts/teletransportacion-star-trek/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;Alguna vez una amiga me preguntó sobre cuál era más fácil de dos métodos para
 teletransportar personas. Uno consistía en "desconfigurar" y "reconfigurar" a
 la persona (como información, similar a &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Transporter_%28Star_Trek%29"&gt;Start Trek&lt;/a&gt;
 y la otra en "crear un atajo" entre dos lugares del espacio-tiempo para pasar
@@ -53,7 +53,7 @@ totalidad de los datos (asumiendo datos representados como reales de 32 bits)
 tardaría &lt;span class="math"&gt;\(2,3\times 10^{16}\ \mbox{s}\)&lt;/span&gt; o, equivalentemente,
 &lt;span class="math"&gt;\(1,70\times 10^{10}\)&lt;/span&gt; años (la edad estimada del universo es de
 &lt;span class="math"&gt;\(1,37\times 10^{10}\)&lt;/span&gt; años).&lt;/p&gt;
-&lt;p&gt;Si quisiéramos que esto pasara
-ealmente rápido, digamos en 1 milisegundo, la tasa de transmisión
-debería ser &lt;span class="math"&gt;\(2,3\times 10^{19}\)&lt;/span&gt; más rápida que el récord que alcanzaron
-en el CERN… algo que es inconcebible para nosotros actualmente.&lt;/p&gt;&lt;/div&gt;</description><guid>https://nicoguaro.github.io/es/posts/teletransportacion-star-trek/</guid><pubDate>Thu, 18 Apr 2013 08:40:00 GMT</pubDate></item></channel></rss>
+&lt;p&gt;Si quisiéramos que esto pasara realmente rápido, digamos en 1 milisegundo,
+la tasa de transmisión debería ser &lt;span class="math"&gt;\(2,3\times 10^{19}\)&lt;/span&gt; más rápida que el
+récord que alcanzaron en el CERN… algo que es inconcebible para nosotros
+actualmente.&lt;/p&gt;&lt;/div&gt;</description><category>blog viejo</category><category>ciencia ficción</category><category>ciencia popular</category><category>cuentas de servilleta</category><guid>https://nicoguaro.github.io/es/posts/teletransportacion-star-trek/</guid><pubDate>Thu, 18 Apr 2013 08:40:00 GMT</pubDate></item></channel></rss>

@@ -1,108 +1,101 @@
-.. title: Tomando notas de clase con mi tableta
+.. title: Note taking with my tablet
 .. slug: notas-tableta
 .. date: 2014-05-20 21:23:00
-.. tags: Note taking,Tomar Notas,Tablet,Samsung Galaxy Note
-.. category: Old blog
+.. tags: note taking, tablet, old blog
+.. category: Review
 .. description:
 
-El año pasado el niño dios me regaló una `Samsung Galaxy Note
+
+Last year baby Jesus gave me a `Samsung Galaxy Note
 10.1 <http://www.samsung.com/us/mobile/galaxy-note/GT-N8013EAVXAR>`__
-(modelo 2012). Esta tableta viene diseñada para tomar notas, pues trae
-un S-Pen (fabricado por Wacom, que creo que fabrican la
-`tecnología <http://www.wacom.com/en/us/business/technology-solutions>`__
-para la mayoría de tabletas comerciales) y varias aplicaciones
-pensadas para ello. Como: S Note, PhotoShop Touch, `Crayon
-Physics <http://www.crayonphysics.com/>`__ (tienen que jugarlo es muy
-divertido).
+(model 2012). This tablet is designed for taking notes, as it brings
+an S-Pen (made by Wacom, which I think makes the
+`technology <http://www.wacom.com/en/us/business/technology-solutions>`__
+for most commercial tablets) and various applications
+designed for it. Such as: S Note, PhotoShop Touch, `Crayon
+Physics <http://www.crayonphysics.com/>`__ (you have to play it is very
+fun).
 
-
-Decidí entonces hacer un experimento tomando notas de clase con mi
-tableta completamente en las dos materias que cursé en el "semestre"
-de primavera de 2014. En Optimización usé el lapiz que viene con la
-tableta y para Física Molecular usé un `Bamboo
+So I decided to make an experiment taking notes in class with my
+tablet completely in the two subjects I studied in the spring 2014 term.
+In Optimization I used the pencil that came with the
+tablet and for Molecular Physics I used a `Bamboo
 Stylus <http://www.wacom.com/en/us/everyday/bamboo-stylus-feel-samsung-galaxy-note>`__
-que, se supone, es diseñado específicamente para esta tableta. Las
-notas las tomé con el software por defecto (S Note) y convertí a PDF
-(las notas fueron hechas enteramente con el software):
+which is supposed to be designed specifically for this tablet. I took
+notes with the default software (S Note) and converted to PDF
+(the notes were made entirely with the software):
 
--  `Notas de
-   Optimización <https://drive.google.com/file/d/0ByfUxGpgeoJ9TExLUkJ5TGVNYzA/edit?usp=sharing>`__
--  `Notas de Física Computacional
-   (Bio)Molecular <https://drive.google.com/file/d/0ByfUxGpgeoJ9aEJQejZIYzFHdk0/edit?usp=sharing>`__
+-  `Optimization notes <https://drive.google.com/file/d/0ByfUxGpgeoJ9TExLUkJ5TGVNYzA/edit?usp=sharing>`__
+-  `Computational (Bio)Molecular Physics notes <https://drive.google.com/file/d/0ByfUxGpgeoJ9aEJQejZIYzFHdk0/edit?usp=sharing>`__
 
-Aunque la sensación al tacto del Bamboo Stylus es mucho más agradable,
-el desempeño del S Pen es mucho mejor. En ambos casos, la sensación es
-muy diferente a la de usar papel y lápiz (lapicero/pluma), en gran
-medida porque la fricción es muy poca en comparación (algo que es
-mejor con los lapices conductores). La experiencia de usuario del
-lápiz varía mucho entre una aplicación y otra, lo que genera buenas
-expectativas. En cuanto a tomar notas: es muy recomendado para tomar
-notas cortas (como reuniones); no tanto para tomar notas largas (como
-notas de clase), a menos que se quiera tener una copia digital
-fácilmente.
-
+Although the touch sensation of the Bamboo Stylus is much more pleasant,
+the performance of the S Pen is much better. In both cases, the feeling is
+very different from using paper and pencil (pen/fountain pen), largely
+because friction is very little in comparison (something that is
+better with conductive pencils). The user experience of the
+pencil varies greatly from one application to another, resulting in good
+expectations. As for taking notes: it is highly recommended to take
+short notes (like meetings); not so much for taking long notes (like
+class notes), unless you want to have a digital copy
+easily.
 
 Apps
 -----
 
-La tecnología detrás de la tableta es la parte más importante. De
-manera simple y rápida, el lapiz tiene una antena y la tableta una
-rejilla de antenas que están sintonizadas en la misma frecuencia (`531
-kHz <http://en.wikipedia.org/wiki/Wacom#Technology>`__, en `este
-enlace <http://www.androidauthority.com/break-it-down-how-does-the-s-pen-work-154435/>`__
-explican su funcionamiento un poco mejor). Sin embargo, también es
-importante tener en cuenta el software que se usa para tomar nota:
+The technology behind the tablet is the most important part. Simply pu, the pen
+has an antenna and the tablet a grid of antennas that are tuned to the same
+frequency (`531 kHz <http://en.wikipedia.org/wiki/Wacom#Technology>`__, in
+`this link <http://www.androidauthority.com/break-it-down-how-does-the-s-pen-work-154435/>`__
+they explain how it works a little better). However, it is also
+important to consider the software that is used to take notes:
 
 `S
 Note <http://content.samsung.com/us/contents/aboutn/sNoteIntro.do>`__ 
 
--  Es la aplicación nativa para tomar notas.
--  Tiene reconocimiento de formas y ecuaciones. Las ecuaciones deben ser
-   simples, no esperen tomar notas de Mecánica Cuántica o Mecánica del
-   Medio Continuo usado esta herramienta.
--  Permite insertar imágenes y grabar sonidos dentro de la aplicación.
--  Tiene "palm rejection".
--  El tamaño de papel no es configurable.
+-  It is the native app for taking notes.
+-  It has shape and equations recognition. Equations should be simple,
+   don't expect to take notes of Quantum Mechanics or Continuum Mechanics
+   using this tool.
+-  It allow to insert images and record sound within the app.
+-  It has "palm rejection".
+-  The size of the page is not configurable.
 
 `Papyrus <http://papyrusapp.com/>`__ 
 
--  Tiene "palm rejection" y permite configurar el dedo como borrador
-   (que puede ser útil).
--  Permite tener varios tamaños de papel y diferentes fondos.
--  Permite hacer rectángulos y elipses.
--  Los pinceles son muy básicos.
+-  It has "palm rejection" and allow to setup your finger as eraser
+   (this can be very useful).
+-  It allows different page sizes and backgrounds.
+-  It allows to draw rectangles and ellipses.
+-  Brushes are very basic.
 
 `Note Anytime <http://noteanytime.com/en/>`__
 
--  Permite tener varios tamaños de papel.
--  Almacena los trazos vectorialmente y se pueden editar (cambiar color,
-   tamaño o estilo posteriormente). 
--  Tiene varios pinceles y además son configurables.
--  No puede convertir las notas en PDF.
--  No tiene "palm rejection".
+-  It allows to have different page sizes.
+-  It stores paths as vector graphics and you cand edit them (change color
+   size or style) later.
+-  It has several brushes and they are even customizable.
+-  It can't convert notes to PDF.
+-  It does not have "palm rejection".
 
 `Quill <http://code.google.com/p/android-quill/>`__
 
--  Es open source, aunque si lo adquieren a través de la "Google Store"
-   tiene costo.
--  El algoritmo de reconocimiento de trazos es mejor que el de los otros
-   software (y es ajustable).
--  Aún está en una etapa preliminar.
+-  It is open source, although if you get it through "Google Store" it
+   has a cost.
+-  The algorithm for path recognition is better than the others (and
+   it is adjustable).
+-  It is still in a preliminary stage.
 
-Lástimosamente no hay una versión de 
-`Paper <http://www.wacom.com/en/us/everyday/bamboo-paper>`__ (de
-FiftyThree) para Android, y, aunque existe una versión de `Bamboo
-Paper <http://www.wacom.com/en/us/everyday/bamboo-paper>`__ (de Wacom)
-para Android no es compatible con esta tableta.
+Sadly, there isn't a version of `Paper <https://www.fiftythree.com/paper.html>`__
+(by FiftyThree) on Android, and, although there is a version of `Bamboo
+Paper <http://www.wacom.com/en/us/everyday/bamboo-paper>`__ (by Wacom)
+for Android it is not compatible with the tablet.
 
 
-En conclusión
+In conclusion
 -------------
 
-Remplazar la toma de notas "tradicionales" por notas  "digitales"
-puede ser un poco apresurado, pero es realizable. La aplicación que
-viene por defecto (S Note) permite realizar el trabajo "out of the
-box", pero podría ser mejor. Las aplicaciones que me parecen más
-promisorias son: Note Anytime y Quill.
-
-
+Replacing "traditional" note taking with "digital" notes
+It may be a bit rushed, but it is doable. The application that
+comes by default (S Note) allows to do the job "out of the
+box", but it could be better. The applications that I find the most
+Promising are: Note Anytime and Quill.
