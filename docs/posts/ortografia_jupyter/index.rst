@@ -1,117 +1,112 @@
-.. title: Revisión ortográfica en Jupyter Notebook
+.. title: Spell Check in Jupyter Notebook
 .. slug: ortografia_jupyter
 .. date: 2019-08-20 14:45:41 UTC-05:00
 .. tags: tutorial, data-science, python, scientific computing,
 .. category: Writing
 .. link:
-.. description: Describe cómo tener resaltado de palabras mal escritas en español.
+.. description: Describe how to highlight misspelled words in Spanish.
 .. type: text
 
 
-El objetivo de esta publicación es mostrar cómo tener revisión automática
-de ortografía en Jupyter Notebook [*]_ para español, como se muestra a
-continuación.
+The purpose of this post is to show how to have automatic spell check in
+Jupyter Notebook, as shown below.
 
 .. image:: /images/ortografia_jupyter/ejemplo_ortografia.png
    :width: 600 px
-   :alt: Ejemplo de corrección ortográfica en Jupyter Notebook.
+   :alt: Example of spell checking in Jupyter Notebook.
    :align:  center
 
+There are `several ways <https://stackoverflow.com/q/39324039/3358223>`__
+to do this. However, the easiest way is through the (*nbextension*)
+Spellchecker_. plugin.
 
-Existen `varias formas <https://stackoverflow.com/q/39324039/3358223>`__ de
-realizar esto. Sin embargo, la forma más fácil es a través del complemento
-(*nbextension*) Spellchecker_.
+Step by step
+~~~~~~~~~~~~
 
+The steps to follow are those:
 
-Paso a paso
-~~~~~~~~~~~
-
-Los pasos a seguir son los siguientes:
-
-1. Instalar Jupyter notebook extensions (nbextensions_). Este incluye
+1. Install Jupyter notebook extensions (nbextensions_). This includes
    Spellchecker_.
 
-2. Ubicar los diccionarios en la carpeta donde está el complemento. Los
-   diccionarios deben usar la codificación UTF-8.
+2. Locate the dictionaries in the folder where the plugin is. Dictionaries
+   must use UTF-8 encoding.
 
-3. Configurar la ruta de los diccionarios. Esta puede ser una URL o
-   una ruta relativa respecto a la carpeta en donde se encuentra el complemento.
+3. Configure the path of the dictionaries. This can be a URL or a path
+   relative to the folder where the plugin is located.
 
+We will describe each step in detail below.
 
-A continuación describiremos en detalle cada paso.
+Step 1: Install nbextensions
+-----------------------------
 
-Paso 1: Instalación de nbextensions
-------------------------------------
+There is a list of plugins that add some commonly used functionality to
+the Jupyter notebook.
 
-Existe una lista de complementos que agregan algunas funcionalidades
-comúnmente usadas a Jupyter notebook.
-
-Escriba lo siguiente en una terminal, para instalarlo usando PIP.
+Type the following in a terminal, to install it using PIP.
 
 .. code:: bash
 
     pip install jupyter_contrib_nbextensions
 
 
-Sin embargo, si se está usando Anaconda el **método recomendado** es usar
-``conda``, como se muestra a continuación.
+However, if Anaconda is being used the **recommended method** is to use
+``conda``, as shown below.
 
 .. code:: bash
 
     conda install -c conda-forge jupyter_contrib_nbextensions
 
-
-Esto debe instalar los complementos y también la
-`interfaz de configuración <https://github.com/Jupyter-contrib/jupyter_nbextensions_configurator>`__.
-En el menú principal de Jupyter notebook aparecerá una nueva pestaña
-nombrada *Nbextensions* en donde se pueden elegir los complementos a usar.
-La apariencia es la siguiente.
+This should install the plugins and also the
+`configuration interface <https://github.com/Jupyter-contrib/jupyter_nbextensions_configurator>`__.
+In the main menu of Jupyter notebook a new tab named *Nbextension* will
+appear. Here you can choose the add-ons to use. The appearance is
+as follows.
 
 .. image:: /images/ortografia_jupyter/interfaz_nbextensions.png
    :width: 600 px
-   :alt: Interfaz gráfica para los complementos de Jupyter.
+   :alt: Graphical interface for Jupyter plugins.
    :align:  center
 
-Algunos complementos recomendados son:
+Some recommended plugins are:
 
-- **Collapsible Headings:** que permite ocultar secciones de los documentos.
+- **Collapsible Headings:** that allows to hide sections of the documents.
 
-- **RISE:** que convierte los notebooks en presentaciones.
+- **RISE:** that turns notebooks into presentations.
 
 
-Paso 2: Diccionarios para español
+Step 2: Dictionaries for Spanish
 ---------------------------------
 
-La documentación de Spellchecker_ sugiere usar un script de Python para
-descargar diccionarios del proyecto `Chromium <https://chromium.googlesource.com/chromium/deps/hunspell_dictionaries/+/master>`__.
-Sin embargo, estos tienen como codificación ISO-8859-1 (occidente) y falla
-para caracteres con tildes o virgulillas. Para que no haya problemas el
-diccionario debe tener codificación `UTF-8 <https://en.wikipedia.org/wiki/UTF-8>`__.
-Pueden descargarse en `este enlace </downloads/dict_es_ES.zip>`__.
+The documentation of Spellchecker_ suggests using a Python script to
+download dictionaries from project `Chromium <https://chromium.googlesource.com/chromium/deps/hunspell_dictionaries/+/master>`__.
+However, these are encoded in  ISO-8859-1 (western) and it fails
+for characters with accents or tildes. So, to avoid problems the
+dictionary must be `UTF-8 <https://en.wikipedia.org/wiki/UTF-8>`__.
+They can be downloaded at `this link </downloads/dict_es_ES.zip>`__.
 
-Una vez que se tienen los diccionarios se deben ubicar en la ruta del
-complemento. En mi computador esta sería
+Once you have the dictionaries, they must be located in the path of the
+plugin. On my computer this would be
 
 .. code::
 
   ~/.local/share/jupyter/nbextensions/spellchecker/
 
 
-y dentro de esta los ubicaremos en
+and within this we will place them in
 
 .. code::
 
   ~/.local/share/jupyter/nbextensions/spellchecker/typo/dictionaries
 
-Esta ubicación es arbitraria, lo importante es que necesitamos conocer
-la ruta relativa al complemento.
+This location is arbitrary, the important thing is that we need to know
+the relative path to the plugin.
 
 
-Paso 3: Configuración complementos
-----------------------------------
+Step 3: Plugin Configuration
+-----------------------------
 
-Ahora, en la pestaña *Nbextensions* seleccionamos el complemento y llenamos
-los campos con la información de nuestro diccionario:
+Now, in the *Nbextensions* tab we select the plugin and fill the fields
+with the information from our dictionary:
 
 - language code to use with typo.js: ``es_ES``
 
@@ -119,17 +114,17 @@ los campos con la información de nuestro diccionario:
 
 - url for the dictionary .aff file to use: ``./typo/dictionaries/es_ES.aff``
 
-Esto se muestra a continuación.
+This is shown below.
 
 .. image:: /images/ortografia_jupyter/config_local.png
    :width: 600 px
-   :alt: Configuración con archivos locales.
+   :alt: Configuration with local files.
    :align:  center
 
-
-Otra opción es usar la URL para los archivos. En https://github.com/wooorm/dictionaries
-están disponibles los diccionarios del proyecto `hunspell <https://hunspell.github.io/>`__
-en UTF-8. En este caso, la configuración sería:
+Another option is to use the URL for the files. The dictionaries of the
+project `hunspell <https://hunspell.github.io/>`__ in UTF-8 are available
+at https://github.com/wooorm/dictionaries. In this case, the configuration
+would be:
 
 - language code to use with typo.js: ``es_ES``
 
@@ -137,16 +132,12 @@ en UTF-8. En este caso, la configuración sería:
 
 - url for the dictionary .aff file to use: ``https://raw.githubusercontent.com/wooorm/dictionaries/master/dictionaries/es/index.aff``
 
-Y se muestra a continuación.
+And it is shown below.
 
 .. image:: /images/ortografia_jupyter/config_url.png
   :width: 600 px
-  :alt: Configuración con archivos remotos.
+  :alt: Configuration with remote files.
   :align:  center
-
 
 .. _Spellchecker: <https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/spellchecker/README.html
 .. _nbextensions: https://github.com/ipython-contrib/jupyter_contrib_nbextensions
-
-.. [*] Dado el público objetivo de esta publicación está hecha en español y
-   no en inglés como se acostumbra en este blog.

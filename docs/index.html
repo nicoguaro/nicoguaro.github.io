@@ -88,25 +88,25 @@ software development.</p>
 <li><p>Execute the installer.</p></li>
 <li><p>Type the following in a terminal</p></li>
 </ul>
-<pre class="code text"><a name="rest_code_2615f7a330a54bfd9ea5bb8b491019c8-1"></a>wolframscript
+<pre class="code text"><a name="rest_code_9070eb91d8c9452fa0ebd39a9fb2808f-1"></a>wolframscript
 </pre>
 <p>and you should be asked for your email and password.</p>
 <p>After that you should be in a terminal and see the following</p>
-<pre class="code text"><a name="rest_code_90837f75fdb840f7b0126498177df02c-1"></a>Wolfram Engine activated. See https://www.wolfram.com/wolframscript/ for more information.
-<a name="rest_code_90837f75fdb840f7b0126498177df02c-2"></a>Wolfram Language 12.2.0 Engine for Linux x86 (64-bit)
-<a name="rest_code_90837f75fdb840f7b0126498177df02c-3"></a>Copyright 1988-2021 Wolfram Research, Inc.
+<pre class="code text"><a name="rest_code_68ed263579c148c09ba7ff3de45cfb84-1"></a>Wolfram Engine activated. See https://www.wolfram.com/wolframscript/ for more information.
+<a name="rest_code_68ed263579c148c09ba7ff3de45cfb84-2"></a>Wolfram Language 12.2.0 Engine for Linux x86 (64-bit)
+<a name="rest_code_68ed263579c148c09ba7ff3de45cfb84-3"></a>Copyright 1988-2021 Wolfram Research, Inc.
 </pre>
 <div class="line-block">
 <div class="line"><br></div>
 </div>
 <p>And we can try that it is working</p>
-<pre class="code mathematica"><a name="rest_code_48221182a9c945448cb9500a4205582c-1"></a><span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">:=</span><span class="w"> </span><span class="err">$</span><span class="n">Version</span><span class="w"></span>
-<a name="rest_code_48221182a9c945448cb9500a4205582c-2"></a>
-<a name="rest_code_48221182a9c945448cb9500a4205582c-3"></a><span class="n">Out</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="w"> </span><span class="mf">12.2.0</span><span class="w"> </span><span class="n">for</span><span class="w"> </span><span class="n">Linux</span><span class="w"> </span><span class="n">x86</span><span class="w"> </span><span class="p">(</span><span class="mi">64</span><span class="o">-</span><span class="n">bit</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">January</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">2021</span><span class="p">)</span><span class="w"></span>
-<a name="rest_code_48221182a9c945448cb9500a4205582c-4"></a>
-<a name="rest_code_48221182a9c945448cb9500a4205582c-5"></a><span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">:=</span><span class="w"> </span><span class="n">Integrate</span><span class="p">[</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">x</span><span class="p">]</span><span class="w"></span>
-<a name="rest_code_48221182a9c945448cb9500a4205582c-6"></a>
-<a name="rest_code_48221182a9c945448cb9500a4205582c-7"></a><span class="n">Out</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">=</span><span class="w"> </span><span class="n">ArcTan</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="w"></span>
+<pre class="code mathematica"><a name="rest_code_25867bba4022446597c5c760938ae07a-1"></a><span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">:=</span><span class="w"> </span><span class="err">$</span><span class="n">Version</span><span class="w"></span>
+<a name="rest_code_25867bba4022446597c5c760938ae07a-2"></a>
+<a name="rest_code_25867bba4022446597c5c760938ae07a-3"></a><span class="n">Out</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="w"> </span><span class="mf">12.2.0</span><span class="w"> </span><span class="n">for</span><span class="w"> </span><span class="n">Linux</span><span class="w"> </span><span class="n">x86</span><span class="w"> </span><span class="p">(</span><span class="mi">64</span><span class="o">-</span><span class="n">bit</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">January</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">2021</span><span class="p">)</span><span class="w"></span>
+<a name="rest_code_25867bba4022446597c5c760938ae07a-4"></a>
+<a name="rest_code_25867bba4022446597c5c760938ae07a-5"></a><span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">:=</span><span class="w"> </span><span class="n">Integrate</span><span class="p">[</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">x</span><span class="p">]</span><span class="w"></span>
+<a name="rest_code_25867bba4022446597c5c760938ae07a-6"></a>
+<a name="rest_code_25867bba4022446597c5c760938ae07a-7"></a><span class="n">Out</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">=</span><span class="w"> </span><span class="n">ArcTan</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="w"></span>
 </pre>
 <div class="line-block">
 <div class="line"><br></div>
@@ -114,26 +114,26 @@ software development.</p>
 <p>Now we need to install
 <a class="reference external" href="https://github.com/WolframResearch/WolframLanguageForJupyter.git">WolframLanguageForJupyter</a>.
 For that we can type the following in a terminal</p>
-<pre class="code bash"><a name="rest_code_cf9207edf488495faff64fa890c237f0-1"></a>git clone https://github.com/WolframResearch/WolframLanguageForJupyter.git
-<a name="rest_code_cf9207edf488495faff64fa890c237f0-2"></a>
-<a name="rest_code_cf9207edf488495faff64fa890c237f0-3"></a><span class="nb">cd</span> WolframLanguageForJupyter/
-<a name="rest_code_cf9207edf488495faff64fa890c237f0-4"></a>
-<a name="rest_code_cf9207edf488495faff64fa890c237f0-5"></a>./configure-jupyter.wls add
+<pre class="code bash"><a name="rest_code_a79b4576a1094713bb699d65df6006b1-1"></a>git clone https://github.com/WolframResearch/WolframLanguageForJupyter.git
+<a name="rest_code_a79b4576a1094713bb699d65df6006b1-2"></a>
+<a name="rest_code_a79b4576a1094713bb699d65df6006b1-3"></a><span class="nb">cd</span> WolframLanguageForJupyter/
+<a name="rest_code_a79b4576a1094713bb699d65df6006b1-4"></a>
+<a name="rest_code_a79b4576a1094713bb699d65df6006b1-5"></a>./configure-jupyter.wls add
 </pre>
 <div class="line-block">
 <div class="line"><br></div>
 </div>
 <p>To test that it is installed we can type the following in a terminal</p>
-<pre class="code bash"><a name="rest_code_d6f8de07fba14d5f8c4bd3fbba3efba7-1"></a>jupyter kernelspec list
+<pre class="code bash"><a name="rest_code_79b58637716d4347b8c3fe31a77c46dd-1"></a>jupyter kernelspec list
 </pre>
 <p>and it should have an output that includes a line similar to the following</p>
-<pre class="code bash"><a name="rest_code_4e052254424544ef934dada9213a5160-1"></a>wolframlanguage12.   /home/nicoguaro/.local/share/jupyter/kernels/wolframlanguage12.2
+<pre class="code bash"><a name="rest_code_dbd81b90ce7248ddad8af7a247dc433b-1"></a>wolframlanguage12.   /home/nicoguaro/.local/share/jupyter/kernels/wolframlanguage12.2
 </pre>
 <div class="line-block">
 <div class="line"><br></div>
 </div>
 <p>Or we could also try with</p>
-<pre class="code bash"><a name="rest_code_dcc8680cf1fe41dda38179c236ca3dd2-1"></a>jupyter notebook
+<pre class="code bash"><a name="rest_code_cb712b2b985f484d822a44cbd8354f61-1"></a>jupyter notebook
 </pre>
 <p>and see the following in the kernel menu.</p>
 <img alt="Kernel menu after installing WolframLanguageForJupyter." class="align-center" src="images/wolfram_menu.png" style="width: 400px;"><div class="line-block">
@@ -152,8 +152,8 @@ see a static version
 \int \frac{1}{1 + x^3}\mathrm{d}x\, .
 \end{equation*}
 </div>
-<pre class="code mathematica"><a name="rest_code_13e0ab0e456045339b6a3ee041a6327b-1"></a><span class="n">sol</span><span class="o">:=</span><span class="w"> </span><span class="n">Integrate</span><span class="p">[</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="o">^</span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="n">x</span><span class="p">]</span><span class="w"></span>
-<a name="rest_code_13e0ab0e456045339b6a3ee041a6327b-2"></a><span class="n">TeXForm</span><span class="p">[</span><span class="n">sol</span><span class="p">]</span><span class="w"></span>
+<pre class="code mathematica"><a name="rest_code_23c03684efc84bf3a6c070111d1a52d3-1"></a><span class="n">sol</span><span class="o">:=</span><span class="w"> </span><span class="n">Integrate</span><span class="p">[</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="o">^</span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="n">x</span><span class="p">]</span><span class="w"></span>
+<a name="rest_code_23c03684efc84bf3a6c070111d1a52d3-2"></a><span class="n">TeXForm</span><span class="p">[</span><span class="n">sol</span><span class="p">]</span><span class="w"></span>
 </pre>
 <div class="math">
 \begin{equation*}
@@ -164,10 +164,10 @@ see a static version
 <div class="line"><br></div>
 </div>
 <p>And make a 3D plot.</p>
-<pre class="code text"><a name="rest_code_7b127548c020491ebdffbafa5c463bd1-1"></a>fun:= Sin[Sqrt[x^2 + y^2]]/Sqrt[x^2 + y^2]
-<a name="rest_code_7b127548c020491ebdffbafa5c463bd1-2"></a>Plot3D[fun, {x, -5*Pi, 5*Pi}, {y, -5*Pi, 5*Pi},
-<a name="rest_code_7b127548c020491ebdffbafa5c463bd1-3"></a>    PlotPoints -&gt; 100, BoxRatios -&gt; {1, 1, 0.2},
-<a name="rest_code_7b127548c020491ebdffbafa5c463bd1-4"></a>    PlotRange -&gt; All]
+<pre class="code text"><a name="rest_code_f293df438d7a4ad2a9d4522a0722c737-1"></a>fun:= Sin[Sqrt[x^2 + y^2]]/Sqrt[x^2 + y^2]
+<a name="rest_code_f293df438d7a4ad2a9d4522a0722c737-2"></a>Plot3D[fun, {x, -5*Pi, 5*Pi}, {y, -5*Pi, 5*Pi},
+<a name="rest_code_f293df438d7a4ad2a9d4522a0722c737-3"></a>    PlotPoints -&gt; 100, BoxRatios -&gt; {1, 1, 0.2},
+<a name="rest_code_f293df438d7a4ad2a9d4522a0722c737-4"></a>    PlotRange -&gt; All]
 </pre>
 <img alt="3D plot in the notebook." class="align-center" src="images/wolfram_plot.png" style="width: 600px;"><div class="line-block">
 <div class="line"><br></div>
@@ -286,150 +286,150 @@ rearranging to separate known and unknowns in opposite sides of the equation.</p
 It includes a YML file to create a conda environment with the dependencies
 listed. For example, it uses version 3.0 of
 <a class="reference external" href="https://github.com/nschloe/meshio">Meshio</a>.</p>
-<pre class="code python"><a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-2"></a><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">log</span><span class="p">,</span> <span class="n">arctan2</span><span class="p">,</span> <span class="n">pi</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">arctan</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-3"></a><span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="kn">import</span> <span class="n">norm</span><span class="p">,</span> <span class="n">solve</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-4"></a><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-5"></a><span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-6"></a><span class="kn">import</span> <span class="nn">meshio</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-7"></a>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-8"></a>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-9"></a>  <span class="k">def</span> <span class="nf">assem</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">elems</span><span class="p">):</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-10"></a>      <span class="sd">"""Assembly matrices for the BEM problem</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-11"></a>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-12"></a><span class="sd">      Parameters</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-13"></a><span class="sd">      ----------</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-14"></a><span class="sd">      coords : ndarray, float</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-15"></a><span class="sd">          Coordinates for the nodes.</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-16"></a><span class="sd">      elems : ndarray, int</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-17"></a><span class="sd">          Connectivity for the elements.</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-18"></a>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-19"></a><span class="sd">      Returns</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-20"></a><span class="sd">      -------</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-21"></a><span class="sd">      Gmat : ndarray, float</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-22"></a><span class="sd">          Influence matrix for the flow.</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-23"></a><span class="sd">      Fmat : ndarray, float</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-24"></a><span class="sd">          Influence matrix for primary variable.</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-25"></a><span class="sd">      """</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-26"></a>      <span class="n">nelems</span> <span class="o">=</span> <span class="n">elems</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-27"></a>      <span class="n">Gmat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nelems</span><span class="p">,</span> <span class="n">nelems</span><span class="p">))</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-28"></a>      <span class="n">Fmat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nelems</span><span class="p">,</span> <span class="n">nelems</span><span class="p">))</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-29"></a>      <span class="k">for</span> <span class="n">ev_cont</span><span class="p">,</span> <span class="n">elem1</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">elems</span><span class="p">):</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-30"></a>          <span class="k">for</span> <span class="n">col_cont</span><span class="p">,</span> <span class="n">elem2</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">elems</span><span class="p">):</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-31"></a>              <span class="n">pt_col</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">coords</span><span class="p">[</span><span class="n">elem2</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-32"></a>              <span class="k">if</span> <span class="n">ev_cont</span> <span class="o">==</span> <span class="n">col_cont</span><span class="p">:</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-33"></a>                  <span class="n">L</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="n">coords</span><span class="p">[</span><span class="n">elem1</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">-</span> <span class="n">coords</span><span class="p">[</span><span class="n">elem1</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-34"></a>                  <span class="n">Gmat</span><span class="p">[</span><span class="n">ev_cont</span><span class="p">,</span> <span class="n">ev_cont</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span> <span class="n">L</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="n">L</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-35"></a>                  <span class="n">Fmat</span><span class="p">[</span><span class="n">ev_cont</span><span class="p">,</span> <span class="n">ev_cont</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span> <span class="mf">0.5</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-36"></a>              <span class="k">else</span><span class="p">:</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-37"></a>                  <span class="n">Gij</span><span class="p">,</span> <span class="n">Fij</span> <span class="o">=</span> <span class="n">influence_coeff</span><span class="p">(</span><span class="n">elem1</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">pt_col</span><span class="p">)</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-38"></a>                  <span class="n">Gmat</span><span class="p">[</span><span class="n">ev_cont</span><span class="p">,</span> <span class="n">col_cont</span><span class="p">]</span> <span class="o">=</span> <span class="n">Gij</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-39"></a>                  <span class="n">Fmat</span><span class="p">[</span><span class="n">ev_cont</span><span class="p">,</span> <span class="n">col_cont</span><span class="p">]</span> <span class="o">=</span> <span class="n">Fij</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-40"></a>      <span class="k">return</span> <span class="n">Gmat</span><span class="p">,</span> <span class="n">Fmat</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-41"></a>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-42"></a>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-43"></a>  <span class="k">def</span> <span class="nf">influence_coeff</span><span class="p">(</span><span class="n">elem</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">pt_col</span><span class="p">):</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-44"></a>      <span class="sd">"""Compute influence coefficients</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-45"></a>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-46"></a><span class="sd">      Parameters</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-47"></a><span class="sd">      ----------</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-48"></a><span class="sd">      elems : ndarray, int</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-49"></a><span class="sd">          Connectivity for the elements.</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-50"></a><span class="sd">      coords : ndarray, float</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-51"></a><span class="sd">          Coordinates for the nodes.</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-52"></a><span class="sd">      pt_col : ndarray</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-53"></a><span class="sd">          Coordinates of the colocation point.</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-54"></a>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-55"></a><span class="sd">      Returns</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-56"></a><span class="sd">      -------</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-57"></a><span class="sd">      G_coeff : float</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-58"></a><span class="sd">          Influence coefficient for flows.</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-59"></a><span class="sd">      F_coeff : float</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-60"></a><span class="sd">          Influence coefficient for primary variable.</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-61"></a><span class="sd">      """</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-62"></a>      <span class="n">dcos</span> <span class="o">=</span> <span class="n">coords</span><span class="p">[</span><span class="n">elem</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">-</span> <span class="n">coords</span><span class="p">[</span><span class="n">elem</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-63"></a>      <span class="n">dcos</span> <span class="o">=</span> <span class="n">dcos</span> <span class="o">/</span> <span class="n">norm</span><span class="p">(</span><span class="n">dcos</span><span class="p">)</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-64"></a>      <span class="n">rotmat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">dcos</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="o">-</span><span class="n">dcos</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-65"></a>                      <span class="p">[</span><span class="n">dcos</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dcos</span><span class="p">[</span><span class="mi">1</span><span class="p">]]])</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-66"></a>      <span class="n">r_A</span> <span class="o">=</span> <span class="n">rotmat</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">coords</span><span class="p">[</span><span class="n">elem</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">-</span> <span class="n">pt_col</span><span class="p">)</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-67"></a>      <span class="n">r_B</span> <span class="o">=</span> <span class="n">rotmat</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">coords</span><span class="p">[</span><span class="n">elem</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">-</span> <span class="n">pt_col</span><span class="p">)</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-68"></a>      <span class="n">theta_A</span> <span class="o">=</span> <span class="n">arctan2</span><span class="p">(</span><span class="n">r_A</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">r_A</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-69"></a>      <span class="n">theta_B</span> <span class="o">=</span> <span class="n">arctan2</span><span class="p">(</span><span class="n">r_B</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">r_B</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-70"></a>      <span class="k">if</span> <span class="n">norm</span><span class="p">(</span><span class="n">r_A</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mf">1e-6</span><span class="p">:</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-71"></a>          <span class="n">G_coeff</span> <span class="o">=</span> <span class="n">r_B</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="n">norm</span><span class="p">(</span><span class="n">r_B</span><span class="p">))</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">theta_B</span><span class="o">*</span><span class="n">r_B</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-72"></a>      <span class="k">elif</span> <span class="n">norm</span><span class="p">(</span><span class="n">r_B</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mf">1e-6</span><span class="p">:</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-73"></a>          <span class="n">G_coeff</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">r_A</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="n">norm</span><span class="p">(</span><span class="n">r_A</span><span class="p">))</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">theta_A</span><span class="o">*</span><span class="n">r_A</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-74"></a>      <span class="k">else</span><span class="p">:</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-75"></a>          <span class="n">G_coeff</span> <span class="o">=</span> <span class="n">r_B</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="n">norm</span><span class="p">(</span><span class="n">r_B</span><span class="p">))</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">theta_B</span><span class="o">*</span><span class="n">r_B</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span>\
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-76"></a>                  <span class="p">(</span><span class="n">r_A</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="n">norm</span><span class="p">(</span><span class="n">r_A</span><span class="p">))</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">theta_A</span><span class="o">*</span><span class="n">r_A</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-77"></a>      <span class="n">F_coeff</span> <span class="o">=</span> <span class="n">theta_B</span> <span class="o">-</span> <span class="n">theta_A</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-78"></a>      <span class="k">return</span> <span class="o">-</span><span class="n">G_coeff</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">),</span> <span class="n">F_coeff</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">)</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-79"></a>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-80"></a>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-81"></a>  <span class="k">def</span> <span class="nf">eval_sol</span><span class="p">(</span><span class="n">ev_coords</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">elems</span><span class="p">,</span> <span class="n">u_boundary</span><span class="p">,</span> <span class="n">q_boundary</span><span class="p">):</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-82"></a>      <span class="sd">"""Evaluate the solution in a set of points</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-83"></a>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-84"></a><span class="sd">      Parameters</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-85"></a><span class="sd">      ----------</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-86"></a><span class="sd">      ev_coords : ndarray, float</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-87"></a><span class="sd">          Coordinates of the evaluation points.</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-88"></a><span class="sd">      coords : ndarray, float</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-89"></a><span class="sd">          Coordinates for the nodes.</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-90"></a><span class="sd">      elems : ndarray, int</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-91"></a><span class="sd">          Connectivity for the elements.</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-92"></a><span class="sd">      u_boundary : ndarray, float</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-93"></a><span class="sd">          Primary variable in the nodes.</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-94"></a><span class="sd">      q_boundary : [type]</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-95"></a><span class="sd">          Flows in the nodes.</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-96"></a>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-97"></a><span class="sd">      Returns</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-98"></a><span class="sd">      -------</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-99"></a><span class="sd">      solution : ndarray, float</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-100"></a><span class="sd">          Solution evaluated in the given points.</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-101"></a><span class="sd">      """</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-102"></a>      <span class="n">npts</span> <span class="o">=</span> <span class="n">ev_coords</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-103"></a>      <span class="n">solution</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">npts</span><span class="p">)</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-104"></a>      <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">npts</span><span class="p">):</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-105"></a>          <span class="k">for</span> <span class="n">ev_cont</span><span class="p">,</span> <span class="n">elem</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">elems</span><span class="p">):</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-106"></a>              <span class="n">pt_col</span> <span class="o">=</span> <span class="n">ev_coords</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-107"></a>              <span class="n">G</span><span class="p">,</span> <span class="n">F</span> <span class="o">=</span> <span class="n">influence_coeff</span><span class="p">(</span><span class="n">elem</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">pt_col</span><span class="p">)</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-108"></a>              <span class="n">solution</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">+=</span> <span class="n">u_boundary</span><span class="p">[</span><span class="n">ev_cont</span><span class="p">]</span><span class="o">*</span><span class="n">F</span> <span class="o">-</span> <span class="n">q_boundary</span><span class="p">[</span><span class="n">ev_cont</span><span class="p">]</span><span class="o">*</span><span class="n">G</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-109"></a>      <span class="k">return</span> <span class="n">solution</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-110"></a>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-111"></a>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-112"></a><span class="c1">#%% Simulation</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-113"></a><span class="n">mesh</span> <span class="o">=</span> <span class="n">meshio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">"disk.msh"</span><span class="p">)</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-114"></a><span class="n">elems</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">cells</span><span class="p">[</span><span class="s2">"line"</span><span class="p">]</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-115"></a><span class="n">bound_nodes</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">elems</span><span class="o">.</span><span class="n">flatten</span><span class="p">()))</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-116"></a><span class="n">coords</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">points</span><span class="p">[</span><span class="n">bound_nodes</span><span class="p">,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-117"></a><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">coords</span><span class="o">.</span><span class="n">T</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-118"></a><span class="n">x_m</span><span class="p">,</span> <span class="n">y_m</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">coords</span><span class="p">[</span><span class="n">elems</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]]</span> <span class="o">+</span> <span class="n">coords</span><span class="p">[</span><span class="n">elems</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]])</span><span class="o">.</span><span class="n">T</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-119"></a><span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">y_m</span><span class="p">,</span> <span class="n">x_m</span><span class="p">)</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-120"></a><span class="n">u_boundary</span> <span class="o">=</span> <span class="mi">3</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">6</span><span class="o">*</span><span class="n">theta</span><span class="p">)</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-121"></a>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-122"></a>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-123"></a><span class="c1">#%% Assembly</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-124"></a><span class="n">Gmat</span><span class="p">,</span> <span class="n">Fmat</span> <span class="o">=</span> <span class="n">assem</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">elems</span><span class="p">)</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-125"></a>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-126"></a><span class="c1">#%% Solution</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-127"></a><span class="n">q_boundary</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">Gmat</span><span class="p">,</span> <span class="n">Fmat</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">u_boundary</span><span class="p">))</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-128"></a>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-129"></a><span class="c1">#%% Evaluation</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-130"></a><span class="n">ev_coords</span> <span class="o">=</span>  <span class="n">mesh</span><span class="o">.</span><span class="n">points</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-131"></a><span class="n">ev_x</span><span class="p">,</span> <span class="n">ev_y</span> <span class="o">=</span> <span class="n">ev_coords</span><span class="o">.</span><span class="n">T</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-132"></a><span class="n">solution</span> <span class="o">=</span> <span class="n">eval_sol</span><span class="p">(</span><span class="n">ev_coords</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">elems</span><span class="p">,</span> <span class="n">u_boundary</span><span class="p">,</span> <span class="n">q_boundary</span><span class="p">)</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-133"></a>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-134"></a><span class="c1">#%% Visualization</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-135"></a><span class="n">tris</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">cells</span><span class="p">[</span><span class="s2">"triangle"</span><span class="p">]</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-136"></a><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-137"></a><span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">'3d'</span><span class="p">)</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-138"></a><span class="n">ax</span><span class="o">.</span><span class="n">plot_trisurf</span><span class="p">(</span><span class="n">ev_x</span><span class="p">,</span> <span class="n">ev_y</span><span class="p">,</span> <span class="n">solution</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">"RdYlBu"</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-139"></a>                <span class="n">edgecolor</span><span class="o">=</span><span class="s2">"#3c3c3c"</span><span class="p">)</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-140"></a><span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([])</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-141"></a><span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-142"></a><span class="n">ax</span><span class="o">.</span><span class="n">set_zticks</span><span class="p">([])</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-143"></a><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">"bem_solution.png"</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">"tight"</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a name="rest_code_dd8091ff9fff4040a7f0c097a77dd309-144"></a>            <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<pre class="code python"><a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-2"></a><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">log</span><span class="p">,</span> <span class="n">arctan2</span><span class="p">,</span> <span class="n">pi</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">arctan</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-3"></a><span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="kn">import</span> <span class="n">norm</span><span class="p">,</span> <span class="n">solve</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-4"></a><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-5"></a><span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-6"></a><span class="kn">import</span> <span class="nn">meshio</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-7"></a>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-8"></a>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-9"></a>  <span class="k">def</span> <span class="nf">assem</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">elems</span><span class="p">):</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-10"></a>      <span class="sd">"""Assembly matrices for the BEM problem</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-11"></a>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-12"></a><span class="sd">      Parameters</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-13"></a><span class="sd">      ----------</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-14"></a><span class="sd">      coords : ndarray, float</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-15"></a><span class="sd">          Coordinates for the nodes.</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-16"></a><span class="sd">      elems : ndarray, int</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-17"></a><span class="sd">          Connectivity for the elements.</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-18"></a>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-19"></a><span class="sd">      Returns</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-20"></a><span class="sd">      -------</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-21"></a><span class="sd">      Gmat : ndarray, float</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-22"></a><span class="sd">          Influence matrix for the flow.</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-23"></a><span class="sd">      Fmat : ndarray, float</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-24"></a><span class="sd">          Influence matrix for primary variable.</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-25"></a><span class="sd">      """</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-26"></a>      <span class="n">nelems</span> <span class="o">=</span> <span class="n">elems</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-27"></a>      <span class="n">Gmat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nelems</span><span class="p">,</span> <span class="n">nelems</span><span class="p">))</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-28"></a>      <span class="n">Fmat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nelems</span><span class="p">,</span> <span class="n">nelems</span><span class="p">))</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-29"></a>      <span class="k">for</span> <span class="n">ev_cont</span><span class="p">,</span> <span class="n">elem1</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">elems</span><span class="p">):</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-30"></a>          <span class="k">for</span> <span class="n">col_cont</span><span class="p">,</span> <span class="n">elem2</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">elems</span><span class="p">):</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-31"></a>              <span class="n">pt_col</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">coords</span><span class="p">[</span><span class="n">elem2</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-32"></a>              <span class="k">if</span> <span class="n">ev_cont</span> <span class="o">==</span> <span class="n">col_cont</span><span class="p">:</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-33"></a>                  <span class="n">L</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="n">coords</span><span class="p">[</span><span class="n">elem1</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">-</span> <span class="n">coords</span><span class="p">[</span><span class="n">elem1</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-34"></a>                  <span class="n">Gmat</span><span class="p">[</span><span class="n">ev_cont</span><span class="p">,</span> <span class="n">ev_cont</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span> <span class="n">L</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="n">L</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-35"></a>                  <span class="n">Fmat</span><span class="p">[</span><span class="n">ev_cont</span><span class="p">,</span> <span class="n">ev_cont</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span> <span class="mf">0.5</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-36"></a>              <span class="k">else</span><span class="p">:</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-37"></a>                  <span class="n">Gij</span><span class="p">,</span> <span class="n">Fij</span> <span class="o">=</span> <span class="n">influence_coeff</span><span class="p">(</span><span class="n">elem1</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">pt_col</span><span class="p">)</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-38"></a>                  <span class="n">Gmat</span><span class="p">[</span><span class="n">ev_cont</span><span class="p">,</span> <span class="n">col_cont</span><span class="p">]</span> <span class="o">=</span> <span class="n">Gij</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-39"></a>                  <span class="n">Fmat</span><span class="p">[</span><span class="n">ev_cont</span><span class="p">,</span> <span class="n">col_cont</span><span class="p">]</span> <span class="o">=</span> <span class="n">Fij</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-40"></a>      <span class="k">return</span> <span class="n">Gmat</span><span class="p">,</span> <span class="n">Fmat</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-41"></a>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-42"></a>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-43"></a>  <span class="k">def</span> <span class="nf">influence_coeff</span><span class="p">(</span><span class="n">elem</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">pt_col</span><span class="p">):</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-44"></a>      <span class="sd">"""Compute influence coefficients</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-45"></a>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-46"></a><span class="sd">      Parameters</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-47"></a><span class="sd">      ----------</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-48"></a><span class="sd">      elems : ndarray, int</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-49"></a><span class="sd">          Connectivity for the elements.</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-50"></a><span class="sd">      coords : ndarray, float</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-51"></a><span class="sd">          Coordinates for the nodes.</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-52"></a><span class="sd">      pt_col : ndarray</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-53"></a><span class="sd">          Coordinates of the colocation point.</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-54"></a>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-55"></a><span class="sd">      Returns</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-56"></a><span class="sd">      -------</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-57"></a><span class="sd">      G_coeff : float</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-58"></a><span class="sd">          Influence coefficient for flows.</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-59"></a><span class="sd">      F_coeff : float</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-60"></a><span class="sd">          Influence coefficient for primary variable.</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-61"></a><span class="sd">      """</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-62"></a>      <span class="n">dcos</span> <span class="o">=</span> <span class="n">coords</span><span class="p">[</span><span class="n">elem</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">-</span> <span class="n">coords</span><span class="p">[</span><span class="n">elem</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-63"></a>      <span class="n">dcos</span> <span class="o">=</span> <span class="n">dcos</span> <span class="o">/</span> <span class="n">norm</span><span class="p">(</span><span class="n">dcos</span><span class="p">)</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-64"></a>      <span class="n">rotmat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">dcos</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="o">-</span><span class="n">dcos</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-65"></a>                      <span class="p">[</span><span class="n">dcos</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dcos</span><span class="p">[</span><span class="mi">1</span><span class="p">]]])</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-66"></a>      <span class="n">r_A</span> <span class="o">=</span> <span class="n">rotmat</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">coords</span><span class="p">[</span><span class="n">elem</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">-</span> <span class="n">pt_col</span><span class="p">)</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-67"></a>      <span class="n">r_B</span> <span class="o">=</span> <span class="n">rotmat</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">coords</span><span class="p">[</span><span class="n">elem</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">-</span> <span class="n">pt_col</span><span class="p">)</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-68"></a>      <span class="n">theta_A</span> <span class="o">=</span> <span class="n">arctan2</span><span class="p">(</span><span class="n">r_A</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">r_A</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-69"></a>      <span class="n">theta_B</span> <span class="o">=</span> <span class="n">arctan2</span><span class="p">(</span><span class="n">r_B</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">r_B</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-70"></a>      <span class="k">if</span> <span class="n">norm</span><span class="p">(</span><span class="n">r_A</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mf">1e-6</span><span class="p">:</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-71"></a>          <span class="n">G_coeff</span> <span class="o">=</span> <span class="n">r_B</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="n">norm</span><span class="p">(</span><span class="n">r_B</span><span class="p">))</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">theta_B</span><span class="o">*</span><span class="n">r_B</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-72"></a>      <span class="k">elif</span> <span class="n">norm</span><span class="p">(</span><span class="n">r_B</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mf">1e-6</span><span class="p">:</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-73"></a>          <span class="n">G_coeff</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">r_A</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="n">norm</span><span class="p">(</span><span class="n">r_A</span><span class="p">))</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">theta_A</span><span class="o">*</span><span class="n">r_A</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-74"></a>      <span class="k">else</span><span class="p">:</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-75"></a>          <span class="n">G_coeff</span> <span class="o">=</span> <span class="n">r_B</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="n">norm</span><span class="p">(</span><span class="n">r_B</span><span class="p">))</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">theta_B</span><span class="o">*</span><span class="n">r_B</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span>\
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-76"></a>                  <span class="p">(</span><span class="n">r_A</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="n">norm</span><span class="p">(</span><span class="n">r_A</span><span class="p">))</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">theta_A</span><span class="o">*</span><span class="n">r_A</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-77"></a>      <span class="n">F_coeff</span> <span class="o">=</span> <span class="n">theta_B</span> <span class="o">-</span> <span class="n">theta_A</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-78"></a>      <span class="k">return</span> <span class="o">-</span><span class="n">G_coeff</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">),</span> <span class="n">F_coeff</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">)</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-79"></a>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-80"></a>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-81"></a>  <span class="k">def</span> <span class="nf">eval_sol</span><span class="p">(</span><span class="n">ev_coords</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">elems</span><span class="p">,</span> <span class="n">u_boundary</span><span class="p">,</span> <span class="n">q_boundary</span><span class="p">):</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-82"></a>      <span class="sd">"""Evaluate the solution in a set of points</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-83"></a>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-84"></a><span class="sd">      Parameters</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-85"></a><span class="sd">      ----------</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-86"></a><span class="sd">      ev_coords : ndarray, float</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-87"></a><span class="sd">          Coordinates of the evaluation points.</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-88"></a><span class="sd">      coords : ndarray, float</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-89"></a><span class="sd">          Coordinates for the nodes.</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-90"></a><span class="sd">      elems : ndarray, int</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-91"></a><span class="sd">          Connectivity for the elements.</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-92"></a><span class="sd">      u_boundary : ndarray, float</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-93"></a><span class="sd">          Primary variable in the nodes.</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-94"></a><span class="sd">      q_boundary : [type]</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-95"></a><span class="sd">          Flows in the nodes.</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-96"></a>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-97"></a><span class="sd">      Returns</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-98"></a><span class="sd">      -------</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-99"></a><span class="sd">      solution : ndarray, float</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-100"></a><span class="sd">          Solution evaluated in the given points.</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-101"></a><span class="sd">      """</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-102"></a>      <span class="n">npts</span> <span class="o">=</span> <span class="n">ev_coords</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-103"></a>      <span class="n">solution</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">npts</span><span class="p">)</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-104"></a>      <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">npts</span><span class="p">):</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-105"></a>          <span class="k">for</span> <span class="n">ev_cont</span><span class="p">,</span> <span class="n">elem</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">elems</span><span class="p">):</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-106"></a>              <span class="n">pt_col</span> <span class="o">=</span> <span class="n">ev_coords</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-107"></a>              <span class="n">G</span><span class="p">,</span> <span class="n">F</span> <span class="o">=</span> <span class="n">influence_coeff</span><span class="p">(</span><span class="n">elem</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">pt_col</span><span class="p">)</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-108"></a>              <span class="n">solution</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">+=</span> <span class="n">u_boundary</span><span class="p">[</span><span class="n">ev_cont</span><span class="p">]</span><span class="o">*</span><span class="n">F</span> <span class="o">-</span> <span class="n">q_boundary</span><span class="p">[</span><span class="n">ev_cont</span><span class="p">]</span><span class="o">*</span><span class="n">G</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-109"></a>      <span class="k">return</span> <span class="n">solution</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-110"></a>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-111"></a>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-112"></a><span class="c1">#%% Simulation</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-113"></a><span class="n">mesh</span> <span class="o">=</span> <span class="n">meshio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">"disk.msh"</span><span class="p">)</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-114"></a><span class="n">elems</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">cells</span><span class="p">[</span><span class="s2">"line"</span><span class="p">]</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-115"></a><span class="n">bound_nodes</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">elems</span><span class="o">.</span><span class="n">flatten</span><span class="p">()))</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-116"></a><span class="n">coords</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">points</span><span class="p">[</span><span class="n">bound_nodes</span><span class="p">,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-117"></a><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">coords</span><span class="o">.</span><span class="n">T</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-118"></a><span class="n">x_m</span><span class="p">,</span> <span class="n">y_m</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">coords</span><span class="p">[</span><span class="n">elems</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]]</span> <span class="o">+</span> <span class="n">coords</span><span class="p">[</span><span class="n">elems</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]])</span><span class="o">.</span><span class="n">T</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-119"></a><span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">y_m</span><span class="p">,</span> <span class="n">x_m</span><span class="p">)</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-120"></a><span class="n">u_boundary</span> <span class="o">=</span> <span class="mi">3</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">6</span><span class="o">*</span><span class="n">theta</span><span class="p">)</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-121"></a>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-122"></a>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-123"></a><span class="c1">#%% Assembly</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-124"></a><span class="n">Gmat</span><span class="p">,</span> <span class="n">Fmat</span> <span class="o">=</span> <span class="n">assem</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">elems</span><span class="p">)</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-125"></a>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-126"></a><span class="c1">#%% Solution</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-127"></a><span class="n">q_boundary</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">Gmat</span><span class="p">,</span> <span class="n">Fmat</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">u_boundary</span><span class="p">))</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-128"></a>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-129"></a><span class="c1">#%% Evaluation</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-130"></a><span class="n">ev_coords</span> <span class="o">=</span>  <span class="n">mesh</span><span class="o">.</span><span class="n">points</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-131"></a><span class="n">ev_x</span><span class="p">,</span> <span class="n">ev_y</span> <span class="o">=</span> <span class="n">ev_coords</span><span class="o">.</span><span class="n">T</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-132"></a><span class="n">solution</span> <span class="o">=</span> <span class="n">eval_sol</span><span class="p">(</span><span class="n">ev_coords</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">elems</span><span class="p">,</span> <span class="n">u_boundary</span><span class="p">,</span> <span class="n">q_boundary</span><span class="p">)</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-133"></a>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-134"></a><span class="c1">#%% Visualization</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-135"></a><span class="n">tris</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">cells</span><span class="p">[</span><span class="s2">"triangle"</span><span class="p">]</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-136"></a><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-137"></a><span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">'3d'</span><span class="p">)</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-138"></a><span class="n">ax</span><span class="o">.</span><span class="n">plot_trisurf</span><span class="p">(</span><span class="n">ev_x</span><span class="p">,</span> <span class="n">ev_y</span><span class="p">,</span> <span class="n">solution</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">"RdYlBu"</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-139"></a>                <span class="n">edgecolor</span><span class="o">=</span><span class="s2">"#3c3c3c"</span><span class="p">)</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-140"></a><span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([])</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-141"></a><span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-142"></a><span class="n">ax</span><span class="o">.</span><span class="n">set_zticks</span><span class="p">([])</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-143"></a><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">"bem_solution.png"</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">"tight"</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a name="rest_code_0c78e1dddcf44edb9cd3a147623164d5-144"></a>            <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 </pre>
 <p>The result in this case is the following.</p>
 <img alt="Solution of the differential equation using the BEM." class="align-center" src="images/bem_solution.png" style="width: 600px;">
@@ -870,7 +870,7 @@ commonly taught in a formal fashion.</p>
 </div>
 </div>
     </div>
-    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/ortografia_jupyter/" class="u-url">Revisión ortográfica en Jupyter Notebook</a></h1>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/ortografia_jupyter/" class="u-url">Spell Check in Jupyter Notebook</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
             <p class="dateline"><a href="posts/ortografia_jupyter/" rel="bookmark"><time class="post-date published dt-published" datetime="2019-08-20T14:45:41-05:00" title="2019-08-20 14:45">2019-08-20 14:45</time></a></p>
@@ -883,90 +883,84 @@ commonly taught in a formal fashion.</p>
 </div>
     </header><div class="e-content entry-content">
     <div>
-<p>El objetivo de esta publicación es mostrar cómo tener revisión automática
-de ortografía en Jupyter Notebook <a class="footnote-reference brackets" href="posts/ortografia_jupyter/#id2" id="id1">*</a> para español, como se muestra a
-continuación.</p>
-<img alt="Ejemplo de corrección ortográfica en Jupyter Notebook." class="align-center" src="images/ortografia_jupyter/ejemplo_ortografia.png" style="width: 600px;"><p>Existen <a class="reference external" href="https://stackoverflow.com/q/39324039/3358223">varias formas</a> de
-realizar esto. Sin embargo, la forma más fácil es a través del complemento
-(<em>nbextension</em>) <a class="reference external" href="posts/ortografia_jupyter/&lt;https:/jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/spellchecker/README.html">Spellchecker</a>.</p>
-<div class="section" id="paso-a-paso">
-<h2>Paso a paso</h2>
-<p>Los pasos a seguir son los siguientes:</p>
+<p>The purpose of this post is to show how to have automatic spell check in
+Jupyter Notebook, as shown below.</p>
+<img alt="Example of spell checking in Jupyter Notebook." class="align-center" src="images/ortografia_jupyter/ejemplo_ortografia.png" style="width: 600px;"><p>There are <a class="reference external" href="https://stackoverflow.com/q/39324039/3358223">several ways</a>
+to do this. However, the easiest way is through the (<em>nbextension</em>)
+<a class="reference external" href="posts/ortografia_jupyter/&lt;https:/jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/spellchecker/README.html">Spellchecker</a>. plugin.</p>
+<div class="section" id="step-by-step">
+<h2>Step by step</h2>
+<p>The steps to follow are those:</p>
 <ol class="arabic simple">
-<li><p>Instalar Jupyter notebook extensions (<a class="reference external" href="https://github.com/ipython-contrib/jupyter_contrib_nbextensions">nbextensions</a>). Este incluye
+<li><p>Install Jupyter notebook extensions (<a class="reference external" href="https://github.com/ipython-contrib/jupyter_contrib_nbextensions">nbextensions</a>). This includes
 <a class="reference external" href="posts/ortografia_jupyter/&lt;https:/jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/spellchecker/README.html">Spellchecker</a>.</p></li>
-<li><p>Ubicar los diccionarios en la carpeta donde está el complemento. Los
-diccionarios deben usar la codificación UTF-8.</p></li>
-<li><p>Configurar la ruta de los diccionarios. Esta puede ser una URL o
-una ruta relativa respecto a la carpeta en donde se encuentra el complemento.</p></li>
+<li><p>Locate the dictionaries in the folder where the plugin is. Dictionaries
+must use UTF-8 encoding.</p></li>
+<li><p>Configure the path of the dictionaries. This can be a URL or a path
+relative to the folder where the plugin is located.</p></li>
 </ol>
-<p>A continuación describiremos en detalle cada paso.</p>
-<div class="section" id="paso-1-instalacion-de-nbextensions">
-<h3>Paso 1: Instalación de nbextensions</h3>
-<p>Existe una lista de complementos que agregan algunas funcionalidades
-comúnmente usadas a Jupyter notebook.</p>
-<p>Escriba lo siguiente en una terminal, para instalarlo usando PIP.</p>
-<pre class="code bash"><a name="rest_code_32e6402296ec43c8896186e01e46b152-1"></a>pip install jupyter_contrib_nbextensions
+<p>We will describe each step in detail below.</p>
+<div class="section" id="step-1-install-nbextensions">
+<h3>Step 1: Install nbextensions</h3>
+<p>There is a list of plugins that add some commonly used functionality to
+the Jupyter notebook.</p>
+<p>Type the following in a terminal, to install it using PIP.</p>
+<pre class="code bash"><a name="rest_code_d36e34b9f7a9458da7828bf1e8053a3c-1"></a>pip install jupyter_contrib_nbextensions
 </pre>
-<p>Sin embargo, si se está usando Anaconda el <strong>método recomendado</strong> es usar
-<code class="docutils literal">conda</code>, como se muestra a continuación.</p>
-<pre class="code bash"><a name="rest_code_604060f3a4614ae69ed7c88a21e1b94a-1"></a>conda install -c conda-forge jupyter_contrib_nbextensions
+<p>However, if Anaconda is being used the <strong>recommended method</strong> is to use
+<code class="docutils literal">conda</code>, as shown below.</p>
+<pre class="code bash"><a name="rest_code_45ae39a9374d413fb09873adfe2ba39e-1"></a>conda install -c conda-forge jupyter_contrib_nbextensions
 </pre>
-<p>Esto debe instalar los complementos y también la
-<a class="reference external" href="https://github.com/Jupyter-contrib/jupyter_nbextensions_configurator">interfaz de configuración</a>.
-En el menú principal de Jupyter notebook aparecerá una nueva pestaña
-nombrada <em>Nbextensions</em> en donde se pueden elegir los complementos a usar.
-La apariencia es la siguiente.</p>
-<img alt="Interfaz gráfica para los complementos de Jupyter." class="align-center" src="images/ortografia_jupyter/interfaz_nbextensions.png" style="width: 600px;"><p>Algunos complementos recomendados son:</p>
+<p>This should install the plugins and also the
+<a class="reference external" href="https://github.com/Jupyter-contrib/jupyter_nbextensions_configurator">configuration interface</a>.
+In the main menu of Jupyter notebook a new tab named <em>Nbextension</em> will
+appear. Here you can choose the add-ons to use. The appearance is
+as follows.</p>
+<img alt="Graphical interface for Jupyter plugins." class="align-center" src="images/ortografia_jupyter/interfaz_nbextensions.png" style="width: 600px;"><p>Some recommended plugins are:</p>
 <ul class="simple">
-<li><p><strong>Collapsible Headings:</strong> que permite ocultar secciones de los documentos.</p></li>
-<li><p><strong>RISE:</strong> que convierte los notebooks en presentaciones.</p></li>
+<li><p><strong>Collapsible Headings:</strong> that allows to hide sections of the documents.</p></li>
+<li><p><strong>RISE:</strong> that turns notebooks into presentations.</p></li>
 </ul>
 </div>
-<div class="section" id="paso-2-diccionarios-para-espanol">
-<h3>Paso 2: Diccionarios para español</h3>
-<p>La documentación de <a class="reference external" href="posts/ortografia_jupyter/&lt;https:/jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/spellchecker/README.html">Spellchecker</a> sugiere usar un script de Python para
-descargar diccionarios del proyecto <a class="reference external" href="https://chromium.googlesource.com/chromium/deps/hunspell_dictionaries/+/master">Chromium</a>.
-Sin embargo, estos tienen como codificación ISO-8859-1 (occidente) y falla
-para caracteres con tildes o virgulillas. Para que no haya problemas el
-diccionario debe tener codificación <a class="reference external" href="https://en.wikipedia.org/wiki/UTF-8">UTF-8</a>.
-Pueden descargarse en <a class="reference external" href="downloads/dict_es_ES.zip">este enlace</a>.</p>
-<p>Una vez que se tienen los diccionarios se deben ubicar en la ruta del
-complemento. En mi computador esta sería</p>
-<pre class="code text"><a name="rest_code_4bfef8e8e1f84e6ebd6d331be182acf7-1"></a>~/.local/share/jupyter/nbextensions/spellchecker/
+<div class="section" id="step-2-dictionaries-for-spanish">
+<h3>Step 2: Dictionaries for Spanish</h3>
+<p>The documentation of <a class="reference external" href="posts/ortografia_jupyter/&lt;https:/jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/spellchecker/README.html">Spellchecker</a> suggests using a Python script to
+download dictionaries from project <a class="reference external" href="https://chromium.googlesource.com/chromium/deps/hunspell_dictionaries/+/master">Chromium</a>.
+However, these are encoded in  ISO-8859-1 (western) and it fails
+for characters with accents or tildes. So, to avoid problems the
+dictionary must be <a class="reference external" href="https://en.wikipedia.org/wiki/UTF-8">UTF-8</a>.
+They can be downloaded at <a class="reference external" href="downloads/dict_es_ES.zip">this link</a>.</p>
+<p>Once you have the dictionaries, they must be located in the path of the
+plugin. On my computer this would be</p>
+<pre class="code text"><a name="rest_code_b4c5a68127e14badb9a26a5443172f7e-1"></a>~/.local/share/jupyter/nbextensions/spellchecker/
 </pre>
-<p>y dentro de esta los ubicaremos en</p>
-<pre class="code text"><a name="rest_code_d5c47351375c4b2e9d4926d37478c455-1"></a>~/.local/share/jupyter/nbextensions/spellchecker/typo/dictionaries
+<p>and within this we will place them in</p>
+<pre class="code text"><a name="rest_code_7b4c7ea4cd6b4e558fd59b1386293506-1"></a>~/.local/share/jupyter/nbextensions/spellchecker/typo/dictionaries
 </pre>
-<p>Esta ubicación es arbitraria, lo importante es que necesitamos conocer
-la ruta relativa al complemento.</p>
+<p>This location is arbitrary, the important thing is that we need to know
+the relative path to the plugin.</p>
 </div>
-<div class="section" id="paso-3-configuracion-complementos">
-<h3>Paso 3: Configuración complementos</h3>
-<p>Ahora, en la pestaña <em>Nbextensions</em> seleccionamos el complemento y llenamos
-los campos con la información de nuestro diccionario:</p>
+<div class="section" id="step-3-plugin-configuration">
+<h3>Step 3: Plugin Configuration</h3>
+<p>Now, in the <em>Nbextensions</em> tab we select the plugin and fill the fields
+with the information from our dictionary:</p>
 <ul class="simple">
 <li><p>language code to use with typo.js: <code class="docutils literal">es_ES</code></p></li>
 <li><p>url for the dictionary .dic file to use: <code class="docutils literal">./typo/dictionaries/es_ES.dic</code></p></li>
 <li><p>url for the dictionary .aff file to use: <code class="docutils literal">./typo/dictionaries/es_ES.aff</code></p></li>
 </ul>
-<p>Esto se muestra a continuación.</p>
-<img alt="Configuración con archivos locales." class="align-center" src="images/ortografia_jupyter/config_local.png" style="width: 600px;"><p>Otra opción es usar la URL para los archivos. En <a class="reference external" href="https://github.com/wooorm/dictionaries">https://github.com/wooorm/dictionaries</a>
-están disponibles los diccionarios del proyecto <a class="reference external" href="https://hunspell.github.io/">hunspell</a>
-en UTF-8. En este caso, la configuración sería:</p>
+<p>This is shown below.</p>
+<img alt="Configuration with local files." class="align-center" src="images/ortografia_jupyter/config_local.png" style="width: 600px;"><p>Another option is to use the URL for the files. The dictionaries of the
+project <a class="reference external" href="https://hunspell.github.io/">hunspell</a> in UTF-8 are available
+at <a class="reference external" href="https://github.com/wooorm/dictionaries">https://github.com/wooorm/dictionaries</a>. In this case, the configuration
+would be:</p>
 <ul class="simple">
 <li><p>language code to use with typo.js: <code class="docutils literal">es_ES</code></p></li>
 <li><p>url for the dictionary .dic file to use: <code class="docutils literal"><span class="pre">https://raw.githubusercontent.com/wooorm/dictionaries/master/dictionaries/es/index.dic</span></code></p></li>
 <li><p>url for the dictionary .aff file to use: <code class="docutils literal"><span class="pre">https://raw.githubusercontent.com/wooorm/dictionaries/master/dictionaries/es/index.aff</span></code></p></li>
 </ul>
-<p>Y se muestra a continuación.</p>
-<img alt="Configuración con archivos remotos." class="align-center" src="images/ortografia_jupyter/config_url.png" style="width: 600px;"><dl class="footnote brackets">
-<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="posts/ortografia_jupyter/#id1">*</a></span></dt>
-<dd>
-<p>Dado el público objetivo de esta publicación está hecha en español y
-no en inglés como se acostumbra en este blog.</p>
-</dd>
-</dl>
+<p>And it is shown below.</p>
+<img alt="Configuration with remote files." class="align-center" src="images/ortografia_jupyter/config_url.png" style="width: 600px;">
 </div>
 </div>
 </div>

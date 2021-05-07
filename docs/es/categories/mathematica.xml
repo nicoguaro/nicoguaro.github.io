@@ -3,7 +3,7 @@
 &lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
 &lt;img alt="Creative Commons License"
 style="border-width:0"
-src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Wed, 31 Mar 2021 03:12:49 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Usando el lenguaje de Wolfram en Jupyter: Alternativa gratuita a Mathematica</title><link>https://nicoguaro.github.io/es/posts/wolfram_jupyter/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;En esta publicación voy a describir cómo agregar Wolfram Language a
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Fri, 07 May 2021 22:16:08 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Usando el lenguaje de Wolfram en Jupyter: Alternativa gratuita a Mathematica</title><link>https://nicoguaro.github.io/es/posts/wolfram_jupyter/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;En esta publicación voy a describir cómo agregar Wolfram Language a
 Jupyter. Esto proporciona una alternativa gratuita a Mathematica con,
 prácticamente, la misma sintaxis. El uso de Wolfram Engine es gratuito en un
 ambiente que no sea de producción como se describe en su sitio web:&lt;/p&gt;
@@ -25,48 +25,48 @@ desarrollo de software en aplicaciones que no son de producción.&lt;/p&gt;
 &lt;li&gt;&lt;p&gt;Crear una cuenta de Wolfram, si no tienes una.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Ejecutar el instalador.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Digitar lo siguiente en la terminal.&lt;/p&gt;
-&lt;pre class="code text"&gt;&lt;a name="rest_code_ad6f801c4fe94129b88b2765ace9294f-1"&gt;&lt;/a&gt;wolframscript
+&lt;pre class="code text"&gt;&lt;a name="rest_code_d40132c6bed5426ca76dadf38c67eb7d-1"&gt;&lt;/a&gt;wolframscript
 &lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;y te debería preguntar por tu correo y contraseña.&lt;/p&gt;
 &lt;p&gt;Luego deberías estar en una terminal y ver lo siguiente&lt;/p&gt;
-&lt;pre class="code text"&gt;&lt;a name="rest_code_7be63ba392374e9792ccbadf766f9061-1"&gt;&lt;/a&gt;Wolfram Engine activated. See https://www.wolfram.com/wolframscript/ for more information.
-&lt;a name="rest_code_7be63ba392374e9792ccbadf766f9061-2"&gt;&lt;/a&gt;Wolfram Language 12.2.0 Engine for Linux x86 (64-bit)
-&lt;a name="rest_code_7be63ba392374e9792ccbadf766f9061-3"&gt;&lt;/a&gt;Copyright 1988-2021 Wolfram Research, Inc.
+&lt;pre class="code text"&gt;&lt;a name="rest_code_3d980033e4984cf4bb06f86130023be6-1"&gt;&lt;/a&gt;Wolfram Engine activated. See https://www.wolfram.com/wolframscript/ for more information.
+&lt;a name="rest_code_3d980033e4984cf4bb06f86130023be6-2"&gt;&lt;/a&gt;Wolfram Language 12.2.0 Engine for Linux x86 (64-bit)
+&lt;a name="rest_code_3d980033e4984cf4bb06f86130023be6-3"&gt;&lt;/a&gt;Copyright 1988-2021 Wolfram Research, Inc.
 &lt;/pre&gt;&lt;div class="line-block"&gt;
 &lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;Y podemos probar que está funcionando&lt;/p&gt;
-&lt;pre class="code mathematica"&gt;&lt;a name="rest_code_293d88372bd74705a227925462c1c5af-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;In&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;Version&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;a name="rest_code_293d88372bd74705a227925462c1c5af-2"&gt;&lt;/a&gt;
-&lt;a name="rest_code_293d88372bd74705a227925462c1c5af-3"&gt;&lt;/a&gt;&lt;span class="n"&gt;Out&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;12.2.0&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;for&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Linux&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;x86&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;64&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bit&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;January&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;2021&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;a name="rest_code_293d88372bd74705a227925462c1c5af-4"&gt;&lt;/a&gt;
-&lt;a name="rest_code_293d88372bd74705a227925462c1c5af-5"&gt;&lt;/a&gt;&lt;span class="n"&gt;In&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Integrate&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;^&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;a name="rest_code_293d88372bd74705a227925462c1c5af-6"&gt;&lt;/a&gt;
-&lt;a name="rest_code_293d88372bd74705a227925462c1c5af-7"&gt;&lt;/a&gt;&lt;span class="n"&gt;Out&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ArcTan&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;pre class="code mathematica"&gt;&lt;a name="rest_code_721c5e3308464de7bbcff29a8fcfa95b-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;In&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;Version&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;a name="rest_code_721c5e3308464de7bbcff29a8fcfa95b-2"&gt;&lt;/a&gt;
+&lt;a name="rest_code_721c5e3308464de7bbcff29a8fcfa95b-3"&gt;&lt;/a&gt;&lt;span class="n"&gt;Out&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;12.2.0&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;for&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Linux&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;x86&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;64&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bit&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;January&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;2021&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;a name="rest_code_721c5e3308464de7bbcff29a8fcfa95b-4"&gt;&lt;/a&gt;
+&lt;a name="rest_code_721c5e3308464de7bbcff29a8fcfa95b-5"&gt;&lt;/a&gt;&lt;span class="n"&gt;In&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Integrate&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;^&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;a name="rest_code_721c5e3308464de7bbcff29a8fcfa95b-6"&gt;&lt;/a&gt;
+&lt;a name="rest_code_721c5e3308464de7bbcff29a8fcfa95b-7"&gt;&lt;/a&gt;&lt;span class="n"&gt;Out&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ArcTan&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;div class="line-block"&gt;
 &lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;Ahora debemos instalar
 &lt;a class="reference external" href="https://github.com/WolframResearch/WolframLanguageForJupyter.git"&gt;WolframLanguageForJupyter&lt;/a&gt;.
 Para esto debemos digitar lo siguiente en una terminal&lt;/p&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_dda4cbeb97f94a5ca5960ebcb9026e91-1"&gt;&lt;/a&gt;git clone https://github.com/WolframResearch/WolframLanguageForJupyter.git
-&lt;a name="rest_code_dda4cbeb97f94a5ca5960ebcb9026e91-2"&gt;&lt;/a&gt;
-&lt;a name="rest_code_dda4cbeb97f94a5ca5960ebcb9026e91-3"&gt;&lt;/a&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; WolframLanguageForJupyter/
-&lt;a name="rest_code_dda4cbeb97f94a5ca5960ebcb9026e91-4"&gt;&lt;/a&gt;
-&lt;a name="rest_code_dda4cbeb97f94a5ca5960ebcb9026e91-5"&gt;&lt;/a&gt;./configure-jupyter.wls add
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_4b45451784be4fbe945c2fdbe7494f4a-1"&gt;&lt;/a&gt;git clone https://github.com/WolframResearch/WolframLanguageForJupyter.git
+&lt;a name="rest_code_4b45451784be4fbe945c2fdbe7494f4a-2"&gt;&lt;/a&gt;
+&lt;a name="rest_code_4b45451784be4fbe945c2fdbe7494f4a-3"&gt;&lt;/a&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; WolframLanguageForJupyter/
+&lt;a name="rest_code_4b45451784be4fbe945c2fdbe7494f4a-4"&gt;&lt;/a&gt;
+&lt;a name="rest_code_4b45451784be4fbe945c2fdbe7494f4a-5"&gt;&lt;/a&gt;./configure-jupyter.wls add
 &lt;/pre&gt;&lt;div class="line-block"&gt;
 &lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;Para probar que está instalado podemos digitar lo siguiente&lt;/p&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_e40c0f46e03c41e2adbebdddab61dfcf-1"&gt;&lt;/a&gt;jupyter kernelspec list
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_5b4b5c02e3bd45e7ae6120dba99ce2a5-1"&gt;&lt;/a&gt;jupyter kernelspec list
 &lt;/pre&gt;&lt;p&gt;y debería tener una salida similar a la siguiente&lt;/p&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_ce0636cd66a84102ada928c57dbc3bf7-1"&gt;&lt;/a&gt;wolframlanguage12.   /home/nicoguaro/.local/share/jupyter/kernels/wolframlanguage12.2
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_15f1a3a4a7d04c1cb8e2bba3d6cd955b-1"&gt;&lt;/a&gt;wolframlanguage12.   /home/nicoguaro/.local/share/jupyter/kernels/wolframlanguage12.2
 &lt;/pre&gt;&lt;div class="line-block"&gt;
 &lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;O también podemos intentar con&lt;/p&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_0981cbbd335049059449530872bc9435-1"&gt;&lt;/a&gt;jupyter notebook
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_83d93f77b03843ecaecaebeca66537e8-1"&gt;&lt;/a&gt;jupyter notebook
 &lt;/pre&gt;&lt;p&gt;y ver lo siguiente en el menú de kernel.&lt;/p&gt;
 &lt;img alt="Menú de kernels luego de instalar  WolframLanguageForJupyter." class="align-center" src="https://nicoguaro.github.io/images/wolfram_menu.png" style="width: 400px;"&gt;
 &lt;div class="line-block"&gt;
@@ -85,8 +85,8 @@ ver una versión estática
 \int \frac{1}{1 + x^3}\mathrm{d}x\, .
 \end{equation*}
 &lt;/div&gt;
-&lt;pre class="code text"&gt;&lt;a name="rest_code_8f1f32dc8ee741289b47475b15b79e40-1"&gt;&lt;/a&gt;sol:= Integrate[1/(1 + x^3), x]
-&lt;a name="rest_code_8f1f32dc8ee741289b47475b15b79e40-2"&gt;&lt;/a&gt;TeXForm[sol]
+&lt;pre class="code text"&gt;&lt;a name="rest_code_f87f4da6d6be4226b1bbed871bf15af7-1"&gt;&lt;/a&gt;sol:= Integrate[1/(1 + x^3), x]
+&lt;a name="rest_code_f87f4da6d6be4226b1bbed871bf15af7-2"&gt;&lt;/a&gt;TeXForm[sol]
 &lt;/pre&gt;&lt;div class="math"&gt;
 \begin{equation*}
 -\frac{1}{6} \log \left(x^2-x+1\right)+\frac{1}{3} \log (x+1)+\frac{\tan^{-1}\left(\frac{2 x-1}{\sqrt{3}}\right)}{\sqrt{3}}
@@ -96,10 +96,10 @@ ver una versión estática
 &lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;Y realicemos un gráfico 3D.&lt;/p&gt;
-&lt;pre class="code text"&gt;&lt;a name="rest_code_e1e5b89f673d466fbedb60a9aab7abcc-1"&gt;&lt;/a&gt;fun:= Sin[Sqrt[x^2 + y^2]]/Sqrt[x^2 + y^2]
-&lt;a name="rest_code_e1e5b89f673d466fbedb60a9aab7abcc-2"&gt;&lt;/a&gt;Plot3D[fun, {x, -5*Pi, 5*Pi}, {y, -5*Pi, 5*Pi},
-&lt;a name="rest_code_e1e5b89f673d466fbedb60a9aab7abcc-3"&gt;&lt;/a&gt;    PlotPoints -&amp;gt; 100, BoxRatios -&amp;gt; {1, 1, 0.2},
-&lt;a name="rest_code_e1e5b89f673d466fbedb60a9aab7abcc-4"&gt;&lt;/a&gt;    PlotRange -&amp;gt; All]
+&lt;pre class="code text"&gt;&lt;a name="rest_code_f619975ff6f94c1787305e0c256010b5-1"&gt;&lt;/a&gt;fun:= Sin[Sqrt[x^2 + y^2]]/Sqrt[x^2 + y^2]
+&lt;a name="rest_code_f619975ff6f94c1787305e0c256010b5-2"&gt;&lt;/a&gt;Plot3D[fun, {x, -5*Pi, 5*Pi}, {y, -5*Pi, 5*Pi},
+&lt;a name="rest_code_f619975ff6f94c1787305e0c256010b5-3"&gt;&lt;/a&gt;    PlotPoints -&amp;gt; 100, BoxRatios -&amp;gt; {1, 1, 0.2},
+&lt;a name="rest_code_f619975ff6f94c1787305e0c256010b5-4"&gt;&lt;/a&gt;    PlotRange -&amp;gt; All]
 &lt;/pre&gt;&lt;img alt="Gráfico 3D en el notebook." class="align-center" src="https://nicoguaro.github.io/images/wolfram_plot.png" style="width: 600px;"&gt;
 &lt;div class="line-block"&gt;
 &lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;

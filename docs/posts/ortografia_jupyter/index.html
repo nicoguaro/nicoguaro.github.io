@@ -2,9 +2,9 @@
 <html prefix="" lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="description" content="Describe cómo tener resaltado de palabras mal escritas en español.">
+<meta name="description" content="Describe how to highlight misspelled words in Spanish.">
 <meta name="viewport" content="width=device-width">
-<title>Revisión ortográfica en Jupyter Notebook | Nicolás' blog</title>
+<title>Spell Check in Jupyter Notebook | Nicolás' blog</title>
 <link href="../../assets/css/all.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
 <link rel="alternate" type="application/rss+xml" title="RSS (en)" href="../../rss.xml">
@@ -14,9 +14,9 @@
 <link rel="prev" href="../graph_makeover/" title="#SWDchallenge: Graph makeover" type="text/html">
 <link rel="next" href="../tech_writing/" title="Technical writing" type="text/html">
 <meta property="og:site_name" content="Nicolás' blog">
-<meta property="og:title" content="Revisión ortográfica en Jupyter Notebook">
+<meta property="og:title" content="Spell Check in Jupyter Notebook">
 <meta property="og:url" content="https://nicoguaro.github.io/posts/ortografia_jupyter/">
-<meta property="og:description" content="Describe cómo tener resaltado de palabras mal escritas en español.">
+<meta property="og:description" content="Describe how to highlight misspelled words in Spanish.">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2019-08-20T14:45:41-05:00">
 <meta property="article:tag" content="data-science">
@@ -62,7 +62,7 @@
 
       <div class="container content" id="content">
         
-<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="post-title p-name entry-title" itemprop="headline name"><a href="." class="u-url">Revisión ortográfica en Jupyter Notebook</a></h1>
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="post-title p-name entry-title" itemprop="headline name"><a href="." class="u-url">Spell Check in Jupyter Notebook</a></h1>
 
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
@@ -72,96 +72,94 @@
     <a href="#disqus_thread" data-disqus-identifier="cache/posts/ortografia_jupyter.html">Comments</a>
 
 
-                <meta name="description" itemprop="description" content="Describe cómo tener resaltado de palabras mal escritas en español."></p>
+                <meta name="description" itemprop="description" content="Describe how to highlight misspelled words in Spanish."></p>
 </div>
         
+        <div class="metadata posttranslations translations">
+            <h3 class="posttranslations-intro">Also available in:</h3>
+                <p><a href="../../es/posts/ortografia_jupyter/" rel="alternate" hreflang="es">Español</a></p>
+        </div>
 
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
-<p>El objetivo de esta publicación es mostrar cómo tener revisión automática
-de ortografía en Jupyter Notebook <a class="footnote-reference brackets" href="#id2" id="id1">*</a> para español, como se muestra a
-continuación.</p>
-<img alt="Ejemplo de corrección ortográfica en Jupyter Notebook." class="align-center" src="../../images/ortografia_jupyter/ejemplo_ortografia.png" style="width: 600px;"><p>Existen <a class="reference external" href="https://stackoverflow.com/q/39324039/3358223">varias formas</a> de
-realizar esto. Sin embargo, la forma más fácil es a través del complemento
-(<em>nbextension</em>) <a class="reference external" href="&lt;https:/jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/spellchecker/README.html">Spellchecker</a>.</p>
-<div class="section" id="paso-a-paso">
-<h2>Paso a paso</h2>
-<p>Los pasos a seguir son los siguientes:</p>
+<p>The purpose of this post is to show how to have automatic spell check in
+Jupyter Notebook, as shown below.</p>
+<img alt="Example of spell checking in Jupyter Notebook." class="align-center" src="../../images/ortografia_jupyter/ejemplo_ortografia.png" style="width: 600px;"><p>There are <a class="reference external" href="https://stackoverflow.com/q/39324039/3358223">several ways</a>
+to do this. However, the easiest way is through the (<em>nbextension</em>)
+<a class="reference external" href="&lt;https:/jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/spellchecker/README.html">Spellchecker</a>. plugin.</p>
+<div class="section" id="step-by-step">
+<h2>Step by step</h2>
+<p>The steps to follow are those:</p>
 <ol class="arabic simple">
-<li><p>Instalar Jupyter notebook extensions (<a class="reference external" href="https://github.com/ipython-contrib/jupyter_contrib_nbextensions">nbextensions</a>). Este incluye
+<li><p>Install Jupyter notebook extensions (<a class="reference external" href="https://github.com/ipython-contrib/jupyter_contrib_nbextensions">nbextensions</a>). This includes
 <a class="reference external" href="&lt;https:/jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/spellchecker/README.html">Spellchecker</a>.</p></li>
-<li><p>Ubicar los diccionarios en la carpeta donde está el complemento. Los
-diccionarios deben usar la codificación UTF-8.</p></li>
-<li><p>Configurar la ruta de los diccionarios. Esta puede ser una URL o
-una ruta relativa respecto a la carpeta en donde se encuentra el complemento.</p></li>
+<li><p>Locate the dictionaries in the folder where the plugin is. Dictionaries
+must use UTF-8 encoding.</p></li>
+<li><p>Configure the path of the dictionaries. This can be a URL or a path
+relative to the folder where the plugin is located.</p></li>
 </ol>
-<p>A continuación describiremos en detalle cada paso.</p>
-<div class="section" id="paso-1-instalacion-de-nbextensions">
-<h3>Paso 1: Instalación de nbextensions</h3>
-<p>Existe una lista de complementos que agregan algunas funcionalidades
-comúnmente usadas a Jupyter notebook.</p>
-<p>Escriba lo siguiente en una terminal, para instalarlo usando PIP.</p>
-<pre class="code bash"><a name="rest_code_32e6402296ec43c8896186e01e46b152-1"></a>pip install jupyter_contrib_nbextensions
+<p>We will describe each step in detail below.</p>
+<div class="section" id="step-1-install-nbextensions">
+<h3>Step 1: Install nbextensions</h3>
+<p>There is a list of plugins that add some commonly used functionality to
+the Jupyter notebook.</p>
+<p>Type the following in a terminal, to install it using PIP.</p>
+<pre class="code bash"><a name="rest_code_d36e34b9f7a9458da7828bf1e8053a3c-1"></a>pip install jupyter_contrib_nbextensions
 </pre>
-<p>Sin embargo, si se está usando Anaconda el <strong>método recomendado</strong> es usar
-<code class="docutils literal">conda</code>, como se muestra a continuación.</p>
-<pre class="code bash"><a name="rest_code_604060f3a4614ae69ed7c88a21e1b94a-1"></a>conda install -c conda-forge jupyter_contrib_nbextensions
+<p>However, if Anaconda is being used the <strong>recommended method</strong> is to use
+<code class="docutils literal">conda</code>, as shown below.</p>
+<pre class="code bash"><a name="rest_code_45ae39a9374d413fb09873adfe2ba39e-1"></a>conda install -c conda-forge jupyter_contrib_nbextensions
 </pre>
-<p>Esto debe instalar los complementos y también la
-<a class="reference external" href="https://github.com/Jupyter-contrib/jupyter_nbextensions_configurator">interfaz de configuración</a>.
-En el menú principal de Jupyter notebook aparecerá una nueva pestaña
-nombrada <em>Nbextensions</em> en donde se pueden elegir los complementos a usar.
-La apariencia es la siguiente.</p>
-<img alt="Interfaz gráfica para los complementos de Jupyter." class="align-center" src="../../images/ortografia_jupyter/interfaz_nbextensions.png" style="width: 600px;"><p>Algunos complementos recomendados son:</p>
+<p>This should install the plugins and also the
+<a class="reference external" href="https://github.com/Jupyter-contrib/jupyter_nbextensions_configurator">configuration interface</a>.
+In the main menu of Jupyter notebook a new tab named <em>Nbextension</em> will
+appear. Here you can choose the add-ons to use. The appearance is
+as follows.</p>
+<img alt="Graphical interface for Jupyter plugins." class="align-center" src="../../images/ortografia_jupyter/interfaz_nbextensions.png" style="width: 600px;"><p>Some recommended plugins are:</p>
 <ul class="simple">
-<li><p><strong>Collapsible Headings:</strong> que permite ocultar secciones de los documentos.</p></li>
-<li><p><strong>RISE:</strong> que convierte los notebooks en presentaciones.</p></li>
+<li><p><strong>Collapsible Headings:</strong> that allows to hide sections of the documents.</p></li>
+<li><p><strong>RISE:</strong> that turns notebooks into presentations.</p></li>
 </ul>
 </div>
-<div class="section" id="paso-2-diccionarios-para-espanol">
-<h3>Paso 2: Diccionarios para español</h3>
-<p>La documentación de <a class="reference external" href="&lt;https:/jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/spellchecker/README.html">Spellchecker</a> sugiere usar un script de Python para
-descargar diccionarios del proyecto <a class="reference external" href="https://chromium.googlesource.com/chromium/deps/hunspell_dictionaries/+/master">Chromium</a>.
-Sin embargo, estos tienen como codificación ISO-8859-1 (occidente) y falla
-para caracteres con tildes o virgulillas. Para que no haya problemas el
-diccionario debe tener codificación <a class="reference external" href="https://en.wikipedia.org/wiki/UTF-8">UTF-8</a>.
-Pueden descargarse en <a class="reference external" href="../../downloads/dict_es_ES.zip">este enlace</a>.</p>
-<p>Una vez que se tienen los diccionarios se deben ubicar en la ruta del
-complemento. En mi computador esta sería</p>
-<pre class="code text"><a name="rest_code_4bfef8e8e1f84e6ebd6d331be182acf7-1"></a>~/.local/share/jupyter/nbextensions/spellchecker/
+<div class="section" id="step-2-dictionaries-for-spanish">
+<h3>Step 2: Dictionaries for Spanish</h3>
+<p>The documentation of <a class="reference external" href="&lt;https:/jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/spellchecker/README.html">Spellchecker</a> suggests using a Python script to
+download dictionaries from project <a class="reference external" href="https://chromium.googlesource.com/chromium/deps/hunspell_dictionaries/+/master">Chromium</a>.
+However, these are encoded in  ISO-8859-1 (western) and it fails
+for characters with accents or tildes. So, to avoid problems the
+dictionary must be <a class="reference external" href="https://en.wikipedia.org/wiki/UTF-8">UTF-8</a>.
+They can be downloaded at <a class="reference external" href="../../downloads/dict_es_ES.zip">this link</a>.</p>
+<p>Once you have the dictionaries, they must be located in the path of the
+plugin. On my computer this would be</p>
+<pre class="code text"><a name="rest_code_b4c5a68127e14badb9a26a5443172f7e-1"></a>~/.local/share/jupyter/nbextensions/spellchecker/
 </pre>
-<p>y dentro de esta los ubicaremos en</p>
-<pre class="code text"><a name="rest_code_d5c47351375c4b2e9d4926d37478c455-1"></a>~/.local/share/jupyter/nbextensions/spellchecker/typo/dictionaries
+<p>and within this we will place them in</p>
+<pre class="code text"><a name="rest_code_7b4c7ea4cd6b4e558fd59b1386293506-1"></a>~/.local/share/jupyter/nbextensions/spellchecker/typo/dictionaries
 </pre>
-<p>Esta ubicación es arbitraria, lo importante es que necesitamos conocer
-la ruta relativa al complemento.</p>
+<p>This location is arbitrary, the important thing is that we need to know
+the relative path to the plugin.</p>
 </div>
-<div class="section" id="paso-3-configuracion-complementos">
-<h3>Paso 3: Configuración complementos</h3>
-<p>Ahora, en la pestaña <em>Nbextensions</em> seleccionamos el complemento y llenamos
-los campos con la información de nuestro diccionario:</p>
+<div class="section" id="step-3-plugin-configuration">
+<h3>Step 3: Plugin Configuration</h3>
+<p>Now, in the <em>Nbextensions</em> tab we select the plugin and fill the fields
+with the information from our dictionary:</p>
 <ul class="simple">
 <li><p>language code to use with typo.js: <code class="docutils literal">es_ES</code></p></li>
 <li><p>url for the dictionary .dic file to use: <code class="docutils literal">./typo/dictionaries/es_ES.dic</code></p></li>
 <li><p>url for the dictionary .aff file to use: <code class="docutils literal">./typo/dictionaries/es_ES.aff</code></p></li>
 </ul>
-<p>Esto se muestra a continuación.</p>
-<img alt="Configuración con archivos locales." class="align-center" src="../../images/ortografia_jupyter/config_local.png" style="width: 600px;"><p>Otra opción es usar la URL para los archivos. En <a class="reference external" href="https://github.com/wooorm/dictionaries">https://github.com/wooorm/dictionaries</a>
-están disponibles los diccionarios del proyecto <a class="reference external" href="https://hunspell.github.io/">hunspell</a>
-en UTF-8. En este caso, la configuración sería:</p>
+<p>This is shown below.</p>
+<img alt="Configuration with local files." class="align-center" src="../../images/ortografia_jupyter/config_local.png" style="width: 600px;"><p>Another option is to use the URL for the files. The dictionaries of the
+project <a class="reference external" href="https://hunspell.github.io/">hunspell</a> in UTF-8 are available
+at <a class="reference external" href="https://github.com/wooorm/dictionaries">https://github.com/wooorm/dictionaries</a>. In this case, the configuration
+would be:</p>
 <ul class="simple">
 <li><p>language code to use with typo.js: <code class="docutils literal">es_ES</code></p></li>
 <li><p>url for the dictionary .dic file to use: <code class="docutils literal"><span class="pre">https://raw.githubusercontent.com/wooorm/dictionaries/master/dictionaries/es/index.dic</span></code></p></li>
 <li><p>url for the dictionary .aff file to use: <code class="docutils literal"><span class="pre">https://raw.githubusercontent.com/wooorm/dictionaries/master/dictionaries/es/index.aff</span></code></p></li>
 </ul>
-<p>Y se muestra a continuación.</p>
-<img alt="Configuración con archivos remotos." class="align-center" src="../../images/ortografia_jupyter/config_url.png" style="width: 600px;"><dl class="footnote brackets">
-<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">*</a></span></dt>
-<dd>
-<p>Dado el público objetivo de esta publicación está hecha en español y
-no en inglés como se acostumbra en este blog.</p>
-</dd>
-</dl>
+<p>And it is shown below.</p>
+<img alt="Configuration with remote files." class="align-center" src="../../images/ortografia_jupyter/config_url.png" style="width: 600px;">
 </div>
 </div>
 </div>
@@ -186,7 +184,7 @@ no en inglés como se acostumbra en este blog.</p>
         <script>
         var disqus_shortname ="nicoguaro-github",
             disqus_url="https://nicoguaro.github.io/posts/ortografia_jupyter/",
-        disqus_title="Revisi\u00f3n ortogr\u00e1fica en Jupyter Notebook",
+        disqus_title="Spell Check in Jupyter Notebook",
         disqus_identifier="cache/posts/ortografia_jupyter.html",
         disqus_config = function () {
             this.language = "en";

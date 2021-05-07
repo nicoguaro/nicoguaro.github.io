@@ -488,9 +488,9 @@ approximated by polynomials.</p>
 <p>A Python implementation of this method is presented in
 <a class="reference external" href="https://github.com/nicoguaro/FEM_resources/blob/master/quantum_mechanics/hermite_QM.py">this repo</a>.</p>
 <p>For all the examples we use the following imports</p>
-<pre class="code ipython"><a name="rest_code_ae80b9a7888d46b6b66778ee2d444922-1"></a><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span>
-<a name="rest_code_ae80b9a7888d46b6b66778ee2d444922-2"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<a name="rest_code_ae80b9a7888d46b6b66778ee2d444922-3"></a><span class="kn">from</span> <span class="nn">hermite_QM</span> <span class="kn">import</span> <span class="o">*</span>
+<pre class="code ipython"><a name="rest_code_bfceb7795b894da98b06b22e0e9d7c09-1"></a><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span>
+<a name="rest_code_bfceb7795b894da98b06b22e0e9d7c09-2"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<a name="rest_code_bfceb7795b894da98b06b22e0e9d7c09-3"></a><span class="kn">from</span> <span class="nn">hermite_QM</span> <span class="kn">import</span> <span class="o">*</span>
 </pre>
 <div class="section" id="id1">
 <h3><a class="reference external" href="https://en.wikipedia.org/wiki/Quantum_harmonic_oscillator">Quantum harmonic oscilator</a></h3>
@@ -508,56 +508,56 @@ E_n = n + \frac{1}{2}
 </div>
 <p>The following snippet computes the first 10 eigenvalues and plot
 the corresponding eigenstates</p>
-<pre class="code ipython"><a name="rest_code_70854deb5c98424c91353fd3e4ba1090-1"></a><span class="n">potential</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span>
-<a name="rest_code_70854deb5c98424c91353fd3e4ba1090-2"></a><span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span> <span class="o">=</span> <span class="n">eigenstates</span><span class="p">(</span><span class="n">potential</span><span class="p">,</span> <span class="n">nterms</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">ngpts</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-<a name="rest_code_70854deb5c98424c91353fd3e4ba1090-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">vals</span><span class="p">[:</span><span class="mi">10</span><span class="p">],</span> <span class="mi">6</span><span class="p">))</span>
-<a name="rest_code_70854deb5c98424c91353fd3e4ba1090-4"></a><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<a name="rest_code_70854deb5c98424c91353fd3e4ba1090-5"></a><span class="n">plot_eigenstates</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span><span class="p">,</span> <span class="n">potential</span><span class="p">);</span>
+<pre class="code ipython"><a name="rest_code_add598f50b9245dc9559940a6e507f17-1"></a><span class="n">potential</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+<a name="rest_code_add598f50b9245dc9559940a6e507f17-2"></a><span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span> <span class="o">=</span> <span class="n">eigenstates</span><span class="p">(</span><span class="n">potential</span><span class="p">,</span> <span class="n">nterms</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">ngpts</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<a name="rest_code_add598f50b9245dc9559940a6e507f17-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">vals</span><span class="p">[:</span><span class="mi">10</span><span class="p">],</span> <span class="mi">6</span><span class="p">))</span>
+<a name="rest_code_add598f50b9245dc9559940a6e507f17-4"></a><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<a name="rest_code_add598f50b9245dc9559940a6e507f17-5"></a><span class="n">plot_eigenstates</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span><span class="p">,</span> <span class="n">potential</span><span class="p">);</span>
 </pre>
 <p>with results</p>
-<pre class="code text"><a name="rest_code_4c2fe36c22644278824b4fd3dbe5f511-1"></a>[ 0.5  1.5  2.5  3.5  4.5  5.5  6.5  7.5  8.5  9.5]
+<pre class="code text"><a name="rest_code_162aa10b884a46c18e4c58937248fca7-1"></a>[ 0.5  1.5  2.5  3.5  4.5  5.5  6.5  7.5  8.5  9.5]
 </pre>
 <img alt="/images/hermite_ritz_harmonic.svg" src="images/hermite_ritz_harmonic.svg">
 </div>
 <div class="section" id="absolute-value-potential">
 <h3>Absolute value potential</h3>
-<pre class="code ipython"><a name="rest_code_f19aac22e8fa4a05b4c0600227f24bd5-1"></a><span class="n">potential</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<a name="rest_code_f19aac22e8fa4a05b4c0600227f24bd5-2"></a><span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span> <span class="o">=</span> <span class="n">eigenstates</span><span class="p">(</span><span class="n">potential</span><span class="p">)</span>
-<a name="rest_code_f19aac22e8fa4a05b4c0600227f24bd5-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">vals</span><span class="p">[:</span><span class="mi">10</span><span class="p">],</span> <span class="mi">6</span><span class="p">))</span>
-<a name="rest_code_f19aac22e8fa4a05b4c0600227f24bd5-4"></a><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<a name="rest_code_f19aac22e8fa4a05b4c0600227f24bd5-5"></a><span class="n">plot_eigenstates</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span><span class="p">,</span> <span class="n">potential</span><span class="p">,</span> <span class="n">lims</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">));</span>
+<pre class="code ipython"><a name="rest_code_48e1b9c2b85249dba912596f26ee2133-1"></a><span class="n">potential</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a name="rest_code_48e1b9c2b85249dba912596f26ee2133-2"></a><span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span> <span class="o">=</span> <span class="n">eigenstates</span><span class="p">(</span><span class="n">potential</span><span class="p">)</span>
+<a name="rest_code_48e1b9c2b85249dba912596f26ee2133-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">vals</span><span class="p">[:</span><span class="mi">10</span><span class="p">],</span> <span class="mi">6</span><span class="p">))</span>
+<a name="rest_code_48e1b9c2b85249dba912596f26ee2133-4"></a><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<a name="rest_code_48e1b9c2b85249dba912596f26ee2133-5"></a><span class="n">plot_eigenstates</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span><span class="p">,</span> <span class="n">potential</span><span class="p">,</span> <span class="n">lims</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">));</span>
 </pre>
 <p>with results</p>
-<pre class="code text"><a name="rest_code_21b3df78b7e543cf93d3d0ce18556c42-1"></a>[ 0.811203  1.855725  2.57894   3.244576  3.826353  4.38189   4.895365
-<a name="rest_code_21b3df78b7e543cf93d3d0ce18556c42-2"></a>  5.396614  5.911591  6.421015]
+<pre class="code text"><a name="rest_code_5d34188bfc464e95ae2f9c5e9c00b21f-1"></a>[ 0.811203  1.855725  2.57894   3.244576  3.826353  4.38189   4.895365
+<a name="rest_code_5d34188bfc464e95ae2f9c5e9c00b21f-2"></a>  5.396614  5.911591  6.421015]
 </pre>
 <img alt="/images/hermite_ritz_abs.svg" src="images/hermite_ritz_abs.svg">
 </div>
 <div class="section" id="cubic-potential">
 <h3>Cubic potential</h3>
-<pre class="code ipython"><a name="rest_code_0a5a6c6f85aa4cd4b52dcff4aaf9e515-1"></a><span class="n">potential</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span>
-<a name="rest_code_0a5a6c6f85aa4cd4b52dcff4aaf9e515-2"></a><span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span> <span class="o">=</span> <span class="n">eigenstates</span><span class="p">(</span><span class="n">potential</span><span class="p">)</span>
-<a name="rest_code_0a5a6c6f85aa4cd4b52dcff4aaf9e515-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">vals</span><span class="p">[:</span><span class="mi">10</span><span class="p">],</span> <span class="mi">6</span><span class="p">))</span>
-<a name="rest_code_0a5a6c6f85aa4cd4b52dcff4aaf9e515-4"></a><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<a name="rest_code_0a5a6c6f85aa4cd4b52dcff4aaf9e515-5"></a><span class="n">plot_eigenstates</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span><span class="p">,</span> <span class="n">potential</span><span class="p">,</span> <span class="n">lims</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">));</span>
+<pre class="code ipython"><a name="rest_code_10df151ca4e14cb196cea8cb1f750012-1"></a><span class="n">potential</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span>
+<a name="rest_code_10df151ca4e14cb196cea8cb1f750012-2"></a><span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span> <span class="o">=</span> <span class="n">eigenstates</span><span class="p">(</span><span class="n">potential</span><span class="p">)</span>
+<a name="rest_code_10df151ca4e14cb196cea8cb1f750012-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">vals</span><span class="p">[:</span><span class="mi">10</span><span class="p">],</span> <span class="mi">6</span><span class="p">))</span>
+<a name="rest_code_10df151ca4e14cb196cea8cb1f750012-4"></a><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<a name="rest_code_10df151ca4e14cb196cea8cb1f750012-5"></a><span class="n">plot_eigenstates</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span><span class="p">,</span> <span class="n">potential</span><span class="p">,</span> <span class="n">lims</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">));</span>
 </pre>
 <p>with results</p>
-<pre class="code text"><a name="rest_code_ac8aa0be98a94f91974f652b901d9b73-1"></a>[ 0.180588  0.609153  1.124594  1.681002  2.272087  2.889805  3.530901
-<a name="rest_code_ac8aa0be98a94f91974f652b901d9b73-2"></a>  4.191962  4.871133  5.566413]
+<pre class="code text"><a name="rest_code_e06f9652db624e849d4bc674c432ec1f-1"></a>[ 0.180588  0.609153  1.124594  1.681002  2.272087  2.889805  3.530901
+<a name="rest_code_e06f9652db624e849d4bc674c432ec1f-2"></a>  4.191962  4.871133  5.566413]
 </pre>
 <img alt="/images/hermite_ritz_cubic.svg" src="images/hermite_ritz_cubic.svg">
 </div>
 <div class="section" id="harmonic-with-quartic-perturbation">
 <h3>Harmonic with quartic perturbation</h3>
-<pre class="code ipython"><a name="rest_code_f4598064c1564f36baf216b43d0a6fd4-1"></a><span class="n">potential</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">0.1</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">4</span>
-<a name="rest_code_f4598064c1564f36baf216b43d0a6fd4-2"></a><span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span> <span class="o">=</span> <span class="n">eigenstates</span><span class="p">(</span><span class="n">potential</span><span class="p">,</span> <span class="n">nterms</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">ngpts</span><span class="o">=</span><span class="mi">22</span><span class="p">)</span>
-<a name="rest_code_f4598064c1564f36baf216b43d0a6fd4-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">vals</span><span class="p">[:</span><span class="mi">10</span><span class="p">],</span> <span class="mi">6</span><span class="p">))</span>
-<a name="rest_code_f4598064c1564f36baf216b43d0a6fd4-4"></a><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<a name="rest_code_f4598064c1564f36baf216b43d0a6fd4-5"></a><span class="n">plot_eigenstates</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span><span class="p">,</span> <span class="n">potential</span><span class="p">,</span> <span class="n">lims</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<pre class="code ipython"><a name="rest_code_c59dbdb0949e4169983a3b5d2c676105-1"></a><span class="n">potential</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">0.1</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">4</span>
+<a name="rest_code_c59dbdb0949e4169983a3b5d2c676105-2"></a><span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span> <span class="o">=</span> <span class="n">eigenstates</span><span class="p">(</span><span class="n">potential</span><span class="p">,</span> <span class="n">nterms</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">ngpts</span><span class="o">=</span><span class="mi">22</span><span class="p">)</span>
+<a name="rest_code_c59dbdb0949e4169983a3b5d2c676105-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">vals</span><span class="p">[:</span><span class="mi">10</span><span class="p">],</span> <span class="mi">6</span><span class="p">))</span>
+<a name="rest_code_c59dbdb0949e4169983a3b5d2c676105-4"></a><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<a name="rest_code_c59dbdb0949e4169983a3b5d2c676105-5"></a><span class="n">plot_eigenstates</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span><span class="p">,</span> <span class="n">potential</span><span class="p">,</span> <span class="n">lims</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 </pre>
 <p>with results</p>
-<pre class="code text"><a name="rest_code_f6516b8ede974e60b5537ad0d0f2d54d-1"></a>[  0.559146   1.769503   3.138624   4.628884   6.220303   7.899789
-<a name="rest_code_f6516b8ede974e60b5537ad0d0f2d54d-2"></a>   9.658703  11.489094  13.38638   15.361055]
+<pre class="code text"><a name="rest_code_f04ba454e91b4fddbc40c3d15a07b7c2-1"></a>[  0.559146   1.769503   3.138624   4.628884   6.220303   7.899789
+<a name="rest_code_f04ba454e91b4fddbc40c3d15a07b7c2-2"></a>   9.658703  11.489094  13.38638   15.361055]
 </pre>
 <img alt="/images/hermite_ritz_pert_harm.svg" src="images/hermite_ritz_pert_harm.svg"><p>A Jupyter Notebook with the examples can be found
 <a class="reference external" href="https://github.com/nicoguaro/FEM_resources/blob/master/quantum_mechanics/Ritz_Hermite_QM.ipynb">here</a>.</p>
@@ -1265,6 +1265,9 @@ reza así</p>
 <div class="line">no pudo alcanzarlas por lo alto que estaban.</div>
 <div class="line">Giró y exclamó, con risa lastimera:</div>
 <div class="line">¡Están verdes! No valen mi espera.</div>
+</div>
+<div class="line-block">
+<div class="line"><br></div>
 </div>
 </div>
     </div>
