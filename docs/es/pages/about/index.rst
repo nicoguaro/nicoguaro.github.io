@@ -8,13 +8,14 @@
 .. type: text
 
 
-Soy Nicolás Guarín-Zapata, un Ingeniero Físico, M.Sc. en ingeniería
-y Candidato a doctor con enfásis en Mecánica Computacional.
+Soy Nicolás Guarín-Zapata, un Ingeniero Físico, M.Sc. en Ingeniería
+y Ph.D. en Ingeniería Computacional.
 
 Algunos de mis intereses (en orden alfabético):
 
 - Acústica y Vibraciones
 - Matemáticas Aplicadas
+- Materiales Bioinspirados
 - Mecánica Computacional
 - Diseño de Materiales
 - Métodos de Elementos Finitos

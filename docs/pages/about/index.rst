@@ -9,12 +9,13 @@
 
 
 I am Nicolás Guarín-Zapata. I am an Engineer in Physics, an M.Sc. in
-engineering and a Ph.D. candidate with an emphasis on Computational Mechanics.
+Engineering and a Ph.D. in Computational Engineering.
 
 Some Interest Areas (in alphabetical order):
 
 - Acoustics and Vibrations
 - Applied Math
+- Bioinspired materials
 - Computational Mechanics
 - Design of Materials
 - Finite Element Methods

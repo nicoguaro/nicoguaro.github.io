@@ -17,7 +17,7 @@ transformation.
 
 Then, you should take into account that when using/designing a colormap you are
 doing a mapping from the values in your dataset to a color space. This space can
-be defined in $(R,G,B)$ components (as our vision), but there exist other color
+be defined in $(R,G,B)$ components, but there exist other color
 spaces that are more intuitive like `(H,S,V) (Hue, Saturation, Value) and
 (H,S,L) (Hue, Saturation, Lightness) <https://en.wikipedia.org/wiki/HSL_and_HSV>`_.
 Based on this, we can think that a (univariate) color scale is equivalent to a
@@ -68,7 +68,7 @@ Some reasons to use colormaps are:
 That is why some scales are better at qualitative judgments [2] (Relative shapes
 and sizes). And, Other color scales are better for quantitative
 judgments (Looking up values), that is the application that you are interested 
-ow.
+now.
 
 Trumbos's Principles
 --------------------
@@ -80,12 +80,6 @@ designing/using colormaps [1]:
 ordered colors
 - Separation: significantly different levels should be
 represented by distinguishable colors
-- Rows and columns: to preserve univariate
-information, display parameters should not obscure
-one another
-- Diagonal: to show positive association, displayed
-colors should group into three perceptual classes:
-diagonal, above, below
 
 The rainbow colormap is not good at present the color information ordered, and
 that is why some people suggest to avoid it [3]. Although there are versions of
@@ -114,3 +108,9 @@ References
 5. Rougier, Nicolas P., Michael Droettboom, and Philip E. Bourne.
    "Ten simple rules for better figures." PLoS computational biology 10.9
    (2014): e1003833. http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003833
+
+6. Moreland, K. (2016). Why we use bad color maps and what you can do about it.
+   Electronic Imaging, 2016(16), 1-6. http://www.kennethmoreland.com/color-advice/BadColorMaps.pdf
+
+7. Moreland, K. (2016). Color Map Advice for Scientific Visualization
+   http://www.kennethmoreland.com/color-advice/

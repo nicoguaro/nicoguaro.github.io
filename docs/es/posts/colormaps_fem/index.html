@@ -81,7 +81,7 @@ should consider using a colormap that will preserve the ordering after the color
 transformation.</p>
 <p>Then, you should take into account that when using/designing a colormap you are
 doing a mapping from the values in your dataset to a color space. This space can
-be defined in $(R,G,B)$ components (as our vision), but there exist other color
+be defined in $(R,G,B)$ components, but there exist other color
 spaces that are more intuitive like <a class="reference external" href="https://en.wikipedia.org/wiki/HSL_and_HSV">(H,S,V) (Hue, Saturation, Value) and
 (H,S,L) (Hue, Saturation, Lightness)</a>.
 Based on this, we can think that a (univariate) color scale is equivalent to a
@@ -133,7 +133,7 @@ of colormaps in matplotlib and is really enlightening, the slides can be found
 <p>That is why some scales are better at qualitative judgments [2] (Relative shapes
 and sizes). And, Other color scales are better for quantitative
 judgments (Looking up values), that is the application that you are interested
-ow.</p>
+now.</p>
 </div>
 <div class="section" id="trumbos-s-principles">
 <h2>Trumbos's Principles</h2>
@@ -148,13 +148,7 @@ designing/using colormaps [1]:</p>
 </div>
 <p>ordered colors
 - Separation: significantly different levels should be
-represented by distinguishable colors
-- Rows and columns: to preserve univariate
-information, display parameters should not obscure
-one another
-- Diagonal: to show positive association, displayed
-colors should group into three perceptual classes:
-diagonal, above, below</p>
+represented by distinguishable colors</p>
 <p>The rainbow colormap is not good at present the color information ordered, and
 that is why some people suggest to avoid it [3]. Although there are versions of
 the raibow colormap that are redundant and present the ordering property. Some
@@ -178,6 +172,10 @@ Anomalies. ASEG Extended Abstracts 2015 , 1–4.
 <li><p>Rougier, Nicolas P., Michael Droettboom, and Philip E. Bourne.
 "Ten simple rules for better figures." PLoS computational biology 10.9
 (2014): e1003833. <a class="reference external" href="http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003833">http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003833</a></p></li>
+<li><p>Moreland, K. (2016). Why we use bad color maps and what you can do about it.
+Electronic Imaging, 2016(16), 1-6. <a class="reference external" href="http://www.kennethmoreland.com/color-advice/BadColorMaps.pdf">http://www.kennethmoreland.com/color-advice/BadColorMaps.pdf</a></p></li>
+<li><p>Moreland, K. (2016). Color Map Advice for Scientific Visualization
+<a class="reference external" href="http://www.kennethmoreland.com/color-advice/">http://www.kennethmoreland.com/color-advice/</a></p></li>
 </ol>
 </div>
 </div>
