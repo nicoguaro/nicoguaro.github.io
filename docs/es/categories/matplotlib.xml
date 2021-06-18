@@ -3,7 +3,7 @@
 &lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
 &lt;img alt="Creative Commons License"
 style="border-width:0"
-src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Fri, 07 May 2021 22:16:00 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Comparación de mapas de colores cíclicos</title><link>https://nicoguaro.github.io/es/posts/cyclic_colormaps/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;Empecé esta publicación buscando implementaciones de
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Fri, 18 Jun 2021 17:13:52 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Comparación de mapas de colores cíclicos</title><link>https://nicoguaro.github.io/es/posts/cyclic_colormaps/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;Empecé esta publicación buscando implementaciones de
 &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Diffusion_map"&gt;mapas de difusión&lt;/a&gt;
 en Python, que no pude encontrar. Me puse entonces a seguir un
 &lt;a class="reference external" href="http://scikit-learn.org/stable/auto_examples/manifold/plot_compare_methods.html#sphx-glr-auto-examples-manifold-plot-compare-methods-py"&gt;ejemplo&lt;/a&gt;

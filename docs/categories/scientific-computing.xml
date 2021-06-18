@@ -3,7 +3,7 @@
 &lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
 &lt;img alt="Creative Commons License"
 style="border-width:0"
-src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Fri, 07 May 2021 22:18:33 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Coming back to the Boundary element method</title><link>https://nicoguaro.github.io/posts/bem_corrected/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;During October (2017) I wrote a program per day for some well-known numerical
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Fri, 18 Jun 2021 17:13:49 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Coming back to the Boundary element method</title><link>https://nicoguaro.github.io/posts/bem_corrected/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;During October (2017) I wrote a program per day for some well-known numerical
 methods in both Python and Julia. It was intended to be an exercise to learn
 some Julia. You can see a &lt;a class="reference external" href="https://nicoguaro.github.io/posts/numerical_summary"&gt;summary here&lt;/a&gt;. I succeeded
 in 30 of the challenges, except for the BEM
@@ -266,10 +266,10 @@ relative to the folder where the plugin is located.&lt;/p&gt;&lt;/li&gt;
 &lt;p&gt;There is a list of plugins that add some commonly used functionality to
 the Jupyter notebook.&lt;/p&gt;
 &lt;p&gt;Type the following in a terminal, to install it using PIP.&lt;/p&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_d36e34b9f7a9458da7828bf1e8053a3c-1"&gt;&lt;/a&gt;pip install jupyter_contrib_nbextensions
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_076ef4e819044f7bb7f75a79bf3fc55c-1"&gt;&lt;/a&gt;pip install jupyter_contrib_nbextensions
 &lt;/pre&gt;&lt;p&gt;However, if Anaconda is being used the &lt;strong&gt;recommended method&lt;/strong&gt; is to use
 &lt;code class="docutils literal"&gt;conda&lt;/code&gt;, as shown below.&lt;/p&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_45ae39a9374d413fb09873adfe2ba39e-1"&gt;&lt;/a&gt;conda install -c conda-forge jupyter_contrib_nbextensions
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_5d70b092cca1432caf263aab6e4bbca5-1"&gt;&lt;/a&gt;conda install -c conda-forge jupyter_contrib_nbextensions
 &lt;/pre&gt;&lt;p&gt;This should install the plugins and also the
 &lt;a class="reference external" href="https://github.com/Jupyter-contrib/jupyter_nbextensions_configurator"&gt;configuration interface&lt;/a&gt;.
 In the main menu of Jupyter notebook a new tab named &lt;em&gt;Nbextension&lt;/em&gt; will
@@ -292,9 +292,9 @@ dictionary must be &lt;a class="reference external" href="https://en.wikipedia.o
 They can be downloaded at &lt;a class="reference external" href="https://nicoguaro.github.io/downloads/dict_es_ES.zip"&gt;this link&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Once you have the dictionaries, they must be located in the path of the
 plugin. On my computer this would be&lt;/p&gt;
-&lt;pre class="code text"&gt;&lt;a name="rest_code_b4c5a68127e14badb9a26a5443172f7e-1"&gt;&lt;/a&gt;~/.local/share/jupyter/nbextensions/spellchecker/
+&lt;pre class="code text"&gt;&lt;a name="rest_code_8fc526bf6d8e48fdad0055c07e4a3b82-1"&gt;&lt;/a&gt;~/.local/share/jupyter/nbextensions/spellchecker/
 &lt;/pre&gt;&lt;p&gt;and within this we will place them in&lt;/p&gt;
-&lt;pre class="code text"&gt;&lt;a name="rest_code_7b4c7ea4cd6b4e558fd59b1386293506-1"&gt;&lt;/a&gt;~/.local/share/jupyter/nbextensions/spellchecker/typo/dictionaries
+&lt;pre class="code text"&gt;&lt;a name="rest_code_e22af10c043e4f00b1408f99baa82554-1"&gt;&lt;/a&gt;~/.local/share/jupyter/nbextensions/spellchecker/typo/dictionaries
 &lt;/pre&gt;&lt;p&gt;This location is arbitrary, the important thing is that we need to know
 the relative path to the plugin.&lt;/p&gt;
 &lt;/div&gt;

@@ -3,7 +3,7 @@
 &lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
 &lt;img alt="Creative Commons License"
 style="border-width:0"
-src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Fri, 07 May 2021 22:16:01 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Using Wolfram Language in Jupyter: A free alternative to Mathematica</title><link>https://nicoguaro.github.io/posts/wolfram_jupyter/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;In this post I am going to describe how to add the Wolfram Language to
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Fri, 18 Jun 2021 17:13:47 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Using Wolfram Language in Jupyter: A free alternative to Mathematica</title><link>https://nicoguaro.github.io/posts/wolfram_jupyter/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;In this post I am going to describe how to add the Wolfram Language to
 the Jupyter notebook. This provides a free alternative to Mathematica with,
 pretty much, the same syntax. The use of the Wolfram Engine is free for
 non-production as described in their website:&lt;/p&gt;

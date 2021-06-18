@@ -20,7 +20,8 @@ Sitio web de apoyo a la postulación al
   - Juan David Gómez. Escuela de Ingeniería, Universidad EAFIT.
   - Nicolás Guarín-Zapata. Escuela de Ingeniería, Universidad EAFIT.
   - Camilo Vieira. Instituto de Estudios en Educación, Universidad del Norte
-  - Juan David Ortega-Alvarez . Escuela de Ingeniería, Universidad EAFIT.
+  - Juan David Ortega-Alvarez. Department of Engineering Education, Virginia Tech.
+    Escuela de Ingeniería, Universidad EAFIT.
 
 - **Palabras clave:** Pensamiento computacional,
   Ciencia e ingeniería computacional, Ingeniería Civil,
@@ -28,7 +29,7 @@ Sitio web de apoyo a la postulación al
 
 - **Categoría:** Experiencias de aprendizaje transformador
 
-- **Fecha:** Abril de 2020
+- **Fecha:** Abril de 2020. Actualizado en Mayo de 2021.
 
 - **Documento de la postulación:** `Descargar </downloads/innovacion_en_eds.pdf>`_
 

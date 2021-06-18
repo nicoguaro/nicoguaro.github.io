@@ -3,7 +3,7 @@
 &lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
 &lt;img alt="Creative Commons License"
 style="border-width:0"
-src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Fri, 07 May 2021 22:16:04 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Solution of the Schrödinger equation using Ritz method</title><link>https://nicoguaro.github.io/posts/hermite_ritz_qm/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;In this post, we describe the solution of the Schrödinger equation
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Fri, 18 Jun 2021 17:13:49 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Solution of the Schrödinger equation using Ritz method</title><link>https://nicoguaro.github.io/posts/hermite_ritz_qm/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;In this post, we describe the solution of the Schrödinger equation
 using the Ritz method and
 &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Hermite_polynomials#Hermite_functions"&gt;Hermite functions&lt;/a&gt;
 basis. This basis seems to be a good choice for the 1D Schrödinger equation

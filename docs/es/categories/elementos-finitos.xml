@@ -3,7 +3,7 @@
 &lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
 &lt;img alt="Creative Commons License"
 style="border-width:0"
-src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Fri, 07 May 2021 22:16:00 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Solución de la ecuación de Schrödinger usando el método de Ritz</title><link>https://nicoguaro.github.io/es/posts/hermite_ritz_qm/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;En esta publicación describimos la solcuión de la ecuación de Schrödinger
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Fri, 18 Jun 2021 17:13:49 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Solución de la ecuación de Schrödinger usando el método de Ritz</title><link>https://nicoguaro.github.io/es/posts/hermite_ritz_qm/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;En esta publicación describimos la solcuión de la ecuación de Schrödinger
 usando el método de Ritz y base de
 &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Hermite_polynomials#Hermite_functions"&gt;funciones de&lt;/a&gt;
 Esta base parece ser una buena elección para la ecuación de Schrödinger
