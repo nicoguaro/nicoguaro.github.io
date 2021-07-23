@@ -14,7 +14,7 @@ Friends
 - `Cosmoscalibur <https://www.cosmoscalibur.com/>`_, Edward Villegas'
   personal website (in Spanish).
 
-- `Vero Recipes World <https://vorjuelac.wixsite.com/vrecipesworld>`_,
+- `Vero Recipes World <https://verorecipesworld.wordpress.com/>`_,
   a recipes site by Verónica Orjuela.
 
 
