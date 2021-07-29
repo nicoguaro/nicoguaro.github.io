@@ -11,6 +11,15 @@
 Esta es una página de archivo de artículos de investigación. A continuación
 se pueden encontrar enlaces a los *preprints*.
 
+2021
+----
+
+- Guarín-Zapata, N., Gomez, J., Hadjesfandiari, A. R., & Dargush, G. F. (2021).
+  `Variational principles and finite element Bloch analysis in couple stress
+  elastodynamics. <https://www.sciencedirect.com/science/article/pii/S0165212521001074>`_
+  Wave Motion, In Press, DOI: 10.1016/j.wavemoti.2021.102809
+  (`preprint <preprint2021a>`_).
+
 2020
 ----
 
