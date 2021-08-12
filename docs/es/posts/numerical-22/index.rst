@@ -1,7 +1,7 @@
 .. title: Reto de métodos numéricos: Día 22
 .. slug: numerical-22
 .. date: 2017-10-22 10:51:10 UTC-05:00
-.. tags: métodos numéricos, python, julia, computación científica, diferencias finitas
+.. tags: métodos numéricos, python, julia, computación científica, método de diferencias finitas
 .. category: Scientific Computing
 .. type: text
 .. has_math: yes

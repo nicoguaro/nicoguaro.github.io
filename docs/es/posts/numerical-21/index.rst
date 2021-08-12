@@ -1,7 +1,7 @@
 .. title: Reto de métodos numéricos: Día 21
 .. slug: numerical-21
 .. date: 2017-10-21 14:57:55 UTC-05:00
-.. tags: métodos numéricos, python, julia, computación científica, edp, diferencias finitas
+.. tags: métodos numéricos, python, julia, computación científica, edp, método de diferencias finitas
 .. category: Scientific Computing
 .. type: text
 .. has_math: yes

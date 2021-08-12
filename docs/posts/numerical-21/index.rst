@@ -1,7 +1,7 @@
 .. title: Numerical methods challenge: Day 21
 .. slug: numerical-21
 .. date: 2017-10-21 14:57:55 UTC-05:00
-.. tags: numerical methods, python, julia, scientific computing, pde, finite differences
+.. tags: numerical methods, python, julia, scientific computing, pde, finite difference method
 .. category: Scientific Computing
 .. type: text
 .. has_math: yes
