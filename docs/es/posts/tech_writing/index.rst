@@ -1,10 +1,10 @@
 .. title: Escritura técnica
 .. slug: tech_writing
 .. date: 2020-05-28 15:53:40 UTC-05:00
-.. tags: escrotira, investigación, tipografía, libreoffice, latex
+.. tags: escritura, investigación, tipografía, libreoffice, latex
 .. category: Writing
 .. link:
-.. description: Consejos sobre escritur ténica.
+.. description: Consejos sobre escritura ténica.
 .. type: text
 .. status:
 

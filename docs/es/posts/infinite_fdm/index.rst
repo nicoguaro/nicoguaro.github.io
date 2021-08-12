@@ -1,7 +1,7 @@
 .. title: Diferencias finitas en dominios infinitos
 .. slug: infinite_fdm
 .. date: 2018-05-17 15:57:00 UTC-05:00
-.. tags: computación científica, python, diferencias finitas, edp,
+.. tags: computación científica, python, método de diferencias finitas, edp,
          mecánica cuántica
 .. category: Scientific Computing
 .. type: text

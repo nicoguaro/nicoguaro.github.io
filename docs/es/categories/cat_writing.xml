@@ -3,7 +3,7 @@
 &lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
 &lt;img alt="Creative Commons License"
 style="border-width:0"
-src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Fri, 18 Jun 2021 17:13:50 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Escritura técnica: usando matemáticas</title><link>https://nicoguaro.github.io/es/posts/tech_writing_math/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;En una &lt;a class="reference external" href="https://nicoguaro.github.io/es/posts/tech_writing"&gt;publicación anterior&lt;/a&gt; mencioné algunos aspectos
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Thu, 12 Aug 2021 21:04:01 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Escritura técnica: usando matemáticas</title><link>https://nicoguaro.github.io/es/posts/tech_writing_math/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;En una &lt;a class="reference external" href="https://nicoguaro.github.io/es/posts/tech_writing"&gt;publicación anterior&lt;/a&gt; mencioné algunos aspectos
 generales de la escritura técnica. En este me gustaría hablar sobre la
 inclusión de expresiones matemáticas en documentos técnicos.&lt;/p&gt;
 &lt;p&gt;Hay dos formas principales de incluir matemáticas en documentos:&lt;/p&gt;
@@ -119,7 +119,7 @@ Fecha de acceso: Agosto 3, 2020.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;OERPUB (2016), “Mathconverter”, &lt;a class="reference external" href="https://github.com/oerpub/mathconverter"&gt;https://github.com/oerpub/mathconverter&lt;/a&gt;,
 Fecha de acceso: Agosto 3, 2020.&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;&lt;/div&gt;</description><category>escritura</category><category>investigación</category><category>latex</category><category>libreoffice</category><category>matemáticas</category><category>ms-word</category><category>tipografía</category><guid>https://nicoguaro.github.io/es/posts/tech_writing_math/</guid><pubDate>Sun, 02 Aug 2020 23:00:00 GMT</pubDate></item><item><title>Escritura técnica</title><link>https://nicoguaro.github.io/es/posts/tech_writing/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;Esta es la primera publicación sobre redacción técnica &lt;a class="footnote-reference brackets" href="https://nicoguaro.github.io/es/posts/tech_writing/#id2" id="id1"&gt;*&lt;/a&gt; de una serie que
+&lt;/div&gt;&lt;/div&gt;</description><category>escritura</category><category>investigación</category><category>latex</category><category>libreoffice</category><category>matemáticas</category><category>ms-word</category><category>tipografía</category><guid>https://nicoguaro.github.io/es/posts/tech_writing_math/</guid><pubDate>Sun, 02 Aug 2020 23:00:00 GMT</pubDate></item><item><title>Escritura técnica</title><link>https://nicoguaro.github.io/es/posts/tech_writing/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;Esta es la primera publicación sobre redacción técnica &lt;a class="footnote-reference" href="https://nicoguaro.github.io/es/posts/tech_writing/#id2" id="id1"&gt;[*]&lt;/a&gt; de una serie que
 crearé durante el transcurso de este año. La escritura técnica es algo con lo
 que la mayoría de nosotros tenemos que lidiar en diferentes contextos. Por
 ejemplo, en cursos universitarios, publicaciones de investigación,
@@ -128,10 +128,10 @@ de los trucos que he aprendido a lo largo de los años y algunas herramientas
 que pueden ser útiles.&lt;/p&gt;
 &lt;p&gt;Las publicaciones futuras serán (probablemente) sobre:&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;Uso de ecuaciones;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Uso de figuras;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Uso de tablas; y&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Gestión de referencias bibliográficas.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Uso de ecuaciones;&lt;/li&gt;
+&lt;li&gt;Uso de figuras;&lt;/li&gt;
+&lt;li&gt;Uso de tablas; y&lt;/li&gt;
+&lt;li&gt;Gestión de referencias bibliográficas.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class="section" id="esta-publicacion"&gt;
 &lt;h2&gt;Esta publicación&lt;/h2&gt;
@@ -140,10 +140,9 @@ personas tienen que lidiar. Esta es una habilidad que a veces se pasa por alto,
 pero no debería. De acuerdo con la
 &lt;a class="reference external" href="https://www.bls.gov/ooh/media-and-communication/technical-writers.htm"&gt;U.S. Bureau of Labor Statistics&lt;/a&gt;&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Los redactores técnicos preparan manuales, guías prácticas,
+Los redactores técnicos preparan manuales, guías prácticas,
 artículos de revistas y otros documentos de respaldo para comunicar
-información compleja y técnica con mayor facilidad.&lt;/p&gt;
-&lt;/blockquote&gt;
+información compleja y técnica con mayor facilidad.&lt;/blockquote&gt;
 &lt;p&gt;Y es una habilidad deseada en el lugar de trabajo. Se espera que su demanda crezca
 alrededor del 10% en la década actual.&lt;/p&gt;
 &lt;div class="section" id="tipografia"&gt;
@@ -156,17 +155,21 @@ ya que es un libro muy bueno sobre el tema y es fácil de leer. Voy a
 mencionar algunos puntos importantes de acuerdo con la sección
 "Tipografía en diez minutos":&lt;/p&gt;
 &lt;ol class="arabic"&gt;
-&lt;li&gt;&lt;p&gt;La selección tipográfica más importante está en el cuerpo del texto.
-Esto se debe al hecho de que es la mayor parte del documento.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Elija un tamaño de punto entre 10-12 puntos para documentos impresos
-y 15-25 píxeles para documentos digitales.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;El espacio entre líneas debe estar entre 120-145% del tamaño de la letra.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;La longitud de la línea debe tener entre 45 y 90 caracteres. Esto es
+&lt;li&gt;&lt;p class="first"&gt;La selección tipográfica más importante está en el cuerpo del texto.
+Esto se debe al hecho de que es la mayor parte del documento.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Elija un tamaño de punto entre 10-12 puntos para documentos impresos
+y 15-25 píxeles para documentos digitales.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;El espacio entre líneas debe estar entre 120-145% del tamaño de la letra.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;La longitud de la línea debe tener entre 45 y 90 caracteres. Esto es
 aproximadamente 2 o 3 alfabetos en minúsculas:&lt;/p&gt;
 &lt;p&gt;abcdefghijklmnñopqrstuvwxyzabcdefghijklmnñopqrstuvwxyzabcd&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Cuidado con la selección de su fuente. Intente evitar las fuentes
-predeterminadas como Arial, Calibri o Times New Roman.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Cuidado con la selección de su fuente. Intente evitar las fuentes
+predeterminadas como Arial, Calibri o Times New Roman.&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
 &lt;div class="section" id="editores"&gt;
@@ -191,22 +194,22 @@ hasta ahora.&lt;/p&gt;
 WYSIWYG (siglas en inglés para "Lo que ves es lo que obtienes") y
 editores basados en marcado.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;WYSIWYG. Esta categoría es la que la mayoría de la gente conoce.
+&lt;li&gt;&lt;p class="first"&gt;WYSIWYG. Esta categoría es la que la mayoría de la gente conoce.
 Dos ejemplos son:&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;LibreOffice writer; y&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Microsoft Word.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;LibreOffice writer; y&lt;/li&gt;
+&lt;li&gt;Microsoft Word.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Los editores basados en marcado dependen de las marcas en el "texto" para
+&lt;li&gt;&lt;p class="first"&gt;Los editores basados en marcado dependen de las marcas en el "texto" para
 diferenciar secciones y estilos. En este caso, su texto parece código,
 como se ve en la siguiente imagen&lt;/p&gt;
 &lt;img alt="/images/rst_code.png" src="https://nicoguaro.github.io/images/rst_code.png"&gt;
 &lt;p&gt;Algunos ejemplos son:&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;LaTeX;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://www.markdownguide.org/getting-started"&gt;Markdown&lt;/a&gt;; y&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://docutils.sourceforge.io/rst.html"&gt;reStructuredtext&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;LaTeX;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://www.markdownguide.org/getting-started"&gt;Markdown&lt;/a&gt;; y&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://docutils.sourceforge.io/rst.html"&gt;reStructuredtext&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -218,28 +221,29 @@ basado completamente en él llamado &lt;a class="reference external" href="https
 &lt;div class="section" id="references"&gt;
 &lt;h3&gt;References&lt;/h3&gt;
 &lt;ol class="arabic simple"&gt;
-&lt;li&gt;&lt;p&gt;Matthew Butterick (2019). &lt;a class="reference external" href="https://practicaltypography.com/"&gt;Butterick's Practical Typography&lt;/a&gt;.
-Segunda edición, Matthew Butterick.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Wikibooks contributors. (2020). &lt;a class="reference external" href="https://en.wikibooks.org/wiki/LaTeX"&gt;LaTeX&lt;/a&gt;.
-Wikibooks, The Free Textbook Project.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Bruce Byfield (2016). &lt;a class="reference external" href="https://designingwithlibreoffice.com/"&gt;Designing with LibreOffice&lt;/a&gt;.
-Friends of OpenDocument, Inc.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Deville, S. (2015).
+&lt;li&gt;Matthew Butterick (2019). &lt;a class="reference external" href="https://practicaltypography.com/"&gt;Butterick's Practical Typography&lt;/a&gt;.
+Segunda edición, Matthew Butterick.&lt;/li&gt;
+&lt;li&gt;Wikibooks contributors. (2020). &lt;a class="reference external" href="https://en.wikibooks.org/wiki/LaTeX"&gt;LaTeX&lt;/a&gt;.
+Wikibooks, The Free Textbook Project.&lt;/li&gt;
+&lt;li&gt;Bruce Byfield (2016). &lt;a class="reference external" href="https://designingwithlibreoffice.com/"&gt;Designing with LibreOffice&lt;/a&gt;.
+Friends of OpenDocument, Inc.&lt;/li&gt;
+&lt;li&gt;Deville, S. (2015).
 &lt;a class="reference external" href="https://sylvaindeville.net/2015/07/17/writing-academic-papers-in-plain-text-with-markdown-and-jupyter-notebook/"&gt;Writing academic papers in plain text with Markdown and Jupyter notebook&lt;/a&gt;.
-Sylvain Deville.&lt;/p&gt;&lt;/li&gt;
+Sylvain Deville.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;5. Eric Holscher (2016).
 &lt;a class="reference external" href="https://www.ericholscher.com/blog/2016/jul/1/sphinx-and-rtd-for-writers/"&gt;An introduction to Sphinx and Read the Docs for Technical Writers&lt;/a&gt;&lt;/p&gt;
-&lt;dl class="footnote brackets"&gt;
-&lt;dt class="label" id="id2"&gt;&lt;span class="brackets"&gt;&lt;a class="fn-backref" href="https://nicoguaro.github.io/es/posts/tech_writing/#id1"&gt;*&lt;/a&gt;&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;&lt;p&gt;Esta publicación está (algo) relacionada con una
+&lt;table class="docutils footnote" frame="void" id="id2" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label"&gt;&lt;col&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="https://nicoguaro.github.io/es/posts/tech_writing/#id1"&gt;[*]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Esta publicación está (algo) relacionada con una
 &lt;a class="reference external" href="https://nicoguaro.github.io/es/posts/herramientas-investigacion/"&gt;publicación anterior&lt;/a&gt;
 donde discutí sobre algunas herramientas de investigación que la mayoría
-de nosotros necesitamos pero que comúnmente no se enseñan de manera formal.&lt;/p&gt;
-&lt;/dd&gt;
-&lt;/dl&gt;
+de nosotros necesitamos pero que comúnmente no se enseñan de manera formal.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;/div&gt;</description><category>escrotira</category><category>investigación</category><category>latex</category><category>libreoffice</category><category>tipografía</category><guid>https://nicoguaro.github.io/es/posts/tech_writing/</guid><pubDate>Thu, 28 May 2020 20:53:40 GMT</pubDate></item><item><title>Revisión ortográfica en Jupyter Notebook</title><link>https://nicoguaro.github.io/es/posts/ortografia_jupyter/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;El objetivo de esta publicación es mostrar cómo tener revisión automática
+&lt;/div&gt;&lt;/div&gt;</description><category>escritura</category><category>investigación</category><category>latex</category><category>libreoffice</category><category>tipografía</category><guid>https://nicoguaro.github.io/es/posts/tech_writing/</guid><pubDate>Thu, 28 May 2020 20:53:40 GMT</pubDate></item><item><title>Revisión ortográfica en Jupyter Notebook</title><link>https://nicoguaro.github.io/es/posts/ortografia_jupyter/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;El objetivo de esta publicación es mostrar cómo tener revisión automática
 de ortografía en Jupyter Notebook, como se muestra a continuación.&lt;/p&gt;
 &lt;img alt="Ejemplo de corrección ortográfica en Jupyter Notebook." class="align-center" src="https://nicoguaro.github.io/images/ortografia_jupyter/ejemplo_ortografia.png" style="width: 600px;"&gt;
 &lt;p&gt;Existen &lt;a class="reference external" href="https://stackoverflow.com/q/39324039/3358223"&gt;varias formas&lt;/a&gt; de
@@ -249,12 +253,12 @@ realizar esto. Sin embargo, la forma más fácil es a través del complemento
 &lt;h2&gt;Paso a paso&lt;/h2&gt;
 &lt;p&gt;Los pasos a seguir son los siguientes:&lt;/p&gt;
 &lt;ol class="arabic simple"&gt;
-&lt;li&gt;&lt;p&gt;Instalar Jupyter notebook extensions (&lt;a class="reference external" href="https://github.com/ipython-contrib/jupyter_contrib_nbextensions"&gt;nbextensions&lt;/a&gt;). Este incluye
-&lt;a class="reference external" href="https://nicoguaro.github.io/es/posts/ortografia_jupyter/&amp;lt;https:/jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/spellchecker/README.html"&gt;Spellchecker&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Ubicar los diccionarios en la carpeta donde está el complemento. Los
-diccionarios deben usar la codificación UTF-8.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Configurar la ruta de los diccionarios. Esta puede ser una URL o
-una ruta relativa respecto a la carpeta en donde se encuentra el complemento.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Instalar Jupyter notebook extensions (&lt;a class="reference external" href="https://github.com/ipython-contrib/jupyter_contrib_nbextensions"&gt;nbextensions&lt;/a&gt;). Este incluye
+&lt;a class="reference external" href="https://nicoguaro.github.io/es/posts/ortografia_jupyter/&amp;lt;https:/jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/spellchecker/README.html"&gt;Spellchecker&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Ubicar los diccionarios en la carpeta donde está el complemento. Los
+diccionarios deben usar la codificación UTF-8.&lt;/li&gt;
+&lt;li&gt;Configurar la ruta de los diccionarios. Esta puede ser una URL o
+una ruta relativa respecto a la carpeta en donde se encuentra el complemento.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;A continuación describiremos en detalle cada paso.&lt;/p&gt;
 &lt;div class="section" id="paso-1-instalacion-de-nbextensions"&gt;
@@ -262,10 +266,10 @@ una ruta relativa respecto a la carpeta en donde se encuentra el complemento.&lt
 &lt;p&gt;Existe una lista de complementos que agregan algunas funcionalidades
 comúnmente usadas a Jupyter notebook.&lt;/p&gt;
 &lt;p&gt;Escriba lo siguiente en una terminal, para instalarlo usando PIP.&lt;/p&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_db3e284ca045404b890449ceb08b817f-1"&gt;&lt;/a&gt;pip install jupyter_contrib_nbextensions
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_61337fe4aea1469e9853925b86a7e869-1"&gt;&lt;/a&gt;pip install jupyter_contrib_nbextensions
 &lt;/pre&gt;&lt;p&gt;Sin embargo, si se está usando Anaconda el &lt;strong&gt;método recomendado&lt;/strong&gt; es usar
-&lt;code class="docutils literal"&gt;conda&lt;/code&gt;, como se muestra a continuación.&lt;/p&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_846792623e32406990590ba87f15087c-1"&gt;&lt;/a&gt;conda install -c conda-forge jupyter_contrib_nbextensions
+&lt;tt class="docutils literal"&gt;conda&lt;/tt&gt;, como se muestra a continuación.&lt;/p&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_602547b5023c4ce390f69a95843c46a3-1"&gt;&lt;/a&gt;conda install -c conda-forge jupyter_contrib_nbextensions
 &lt;/pre&gt;&lt;p&gt;Esto debe instalar los complementos y también la
 &lt;a class="reference external" href="https://github.com/Jupyter-contrib/jupyter_nbextensions_configurator"&gt;interfaz de configuración&lt;/a&gt;.
 En el menú principal de Jupyter notebook aparecerá una nueva pestaña
@@ -274,8 +278,8 @@ La apariencia es la siguiente.&lt;/p&gt;
 &lt;img alt="Interfaz gráfica para los complementos de Jupyter." class="align-center" src="https://nicoguaro.github.io/images/ortografia_jupyter/interfaz_nbextensions.png" style="width: 600px;"&gt;
 &lt;p&gt;Algunos complementos recomendados son:&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Collapsible Headings:&lt;/strong&gt; que permite ocultar secciones de los documentos.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;RISE:&lt;/strong&gt; que convierte los notebooks en presentaciones.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Collapsible Headings:&lt;/strong&gt; que permite ocultar secciones de los documentos.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;RISE:&lt;/strong&gt; que convierte los notebooks en presentaciones.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="section" id="paso-2-diccionarios-para-espanol"&gt;
@@ -288,9 +292,9 @@ diccionario debe tener codificación &lt;a class="reference external" href="http
 Pueden descargarse en &lt;a class="reference external" href="https://nicoguaro.github.io/downloads/dict_es_ES.zip"&gt;este enlace&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Una vez que se tienen los diccionarios se deben ubicar en la ruta del
 complemento. En mi computador esta sería&lt;/p&gt;
-&lt;pre class="code text"&gt;&lt;a name="rest_code_3940b48305b74ff693c59a0cfa8e282c-1"&gt;&lt;/a&gt;~/.local/share/jupyter/nbextensions/spellchecker/
+&lt;pre class="code text"&gt;&lt;a name="rest_code_2c629a2aecfa4cd580c8ceca788484a9-1"&gt;&lt;/a&gt;~/.local/share/jupyter/nbextensions/spellchecker/
 &lt;/pre&gt;&lt;p&gt;y dentro de esta los ubicaremos en&lt;/p&gt;
-&lt;pre class="code text"&gt;&lt;a name="rest_code_94e0e2ee2bfa450baa94e409e2a80193-1"&gt;&lt;/a&gt;~/.local/share/jupyter/nbextensions/spellchecker/typo/dictionaries
+&lt;pre class="code text"&gt;&lt;a name="rest_code_445f012705ee493cbf3cd433292ec6fc-1"&gt;&lt;/a&gt;~/.local/share/jupyter/nbextensions/spellchecker/typo/dictionaries
 &lt;/pre&gt;&lt;p&gt;Esta ubicación es arbitraria, lo importante es que necesitamos conocer
 la ruta relativa al complemento.&lt;/p&gt;
 &lt;/div&gt;
@@ -299,9 +303,9 @@ la ruta relativa al complemento.&lt;/p&gt;
 &lt;p&gt;Ahora, en la pestaña &lt;em&gt;Nbextensions&lt;/em&gt; seleccionamos el complemento y llenamos
 los campos con la información de nuestro diccionario:&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;language code to use with typo.js: &lt;code class="docutils literal"&gt;es_ES&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;url for the dictionary .dic file to use: &lt;code class="docutils literal"&gt;./typo/dictionaries/es_ES.dic&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;url for the dictionary .aff file to use: &lt;code class="docutils literal"&gt;./typo/dictionaries/es_ES.aff&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;language code to use with typo.js: &lt;tt class="docutils literal"&gt;es_ES&lt;/tt&gt;&lt;/li&gt;
+&lt;li&gt;url for the dictionary .dic file to use: &lt;tt class="docutils literal"&gt;./typo/dictionaries/es_ES.dic&lt;/tt&gt;&lt;/li&gt;
+&lt;li&gt;url for the dictionary .aff file to use: &lt;tt class="docutils literal"&gt;./typo/dictionaries/es_ES.aff&lt;/tt&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Esto se muestra a continuación.&lt;/p&gt;
 &lt;img alt="Configuración con archivos locales." class="align-center" src="https://nicoguaro.github.io/images/ortografia_jupyter/config_local.png" style="width: 600px;"&gt;
@@ -309,9 +313,9 @@ los campos con la información de nuestro diccionario:&lt;/p&gt;
 están disponibles los diccionarios del proyecto &lt;a class="reference external" href="https://hunspell.github.io/"&gt;hunspell&lt;/a&gt;
 en UTF-8. En este caso, la configuración sería:&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;language code to use with typo.js: &lt;code class="docutils literal"&gt;es_ES&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;url for the dictionary .dic file to use: &lt;code class="docutils literal"&gt;&lt;span class="pre"&gt;https://raw.githubusercontent.com/wooorm/dictionaries/master/dictionaries/es/index.dic&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;url for the dictionary .aff file to use: &lt;code class="docutils literal"&gt;&lt;span class="pre"&gt;https://raw.githubusercontent.com/wooorm/dictionaries/master/dictionaries/es/index.aff&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;language code to use with typo.js: &lt;tt class="docutils literal"&gt;es_ES&lt;/tt&gt;&lt;/li&gt;
+&lt;li&gt;url for the dictionary .dic file to use: &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;https://raw.githubusercontent.com/wooorm/dictionaries/master/dictionaries/es/index.dic&lt;/span&gt;&lt;/tt&gt;&lt;/li&gt;
+&lt;li&gt;url for the dictionary .aff file to use: &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;https://raw.githubusercontent.com/wooorm/dictionaries/master/dictionaries/es/index.aff&lt;/span&gt;&lt;/tt&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Y se muestra a continuación.&lt;/p&gt;
 &lt;img alt="Configuración con archivos remotos." class="align-center" src="https://nicoguaro.github.io/images/ortografia_jupyter/config_url.png" style="width: 600px;"&gt;

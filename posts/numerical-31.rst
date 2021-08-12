@@ -1,7 +1,7 @@
 .. title: Numerical methods challenge: Day 31
 .. slug: numerical-31
 .. date: 2017-10-31 20:45:09 UTC-05:00
-.. tags: numerical methods, python, julia, scientific computing, conjugate gradient, finite element
+.. tags: numerical methods, python, julia, scientific computing, conjugate gradient, finite element method
 .. category: Scientific Computing
 .. type: text
 .. has_math: yes

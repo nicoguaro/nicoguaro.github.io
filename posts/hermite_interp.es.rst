@@ -1,7 +1,7 @@
 .. title: Interpolación de Hermite a trozos
 .. slug: hermite_interp
 .. date: 2017-06-22 16:24:44 UTC-05:00
-.. tags: interpolación, elementos finitos, aproximación, sympy, python
+.. tags: interpolación, método de elementos finitos, aproximación, sympy, python
 .. category: Scientific Computing
 .. type: text
 .. has_math: yes

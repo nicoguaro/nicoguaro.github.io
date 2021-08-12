@@ -91,12 +91,12 @@ realizar esto. Sin embargo, la forma más fácil es a través del complemento
 <h2>Paso a paso</h2>
 <p>Los pasos a seguir son los siguientes:</p>
 <ol class="arabic simple">
-<li><p>Instalar Jupyter notebook extensions (<a class="reference external" href="https://github.com/ipython-contrib/jupyter_contrib_nbextensions">nbextensions</a>). Este incluye
-<a class="reference external" href="&lt;https:/jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/spellchecker/README.html">Spellchecker</a>.</p></li>
-<li><p>Ubicar los diccionarios en la carpeta donde está el complemento. Los
-diccionarios deben usar la codificación UTF-8.</p></li>
-<li><p>Configurar la ruta de los diccionarios. Esta puede ser una URL o
-una ruta relativa respecto a la carpeta en donde se encuentra el complemento.</p></li>
+<li>Instalar Jupyter notebook extensions (<a class="reference external" href="https://github.com/ipython-contrib/jupyter_contrib_nbextensions">nbextensions</a>). Este incluye
+<a class="reference external" href="&lt;https:/jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/spellchecker/README.html">Spellchecker</a>.</li>
+<li>Ubicar los diccionarios en la carpeta donde está el complemento. Los
+diccionarios deben usar la codificación UTF-8.</li>
+<li>Configurar la ruta de los diccionarios. Esta puede ser una URL o
+una ruta relativa respecto a la carpeta en donde se encuentra el complemento.</li>
 </ol>
 <p>A continuación describiremos en detalle cada paso.</p>
 <div class="section" id="paso-1-instalacion-de-nbextensions">
@@ -104,11 +104,11 @@ una ruta relativa respecto a la carpeta en donde se encuentra el complemento.</p
 <p>Existe una lista de complementos que agregan algunas funcionalidades
 comúnmente usadas a Jupyter notebook.</p>
 <p>Escriba lo siguiente en una terminal, para instalarlo usando PIP.</p>
-<pre class="code bash"><a name="rest_code_db3e284ca045404b890449ceb08b817f-1"></a>pip install jupyter_contrib_nbextensions
+<pre class="code bash"><a name="rest_code_61337fe4aea1469e9853925b86a7e869-1"></a>pip install jupyter_contrib_nbextensions
 </pre>
 <p>Sin embargo, si se está usando Anaconda el <strong>método recomendado</strong> es usar
-<code class="docutils literal">conda</code>, como se muestra a continuación.</p>
-<pre class="code bash"><a name="rest_code_846792623e32406990590ba87f15087c-1"></a>conda install -c conda-forge jupyter_contrib_nbextensions
+<tt class="docutils literal">conda</tt>, como se muestra a continuación.</p>
+<pre class="code bash"><a name="rest_code_602547b5023c4ce390f69a95843c46a3-1"></a>conda install -c conda-forge jupyter_contrib_nbextensions
 </pre>
 <p>Esto debe instalar los complementos y también la
 <a class="reference external" href="https://github.com/Jupyter-contrib/jupyter_nbextensions_configurator">interfaz de configuración</a>.
@@ -117,8 +117,10 @@ nombrada <em>Nbextensions</em> en donde se pueden elegir los complementos a usar
 La apariencia es la siguiente.</p>
 <img alt="Interfaz gráfica para los complementos de Jupyter." class="align-center" src="../../../images/ortografia_jupyter/interfaz_nbextensions.png" style="width: 600px;"><p>Algunos complementos recomendados son:</p>
 <ul class="simple">
-<li><p><strong>Collapsible Headings:</strong> que permite ocultar secciones de los documentos.</p></li>
-<li><p><strong>RISE:</strong> que convierte los notebooks en presentaciones.</p></li>
+<li>
+<strong>Collapsible Headings:</strong> que permite ocultar secciones de los documentos.</li>
+<li>
+<strong>RISE:</strong> que convierte los notebooks en presentaciones.</li>
 </ul>
 </div>
 <div class="section" id="paso-2-diccionarios-para-espanol">
@@ -131,10 +133,10 @@ diccionario debe tener codificación <a class="reference external" href="https:/
 Pueden descargarse en <a class="reference external" href="../../../downloads/dict_es_ES.zip">este enlace</a>.</p>
 <p>Una vez que se tienen los diccionarios se deben ubicar en la ruta del
 complemento. En mi computador esta sería</p>
-<pre class="code text"><a name="rest_code_3940b48305b74ff693c59a0cfa8e282c-1"></a>~/.local/share/jupyter/nbextensions/spellchecker/
+<pre class="code text"><a name="rest_code_2c629a2aecfa4cd580c8ceca788484a9-1"></a>~/.local/share/jupyter/nbextensions/spellchecker/
 </pre>
 <p>y dentro de esta los ubicaremos en</p>
-<pre class="code text"><a name="rest_code_94e0e2ee2bfa450baa94e409e2a80193-1"></a>~/.local/share/jupyter/nbextensions/spellchecker/typo/dictionaries
+<pre class="code text"><a name="rest_code_445f012705ee493cbf3cd433292ec6fc-1"></a>~/.local/share/jupyter/nbextensions/spellchecker/typo/dictionaries
 </pre>
 <p>Esta ubicación es arbitraria, lo importante es que necesitamos conocer
 la ruta relativa al complemento.</p>
@@ -144,18 +146,24 @@ la ruta relativa al complemento.</p>
 <p>Ahora, en la pestaña <em>Nbextensions</em> seleccionamos el complemento y llenamos
 los campos con la información de nuestro diccionario:</p>
 <ul class="simple">
-<li><p>language code to use with typo.js: <code class="docutils literal">es_ES</code></p></li>
-<li><p>url for the dictionary .dic file to use: <code class="docutils literal">./typo/dictionaries/es_ES.dic</code></p></li>
-<li><p>url for the dictionary .aff file to use: <code class="docutils literal">./typo/dictionaries/es_ES.aff</code></p></li>
+<li>language code to use with typo.js: <tt class="docutils literal">es_ES</tt>
+</li>
+<li>url for the dictionary .dic file to use: <tt class="docutils literal">./typo/dictionaries/es_ES.dic</tt>
+</li>
+<li>url for the dictionary .aff file to use: <tt class="docutils literal">./typo/dictionaries/es_ES.aff</tt>
+</li>
 </ul>
 <p>Esto se muestra a continuación.</p>
 <img alt="Configuración con archivos locales." class="align-center" src="../../../images/ortografia_jupyter/config_local.png" style="width: 600px;"><p>Otra opción es usar la URL para los archivos. En <a class="reference external" href="https://github.com/wooorm/dictionaries">https://github.com/wooorm/dictionaries</a>
 están disponibles los diccionarios del proyecto <a class="reference external" href="https://hunspell.github.io/">hunspell</a>
 en UTF-8. En este caso, la configuración sería:</p>
 <ul class="simple">
-<li><p>language code to use with typo.js: <code class="docutils literal">es_ES</code></p></li>
-<li><p>url for the dictionary .dic file to use: <code class="docutils literal"><span class="pre">https://raw.githubusercontent.com/wooorm/dictionaries/master/dictionaries/es/index.dic</span></code></p></li>
-<li><p>url for the dictionary .aff file to use: <code class="docutils literal"><span class="pre">https://raw.githubusercontent.com/wooorm/dictionaries/master/dictionaries/es/index.aff</span></code></p></li>
+<li>language code to use with typo.js: <tt class="docutils literal">es_ES</tt>
+</li>
+<li>url for the dictionary .dic file to use: <tt class="docutils literal"><span class="pre">https://raw.githubusercontent.com/wooorm/dictionaries/master/dictionaries/es/index.dic</span></tt>
+</li>
+<li>url for the dictionary .aff file to use: <tt class="docutils literal"><span class="pre">https://raw.githubusercontent.com/wooorm/dictionaries/master/dictionaries/es/index.aff</span></tt>
+</li>
 </ul>
 <p>Y se muestra a continuación.</p>
 <img alt="Configuración con archivos remotos." class="align-center" src="../../../images/ortografia_jupyter/config_url.png" style="width: 600px;">

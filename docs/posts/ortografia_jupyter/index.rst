@@ -1,7 +1,7 @@
 .. title: Spell Check in Jupyter Notebook
 .. slug: ortografia_jupyter
 .. date: 2019-08-20 14:45:41 UTC-05:00
-.. tags: tutorial, data-science, python, scientific computing,
+.. tags: tutorial, data science, python, scientific computing,
 .. category: Writing
 .. link:
 .. description: Describe how to highlight misspelled words in Spanish.

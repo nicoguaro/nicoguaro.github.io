@@ -892,12 +892,12 @@ to do this. However, the easiest way is through the (<em>nbextension</em>)
 <h2>Step by step</h2>
 <p>The steps to follow are those:</p>
 <ol class="arabic simple">
-<li><p>Install Jupyter notebook extensions (<a class="reference external" href="https://github.com/ipython-contrib/jupyter_contrib_nbextensions">nbextensions</a>). This includes
-<a class="reference external" href="posts/ortografia_jupyter/&lt;https:/jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/spellchecker/README.html">Spellchecker</a>.</p></li>
-<li><p>Locate the dictionaries in the folder where the plugin is. Dictionaries
-must use UTF-8 encoding.</p></li>
-<li><p>Configure the path of the dictionaries. This can be a URL or a path
-relative to the folder where the plugin is located.</p></li>
+<li>Install Jupyter notebook extensions (<a class="reference external" href="https://github.com/ipython-contrib/jupyter_contrib_nbextensions">nbextensions</a>). This includes
+<a class="reference external" href="posts/ortografia_jupyter/&lt;https:/jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/spellchecker/README.html">Spellchecker</a>.</li>
+<li>Locate the dictionaries in the folder where the plugin is. Dictionaries
+must use UTF-8 encoding.</li>
+<li>Configure the path of the dictionaries. This can be a URL or a path
+relative to the folder where the plugin is located.</li>
 </ol>
 <p>We will describe each step in detail below.</p>
 <div class="section" id="step-1-install-nbextensions">
@@ -905,11 +905,11 @@ relative to the folder where the plugin is located.</p></li>
 <p>There is a list of plugins that add some commonly used functionality to
 the Jupyter notebook.</p>
 <p>Type the following in a terminal, to install it using PIP.</p>
-<pre class="code bash"><a name="rest_code_076ef4e819044f7bb7f75a79bf3fc55c-1"></a>pip install jupyter_contrib_nbextensions
+<pre class="code bash"><a name="rest_code_c403969b1ada4a1b86d272a7786f35ce-1"></a>pip install jupyter_contrib_nbextensions
 </pre>
 <p>However, if Anaconda is being used the <strong>recommended method</strong> is to use
-<code class="docutils literal">conda</code>, as shown below.</p>
-<pre class="code bash"><a name="rest_code_5d70b092cca1432caf263aab6e4bbca5-1"></a>conda install -c conda-forge jupyter_contrib_nbextensions
+<tt class="docutils literal">conda</tt>, as shown below.</p>
+<pre class="code bash"><a name="rest_code_564c009675ad43108d6f3088597a2a03-1"></a>conda install -c conda-forge jupyter_contrib_nbextensions
 </pre>
 <p>This should install the plugins and also the
 <a class="reference external" href="https://github.com/Jupyter-contrib/jupyter_nbextensions_configurator">configuration interface</a>.
@@ -918,8 +918,10 @@ appear. Here you can choose the add-ons to use. The appearance is
 as follows.</p>
 <img alt="Graphical interface for Jupyter plugins." class="align-center" src="images/ortografia_jupyter/interfaz_nbextensions.png" style="width: 600px;"><p>Some recommended plugins are:</p>
 <ul class="simple">
-<li><p><strong>Collapsible Headings:</strong> that allows to hide sections of the documents.</p></li>
-<li><p><strong>RISE:</strong> that turns notebooks into presentations.</p></li>
+<li>
+<strong>Collapsible Headings:</strong> that allows to hide sections of the documents.</li>
+<li>
+<strong>RISE:</strong> that turns notebooks into presentations.</li>
 </ul>
 </div>
 <div class="section" id="step-2-dictionaries-for-spanish">
@@ -932,10 +934,10 @@ dictionary must be <a class="reference external" href="https://en.wikipedia.org/
 They can be downloaded at <a class="reference external" href="downloads/dict_es_ES.zip">this link</a>.</p>
 <p>Once you have the dictionaries, they must be located in the path of the
 plugin. On my computer this would be</p>
-<pre class="code text"><a name="rest_code_8fc526bf6d8e48fdad0055c07e4a3b82-1"></a>~/.local/share/jupyter/nbextensions/spellchecker/
+<pre class="code text"><a name="rest_code_46f564cc005b44a0b3abb9ec6f9c6daf-1"></a>~/.local/share/jupyter/nbextensions/spellchecker/
 </pre>
 <p>and within this we will place them in</p>
-<pre class="code text"><a name="rest_code_e22af10c043e4f00b1408f99baa82554-1"></a>~/.local/share/jupyter/nbextensions/spellchecker/typo/dictionaries
+<pre class="code text"><a name="rest_code_25d6c5c4f0344e46bb4999c71b17f5c2-1"></a>~/.local/share/jupyter/nbextensions/spellchecker/typo/dictionaries
 </pre>
 <p>This location is arbitrary, the important thing is that we need to know
 the relative path to the plugin.</p>
@@ -945,9 +947,12 @@ the relative path to the plugin.</p>
 <p>Now, in the <em>Nbextensions</em> tab we select the plugin and fill the fields
 with the information from our dictionary:</p>
 <ul class="simple">
-<li><p>language code to use with typo.js: <code class="docutils literal">es_ES</code></p></li>
-<li><p>url for the dictionary .dic file to use: <code class="docutils literal">./typo/dictionaries/es_ES.dic</code></p></li>
-<li><p>url for the dictionary .aff file to use: <code class="docutils literal">./typo/dictionaries/es_ES.aff</code></p></li>
+<li>language code to use with typo.js: <tt class="docutils literal">es_ES</tt>
+</li>
+<li>url for the dictionary .dic file to use: <tt class="docutils literal">./typo/dictionaries/es_ES.dic</tt>
+</li>
+<li>url for the dictionary .aff file to use: <tt class="docutils literal">./typo/dictionaries/es_ES.aff</tt>
+</li>
 </ul>
 <p>This is shown below.</p>
 <img alt="Configuration with local files." class="align-center" src="images/ortografia_jupyter/config_local.png" style="width: 600px;"><p>Another option is to use the URL for the files. The dictionaries of the
@@ -955,9 +960,12 @@ project <a class="reference external" href="https://hunspell.github.io/">hunspel
 at <a class="reference external" href="https://github.com/wooorm/dictionaries">https://github.com/wooorm/dictionaries</a>. In this case, the configuration
 would be:</p>
 <ul class="simple">
-<li><p>language code to use with typo.js: <code class="docutils literal">es_ES</code></p></li>
-<li><p>url for the dictionary .dic file to use: <code class="docutils literal"><span class="pre">https://raw.githubusercontent.com/wooorm/dictionaries/master/dictionaries/es/index.dic</span></code></p></li>
-<li><p>url for the dictionary .aff file to use: <code class="docutils literal"><span class="pre">https://raw.githubusercontent.com/wooorm/dictionaries/master/dictionaries/es/index.aff</span></code></p></li>
+<li>language code to use with typo.js: <tt class="docutils literal">es_ES</tt>
+</li>
+<li>url for the dictionary .dic file to use: <tt class="docutils literal"><span class="pre">https://raw.githubusercontent.com/wooorm/dictionaries/master/dictionaries/es/index.dic</span></tt>
+</li>
+<li>url for the dictionary .aff file to use: <tt class="docutils literal"><span class="pre">https://raw.githubusercontent.com/wooorm/dictionaries/master/dictionaries/es/index.aff</span></tt>
+</li>
 </ul>
 <p>And it is shown below.</p>
 <img alt="Configuration with remote files." class="align-center" src="images/ortografia_jupyter/config_url.png" style="width: 600px;">

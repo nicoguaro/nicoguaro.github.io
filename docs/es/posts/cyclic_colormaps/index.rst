@@ -1,7 +1,7 @@
 .. title: Comparación de mapas de colores cíclicos
 .. slug: cyclic_colormaps
 .. date: 2018-01-02 18:55:41 UTC-05:00
-.. tags: computación científica, visualizaciónn, matplotlib, python
+.. tags: computación científica, visualización, matplotlib, python
 .. category: Visualization
 .. type: text
 .. has_math: yes
