@@ -18,7 +18,7 @@ links to the preprints.
   `Variational principles and finite element Bloch analysis in couple stress
   elastodynamics. <https://www.sciencedirect.com/science/article/pii/S0165212521001074>`_
   Wave Motion, In Press, DOI: 10.1016/j.wavemoti.2021.102809
-  (`preprint <preprint2021a>`_).
+  (`preprint <preprint2021a_>`_).
 
 
 2020
@@ -28,8 +28,8 @@ links to the preprints.
   Guarín-Zapata, Florian Maurin, Camilo Valencia (2020).
   Corrigendum to “Probability that a band-gap extremum is located on
   the irreducible Brillouin-zone contour for the 17 different plane
-  crystallographic lattices” [International Journal of Solids and
-  Structures, 135 (2018) 26–36]. (`preprint <preprint2020c_>`_).
+  crystallographic lattices” International Journal of Solids and
+  Structures, 135 (2018) 26–36. (`preprint <preprint2020c_>`_).
 
 - Juan Ortega-Alvarez, Nicolás Guarín-Zapata, Camilo Vieira, and
   Juan Gomez (2020).
