@@ -28,7 +28,7 @@ SITE_URL = "https://nicoguaro.github.io/"
 # BASE_URL = "https://nicoguaro.github.io/"
 BLOG_EMAIL = "nicoguarin@gmail.com"
 BLOG_DESCRIPTION = {"en": "Personal blog and website",
-                     "es": "Blog y sitio web personales"} # (translatable)
+                    "es": "Blog y sitio web personales"} # (translatable)
 
 # Nikola is multilingual!
 #
@@ -1294,7 +1294,7 @@ ga('send', 'pageview');
 
 # If you hate "Filenames with Capital Letters and Spaces.md", you should
 # set this to true.
-UNSLUGIFY_TITLES = True
+FILE_METADATA_UNSLUGIFY_TITLES = True
 
 # Additional metadata that is added to a post when creating a new_post
 # ADDITIONAL_METADATA = {}
