@@ -58,7 +58,11 @@ Ejemplo de uso
 Video mostrando los cuadernillos implementados para un
 proyecto de diseño de una presa.
 
-{{% media url=https://youtu.be/PpkWqyf9EFg %}}
+.. raw:: html
+
+    <iframe width="800" height="452"
+            src="https://www.youtube.com/embed/PpkWqyf9EFg"
+            frameborder="0" allowfullscreen></iframe>
 
 Inventario de recursos de la innovación
 ---------------------------------------
