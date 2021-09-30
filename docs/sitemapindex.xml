@@ -6,12 +6,20 @@
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <sitemap>
+  <loc>https://nicoguaro.github.io/authors/nicolas-guarin-zapata.xml</loc>
+  <lastmod>2021-09-30T16:23:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://nicoguaro.github.io/authors/sebastian-tobon.xml</loc>
+  <lastmod>2021-09-30T16:23:00Z</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>https://nicoguaro.github.io/categories/approximation.xml</loc>
   <lastmod>2021-08-12T20:58:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/categories/back-of-the-envelope-calculations.xml</loc>
-  <lastmod>2021-06-18T17:13:00Z</lastmod>
+  <lastmod>2021-09-30T16:23:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/categories/barycentric-coordinates.xml</loc>
@@ -31,11 +39,11 @@
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/categories/cat_popular-science.xml</loc>
-  <lastmod>2021-06-18T17:13:00Z</lastmod>
+  <lastmod>2021-09-30T16:23:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/categories/cat_posts.xml</loc>
-  <lastmod>2021-05-07T22:16:00Z</lastmod>
+  <lastmod>2021-09-30T16:23:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/categories/cat_research.xml</loc>
@@ -146,6 +154,10 @@
   <lastmod>2021-02-03T21:27:00Z</lastmod>
  </sitemap>
  <sitemap>
+  <loc>https://nicoguaro.github.io/categories/invited-posts.xml</loc>
+  <lastmod>2021-09-30T16:23:00Z</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>https://nicoguaro.github.io/categories/julia.xml</loc>
   <lastmod>2021-08-12T21:09:00Z</lastmod>
  </sitemap>
@@ -231,7 +243,7 @@
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/categories/popular-science.xml</loc>
-  <lastmod>2021-06-18T17:13:00Z</lastmod>
+  <lastmod>2021-09-30T16:23:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/categories/probability.xml</loc>
@@ -350,6 +362,14 @@
   <lastmod>2021-06-18T17:13:00Z</lastmod>
  </sitemap>
  <sitemap>
+  <loc>https://nicoguaro.github.io/es/authors/nicolas-guarin-zapata.xml</loc>
+  <lastmod>2021-09-30T15:53:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://nicoguaro.github.io/es/authors/sebastian-tobon.xml</loc>
+  <lastmod>2021-09-30T16:23:00Z</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/algebra-lineal.xml</loc>
   <lastmod>2021-02-03T21:27:00Z</lastmod>
  </sitemap>
@@ -391,7 +411,7 @@
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/cat_popular-science.xml</loc>
-  <lastmod>2021-06-18T17:13:00Z</lastmod>
+  <lastmod>2021-09-30T16:23:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/cat_posts.xml</loc>
@@ -431,7 +451,7 @@
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/ciencia-popular.xml</loc>
-  <lastmod>2021-06-18T17:13:00Z</lastmod>
+  <lastmod>2021-09-30T16:23:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/combinatoria.xml</loc>
@@ -455,7 +475,7 @@
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/cuentas-de-servilleta.xml</loc>
-  <lastmod>2021-06-18T17:13:00Z</lastmod>
+  <lastmod>2021-09-30T16:23:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/data-science.xml</loc>
@@ -650,6 +670,10 @@
   <lastmod>2021-08-12T21:01:00Z</lastmod>
  </sitemap>
  <sitemap>
+  <loc>https://nicoguaro.github.io/es/categories/publicacion-invitada.xml</loc>
+  <lastmod>2021-09-30T16:23:00Z</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/python.xml</loc>
   <lastmod>2021-08-12T21:09:00Z</lastmod>
  </sitemap>
@@ -747,14 +771,14 @@
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/rss.xml</loc>
-  <lastmod>2021-08-12T21:09:00Z</lastmod>
+  <lastmod>2021-09-30T16:23:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/rss.xml</loc>
-  <lastmod>2021-08-12T21:09:00Z</lastmod>
+  <lastmod>2021-09-30T16:23:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/sitemap.xml</loc>
-  <lastmod>2021-09-30T15:30:00Z</lastmod>
+  <lastmod>2021-09-30T16:23:00Z</lastmod>
  </sitemap>
 </sitemapindex>

@@ -3,7 +3,64 @@
 &lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
 &lt;img alt="Creative Commons License"
 style="border-width:0"
-src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Fri, 18 Jun 2021 17:13:50 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>About teleportation in Star Trek</title><link>https://nicoguaro.github.io/posts/teletransportacion-star-trek/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;A friend once asked me about which of two methods was easier to
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Thu, 30 Sep 2021 16:50:58 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>How much chicharrón can Jeff Bezos buy?</title><link>https://nicoguaro.github.io/posts/chicharron/</link><dc:creator>Sebastián Tobón</dc:creator><description>&lt;div&gt;&lt;p&gt;This is a calculation made by Sebastián Tobón when he was taking the course
+Numerical Methods for Partial Differential Equations (in 2020). The purpose
+was to encourage doing quick calculations (back-of-the-envelope) and having
+the size of some numbers (for example, 10¹²) in their heads.
+Here is the question I asked:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;How much chicharrón (pork rinds) can Jeff Bezos buy?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Below is his answer.&lt;/p&gt;
+&lt;section id="sebastian-s-answer"&gt;
+&lt;h2&gt;Sebastián's answer&lt;/h2&gt;
+&lt;p&gt;Suppose an average pig weighs 80 kg. If its muscle tissue constitutes
+35% to 40% of its body weight, we can ge 30 kg of meat.&lt;/p&gt;
+&lt;p&gt;Jeff Bezos has a net worth of&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+JB = 115.7 \times 10^9 \text{ USD}\, .
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;The price of 100 g of chicharrón is&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+7000\text{ COP}\, \frac{1\text{ USD}}{3539.13\text{ COP}} = 1.978\text{ USD}\, .
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;Jeff Bezos can therefore buy&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+\frac{115.7\times 10^9\text{ USD}}{\frac{1.978\text{ USD}}{100\text{ g}}}
+= 5.85\times 10^{12}\text{ g of chicharrón.}
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;The total number of pigs in the world is 1×10⁹. This is equivalent
+to a total of&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+1\times 10^9 \text{ heads} \times \frac{30\text{ kg}}{1\text{ head}}
+= 3\times 10^{13} \text{ g of chicharrón.}
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;In order to buy all the pork rinds in the world, he must increase his net
+worth by 5.13.&lt;/p&gt;
+&lt;p&gt;The most expensive pigs in the world cost around 1000 USD, then&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+\frac{1000\text{ USD}}{\text{head}}\times 10^9\text{ heads}
+= 10^{12}\text{ USD}\, .
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;On the other hand, he can buy 5.85 times the amount of pigs globally —
+the most expensive in the market. Therefore&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;it is more profitable for him to buy all the pigs in the world.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;&lt;/div&gt;</description><category>back-of-the-envelope calculations</category><category>invited posts</category><category>popular science</category><guid>https://nicoguaro.github.io/posts/chicharron/</guid><pubDate>Thu, 30 Sep 2021 15:42:44 GMT</pubDate></item><item><title>About teleportation in Star Trek</title><link>https://nicoguaro.github.io/posts/teletransportacion-star-trek/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;A friend once asked me about which of two methods was easier to
 teleport people. One consisted of "deconfiguring" and "reconfiguring"
 the person (as information, similar to &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Transporter_%28Star_Trek%29"&gt;Start Trek&lt;/a&gt;
 and the other in "creating a shortcut" between two places in space-time to pass
