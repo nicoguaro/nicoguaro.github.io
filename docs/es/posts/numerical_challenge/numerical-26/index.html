@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html prefix="" lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Reto de métodos numéricos: Día 26 | Nicolás' blog</title>
+<link href="../../../../assets/css/all.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+<link rel="alternate" type="application/rss+xml" title="RSS (en)" href="../../../../rss.xml">
+<link rel="alternate" type="application/rss+xml" title="RSS (es)" href="../../../rss.xml">
+<link rel="canonical" href="https://nicoguaro.github.io/es/posts/numerical_challenge/numerical-26/">
+<!--[if lt IE 9]><script src="../../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Nicolás Guarín-Zapata">
+<link rel="prev" href="../numerical-25/" title="Reto de métodos numéricos: Día 25" type="text/html">
+<link rel="next" href="../numerical-27/" title="Reto de métodos numéricos: Día 27" type="text/html">
+<meta property="og:site_name" content="Nicolás' blog">
+<meta property="og:title" content="Reto de métodos numéricos: Día 26">
+<meta property="og:url" content="https://nicoguaro.github.io/es/posts/numerical_challenge/numerical-26/">
+<meta property="og:description" content="Durante octubre (2017) estaré escribiendo un programa por día para algunos
+métodos numéricos famosos en Python y Julia. Esto está pensado como
+un ejercicio, no esperen que el código sea lo suficientem">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2017-10-26T19:15:08-05:00">
+<meta property="article:tag" content="computación científica">
+<meta property="article:tag" content="julia">
+<meta property="article:tag" content="método de elementos de frontera">
+<meta property="article:tag" content="métodos numéricos">
+<meta property="article:tag" content="python">
+<link rel="alternate" hreflang="en" href="../../../../posts/numerical_challenge/numerical-26/">
+</head>
+<body>
+    <a href="#content" class="sr-only sr-only-focusable">Ir al contenido principal</a>
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+            styles, `#sidebar-checkbox` for behavior. -->
+    <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox"><!-- Toggleable sidebar --><div class="sidebar" id="sidebar">
+        <div class="sidebar-item">
+            <p>This is my personal website and blog.</p>
+        </div>
+        
+    <nav id="menu" role="navigation" class="sidebar-nav"><a class="sidebar-nav-item" href="../../../../pages/about/">About</a>
+        <a class="sidebar-nav-item" href="../../../../index.html">Blog</a>
+        <a class="sidebar-nav-item" href="../../../../pages/preprints-archive/">Preprints</a>
+        <a class="sidebar-nav-item" href="../../../../pages/links/">Links</a>
+        <a class="sidebar-nav-item" href="../../../../archive.html">Archive</a>
+        <a class="sidebar-nav-item" href="../../../../categories/">Tags</a>
+        <a class="sidebar-nav-item" href="../../../../rss.xml">RSS feed</a>
+    
+    
+    </nav>
+</div>
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          
+    <h3 id="brand" class="masthead-title">
+      <a href="https://nicoguaro.github.io/es/" title="Nicolás' blog" rel="home">Nicolás' blog</a>
+    </h3>
+
+        </div>
+      </div>
+
+      <div class="container content" id="content">
+        
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="post-title p-name entry-title" itemprop="headline name"><a href="." class="u-url">Reto de métodos numéricos: Día 26</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
+            <p class="dateline"><a href="." rel="bookmark"><time class="post-date published dt-published" datetime="2017-10-26T19:15:08-05:00" itemprop="datePublished" title="2017-10-26 19:15">2017-10-26 19:15</time></a></p>
+                <p class="commentline">
+        
+    <a href="#disqus_thread" data-disqus-identifier="cache/posts/numerical_challenge/numerical-26.html">Comentarios</a>
+
+
+        </p>
+</div>
+        
+        <div class="metadata posttranslations translations">
+            <h3 class="posttranslations-intro">También disponible en:</h3>
+                <p><a href="../../../../posts/numerical_challenge/numerical-26/" rel="alternate" hreflang="en">English</a></p>
+        </div>
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p>Durante octubre (2017) estaré escribiendo un programa por día para algunos
+métodos numéricos famosos en Python y Julia. Esto está pensado como
+un ejercicio, no esperen que el código sea lo suficientemente bueno para
+usarse en la "vida real". Además, también debo mencionar que casi que no
+tengo experiencia con Julia, así que probablemente no escriba un Julia
+idiomático y se parezca más a Python.</p>
+<section id="metodo-de-elementos-de-frontera"><h2>Método de elementos de frontera</h2>
+<p>Hoy tenemos el <a class="reference external" href="https://en.wikipedia.org/wiki/Boundary_element_method">método de elementos de frontera</a>, o, un intento de él.
+Queremos resolver la ecuación</p>
+<div class="math">
+\begin{equation*}
+\nabla^2 u = -f(x)
+\end{equation*}
+</div>
+<p>con</p>
+<div class="math">
+\begin{equation*}
+u(x) = g(x),\quad \forall (x, y)\in \partial \Omega
+\end{equation*}
+</div>
+<p>Para este método, necesitamos la repreentación integral de la ecuación, que
+en este caso es</p>
+<div class="math">
+\begin{equation*}
+u(\xi)  = \int_{S} [u(x) F(x, \xi) - q(x)G(x, \xi)]dS(x) +
+          \int_{V} f(x) G(x, \xi) dV(x)
+\end{equation*}
+</div>
+<p>con</p>
+<div class="math">
+\begin{equation*}
+G(x,\xi)= -\frac{1}{2\pi}\ln|x- \xi|
+\end{equation*}
+</div>
+<p>y</p>
+<div class="math">
+\begin{equation*}
+F(x,\xi) = -\frac{1}{2\pi |x- \xi|^2}(x - \xi)\cdot\hat{n}
+\end{equation*}
+</div>
+<p>Entonces, podemos formar el sistema de ecuaciones</p>
+<div class="math">
+\begin{equation*}
+[G]\{q\} = [F]\{u\}\, ,
+\end{equation*}
+</div>
+<p>Que obtenemos de discretizar la frontera. Si tomamos variables constantes a lo
+largo de la discretización, las integrales se pueden calcular analíticamente</p>
+<div class="math">
+\begin{equation*}
+G_{nm} = -\frac{1}{2\pi}\left[r \sin\theta\left(\ln|r| - 1\right)
+         + \theta r\cos\theta\right]^{\theta_B, r_B}_{\theta_A, r_A}
+\end{equation*}
+</div>
+<p>y</p>
+<div class="math">
+\begin{equation*}
+F_{nm} = \left[\frac{\theta}{2\pi}\right]^{\theta_B}_{\theta_A}
+\end{equation*}
+</div>
+<p>para <span class="math">\(n\)</span> y <span class="math">\(m\)</span> en diferentes elementos, y los subíndices
+<span class="math">\(A,B\)</span> se refieren a los puntos finales del elemento a evaluar.
+Para los términos en la diagonal las integrales son</p>
+<div class="math">
+\begin{equation*}
+G_{nn} = -\frac{L}{2\pi}\left(\ln\left\vert\frac{L}{2}\right\vert - 1\right)
+\end{equation*}
+</div>
+<p>y</p>
+<div class="math">
+\begin{equation*}
+F_{nn} = - \frac{1}{2\pi}
+\end{equation*}
+</div>
+<p>con <span class="math">\(L\)</span>, el tamaño del elemento.</p>
+<p>A continuación se muestra el código de Python. En este caso, no tuve éxito en
+hacer que el código funcionara.</p>
+<pre class="code python"><a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-1" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-1"></a><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-2" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-2"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-3" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-3"></a><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">log</span><span class="p">,</span> <span class="n">sin</span><span class="p">,</span> <span class="n">cos</span><span class="p">,</span> <span class="n">arctan2</span><span class="p">,</span> <span class="n">pi</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">arctan</span>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-4" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-4"></a><span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="kn">import</span> <span class="n">norm</span><span class="p">,</span> <span class="n">solve</span>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-5" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-5"></a><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-6" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-6"></a>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-7" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-7"></a>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-8" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-8"></a><span class="k">def</span> <span class="nf">assem</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">elems</span><span class="p">):</span>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-9" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-9"></a>    <span class="n">nelems</span> <span class="o">=</span> <span class="n">elems</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-10" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-10"></a>    <span class="n">Gmat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nelems</span><span class="p">,</span> <span class="n">nelems</span><span class="p">))</span>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-11" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-11"></a>    <span class="n">Fmat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nelems</span><span class="p">,</span> <span class="n">nelems</span><span class="p">))</span>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-12" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-12"></a>    <span class="k">for</span> <span class="n">ev_cont</span><span class="p">,</span> <span class="n">elem1</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">elems</span><span class="p">):</span>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-13" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-13"></a>        <span class="nb">print</span><span class="p">(</span><span class="n">coords</span><span class="p">[</span><span class="n">elem1</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">coords</span><span class="p">[</span><span class="n">elem1</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-14" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-14"></a>        <span class="k">for</span> <span class="n">col_cont</span><span class="p">,</span> <span class="n">elem2</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">elems</span><span class="p">):</span>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-15" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-15"></a>            <span class="n">pt_col</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">coords</span><span class="p">[</span><span class="n">elem2</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-16" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-16"></a>            <span class="k">if</span> <span class="n">ev_cont</span> <span class="o">==</span> <span class="n">col_cont</span><span class="p">:</span>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-17" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-17"></a>                <span class="n">L</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="n">coords</span><span class="p">[</span><span class="n">elem1</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">-</span> <span class="n">coords</span><span class="p">[</span><span class="n">elem1</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-18" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-18"></a>                <span class="n">Gmat</span><span class="p">[</span><span class="n">ev_cont</span><span class="p">,</span> <span class="n">ev_cont</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span> <span class="n">L</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="n">L</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-19" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-19"></a>                <span class="n">Fmat</span><span class="p">[</span><span class="n">ev_cont</span><span class="p">,</span> <span class="n">ev_cont</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span> <span class="mf">0.5</span>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-20" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-20"></a>            <span class="k">else</span><span class="p">:</span>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-21" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-21"></a>                <span class="n">Gij</span><span class="p">,</span> <span class="n">Fij</span> <span class="o">=</span> <span class="n">influence_coeff</span><span class="p">(</span><span class="n">elem1</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">pt_col</span><span class="p">)</span>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-22" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-22"></a>                <span class="n">Gmat</span><span class="p">[</span><span class="n">ev_cont</span><span class="p">,</span> <span class="n">col_cont</span><span class="p">]</span> <span class="o">=</span> <span class="n">Gij</span>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-23" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-23"></a>                <span class="n">Fmat</span><span class="p">[</span><span class="n">ev_cont</span><span class="p">,</span> <span class="n">col_cont</span><span class="p">]</span> <span class="o">=</span> <span class="n">Fij</span>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-24" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-24"></a>    <span class="k">return</span> <span class="n">Gmat</span><span class="p">,</span> <span class="n">Fmat</span>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-25" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-25"></a>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-26" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-26"></a>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-27" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-27"></a><span class="k">def</span> <span class="nf">influence_coeff</span><span class="p">(</span><span class="n">elem</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">pt_col</span><span class="p">):</span>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-28" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-28"></a>    <span class="n">r_A</span> <span class="o">=</span> <span class="n">coords</span><span class="p">[</span><span class="n">elem</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">-</span> <span class="n">pt_col</span>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-29" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-29"></a>    <span class="n">r_B</span> <span class="o">=</span> <span class="n">coords</span><span class="p">[</span><span class="n">elem</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">-</span> <span class="n">pt_col</span>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-30" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-30"></a>    <span class="n">theta_A</span> <span class="o">=</span> <span class="n">arctan2</span><span class="p">(</span><span class="n">r_A</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">r_A</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-31" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-31"></a>    <span class="n">theta_B</span> <span class="o">=</span> <span class="n">arctan2</span><span class="p">(</span><span class="n">r_B</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">r_B</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-32" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-32"></a>    <span class="n">G_coeff</span> <span class="o">=</span> <span class="n">r_B</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="n">norm</span><span class="p">(</span><span class="n">r_B</span><span class="p">))</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">theta_B</span><span class="o">*</span><span class="n">r_B</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span>\
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-33" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-33"></a>              <span class="p">(</span><span class="n">r_A</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="n">norm</span><span class="p">(</span><span class="n">r_A</span><span class="p">))</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">theta_A</span><span class="o">*</span><span class="n">r_A</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-34" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-34"></a>    <span class="n">F_coeff</span> <span class="o">=</span> <span class="n">theta_B</span> <span class="o">-</span> <span class="n">theta_A</span>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-35" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-35"></a>    <span class="k">return</span> <span class="o">-</span><span class="n">G_coeff</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">),</span> <span class="n">F_coeff</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">)</span>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-36" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-36"></a>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-37" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-37"></a>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-38" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-38"></a><span class="k">def</span> <span class="nf">eval_sol</span><span class="p">(</span><span class="n">ev_coords</span><span class="p">,</span> <span class="n">coords</span><span class="p">):</span>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-39" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-39"></a>    <span class="n">nelems</span> <span class="o">=</span> <span class="n">elems</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-40" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-40"></a>    <span class="n">Gmat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nelems</span><span class="p">,</span> <span class="n">nelems</span><span class="p">))</span>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-41" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-41"></a>    <span class="n">Fmat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nelems</span><span class="p">,</span> <span class="n">nelems</span><span class="p">))</span>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-42" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-42"></a>    <span class="k">for</span> <span class="n">ev_cont</span><span class="p">,</span> <span class="n">elem1</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">elems</span><span class="p">):</span>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-43" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-43"></a>        <span class="n">L</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="n">coords</span><span class="p">[</span><span class="n">elem1</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">-</span> <span class="n">coords</span><span class="p">[</span><span class="n">elem1</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-44" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-44"></a>        <span class="k">for</span> <span class="n">col_cont</span><span class="p">,</span> <span class="n">elem2</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">elems</span><span class="p">):</span>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-45" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-45"></a>            <span class="n">pt_col</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">coords</span><span class="p">[</span><span class="n">elem2</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-46" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-46"></a>            <span class="k">if</span> <span class="n">ev_cont</span> <span class="o">==</span> <span class="n">col_cont</span><span class="p">:</span>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-47" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-47"></a>                <span class="n">Gmat</span><span class="p">[</span><span class="n">ev_cont</span><span class="p">,</span> <span class="n">ev_cont</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span> <span class="n">L</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="n">L</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-48" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-48"></a>                <span class="n">Fmat</span><span class="p">[</span><span class="n">ev_cont</span><span class="p">,</span> <span class="n">ev_cont</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span> <span class="mf">0.5</span>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-49" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-49"></a>            <span class="k">else</span><span class="p">:</span>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-50" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-50"></a>                <span class="n">Gmat</span><span class="p">[</span><span class="n">ev_cont</span><span class="p">,</span> <span class="n">col_cont</span><span class="p">],</span> <span class="n">Fmat</span><span class="p">[</span><span class="n">ev_cont</span><span class="p">,</span> <span class="n">col_cont</span><span class="p">]</span> <span class="o">=</span> \
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-51" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-51"></a>                    <span class="n">influence_coeff</span><span class="p">(</span><span class="n">elem1</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">pt_col</span><span class="p">)</span>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-52" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-52"></a>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-53" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-53"></a><span class="n">nelems</span> <span class="o">=</span> <span class="mi">3</span>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-54" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-54"></a><span class="n">rad</span> <span class="o">=</span> <span class="mf">1.0</span>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-55" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-55"></a><span class="n">theta</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">,</span> <span class="n">nelems</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-56" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-56"></a><span class="n">coords</span> <span class="o">=</span> <span class="n">rad</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)))</span><span class="o">.</span><span class="n">T</span>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-57" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-57"></a><span class="n">elems</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">cont</span><span class="p">,</span> <span class="p">(</span><span class="n">cont</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="n">nelems</span><span class="p">]</span> <span class="k">for</span> <span class="n">cont</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nelems</span><span class="p">)])</span>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-58" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-58"></a><span class="n">Gmat</span><span class="p">,</span> <span class="n">Fmat</span> <span class="o">=</span> <span class="n">assem</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">elems</span><span class="p">)</span>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-59" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-59"></a><span class="n">u_boundary</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+<a id="rest_code_4d53d394a05e4666854ee5a2fbb645ae-60" name="rest_code_4d53d394a05e4666854ee5a2fbb645ae-60"></a><span class="n">q_boundary</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">Gmat</span><span class="p">,</span> <span class="n">Fmat</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">u_boundary</span><span class="p">))</span>
+</pre></section>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../../../categories/computacion-cientifica/" rel="tag">computación científica</a></li>
+            <li><a class="tag p-category" href="../../../categories/julia/" rel="tag">julia</a></li>
+            <li><a class="tag p-category" href="../../../categories/metodo-de-elementos-de-frontera/" rel="tag">método de elementos de frontera</a></li>
+            <li><a class="tag p-category" href="../../../categories/metodos-numericos/" rel="tag">métodos numéricos</a></li>
+            <li><a class="tag p-category" href="../../../categories/python/" rel="tag">python</a></li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="previous">
+                <a href="../numerical-25/" rel="prev" title="Reto de métodos numéricos: Día 25">Publicación anterior</a>
+            </li>
+            <li class="next">
+                <a href="../numerical-27/" rel="next" title="Reto de métodos numéricos: Día 27">Siguiente publicación</a>
+            </li>
+        </ul></nav></aside><section class="comments hidden-print"><h2>Comentarios</h2>
+        
+        
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="nicoguaro-github",
+            disqus_url="https://nicoguaro.github.io/es/posts/numerical_challenge/numerical-26/",
+        disqus_title="Reto de m\u00e9todos num\u00e9ricos: D\u00eda 26",
+        disqus_identifier="cache/posts/numerical_challenge/numerical-26.html",
+        disqus_config = function () {
+            this.language = "es_ES";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
+        </script></article><script>var disqus_shortname="nicoguaro-github";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><footer id="footer"><p>Contents © 2021 <a href="mailto:nicoguarin@gmail.com">Nicolás Guarín-Zapata</a> - Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a> 
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+<img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png"></a></p>
+            
+        </footer>
+</div>
+    </div>
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+    
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-145359674-1', 'auto');
+ga('send', 'pageview');
+</script><script src="../../../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+    moment.locale("es");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>

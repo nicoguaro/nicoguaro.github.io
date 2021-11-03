@@ -1,16 +1,23 @@
 .. title: Technical writing: Using Figures
 .. slug: tech_writing_fig
-.. date: 2020-05-28 15:53:40 UTC-05:00
+.. date: 2021-11-01 12:53:40 UTC-05:00
 .. tags: writing, research, typography, libreoffice, latex, inkscape, figures
 .. category: Writing
 .. link:
-.. description: Tips on math in technical writing.
+.. description: Tips on figures in technical writing.
 .. type: text
-.. status: draft
+.. has_math: yes
 
 In a `previous post <../tech_writing>`_ I mentioned some general aspects of
 technical writing. In this one, I would like to talk about including
 figures in technical documents.
+
+This post is about some details on the planning of figures for technical
+documents. The main document in mind is a technical article (research paper,
+techincal report). Although, it also applies to presentations or posters.
+
+Graphic formats
+===============
 
 First, I should mention that there are two main type of graphics, namely:
 
@@ -18,58 +25,158 @@ First, I should mention that there are two main type of graphics, namely:
 
 - raster graphics.
 
-Recapitulando, deberíamos usar imágenes JPG para fotografías y SVG
-para esquemas/diagramas. Otro atributo que puede ser de utilidad es el
-manejo de capas, SVG permite esto.... y de formatos ráster tenemos la
-opción de usar TIFF.
-
-En cuanto a software para generar/editar este tipo de imágenes debo
-decir que existen gran cantidad de programas que permiten exportar a
-estos formatos: Python/Matplotlib, Matlab, Inkscape, Adobe
-Illustrator, GIMP, Photoshop, LibreOffice. Si el gráfico es generado a
-partir de un cálculo o de una serie de datos yo uso Matplotlib. Si en
-cambio, queremos hacer un esquema o —como suelo decir— un muñeco mi
-herramienta favorita es `Inkscape. <http://www.inkscape.org/>`__ Este
-programa pretende ser una alternativa libre a programas como Adobe
-Illustrator —y sí que lo consigue. Obviamente, se podría usar
-Illustrator o Corel Draw para esta tarea. Si el único uso sería hacer
-esquemas técnico, creo que sería un desperdicio.
-
+They serve different purposes and we should use them accordingly. For example,
+for diagrams or schematics is better to use vector formats, in general. On
+the other hand, raster formats are better suited for images such as photographs
+or illustrations.
 
 Vector graphics
 ---------------
 
-`Imagen vectorial <http://en.wikipedia.org/wiki/Vector_graphics>`__:
-es una imagen que está formada por entidades geométricas. En esta no
-se almacena la información punto a punto sino *la construcción* de
-las formas que la constituyen. Por esta razón, estas imágenes no se
-*pixelan* pues la información que se tiene es de cómo construirla.
-Este tipo de imágenes es la mejor opciones para esquemas y diagramas,
-pues sólo se almacena la información de los trazos y texto que se
-añadan en ellas (ver Figura 1). El estándar *de facto* para este tipo
-de imágenes es PDF —es el que suelo para incluir en mis documentos
-\\(\\LaTeX\\), aunque existe forma de embeber SVG en \\(\\LaTeX\\)
-pero es algo que aún no exploro—. A pesar de que PDF sea el
-*estándar*, el formato a preferir es `SVG (Scalable Vector
+A `vector image <http://en.wikipedia.org/wiki/Vector_graphics>`__
+is an image that is made up of geometric entities. In this case, the
+stored information is not point-to-point but *the construction* of
+the shapes that constitute it. For this reason, these images don't
+*pixelate* because the information you have is how to build it.
+This type of images is the best options for schematics and diagrams,
+since the only stored information are the strokes and text added to
+them. The *de facto* standard for this type of images is PDF —it is the one
+I usually include in my documents \\(\\LaTeX\\). Although PDF is the
+*standard*, the preferred format is `SVG (Scalable Vector
 Graphics) <http://en.wikipedia.org/wiki/Scalable_Vector_Graphics>`__
-que es un estándar a través de la internet y la mayoría de
-navegadores *modernos* permiten visualizar.
+which is a standard across the internet and most *modern* browsers
+let you render them.
 
 Raster graphics
 ---------------
 
-`Imagen de mapa de
-bits <http://en.wikipedia.org/wiki/Raster_graphics>`__: es una imagen
-que está representada por un arreglo (o rejilla rectangular) de
-pixeles. Dicho de otro modo, se almacena la información de color que
-hay en cada punto de la imagen. Los formatos más populares almacenan
-la información comprimida. Para gráficos con alto contraste (como
-esquemas o diagramas) el mejor formato es PNG. Si se tiene una
-animación, GIF sería preferible. Y para el caso de fotografías es
-mejor utilizar JPG.
+A `raster image <http://en.wikipedia.org/wiki/Raster_graphics>`__ is an image
+which is represented by an array (or rectangular grid) of pixels. In other
+words, the color information that there are in each point of the image. The
+most popular formats store the compressed information. For high contrast
+graphics (such as schematics or diagrams) the best format is PNG. If you have
+an animation, GIF would be preferable. And in the case of photographs it is
+better to use JPG.
+
+Summary for formats
+-------------------
+
+Summarizing, we should use JPG images (only) for photographs and SVG for
+schematics/diagrams. Another attribute that may be useful is the management
+of layers. Having several layers gives you the option of stacking different
+type of information separately. For example, you can have the background,
+the image, and the annotations in different layers. This way you can modify
+only the part of the figure that concerns you. You can automate the translation
+of the annotations this way without much problem. Formats such as SVG let you
+have several layers. In the case of raster formats we have the
+option to use TIFF.
+
+Regarding software to generate/edit this type of images I must say that there
+are a large number of programs that allow exporting to these formats:
+Python/Matplotlib, Matlab, Inkscape, Adobe Illustrator, GIMP, Photoshop,
+LibreOffice. If the graph is generated from a calculation or a data series I
+use Matplotlib. If, instead, we want to make a schematic my tool of choice
+is `Inkscape <http://www.inkscape.org/>`__. This program is intended to be a
+free alternative to programs like Adobe Illustrator —and it does achieve it.
+Obviously, you could use Illustrator or Corel Draw for this task. If the only
+use would be to make technical schematics, I think it would be a waste.
+
 
 Designing figures for documents
--------------------------------
+===============================
+
+The approach that I suggest is starting from the nominal size of the figure in
+the document. For most of our documents the figures will remain digital and this
+might seem counterintuitive. Nevertheless, I find this approach much easier.
+One of the reasons is that we still embed our figure in a document with a
+nominal size. For an article is common to use letter size that is 8.5 in × 11 in
+(215.9 mm × 279.4 mm). Another common size is A4 that is 210 m × 297 mm 
+(8.27 in × 11.7 in).
+
+
+
+Mi consejo es empezar con el tamaño nominal que tendría la figura en el paper
+
+Y devolverse
+
+Y no al revés
+
+Luego es mucho más teso saber qué tamaño de texto usar
+
+O grosor de línea
+
+En ambos casos utilice imágenes de una resolución mínima de 150 ppp
+(puntos por pulgada), para esto tenga en cuenta el tamaño que la imagen
+ocupará en el póster. Por ejemplo, tomemos una imagen de 6 × 3 in2. Esta
+imagen tendría un tamaño (a 150 ppp) de 900 × 450 pixeles.
+El siguiente bloque de código de Python crea una figura de 6 × 3 in2, reali-
+za el gráfico de la función f(x) = sin(x2) y lo guarda en una figura de
+900 × 450 pixeles.
+
+.. code:: python
+
+   import numpy as np
+   import matplotlib.pyplot as plt
+   x = np.linspace(0, 2*np.pi, 500)
+   y = np.sin(x**2)
+   plt.figure(figsize=(6, 3))
+   plt.plot(x, y)
+   plt.savefig("figura_ejemplo.png", dpi=150)
+
+Mi consejo es eempezar con el tamaño nominal que tendría la figura en el paper
+
+Y devolverse
+
+Y no al revés
+
+Luego es mucho más teso saber qué tamaño de texto usar
+
+O grosor de línea
+
+Pero no existe tal cosa como "resolución"
+
+Eso ya no se imprime
+
+Uno necesita es una cantidad de pixeles
+
+Yo tengo una pantalla de 22 pulgadas acá
+
+Y eso "apenas" tiene 1920 pixeles
+
+Pero por eso, DPI no es algo real en imágenes digitales
+
+Lo que cuenta es el número de pixeles
+
+Porque DPI es el número de pixeles dividido por el tamaño nominal. Y el tamaño nominal es un número en los metadatos
+
+No información "real"
+
+Serían como 6 pulgadas
+
+Entonces 6 in × 300 dpi = 1800 pixeles
+
+Entonces, esa imagen no necesita tener más de 1800 pixeles de ancho
+
+
+
+
+Hay varios objetivos en mi enfoque
+
+Los editores de una revista te van a pedir una "resolución", usualmente 300 dpi
+
+Y si tu imagen tiene un tamaño nominal muy grande pues va a quedar gigante
+
+Si el tamaño nominal es el tamaño que tenés en mente para el paper pues queda melo
+
+Lo mismo con coautores
+
+Muchos no saben todo esto y te van a pelear
+
+Y pues, tener 5 imágenes de 50 MB es un dolor de cabeza
+
+Y eso es maluco. Porque una revista no va a meterlas tal cual sino que te las comprimen y ponen la versión online con más "resolución"
+
+La otra razón, que me parece más importane es que te permite diseñar figuras de forma más efectiva
 
 It depends on the document:
 
@@ -85,8 +192,10 @@ It depends on the document:
 References
 ----------
 
-1. "Artwork Overview."
-   https://www.elsevier.com/authors/author-schemas/artwork-and-media-instructions/artwork-overview.
-   Accessed 9 Aug. 2020.
+1. Elsevier. (n.d.). "Artwork Overview." Retrieved November 1, 2021,
+   from https://www.elsevier.com/authors/policies-and-guidelines/artwork-and-media-instructions/artwork-overview
 
-https://aip.scitation.org/jap/authors/manuscript
+2. Journal of applied physics (n.d.). "Preparing Your Manuscript: Authors
+   Instruction." Retrieved November 1, 2021, from https://aip.scitation.org/jap/authors/manuscript
+
+

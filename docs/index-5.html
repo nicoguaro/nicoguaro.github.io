@@ -20,8 +20,7 @@
             styles, `#sidebar-checkbox` for behavior. -->
     <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox"><!-- Toggleable sidebar --><div class="sidebar" id="sidebar">
         <div class="sidebar-item">
-            <p>A reserved <a href="https://getnikola.com" target="_blank">Nikola</a> theme that places the utmost gravity on content with a hidden drawer. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a> for Jekyll,
-            ported to Nikola by <a href="https://twitter.com/ralsina" target="_blank">@ralsina</a>.</p>
+            <p>This is my personal website and blog.</p>
         </div>
         
     <nav id="menu" role="navigation" class="sidebar-nav"><a class="sidebar-nav-item" href="pages/about/">About</a>
@@ -53,7 +52,70 @@
         
 
 <div class="posts">
-    <article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/isometric_inkscape/" class="u-url">Isometric graphics in Inkscape</a></h1>
+    <article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/isometric_inkscape2/" class="u-url">Isometric graphics in Inkscape: Part 2</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
+            <p class="dateline"><a href="posts/isometric_inkscape2/" rel="bookmark"><time class="post-date published dt-published" datetime="2018-05-30T12:40:57-05:00" title="2018-05-30 12:40">2018-05-30 12:40</time></a></p>
+                <p class="commentline">
+        
+    <a href="posts/isometric_inkscape2/#disqus_thread" data-disqus-identifier="cache/posts/isometric_inkscape2.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <div>
+<p><a class="reference external" href="posts/isometric_inkscape">Last week</a>  I posted a quick guide on isometric
+drawing using <a class="reference external" href="https://inkscape.org/en/">Inkscape</a>. In that post, I
+showed how to obtain images that are projected to the faces of an
+isometric box.</p>
+<p>After my post, I was asked by <a class="reference external" href="https://twitter.com/parresianz">Biswajit Banerjee</a>
+on <a class="reference external" href="https://twitter.com/parresianz/status/999787980658126848">Twitter</a> if
+I could repeat the process with a more complex example, and he suggested
+the following schematic</p>
+<img alt="Computing the moment of force in a beam" class="align-center" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Beam_moment_plain.svg/512px-Beam_moment_plain.svg.png"><p>which, I guess, was created in Inkscape using the "Create 3D Box" option.</p>
+<p>In this post, I will:</p>
+<ol class="arabic simple">
+<li><p>Use the same approach from last week to recreate this schematic</p></li>
+<li><p>Suggest my preferred approach for drawing this schematic</p></li>
+</ol>
+<div class="section" id="first-approach">
+<h2>First approach</h2>
+<p>I will repeat the cheatsheet from last week. Keep in mind that Inkscape
+treats clockwise rotation as positive. Opposite to common notation in
+mathematics.</p>
+<img alt="Cheatsheet for isometric schematics in Inkscape" class="align-center" src="images/isometric_inkscape/isometric_instructions.svg" style="width: 500px;"><p>Then, to create a box with desired dimensions we first create each rectangle
+with the right dimensiones (in parallel projections). In the following
+example we used faces with aspect ratios 3:2, 2:1 and 4:3. The box at the right
+is the figure obtained after applying the transformations described in
+the previous schematic.</p>
+<img alt="Orthogonal views and final isometric figure" class="align-center" src="images/isometric_inkscape/isometric_ex2.svg" style="width: 500px;"><p>We can now proceed, to recreate the desired figure. I don't know the
+exact dimensions of the box; my guess is that the cross-section was
+a square and the aspect ratio was 5:1. After applying the transformations
+to each rectangle we obtain the following (adding some tweaks here and there).</p>
+<img alt="Recreated figure using the described approach" class="align-center" src="images/isometric_inkscape/isometric_beam.svg" style="width: 500px;">
+</div>
+<div class="section" id="second-approach">
+<h2>Second approach</h2>
+<p>For this type of schematic, I would prefer to create an axonometric grid
+(<code class="docutils literal">File &gt; Document Properties &gt; Grids</code>). After adding the grid to our
+canvas it is pretty straightforward to draw the figures in isometric
+view. The canvas should look similar to the following image.</p>
+<img alt="Second approach: using an axonometric grid" class="align-center" src="images/isometric_inkscape/screenshot_inkscape.png" style="width: 500px;"><p>We can then draw each face using the grid. If we want to be more precise
+we can activate <code class="docutils literal">Snap to Cusp Nodes</code>. The following animation shows
+the step by step construction.</p>
+<img alt="Step by step construction of the isometric" class="align-center" src="images/isometric_inkscape/isometric_construction.gif" style="width: 500px;"><p>And we obtain the final image.</p>
+<img alt="Recreated figure using the second approach" class="align-center" src="images/isometric_inkscape/isometric_beam2.svg" style="width: 500px;">
+</div>
+<div class="section" id="conclusion">
+<h2>Conclusion</h2>
+<p>As I mentioned, Inkscape can be used for drawing simple figures in isometric
+projection. Nevertheless, I strongly suggest to use a CAD like
+<a class="reference external" href="https://freecadweb.org/">FreeCAD</a> for more complicated geometries.</p>
+</div>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/isometric_inkscape/" class="u-url">Isometric graphics in Inkscape</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
             <p class="dateline"><a href="posts/isometric_inkscape/" rel="bookmark"><time class="post-date published dt-published" datetime="2018-05-24T15:42:02-05:00" title="2018-05-24 15:42">2018-05-24 15:42</time></a></p>

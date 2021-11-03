@@ -20,8 +20,7 @@
             styles, `#sidebar-checkbox` for behavior. -->
     <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox"><!-- Toggleable sidebar --><div class="sidebar" id="sidebar">
         <div class="sidebar-item">
-            <p>A reserved <a href="https://getnikola.com" target="_blank">Nikola</a> theme that places the utmost gravity on content with a hidden drawer. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a> for Jekyll,
-            ported to Nikola by <a href="https://twitter.com/ralsina" target="_blank">@ralsina</a>.</p>
+            <p>This is my personal website and blog.</p>
         </div>
         
     <nav id="menu" role="navigation" class="sidebar-nav"><a class="sidebar-nav-item" href="../pages/about/">About</a>
@@ -53,7 +52,71 @@
         
 
 <div class="posts">
-    <article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/isometric_inkscape/" class="u-url">Gráficos isométricos en Inkscape</a></h1>
+    <article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/isometric_inkscape2/" class="u-url">Gráficos isométricos en Inkscape: Parte 2</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
+            <p class="dateline"><a href="posts/isometric_inkscape2/" rel="bookmark"><time class="post-date published dt-published" datetime="2018-05-30T12:40:57-05:00" title="2018-05-30 12:40">2018-05-30 12:40</time></a></p>
+                <p class="commentline">
+        
+    <a href="posts/isometric_inkscape2/#disqus_thread" data-disqus-identifier="cache/posts/isometric_inkscape2.html">Comentarios</a>
+
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <div>
+<p><a class="reference external" href="posts/isometric_inkscape">La semana pasada</a> publiqué una guía rápida
+sobre dibujos isométricos dibujar usando <a class="reference external" href="https://inkscape.org/en/">Inkscape</a>.
+En ese post, mostré cómo obtener imágenes que se proyectan a las caras de
+un bloque isométrico.</p>
+<p>Después de mi publicación, <a class="reference external" href="https://twitter.com/parresianz">Biswajit Banerjee</a>
+me preguntó en <a class="reference external" href="https://twitter.com/parresianz/status/999787980658126848">Twitter</a>
+si podría repetir el proceso con un ejemplo más complejo, y él sugirió
+el siguiente diagramaa</p>
+<img alt="Cálculo del momento de inercia para una viga." class="align-center" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Beam_moment_plain.svg/512px-Beam_moment_plain.svg.png"><p>que, creo, se creó en Inkscape usando la opción "Crear caja 3D".</p>
+<p>En esta publicación, haré lo siguiente:</p>
+<ol class="arabic simple">
+<li><p>Usar el mismo enfoque de la semana pasada para recrear este esquema.</p></li>
+<li><p>Sugerir mi enfoque preferido para dibujar este esquema.</p></li>
+</ol>
+<div class="section" id="primer-enfoque">
+<h2>Primer enfoque</h2>
+<p>Repetiré el resumen de la semana pasada. Hay que tener en cuenta que
+Inkscape trata la rotación en sentido horario como positiva.</p>
+<img alt="Resumen para esquemas isométricos en Inkscape." class="align-center" src="../images/isometric_inkscape/isometric_instructions.svg" style="width: 500px;"><p>Luego, para crear una caja con las dimensiones deseadas, primero creamos
+cada rectángulo con las dimensiones correctas (en proyecciones paralelas).
+En el siguiente ejemplo, usamos caras con relaciones de aspecto 3:2,
+2:1 y 4:3. La caja de la derecha es la cifra obtenida después de aplicar
+las transformaciones descritas en el esquema anterior.</p>
+<img alt="Orthogonal views and final isometric figure" class="align-center" src="../images/isometric_inkscape/isometric_ex2.svg" style="width: 500px;"><p>Ahora podemos proceder, para recrear la figura deseada. No conozco las
+dimensiones exactas de la caja; supongo que la sección transversal era
+un cuadrado y la relación de aspecto era 5:1. Después de aplicar las
+transformaciones para cada rectángulo obtenemos lo siguiente
+(agregando algunos ajustes aquí y allá).</p>
+<img alt="Figura usando el enfoque descrito." class="align-center" src="../images/isometric_inkscape/isometric_beam.svg" style="width: 500px;">
+</div>
+<div class="section" id="segundo-enfoque">
+<h2>Segundo enfoque</h2>
+<p>Para este tipo de esquema, preferiría crear una cuadrícula axonométrica
+(<code class="docutils literal">Archivo &gt; Propiedades de documento &gt; Cuadrículas</code>). Después de
+agregar la cuadrícula a nuestro lienzo es bastante sencillo dibujar las
+figuras en vista isométrica. El lienzo debe ser similar a la siguiente
+imagen.</p>
+<img alt="Segundo enfoque: usando una rejilla axonométrica." class="align-center" src="../images/isometric_inkscape/screenshot_inkscape.png" style="width: 500px;"><p>Luego podemos dibujar cada cara usando la cuadrícula. Si queremos ser
+más precisos podemos activar <code class="docutils literal">Ajustar a nodos cúspides</code>. La siguiente
+animación muestra la construcción paso a paso.</p>
+<img alt="Construcción del isométrico paso a paso." class="align-center" src="../images/isometric_inkscape/isometric_construction.gif" style="width: 500px;"><p>Y obtenemos la siguiente imagen.</p>
+<img alt="Figura usando el segundo enfoque." class="align-center" src="../images/isometric_inkscape/isometric_beam2.svg" style="width: 500px;">
+</div>
+<div class="section" id="conclusion">
+<h2>Conclusión</h2>
+<p>Como mencioné, Inkscape se puede usar para dibujar figuras simples en
+proyección isométrica. Sin embargo, sugiero utilizar un CAD como
+<a class="reference external" href="https://freecadweb.org/">FreeCAD</a> para geometrías más complicadas.</p>
+</div>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/isometric_inkscape/" class="u-url">Gráficos isométricos en Inkscape</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
             <p class="dateline"><a href="posts/isometric_inkscape/" rel="bookmark"><time class="post-date published dt-published" datetime="2018-05-24T15:42:02-05:00" title="2018-05-24 15:42">2018-05-24 15:42</time></a></p>
