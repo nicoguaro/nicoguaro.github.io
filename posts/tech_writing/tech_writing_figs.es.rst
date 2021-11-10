@@ -1,10 +1,10 @@
-.. title: Technical writing: Using Figures
+.. title: Escritura técnica: usando figuras
 .. slug: tech_writing_figs
 .. date: 2021-11-03 12:53:40 UTC-05:00
 .. tags: escritura, investigación, tipografía, libreoffice, latex, inkscape, figuras
 .. category: Writing
 .. link:
-.. description:  Consejos para escritura técnica con figuras.
+.. description: Consejos para escritura técnica con figuras.
 .. type: text
 .. has_math: yes
 
