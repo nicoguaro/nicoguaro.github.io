@@ -19,7 +19,7 @@ techincal report). Although, it also applies to presentations or posters.
 Graphic formats
 ===============
 
-First, I should mention that there are two main type of graphics, namely:
+First, I should mention that there are two main types of graphics, namely:
 
 - vector graphics; and
 
@@ -64,11 +64,11 @@ Summary for formats
 Summarizing, we should use JPG images (only) for photographs and SVG for
 schematics/diagrams. Another attribute that may be useful is the management
 of layers. Having several layers gives you the option of stacking different
-type of information separately. For example, you can have the background,
+types of information separately. For example, you can have the background,
 the image, and the annotations in different layers. This way you can modify
 only the part of the figure that concerns you. You can automate the translation
 of the annotations this way without much problem. Formats such as SVG let you
-have several layers. In the case of raster formats we have the
+have several layers. In the case of raster formats, we have the
 option to use TIFF.
 
 Regarding software to generate/edit this type of images I must say that there
@@ -86,14 +86,14 @@ Designing figures for documents
 ===============================
 
 I suggest starting from the nominal size of the figure in the document. For
-most of our documents the figures will remain digital and this
+most of our documents, the figures will remain digital and this
 might seem counterintuitive. Nevertheless, I find this approach much easier.
 One of the reasons is that we still embed our figure in a document with a
-nominal size. Also, when thinking about fontsize it is common that we have as
+nominal size. Also, when thinking about font size it is common that we have as
 reference printed text. On top of that, we should consider that the human eye
 has a resolution limit, so we can't just scale down our figures.
 
-Also, there is no such a thing of resolution of a digital image. Resolution
+Also, there is no such thing as resolution of a digital image. Resolution
 refers to a density of pixels per unit length. This makes sense when printing
 images, but not in the digital case. Nevertheless, the figures have a nominal
 size and hence a nominal resolution. That is, the number of pixels in one
@@ -102,7 +102,7 @@ minimal resolution of 150 dpi (dots per inch). For example, an image of
 6 in × 3 in. This image would have a size of (at 150 dpi) of de 900 px × 450 px.
 
 The following Python snippet creates a figure of size 6 in × 3 in, and plots
-the function\\(f(x) = \\sin(x^2)\\) and stores it as an image of size
+the function \\(f(x) = \\sin(x^2)\\) and stores it as an image of size
 900 in × 450 in.
 
 .. code:: python
@@ -142,14 +142,14 @@ Articles
 --------
 
 For an article is common to use letter size that is 8.5 in × 11 in
-(215.9 mm × 279.4 mm). Another common size is A4 that is 210 m × 297 mm 
+(215.9 mm × 279.4 mm). Another common size is A4 that is 210 mm × 297 mm 
 (8.27 in × 11.7 in).
 
 A guideline for common sizes is the following:
 
 - 1.0 columns width: 90 mm (3.5 in);
 - 1.5 columns width: 140 mm (5.5 in);
-- 2 columns width: 190 mm (6.5 in);
+- 2.0 columns width: 190 mm (6.5 in);
 
 and depicted in the following image.
 
@@ -163,7 +163,7 @@ of pixels horizontally
 
 - 1.0 columns width: 1050 pixels;
 - 1.5 columns width: 1650 pixels; and
-- 2 columns width: 1950 pixels.
+- 2.0 columns width: 1950 pixels.
 
 Note that an HD display has 1920 pixels in the horizontal direction. That means
 that you need a HD display to be able to see that much pixels.
@@ -174,13 +174,14 @@ Regarding text size, it is common to have sizes between 8 and 12 pts for figures
 Posters
 -------
 
-In the case of a (A0 size) the sizes would be around:
+In the case of an A0 size paper (841 mm × 1189 mm, 33 in × 47 in) the sizes
+would be around:
 
 - 1.0 columns width: 360 mm (14 in);
-- 1.5 columns width: 560 mm (22 in);
-- 2 columns width: 760 mm (26 in);
+- 1.5 columns width: 560 mm (22 in); and
+- 2.0 columns width: 760 mm (26 in).
 
-keep in mind that a poster might not fit into the two-column format. Although,
+Keep in mind that a poster might not fit into the two-column format. Although,
 I still find the reference for the size useful.
 
 Regarding the size of fonts in posters it is a good idea to keep it over

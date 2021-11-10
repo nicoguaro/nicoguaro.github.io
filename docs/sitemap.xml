@@ -459,7 +459,7 @@
  </url>
  <url>
   <loc>https://nicoguaro.github.io/es/categories/</loc>
-  <lastmod>2021-11-02T15:36:00Z</lastmod>
+  <lastmod>2021-11-10T20:16:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/es/categories/algebra-lineal/</loc>
@@ -608,6 +608,10 @@
  <url>
   <loc>https://nicoguaro.github.io/es/categories/factorizacion-lu/</loc>
   <lastmod>2021-11-02T15:33:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://nicoguaro.github.io/es/categories/figuras/</loc>
+  <lastmod>2021-11-10T20:16:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/es/categories/figures/</loc>
@@ -1795,6 +1799,7 @@
  <url>
   <loc>https://nicoguaro.github.io/posts/tech_writing/tech_writing_figs/</loc>
   <lastmod>2021-11-02T15:37:00Z</lastmod>
+  <xhtml:link rel="alternate" hreflang="es" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/" />
  </url>
  <url>
   <loc>https://nicoguaro.github.io/posts/tech_writing/tech_writing_math/</loc>
