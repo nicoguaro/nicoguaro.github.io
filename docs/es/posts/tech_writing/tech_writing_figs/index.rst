@@ -51,7 +51,7 @@ En otras palabras, la información del color que hay en cada uno de los puntos
 de la imagen. Los formatos más populares almacenan la información de forma
 comprimida. Para gráficos de alto contraste (como esquemas o diagramas) el mejor
 formato es PNG. Si se tienen animaciones, sería preferible usar GIF. Y en el
-caso de fotografís es mejor usar JPG.
+caso de fotografías es mejor usar JPG.
 
 Resumen para los formatos
 -------------------------
