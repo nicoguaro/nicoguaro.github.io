@@ -33,20 +33,20 @@ ar             juglar          radar           enser
 auricular      lagar           radicular       ester
 avatar         lanar           rectangular     menester
 axilar         lar             reticular       mercader
-azahar         limonar         samovar         neceser
-azar           llar            secular         palier
-bacillar       lobular         seglar          placer
-bar            lodazar         semicircular    plumier
-bazar          lugar           semilunar       premier
-bicelular      lunar           similar         primer
-bienestar      malar           solar           rosicler
-bifilar        maleolar        subcelular      salmer
-biliar         malvar          supraclavicular somier
-billar         mandibular      supralunar      sumiller
-binocular      manglar         telar           taller
-bipolar        manillar        testicular      tercer
-broncopulmonar manjar          tisular         veguer
-bulevar        mar             trifilar
+azahar         limonar         samovar         micer
+azar           llar            secular         neceser
+bacillar       lobular         seglar          palier
+bar            lodazar         semicircular    placer
+bazar          lugar           semilunar       plumier
+bicelular      lunar           similar         premier
+bienestar      malar           solar           primer
+bifilar        maleolar        subcelular      rosicler
+biliar         malvar          supraclavicular salmer
+billar         mandibular      supralunar      somier
+binocular      manglar         telar           sumiller
+bipolar        manillar        testicular      taller
+broncopulmonar manjar          tisular         tercer
+bulevar        mar             trifilar        veguer
 calamar        maxilar         trufar
 calcañar       melocotonar     tubular
 capilar        melonar         tular
@@ -69,4 +69,14 @@ dispar         palomar
 ejemplar       papilar
 escolar        par
 ============== =============== =============== ========= ========
+
+|
+
+Si tienes alguna sugerencia de palabra que haga falta la puedes dejar en los
+comentarios.
+
+Última actualización: Febrero 2, 2022.
+
+Descargar la lista en formato `CSV </downloads/ar_er_ir.csv>`_ o en formato
+`XLS </downloads/ar_er_ir.xls>`_.
 
