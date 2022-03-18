@@ -927,6 +927,11 @@
   <xhtml:link rel="alternate" hreflang="en" href="https://nicoguaro.github.io/pages/software/" />
  </url>
  <url>
+  <loc>https://nicoguaro.github.io/es/pages/taller_intro_python_2022/</loc>
+  <lastmod>2022-03-18T19:15:00Z</lastmod>
+  <xhtml:link rel="alternate" hreflang="en" href="https://nicoguaro.github.io/pages/taller_intro_python_2022/" />
+ </url>
+ <url>
   <loc>https://nicoguaro.github.io/es/pages/work/</loc>
   <lastmod>2021-11-02T15:33:00Z</lastmod>
   <xhtml:link rel="alternate" hreflang="en" href="https://nicoguaro.github.io/pages/work/" />
@@ -1401,6 +1406,10 @@
   <loc>https://nicoguaro.github.io/pages/software/</loc>
   <lastmod>2021-11-02T15:33:00Z</lastmod>
   <xhtml:link rel="alternate" hreflang="es" href="https://nicoguaro.github.io/es/pages/software/" />
+ </url>
+ <url>
+  <loc>https://nicoguaro.github.io/pages/taller_intro_python_2022/</loc>
+  <lastmod>2022-03-18T19:15:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/pages/work/</loc>
