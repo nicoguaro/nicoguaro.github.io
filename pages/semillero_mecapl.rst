@@ -9,7 +9,7 @@
 .. type: text
 
 Dentro de las actividades del semestre, el Semillero de Mecánica Aplicada de
-la Universidad EAFIT realiza un semillero semanal. La siguiente tabla
+la Universidad EAFIT realiza un seminario semanal. La siguiente tabla
 presenta su programación para 2022-1.
 
 |
