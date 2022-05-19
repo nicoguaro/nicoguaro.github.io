@@ -3,7 +3,7 @@
 &lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
 &lt;img alt="Creative Commons License"
 style="border-width:0"
-src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Thu, 03 Feb 2022 01:17:27 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>La zorra y las uvas</title><link>https://nicoguaro.github.io/posts/la-zorra-y-las-uvas/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;Mirando en internet no encontré una versión en español de la fábula de
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Fri, 06 May 2022 17:24:12 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>La zorra y las uvas</title><link>https://nicoguaro.github.io/posts/la-zorra-y-las-uvas/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;Mirando en internet no encontré una versión en español de la fábula de
 Esopo "La zorra y las uvas" que me gustara (o que al menos rimara :P).
 De hecho, el artículo de Wikipedia en
 &lt;a class="reference external" href="http://es.m.wikipedia.org/wiki/La_zorra_y_las_uvas"&gt;español&lt;/a&gt; es
@@ -20,18 +20,11 @@ reza así&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="line-block"&gt;
 &lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;
-&lt;/div&gt;&lt;/div&gt;</description><category>fábula</category><category>rima</category><category>uvas</category><category>Zorra</category><guid>https://nicoguaro.github.io/posts/la-zorra-y-las-uvas/</guid><pubDate>Thu, 29 May 2014 04:27:00 GMT</pubDate></item><item><title>Palabras terminadas en "ar", "er" o "ir"</title><link>https://nicoguaro.github.io/posts/ar-er-ir/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;Recuerdo cuando estaba en el colegio que en ocasiones mencionaban las
+&lt;/div&gt;</description><category>fábula</category><category>rima</category><category>uvas</category><category>Zorra</category><guid>https://nicoguaro.github.io/posts/la-zorra-y-las-uvas/</guid><pubDate>Thu, 29 May 2014 04:27:00 GMT</pubDate></item><item><title>Palabras terminadas en "ar", "er" o "ir"</title><link>https://nicoguaro.github.io/posts/ar-er-ir/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;Recuerdo cuando estaba en el colegio que en ocasiones mencionaban las
 palabras terminadas en "ar", "er" o "ir" —iguales al final de nuestros
 verbos en infinitivo—. Eran pocos ejemplos los que mencionaban, así
 que algunos años después me dio el arrebato de hacer una lista… y hela aquí:&lt;/p&gt;
 &lt;table&gt;
-&lt;colgroup&gt;
-&lt;col style="width: 23%"&gt;
-&lt;col style="width: 25%"&gt;
-&lt;col style="width: 25%"&gt;
-&lt;col style="width: 15%"&gt;
-&lt;col style="width: 13%"&gt;
-&lt;/colgroup&gt;
 &lt;thead&gt;
 &lt;tr&gt;&lt;th class="head"&gt;&lt;p&gt;AR&lt;/p&gt;&lt;/th&gt;
 &lt;th class="head"&gt;&lt;p&gt;AR&lt;/p&gt;&lt;/th&gt;
@@ -368,4 +361,4 @@ que algunos años después me dio el arrebato de hacer una lista… y hela aquí
 comentarios.&lt;/p&gt;
 &lt;p&gt;Última actualización: Febrero 2, 2022.&lt;/p&gt;
 &lt;p&gt;Descargar la lista en formato &lt;a class="reference external" href="https://nicoguaro.github.io/downloads/ar_er_ir.csv"&gt;CSV&lt;/a&gt; o en formato
-&lt;a class="reference external" href="https://nicoguaro.github.io/downloads/ar_er_ir.xls"&gt;XLS&lt;/a&gt;.&lt;/p&gt;&lt;/div&gt;</description><category>palabras</category><category>words</category><guid>https://nicoguaro.github.io/posts/ar-er-ir/</guid><pubDate>Wed, 04 Sep 2013 06:32:00 GMT</pubDate></item></channel></rss>
+&lt;a class="reference external" href="https://nicoguaro.github.io/downloads/ar_er_ir.xls"&gt;XLS&lt;/a&gt;.&lt;/p&gt;</description><category>palabras</category><category>words</category><guid>https://nicoguaro.github.io/posts/ar-er-ir/</guid><pubDate>Wed, 04 Sep 2013 06:32:00 GMT</pubDate></item></channel></rss>

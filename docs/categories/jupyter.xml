@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nicolás' blog (Posts about jupyter)</title><link>https://nicoguaro.github.io/</link><description></description><atom:link href="https://nicoguaro.github.io/categories/jupyter.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2021 &lt;a href="mailto:nicoguarin@gmail.com"&gt;Nicolás Guarín-Zapata&lt;/a&gt; 
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nicolás' blog (Posts about jupyter)</title><link>https://nicoguaro.github.io/</link><description></description><atom:link href="https://nicoguaro.github.io/categories/jupyter.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2022 &lt;a href="mailto:nicoguarin@gmail.com"&gt;Nicolás Guarín-Zapata&lt;/a&gt; 
 &lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
 &lt;img alt="Creative Commons License"
 style="border-width:0"
-src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Fri, 18 Jun 2021 17:13:48 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Using Wolfram Language in Jupyter: A free alternative to Mathematica</title><link>https://nicoguaro.github.io/posts/wolfram_jupyter/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;In this post I am going to describe how to add the Wolfram Language to
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Fri, 06 May 2022 17:24:16 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Using Wolfram Language in Jupyter: A free alternative to Mathematica</title><link>https://nicoguaro.github.io/posts/wolfram_jupyter/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;In this post I am going to describe how to add the Wolfram Language to
 the Jupyter notebook. This provides a free alternative to Mathematica with,
 pretty much, the same syntax. The use of the Wolfram Engine is free for
 non-production as described in their website:&lt;/p&gt;
@@ -107,4 +107,4 @@ see a static version
 but if you are interested there is an
 &lt;a class="reference external" href="https://github.com/WolframResearch/WolframLanguageForJupyter/issues/76"&gt;open issue&lt;/a&gt;
 about it in GitHub.&lt;/p&gt;
-&lt;/div&gt;&lt;/div&gt;</description><category>computer algebra system</category><category>jupyter</category><category>mathematica</category><category>wolfram engine</category><guid>https://nicoguaro.github.io/posts/wolfram_jupyter/</guid><pubDate>Wed, 31 Mar 2021 00:50:09 GMT</pubDate></item></channel></rss>
+&lt;/div&gt;</description><category>computer algebra system</category><category>jupyter</category><category>mathematica</category><category>wolfram engine</category><guid>https://nicoguaro.github.io/posts/wolfram_jupyter/</guid><pubDate>Wed, 31 Mar 2021 00:50:09 GMT</pubDate></item></channel></rss>

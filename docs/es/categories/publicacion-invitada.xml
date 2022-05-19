@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nicolás' blog (Publicaciones sobre publicación invitada)</title><link>https://nicoguaro.github.io/</link><description></description><atom:link href="https://nicoguaro.github.io/es/categories/publicacion-invitada.xml" rel="self" type="application/rss+xml"></atom:link><language>es</language><copyright>Contents © 2021 &lt;a href="mailto:nicoguarin@gmail.com"&gt;Nicolás Guarín-Zapata&lt;/a&gt; 
+<?xml-stylesheet type="text/xsl" href="../../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nicolás' blog (Publicaciones sobre publicación invitada)</title><link>https://nicoguaro.github.io/</link><description></description><atom:link href="https://nicoguaro.github.io/es/categories/publicacion-invitada.xml" rel="self" type="application/rss+xml"></atom:link><language>es</language><copyright>Contents © 2022 &lt;a href="mailto:nicoguarin@gmail.com"&gt;Nicolás Guarín-Zapata&lt;/a&gt; 
 &lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
 &lt;img alt="Creative Commons License"
 style="border-width:0"
-src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Thu, 30 Sep 2021 16:50:58 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>¿Cuánto chicharrón puede comprar Jeff Bezos?</title><link>https://nicoguaro.github.io/es/posts/chicharron/</link><dc:creator>Sebastián Tobón</dc:creator><description>&lt;div&gt;&lt;p&gt;Este es un cálculo que hizo Sebastián Tobón cuando estaba cursando
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Fri, 06 May 2022 17:24:10 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>¿Cuánto chicharrón puede comprar Jeff Bezos?</title><link>https://nicoguaro.github.io/es/posts/chicharron/</link><dc:creator>Sebastián Tobón</dc:creator><description>&lt;p&gt;Este es un cálculo que hizo Sebastián Tobón cuando estaba cursando
 Métodos Numéricos para Ecuaciones en Derivadas Parciales (en 2020). El
 propósito era incentivar realizar cuentas rápidas (cuentas de servilleta)
 y que tuvieran el tamaño de algunos números (por ejemplo, 10¹²) en su
@@ -60,4 +60,4 @@ siendo estos de los más caros del mercado—. Por lo tanto&lt;/p&gt;
 &lt;div class="line-block"&gt;
 &lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;/section&gt;&lt;/div&gt;</description><category>ciencia popular</category><category>cuentas de servilleta</category><category>publicación invitada</category><guid>https://nicoguaro.github.io/es/posts/chicharron/</guid><pubDate>Thu, 30 Sep 2021 15:42:44 GMT</pubDate></item></channel></rss>
+&lt;/section&gt;</description><category>ciencia popular</category><category>cuentas de servilleta</category><category>publicación invitada</category><guid>https://nicoguaro.github.io/es/posts/chicharron/</guid><pubDate>Thu, 30 Sep 2021 15:42:44 GMT</pubDate></item></channel></rss>

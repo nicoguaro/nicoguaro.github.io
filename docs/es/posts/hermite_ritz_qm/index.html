@@ -9,7 +9,7 @@
 <link rel="alternate" type="application/rss+xml" title="RSS (en)" href="../../../rss.xml">
 <link rel="alternate" type="application/rss+xml" title="RSS (es)" href="../../rss.xml">
 <link rel="canonical" href="https://nicoguaro.github.io/es/posts/hermite_ritz_qm/">
-<!--[if lt IE 9]><script src="../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Nicolás Guarín-Zapata">
+<!--[if lt IE 9]><script src="../../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Nicolás Guarín-Zapata">
 <link rel="prev" href="../matplotlib_styles/" title="Usando estilos predefinidos en matplotlib" type="text/html">
 <link rel="next" href="../numerical_challenge/numerical-01/" title="Reto de métodos numéricos" type="text/html">
 <meta property="og:site_name" content="Nicolás' blog">
@@ -69,7 +69,7 @@ ya que">
             <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
             <p class="dateline"><a href="." rel="bookmark"><time class="post-date published dt-published" datetime="2017-07-11T19:04:57-05:00" itemprop="datePublished" title="2017-07-11 19:04">2017-07-11 19:04</time></a></p>
                 <p class="commentline">
-        
+    
     <a href="#disqus_thread" data-disqus-identifier="cache/posts/hermite_ritz_qm.html">Comentarios</a>
 
 
@@ -82,14 +82,12 @@ ya que">
         </div>
 
     </header><div class="e-content entry-content" itemprop="articleBody text">
-    <div>
-<p>En esta publicación describimos la solcuión de la ecuación de Schrödinger
+    <p>En esta publicación describimos la solcuión de la ecuación de Schrödinger
 usando el método de Ritz y base de
 <a class="reference external" href="https://en.wikipedia.org/wiki/Hermite_polynomials#Hermite_functions">funciones de</a>
 Esta base parece ser una buena elección para la ecuación de Schrödinger
 ya que es una base ortogonal sobre <span class="math">\((-\infty, \infty)\)</span>.</p>
-<div class="section" id="transformando-la-ecuacion-en-una-algebraica">
-<h2>Transformando la ecuación en una algebraica</h2>
+<section id="transformando-la-ecuacion-en-una-algebraica"><h2>Transformando la ecuación en una algebraica</h2>
 <p>Queremos resolver la
 <a class="reference external" href="https://en.wikipedia.org/wiki/Schr%C3%B6dinger_equation">ecuación de Schrödinger</a>
 independiente del tiempo</p>
@@ -231,18 +229,15 @@ H_{mn} = 2mn \frac{\mu^2_{m-1}}{\mu^2_m}\delta_{mn}
 Y necesitaremos más puntos de Gauss si queremos integrar polinomios
 de orden alto. Este método funciona bien para funciones que pueden
 ser aproximadas por polinomios.</p>
-</div>
-<div class="section" id="ejemplos">
-<h2>Ejemplos</h2>
+</section><section id="ejemplos"><h2>Ejemplos</h2>
 <p>Una implementación en Python de este método se puede encontrar en
 <a class="reference external" href="https://github.com/nicoguaro/FEM_resources/blob/master/quantum_mechanics/hermite_QM.py">este repo</a>.</p>
 <p>Para todos los ejemplos usamos las siguientes importaciones</p>
-<pre class="code ipython"><a name="rest_code_2c03802cda3c47bab0c71e4f67b9a408-1"></a><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span>
-<a name="rest_code_2c03802cda3c47bab0c71e4f67b9a408-2"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<a name="rest_code_2c03802cda3c47bab0c71e4f67b9a408-3"></a><span class="kn">from</span> <span class="nn">hermite_QM</span> <span class="kn">import</span> <span class="o">*</span>
-</pre>
-<div class="section" id="id1">
-<h3><a class="reference external" href="https://en.wikipedia.org/wiki/Quantum_harmonic_oscillator">Oscilador armónico cuántico</a></h3>
+<div class="code"><pre class="code ipython"><a id="rest_code_02c8362b565a4e8db6e0624f93e1010b-1" name="rest_code_02c8362b565a4e8db6e0624f93e1010b-1" href="#rest_code_02c8362b565a4e8db6e0624f93e1010b-1"></a><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span>
+<a id="rest_code_02c8362b565a4e8db6e0624f93e1010b-2" name="rest_code_02c8362b565a4e8db6e0624f93e1010b-2" href="#rest_code_02c8362b565a4e8db6e0624f93e1010b-2"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<a id="rest_code_02c8362b565a4e8db6e0624f93e1010b-3" name="rest_code_02c8362b565a4e8db6e0624f93e1010b-3" href="#rest_code_02c8362b565a4e8db6e0624f93e1010b-3"></a><span class="kn">from</span> <span class="nn">hermite_QM</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+<section id="oscilador-armonico-cuantico-1"><h3><a class="reference external" href="https://en.wikipedia.org/wiki/Quantum_harmonic_oscillator">Oscilador armónico cuántico</a></h3>
 <p>En este caso el potencial (normalizado) está dado por</p>
 <div class="math">
 \begin{equation*}
@@ -257,68 +252,52 @@ E_n = n + \frac{1}{2}
 </div>
 <p>El siguiente bloque de código calcula los primeros 10 valores propios
 y grafica los estados propios correspondientes</p>
-<pre class="code ipython"><a name="rest_code_956449e4bc5a4d6b926c751605635367-1"></a><span class="n">potential</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span>
-<a name="rest_code_956449e4bc5a4d6b926c751605635367-2"></a><span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span> <span class="o">=</span> <span class="n">eigenstates</span><span class="p">(</span><span class="n">potential</span><span class="p">,</span> <span class="n">nterms</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">ngpts</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-<a name="rest_code_956449e4bc5a4d6b926c751605635367-3"></a><span class="k">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">vals</span><span class="p">[:</span><span class="mi">10</span><span class="p">],</span> <span class="mi">6</span><span class="p">))</span>
-<a name="rest_code_956449e4bc5a4d6b926c751605635367-4"></a><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<a name="rest_code_956449e4bc5a4d6b926c751605635367-5"></a><span class="n">plot_eigenstates</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span><span class="p">,</span> <span class="n">potential</span><span class="p">);</span>
-</pre>
+<div class="code"><pre class="code ipython"><a id="rest_code_39665d6f8c524c81ac0a2f44932669c7-1" name="rest_code_39665d6f8c524c81ac0a2f44932669c7-1" href="#rest_code_39665d6f8c524c81ac0a2f44932669c7-1"></a><span class="n">potential</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+<a id="rest_code_39665d6f8c524c81ac0a2f44932669c7-2" name="rest_code_39665d6f8c524c81ac0a2f44932669c7-2" href="#rest_code_39665d6f8c524c81ac0a2f44932669c7-2"></a><span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span> <span class="o">=</span> <span class="n">eigenstates</span><span class="p">(</span><span class="n">potential</span><span class="p">,</span> <span class="n">nterms</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">ngpts</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<a id="rest_code_39665d6f8c524c81ac0a2f44932669c7-3" name="rest_code_39665d6f8c524c81ac0a2f44932669c7-3" href="#rest_code_39665d6f8c524c81ac0a2f44932669c7-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">vals</span><span class="p">[:</span><span class="mi">10</span><span class="p">],</span> <span class="mi">6</span><span class="p">))</span>
+<a id="rest_code_39665d6f8c524c81ac0a2f44932669c7-4" name="rest_code_39665d6f8c524c81ac0a2f44932669c7-4" href="#rest_code_39665d6f8c524c81ac0a2f44932669c7-4"></a><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<a id="rest_code_39665d6f8c524c81ac0a2f44932669c7-5" name="rest_code_39665d6f8c524c81ac0a2f44932669c7-5" href="#rest_code_39665d6f8c524c81ac0a2f44932669c7-5"></a><span class="n">plot_eigenstates</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span><span class="p">,</span> <span class="n">potential</span><span class="p">);</span>
+</pre></div>
 <p>con resultados</p>
-<pre class="code text"><a name="rest_code_2eacdb21fbfd4746b83e07a12a69868f-1"></a>[ 0.5  1.5  2.5  3.5  4.5  5.5  6.5  7.5  8.5  9.5]
-</pre>
-<object data="../../../images/hermite_ritz_harmonic.svg" type="image/svg+xml">
-/images/hermite_ritz_harmonic.svg</object>
-</div>
-<div class="section" id="potencial-de-valor-absoluto">
-<h3>Potencial de valor absoluto</h3>
-<pre class="code ipython"><a name="rest_code_e8b1a33477594c6686a11e596d710b7d-1"></a><span class="n">potential</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<a name="rest_code_e8b1a33477594c6686a11e596d710b7d-2"></a><span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span> <span class="o">=</span> <span class="n">eigenstates</span><span class="p">(</span><span class="n">potential</span><span class="p">)</span>
-<a name="rest_code_e8b1a33477594c6686a11e596d710b7d-3"></a><span class="k">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">vals</span><span class="p">[:</span><span class="mi">10</span><span class="p">],</span> <span class="mi">6</span><span class="p">))</span>
-<a name="rest_code_e8b1a33477594c6686a11e596d710b7d-4"></a><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<a name="rest_code_e8b1a33477594c6686a11e596d710b7d-5"></a><span class="n">plot_eigenstates</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span><span class="p">,</span> <span class="n">potential</span><span class="p">,</span> <span class="n">lims</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">));</span>
-</pre>
+<div class="code"><pre class="code text"><a id="rest_code_9728800529d84a9d8d5c884af0720573-1" name="rest_code_9728800529d84a9d8d5c884af0720573-1" href="#rest_code_9728800529d84a9d8d5c884af0720573-1"></a>[ 0.5  1.5  2.5  3.5  4.5  5.5  6.5  7.5  8.5  9.5]
+</pre></div>
+<img alt="/images/hermite_ritz_harmonic.svg" src="../../../images/hermite_ritz_harmonic.svg"></section><section id="potencial-de-valor-absoluto"><h3>Potencial de valor absoluto</h3>
+<div class="code"><pre class="code ipython"><a id="rest_code_98a3a9c943274b92a93608a787f62d1a-1" name="rest_code_98a3a9c943274b92a93608a787f62d1a-1" href="#rest_code_98a3a9c943274b92a93608a787f62d1a-1"></a><span class="n">potential</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a id="rest_code_98a3a9c943274b92a93608a787f62d1a-2" name="rest_code_98a3a9c943274b92a93608a787f62d1a-2" href="#rest_code_98a3a9c943274b92a93608a787f62d1a-2"></a><span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span> <span class="o">=</span> <span class="n">eigenstates</span><span class="p">(</span><span class="n">potential</span><span class="p">)</span>
+<a id="rest_code_98a3a9c943274b92a93608a787f62d1a-3" name="rest_code_98a3a9c943274b92a93608a787f62d1a-3" href="#rest_code_98a3a9c943274b92a93608a787f62d1a-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">vals</span><span class="p">[:</span><span class="mi">10</span><span class="p">],</span> <span class="mi">6</span><span class="p">))</span>
+<a id="rest_code_98a3a9c943274b92a93608a787f62d1a-4" name="rest_code_98a3a9c943274b92a93608a787f62d1a-4" href="#rest_code_98a3a9c943274b92a93608a787f62d1a-4"></a><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<a id="rest_code_98a3a9c943274b92a93608a787f62d1a-5" name="rest_code_98a3a9c943274b92a93608a787f62d1a-5" href="#rest_code_98a3a9c943274b92a93608a787f62d1a-5"></a><span class="n">plot_eigenstates</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span><span class="p">,</span> <span class="n">potential</span><span class="p">,</span> <span class="n">lims</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">));</span>
+</pre></div>
 <p>con resultados</p>
-<pre class="code text"><a name="rest_code_7d9c75e929a149e093256ad7ba103e6f-1"></a>[ 0.811203  1.855725  2.57894   3.244576  3.826353  4.38189   4.895365
-<a name="rest_code_7d9c75e929a149e093256ad7ba103e6f-2"></a>  5.396614  5.911591  6.421015]
-</pre>
-<object data="../../../images/hermite_ritz_abs.svg" type="image/svg+xml">
-/images/hermite_ritz_abs.svg</object>
-</div>
-<div class="section" id="potencial-cubico">
-<h3>Potencial cúbico</h3>
-<pre class="code ipython"><a name="rest_code_086fdc52956c431eac3d90a2c6d98213-1"></a><span class="n">potential</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span>
-<a name="rest_code_086fdc52956c431eac3d90a2c6d98213-2"></a><span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span> <span class="o">=</span> <span class="n">eigenstates</span><span class="p">(</span><span class="n">potential</span><span class="p">)</span>
-<a name="rest_code_086fdc52956c431eac3d90a2c6d98213-3"></a><span class="k">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">vals</span><span class="p">[:</span><span class="mi">10</span><span class="p">],</span> <span class="mi">6</span><span class="p">))</span>
-<a name="rest_code_086fdc52956c431eac3d90a2c6d98213-4"></a><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<a name="rest_code_086fdc52956c431eac3d90a2c6d98213-5"></a><span class="n">plot_eigenstates</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span><span class="p">,</span> <span class="n">potential</span><span class="p">,</span> <span class="n">lims</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">));</span>
-</pre>
+<div class="code"><pre class="code text"><a id="rest_code_fa27a43f49aa410f9b341ec1bd5affdb-1" name="rest_code_fa27a43f49aa410f9b341ec1bd5affdb-1" href="#rest_code_fa27a43f49aa410f9b341ec1bd5affdb-1"></a>[ 0.811203  1.855725  2.57894   3.244576  3.826353  4.38189   4.895365
+<a id="rest_code_fa27a43f49aa410f9b341ec1bd5affdb-2" name="rest_code_fa27a43f49aa410f9b341ec1bd5affdb-2" href="#rest_code_fa27a43f49aa410f9b341ec1bd5affdb-2"></a>  5.396614  5.911591  6.421015]
+</pre></div>
+<img alt="/images/hermite_ritz_abs.svg" src="../../../images/hermite_ritz_abs.svg"></section><section id="potencial-cubico"><h3>Potencial cúbico</h3>
+<div class="code"><pre class="code ipython"><a id="rest_code_4861b6fe576e45f1a5da0914070ed7d8-1" name="rest_code_4861b6fe576e45f1a5da0914070ed7d8-1" href="#rest_code_4861b6fe576e45f1a5da0914070ed7d8-1"></a><span class="n">potential</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span>
+<a id="rest_code_4861b6fe576e45f1a5da0914070ed7d8-2" name="rest_code_4861b6fe576e45f1a5da0914070ed7d8-2" href="#rest_code_4861b6fe576e45f1a5da0914070ed7d8-2"></a><span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span> <span class="o">=</span> <span class="n">eigenstates</span><span class="p">(</span><span class="n">potential</span><span class="p">)</span>
+<a id="rest_code_4861b6fe576e45f1a5da0914070ed7d8-3" name="rest_code_4861b6fe576e45f1a5da0914070ed7d8-3" href="#rest_code_4861b6fe576e45f1a5da0914070ed7d8-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">vals</span><span class="p">[:</span><span class="mi">10</span><span class="p">],</span> <span class="mi">6</span><span class="p">))</span>
+<a id="rest_code_4861b6fe576e45f1a5da0914070ed7d8-4" name="rest_code_4861b6fe576e45f1a5da0914070ed7d8-4" href="#rest_code_4861b6fe576e45f1a5da0914070ed7d8-4"></a><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<a id="rest_code_4861b6fe576e45f1a5da0914070ed7d8-5" name="rest_code_4861b6fe576e45f1a5da0914070ed7d8-5" href="#rest_code_4861b6fe576e45f1a5da0914070ed7d8-5"></a><span class="n">plot_eigenstates</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span><span class="p">,</span> <span class="n">potential</span><span class="p">,</span> <span class="n">lims</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">));</span>
+</pre></div>
 <p>con resultados</p>
-<pre class="code text"><a name="rest_code_0f4273506acc4bbcb9ebb1a488ede55d-1"></a>[ 0.180588  0.609153  1.124594  1.681002  2.272087  2.889805  3.530901
-<a name="rest_code_0f4273506acc4bbcb9ebb1a488ede55d-2"></a>  4.191962  4.871133  5.566413]
-</pre>
-<object data="../../../images/hermite_ritz_cubic.svg" type="image/svg+xml">
-/images/hermite_ritz_cubic.svg</object>
-</div>
-<div class="section" id="oscilador-armonico-con-perturbacion-cuartica">
-<h3>Oscilador armónico con perturbación cuártica</h3>
-<pre class="code ipython"><a name="rest_code_88c5597ada824850ac276cd136942f93-1"></a><span class="n">potential</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">0.1</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">4</span>
-<a name="rest_code_88c5597ada824850ac276cd136942f93-2"></a><span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span> <span class="o">=</span> <span class="n">eigenstates</span><span class="p">(</span><span class="n">potential</span><span class="p">,</span> <span class="n">nterms</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">ngpts</span><span class="o">=</span><span class="mi">22</span><span class="p">)</span>
-<a name="rest_code_88c5597ada824850ac276cd136942f93-3"></a><span class="k">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">vals</span><span class="p">[:</span><span class="mi">10</span><span class="p">],</span> <span class="mi">6</span><span class="p">))</span>
-<a name="rest_code_88c5597ada824850ac276cd136942f93-4"></a><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<a name="rest_code_88c5597ada824850ac276cd136942f93-5"></a><span class="n">plot_eigenstates</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span><span class="p">,</span> <span class="n">potential</span><span class="p">,</span> <span class="n">lims</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-</pre>
+<div class="code"><pre class="code text"><a id="rest_code_8c7d859311d64159a15d104346ae12db-1" name="rest_code_8c7d859311d64159a15d104346ae12db-1" href="#rest_code_8c7d859311d64159a15d104346ae12db-1"></a>[ 0.180588  0.609153  1.124594  1.681002  2.272087  2.889805  3.530901
+<a id="rest_code_8c7d859311d64159a15d104346ae12db-2" name="rest_code_8c7d859311d64159a15d104346ae12db-2" href="#rest_code_8c7d859311d64159a15d104346ae12db-2"></a>  4.191962  4.871133  5.566413]
+</pre></div>
+<img alt="/images/hermite_ritz_cubic.svg" src="../../../images/hermite_ritz_cubic.svg"></section><section id="oscilador-armonico-con-perturbacion-cuartica"><h3>Oscilador armónico con perturbación cuártica</h3>
+<div class="code"><pre class="code ipython"><a id="rest_code_ee1fa2cff02e4c3d8ee6949c2de283d4-1" name="rest_code_ee1fa2cff02e4c3d8ee6949c2de283d4-1" href="#rest_code_ee1fa2cff02e4c3d8ee6949c2de283d4-1"></a><span class="n">potential</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">0.1</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">4</span>
+<a id="rest_code_ee1fa2cff02e4c3d8ee6949c2de283d4-2" name="rest_code_ee1fa2cff02e4c3d8ee6949c2de283d4-2" href="#rest_code_ee1fa2cff02e4c3d8ee6949c2de283d4-2"></a><span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span> <span class="o">=</span> <span class="n">eigenstates</span><span class="p">(</span><span class="n">potential</span><span class="p">,</span> <span class="n">nterms</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">ngpts</span><span class="o">=</span><span class="mi">22</span><span class="p">)</span>
+<a id="rest_code_ee1fa2cff02e4c3d8ee6949c2de283d4-3" name="rest_code_ee1fa2cff02e4c3d8ee6949c2de283d4-3" href="#rest_code_ee1fa2cff02e4c3d8ee6949c2de283d4-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">vals</span><span class="p">[:</span><span class="mi">10</span><span class="p">],</span> <span class="mi">6</span><span class="p">))</span>
+<a id="rest_code_ee1fa2cff02e4c3d8ee6949c2de283d4-4" name="rest_code_ee1fa2cff02e4c3d8ee6949c2de283d4-4" href="#rest_code_ee1fa2cff02e4c3d8ee6949c2de283d4-4"></a><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<a id="rest_code_ee1fa2cff02e4c3d8ee6949c2de283d4-5" name="rest_code_ee1fa2cff02e4c3d8ee6949c2de283d4-5" href="#rest_code_ee1fa2cff02e4c3d8ee6949c2de283d4-5"></a><span class="n">plot_eigenstates</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span><span class="p">,</span> <span class="n">potential</span><span class="p">,</span> <span class="n">lims</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+</pre></div>
 <p>con resultados</p>
-<pre class="code text"><a name="rest_code_7078153a9b6e4a3e994aa3d786c4503b-1"></a>[  0.559146   1.769503   3.138624   4.628884   6.220303   7.899789
-<a name="rest_code_7078153a9b6e4a3e994aa3d786c4503b-2"></a>   9.658703  11.489094  13.38638   15.361055]
-</pre>
-<object data="../../../images/hermite_ritz_pert_harm.svg" type="image/svg+xml">
-/images/hermite_ritz_pert_harm.svg</object>
-<p>Un notebook de Jupyter con los ejemplos se puede encontrar
+<div class="code"><pre class="code text"><a id="rest_code_9ac0f2096cd3489d9045e23d72548d66-1" name="rest_code_9ac0f2096cd3489d9045e23d72548d66-1" href="#rest_code_9ac0f2096cd3489d9045e23d72548d66-1"></a>[  0.559146   1.769503   3.138624   4.628884   6.220303   7.899789
+<a id="rest_code_9ac0f2096cd3489d9045e23d72548d66-2" name="rest_code_9ac0f2096cd3489d9045e23d72548d66-2" href="#rest_code_9ac0f2096cd3489d9045e23d72548d66-2"></a>   9.658703  11.489094  13.38638   15.361055]
+</pre></div>
+<img alt="/images/hermite_ritz_pert_harm.svg" src="../../../images/hermite_ritz_pert_harm.svg"><p>Un notebook de Jupyter con los ejemplos se puede encontrar
 <a class="reference external" href="https://github.com/nicoguaro/FEM_resources/blob/master/quantum_mechanics/Ritz_Hermite_QM.ipynb">acá</a>.</p>
+</section></section>
 </div>
-</div>
-</div>
-    </div>
     <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
 <li><a class="tag p-category" href="../../categories/metodo-de-elementos-finitos/" rel="tag">método de elementos finitos</a></li>
             <li><a class="tag p-category" href="../../categories/metodos-variacionales/" rel="tag">métodos variacionales</a></li>
@@ -333,7 +312,7 @@ y grafica los estados propios correspondientes</p>
             </li>
         </ul></nav></aside><section class="comments hidden-print"><h2>Comentarios</h2>
         
-        
+    
         <div id="disqus_thread"></div>
         <script>
         var disqus_shortname ="nicoguaro-github",

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nicolás' blog (Publicaciones sobre libreoffice)</title><link>https://nicoguaro.github.io/</link><description></description><atom:link href="https://nicoguaro.github.io/es/categories/libreoffice.xml" rel="self" type="application/rss+xml"></atom:link><language>es</language><copyright>Contents © 2021 &lt;a href="mailto:nicoguarin@gmail.com"&gt;Nicolás Guarín-Zapata&lt;/a&gt; 
+<?xml-stylesheet type="text/xsl" href="../../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nicolás' blog (Publicaciones sobre libreoffice)</title><link>https://nicoguaro.github.io/</link><description></description><atom:link href="https://nicoguaro.github.io/es/categories/libreoffice.xml" rel="self" type="application/rss+xml"></atom:link><language>es</language><copyright>Contents © 2022 &lt;a href="mailto:nicoguarin@gmail.com"&gt;Nicolás Guarín-Zapata&lt;/a&gt; 
 &lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
 &lt;img alt="Creative Commons License"
 style="border-width:0"
-src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Fri, 12 Nov 2021 21:32:28 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Escritura técnica: usando figuras</title><link>https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;En una &lt;a class="reference external" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing"&gt;publicación anterior&lt;/a&gt; mencioné algunos aspectos
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Thu, 19 May 2022 23:50:44 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Escritura técnica: usando figuras</title><link>https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;En una &lt;a class="reference external" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing"&gt;publicación anterior&lt;/a&gt; mencioné algunos aspectos
 generales de la escritura técnica. En este me gustaría hablar sobre la
 inclusión de figuras en documentos técnicos.&lt;/p&gt;
 &lt;section id="formatos-de-graficos"&gt;
@@ -84,30 +84,32 @@ de 6 × 3 pulgadas. Esta imagen tendría un tamaño de (a 150 ppp) de
 &lt;p&gt;El siguiente código de Python crea una figura de tamaño 6 in × 3 in, y grafica
 la función \(f(x) = \sin(x^2)\) y la guarda como una imagen de tamaño
 900 in × 450 in.&lt;/p&gt;
-&lt;pre class="code python"&gt;&lt;a id="rest_code_690e9afb5f044c5cb89ceb1cbcf5dff4-1" name="rest_code_690e9afb5f044c5cb89ceb1cbcf5dff4-1"&gt;&lt;/a&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
-&lt;a id="rest_code_690e9afb5f044c5cb89ceb1cbcf5dff4-2" name="rest_code_690e9afb5f044c5cb89ceb1cbcf5dff4-2"&gt;&lt;/a&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
-&lt;a id="rest_code_690e9afb5f044c5cb89ceb1cbcf5dff4-3" name="rest_code_690e9afb5f044c5cb89ceb1cbcf5dff4-3"&gt;&lt;/a&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;linspace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;500&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;linewidth&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a id="rest_code_690e9afb5f044c5cb89ceb1cbcf5dff4-4" name="rest_code_690e9afb5f044c5cb89ceb1cbcf5dff4-4"&gt;&lt;/a&gt;&lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a id="rest_code_690e9afb5f044c5cb89ceb1cbcf5dff4-5" name="rest_code_690e9afb5f044c5cb89ceb1cbcf5dff4-5"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;figsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-&lt;a id="rest_code_690e9afb5f044c5cb89ceb1cbcf5dff4-6" name="rest_code_690e9afb5f044c5cb89ceb1cbcf5dff4-6"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a id="rest_code_690e9afb5f044c5cb89ceb1cbcf5dff4-7" name="rest_code_690e9afb5f044c5cb89ceb1cbcf5dff4-7"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"x"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fontsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a id="rest_code_690e9afb5f044c5cb89ceb1cbcf5dff4-8" name="rest_code_690e9afb5f044c5cb89ceb1cbcf5dff4-8"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"y"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fontsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a id="rest_code_690e9afb5f044c5cb89ceb1cbcf5dff4-9" name="rest_code_690e9afb5f044c5cb89ceb1cbcf5dff4-9"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;savefig&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"fig_ex_python.png"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dpi&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;div class="line-block"&gt;
+&lt;div class="code"&gt;&lt;pre class="code python"&gt;&lt;a id="rest_code_92b7aca8108746d881a9b5dd54604a5e-1" name="rest_code_92b7aca8108746d881a9b5dd54604a5e-1" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_92b7aca8108746d881a9b5dd54604a5e-1"&gt;&lt;/a&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
+&lt;a id="rest_code_92b7aca8108746d881a9b5dd54604a5e-2" name="rest_code_92b7aca8108746d881a9b5dd54604a5e-2" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_92b7aca8108746d881a9b5dd54604a5e-2"&gt;&lt;/a&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
+&lt;a id="rest_code_92b7aca8108746d881a9b5dd54604a5e-3" name="rest_code_92b7aca8108746d881a9b5dd54604a5e-3" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_92b7aca8108746d881a9b5dd54604a5e-3"&gt;&lt;/a&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;linspace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;500&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;linewidth&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a id="rest_code_92b7aca8108746d881a9b5dd54604a5e-4" name="rest_code_92b7aca8108746d881a9b5dd54604a5e-4" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_92b7aca8108746d881a9b5dd54604a5e-4"&gt;&lt;/a&gt;&lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a id="rest_code_92b7aca8108746d881a9b5dd54604a5e-5" name="rest_code_92b7aca8108746d881a9b5dd54604a5e-5" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_92b7aca8108746d881a9b5dd54604a5e-5"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;figsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;a id="rest_code_92b7aca8108746d881a9b5dd54604a5e-6" name="rest_code_92b7aca8108746d881a9b5dd54604a5e-6" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_92b7aca8108746d881a9b5dd54604a5e-6"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a id="rest_code_92b7aca8108746d881a9b5dd54604a5e-7" name="rest_code_92b7aca8108746d881a9b5dd54604a5e-7" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_92b7aca8108746d881a9b5dd54604a5e-7"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"x"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fontsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a id="rest_code_92b7aca8108746d881a9b5dd54604a5e-8" name="rest_code_92b7aca8108746d881a9b5dd54604a5e-8" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_92b7aca8108746d881a9b5dd54604a5e-8"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"y"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fontsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a id="rest_code_92b7aca8108746d881a9b5dd54604a5e-9" name="rest_code_92b7aca8108746d881a9b5dd54604a5e-9" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_92b7aca8108746d881a9b5dd54604a5e-9"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;savefig&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"fig_ex_python.png"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dpi&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="line-block"&gt;
 &lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;Y el siguiente código de Matlab.&lt;/p&gt;
-&lt;pre class="code matlab"&gt;&lt;a id="rest_code_df389b4baf9142e280c88d2629e553de-1" name="rest_code_df389b4baf9142e280c88d2629e553de-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;a id="rest_code_df389b4baf9142e280c88d2629e553de-2" name="rest_code_df389b4baf9142e280c88d2629e553de-2"&gt;&lt;/a&gt;&lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Units&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;'inches'&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;a id="rest_code_df389b4baf9142e280c88d2629e553de-3" name="rest_code_df389b4baf9142e280c88d2629e553de-3"&gt;&lt;/a&gt;&lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Position&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;a id="rest_code_df389b4baf9142e280c88d2629e553de-4" name="rest_code_df389b4baf9142e280c88d2629e553de-4"&gt;&lt;/a&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;linspace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="nb"&gt;pi&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;500&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;a id="rest_code_df389b4baf9142e280c88d2629e553de-5" name="rest_code_df389b4baf9142e280c88d2629e553de-5"&gt;&lt;/a&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;sin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;.^&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;a id="rest_code_df389b4baf9142e280c88d2629e553de-6" name="rest_code_df389b4baf9142e280c88d2629e553de-6"&gt;&lt;/a&gt;&lt;span class="nb"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;'LineWidth'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;a id="rest_code_df389b4baf9142e280c88d2629e553de-7" name="rest_code_df389b4baf9142e280c88d2629e553de-7"&gt;&lt;/a&gt;&lt;span class="nb"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'x'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;'FontSize'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;a id="rest_code_df389b4baf9142e280c88d2629e553de-8" name="rest_code_df389b4baf9142e280c88d2629e553de-8"&gt;&lt;/a&gt;&lt;span class="nb"&gt;ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'y'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;'FontSize'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;a id="rest_code_df389b4baf9142e280c88d2629e553de-9" name="rest_code_df389b4baf9142e280c88d2629e553de-9"&gt;&lt;/a&gt;&lt;span class="nb"&gt;set&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;'PaperSize'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;]);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;a id="rest_code_df389b4baf9142e280c88d2629e553de-10" name="rest_code_df389b4baf9142e280c88d2629e553de-10"&gt;&lt;/a&gt;&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;'fig_ex_matlab'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;'-dpng'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;'-r150'&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;/pre&gt;&lt;div class="line-block"&gt;
+&lt;div class="code"&gt;&lt;pre class="code matlab"&gt;&lt;a id="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-1" name="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-1" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;a id="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-2" name="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-2" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-2"&gt;&lt;/a&gt;&lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Units&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;'inches'&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;a id="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-3" name="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-3" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-3"&gt;&lt;/a&gt;&lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Position&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;a id="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-4" name="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-4" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-4"&gt;&lt;/a&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;linspace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="nb"&gt;pi&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;500&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;a id="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-5" name="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-5" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-5"&gt;&lt;/a&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;sin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;.^&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;a id="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-6" name="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-6" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-6"&gt;&lt;/a&gt;&lt;span class="nb"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;'LineWidth'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;a id="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-7" name="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-7" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-7"&gt;&lt;/a&gt;&lt;span class="nb"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'x'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;'FontSize'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;a id="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-8" name="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-8" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-8"&gt;&lt;/a&gt;&lt;span class="nb"&gt;ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'y'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;'FontSize'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;a id="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-9" name="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-9" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-9"&gt;&lt;/a&gt;&lt;span class="nb"&gt;set&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;'PaperSize'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;]);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;a id="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-10" name="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-10" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-10"&gt;&lt;/a&gt;&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;'fig_ex_matlab'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;'-dpng'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;'-r150'&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="line-block"&gt;
 &lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;A continuación resumo algunos tamaños para artículos, pósters y diapositivas.&lt;/p&gt;
@@ -157,11 +159,6 @@ de 24 pts (ver referencia 3).&lt;/p&gt;
 Además, diferentes programas usan diferentes tamaños nominales. La siguiente
 tabla muestra los tamaños nomiales para LibreOffice Impress y MS Power Point.&lt;/p&gt;
 &lt;table&gt;
-&lt;colgroup&gt;
-&lt;col style="width: 34%"&gt;
-&lt;col style="width: 33%"&gt;
-&lt;col style="width: 33%"&gt;
-&lt;/colgroup&gt;
 &lt;thead&gt;
 &lt;tr&gt;&lt;th class="head"&gt;&lt;/th&gt;
 &lt;th class="head"&gt;&lt;p&gt;16:9&lt;/p&gt;&lt;/th&gt;
@@ -202,123 +199,7 @@ Instruction." Fecha de acceso: Noviembre 1, 2021, de &lt;a class="reference exte
 &lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/section&gt;
-&lt;/section&gt;&lt;/div&gt;</description><category>escritura</category><category>figuras</category><category>inkscape</category><category>investigación</category><category>latex</category><category>libreoffice</category><category>tipografía</category><guid>https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/</guid><pubDate>Wed, 03 Nov 2021 17:53:40 GMT</pubDate></item><item><title>Escritura técnica: usando matemáticas</title><link>https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_math/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;En una &lt;a class="reference external" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing"&gt;publicación anterior&lt;/a&gt; mencioné algunos aspectos
-generales de la escritura técnica. En este me gustaría hablar sobre la
-inclusión de expresiones matemáticas en documentos técnicos.&lt;/p&gt;
-&lt;p&gt;Hay dos formas principales de incluir matemáticas en documentos:&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;utilizando texto; y&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;utilizando una interfaz gráfica.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Usar una interfaz gráfica, como el editor de ecuaciones en LibreOffice Writer o
-MS Word, o &lt;a class="reference external" href="http://www.dessci.com/en/products/mathtype/"&gt;MathType&lt;/a&gt; es
-conveniente. No es necesario memorizar nada y se pueden mirar las expresiones
-mientras se crean. Sin embargo, puede ser algo lento en comparación con el uso
-de entrada de texto —una vez que se está cómodo con la sintaxis—.&lt;/p&gt;
-&lt;p&gt;Hay dos tipos de ecuaciones utilizadas en Internet:&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://en.wikipedia.org/wiki/MathML"&gt;MathML&lt;/a&gt; es un
-&lt;a class="reference external" href="https://en.wikipedia.org/wiki/World_Wide_Web_Consortium"&gt;estándar W3C&lt;/a&gt;
-para ecuaciones y está incluido en HTML5, por lo que funcionaría en todos los
-navegadores modernos. El problema con este es que no está diseñado para ser
-escrito a mano. Por tanto, uno puede usarlo si tiene alguna forma automática
-de generar el código.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://www.overleaf.com/learn/latex/Mathematical_expressions"&gt;LaTeX&lt;/a&gt;
-es mi forma sugerida de escribir ecuaciones. La curva de aprendizaje podría
-ser un un poco empinada al principio pero vale la pena.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Una herramienta que ayuda con las ecuaciones es
-&lt;a class="reference external" href="https://mathpix.com/"&gt;MathPix Snip&lt;/a&gt; que genera automáticamente código
-LaTeX o MathML a partir de una imagen, incluso una escrita a mano. Otra
-herramienta que es realmente útil es
-&lt;a class="reference external" href="http://detexify.kirelabs.org/classify.html"&gt;Detexify&lt;/a&gt; que permite
-dibujar un símbolo y proporciona la sintaxis de LaTeX de este.&lt;/p&gt;
-&lt;p&gt;En el resto de la publicación mostraré mis sugerencias para trabajar
-con ecuaciones en LibreOffice y MS Word. Si estás utilizando LaTeX o
-MarkDown/ReStructuredText para tus documentos ya estás utilizando
-LaTeX para tus ecuaciones.&lt;/p&gt;
-&lt;div class="section" id="libreoffice"&gt;
-&lt;h2&gt;LibreOffice&lt;/h2&gt;
-&lt;p&gt;LibreOffice tiene su propio editor de ecuaciones con su propia sintaxis y
-funciona bien para expresiones pequeñas, pero se complica para ecuaciones
-grandes o largas manipulaciones algebraicas. Para LibreOffice sugeriría usar
-&lt;a class="reference external" href="http://roland65.free.fr/texmaths/install.html"&gt;TexMaths&lt;/a&gt;, es fácil de
-usar y funciona para el procesador de textos (Writer) y presentaciones (Impress).
-Supongo que también funciona para hojas de cálculo (Calc), pero no recuerdo
-haber usado ecuaciones en una.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="ms-office"&gt;
-&lt;h2&gt;MS Office&lt;/h2&gt;
-&lt;p&gt;MS Office también tiene su propio editor de ecuaciones, funciona bien y es
-fácil de usar. Sin embargo, el mismo problema aparece cuando quieres expresiones
-largas. Una opción es usar directamente
-&lt;a class="reference external" href="https://docs.microsoft.com/en-us/archive/blogs/murrays/latex-math-in-office"&gt;LaTeX en Office&lt;/a&gt;
-pero prefiero usar
-&lt;a class="reference external" href="http://www.jonathanleroux.org/software/iguanatex/download.html"&gt;IguanaTex&lt;/a&gt;.
-Es un complemento que permite ingresar ecuaciones de forma similar a TexMaths en
-LibreOffice.&lt;/p&gt;
-&lt;p&gt;También puede pegar directamente las ecuaciones MathML en MS Word (&amp;gt;2013 y Windows).&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="usa-sympy"&gt;
-&lt;h2&gt;Usa SymPy&lt;/h2&gt;
-&lt;p&gt;Independientemente de la herramienta que use para escribir sus documentos,
-sugiero usar un &lt;a class="reference external" href="https://es.wikipedia.org/wiki/Sistema_algebraico_computacional"&gt;CAS&lt;/a&gt;
-(del inglés Computer Algebra System), como Mathematica o SymPy. Estos programas
-permiten la generación automática de LaTeX y MathML a partir de expresiones y
-esto facilita mucho el proceso.&lt;/p&gt;
-&lt;p&gt;Veamos un ejemplo. Supongamos que tenemos la función&lt;/p&gt;
-&lt;div class="math"&gt;
-\begin{equation*}
-f(x) = \exp(-x^2) \sin(3*x)
-\end{equation*}
-&lt;/div&gt;
-&lt;p&gt;y queremos calcular su segunda derivada&lt;/p&gt;
-&lt;div class="math"&gt;
-\begin{equation*}
-f''(x) = \left(- 12 x \cos{\left(3 x \right)} + 2 \left(2 x^{2} - 1\right) \sin{\left(3 x \right)} - 9 \sin{\left(3 x \right)}\right) e^{- x^{2}}
-\end{equation*}
-&lt;/div&gt;
-&lt;p&gt;El siguiente bloque de código nos da el código LaTex&lt;/p&gt;
-&lt;pre class="code python"&gt;&lt;a name="rest_code_d9b8e9b58f2048b18d1ba00d637e3dd0-1"&gt;&lt;/a&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sympy&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
-&lt;a name="rest_code_d9b8e9b58f2048b18d1ba00d637e3dd0-2"&gt;&lt;/a&gt;&lt;span class="n"&gt;init_session&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;a name="rest_code_d9b8e9b58f2048b18d1ba00d637e3dd0-3"&gt;&lt;/a&gt;&lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;exp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;sin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_d9b8e9b58f2048b18d1ba00d637e3dd0-4"&gt;&lt;/a&gt;&lt;span class="n"&gt;fxx&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;diff&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_d9b8e9b58f2048b18d1ba00d637e3dd0-5"&gt;&lt;/a&gt;&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;latex&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fxx&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-&lt;/pre&gt;&lt;p&gt;que es&lt;/p&gt;
-&lt;pre class="code latex"&gt;&lt;a name="rest_code_c9dfa3e0532e4b9a852171a6eb2903a3-1"&gt;&lt;/a&gt;&lt;span class="k"&gt;\left&lt;/span&gt;(- 12 x &lt;span class="k"&gt;\cos&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;&lt;span class="k"&gt;\left&lt;/span&gt;(3 x &lt;span class="k"&gt;\right&lt;/span&gt;)&lt;span class="nb"&gt;}&lt;/span&gt; + 2 &lt;span class="k"&gt;\left&lt;/span&gt;(2 x&lt;span class="nb"&gt;^{&lt;/span&gt;2&lt;span class="nb"&gt;}&lt;/span&gt; - 1&lt;span class="k"&gt;\right&lt;/span&gt;) &lt;span class="k"&gt;\sin&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;&lt;span class="k"&gt;\left&lt;/span&gt;(3 x &lt;span class="k"&gt;\right&lt;/span&gt;)&lt;span class="nb"&gt;}&lt;/span&gt; - 9 &lt;span class="k"&gt;\sin&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;&lt;span class="k"&gt;\left&lt;/span&gt;(3 x &lt;span class="k"&gt;\right&lt;/span&gt;)&lt;span class="nb"&gt;}&lt;/span&gt;&lt;span class="k"&gt;\right&lt;/span&gt;) e&lt;span class="nb"&gt;^{&lt;/span&gt;- x&lt;span class="nb"&gt;^{&lt;/span&gt;2&lt;span class="nb"&gt;}}&lt;/span&gt;
-&lt;/pre&gt;&lt;p&gt;Este corresponde con el código que usé arriba para representar la ecuación.&lt;/p&gt;
-&lt;p&gt;Si quisiéramos el código MathML de esa expresión podríamos usar
-el siguiente fragmento de código&lt;/p&gt;
-&lt;pre class="code python"&gt;&lt;a name="rest_code_9322b3db5d414a24b7668a83a714fb9f-1"&gt;&lt;/a&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sympy&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
-&lt;a name="rest_code_9322b3db5d414a24b7668a83a714fb9f-2"&gt;&lt;/a&gt;&lt;span class="n"&gt;init_session&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;a name="rest_code_9322b3db5d414a24b7668a83a714fb9f-3"&gt;&lt;/a&gt;&lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;exp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;sin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_9322b3db5d414a24b7668a83a714fb9f-4"&gt;&lt;/a&gt;&lt;span class="n"&gt;fxx&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;diff&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_9322b3db5d414a24b7668a83a714fb9f-5"&gt;&lt;/a&gt;&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mathml&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fxx&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;printer&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"presentation"&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-&lt;/pre&gt;&lt;p&gt;observe el argumento opcional &lt;code class="docutils literal"&gt;printer = "presentation"&lt;/code&gt;. Si queremos agregar
-esto a MS Word, por ejemplo, podríamos agregar la salida (que no voy a
-mostrar porque es realmente larga) dentro del siguiente código&lt;/p&gt;
-&lt;pre class="code xml"&gt;&lt;a name="rest_code_f103c7cff3514d6b88bb381df7b77bba-1"&gt;&lt;/a&gt;&lt;span class="nt"&gt;&amp;lt;math&lt;/span&gt; &lt;span class="na"&gt;xmlns =&lt;/span&gt; &lt;span class="s"&gt;"http://www.w3.org/1998/Math/MathML"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
-&lt;a name="rest_code_f103c7cff3514d6b88bb381df7b77bba-2"&gt;&lt;/a&gt;&lt;span class="nt"&gt;&amp;lt;/math&amp;gt;&lt;/span&gt;
-&lt;/pre&gt;&lt;p&gt;Cuando se usa Jupyter Notebook, esto se puede hacer gráficamente con un
-clic derecho sobre la expresión. Y se muestra el siguiente menú.&lt;/p&gt;
-&lt;img alt="/images/jupyter_export_eqs.png" src="https://nicoguaro.github.io/images/jupyter_export_eqs.png"&gt;
-&lt;/div&gt;
-&lt;div class="section" id="referencias"&gt;
-&lt;h2&gt;Referencias&lt;/h2&gt;
-&lt;ol class="arabic simple"&gt;
-&lt;li&gt;&lt;p&gt;“How to Insert Equations in Microsoft Word.” WikiHow,
-&lt;a class="reference external" href="https://www.wikihow.com/Insert-Equations-in-Microsoft-Word"&gt;https://www.wikihow.com/Insert-Equations-in-Microsoft-Word&lt;/a&gt;.
-Fecha de acceso: Agosto 3, 2020.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;“Copy MathML into Word to Use as Equation.” Stack Overflow,
-&lt;a class="reference external" href="https://stackoverflow.com/questions/25430775/copy-mathml-into-word-to-use-as-equation"&gt;https://stackoverflow.com/questions/25430775/copy-mathml-into-word-to-use-as-equation&lt;/a&gt;.
-Fecha de acceso: Agosto 3, 2020.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;“Python - Output Sympy Equation to Word Using Mathml.” Stack Overflow,
-&lt;a class="reference external" href="https://stackoverflow.com/questions/40921128/output-sympy-equation-to-word-using-mathml"&gt;https://stackoverflow.com/questions/40921128/output-sympy-equation-to-word-using-mathml&lt;/a&gt;.
-Fecha de acceso: Agosto 3, 2020.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;OERPUB (2016), “Mathconverter”, &lt;a class="reference external" href="https://github.com/oerpub/mathconverter"&gt;https://github.com/oerpub/mathconverter&lt;/a&gt;,
-Fecha de acceso: Agosto 3, 2020.&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;&lt;/div&gt;</description><category>escritura</category><category>investigación</category><category>latex</category><category>libreoffice</category><category>matemáticas</category><category>ms-word</category><category>tipografía</category><guid>https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_math/</guid><pubDate>Sun, 02 Aug 2020 23:00:00 GMT</pubDate></item><item><title>Escritura técnica</title><link>https://nicoguaro.github.io/es/posts/tech_writing/tech_writing/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;Esta es la primera publicación sobre redacción técnica &lt;a class="footnote-reference brackets" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing/#id2" id="id1"&gt;*&lt;/a&gt; de una serie que
+&lt;/section&gt;</description><category>escritura</category><category>figuras</category><category>inkscape</category><category>investigación</category><category>latex</category><category>libreoffice</category><category>tipografía</category><guid>https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/</guid><pubDate>Wed, 03 Nov 2021 17:53:40 GMT</pubDate></item><item><title>Escritura técnica</title><link>https://nicoguaro.github.io/es/posts/tech_writing/tech_writing/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;Esta es la primera publicación sobre redacción técnica &lt;a class="footnote-reference brackets" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing/#footnote-1" id="footnote-reference-1" role="doc-noteref"&gt;&lt;span class="fn-bracket"&gt;[&lt;/span&gt;*&lt;span class="fn-bracket"&gt;]&lt;/span&gt;&lt;/a&gt; de una serie que
 crearé durante el transcurso de este año. La escritura técnica es algo con lo
 que la mayoría de nosotros tenemos que lidiar en diferentes contextos. Por
 ejemplo, en cursos universitarios, publicaciones de investigación,
@@ -332,7 +213,7 @@ que pueden ser útiles.&lt;/p&gt;
 &lt;li&gt;&lt;p&gt;Uso de tablas; y&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Gestión de referencias bibliográficas.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="section" id="esta-publicacion"&gt;
+&lt;section id="esta-publicacion"&gt;
 &lt;h2&gt;Esta publicación&lt;/h2&gt;
 &lt;p&gt;Como se mencionó anteriormente, la escritura técnica es algo con lo que muchas
 personas tienen que lidiar. Esta es una habilidad que a veces se pasa por alto,
@@ -345,7 +226,7 @@ información compleja y técnica con mayor facilidad.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Y es una habilidad deseada en el lugar de trabajo. Se espera que su demanda crezca
 alrededor del 10% en la década actual.&lt;/p&gt;
-&lt;div class="section" id="tipografia"&gt;
+&lt;section id="tipografia"&gt;
 &lt;h3&gt;Tipografía&lt;/h3&gt;
 &lt;p&gt;Lo primero que debo mencionar es que escribir documentos es
 tipografía ya que estamos &lt;em&gt;diseñando con texto&lt;/em&gt; (Butterick, 2019). Por lo tanto,
@@ -367,8 +248,8 @@ aproximadamente 2 o 3 alfabetos en minúsculas:&lt;/p&gt;
 &lt;li&gt;&lt;p&gt;Cuidado con la selección de su fuente. Intente evitar las fuentes
 predeterminadas como Arial, Calibri o Times New Roman.&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;
-&lt;div class="section" id="editores"&gt;
+&lt;/section&gt;
+&lt;section id="editores"&gt;
 &lt;h3&gt;Editores&lt;/h3&gt;
 &lt;p&gt;Otro punto que quiero tocar en esta publicación es el de los editores. La
 primera pregunta que surge es "¿qué editor debo usar?". La respuesta corta es:
@@ -413,8 +294,8 @@ como se ve en la siguiente imagen&lt;/p&gt;
 &lt;a class="reference external" href="https://pandoc.org/"&gt;Pandoc&lt;/a&gt;. Te permite convertir entre varios
 formatos, haciendo el proceso un poco más fácil. Incluso hay un editor
 basado completamente en él llamado &lt;a class="reference external" href="https://panwriter.com/"&gt;Panwriter&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="references"&gt;
+&lt;/section&gt;
+&lt;section id="references"&gt;
 &lt;h3&gt;References&lt;/h3&gt;
 &lt;ol class="arabic simple"&gt;
 &lt;li&gt;&lt;p&gt;Matthew Butterick (2019). &lt;a class="reference external" href="https://practicaltypography.com/"&gt;Butterick's Practical Typography&lt;/a&gt;.
@@ -429,13 +310,132 @@ Sylvain Deville.&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;5. Eric Holscher (2016).
 &lt;a class="reference external" href="https://www.ericholscher.com/blog/2016/jul/1/sphinx-and-rtd-for-writers/"&gt;An introduction to Sphinx and Read the Docs for Technical Writers&lt;/a&gt;&lt;/p&gt;
-&lt;dl class="footnote brackets"&gt;
-&lt;dt class="label" id="id2"&gt;&lt;span class="brackets"&gt;&lt;a class="fn-backref" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing/#id1"&gt;*&lt;/a&gt;&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;&lt;p&gt;Esta publicación está (algo) relacionada con una
+&lt;aside class="footnote brackets" id="footnote-1" role="note"&gt;
+&lt;span class="label"&gt;&lt;span class="fn-bracket"&gt;[&lt;/span&gt;&lt;a role="doc-backlink" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing/#footnote-reference-1"&gt;*&lt;/a&gt;&lt;span class="fn-bracket"&gt;]&lt;/span&gt;&lt;/span&gt;
+&lt;p&gt;Esta publicación está (algo) relacionada con una
 &lt;a class="reference external" href="https://nicoguaro.github.io/es/posts/tech_writing/herramientas-investigacion/"&gt;publicación anterior&lt;/a&gt;
 donde discutí sobre algunas herramientas de investigación que la mayoría
 de nosotros necesitamos pero que comúnmente no se enseñan de manera formal.&lt;/p&gt;
-&lt;/dd&gt;
-&lt;/dl&gt;
+&lt;/aside&gt;
+&lt;/section&gt;
+&lt;/section&gt;</description><category>escritura</category><category>investigación</category><category>latex</category><category>libreoffice</category><category>tipografía</category><guid>https://nicoguaro.github.io/es/posts/tech_writing/tech_writing/</guid><pubDate>Thu, 28 May 2020 20:53:40 GMT</pubDate></item><item><title>Escritura técnica: usando matemáticas</title><link>https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_math/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;En una &lt;a class="reference external" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing"&gt;publicación anterior&lt;/a&gt; mencioné algunos aspectos
+generales de la escritura técnica. En este me gustaría hablar sobre la
+inclusión de expresiones matemáticas en documentos técnicos.&lt;/p&gt;
+&lt;p&gt;Hay dos formas principales de incluir matemáticas en documentos:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;utilizando texto; y&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;utilizando una interfaz gráfica.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Usar una interfaz gráfica, como el editor de ecuaciones en LibreOffice Writer o
+MS Word, o &lt;a class="reference external" href="http://www.dessci.com/en/products/mathtype/"&gt;MathType&lt;/a&gt; es
+conveniente. No es necesario memorizar nada y se pueden mirar las expresiones
+mientras se crean. Sin embargo, puede ser algo lento en comparación con el uso
+de entrada de texto —una vez que se está cómodo con la sintaxis—.&lt;/p&gt;
+&lt;p&gt;Hay dos tipos de ecuaciones utilizadas en Internet:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://en.wikipedia.org/wiki/MathML"&gt;MathML&lt;/a&gt; es un
+&lt;a class="reference external" href="https://en.wikipedia.org/wiki/World_Wide_Web_Consortium"&gt;estándar W3C&lt;/a&gt;
+para ecuaciones y está incluido en HTML5, por lo que funcionaría en todos los
+navegadores modernos. El problema con este es que no está diseñado para ser
+escrito a mano. Por tanto, uno puede usarlo si tiene alguna forma automática
+de generar el código.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://www.overleaf.com/learn/latex/Mathematical_expressions"&gt;LaTeX&lt;/a&gt;
+es mi forma sugerida de escribir ecuaciones. La curva de aprendizaje podría
+ser un un poco empinada al principio pero vale la pena.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Una herramienta que ayuda con las ecuaciones es
+&lt;a class="reference external" href="https://mathpix.com/"&gt;MathPix Snip&lt;/a&gt; que genera automáticamente código
+LaTeX o MathML a partir de una imagen, incluso una escrita a mano. Otra
+herramienta que es realmente útil es
+&lt;a class="reference external" href="http://detexify.kirelabs.org/classify.html"&gt;Detexify&lt;/a&gt; que permite
+dibujar un símbolo y proporciona la sintaxis de LaTeX de este.&lt;/p&gt;
+&lt;p&gt;En el resto de la publicación mostraré mis sugerencias para trabajar
+con ecuaciones en LibreOffice y MS Word. Si estás utilizando LaTeX o
+MarkDown/ReStructuredText para tus documentos ya estás utilizando
+LaTeX para tus ecuaciones.&lt;/p&gt;
+&lt;section id="libreoffice"&gt;
+&lt;h2&gt;LibreOffice&lt;/h2&gt;
+&lt;p&gt;LibreOffice tiene su propio editor de ecuaciones con su propia sintaxis y
+funciona bien para expresiones pequeñas, pero se complica para ecuaciones
+grandes o largas manipulaciones algebraicas. Para LibreOffice sugeriría usar
+&lt;a class="reference external" href="http://roland65.free.fr/texmaths/install.html"&gt;TexMaths&lt;/a&gt;, es fácil de
+usar y funciona para el procesador de textos (Writer) y presentaciones (Impress).
+Supongo que también funciona para hojas de cálculo (Calc), pero no recuerdo
+haber usado ecuaciones en una.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="ms-office"&gt;
+&lt;h2&gt;MS Office&lt;/h2&gt;
+&lt;p&gt;MS Office también tiene su propio editor de ecuaciones, funciona bien y es
+fácil de usar. Sin embargo, el mismo problema aparece cuando quieres expresiones
+largas. Una opción es usar directamente
+&lt;a class="reference external" href="https://docs.microsoft.com/en-us/archive/blogs/murrays/latex-math-in-office"&gt;LaTeX en Office&lt;/a&gt;
+pero prefiero usar
+&lt;a class="reference external" href="http://www.jonathanleroux.org/software/iguanatex/download.html"&gt;IguanaTex&lt;/a&gt;.
+Es un complemento que permite ingresar ecuaciones de forma similar a TexMaths en
+LibreOffice.&lt;/p&gt;
+&lt;p&gt;También puede pegar directamente las ecuaciones MathML en MS Word (&amp;gt;2013 y Windows).&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="usa-sympy"&gt;
+&lt;h2&gt;Usa SymPy&lt;/h2&gt;
+&lt;p&gt;Independientemente de la herramienta que use para escribir sus documentos,
+sugiero usar un &lt;a class="reference external" href="https://es.wikipedia.org/wiki/Sistema_algebraico_computacional"&gt;CAS&lt;/a&gt;
+(del inglés Computer Algebra System), como Mathematica o SymPy. Estos programas
+permiten la generación automática de LaTeX y MathML a partir de expresiones y
+esto facilita mucho el proceso.&lt;/p&gt;
+&lt;p&gt;Veamos un ejemplo. Supongamos que tenemos la función&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+f(x) = \exp(-x^2) \sin(3*x)
+\end{equation*}
 &lt;/div&gt;
-&lt;/div&gt;&lt;/div&gt;</description><category>escritura</category><category>investigación</category><category>latex</category><category>libreoffice</category><category>tipografía</category><guid>https://nicoguaro.github.io/es/posts/tech_writing/tech_writing/</guid><pubDate>Thu, 28 May 2020 20:53:40 GMT</pubDate></item></channel></rss>
+&lt;p&gt;y queremos calcular su segunda derivada&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+f''(x) = \left(- 12 x \cos{\left(3 x \right)} + 2 \left(2 x^{2} - 1\right) \sin{\left(3 x \right)} - 9 \sin{\left(3 x \right)}\right) e^{- x^{2}}
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;El siguiente bloque de código nos da el código LaTex&lt;/p&gt;
+&lt;div class="code"&gt;&lt;pre class="code python"&gt;&lt;a id="rest_code_bf9ec7f59f974345b34cb73d1fce4f05-1" name="rest_code_bf9ec7f59f974345b34cb73d1fce4f05-1" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_math/#rest_code_bf9ec7f59f974345b34cb73d1fce4f05-1"&gt;&lt;/a&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sympy&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
+&lt;a id="rest_code_bf9ec7f59f974345b34cb73d1fce4f05-2" name="rest_code_bf9ec7f59f974345b34cb73d1fce4f05-2" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_math/#rest_code_bf9ec7f59f974345b34cb73d1fce4f05-2"&gt;&lt;/a&gt;&lt;span class="n"&gt;init_session&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;a id="rest_code_bf9ec7f59f974345b34cb73d1fce4f05-3" name="rest_code_bf9ec7f59f974345b34cb73d1fce4f05-3" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_math/#rest_code_bf9ec7f59f974345b34cb73d1fce4f05-3"&gt;&lt;/a&gt;&lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;exp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;sin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a id="rest_code_bf9ec7f59f974345b34cb73d1fce4f05-4" name="rest_code_bf9ec7f59f974345b34cb73d1fce4f05-4" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_math/#rest_code_bf9ec7f59f974345b34cb73d1fce4f05-4"&gt;&lt;/a&gt;&lt;span class="n"&gt;fxx&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;diff&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a id="rest_code_bf9ec7f59f974345b34cb73d1fce4f05-5" name="rest_code_bf9ec7f59f974345b34cb73d1fce4f05-5" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_math/#rest_code_bf9ec7f59f974345b34cb73d1fce4f05-5"&gt;&lt;/a&gt;&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;latex&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fxx&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;que es&lt;/p&gt;
+&lt;div class="code"&gt;&lt;pre class="code latex"&gt;&lt;a id="rest_code_7cd1546827e24f3da3f83fec8387ac91-1" name="rest_code_7cd1546827e24f3da3f83fec8387ac91-1" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_math/#rest_code_7cd1546827e24f3da3f83fec8387ac91-1"&gt;&lt;/a&gt;&lt;span class="k"&gt;\left&lt;/span&gt;(- 12 x &lt;span class="k"&gt;\cos&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;&lt;span class="k"&gt;\left&lt;/span&gt;(3 x &lt;span class="k"&gt;\right&lt;/span&gt;)&lt;span class="nb"&gt;}&lt;/span&gt; + 2 &lt;span class="k"&gt;\left&lt;/span&gt;(2 x&lt;span class="nb"&gt;^{&lt;/span&gt;2&lt;span class="nb"&gt;}&lt;/span&gt; - 1&lt;span class="k"&gt;\right&lt;/span&gt;) &lt;span class="k"&gt;\sin&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;&lt;span class="k"&gt;\left&lt;/span&gt;(3 x &lt;span class="k"&gt;\right&lt;/span&gt;)&lt;span class="nb"&gt;}&lt;/span&gt; - 9 &lt;span class="k"&gt;\sin&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;&lt;span class="k"&gt;\left&lt;/span&gt;(3 x &lt;span class="k"&gt;\right&lt;/span&gt;)&lt;span class="nb"&gt;}&lt;/span&gt;&lt;span class="k"&gt;\right&lt;/span&gt;) e&lt;span class="nb"&gt;^{&lt;/span&gt;- x&lt;span class="nb"&gt;^{&lt;/span&gt;2&lt;span class="nb"&gt;}}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Este corresponde con el código que usé arriba para representar la ecuación.&lt;/p&gt;
+&lt;p&gt;Si quisiéramos el código MathML de esa expresión podríamos usar
+el siguiente fragmento de código&lt;/p&gt;
+&lt;div class="code"&gt;&lt;pre class="code python"&gt;&lt;a id="rest_code_01c1ff4039fa4cf1a3f271726de051e9-1" name="rest_code_01c1ff4039fa4cf1a3f271726de051e9-1" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_math/#rest_code_01c1ff4039fa4cf1a3f271726de051e9-1"&gt;&lt;/a&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sympy&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
+&lt;a id="rest_code_01c1ff4039fa4cf1a3f271726de051e9-2" name="rest_code_01c1ff4039fa4cf1a3f271726de051e9-2" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_math/#rest_code_01c1ff4039fa4cf1a3f271726de051e9-2"&gt;&lt;/a&gt;&lt;span class="n"&gt;init_session&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;a id="rest_code_01c1ff4039fa4cf1a3f271726de051e9-3" name="rest_code_01c1ff4039fa4cf1a3f271726de051e9-3" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_math/#rest_code_01c1ff4039fa4cf1a3f271726de051e9-3"&gt;&lt;/a&gt;&lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;exp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;sin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a id="rest_code_01c1ff4039fa4cf1a3f271726de051e9-4" name="rest_code_01c1ff4039fa4cf1a3f271726de051e9-4" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_math/#rest_code_01c1ff4039fa4cf1a3f271726de051e9-4"&gt;&lt;/a&gt;&lt;span class="n"&gt;fxx&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;diff&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a id="rest_code_01c1ff4039fa4cf1a3f271726de051e9-5" name="rest_code_01c1ff4039fa4cf1a3f271726de051e9-5" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_math/#rest_code_01c1ff4039fa4cf1a3f271726de051e9-5"&gt;&lt;/a&gt;&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mathml&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fxx&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;printer&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"presentation"&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;observe el argumento opcional &lt;code class="docutils literal"&gt;printer = "presentation"&lt;/code&gt;. Si queremos agregar
+esto a MS Word, por ejemplo, podríamos agregar la salida (que no voy a
+mostrar porque es realmente larga) dentro del siguiente código&lt;/p&gt;
+&lt;div class="code"&gt;&lt;pre class="code xml"&gt;&lt;a id="rest_code_59886680e67a4349880a33141c163000-1" name="rest_code_59886680e67a4349880a33141c163000-1" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_math/#rest_code_59886680e67a4349880a33141c163000-1"&gt;&lt;/a&gt;&lt;span class="nt"&gt;&amp;lt;math&lt;/span&gt; &lt;span class="na"&gt;xmlns =&lt;/span&gt; &lt;span class="s"&gt;"http://www.w3.org/1998/Math/MathML"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+&lt;a id="rest_code_59886680e67a4349880a33141c163000-2" name="rest_code_59886680e67a4349880a33141c163000-2" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_math/#rest_code_59886680e67a4349880a33141c163000-2"&gt;&lt;/a&gt;&lt;span class="nt"&gt;&amp;lt;/math&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Cuando se usa Jupyter Notebook, esto se puede hacer gráficamente con un
+clic derecho sobre la expresión. Y se muestra el siguiente menú.&lt;/p&gt;
+&lt;img alt="/images/jupyter_export_eqs.png" src="https://nicoguaro.github.io/images/jupyter_export_eqs.png"&gt;
+&lt;/section&gt;
+&lt;section id="referencias"&gt;
+&lt;h2&gt;Referencias&lt;/h2&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;&lt;p&gt;“How to Insert Equations in Microsoft Word.” WikiHow,
+&lt;a class="reference external" href="https://www.wikihow.com/Insert-Equations-in-Microsoft-Word"&gt;https://www.wikihow.com/Insert-Equations-in-Microsoft-Word&lt;/a&gt;.
+Fecha de acceso: Agosto 3, 2020.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;“Copy MathML into Word to Use as Equation.” Stack Overflow,
+&lt;a class="reference external" href="https://stackoverflow.com/questions/25430775/copy-mathml-into-word-to-use-as-equation"&gt;https://stackoverflow.com/questions/25430775/copy-mathml-into-word-to-use-as-equation&lt;/a&gt;.
+Fecha de acceso: Agosto 3, 2020.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;“Python - Output Sympy Equation to Word Using Mathml.” Stack Overflow,
+&lt;a class="reference external" href="https://stackoverflow.com/questions/40921128/output-sympy-equation-to-word-using-mathml"&gt;https://stackoverflow.com/questions/40921128/output-sympy-equation-to-word-using-mathml&lt;/a&gt;.
+Fecha de acceso: Agosto 3, 2020.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;OERPUB (2016), “Mathconverter”, &lt;a class="reference external" href="https://github.com/oerpub/mathconverter"&gt;https://github.com/oerpub/mathconverter&lt;/a&gt;,
+Fecha de acceso: Agosto 3, 2020.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;</description><category>escritura</category><category>investigación</category><category>latex</category><category>libreoffice</category><category>matemáticas</category><category>ms-word</category><category>tipografía</category><guid>https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_math/</guid><pubDate>Thu, 28 May 2020 20:53:40 GMT</pubDate></item></channel></rss>

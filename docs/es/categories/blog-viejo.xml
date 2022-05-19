@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nicolás' blog (Publicaciones sobre blog viejo)</title><link>https://nicoguaro.github.io/</link><description></description><atom:link href="https://nicoguaro.github.io/es/categories/blog-viejo.xml" rel="self" type="application/rss+xml"></atom:link><language>es</language><copyright>Contents © 2021 &lt;a href="mailto:nicoguarin@gmail.com"&gt;Nicolás Guarín-Zapata&lt;/a&gt; 
+<?xml-stylesheet type="text/xsl" href="../../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nicolás' blog (Publicaciones sobre blog viejo)</title><link>https://nicoguaro.github.io/</link><description></description><atom:link href="https://nicoguaro.github.io/es/categories/blog-viejo.xml" rel="self" type="application/rss+xml"></atom:link><language>es</language><copyright>Contents © 2022 &lt;a href="mailto:nicoguarin@gmail.com"&gt;Nicolás Guarín-Zapata&lt;/a&gt; 
 &lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
 &lt;img alt="Creative Commons License"
 style="border-width:0"
-src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Fri, 18 Jun 2021 17:13:49 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Herramientas (auxiliares) para Investigación</title><link>https://nicoguaro.github.io/es/posts/herramientas-investigacion/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;En esta entrada quiero hablar de algunas herramientas (...o algo así)
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Fri, 06 May 2022 17:24:12 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Herramientas (auxiliares) para Investigación</title><link>https://nicoguaro.github.io/es/posts/herramientas-investigacion/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;En esta entrada quiero hablar de algunas herramientas (...o algo así)
 que son útiles en el día a día de la investigación, pero que no suelen
 ser tan populares por ser en cierta forma &lt;em&gt;tangenciales&lt;/em&gt; al área
 específica en la que cada uno trabaja.&lt;/p&gt;
@@ -298,7 +298,7 @@ proyectos &lt;a class="reference external" href="https://bitbucket.org/account/u
 &lt;p&gt;Seguro dejé mucho temas por fuera así como herramientas dentro de
 algún tópico. Si ese es el caso, agradecería que me lo digan en los
 comentarios.&lt;/p&gt;
-&lt;/div&gt;&lt;/div&gt;</description><category>blog viejo</category><category>investigación</category><category>tomar notas</category><category>visualización científica</category><guid>https://nicoguaro.github.io/es/posts/herramientas-investigacion/</guid><pubDate>Sat, 12 Jul 2014 09:24:00 GMT</pubDate></item><item><title>Tomando notas de clase con mi tableta</title><link>https://nicoguaro.github.io/es/posts/notas-tableta/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;El año pasado el niño dios me regaló una &lt;a class="reference external" href="http://www.samsung.com/us/mobile/galaxy-note/GT-N8013EAVXAR"&gt;Samsung Galaxy Note
+&lt;/div&gt;</description><category>blog viejo</category><category>investigación</category><category>tomar notas</category><category>visualización científica</category><guid>https://nicoguaro.github.io/es/posts/herramientas-investigacion/</guid><pubDate>Sat, 12 Jul 2014 09:24:00 GMT</pubDate></item><item><title>Tomando notas de clase con mi tableta</title><link>https://nicoguaro.github.io/es/posts/notas-tableta/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;El año pasado el niño dios me regaló una &lt;a class="reference external" href="http://www.samsung.com/us/mobile/galaxy-note/GT-N8013EAVXAR"&gt;Samsung Galaxy Note
 10.1&lt;/a&gt;
 (modelo 2012). Esta tableta viene diseñada para tomar notas, pues trae
 un S-Pen (fabricado por Wacom, que creo que fabrican la
@@ -389,7 +389,7 @@ puede ser un poco apresurado, pero es realizable. La aplicación que
 viene por defecto (S Note) permite realizar el trabajo "out of the
 box", pero podría ser mejor. Las aplicaciones que me parecen más
 promisorias son: Note Anytime y Quill.&lt;/p&gt;
-&lt;/div&gt;&lt;/div&gt;</description><category>blog viejo</category><category>tablet</category><category>tomar notas</category><guid>https://nicoguaro.github.io/es/posts/notas-tableta/</guid><pubDate>Wed, 21 May 2014 02:23:00 GMT</pubDate></item><item><title>Respecto a la teletransportación en Star Trek</title><link>https://nicoguaro.github.io/es/posts/teletransportacion-star-trek/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;Alguna vez una amiga me preguntó sobre cuál era más fácil de dos métodos para
+&lt;/div&gt;</description><category>blog viejo</category><category>tablet</category><category>tomar notas</category><guid>https://nicoguaro.github.io/es/posts/notas-tableta/</guid><pubDate>Wed, 21 May 2014 02:23:00 GMT</pubDate></item><item><title>Respecto a la teletransportación en Star Trek</title><link>https://nicoguaro.github.io/es/posts/teletransportacion-star-trek/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;Alguna vez una amiga me preguntó sobre cuál era más fácil de dos métodos para
 teletransportar personas. Uno consistía en "desconfigurar" y "reconfigurar" a
 la persona (como información, similar a &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Transporter_%28Star_Trek%29"&gt;Start Trek&lt;/a&gt;
 y la otra en "crear un atajo" entre dos lugares del espacio-tiempo para pasar
@@ -442,4 +442,4 @@ tardaría &lt;span class="math"&gt;\(2,3\times 10^{16}\ \mbox{s}\)&lt;/span&gt; 
 &lt;p&gt;Si quisiéramos que esto pasara realmente rápido, digamos en 1 milisegundo,
 la tasa de transmisión debería ser &lt;span class="math"&gt;\(2,3\times 10^{19}\)&lt;/span&gt; más rápida que el
 récord que alcanzaron en el CERN… algo que es inconcebible para nosotros
-actualmente.&lt;/p&gt;&lt;/div&gt;</description><category>blog viejo</category><category>ciencia ficción</category><category>ciencia popular</category><category>cuentas de servilleta</category><guid>https://nicoguaro.github.io/es/posts/teletransportacion-star-trek/</guid><pubDate>Thu, 18 Apr 2013 08:40:00 GMT</pubDate></item></channel></rss>
+actualmente.&lt;/p&gt;</description><category>blog viejo</category><category>ciencia ficción</category><category>ciencia popular</category><category>cuentas de servilleta</category><guid>https://nicoguaro.github.io/es/posts/teletransportacion-star-trek/</guid><pubDate>Thu, 18 Apr 2013 08:40:00 GMT</pubDate></item></channel></rss>

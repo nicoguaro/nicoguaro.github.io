@@ -1,6 +1,6 @@
 .. title: Technical writing: using math
 .. slug: tech_writing_math
-.. date: 2020-08-02 18:00:00 UTC-05:00
+.. date: 2020-05-28 15:53:40 UTC-05:00
 .. tags: writing, research, typography, libreoffice, latex, ms-word, math
 .. category: Writing
 .. link:

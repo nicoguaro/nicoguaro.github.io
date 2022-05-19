@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nicolás' blog (Publicaciones sobre Research)</title><link>https://nicoguaro.github.io/</link><description></description><atom:link href="https://nicoguaro.github.io/es/categories/cat_research.xml" rel="self" type="application/rss+xml"></atom:link><language>es</language><copyright>Contents © 2021 &lt;a href="mailto:nicoguarin@gmail.com"&gt;Nicolás Guarín-Zapata&lt;/a&gt; 
+<?xml-stylesheet type="text/xsl" href="../../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nicolás' blog (Publicaciones sobre Research)</title><link>https://nicoguaro.github.io/</link><description></description><atom:link href="https://nicoguaro.github.io/es/categories/cat_research.xml" rel="self" type="application/rss+xml"></atom:link><language>es</language><copyright>Contents © 2022 &lt;a href="mailto:nicoguarin@gmail.com"&gt;Nicolás Guarín-Zapata&lt;/a&gt; 
 &lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
 &lt;img alt="Creative Commons License"
 style="border-width:0"
-src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Fri, 18 Jun 2021 17:13:50 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Herramientas (auxiliares) para Investigación</title><link>https://nicoguaro.github.io/es/posts/herramientas-investigacion/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;En esta entrada quiero hablar de algunas herramientas (...o algo así)
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Fri, 06 May 2022 17:24:07 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Herramientas (auxiliares) para Investigación</title><link>https://nicoguaro.github.io/es/posts/herramientas-investigacion/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;En esta entrada quiero hablar de algunas herramientas (...o algo así)
 que son útiles en el día a día de la investigación, pero que no suelen
 ser tan populares por ser en cierta forma &lt;em&gt;tangenciales&lt;/em&gt; al área
 específica en la que cada uno trabaja.&lt;/p&gt;
@@ -298,4 +298,4 @@ proyectos &lt;a class="reference external" href="https://bitbucket.org/account/u
 &lt;p&gt;Seguro dejé mucho temas por fuera así como herramientas dentro de
 algún tópico. Si ese es el caso, agradecería que me lo digan en los
 comentarios.&lt;/p&gt;
-&lt;/div&gt;&lt;/div&gt;</description><category>blog viejo</category><category>investigación</category><category>tomar notas</category><category>visualización científica</category><guid>https://nicoguaro.github.io/es/posts/herramientas-investigacion/</guid><pubDate>Sat, 12 Jul 2014 09:24:00 GMT</pubDate></item></channel></rss>
+&lt;/div&gt;</description><category>blog viejo</category><category>investigación</category><category>tomar notas</category><category>visualización científica</category><guid>https://nicoguaro.github.io/es/posts/herramientas-investigacion/</guid><pubDate>Sat, 12 Jul 2014 09:24:00 GMT</pubDate></item></channel></rss>

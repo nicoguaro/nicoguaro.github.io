@@ -57,15 +57,14 @@
             <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
             <p class="dateline"><a href="posts/isometric_inkscape2/" rel="bookmark"><time class="post-date published dt-published" datetime="2018-05-30T12:40:57-05:00" title="2018-05-30 12:40">2018-05-30 12:40</time></a></p>
                 <p class="commentline">
-        
+    
     <a href="posts/isometric_inkscape2/#disqus_thread" data-disqus-identifier="cache/posts/isometric_inkscape2.html">Comments</a>
 
 
         </p>
 </div>
     </header><div class="e-content entry-content">
-    <div>
-<p><a class="reference external" href="posts/isometric_inkscape">Last week</a>  I posted a quick guide on isometric
+    <p><a class="reference external" href="posts/isometric_inkscape">Last week</a>  I posted a quick guide on isometric
 drawing using <a class="reference external" href="https://inkscape.org/en/">Inkscape</a>. In that post, I
 showed how to obtain images that are projected to the faces of an
 isometric box.</p>
@@ -113,22 +112,20 @@ the step by step construction.</p>
 projection. Nevertheless, I strongly suggest to use a CAD like
 <a class="reference external" href="https://freecadweb.org/">FreeCAD</a> for more complicated geometries.</p>
 </div>
-</div>
     </div>
     </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/isometric_inkscape/" class="u-url">Isometric graphics in Inkscape</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
             <p class="dateline"><a href="posts/isometric_inkscape/" rel="bookmark"><time class="post-date published dt-published" datetime="2018-05-24T15:42:02-05:00" title="2018-05-24 15:42">2018-05-24 15:42</time></a></p>
                 <p class="commentline">
-        
+    
     <a href="posts/isometric_inkscape/#disqus_thread" data-disqus-identifier="cache/posts/isometric_inkscape.html">Comments</a>
 
 
         </p>
 </div>
     </header><div class="e-content entry-content">
-    <div>
-<p>Sometimes I find myself in need of making a schematic using an
+    <p>Sometimes I find myself in need of making a schematic using an
 <a class="reference external" href="https://en.wikipedia.org/wiki/Isometric_projection">isometric projection</a>.
 When the schematic is complicated the best shot is to use some
 CAD like <a class="reference external" href="https://freecadweb.org/">FreeCAD</a>, but sometimes it's just
@@ -241,27 +238,24 @@ to common notation in mathematics.</p>
 <img alt="Cheatsheet for isometric schematics in Inkscape" class="align-center" src="images/isometric_inkscape/isometric_instructions.svg" style="width: 500px;">
 </div>
 </div>
-</div>
     </div>
     </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/infinite_fdm/" class="u-url">Finite differences in infinite domains</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
             <p class="dateline"><a href="posts/infinite_fdm/" rel="bookmark"><time class="post-date published dt-published" datetime="2018-05-17T15:57:00-05:00" title="2018-05-17 15:57">2018-05-17 15:57</time></a></p>
                 <p class="commentline">
-        
+    
     <a href="posts/infinite_fdm/#disqus_thread" data-disqus-identifier="cache/posts/infinite_fdm.html">Comments</a>
 
 
         </p>
 </div>
     </header><div class="e-content entry-content">
-    <div class="section" id="finite-differences-in-infinite-domains">
-<h2>Finite differences in infinite domains</h2>
+    <section id="finite-differences-in-infinite-domains"><h2>Finite differences in infinite domains</h2>
 <p>Because of my friend, <a class="reference external" href="http://cosmoscalibur.com/">Edward Villegas</a>, I
 ended up thinking about using a change of variables when solving an
 eigenvalue problem with finite difference.</p>
-<div class="section" id="the-problem">
-<h3>The problem</h3>
+<section id="the-problem"><h3>The problem</h3>
 <p>Let's say that we want to solve a differential equation over an infinite
 domain. A common case is to solve the <a class="reference external" href="https://en.wikipedia.org/wiki/Schr%C3%B6dinger_equation#Time-independent_equation">Time independent Schrödinger
 equation</a>
@@ -279,9 +273,7 @@ is to regularly divide the domain. Where I take a <em>large enough</em> domain,
 so the solution have decayed close to zero. What I do in this post is to
 make a change of variable to render the interval finite first and then
 regularly divide the transformed domain in finite intervals.</p>
-</div>
-<div class="section" id="my-usual-approach">
-<h3>My usual approach</h3>
+</section><section id="my-usual-approach"><h3>My usual approach</h3>
 <p>My usual approach is to approach the second derivative with a <a class="reference external" href="https://en.wikipedia.org/wiki/Finite_difference_coefficient">centered
 difference</a>
 for the point <span class="math">\(x_i\)</span> like this</p>
@@ -292,42 +284,42 @@ for the point <span class="math">\(x_i\)</span> like this</p>
 </div>
 <p>with <span class="math">\(\Delta x\)</span> the separation between points.</p>
 <p>We can solve this in Python with the following snippet:</p>
-<pre class="code ipython3"><a name="rest_code_e7d5d7f34f604b4b9e2432be8d98898d-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<a name="rest_code_e7d5d7f34f604b4b9e2432be8d98898d-2"></a><span class="kn">from</span> <span class="nn">scipy.sparse</span> <span class="k">import</span> <span class="n">diags</span>
-<a name="rest_code_e7d5d7f34f604b4b9e2432be8d98898d-3"></a><span class="kn">from</span> <span class="nn">scipy.sparse.linalg</span> <span class="k">import</span> <span class="n">eigs</span>
-<a name="rest_code_e7d5d7f34f604b4b9e2432be8d98898d-4"></a>
-<a name="rest_code_e7d5d7f34f604b4b9e2432be8d98898d-5"></a>
-<a name="rest_code_e7d5d7f34f604b4b9e2432be8d98898d-6"></a><span class="k">def</span> <span class="nf">regular_FD</span><span class="p">(</span><span class="n">pot</span><span class="p">,</span> <span class="n">npts</span><span class="o">=</span><span class="mi">101</span><span class="p">,</span> <span class="n">x_max</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">nvals</span><span class="o">=</span><span class="mi">6</span><span class="p">):</span>
-<a name="rest_code_e7d5d7f34f604b4b9e2432be8d98898d-7"></a>    <span class="sd">"""</span>
-<a name="rest_code_e7d5d7f34f604b4b9e2432be8d98898d-8"></a><span class="sd">    Find eigenvalues/eigenfunctions for Schrodinger</span>
-<a name="rest_code_e7d5d7f34f604b4b9e2432be8d98898d-9"></a><span class="sd">    equation for the given potential `pot` using</span>
-<a name="rest_code_e7d5d7f34f604b4b9e2432be8d98898d-10"></a><span class="sd">    finite differences</span>
-<a name="rest_code_e7d5d7f34f604b4b9e2432be8d98898d-11"></a><span class="sd">    """</span>
-<a name="rest_code_e7d5d7f34f604b4b9e2432be8d98898d-12"></a>    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">x_max</span><span class="p">,</span> <span class="n">x_max</span><span class="p">,</span> <span class="n">npts</span><span class="p">)</span>
-<a name="rest_code_e7d5d7f34f604b4b9e2432be8d98898d-13"></a>    <span class="n">dx</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<a name="rest_code_e7d5d7f34f604b4b9e2432be8d98898d-14"></a>    <span class="n">D2</span> <span class="o">=</span> <span class="n">diags</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">npts</span><span class="p">,</span> <span class="n">npts</span><span class="p">))</span><span class="o">/</span><span class="n">dx</span><span class="o">**</span><span class="mi">2</span>
-<a name="rest_code_e7d5d7f34f604b4b9e2432be8d98898d-15"></a>    <span class="n">V</span> <span class="o">=</span> <span class="n">diags</span><span class="p">(</span><span class="n">pot</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<a name="rest_code_e7d5d7f34f604b4b9e2432be8d98898d-16"></a>    <span class="n">H</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span><span class="o">*</span><span class="n">D2</span> <span class="o">+</span> <span class="n">V</span>
-<a name="rest_code_e7d5d7f34f604b4b9e2432be8d98898d-17"></a>    <span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span> <span class="o">=</span> <span class="n">eigs</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">nvals</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s2">"SM"</span><span class="p">)</span>
-<a name="rest_code_e7d5d7f34f604b4b9e2432be8d98898d-18"></a>    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">vals</span><span class="p">),</span> <span class="n">vecs</span>
-</pre>
+<div class="code"><pre class="code ipython3"><a id="rest_code_12f48f1091c840fd998f65fe6bd60306-1" name="rest_code_12f48f1091c840fd998f65fe6bd60306-1" href="posts/infinite_fdm/#rest_code_12f48f1091c840fd998f65fe6bd60306-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<a id="rest_code_12f48f1091c840fd998f65fe6bd60306-2" name="rest_code_12f48f1091c840fd998f65fe6bd60306-2" href="posts/infinite_fdm/#rest_code_12f48f1091c840fd998f65fe6bd60306-2"></a><span class="kn">from</span> <span class="nn">scipy.sparse</span> <span class="kn">import</span> <span class="n">diags</span>
+<a id="rest_code_12f48f1091c840fd998f65fe6bd60306-3" name="rest_code_12f48f1091c840fd998f65fe6bd60306-3" href="posts/infinite_fdm/#rest_code_12f48f1091c840fd998f65fe6bd60306-3"></a><span class="kn">from</span> <span class="nn">scipy.sparse.linalg</span> <span class="kn">import</span> <span class="n">eigs</span>
+<a id="rest_code_12f48f1091c840fd998f65fe6bd60306-4" name="rest_code_12f48f1091c840fd998f65fe6bd60306-4" href="posts/infinite_fdm/#rest_code_12f48f1091c840fd998f65fe6bd60306-4"></a>
+<a id="rest_code_12f48f1091c840fd998f65fe6bd60306-5" name="rest_code_12f48f1091c840fd998f65fe6bd60306-5" href="posts/infinite_fdm/#rest_code_12f48f1091c840fd998f65fe6bd60306-5"></a>
+<a id="rest_code_12f48f1091c840fd998f65fe6bd60306-6" name="rest_code_12f48f1091c840fd998f65fe6bd60306-6" href="posts/infinite_fdm/#rest_code_12f48f1091c840fd998f65fe6bd60306-6"></a><span class="k">def</span> <span class="nf">regular_FD</span><span class="p">(</span><span class="n">pot</span><span class="p">,</span> <span class="n">npts</span><span class="o">=</span><span class="mi">101</span><span class="p">,</span> <span class="n">x_max</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">nvals</span><span class="o">=</span><span class="mi">6</span><span class="p">):</span>
+<a id="rest_code_12f48f1091c840fd998f65fe6bd60306-7" name="rest_code_12f48f1091c840fd998f65fe6bd60306-7" href="posts/infinite_fdm/#rest_code_12f48f1091c840fd998f65fe6bd60306-7"></a>    <span class="sd">"""</span>
+<a id="rest_code_12f48f1091c840fd998f65fe6bd60306-8" name="rest_code_12f48f1091c840fd998f65fe6bd60306-8" href="posts/infinite_fdm/#rest_code_12f48f1091c840fd998f65fe6bd60306-8"></a><span class="sd">    Find eigenvalues/eigenfunctions for Schrodinger</span>
+<a id="rest_code_12f48f1091c840fd998f65fe6bd60306-9" name="rest_code_12f48f1091c840fd998f65fe6bd60306-9" href="posts/infinite_fdm/#rest_code_12f48f1091c840fd998f65fe6bd60306-9"></a><span class="sd">    equation for the given potential `pot` using</span>
+<a id="rest_code_12f48f1091c840fd998f65fe6bd60306-10" name="rest_code_12f48f1091c840fd998f65fe6bd60306-10" href="posts/infinite_fdm/#rest_code_12f48f1091c840fd998f65fe6bd60306-10"></a><span class="sd">    finite differences</span>
+<a id="rest_code_12f48f1091c840fd998f65fe6bd60306-11" name="rest_code_12f48f1091c840fd998f65fe6bd60306-11" href="posts/infinite_fdm/#rest_code_12f48f1091c840fd998f65fe6bd60306-11"></a><span class="sd">    """</span>
+<a id="rest_code_12f48f1091c840fd998f65fe6bd60306-12" name="rest_code_12f48f1091c840fd998f65fe6bd60306-12" href="posts/infinite_fdm/#rest_code_12f48f1091c840fd998f65fe6bd60306-12"></a>    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">x_max</span><span class="p">,</span> <span class="n">x_max</span><span class="p">,</span> <span class="n">npts</span><span class="p">)</span>
+<a id="rest_code_12f48f1091c840fd998f65fe6bd60306-13" name="rest_code_12f48f1091c840fd998f65fe6bd60306-13" href="posts/infinite_fdm/#rest_code_12f48f1091c840fd998f65fe6bd60306-13"></a>    <span class="n">dx</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<a id="rest_code_12f48f1091c840fd998f65fe6bd60306-14" name="rest_code_12f48f1091c840fd998f65fe6bd60306-14" href="posts/infinite_fdm/#rest_code_12f48f1091c840fd998f65fe6bd60306-14"></a>    <span class="n">D2</span> <span class="o">=</span> <span class="n">diags</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">npts</span><span class="p">,</span> <span class="n">npts</span><span class="p">))</span><span class="o">/</span><span class="n">dx</span><span class="o">**</span><span class="mi">2</span>
+<a id="rest_code_12f48f1091c840fd998f65fe6bd60306-15" name="rest_code_12f48f1091c840fd998f65fe6bd60306-15" href="posts/infinite_fdm/#rest_code_12f48f1091c840fd998f65fe6bd60306-15"></a>    <span class="n">V</span> <span class="o">=</span> <span class="n">diags</span><span class="p">(</span><span class="n">pot</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<a id="rest_code_12f48f1091c840fd998f65fe6bd60306-16" name="rest_code_12f48f1091c840fd998f65fe6bd60306-16" href="posts/infinite_fdm/#rest_code_12f48f1091c840fd998f65fe6bd60306-16"></a>    <span class="n">H</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span><span class="o">*</span><span class="n">D2</span> <span class="o">+</span> <span class="n">V</span>
+<a id="rest_code_12f48f1091c840fd998f65fe6bd60306-17" name="rest_code_12f48f1091c840fd998f65fe6bd60306-17" href="posts/infinite_fdm/#rest_code_12f48f1091c840fd998f65fe6bd60306-17"></a>    <span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span> <span class="o">=</span> <span class="n">eigs</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">nvals</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s2">"SM"</span><span class="p">)</span>
+<a id="rest_code_12f48f1091c840fd998f65fe6bd60306-18" name="rest_code_12f48f1091c840fd998f65fe6bd60306-18" href="posts/infinite_fdm/#rest_code_12f48f1091c840fd998f65fe6bd60306-18"></a>    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">vals</span><span class="p">),</span> <span class="n">vecs</span>
+</pre></div>
 <p>Let's setup the plotting details.</p>
-<pre class="code ipython3"><a name="rest_code_64c3639a3c904b6d87975c0f0b05da32-1"></a><span class="c1"># Jupyter notebook plotting setup &amp; imports</span>
-<a name="rest_code_64c3639a3c904b6d87975c0f0b05da32-2"></a><span class="o">%</span><span class="k">matplotlib</span> notebook
-<a name="rest_code_64c3639a3c904b6d87975c0f0b05da32-3"></a><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<a name="rest_code_64c3639a3c904b6d87975c0f0b05da32-4"></a>
-<a name="rest_code_64c3639a3c904b6d87975c0f0b05da32-5"></a><span class="n">gray</span> <span class="o">=</span> <span class="s1">'#757575'</span>
-<a name="rest_code_64c3639a3c904b6d87975c0f0b05da32-6"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"figure.figsize"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span>
-<a name="rest_code_64c3639a3c904b6d87975c0f0b05da32-7"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"mathtext.fontset"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"cm"</span>
-<a name="rest_code_64c3639a3c904b6d87975c0f0b05da32-8"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"text.color"</span><span class="p">]</span> <span class="o">=</span> <span class="n">gray</span>
-<a name="rest_code_64c3639a3c904b6d87975c0f0b05da32-9"></a><span class="n">fontsize</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"font.size"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">12</span>
-<a name="rest_code_64c3639a3c904b6d87975c0f0b05da32-10"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"xtick.color"</span><span class="p">]</span> <span class="o">=</span> <span class="n">gray</span>
-<a name="rest_code_64c3639a3c904b6d87975c0f0b05da32-11"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"ytick.color"</span><span class="p">]</span> <span class="o">=</span> <span class="n">gray</span>
-<a name="rest_code_64c3639a3c904b6d87975c0f0b05da32-12"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"axes.labelcolor"</span><span class="p">]</span> <span class="o">=</span> <span class="n">gray</span>
-<a name="rest_code_64c3639a3c904b6d87975c0f0b05da32-13"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"axes.edgecolor"</span><span class="p">]</span> <span class="o">=</span> <span class="n">gray</span>
-<a name="rest_code_64c3639a3c904b6d87975c0f0b05da32-14"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"axes.spines.right"</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
-<a name="rest_code_64c3639a3c904b6d87975c0f0b05da32-15"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"axes.spines.top"</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
-</pre>
+<div class="code"><pre class="code ipython3"><a id="rest_code_c0b0d43523ce4b1492ebd6d05e14c3fa-1" name="rest_code_c0b0d43523ce4b1492ebd6d05e14c3fa-1" href="posts/infinite_fdm/#rest_code_c0b0d43523ce4b1492ebd6d05e14c3fa-1"></a><span class="c1"># Jupyter notebook plotting setup &amp; imports</span>
+<a id="rest_code_c0b0d43523ce4b1492ebd6d05e14c3fa-2" name="rest_code_c0b0d43523ce4b1492ebd6d05e14c3fa-2" href="posts/infinite_fdm/#rest_code_c0b0d43523ce4b1492ebd6d05e14c3fa-2"></a><span class="o">%</span><span class="k">matplotlib</span> notebook
+<a id="rest_code_c0b0d43523ce4b1492ebd6d05e14c3fa-3" name="rest_code_c0b0d43523ce4b1492ebd6d05e14c3fa-3" href="posts/infinite_fdm/#rest_code_c0b0d43523ce4b1492ebd6d05e14c3fa-3"></a><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<a id="rest_code_c0b0d43523ce4b1492ebd6d05e14c3fa-4" name="rest_code_c0b0d43523ce4b1492ebd6d05e14c3fa-4" href="posts/infinite_fdm/#rest_code_c0b0d43523ce4b1492ebd6d05e14c3fa-4"></a>
+<a id="rest_code_c0b0d43523ce4b1492ebd6d05e14c3fa-5" name="rest_code_c0b0d43523ce4b1492ebd6d05e14c3fa-5" href="posts/infinite_fdm/#rest_code_c0b0d43523ce4b1492ebd6d05e14c3fa-5"></a><span class="n">gray</span> <span class="o">=</span> <span class="s1">'#757575'</span>
+<a id="rest_code_c0b0d43523ce4b1492ebd6d05e14c3fa-6" name="rest_code_c0b0d43523ce4b1492ebd6d05e14c3fa-6" href="posts/infinite_fdm/#rest_code_c0b0d43523ce4b1492ebd6d05e14c3fa-6"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"figure.figsize"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span>
+<a id="rest_code_c0b0d43523ce4b1492ebd6d05e14c3fa-7" name="rest_code_c0b0d43523ce4b1492ebd6d05e14c3fa-7" href="posts/infinite_fdm/#rest_code_c0b0d43523ce4b1492ebd6d05e14c3fa-7"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"mathtext.fontset"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"cm"</span>
+<a id="rest_code_c0b0d43523ce4b1492ebd6d05e14c3fa-8" name="rest_code_c0b0d43523ce4b1492ebd6d05e14c3fa-8" href="posts/infinite_fdm/#rest_code_c0b0d43523ce4b1492ebd6d05e14c3fa-8"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"text.color"</span><span class="p">]</span> <span class="o">=</span> <span class="n">gray</span>
+<a id="rest_code_c0b0d43523ce4b1492ebd6d05e14c3fa-9" name="rest_code_c0b0d43523ce4b1492ebd6d05e14c3fa-9" href="posts/infinite_fdm/#rest_code_c0b0d43523ce4b1492ebd6d05e14c3fa-9"></a><span class="n">fontsize</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"font.size"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">12</span>
+<a id="rest_code_c0b0d43523ce4b1492ebd6d05e14c3fa-10" name="rest_code_c0b0d43523ce4b1492ebd6d05e14c3fa-10" href="posts/infinite_fdm/#rest_code_c0b0d43523ce4b1492ebd6d05e14c3fa-10"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"xtick.color"</span><span class="p">]</span> <span class="o">=</span> <span class="n">gray</span>
+<a id="rest_code_c0b0d43523ce4b1492ebd6d05e14c3fa-11" name="rest_code_c0b0d43523ce4b1492ebd6d05e14c3fa-11" href="posts/infinite_fdm/#rest_code_c0b0d43523ce4b1492ebd6d05e14c3fa-11"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"ytick.color"</span><span class="p">]</span> <span class="o">=</span> <span class="n">gray</span>
+<a id="rest_code_c0b0d43523ce4b1492ebd6d05e14c3fa-12" name="rest_code_c0b0d43523ce4b1492ebd6d05e14c3fa-12" href="posts/infinite_fdm/#rest_code_c0b0d43523ce4b1492ebd6d05e14c3fa-12"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"axes.labelcolor"</span><span class="p">]</span> <span class="o">=</span> <span class="n">gray</span>
+<a id="rest_code_c0b0d43523ce4b1492ebd6d05e14c3fa-13" name="rest_code_c0b0d43523ce4b1492ebd6d05e14c3fa-13" href="posts/infinite_fdm/#rest_code_c0b0d43523ce4b1492ebd6d05e14c3fa-13"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"axes.edgecolor"</span><span class="p">]</span> <span class="o">=</span> <span class="n">gray</span>
+<a id="rest_code_c0b0d43523ce4b1492ebd6d05e14c3fa-14" name="rest_code_c0b0d43523ce4b1492ebd6d05e14c3fa-14" href="posts/infinite_fdm/#rest_code_c0b0d43523ce4b1492ebd6d05e14c3fa-14"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"axes.spines.right"</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+<a id="rest_code_c0b0d43523ce4b1492ebd6d05e14c3fa-15" name="rest_code_c0b0d43523ce4b1492ebd6d05e14c3fa-15" href="posts/infinite_fdm/#rest_code_c0b0d43523ce4b1492ebd6d05e14c3fa-15"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"axes.spines.top"</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+</pre></div>
 <p>Let's consider the <a class="reference external" href="https://en.wikipedia.org/wiki/Quantum_harmonic_oscillator">Quantum harmonic
 oscillator</a>,
 that has as eigenvalues</p>
@@ -338,44 +330,36 @@ E_n = n + \frac{1}{2},\quad \forall n = 0, 1, 2 \cdots
 </div>
 <p>Using the finite difference method we have values that are really close
 to the analytic ones.</p>
-<pre class="code ipython3"><a name="rest_code_a208ca23198a423f86ee3b5c0b3b9f32-1"></a><span class="n">x</span><span class="p">,</span> <span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span> <span class="o">=</span> <span class="n">regular_FD</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">npts</span><span class="o">=</span><span class="mi">201</span><span class="p">)</span>
-<a name="rest_code_a208ca23198a423f86ee3b5c0b3b9f32-2"></a><span class="n">vals</span>
-</pre>
+<div class="code"><pre class="code ipython3"><a id="rest_code_c5b29b7b8a2e406dbc6094584cb49785-1" name="rest_code_c5b29b7b8a2e406dbc6094584cb49785-1" href="posts/infinite_fdm/#rest_code_c5b29b7b8a2e406dbc6094584cb49785-1"></a><span class="n">x</span><span class="p">,</span> <span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span> <span class="o">=</span> <span class="n">regular_FD</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">npts</span><span class="o">=</span><span class="mi">201</span><span class="p">)</span>
+<a id="rest_code_c5b29b7b8a2e406dbc6094584cb49785-2" name="rest_code_c5b29b7b8a2e406dbc6094584cb49785-2" href="posts/infinite_fdm/#rest_code_c5b29b7b8a2e406dbc6094584cb49785-2"></a><span class="n">vals</span>
+</pre></div>
 <p>with output</p>
-<pre class="literal-block">
-array([0.4996873 , 1.49843574, 2.49593063, 3.49216962, 4.48715031,
-       5.4808703 ])
-</pre>
+<pre class="literal-block">array([0.4996873 , 1.49843574, 2.49593063, 3.49216962, 4.48715031,
+       5.4808703 ])</pre>
 <p>With the analytic ones</p>
-<pre class="code text"><a name="rest_code_e65fe807c0034a4382ff1fb4e3b7c4e6-1"></a>[0.5, 1.5, 2.5, 3.5, 4.5, 5.5])
-</pre>
+<div class="code"><pre class="code text"><a id="rest_code_a1b8568290aa4f6a8cdedab04f4918af-1" name="rest_code_a1b8568290aa4f6a8cdedab04f4918af-1" href="posts/infinite_fdm/#rest_code_a1b8568290aa4f6a8cdedab04f4918af-1"></a>[0.5, 1.5, 2.5, 3.5, 4.5, 5.5])
+</pre></div>
 <p>If we plot these two, we obtain the following.</p>
-<pre class="code ipython3"><a name="rest_code_e7973c914a64425cb735bbb38493d7e0-1"></a><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<a name="rest_code_e7973c914a64425cb735bbb38493d7e0-2"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">anal_vals</span><span class="p">)</span>
-<a name="rest_code_e7973c914a64425cb735bbb38493d7e0-3"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="s2">"o"</span><span class="p">)</span>
-<a name="rest_code_e7973c914a64425cb735bbb38493d7e0-4"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$n$"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<a name="rest_code_e7973c914a64425cb735bbb38493d7e0-5"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$E_n$"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<a name="rest_code_e7973c914a64425cb735bbb38493d7e0-6"></a><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">"Analytic"</span><span class="p">,</span> <span class="s2">"Finite differences"</span><span class="p">])</span>
-<a name="rest_code_e7973c914a64425cb735bbb38493d7e0-7"></a><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span>
-</pre>
-<object class="align-center" data="images/infinite_fdm/eigvals_regular.svg" style="width: 600px;" type="image/svg+xml">
-Eigenvalues for the regular finite difference</object>
-<p>Let's see the eigenfunctions.</p>
-<pre class="code ipython3"><a name="rest_code_fb6b5707c6a04664baf3e5e5b11e336a-1"></a><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<a name="rest_code_fb6b5707c6a04664baf3e5e5b11e336a-2"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">vecs</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">3</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-<a name="rest_code_fb6b5707c6a04664baf3e5e5b11e336a-3"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
-<a name="rest_code_fb6b5707c6a04664baf3e5e5b11e336a-4"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$x$"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<a name="rest_code_fb6b5707c6a04664baf3e5e5b11e336a-5"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$|\psi_n(x)|^2$"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<a name="rest_code_fb6b5707c6a04664baf3e5e5b11e336a-6"></a><span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
-<a name="rest_code_fb6b5707c6a04664baf3e5e5b11e336a-7"></a><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span>
-</pre>
-<object class="align-center" data="images/infinite_fdm/eigvecs_regular.svg" style="width: 600px;" type="image/svg+xml">
-Eigenfunctions for the regular finite difference</object>
-<p>One inconvenient with this method is the redundant sampling towards the
+<div class="code"><pre class="code ipython3"><a id="rest_code_364b14e77dd142f9b067275dad900d22-1" name="rest_code_364b14e77dd142f9b067275dad900d22-1" href="posts/infinite_fdm/#rest_code_364b14e77dd142f9b067275dad900d22-1"></a><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<a id="rest_code_364b14e77dd142f9b067275dad900d22-2" name="rest_code_364b14e77dd142f9b067275dad900d22-2" href="posts/infinite_fdm/#rest_code_364b14e77dd142f9b067275dad900d22-2"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">anal_vals</span><span class="p">)</span>
+<a id="rest_code_364b14e77dd142f9b067275dad900d22-3" name="rest_code_364b14e77dd142f9b067275dad900d22-3" href="posts/infinite_fdm/#rest_code_364b14e77dd142f9b067275dad900d22-3"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="s2">"o"</span><span class="p">)</span>
+<a id="rest_code_364b14e77dd142f9b067275dad900d22-4" name="rest_code_364b14e77dd142f9b067275dad900d22-4" href="posts/infinite_fdm/#rest_code_364b14e77dd142f9b067275dad900d22-4"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$n$"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<a id="rest_code_364b14e77dd142f9b067275dad900d22-5" name="rest_code_364b14e77dd142f9b067275dad900d22-5" href="posts/infinite_fdm/#rest_code_364b14e77dd142f9b067275dad900d22-5"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$E_n$"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<a id="rest_code_364b14e77dd142f9b067275dad900d22-6" name="rest_code_364b14e77dd142f9b067275dad900d22-6" href="posts/infinite_fdm/#rest_code_364b14e77dd142f9b067275dad900d22-6"></a><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">"Analytic"</span><span class="p">,</span> <span class="s2">"Finite differences"</span><span class="p">])</span>
+<a id="rest_code_364b14e77dd142f9b067275dad900d22-7" name="rest_code_364b14e77dd142f9b067275dad900d22-7" href="posts/infinite_fdm/#rest_code_364b14e77dd142f9b067275dad900d22-7"></a><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span>
+</pre></div>
+<img alt="Eigenvalues for the regular finite difference" class="align-center" src="images/infinite_fdm/eigvals_regular.svg" style="width: 600px;"><p>Let's see the eigenfunctions.</p>
+<div class="code"><pre class="code ipython3"><a id="rest_code_3576b80d5935465ebfcd8542811ac290-1" name="rest_code_3576b80d5935465ebfcd8542811ac290-1" href="posts/infinite_fdm/#rest_code_3576b80d5935465ebfcd8542811ac290-1"></a><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<a id="rest_code_3576b80d5935465ebfcd8542811ac290-2" name="rest_code_3576b80d5935465ebfcd8542811ac290-2" href="posts/infinite_fdm/#rest_code_3576b80d5935465ebfcd8542811ac290-2"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">vecs</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">3</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<a id="rest_code_3576b80d5935465ebfcd8542811ac290-3" name="rest_code_3576b80d5935465ebfcd8542811ac290-3" href="posts/infinite_fdm/#rest_code_3576b80d5935465ebfcd8542811ac290-3"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<a id="rest_code_3576b80d5935465ebfcd8542811ac290-4" name="rest_code_3576b80d5935465ebfcd8542811ac290-4" href="posts/infinite_fdm/#rest_code_3576b80d5935465ebfcd8542811ac290-4"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$x$"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<a id="rest_code_3576b80d5935465ebfcd8542811ac290-5" name="rest_code_3576b80d5935465ebfcd8542811ac290-5" href="posts/infinite_fdm/#rest_code_3576b80d5935465ebfcd8542811ac290-5"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$|\psi_n(x)|^2$"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<a id="rest_code_3576b80d5935465ebfcd8542811ac290-6" name="rest_code_3576b80d5935465ebfcd8542811ac290-6" href="posts/infinite_fdm/#rest_code_3576b80d5935465ebfcd8542811ac290-6"></a><span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
+<a id="rest_code_3576b80d5935465ebfcd8542811ac290-7" name="rest_code_3576b80d5935465ebfcd8542811ac290-7" href="posts/infinite_fdm/#rest_code_3576b80d5935465ebfcd8542811ac290-7"></a><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span>
+</pre></div>
+<img alt="Eigenfunctions for the regular finite difference" class="align-center" src="images/infinite_fdm/eigvecs_regular.svg" style="width: 600px;"><p>One inconvenient with this method is the redundant sampling towards the
 extreme of the intervals, while under sample the middle part.</p>
-</div>
-<div class="section" id="changing-the-domain">
-<h3>Changing the domain</h3>
+</section><section id="changing-the-domain"><h3>Changing the domain</h3>
 <p>Let's now consider the case where we transform the infinite domain to a
 finite one with a change of variable</p>
 <div class="math">
@@ -385,10 +369,8 @@ finite one with a change of variable</p>
 </div>
 <p>with <span class="math">\(\xi \in (-1, 1)\)</span>. Two options for this transformation are:</p>
 <ul class="simple">
-<li>
-<span class="math">\(\xi = \tanh x\)</span>; and</li>
-<li>
-<span class="math">\(\xi = \frac{2}{\pi} \arctan x\)</span>.</li>
+<li><p><span class="math">\(\xi = \tanh x\)</span>; and</p></li>
+<li><p><span class="math">\(\xi = \frac{2}{\pi} \arctan x\)</span>.</p></li>
 </ul>
 <p>Making this change of variable the equation we need to solve the
 following equation</p>
@@ -398,26 +380,25 @@ following equation</p>
 \end{equation*}
 </div>
 <p>The following snippet solve the eigenproblem for the mapped domain:</p>
-<pre class="code ipython3"><a name="rest_code_a3aaedc902dd4f0985d321f6bb1f1cdc-1"></a><span class="k">def</span> <span class="nf">mapped_FD</span><span class="p">(</span><span class="n">pot</span><span class="p">,</span> <span class="n">fun</span><span class="p">,</span> <span class="n">dxdxi</span><span class="p">,</span> <span class="n">dxdxi2</span><span class="p">,</span> <span class="n">npts</span><span class="o">=</span><span class="mi">101</span><span class="p">,</span> <span class="n">nvals</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">xi_tol</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">):</span>
-<a name="rest_code_a3aaedc902dd4f0985d321f6bb1f1cdc-2"></a>    <span class="sd">"""</span>
-<a name="rest_code_a3aaedc902dd4f0985d321f6bb1f1cdc-3"></a><span class="sd">    Find eigenvalues/eigenfunctions for Schrodinger</span>
-<a name="rest_code_a3aaedc902dd4f0985d321f6bb1f1cdc-4"></a><span class="sd">    equation for the given potential `pot` using</span>
-<a name="rest_code_a3aaedc902dd4f0985d321f6bb1f1cdc-5"></a><span class="sd">    finite differences over a mapped domain on (-1, 1)</span>
-<a name="rest_code_a3aaedc902dd4f0985d321f6bb1f1cdc-6"></a><span class="sd">    """</span>
-<a name="rest_code_a3aaedc902dd4f0985d321f6bb1f1cdc-7"></a>    <span class="n">xi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">+</span> <span class="n">xi_tol</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">xi_tol</span><span class="p">,</span> <span class="n">npts</span><span class="p">)</span>
-<a name="rest_code_a3aaedc902dd4f0985d321f6bb1f1cdc-8"></a>    <span class="n">x</span> <span class="o">=</span> <span class="n">fun</span><span class="p">(</span><span class="n">xi</span><span class="p">)</span>
-<a name="rest_code_a3aaedc902dd4f0985d321f6bb1f1cdc-9"></a>    <span class="n">dxi</span> <span class="o">=</span> <span class="n">xi</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">xi</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<a name="rest_code_a3aaedc902dd4f0985d321f6bb1f1cdc-10"></a>    <span class="n">D2</span> <span class="o">=</span> <span class="n">diags</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">npts</span><span class="p">,</span> <span class="n">npts</span><span class="p">))</span><span class="o">/</span><span class="n">dxi</span><span class="o">**</span><span class="mi">2</span>
-<a name="rest_code_a3aaedc902dd4f0985d321f6bb1f1cdc-11"></a>    <span class="n">D1</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">diags</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">npts</span><span class="p">,</span> <span class="n">npts</span><span class="p">))</span><span class="o">/</span><span class="n">dxi</span>
-<a name="rest_code_a3aaedc902dd4f0985d321f6bb1f1cdc-12"></a>    <span class="n">V</span> <span class="o">=</span> <span class="n">diags</span><span class="p">(</span><span class="n">pot</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<a name="rest_code_a3aaedc902dd4f0985d321f6bb1f1cdc-13"></a>    <span class="n">fac1</span> <span class="o">=</span> <span class="n">diags</span><span class="p">(</span><span class="n">dxdxi</span><span class="p">(</span><span class="n">xi</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-<a name="rest_code_a3aaedc902dd4f0985d321f6bb1f1cdc-14"></a>    <span class="n">fac2</span> <span class="o">=</span> <span class="n">diags</span><span class="p">(</span><span class="n">dxdxi2</span><span class="p">(</span><span class="n">xi</span><span class="p">))</span>
-<a name="rest_code_a3aaedc902dd4f0985d321f6bb1f1cdc-15"></a>    <span class="n">H</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span><span class="o">*</span><span class="n">fac1</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">D2</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">fac2</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">D1</span><span class="p">)</span> <span class="o">+</span> <span class="n">V</span>
-<a name="rest_code_a3aaedc902dd4f0985d321f6bb1f1cdc-16"></a>    <span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span> <span class="o">=</span> <span class="n">eigs</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">nvals</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s2">"SM"</span><span class="p">)</span>
-<a name="rest_code_a3aaedc902dd4f0985d321f6bb1f1cdc-17"></a>    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">vals</span><span class="p">),</span> <span class="n">vecs</span>
-</pre>
-<div class="section" id="first-transformation-xi-tanh-x">
-<h4>First transformation: <span class="math">\(\xi = \tanh(x)\)</span>
+<div class="code"><pre class="code ipython3"><a id="rest_code_f29df6fce5d149d2a202fda4d5ca60cd-1" name="rest_code_f29df6fce5d149d2a202fda4d5ca60cd-1" href="posts/infinite_fdm/#rest_code_f29df6fce5d149d2a202fda4d5ca60cd-1"></a><span class="k">def</span> <span class="nf">mapped_FD</span><span class="p">(</span><span class="n">pot</span><span class="p">,</span> <span class="n">fun</span><span class="p">,</span> <span class="n">dxdxi</span><span class="p">,</span> <span class="n">dxdxi2</span><span class="p">,</span> <span class="n">npts</span><span class="o">=</span><span class="mi">101</span><span class="p">,</span> <span class="n">nvals</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">xi_tol</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">):</span>
+<a id="rest_code_f29df6fce5d149d2a202fda4d5ca60cd-2" name="rest_code_f29df6fce5d149d2a202fda4d5ca60cd-2" href="posts/infinite_fdm/#rest_code_f29df6fce5d149d2a202fda4d5ca60cd-2"></a>    <span class="sd">"""</span>
+<a id="rest_code_f29df6fce5d149d2a202fda4d5ca60cd-3" name="rest_code_f29df6fce5d149d2a202fda4d5ca60cd-3" href="posts/infinite_fdm/#rest_code_f29df6fce5d149d2a202fda4d5ca60cd-3"></a><span class="sd">    Find eigenvalues/eigenfunctions for Schrodinger</span>
+<a id="rest_code_f29df6fce5d149d2a202fda4d5ca60cd-4" name="rest_code_f29df6fce5d149d2a202fda4d5ca60cd-4" href="posts/infinite_fdm/#rest_code_f29df6fce5d149d2a202fda4d5ca60cd-4"></a><span class="sd">    equation for the given potential `pot` using</span>
+<a id="rest_code_f29df6fce5d149d2a202fda4d5ca60cd-5" name="rest_code_f29df6fce5d149d2a202fda4d5ca60cd-5" href="posts/infinite_fdm/#rest_code_f29df6fce5d149d2a202fda4d5ca60cd-5"></a><span class="sd">    finite differences over a mapped domain on (-1, 1)</span>
+<a id="rest_code_f29df6fce5d149d2a202fda4d5ca60cd-6" name="rest_code_f29df6fce5d149d2a202fda4d5ca60cd-6" href="posts/infinite_fdm/#rest_code_f29df6fce5d149d2a202fda4d5ca60cd-6"></a><span class="sd">    """</span>
+<a id="rest_code_f29df6fce5d149d2a202fda4d5ca60cd-7" name="rest_code_f29df6fce5d149d2a202fda4d5ca60cd-7" href="posts/infinite_fdm/#rest_code_f29df6fce5d149d2a202fda4d5ca60cd-7"></a>    <span class="n">xi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">+</span> <span class="n">xi_tol</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">xi_tol</span><span class="p">,</span> <span class="n">npts</span><span class="p">)</span>
+<a id="rest_code_f29df6fce5d149d2a202fda4d5ca60cd-8" name="rest_code_f29df6fce5d149d2a202fda4d5ca60cd-8" href="posts/infinite_fdm/#rest_code_f29df6fce5d149d2a202fda4d5ca60cd-8"></a>    <span class="n">x</span> <span class="o">=</span> <span class="n">fun</span><span class="p">(</span><span class="n">xi</span><span class="p">)</span>
+<a id="rest_code_f29df6fce5d149d2a202fda4d5ca60cd-9" name="rest_code_f29df6fce5d149d2a202fda4d5ca60cd-9" href="posts/infinite_fdm/#rest_code_f29df6fce5d149d2a202fda4d5ca60cd-9"></a>    <span class="n">dxi</span> <span class="o">=</span> <span class="n">xi</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">xi</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<a id="rest_code_f29df6fce5d149d2a202fda4d5ca60cd-10" name="rest_code_f29df6fce5d149d2a202fda4d5ca60cd-10" href="posts/infinite_fdm/#rest_code_f29df6fce5d149d2a202fda4d5ca60cd-10"></a>    <span class="n">D2</span> <span class="o">=</span> <span class="n">diags</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">npts</span><span class="p">,</span> <span class="n">npts</span><span class="p">))</span><span class="o">/</span><span class="n">dxi</span><span class="o">**</span><span class="mi">2</span>
+<a id="rest_code_f29df6fce5d149d2a202fda4d5ca60cd-11" name="rest_code_f29df6fce5d149d2a202fda4d5ca60cd-11" href="posts/infinite_fdm/#rest_code_f29df6fce5d149d2a202fda4d5ca60cd-11"></a>    <span class="n">D1</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">diags</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">npts</span><span class="p">,</span> <span class="n">npts</span><span class="p">))</span><span class="o">/</span><span class="n">dxi</span>
+<a id="rest_code_f29df6fce5d149d2a202fda4d5ca60cd-12" name="rest_code_f29df6fce5d149d2a202fda4d5ca60cd-12" href="posts/infinite_fdm/#rest_code_f29df6fce5d149d2a202fda4d5ca60cd-12"></a>    <span class="n">V</span> <span class="o">=</span> <span class="n">diags</span><span class="p">(</span><span class="n">pot</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<a id="rest_code_f29df6fce5d149d2a202fda4d5ca60cd-13" name="rest_code_f29df6fce5d149d2a202fda4d5ca60cd-13" href="posts/infinite_fdm/#rest_code_f29df6fce5d149d2a202fda4d5ca60cd-13"></a>    <span class="n">fac1</span> <span class="o">=</span> <span class="n">diags</span><span class="p">(</span><span class="n">dxdxi</span><span class="p">(</span><span class="n">xi</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<a id="rest_code_f29df6fce5d149d2a202fda4d5ca60cd-14" name="rest_code_f29df6fce5d149d2a202fda4d5ca60cd-14" href="posts/infinite_fdm/#rest_code_f29df6fce5d149d2a202fda4d5ca60cd-14"></a>    <span class="n">fac2</span> <span class="o">=</span> <span class="n">diags</span><span class="p">(</span><span class="n">dxdxi2</span><span class="p">(</span><span class="n">xi</span><span class="p">))</span>
+<a id="rest_code_f29df6fce5d149d2a202fda4d5ca60cd-15" name="rest_code_f29df6fce5d149d2a202fda4d5ca60cd-15" href="posts/infinite_fdm/#rest_code_f29df6fce5d149d2a202fda4d5ca60cd-15"></a>    <span class="n">H</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span><span class="o">*</span><span class="n">fac1</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">D2</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">fac2</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">D1</span><span class="p">)</span> <span class="o">+</span> <span class="n">V</span>
+<a id="rest_code_f29df6fce5d149d2a202fda4d5ca60cd-16" name="rest_code_f29df6fce5d149d2a202fda4d5ca60cd-16" href="posts/infinite_fdm/#rest_code_f29df6fce5d149d2a202fda4d5ca60cd-16"></a>    <span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span> <span class="o">=</span> <span class="n">eigs</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">nvals</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s2">"SM"</span><span class="p">)</span>
+<a id="rest_code_f29df6fce5d149d2a202fda4d5ca60cd-17" name="rest_code_f29df6fce5d149d2a202fda4d5ca60cd-17" href="posts/infinite_fdm/#rest_code_f29df6fce5d149d2a202fda4d5ca60cd-17"></a>    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">vals</span><span class="p">),</span> <span class="n">vecs</span>
+</pre></div>
+<section id="first-transformation-xi-tanh-x"><h4>First transformation: <span class="math">\(\xi = \tanh(x)\)</span>
 </h4>
 <p>Let's consider first the transformation</p>
 <div class="math">
@@ -438,45 +419,37 @@ following equation</p>
 \end{equation*}
 </div>
 <p>We need to define the functions</p>
-<pre class="code ipython3"><a name="rest_code_aefa6d92f5ea4f068e7832dd7a82e426-1"></a><span class="n">pot</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span>
-<a name="rest_code_aefa6d92f5ea4f068e7832dd7a82e426-2"></a><span class="n">fun</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">xi</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">arctanh</span><span class="p">(</span><span class="n">xi</span><span class="p">)</span>
-<a name="rest_code_aefa6d92f5ea4f068e7832dd7a82e426-3"></a><span class="n">dxdxi</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">xi</span><span class="p">:</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">xi</span><span class="o">**</span><span class="mi">2</span>
-<a name="rest_code_aefa6d92f5ea4f068e7832dd7a82e426-4"></a><span class="n">dxdxi2</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">xi</span><span class="p">:</span> <span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">xi</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">xi</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-</pre>
+<div class="code"><pre class="code ipython3"><a id="rest_code_a0efaa8e7b7a4f4894fa667f60e6c739-1" name="rest_code_a0efaa8e7b7a4f4894fa667f60e6c739-1" href="posts/infinite_fdm/#rest_code_a0efaa8e7b7a4f4894fa667f60e6c739-1"></a><span class="n">pot</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+<a id="rest_code_a0efaa8e7b7a4f4894fa667f60e6c739-2" name="rest_code_a0efaa8e7b7a4f4894fa667f60e6c739-2" href="posts/infinite_fdm/#rest_code_a0efaa8e7b7a4f4894fa667f60e6c739-2"></a><span class="n">fun</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">xi</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">arctanh</span><span class="p">(</span><span class="n">xi</span><span class="p">)</span>
+<a id="rest_code_a0efaa8e7b7a4f4894fa667f60e6c739-3" name="rest_code_a0efaa8e7b7a4f4894fa667f60e6c739-3" href="posts/infinite_fdm/#rest_code_a0efaa8e7b7a4f4894fa667f60e6c739-3"></a><span class="n">dxdxi</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">xi</span><span class="p">:</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">xi</span><span class="o">**</span><span class="mi">2</span>
+<a id="rest_code_a0efaa8e7b7a4f4894fa667f60e6c739-4" name="rest_code_a0efaa8e7b7a4f4894fa667f60e6c739-4" href="posts/infinite_fdm/#rest_code_a0efaa8e7b7a4f4894fa667f60e6c739-4"></a><span class="n">dxdxi2</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">xi</span><span class="p">:</span> <span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">xi</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">xi</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
 <p>and run the function</p>
-<pre class="code ipython3"><a name="rest_code_4ef5f4de4a7343999e2b204e3d22473e-1"></a><span class="n">x</span><span class="p">,</span> <span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span> <span class="o">=</span> <span class="n">mapped_FD</span><span class="p">(</span><span class="n">pot</span><span class="p">,</span> <span class="n">fun</span><span class="p">,</span> <span class="n">dxdxi</span><span class="p">,</span> <span class="n">dxdxi2</span><span class="p">,</span> <span class="n">npts</span><span class="o">=</span><span class="mi">201</span><span class="p">)</span>
-<a name="rest_code_4ef5f4de4a7343999e2b204e3d22473e-2"></a><span class="n">vals</span>
-</pre>
+<div class="code"><pre class="code ipython3"><a id="rest_code_7654b660514e4233b4f3950d3c4724d5-1" name="rest_code_7654b660514e4233b4f3950d3c4724d5-1" href="posts/infinite_fdm/#rest_code_7654b660514e4233b4f3950d3c4724d5-1"></a><span class="n">x</span><span class="p">,</span> <span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span> <span class="o">=</span> <span class="n">mapped_FD</span><span class="p">(</span><span class="n">pot</span><span class="p">,</span> <span class="n">fun</span><span class="p">,</span> <span class="n">dxdxi</span><span class="p">,</span> <span class="n">dxdxi2</span><span class="p">,</span> <span class="n">npts</span><span class="o">=</span><span class="mi">201</span><span class="p">)</span>
+<a id="rest_code_7654b660514e4233b4f3950d3c4724d5-2" name="rest_code_7654b660514e4233b4f3950d3c4724d5-2" href="posts/infinite_fdm/#rest_code_7654b660514e4233b4f3950d3c4724d5-2"></a><span class="n">vals</span>
+</pre></div>
 <p>And we obtain the following</p>
-<pre class="literal-block">
-array([0.49989989, 1.4984226 , 2.49003572, 3.46934257, 4.46935021,
-       5.59552989])
-</pre>
+<pre class="literal-block">array([0.49989989, 1.4984226 , 2.49003572, 3.46934257, 4.46935021,
+       5.59552989])</pre>
 <p>If we compare with the analytic values we get the following.</p>
-<pre class="code ipython3"><a name="rest_code_c92e1ab55be6473c97f7047e1d871bb2-1"></a><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<a name="rest_code_c92e1ab55be6473c97f7047e1d871bb2-2"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">anal_vals</span><span class="p">)</span>
-<a name="rest_code_c92e1ab55be6473c97f7047e1d871bb2-3"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="s2">"o"</span><span class="p">)</span>
-<a name="rest_code_c92e1ab55be6473c97f7047e1d871bb2-4"></a><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">"Analytic"</span><span class="p">,</span> <span class="s2">"Finite differences"</span><span class="p">])</span>
-<a name="rest_code_c92e1ab55be6473c97f7047e1d871bb2-5"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$n$"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<a name="rest_code_c92e1ab55be6473c97f7047e1d871bb2-6"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$E_n$"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<a name="rest_code_c92e1ab55be6473c97f7047e1d871bb2-7"></a><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span>
-</pre>
-<object class="align-center" data="images/infinite_fdm/eigvals_tanh.svg" style="width: 600px;" type="image/svg+xml">
-Eigenvalues for the first transformation</object>
-<p>And the following are the eigenfunctions.</p>
-<pre class="code ipython3"><a name="rest_code_7a872d0a18b54682a684bfff9858a07b-1"></a><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<a name="rest_code_7a872d0a18b54682a684bfff9858a07b-2"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">vecs</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">3</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-<a name="rest_code_7a872d0a18b54682a684bfff9858a07b-3"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
-<a name="rest_code_7a872d0a18b54682a684bfff9858a07b-4"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$x$"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<a name="rest_code_7a872d0a18b54682a684bfff9858a07b-5"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$|\psi_n(x)|^2$"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<a name="rest_code_7a872d0a18b54682a684bfff9858a07b-6"></a><span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
-<a name="rest_code_7a872d0a18b54682a684bfff9858a07b-7"></a><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span>
-</pre>
-<object class="align-center" data="images/infinite_fdm/eigvecs_tanh.svg" style="width: 600px;" type="image/svg+xml">
-Eigenfunctions for the first transformation</object>
-</div>
-<div class="section" id="second-transformation-xi-frac-2-pi-mathrm-atan-x">
-<h4>Second transformation: <span class="math">\(\xi = \frac{2}{\pi}\mathrm{atan}(x)\)</span>
+<div class="code"><pre class="code ipython3"><a id="rest_code_60f3402ee2284304ab5e41099508093f-1" name="rest_code_60f3402ee2284304ab5e41099508093f-1" href="posts/infinite_fdm/#rest_code_60f3402ee2284304ab5e41099508093f-1"></a><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<a id="rest_code_60f3402ee2284304ab5e41099508093f-2" name="rest_code_60f3402ee2284304ab5e41099508093f-2" href="posts/infinite_fdm/#rest_code_60f3402ee2284304ab5e41099508093f-2"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">anal_vals</span><span class="p">)</span>
+<a id="rest_code_60f3402ee2284304ab5e41099508093f-3" name="rest_code_60f3402ee2284304ab5e41099508093f-3" href="posts/infinite_fdm/#rest_code_60f3402ee2284304ab5e41099508093f-3"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="s2">"o"</span><span class="p">)</span>
+<a id="rest_code_60f3402ee2284304ab5e41099508093f-4" name="rest_code_60f3402ee2284304ab5e41099508093f-4" href="posts/infinite_fdm/#rest_code_60f3402ee2284304ab5e41099508093f-4"></a><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">"Analytic"</span><span class="p">,</span> <span class="s2">"Finite differences"</span><span class="p">])</span>
+<a id="rest_code_60f3402ee2284304ab5e41099508093f-5" name="rest_code_60f3402ee2284304ab5e41099508093f-5" href="posts/infinite_fdm/#rest_code_60f3402ee2284304ab5e41099508093f-5"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$n$"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<a id="rest_code_60f3402ee2284304ab5e41099508093f-6" name="rest_code_60f3402ee2284304ab5e41099508093f-6" href="posts/infinite_fdm/#rest_code_60f3402ee2284304ab5e41099508093f-6"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$E_n$"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<a id="rest_code_60f3402ee2284304ab5e41099508093f-7" name="rest_code_60f3402ee2284304ab5e41099508093f-7" href="posts/infinite_fdm/#rest_code_60f3402ee2284304ab5e41099508093f-7"></a><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span>
+</pre></div>
+<img alt="Eigenvalues for the first transformation" class="align-center" src="images/infinite_fdm/eigvals_tanh.svg" style="width: 600px;"><p>And the following are the eigenfunctions.</p>
+<div class="code"><pre class="code ipython3"><a id="rest_code_1b0a8872f72f4334b4a439685dc8cf87-1" name="rest_code_1b0a8872f72f4334b4a439685dc8cf87-1" href="posts/infinite_fdm/#rest_code_1b0a8872f72f4334b4a439685dc8cf87-1"></a><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<a id="rest_code_1b0a8872f72f4334b4a439685dc8cf87-2" name="rest_code_1b0a8872f72f4334b4a439685dc8cf87-2" href="posts/infinite_fdm/#rest_code_1b0a8872f72f4334b4a439685dc8cf87-2"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">vecs</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">3</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<a id="rest_code_1b0a8872f72f4334b4a439685dc8cf87-3" name="rest_code_1b0a8872f72f4334b4a439685dc8cf87-3" href="posts/infinite_fdm/#rest_code_1b0a8872f72f4334b4a439685dc8cf87-3"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<a id="rest_code_1b0a8872f72f4334b4a439685dc8cf87-4" name="rest_code_1b0a8872f72f4334b4a439685dc8cf87-4" href="posts/infinite_fdm/#rest_code_1b0a8872f72f4334b4a439685dc8cf87-4"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$x$"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<a id="rest_code_1b0a8872f72f4334b4a439685dc8cf87-5" name="rest_code_1b0a8872f72f4334b4a439685dc8cf87-5" href="posts/infinite_fdm/#rest_code_1b0a8872f72f4334b4a439685dc8cf87-5"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$|\psi_n(x)|^2$"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<a id="rest_code_1b0a8872f72f4334b4a439685dc8cf87-6" name="rest_code_1b0a8872f72f4334b4a439685dc8cf87-6" href="posts/infinite_fdm/#rest_code_1b0a8872f72f4334b4a439685dc8cf87-6"></a><span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
+<a id="rest_code_1b0a8872f72f4334b4a439685dc8cf87-7" name="rest_code_1b0a8872f72f4334b4a439685dc8cf87-7" href="posts/infinite_fdm/#rest_code_1b0a8872f72f4334b4a439685dc8cf87-7"></a><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span>
+</pre></div>
+<img alt="Eigenfunctions for the first transformation" class="align-center" src="images/infinite_fdm/eigvecs_tanh.svg" style="width: 600px;"></section><section id="second-transformation-xi-frac-2-pi-mathrm-atan-x"><h4>Second transformation: <span class="math">\(\xi = \frac{2}{\pi}\mathrm{atan}(x)\)</span>
 </h4>
 <p>Let's consider first the transformation</p>
 <div class="math">
@@ -497,48 +470,39 @@ Eigenfunctions for the first transformation</object>
 \end{equation*}
 </div>
 <p>Once, again, we define the functions.</p>
-<pre class="code ipython3"><a name="rest_code_befc7d87a2444221b458a75b2676504d-1"></a><span class="n">pot</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span>
-<a name="rest_code_befc7d87a2444221b458a75b2676504d-2"></a><span class="n">fun</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">xi</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">xi</span><span class="p">)</span>
-<a name="rest_code_befc7d87a2444221b458a75b2676504d-3"></a><span class="n">dxdxi</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">xi</span><span class="p">:</span> <span class="mi">2</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">xi</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
-<a name="rest_code_befc7d87a2444221b458a75b2676504d-4"></a><span class="n">dxdxi2</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">xi</span><span class="p">:</span> <span class="o">-</span><span class="mi">4</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">xi</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">xi</span><span class="p">)</span>
-</pre>
+<div class="code"><pre class="code ipython3"><a id="rest_code_4aae7519e8b9492491d6c84b1a048dea-1" name="rest_code_4aae7519e8b9492491d6c84b1a048dea-1" href="posts/infinite_fdm/#rest_code_4aae7519e8b9492491d6c84b1a048dea-1"></a><span class="n">pot</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+<a id="rest_code_4aae7519e8b9492491d6c84b1a048dea-2" name="rest_code_4aae7519e8b9492491d6c84b1a048dea-2" href="posts/infinite_fdm/#rest_code_4aae7519e8b9492491d6c84b1a048dea-2"></a><span class="n">fun</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">xi</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">xi</span><span class="p">)</span>
+<a id="rest_code_4aae7519e8b9492491d6c84b1a048dea-3" name="rest_code_4aae7519e8b9492491d6c84b1a048dea-3" href="posts/infinite_fdm/#rest_code_4aae7519e8b9492491d6c84b1a048dea-3"></a><span class="n">dxdxi</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">xi</span><span class="p">:</span> <span class="mi">2</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">xi</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+<a id="rest_code_4aae7519e8b9492491d6c84b1a048dea-4" name="rest_code_4aae7519e8b9492491d6c84b1a048dea-4" href="posts/infinite_fdm/#rest_code_4aae7519e8b9492491d6c84b1a048dea-4"></a><span class="n">dxdxi2</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">xi</span><span class="p">:</span> <span class="o">-</span><span class="mi">4</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">xi</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">xi</span><span class="p">)</span>
+</pre></div>
 <p>and run the function</p>
-<pre class="code ipython3"><a name="rest_code_f85f191633954da88fb99b0a4c6ffb45-1"></a><span class="n">x</span><span class="p">,</span> <span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span> <span class="o">=</span> <span class="n">mapped_FD</span><span class="p">(</span><span class="n">pot</span><span class="p">,</span> <span class="n">fun</span><span class="p">,</span> <span class="n">dxdxi</span><span class="p">,</span> <span class="n">dxdxi2</span><span class="p">,</span> <span class="n">npts</span><span class="o">=</span><span class="mi">201</span><span class="p">)</span>
-<a name="rest_code_f85f191633954da88fb99b0a4c6ffb45-2"></a><span class="n">vals</span>
-</pre>
+<div class="code"><pre class="code ipython3"><a id="rest_code_30a1756c35a54b64ac808de7e168ca90-1" name="rest_code_30a1756c35a54b64ac808de7e168ca90-1" href="posts/infinite_fdm/#rest_code_30a1756c35a54b64ac808de7e168ca90-1"></a><span class="n">x</span><span class="p">,</span> <span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span> <span class="o">=</span> <span class="n">mapped_FD</span><span class="p">(</span><span class="n">pot</span><span class="p">,</span> <span class="n">fun</span><span class="p">,</span> <span class="n">dxdxi</span><span class="p">,</span> <span class="n">dxdxi2</span><span class="p">,</span> <span class="n">npts</span><span class="o">=</span><span class="mi">201</span><span class="p">)</span>
+<a id="rest_code_30a1756c35a54b64ac808de7e168ca90-2" name="rest_code_30a1756c35a54b64ac808de7e168ca90-2" href="posts/infinite_fdm/#rest_code_30a1756c35a54b64ac808de7e168ca90-2"></a><span class="n">vals</span>
+</pre></div>
 <p>to obtain the following eigenvalues</p>
-<pre class="literal-block">
-array([0.49997815, 1.49979632, 2.49930872, 3.49824697, 4.49627555,
-       5.49295665])
-</pre>
+<pre class="literal-block">array([0.49997815, 1.49979632, 2.49930872, 3.49824697, 4.49627555,
+       5.49295665])</pre>
 <p>with this plot</p>
-<pre class="code ipython3"><a name="rest_code_d452275a9fae4454adcfefa0c4d69ca1-1"></a><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<a name="rest_code_d452275a9fae4454adcfefa0c4d69ca1-2"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">anal_vals</span><span class="p">)</span>
-<a name="rest_code_d452275a9fae4454adcfefa0c4d69ca1-3"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="s2">"o"</span><span class="p">)</span>
-<a name="rest_code_d452275a9fae4454adcfefa0c4d69ca1-4"></a><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">"Analytic"</span><span class="p">,</span> <span class="s2">"Finite differences"</span><span class="p">])</span>
-<a name="rest_code_d452275a9fae4454adcfefa0c4d69ca1-5"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$n$"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<a name="rest_code_d452275a9fae4454adcfefa0c4d69ca1-6"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$E_n$"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<a name="rest_code_d452275a9fae4454adcfefa0c4d69ca1-7"></a><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span>
-</pre>
-<object class="align-center" data="images/infinite_fdm/eigvals_atan.svg" style="width: 600px;" type="image/svg+xml">
-Eigenvalues for the second transformation</object>
-<p>and the following eigenfunctions.</p>
-<pre class="code ipython3"><a name="rest_code_a5df7a159fc143c4be380de87be182b2-1"></a><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<a name="rest_code_a5df7a159fc143c4be380de87be182b2-2"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">vecs</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">3</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-<a name="rest_code_a5df7a159fc143c4be380de87be182b2-3"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$x$"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<a name="rest_code_a5df7a159fc143c4be380de87be182b2-4"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$|\psi|^2$"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<a name="rest_code_a5df7a159fc143c4be380de87be182b2-5"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
-<a name="rest_code_a5df7a159fc143c4be380de87be182b2-6"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$x$"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<a name="rest_code_a5df7a159fc143c4be380de87be182b2-7"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$|\psi_n(x)|^2$"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<a name="rest_code_a5df7a159fc143c4be380de87be182b2-8"></a><span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
-<a name="rest_code_a5df7a159fc143c4be380de87be182b2-9"></a><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span>
-</pre>
-<object class="align-center" data="images/infinite_fdm/eigvecs_atan.svg" style="width: 600px;" type="image/svg+xml">
-Eigenfunctions for the second transformation</object>
-</div>
-</div>
-<div class="section" id="conclusion">
-<h3>Conclusion</h3>
+<div class="code"><pre class="code ipython3"><a id="rest_code_96dab83dbae44f64aab31d8af80d1c9c-1" name="rest_code_96dab83dbae44f64aab31d8af80d1c9c-1" href="posts/infinite_fdm/#rest_code_96dab83dbae44f64aab31d8af80d1c9c-1"></a><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<a id="rest_code_96dab83dbae44f64aab31d8af80d1c9c-2" name="rest_code_96dab83dbae44f64aab31d8af80d1c9c-2" href="posts/infinite_fdm/#rest_code_96dab83dbae44f64aab31d8af80d1c9c-2"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">anal_vals</span><span class="p">)</span>
+<a id="rest_code_96dab83dbae44f64aab31d8af80d1c9c-3" name="rest_code_96dab83dbae44f64aab31d8af80d1c9c-3" href="posts/infinite_fdm/#rest_code_96dab83dbae44f64aab31d8af80d1c9c-3"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="s2">"o"</span><span class="p">)</span>
+<a id="rest_code_96dab83dbae44f64aab31d8af80d1c9c-4" name="rest_code_96dab83dbae44f64aab31d8af80d1c9c-4" href="posts/infinite_fdm/#rest_code_96dab83dbae44f64aab31d8af80d1c9c-4"></a><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">"Analytic"</span><span class="p">,</span> <span class="s2">"Finite differences"</span><span class="p">])</span>
+<a id="rest_code_96dab83dbae44f64aab31d8af80d1c9c-5" name="rest_code_96dab83dbae44f64aab31d8af80d1c9c-5" href="posts/infinite_fdm/#rest_code_96dab83dbae44f64aab31d8af80d1c9c-5"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$n$"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<a id="rest_code_96dab83dbae44f64aab31d8af80d1c9c-6" name="rest_code_96dab83dbae44f64aab31d8af80d1c9c-6" href="posts/infinite_fdm/#rest_code_96dab83dbae44f64aab31d8af80d1c9c-6"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$E_n$"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<a id="rest_code_96dab83dbae44f64aab31d8af80d1c9c-7" name="rest_code_96dab83dbae44f64aab31d8af80d1c9c-7" href="posts/infinite_fdm/#rest_code_96dab83dbae44f64aab31d8af80d1c9c-7"></a><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span>
+</pre></div>
+<img alt="Eigenvalues for the second transformation" class="align-center" src="images/infinite_fdm/eigvals_atan.svg" style="width: 600px;"><p>and the following eigenfunctions.</p>
+<div class="code"><pre class="code ipython3"><a id="rest_code_b7e557bed9134208a148d940ef7c6daa-1" name="rest_code_b7e557bed9134208a148d940ef7c6daa-1" href="posts/infinite_fdm/#rest_code_b7e557bed9134208a148d940ef7c6daa-1"></a><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<a id="rest_code_b7e557bed9134208a148d940ef7c6daa-2" name="rest_code_b7e557bed9134208a148d940ef7c6daa-2" href="posts/infinite_fdm/#rest_code_b7e557bed9134208a148d940ef7c6daa-2"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">vecs</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">3</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<a id="rest_code_b7e557bed9134208a148d940ef7c6daa-3" name="rest_code_b7e557bed9134208a148d940ef7c6daa-3" href="posts/infinite_fdm/#rest_code_b7e557bed9134208a148d940ef7c6daa-3"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$x$"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<a id="rest_code_b7e557bed9134208a148d940ef7c6daa-4" name="rest_code_b7e557bed9134208a148d940ef7c6daa-4" href="posts/infinite_fdm/#rest_code_b7e557bed9134208a148d940ef7c6daa-4"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$|\psi|^2$"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<a id="rest_code_b7e557bed9134208a148d940ef7c6daa-5" name="rest_code_b7e557bed9134208a148d940ef7c6daa-5" href="posts/infinite_fdm/#rest_code_b7e557bed9134208a148d940ef7c6daa-5"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<a id="rest_code_b7e557bed9134208a148d940ef7c6daa-6" name="rest_code_b7e557bed9134208a148d940ef7c6daa-6" href="posts/infinite_fdm/#rest_code_b7e557bed9134208a148d940ef7c6daa-6"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$x$"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<a id="rest_code_b7e557bed9134208a148d940ef7c6daa-7" name="rest_code_b7e557bed9134208a148d940ef7c6daa-7" href="posts/infinite_fdm/#rest_code_b7e557bed9134208a148d940ef7c6daa-7"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$|\psi_n(x)|^2$"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<a id="rest_code_b7e557bed9134208a148d940ef7c6daa-8" name="rest_code_b7e557bed9134208a148d940ef7c6daa-8" href="posts/infinite_fdm/#rest_code_b7e557bed9134208a148d940ef7c6daa-8"></a><span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
+<a id="rest_code_b7e557bed9134208a148d940ef7c6daa-9" name="rest_code_b7e557bed9134208a148d940ef7c6daa-9" href="posts/infinite_fdm/#rest_code_b7e557bed9134208a148d940ef7c6daa-9"></a><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span>
+</pre></div>
+<img alt="Eigenfunctions for the second transformation" class="align-center" src="images/infinite_fdm/eigvecs_atan.svg" style="width: 600px;"></section></section><section id="conclusion"><h3>Conclusion</h3>
 <p>The method works fine, although the differential equation is more
 convoluted due to the change of variable. Although there are more
 elegant methods to consider infinite domains, this is simple enough to
@@ -554,24 +518,21 @@ are placed in the center of the interval.</p>
     this notebook, or see a static view on
     <a href="http://nbviewer.jupyter.org/url/nicoguaro.github.io/downloads/notebooks/finite_diff_map.ipynb">nbviewer</a>.
   <i>
-</i></i></small>
+</i></i></small></section></section>
 </div>
-</div>
-    </div>
     </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/cyclic_colormaps/" class="u-url">Cyclic colormaps comparison</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
             <p class="dateline"><a href="posts/cyclic_colormaps/" rel="bookmark"><time class="post-date published dt-published" datetime="2018-01-02T18:55:41-05:00" title="2018-01-02 18:55">2018-01-02 18:55</time></a></p>
                 <p class="commentline">
-        
+    
     <a href="posts/cyclic_colormaps/#disqus_thread" data-disqus-identifier="cache/posts/cyclic_colormaps.html">Comments</a>
 
 
         </p>
 </div>
     </header><div class="e-content entry-content">
-    <div>
-<p>I started this post looking for a
+    <p>I started this post looking for a
 <a class="reference external" href="https://en.wikipedia.org/wiki/Diffusion_map">diffusion map</a> on Python,
 that I didn't find. Then I continued following an
 <a class="reference external" href="http://scikit-learn.org/stable/auto_examples/manifold/plot_compare_methods.html#sphx-glr-auto-examples-manifold-plot-compare-methods-py">example</a>
@@ -790,22 +751,20 @@ future.</p>
 arXiv:1509.03700 [cs.GR] 2015</p></li>
 </ol>
 </div>
-</div>
     </div>
     </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/putnam_prob/" class="u-url">Probability that a random tetrahedron over a sphere contains its center</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
             <p class="dateline"><a href="posts/putnam_prob/" rel="bookmark"><time class="post-date published dt-published" datetime="2017-12-13T15:24:52-05:00" title="2017-12-13 15:24">2017-12-13 15:24</time></a></p>
                 <p class="commentline">
-        
+    
     <a href="posts/putnam_prob/#disqus_thread" data-disqus-identifier="cache/posts/putnam_prob.html">Comments</a>
 
 
         </p>
 </div>
     </header><div class="e-content entry-content">
-    <div>
-<p>I got interested in this problem watching the YouTube channel
+    <p>I got interested in this problem watching the YouTube channel
 <a class="reference external" href="https://www.youtube.com/channel/UCYO_jab_esuFRV4b17AJtAw">3Blue1Brown</a>,
 by Grant Sanderson, where he explains a way to tackle the problem that
 is just … elegant!</p>
@@ -968,7 +927,6 @@ and <span class="math">\((x_i, y_i, z_i)\)</span> are the coordinates of each ve
 estimated probability is close to the theoretical value: 0.125. This
 can be seen in the following figure.</p>
 <img alt="Computed probability for different sample sizes" class="align-center" src="images/random_tets.svg" style="width: 600px;">
-</div>
 </div>
     </div>
     </article>

@@ -69,7 +69,7 @@
             <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
             <p class="dateline"><a href="." rel="bookmark"><time class="post-date published dt-published" datetime="2021-11-03T12:53:40-05:00" itemprop="datePublished" title="2021-11-03 12:53">2021-11-03 12:53</time></a></p>
                 <p class="commentline">
-        
+    
     <a href="#disqus_thread" data-disqus-identifier="cache/posts/tech_writing/tech_writing_figs.html">Comments</a>
 
 
@@ -82,8 +82,7 @@
         </div>
 
     </header><div class="e-content entry-content" itemprop="articleBody text">
-    <div>
-<p>In a <a class="reference external" href="../tech_writing">previous post</a> I mentioned some general aspects of
+    <p>In a <a class="reference external" href="../tech_writing">previous post</a> I mentioned some general aspects of
 technical writing. In this one, I would like to talk about including
 figures in technical documents.</p>
 <p>This post is about some details on the planning of figures for technical
@@ -158,31 +157,31 @@ minimal resolution of 150 dpi (dots per inch). For example, an image of
 <p>The following Python snippet creates a figure of size 6 in × 3 in, and plots
 the function \(f(x) = \sin(x^2)\) and stores it as an image of size
 900 in × 450 in.</p>
-<pre class="code python"><a id="rest_code_b96599663834469a8125949c374ac6c7-1" name="rest_code_b96599663834469a8125949c374ac6c7-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<a id="rest_code_b96599663834469a8125949c374ac6c7-2" name="rest_code_b96599663834469a8125949c374ac6c7-2"></a><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<a id="rest_code_b96599663834469a8125949c374ac6c7-3" name="rest_code_b96599663834469a8125949c374ac6c7-3"></a><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<a id="rest_code_b96599663834469a8125949c374ac6c7-4" name="rest_code_b96599663834469a8125949c374ac6c7-4"></a><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-<a id="rest_code_b96599663834469a8125949c374ac6c7-5" name="rest_code_b96599663834469a8125949c374ac6c7-5"></a><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-<a id="rest_code_b96599663834469a8125949c374ac6c7-6" name="rest_code_b96599663834469a8125949c374ac6c7-6"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<a id="rest_code_b96599663834469a8125949c374ac6c7-7" name="rest_code_b96599663834469a8125949c374ac6c7-7"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"x"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<a id="rest_code_b96599663834469a8125949c374ac6c7-8" name="rest_code_b96599663834469a8125949c374ac6c7-8"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"y"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<a id="rest_code_b96599663834469a8125949c374ac6c7-9" name="rest_code_b96599663834469a8125949c374ac6c7-9"></a><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">"fig_ex_python.png"</span><span class="p">,</span> <span class="n">dpi</span><span class="p">)</span>
-</pre>
+<div class="code"><pre class="code python"><a id="rest_code_86721c8171904d50b896f15f823acc7b-1" name="rest_code_86721c8171904d50b896f15f823acc7b-1" href="#rest_code_86721c8171904d50b896f15f823acc7b-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<a id="rest_code_86721c8171904d50b896f15f823acc7b-2" name="rest_code_86721c8171904d50b896f15f823acc7b-2" href="#rest_code_86721c8171904d50b896f15f823acc7b-2"></a><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<a id="rest_code_86721c8171904d50b896f15f823acc7b-3" name="rest_code_86721c8171904d50b896f15f823acc7b-3" href="#rest_code_86721c8171904d50b896f15f823acc7b-3"></a><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<a id="rest_code_86721c8171904d50b896f15f823acc7b-4" name="rest_code_86721c8171904d50b896f15f823acc7b-4" href="#rest_code_86721c8171904d50b896f15f823acc7b-4"></a><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<a id="rest_code_86721c8171904d50b896f15f823acc7b-5" name="rest_code_86721c8171904d50b896f15f823acc7b-5" href="#rest_code_86721c8171904d50b896f15f823acc7b-5"></a><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<a id="rest_code_86721c8171904d50b896f15f823acc7b-6" name="rest_code_86721c8171904d50b896f15f823acc7b-6" href="#rest_code_86721c8171904d50b896f15f823acc7b-6"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<a id="rest_code_86721c8171904d50b896f15f823acc7b-7" name="rest_code_86721c8171904d50b896f15f823acc7b-7" href="#rest_code_86721c8171904d50b896f15f823acc7b-7"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"x"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<a id="rest_code_86721c8171904d50b896f15f823acc7b-8" name="rest_code_86721c8171904d50b896f15f823acc7b-8" href="#rest_code_86721c8171904d50b896f15f823acc7b-8"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"y"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<a id="rest_code_86721c8171904d50b896f15f823acc7b-9" name="rest_code_86721c8171904d50b896f15f823acc7b-9" href="#rest_code_86721c8171904d50b896f15f823acc7b-9"></a><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">"fig_ex_python.png"</span><span class="p">,</span> <span class="n">dpi</span><span class="p">)</span>
+</pre></div>
 <div class="line-block">
 <div class="line"><br></div>
 </div>
 <p>And the following in Matlab.</p>
-<pre class="code matlab"><a id="rest_code_4b83382b11fc46f79b6b42da78a4102d-1" name="rest_code_4b83382b11fc46f79b6b42da78a4102d-1"></a><span class="n">fig</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
-<a id="rest_code_4b83382b11fc46f79b6b42da78a4102d-2" name="rest_code_4b83382b11fc46f79b6b42da78a4102d-2"></a><span class="n">fig</span><span class="p">.</span><span class="n">Units</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">'inches'</span><span class="p">;</span><span class="w"></span>
-<a id="rest_code_4b83382b11fc46f79b6b42da78a4102d-3" name="rest_code_4b83382b11fc46f79b6b42da78a4102d-3"></a><span class="n">fig</span><span class="p">.</span><span class="n">Position</span><span class="p">(</span><span class="mi">3</span><span class="p">:</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w">  </span><span class="p">[</span><span class="mi">6</span><span class="w"> </span><span class="mi">4</span><span class="p">];</span><span class="w"></span>
-<a id="rest_code_4b83382b11fc46f79b6b42da78a4102d-4" name="rest_code_4b83382b11fc46f79b6b42da78a4102d-4"></a><span class="n">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="p">,</span><span class="w"> </span><span class="mi">500</span><span class="p">);</span><span class="w"></span>
-<a id="rest_code_4b83382b11fc46f79b6b42da78a4102d-5" name="rest_code_4b83382b11fc46f79b6b42da78a4102d-5"></a><span class="n">y</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">sin</span><span class="p">(</span><span class="n">x</span><span class="o">.^</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
-<a id="rest_code_4b83382b11fc46f79b6b42da78a4102d-6" name="rest_code_4b83382b11fc46f79b6b42da78a4102d-6"></a><span class="nb">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="s">'LineWidth'</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
-<a id="rest_code_4b83382b11fc46f79b6b42da78a4102d-7" name="rest_code_4b83382b11fc46f79b6b42da78a4102d-7"></a><span class="nb">xlabel</span><span class="p">(</span><span class="s">'x'</span><span class="p">,</span><span class="w"> </span><span class="s">'FontSize'</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"></span>
-<a id="rest_code_4b83382b11fc46f79b6b42da78a4102d-8" name="rest_code_4b83382b11fc46f79b6b42da78a4102d-8"></a><span class="nb">ylabel</span><span class="p">(</span><span class="s">'y'</span><span class="p">,</span><span class="w"> </span><span class="s">'FontSize'</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"></span>
-<a id="rest_code_4b83382b11fc46f79b6b42da78a4102d-9" name="rest_code_4b83382b11fc46f79b6b42da78a4102d-9"></a><span class="nb">set</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span><span class="w"> </span><span class="s">'PaperSize'</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">]);</span><span class="w"></span>
-<a id="rest_code_4b83382b11fc46f79b6b42da78a4102d-10" name="rest_code_4b83382b11fc46f79b6b42da78a4102d-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span><span class="s">'fig_ex_matlab'</span><span class="p">,</span><span class="w"> </span><span class="s">'-dpng'</span><span class="p">,</span><span class="w"> </span><span class="s">'-r150'</span><span class="p">);</span><span class="w"></span>
-</pre>
+<div class="code"><pre class="code matlab"><a id="rest_code_2ba441483bc54b06b3d566b8762f8753-1" name="rest_code_2ba441483bc54b06b3d566b8762f8753-1" href="#rest_code_2ba441483bc54b06b3d566b8762f8753-1"></a><span class="n">fig</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<a id="rest_code_2ba441483bc54b06b3d566b8762f8753-2" name="rest_code_2ba441483bc54b06b3d566b8762f8753-2" href="#rest_code_2ba441483bc54b06b3d566b8762f8753-2"></a><span class="n">fig</span><span class="p">.</span><span class="n">Units</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">'inches'</span><span class="p">;</span><span class="w"></span>
+<a id="rest_code_2ba441483bc54b06b3d566b8762f8753-3" name="rest_code_2ba441483bc54b06b3d566b8762f8753-3" href="#rest_code_2ba441483bc54b06b3d566b8762f8753-3"></a><span class="n">fig</span><span class="p">.</span><span class="n">Position</span><span class="p">(</span><span class="mi">3</span><span class="p">:</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w">  </span><span class="p">[</span><span class="mi">6</span><span class="w"> </span><span class="mi">4</span><span class="p">];</span><span class="w"></span>
+<a id="rest_code_2ba441483bc54b06b3d566b8762f8753-4" name="rest_code_2ba441483bc54b06b3d566b8762f8753-4" href="#rest_code_2ba441483bc54b06b3d566b8762f8753-4"></a><span class="n">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="p">,</span><span class="w"> </span><span class="mi">500</span><span class="p">);</span><span class="w"></span>
+<a id="rest_code_2ba441483bc54b06b3d566b8762f8753-5" name="rest_code_2ba441483bc54b06b3d566b8762f8753-5" href="#rest_code_2ba441483bc54b06b3d566b8762f8753-5"></a><span class="n">y</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">sin</span><span class="p">(</span><span class="n">x</span><span class="o">.^</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
+<a id="rest_code_2ba441483bc54b06b3d566b8762f8753-6" name="rest_code_2ba441483bc54b06b3d566b8762f8753-6" href="#rest_code_2ba441483bc54b06b3d566b8762f8753-6"></a><span class="nb">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="s">'LineWidth'</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
+<a id="rest_code_2ba441483bc54b06b3d566b8762f8753-7" name="rest_code_2ba441483bc54b06b3d566b8762f8753-7" href="#rest_code_2ba441483bc54b06b3d566b8762f8753-7"></a><span class="nb">xlabel</span><span class="p">(</span><span class="s">'x'</span><span class="p">,</span><span class="w"> </span><span class="s">'FontSize'</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"></span>
+<a id="rest_code_2ba441483bc54b06b3d566b8762f8753-8" name="rest_code_2ba441483bc54b06b3d566b8762f8753-8" href="#rest_code_2ba441483bc54b06b3d566b8762f8753-8"></a><span class="nb">ylabel</span><span class="p">(</span><span class="s">'y'</span><span class="p">,</span><span class="w"> </span><span class="s">'FontSize'</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"></span>
+<a id="rest_code_2ba441483bc54b06b3d566b8762f8753-9" name="rest_code_2ba441483bc54b06b3d566b8762f8753-9" href="#rest_code_2ba441483bc54b06b3d566b8762f8753-9"></a><span class="nb">set</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span><span class="w"> </span><span class="s">'PaperSize'</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">]);</span><span class="w"></span>
+<a id="rest_code_2ba441483bc54b06b3d566b8762f8753-10" name="rest_code_2ba441483bc54b06b3d566b8762f8753-10" href="#rest_code_2ba441483bc54b06b3d566b8762f8753-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span><span class="s">'fig_ex_matlab'</span><span class="p">,</span><span class="w"> </span><span class="s">'-dpng'</span><span class="p">,</span><span class="w"> </span><span class="s">'-r150'</span><span class="p">);</span><span class="w"></span>
+</pre></div>
 <div class="line-block">
 <div class="line"><br></div>
 </div>
@@ -226,11 +225,6 @@ And, different software have different nominal sizes. The following
 table present the nominal sizes for LibreOffice Impress and MS
 Power Point.</p>
 <table>
-<colgroup>
-<col style="width: 34%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
 <thead><tr>
 <th class="head"></th>
 <th class="head"><p>16:9</p></th>
@@ -270,7 +264,6 @@ Instruction." Retrieved November 1, 2021, from <a class="reference external" hre
 </div>
 </section></section>
 </div>
-    </div>
     <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
 <li><a class="tag p-category" href="../../../categories/figures/" rel="tag">figures</a></li>
             <li><a class="tag p-category" href="../../../categories/inkscape/" rel="tag">inkscape</a></li>
@@ -286,7 +279,7 @@ Instruction." Retrieved November 1, 2021, from <a class="reference external" hre
             </li>
         </ul></nav></aside><section class="comments hidden-print"><h2>Comments</h2>
         
-        
+    
         <div id="disqus_thread"></div>
         <script>
         var disqus_shortname ="nicoguaro-github",

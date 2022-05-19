@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nicolás' blog (Posts about linear algebra)</title><link>https://nicoguaro.github.io/</link><description></description><atom:link href="https://nicoguaro.github.io/categories/linear-algebra.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2021 &lt;a href="mailto:nicoguarin@gmail.com"&gt;Nicolás Guarín-Zapata&lt;/a&gt; 
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nicolás' blog (Posts about linear algebra)</title><link>https://nicoguaro.github.io/</link><description></description><atom:link href="https://nicoguaro.github.io/categories/linear-algebra.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2022 &lt;a href="mailto:nicoguarin@gmail.com"&gt;Nicolás Guarín-Zapata&lt;/a&gt; 
 &lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
 &lt;img alt="Creative Commons License"
 style="border-width:0"
-src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Wed, 03 Feb 2021 21:27:33 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Isometric graphics in Inkscape</title><link>https://nicoguaro.github.io/posts/isometric_inkscape/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;Sometimes I find myself in need of making a schematic using an
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Fri, 06 May 2022 17:24:12 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Isometric graphics in Inkscape</title><link>https://nicoguaro.github.io/posts/isometric_inkscape/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;Sometimes I find myself in need of making a schematic using an
 &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Isometric_projection"&gt;isometric projection&lt;/a&gt;.
 When the schematic is complicated the best shot is to use some
 CAD like &lt;a class="reference external" href="https://freecadweb.org/"&gt;FreeCAD&lt;/a&gt;, but sometimes it's just
@@ -117,4 +117,4 @@ below.&lt;/p&gt;
 to common notation in mathematics.&lt;/p&gt;
 &lt;img alt="Cheatsheet for isometric schematics in Inkscape" class="align-center" src="https://nicoguaro.github.io/images/isometric_inkscape/isometric_instructions.svg" style="width: 500px;"&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;/div&gt;</description><category>computer graphics</category><category>inkscape</category><category>linear algebra</category><category>tutorial</category><guid>https://nicoguaro.github.io/posts/isometric_inkscape/</guid><pubDate>Thu, 24 May 2018 20:42:02 GMT</pubDate></item></channel></rss>
+&lt;/div&gt;</description><category>computer graphics</category><category>inkscape</category><category>linear algebra</category><category>tutorial</category><guid>https://nicoguaro.github.io/posts/isometric_inkscape/</guid><pubDate>Thu, 24 May 2018 20:42:02 GMT</pubDate></item></channel></rss>

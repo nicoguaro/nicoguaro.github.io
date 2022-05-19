@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nicolás' blog (Posts about note taking)</title><link>https://nicoguaro.github.io/</link><description></description><atom:link href="https://nicoguaro.github.io/categories/note-taking.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2021 &lt;a href="mailto:nicoguarin@gmail.com"&gt;Nicolás Guarín-Zapata&lt;/a&gt; 
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nicolás' blog (Posts about note taking)</title><link>https://nicoguaro.github.io/</link><description></description><atom:link href="https://nicoguaro.github.io/categories/note-taking.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2022 &lt;a href="mailto:nicoguarin@gmail.com"&gt;Nicolás Guarín-Zapata&lt;/a&gt; 
 &lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
 &lt;img alt="Creative Commons License"
 style="border-width:0"
-src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Fri, 18 Jun 2021 17:13:50 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>(Auxiliary) Tools for research</title><link>https://nicoguaro.github.io/posts/herramientas-investigacion/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;In this post I want to talk about some tools (or something like that)
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Fri, 06 May 2022 17:24:16 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>(Auxiliary) Tools for research</title><link>https://nicoguaro.github.io/posts/herramientas-investigacion/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;In this post I want to talk about some tools (or something like that)
 that are useful in the day-to-day research, but usually not so popular
 for being somewhat &lt;em&gt;tangential&lt;/em&gt; to the area specific in which each one works.&lt;/p&gt;
 &lt;div class="section" id="scripting"&gt;
@@ -280,7 +280,7 @@ free for projects with 5 or fewer collaborators (or for
 &lt;/ol&gt;
 &lt;p&gt;Surely I left a lot of topics outside as well as tools within a topic. If that's
 the case, I would appreciate if you tell me in the comments.&lt;/p&gt;
-&lt;/div&gt;&lt;/div&gt;</description><category>note taking</category><category>old blog</category><category>research</category><category>scientific visualization</category><guid>https://nicoguaro.github.io/posts/herramientas-investigacion/</guid><pubDate>Sat, 12 Jul 2014 09:24:00 GMT</pubDate></item><item><title>Note taking with my tablet</title><link>https://nicoguaro.github.io/posts/notas-tableta/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;Last year baby Jesus gave me a &lt;a class="reference external" href="http://www.samsung.com/us/mobile/galaxy-note/GT-N8013EAVXAR"&gt;Samsung Galaxy Note
+&lt;/div&gt;</description><category>note taking</category><category>old blog</category><category>research</category><category>scientific visualization</category><guid>https://nicoguaro.github.io/posts/herramientas-investigacion/</guid><pubDate>Sat, 12 Jul 2014 09:24:00 GMT</pubDate></item><item><title>Note taking with my tablet</title><link>https://nicoguaro.github.io/posts/notas-tableta/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;Last year baby Jesus gave me a &lt;a class="reference external" href="http://www.samsung.com/us/mobile/galaxy-note/GT-N8013EAVXAR"&gt;Samsung Galaxy Note
 10.1&lt;/a&gt;
 (model 2012). This tablet is designed for taking notes, as it brings
 an S-Pen (made by Wacom, which I think makes the
@@ -367,4 +367,4 @@ It may be a bit rushed, but it is doable. The application that
 comes by default (S Note) allows to do the job "out of the
 box", but it could be better. The applications that I find the most
 Promising are: Note Anytime and Quill.&lt;/p&gt;
-&lt;/div&gt;&lt;/div&gt;</description><category>note taking</category><category>old blog</category><category>tablet</category><guid>https://nicoguaro.github.io/posts/notas-tableta/</guid><pubDate>Wed, 21 May 2014 02:23:00 GMT</pubDate></item></channel></rss>
+&lt;/div&gt;</description><category>note taking</category><category>old blog</category><category>tablet</category><guid>https://nicoguaro.github.io/posts/notas-tableta/</guid><pubDate>Wed, 21 May 2014 02:23:00 GMT</pubDate></item></channel></rss>

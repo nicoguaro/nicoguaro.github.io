@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nicolás' blog (Publicaciones sobre combinatoria)</title><link>https://nicoguaro.github.io/</link><description></description><atom:link href="https://nicoguaro.github.io/es/categories/combinatoria.xml" rel="self" type="application/rss+xml"></atom:link><language>es</language><copyright>Contents © 2021 &lt;a href="mailto:nicoguarin@gmail.com"&gt;Nicolás Guarín-Zapata&lt;/a&gt; 
+<?xml-stylesheet type="text/xsl" href="../../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nicolás' blog (Publicaciones sobre combinatoria)</title><link>https://nicoguaro.github.io/</link><description></description><atom:link href="https://nicoguaro.github.io/es/categories/combinatoria.xml" rel="self" type="application/rss+xml"></atom:link><language>es</language><copyright>Contents © 2022 &lt;a href="mailto:nicoguarin@gmail.com"&gt;Nicolás Guarín-Zapata&lt;/a&gt; 
 &lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
 &lt;img alt="Creative Commons License"
 style="border-width:0"
-src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Wed, 03 Feb 2021 21:27:30 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Marcado Aleatorio de un Tetraedro</title><link>https://nicoguaro.github.io/es/posts/marking-tetrahedron/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;div&gt;&lt;p&gt;El día de ayer (junio 4 de 2020), Christian Howard publicó en
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Fri, 06 May 2022 17:24:06 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Marcado Aleatorio de un Tetraedro</title><link>https://nicoguaro.github.io/es/posts/marking-tetrahedron/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;El día de ayer (junio 4 de 2020), Christian Howard publicó en
 &lt;a class="reference external" href="https://twitter.com/choward1491/status/1268736220055699457"&gt;Twitter&lt;/a&gt;
 la siguiente pregunta&lt;/p&gt;
 &lt;blockquote&gt;
@@ -86,4 +86,4 @@ probabilidad.&lt;/p&gt;
 &lt;/pre&gt;&lt;p&gt;Y podemos ver la evolución del estimado para diferente número
 de intentos.&lt;/p&gt;
 &lt;img alt="Probabilidad estimada para diferente número de intentos." class="align-center" src="https://nicoguaro.github.io/images/marked_tets.svg" style="width: 600px;"&gt;
-&lt;/div&gt;&lt;/div&gt;</description><category>combinatoria</category><category>geometría computacional</category><category>monte carlo</category><guid>https://nicoguaro.github.io/es/posts/marking-tetrahedron/</guid><pubDate>Sat, 06 Jun 2020 03:58:32 GMT</pubDate></item></channel></rss>
+&lt;/div&gt;</description><category>combinatoria</category><category>geometría computacional</category><category>monte carlo</category><guid>https://nicoguaro.github.io/es/posts/marking-tetrahedron/</guid><pubDate>Sat, 06 Jun 2020 03:58:32 GMT</pubDate></item></channel></rss>

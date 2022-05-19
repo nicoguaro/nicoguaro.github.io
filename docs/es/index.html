@@ -56,15 +56,14 @@
             <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
             <p class="dateline"><a href="posts/tech_writing/tech_writing_figs/" rel="bookmark"><time class="post-date published dt-published" datetime="2021-11-03T12:53:40-05:00" title="2021-11-03 12:53">2021-11-03 12:53</time></a></p>
                 <p class="commentline">
-        
+    
     <a href="posts/tech_writing/tech_writing_figs/#disqus_thread" data-disqus-identifier="cache/posts/tech_writing/tech_writing_figs.html">Comentarios</a>
 
 
         </p>
 </div>
     </header><div class="e-content entry-content">
-    <div>
-<p>En una <a class="reference external" href="posts/tech_writing/tech_writing">publicación anterior</a> mencioné algunos aspectos
+    <p>En una <a class="reference external" href="posts/tech_writing/tech_writing">publicación anterior</a> mencioné algunos aspectos
 generales de la escritura técnica. En este me gustaría hablar sobre la
 inclusión de figuras en documentos técnicos.</p>
 <section id="formatos-de-graficos"><h2>Formatos de gráficos</h2>
@@ -136,31 +135,31 @@ de 6 × 3 pulgadas. Esta imagen tendría un tamaño de (a 150 ppp) de
 <p>El siguiente código de Python crea una figura de tamaño 6 in × 3 in, y grafica
 la función \(f(x) = \sin(x^2)\) y la guarda como una imagen de tamaño
 900 in × 450 in.</p>
-<pre class="code python"><a id="rest_code_690e9afb5f044c5cb89ceb1cbcf5dff4-1" name="rest_code_690e9afb5f044c5cb89ceb1cbcf5dff4-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<a id="rest_code_690e9afb5f044c5cb89ceb1cbcf5dff4-2" name="rest_code_690e9afb5f044c5cb89ceb1cbcf5dff4-2"></a><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<a id="rest_code_690e9afb5f044c5cb89ceb1cbcf5dff4-3" name="rest_code_690e9afb5f044c5cb89ceb1cbcf5dff4-3"></a><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<a id="rest_code_690e9afb5f044c5cb89ceb1cbcf5dff4-4" name="rest_code_690e9afb5f044c5cb89ceb1cbcf5dff4-4"></a><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-<a id="rest_code_690e9afb5f044c5cb89ceb1cbcf5dff4-5" name="rest_code_690e9afb5f044c5cb89ceb1cbcf5dff4-5"></a><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-<a id="rest_code_690e9afb5f044c5cb89ceb1cbcf5dff4-6" name="rest_code_690e9afb5f044c5cb89ceb1cbcf5dff4-6"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<a id="rest_code_690e9afb5f044c5cb89ceb1cbcf5dff4-7" name="rest_code_690e9afb5f044c5cb89ceb1cbcf5dff4-7"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"x"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<a id="rest_code_690e9afb5f044c5cb89ceb1cbcf5dff4-8" name="rest_code_690e9afb5f044c5cb89ceb1cbcf5dff4-8"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"y"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<a id="rest_code_690e9afb5f044c5cb89ceb1cbcf5dff4-9" name="rest_code_690e9afb5f044c5cb89ceb1cbcf5dff4-9"></a><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">"fig_ex_python.png"</span><span class="p">,</span> <span class="n">dpi</span><span class="p">)</span>
-</pre>
+<div class="code"><pre class="code python"><a id="rest_code_92b7aca8108746d881a9b5dd54604a5e-1" name="rest_code_92b7aca8108746d881a9b5dd54604a5e-1" href="posts/tech_writing/tech_writing_figs/#rest_code_92b7aca8108746d881a9b5dd54604a5e-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<a id="rest_code_92b7aca8108746d881a9b5dd54604a5e-2" name="rest_code_92b7aca8108746d881a9b5dd54604a5e-2" href="posts/tech_writing/tech_writing_figs/#rest_code_92b7aca8108746d881a9b5dd54604a5e-2"></a><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<a id="rest_code_92b7aca8108746d881a9b5dd54604a5e-3" name="rest_code_92b7aca8108746d881a9b5dd54604a5e-3" href="posts/tech_writing/tech_writing_figs/#rest_code_92b7aca8108746d881a9b5dd54604a5e-3"></a><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<a id="rest_code_92b7aca8108746d881a9b5dd54604a5e-4" name="rest_code_92b7aca8108746d881a9b5dd54604a5e-4" href="posts/tech_writing/tech_writing_figs/#rest_code_92b7aca8108746d881a9b5dd54604a5e-4"></a><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<a id="rest_code_92b7aca8108746d881a9b5dd54604a5e-5" name="rest_code_92b7aca8108746d881a9b5dd54604a5e-5" href="posts/tech_writing/tech_writing_figs/#rest_code_92b7aca8108746d881a9b5dd54604a5e-5"></a><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<a id="rest_code_92b7aca8108746d881a9b5dd54604a5e-6" name="rest_code_92b7aca8108746d881a9b5dd54604a5e-6" href="posts/tech_writing/tech_writing_figs/#rest_code_92b7aca8108746d881a9b5dd54604a5e-6"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<a id="rest_code_92b7aca8108746d881a9b5dd54604a5e-7" name="rest_code_92b7aca8108746d881a9b5dd54604a5e-7" href="posts/tech_writing/tech_writing_figs/#rest_code_92b7aca8108746d881a9b5dd54604a5e-7"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"x"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<a id="rest_code_92b7aca8108746d881a9b5dd54604a5e-8" name="rest_code_92b7aca8108746d881a9b5dd54604a5e-8" href="posts/tech_writing/tech_writing_figs/#rest_code_92b7aca8108746d881a9b5dd54604a5e-8"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"y"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<a id="rest_code_92b7aca8108746d881a9b5dd54604a5e-9" name="rest_code_92b7aca8108746d881a9b5dd54604a5e-9" href="posts/tech_writing/tech_writing_figs/#rest_code_92b7aca8108746d881a9b5dd54604a5e-9"></a><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">"fig_ex_python.png"</span><span class="p">,</span> <span class="n">dpi</span><span class="p">)</span>
+</pre></div>
 <div class="line-block">
 <div class="line"><br></div>
 </div>
 <p>Y el siguiente código de Matlab.</p>
-<pre class="code matlab"><a id="rest_code_df389b4baf9142e280c88d2629e553de-1" name="rest_code_df389b4baf9142e280c88d2629e553de-1"></a><span class="n">fig</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
-<a id="rest_code_df389b4baf9142e280c88d2629e553de-2" name="rest_code_df389b4baf9142e280c88d2629e553de-2"></a><span class="n">fig</span><span class="p">.</span><span class="n">Units</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">'inches'</span><span class="p">;</span><span class="w"></span>
-<a id="rest_code_df389b4baf9142e280c88d2629e553de-3" name="rest_code_df389b4baf9142e280c88d2629e553de-3"></a><span class="n">fig</span><span class="p">.</span><span class="n">Position</span><span class="p">(</span><span class="mi">3</span><span class="p">:</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w">  </span><span class="p">[</span><span class="mi">6</span><span class="w"> </span><span class="mi">4</span><span class="p">];</span><span class="w"></span>
-<a id="rest_code_df389b4baf9142e280c88d2629e553de-4" name="rest_code_df389b4baf9142e280c88d2629e553de-4"></a><span class="n">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="p">,</span><span class="w"> </span><span class="mi">500</span><span class="p">);</span><span class="w"></span>
-<a id="rest_code_df389b4baf9142e280c88d2629e553de-5" name="rest_code_df389b4baf9142e280c88d2629e553de-5"></a><span class="n">y</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">sin</span><span class="p">(</span><span class="n">x</span><span class="o">.^</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
-<a id="rest_code_df389b4baf9142e280c88d2629e553de-6" name="rest_code_df389b4baf9142e280c88d2629e553de-6"></a><span class="nb">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="s">'LineWidth'</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
-<a id="rest_code_df389b4baf9142e280c88d2629e553de-7" name="rest_code_df389b4baf9142e280c88d2629e553de-7"></a><span class="nb">xlabel</span><span class="p">(</span><span class="s">'x'</span><span class="p">,</span><span class="w"> </span><span class="s">'FontSize'</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"></span>
-<a id="rest_code_df389b4baf9142e280c88d2629e553de-8" name="rest_code_df389b4baf9142e280c88d2629e553de-8"></a><span class="nb">ylabel</span><span class="p">(</span><span class="s">'y'</span><span class="p">,</span><span class="w"> </span><span class="s">'FontSize'</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"></span>
-<a id="rest_code_df389b4baf9142e280c88d2629e553de-9" name="rest_code_df389b4baf9142e280c88d2629e553de-9"></a><span class="nb">set</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span><span class="w"> </span><span class="s">'PaperSize'</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">]);</span><span class="w"></span>
-<a id="rest_code_df389b4baf9142e280c88d2629e553de-10" name="rest_code_df389b4baf9142e280c88d2629e553de-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span><span class="s">'fig_ex_matlab'</span><span class="p">,</span><span class="w"> </span><span class="s">'-dpng'</span><span class="p">,</span><span class="w"> </span><span class="s">'-r150'</span><span class="p">);</span><span class="w"></span>
-</pre>
+<div class="code"><pre class="code matlab"><a id="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-1" name="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-1" href="posts/tech_writing/tech_writing_figs/#rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-1"></a><span class="n">fig</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<a id="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-2" name="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-2" href="posts/tech_writing/tech_writing_figs/#rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-2"></a><span class="n">fig</span><span class="p">.</span><span class="n">Units</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">'inches'</span><span class="p">;</span><span class="w"></span>
+<a id="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-3" name="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-3" href="posts/tech_writing/tech_writing_figs/#rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-3"></a><span class="n">fig</span><span class="p">.</span><span class="n">Position</span><span class="p">(</span><span class="mi">3</span><span class="p">:</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w">  </span><span class="p">[</span><span class="mi">6</span><span class="w"> </span><span class="mi">4</span><span class="p">];</span><span class="w"></span>
+<a id="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-4" name="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-4" href="posts/tech_writing/tech_writing_figs/#rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-4"></a><span class="n">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="p">,</span><span class="w"> </span><span class="mi">500</span><span class="p">);</span><span class="w"></span>
+<a id="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-5" name="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-5" href="posts/tech_writing/tech_writing_figs/#rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-5"></a><span class="n">y</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">sin</span><span class="p">(</span><span class="n">x</span><span class="o">.^</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
+<a id="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-6" name="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-6" href="posts/tech_writing/tech_writing_figs/#rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-6"></a><span class="nb">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="s">'LineWidth'</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
+<a id="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-7" name="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-7" href="posts/tech_writing/tech_writing_figs/#rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-7"></a><span class="nb">xlabel</span><span class="p">(</span><span class="s">'x'</span><span class="p">,</span><span class="w"> </span><span class="s">'FontSize'</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"></span>
+<a id="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-8" name="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-8" href="posts/tech_writing/tech_writing_figs/#rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-8"></a><span class="nb">ylabel</span><span class="p">(</span><span class="s">'y'</span><span class="p">,</span><span class="w"> </span><span class="s">'FontSize'</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"></span>
+<a id="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-9" name="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-9" href="posts/tech_writing/tech_writing_figs/#rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-9"></a><span class="nb">set</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span><span class="w"> </span><span class="s">'PaperSize'</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">]);</span><span class="w"></span>
+<a id="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-10" name="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-10" href="posts/tech_writing/tech_writing_figs/#rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span><span class="s">'fig_ex_matlab'</span><span class="p">,</span><span class="w"> </span><span class="s">'-dpng'</span><span class="p">,</span><span class="w"> </span><span class="s">'-r150'</span><span class="p">);</span><span class="w"></span>
+</pre></div>
 <div class="line-block">
 <div class="line"><br></div>
 </div>
@@ -205,11 +204,6 @@ de 24 pts (ver referencia 3).</p>
 Además, diferentes programas usan diferentes tamaños nominales. La siguiente
 tabla muestra los tamaños nomiales para LibreOffice Impress y MS Power Point.</p>
 <table>
-<colgroup>
-<col style="width: 34%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
 <thead><tr>
 <th class="head"></th>
 <th class="head"><p>16:9</p></th>
@@ -249,21 +243,19 @@ Instruction." Fecha de acceso: Noviembre 1, 2021, de <a class="reference externa
 </div>
 </section></section>
 </div>
-    </div>
     </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/chicharron/" class="u-url">¿Cuánto chicharrón puede comprar Jeff Bezos?</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">Sebastián Tobón</span></p>
             <p class="dateline"><a href="posts/chicharron/" rel="bookmark"><time class="post-date published dt-published" datetime="2021-09-30T10:42:44-05:00" title="2021-09-30 10:42">2021-09-30 10:42</time></a></p>
                 <p class="commentline">
-        
+    
     <a href="posts/chicharron/#disqus_thread" data-disqus-identifier="cache/posts/chicharron.html">Comentarios</a>
 
 
         </p>
 </div>
     </header><div class="e-content entry-content">
-    <div>
-<p>Este es un cálculo que hizo Sebastián Tobón cuando estaba cursando
+    <p>Este es un cálculo que hizo Sebastián Tobón cuando estaba cursando
 Métodos Numéricos para Ecuaciones en Derivadas Parciales (en 2020). El
 propósito era incentivar realizar cuentas rápidas (cuentas de servilleta)
 y que tuvieran el tamaño de algunos números (por ejemplo, 10¹²) en su
@@ -321,21 +313,19 @@ siendo estos de los más caros del mercado—. Por lo tanto</p>
 </div>
 </section>
 </div>
-    </div>
     </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/wolfram_jupyter/" class="u-url">Usando el lenguaje de Wolfram en Jupyter: Alternativa gratuita a Mathematica</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
             <p class="dateline"><a href="posts/wolfram_jupyter/" rel="bookmark"><time class="post-date published dt-published" datetime="2021-03-30T19:50:09-05:00" title="2021-03-30 19:50">2021-03-30 19:50</time></a></p>
                 <p class="commentline">
-        
+    
     <a href="posts/wolfram_jupyter/#disqus_thread" data-disqus-identifier="cache/posts/wolfram_jupyter.html">Comentarios</a>
 
 
         </p>
 </div>
     </header><div class="e-content entry-content">
-    <div>
-<p>En esta publicación voy a describir cómo agregar Wolfram Language a
+    <p>En esta publicación voy a describir cómo agregar Wolfram Language a
 Jupyter. Esto proporciona una alternativa gratuita a Mathematica con,
 prácticamente, la misma sintaxis. El uso de Wolfram Engine es gratuito en un
 ambiente que no sea de producción como se describe en su sitio web:</p>
@@ -449,22 +439,20 @@ pero si estás interesado puede ver el
 <a class="reference external" href="https://github.com/WolframResearch/WolframLanguageForJupyter/issues/76">issue</a>
 sobre esto en GitHub.</p>
 </div>
-</div>
     </div>
     </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/bem_corrected/" class="u-url">Regresando al Método de elementos de frontera</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
             <p class="dateline"><a href="posts/bem_corrected/" rel="bookmark"><time class="post-date published dt-published" datetime="2021-02-22T10:00:00-05:00" title="2021-02-22 10:00">2021-02-22 10:00</time></a></p>
                 <p class="commentline">
-        
+    
     <a href="posts/bem_corrected/#disqus_thread" data-disqus-identifier="cache/posts/bem_corrected.html">Comentarios</a>
 
 
         </p>
 </div>
     </header><div class="e-content entry-content">
-    <div>
-<p>Durante octubre (2017) estuve escribiendo un programa por día para algunos
+    <p>Durante octubre (2017) estuve escribiendo un programa por día para algunos
 métodos numéricos famosos en Python y Julia. Esto estaba pensado como
 un ejercicio para aprender Julia. Puedne ver un  <a class="reference external" href="posts/numerical_summary">resumen aquí</a>.
 Tuve éxito en 30 de los retos, exceptuando por el BEM
@@ -706,158 +694,20 @@ dependencias. Por ejemplo, se usa la versión 3.0 de
 <p>En este caso obtenemos el siguiente resultado.</p>
 <img alt="Solución de la ecuación diferencial usando BEM." class="align-center" src="../images/bem_solution.png" style="width: 600px;">
 </div>
-</div>
-    </div>
-    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/tech_writing/tech_writing_math/" class="u-url">Escritura técnica: usando matemáticas</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
-            <p class="dateline"><a href="posts/tech_writing/tech_writing_math/" rel="bookmark"><time class="post-date published dt-published" datetime="2020-08-02T18:00:00-05:00" title="2020-08-02 18:00">2020-08-02 18:00</time></a></p>
-                <p class="commentline">
-        
-    <a href="posts/tech_writing/tech_writing_math/#disqus_thread" data-disqus-identifier="cache/posts/tech_writing/tech_writing_math.html">Comentarios</a>
-
-
-        </p>
-</div>
-    </header><div class="e-content entry-content">
-    <div>
-<p>En una <a class="reference external" href="posts/tech_writing/tech_writing">publicación anterior</a> mencioné algunos aspectos
-generales de la escritura técnica. En este me gustaría hablar sobre la
-inclusión de expresiones matemáticas en documentos técnicos.</p>
-<p>Hay dos formas principales de incluir matemáticas en documentos:</p>
-<ul class="simple">
-<li><p>utilizando texto; y</p></li>
-<li><p>utilizando una interfaz gráfica.</p></li>
-</ul>
-<p>Usar una interfaz gráfica, como el editor de ecuaciones en LibreOffice Writer o
-MS Word, o <a class="reference external" href="http://www.dessci.com/en/products/mathtype/">MathType</a> es
-conveniente. No es necesario memorizar nada y se pueden mirar las expresiones
-mientras se crean. Sin embargo, puede ser algo lento en comparación con el uso
-de entrada de texto —una vez que se está cómodo con la sintaxis—.</p>
-<p>Hay dos tipos de ecuaciones utilizadas en Internet:</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/MathML">MathML</a> es un
-<a class="reference external" href="https://en.wikipedia.org/wiki/World_Wide_Web_Consortium">estándar W3C</a>
-para ecuaciones y está incluido en HTML5, por lo que funcionaría en todos los
-navegadores modernos. El problema con este es que no está diseñado para ser
-escrito a mano. Por tanto, uno puede usarlo si tiene alguna forma automática
-de generar el código.</p></li>
-<li><p><a class="reference external" href="https://www.overleaf.com/learn/latex/Mathematical_expressions">LaTeX</a>
-es mi forma sugerida de escribir ecuaciones. La curva de aprendizaje podría
-ser un un poco empinada al principio pero vale la pena.</p></li>
-</ul>
-<p>Una herramienta que ayuda con las ecuaciones es
-<a class="reference external" href="https://mathpix.com/">MathPix Snip</a> que genera automáticamente código
-LaTeX o MathML a partir de una imagen, incluso una escrita a mano. Otra
-herramienta que es realmente útil es
-<a class="reference external" href="http://detexify.kirelabs.org/classify.html">Detexify</a> que permite
-dibujar un símbolo y proporciona la sintaxis de LaTeX de este.</p>
-<p>En el resto de la publicación mostraré mis sugerencias para trabajar
-con ecuaciones en LibreOffice y MS Word. Si estás utilizando LaTeX o
-MarkDown/ReStructuredText para tus documentos ya estás utilizando
-LaTeX para tus ecuaciones.</p>
-<div class="section" id="libreoffice">
-<h2>LibreOffice</h2>
-<p>LibreOffice tiene su propio editor de ecuaciones con su propia sintaxis y
-funciona bien para expresiones pequeñas, pero se complica para ecuaciones
-grandes o largas manipulaciones algebraicas. Para LibreOffice sugeriría usar
-<a class="reference external" href="http://roland65.free.fr/texmaths/install.html">TexMaths</a>, es fácil de
-usar y funciona para el procesador de textos (Writer) y presentaciones (Impress).
-Supongo que también funciona para hojas de cálculo (Calc), pero no recuerdo
-haber usado ecuaciones en una.</p>
-</div>
-<div class="section" id="ms-office">
-<h2>MS Office</h2>
-<p>MS Office también tiene su propio editor de ecuaciones, funciona bien y es
-fácil de usar. Sin embargo, el mismo problema aparece cuando quieres expresiones
-largas. Una opción es usar directamente
-<a class="reference external" href="https://docs.microsoft.com/en-us/archive/blogs/murrays/latex-math-in-office">LaTeX en Office</a>
-pero prefiero usar
-<a class="reference external" href="http://www.jonathanleroux.org/software/iguanatex/download.html">IguanaTex</a>.
-Es un complemento que permite ingresar ecuaciones de forma similar a TexMaths en
-LibreOffice.</p>
-<p>También puede pegar directamente las ecuaciones MathML en MS Word (&gt;2013 y Windows).</p>
-</div>
-<div class="section" id="usa-sympy">
-<h2>Usa SymPy</h2>
-<p>Independientemente de la herramienta que use para escribir sus documentos,
-sugiero usar un <a class="reference external" href="https://es.wikipedia.org/wiki/Sistema_algebraico_computacional">CAS</a>
-(del inglés Computer Algebra System), como Mathematica o SymPy. Estos programas
-permiten la generación automática de LaTeX y MathML a partir de expresiones y
-esto facilita mucho el proceso.</p>
-<p>Veamos un ejemplo. Supongamos que tenemos la función</p>
-<div class="math">
-\begin{equation*}
-f(x) = \exp(-x^2) \sin(3*x)
-\end{equation*}
-</div>
-<p>y queremos calcular su segunda derivada</p>
-<div class="math">
-\begin{equation*}
-f''(x) = \left(- 12 x \cos{\left(3 x \right)} + 2 \left(2 x^{2} - 1\right) \sin{\left(3 x \right)} - 9 \sin{\left(3 x \right)}\right) e^{- x^{2}}
-\end{equation*}
-</div>
-<p>El siguiente bloque de código nos da el código LaTex</p>
-<pre class="code python"><a name="rest_code_d9b8e9b58f2048b18d1ba00d637e3dd0-1"></a><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
-<a name="rest_code_d9b8e9b58f2048b18d1ba00d637e3dd0-2"></a><span class="n">init_session</span><span class="p">()</span>
-<a name="rest_code_d9b8e9b58f2048b18d1ba00d637e3dd0-3"></a><span class="n">f</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
-<a name="rest_code_d9b8e9b58f2048b18d1ba00d637e3dd0-4"></a><span class="n">fxx</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<a name="rest_code_d9b8e9b58f2048b18d1ba00d637e3dd0-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">latex</span><span class="p">(</span><span class="n">fxx</span><span class="p">))</span>
-</pre>
-<p>que es</p>
-<pre class="code latex"><a name="rest_code_c9dfa3e0532e4b9a852171a6eb2903a3-1"></a><span class="k">\left</span>(- 12 x <span class="k">\cos</span><span class="nb">{</span><span class="k">\left</span>(3 x <span class="k">\right</span>)<span class="nb">}</span> + 2 <span class="k">\left</span>(2 x<span class="nb">^{</span>2<span class="nb">}</span> - 1<span class="k">\right</span>) <span class="k">\sin</span><span class="nb">{</span><span class="k">\left</span>(3 x <span class="k">\right</span>)<span class="nb">}</span> - 9 <span class="k">\sin</span><span class="nb">{</span><span class="k">\left</span>(3 x <span class="k">\right</span>)<span class="nb">}</span><span class="k">\right</span>) e<span class="nb">^{</span>- x<span class="nb">^{</span>2<span class="nb">}}</span>
-</pre>
-<p>Este corresponde con el código que usé arriba para representar la ecuación.</p>
-<p>Si quisiéramos el código MathML de esa expresión podríamos usar
-el siguiente fragmento de código</p>
-<pre class="code python"><a name="rest_code_9322b3db5d414a24b7668a83a714fb9f-1"></a><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
-<a name="rest_code_9322b3db5d414a24b7668a83a714fb9f-2"></a><span class="n">init_session</span><span class="p">()</span>
-<a name="rest_code_9322b3db5d414a24b7668a83a714fb9f-3"></a><span class="n">f</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
-<a name="rest_code_9322b3db5d414a24b7668a83a714fb9f-4"></a><span class="n">fxx</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<a name="rest_code_9322b3db5d414a24b7668a83a714fb9f-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">mathml</span><span class="p">(</span><span class="n">fxx</span><span class="p">,</span> <span class="n">printer</span><span class="o">=</span><span class="s2">"presentation"</span><span class="p">))</span>
-</pre>
-<p>observe el argumento opcional <code class="docutils literal">printer = "presentation"</code>. Si queremos agregar
-esto a MS Word, por ejemplo, podríamos agregar la salida (que no voy a
-mostrar porque es realmente larga) dentro del siguiente código</p>
-<pre class="code xml"><a name="rest_code_f103c7cff3514d6b88bb381df7b77bba-1"></a><span class="nt">&lt;math</span> <span class="na">xmlns =</span> <span class="s">"http://www.w3.org/1998/Math/MathML"</span><span class="nt">&gt;</span>
-<a name="rest_code_f103c7cff3514d6b88bb381df7b77bba-2"></a><span class="nt">&lt;/math&gt;</span>
-</pre>
-<p>Cuando se usa Jupyter Notebook, esto se puede hacer gráficamente con un
-clic derecho sobre la expresión. Y se muestra el siguiente menú.</p>
-<img alt="/images/jupyter_export_eqs.png" src="../images/jupyter_export_eqs.png">
-</div>
-<div class="section" id="referencias">
-<h2>Referencias</h2>
-<ol class="arabic simple">
-<li><p>“How to Insert Equations in Microsoft Word.” WikiHow,
-<a class="reference external" href="https://www.wikihow.com/Insert-Equations-in-Microsoft-Word">https://www.wikihow.com/Insert-Equations-in-Microsoft-Word</a>.
-Fecha de acceso: Agosto 3, 2020.</p></li>
-<li><p>“Copy MathML into Word to Use as Equation.” Stack Overflow,
-<a class="reference external" href="https://stackoverflow.com/questions/25430775/copy-mathml-into-word-to-use-as-equation">https://stackoverflow.com/questions/25430775/copy-mathml-into-word-to-use-as-equation</a>.
-Fecha de acceso: Agosto 3, 2020.</p></li>
-<li><p>“Python - Output Sympy Equation to Word Using Mathml.” Stack Overflow,
-<a class="reference external" href="https://stackoverflow.com/questions/40921128/output-sympy-equation-to-word-using-mathml">https://stackoverflow.com/questions/40921128/output-sympy-equation-to-word-using-mathml</a>.
-Fecha de acceso: Agosto 3, 2020.</p></li>
-<li><p>OERPUB (2016), “Mathconverter”, <a class="reference external" href="https://github.com/oerpub/mathconverter">https://github.com/oerpub/mathconverter</a>,
-Fecha de acceso: Agosto 3, 2020.</p></li>
-</ol>
-</div>
-</div>
     </div>
     </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/download_stream/" class="u-url">Descargar videos de MS Stream</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
             <p class="dateline"><a href="posts/download_stream/" rel="bookmark"><time class="post-date published dt-published" datetime="2020-06-12T15:31:22-05:00" title="2020-06-12 15:31">2020-06-12 15:31</time></a></p>
                 <p class="commentline">
-        
+    
     <a href="posts/download_stream/#disqus_thread" data-disqus-identifier="cache/posts/download_stream.html">Comentarios</a>
 
 
         </p>
 </div>
     </header><div class="e-content entry-content">
-    <div>
-<p>Esta semana un estudiante me preguntó acerca de descargar los videos de uno
+    <p>Esta semana un estudiante me preguntó acerca de descargar los videos de uno
 de los cursos de MS Stream. El problema es que si no eres propietario
 del video no puedes descargarlo. Entonces, voy a mostrar una opción para
 descargar videos sin ser propietario de los mismos.</p>
@@ -906,22 +756,20 @@ puedes crear un archivo con las URL y usar</p>
 <pre class="code bash"><a name="rest_code_de4dc51268934ddfaddbcf9f5f6f821e-1"></a>$ destreamer.cmd -f filename.txt
 </pre>
 </div>
-</div>
     </div>
     </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/marking-tetrahedron/" class="u-url">Marcado Aleatorio de un Tetraedro</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
             <p class="dateline"><a href="posts/marking-tetrahedron/" rel="bookmark"><time class="post-date published dt-published" datetime="2020-06-05T22:58:32-05:00" title="2020-06-05 22:58">2020-06-05 22:58</time></a></p>
                 <p class="commentline">
-        
+    
     <a href="posts/marking-tetrahedron/#disqus_thread" data-disqus-identifier="cache/posts/marking-tetrahedron.html">Comentarios</a>
 
 
         </p>
 </div>
     </header><div class="e-content entry-content">
-    <div>
-<p>El día de ayer (junio 4 de 2020), Christian Howard publicó en
+    <p>El día de ayer (junio 4 de 2020), Christian Howard publicó en
 <a class="reference external" href="https://twitter.com/choward1491/status/1268736220055699457">Twitter</a>
 la siguiente pregunta</p>
 <blockquote>
@@ -1006,22 +854,20 @@ probabilidad.</p>
 de intentos.</p>
 <img alt="Probabilidad estimada para diferente número de intentos." class="align-center" src="../images/marked_tets.svg" style="width: 600px;">
 </div>
-</div>
     </div>
     </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/tech_writing/tech_writing/" class="u-url">Escritura técnica</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
             <p class="dateline"><a href="posts/tech_writing/tech_writing/" rel="bookmark"><time class="post-date published dt-published" datetime="2020-05-28T15:53:40-05:00" title="2020-05-28 15:53">2020-05-28 15:53</time></a></p>
                 <p class="commentline">
-        
+    
     <a href="posts/tech_writing/tech_writing/#disqus_thread" data-disqus-identifier="cache/posts/tech_writing/tech_writing.html">Comentarios</a>
 
 
         </p>
 </div>
     </header><div class="e-content entry-content">
-    <div>
-<p>Esta es la primera publicación sobre redacción técnica <a class="footnote-reference brackets" href="posts/tech_writing/tech_writing/#id2" id="id1">*</a> de una serie que
+    <p>Esta es la primera publicación sobre redacción técnica <a class="footnote-reference brackets" href="posts/tech_writing/tech_writing/#footnote-1" id="footnote-reference-1" role="doc-noteref"><span class="fn-bracket">[</span>*<span class="fn-bracket">]</span></a> de una serie que
 crearé durante el transcurso de este año. La escritura técnica es algo con lo
 que la mayoría de nosotros tenemos que lidiar en diferentes contextos. Por
 ejemplo, en cursos universitarios, publicaciones de investigación,
@@ -1035,8 +881,7 @@ que pueden ser útiles.</p>
 <li><p>Uso de tablas; y</p></li>
 <li><p>Gestión de referencias bibliográficas.</p></li>
 </ul>
-<div class="section" id="esta-publicacion">
-<h2>Esta publicación</h2>
+<section id="esta-publicacion"><h2>Esta publicación</h2>
 <p>Como se mencionó anteriormente, la escritura técnica es algo con lo que muchas
 personas tienen que lidiar. Esta es una habilidad que a veces se pasa por alto,
 pero no debería. De acuerdo con la
@@ -1048,8 +893,7 @@ información compleja y técnica con mayor facilidad.</p>
 </blockquote>
 <p>Y es una habilidad deseada en el lugar de trabajo. Se espera que su demanda crezca
 alrededor del 10% en la década actual.</p>
-<div class="section" id="tipografia">
-<h3>Tipografía</h3>
+<section id="tipografia"><h3>Tipografía</h3>
 <p>Lo primero que debo mencionar es que escribir documentos es
 tipografía ya que estamos <em>diseñando con texto</em> (Butterick, 2019). Por lo tanto,
 deberíamos considerarnos tipógrafos, ya que constantemente diseñamos documentos.</p>
@@ -1070,10 +914,7 @@ aproximadamente 2 o 3 alfabetos en minúsculas:</p>
 </li>
 <li><p>Cuidado con la selección de su fuente. Intente evitar las fuentes
 predeterminadas como Arial, Calibri o Times New Roman.</p></li>
-</ol>
-</div>
-<div class="section" id="editores">
-<h3>Editores</h3>
+</ol></section><section id="editores"><h3>Editores</h3>
 <p>Otro punto que quiero tocar en esta publicación es el de los editores. La
 primera pregunta que surge es "¿qué editor debo usar?". La respuesta corta es:
 <strong>usa lo que tus colegas estén usando</strong>. Ese es mi mejor consejo; de esa
@@ -1118,9 +959,7 @@ como se ve en la siguiente imagen</p>
 <a class="reference external" href="https://pandoc.org/">Pandoc</a>. Te permite convertir entre varios
 formatos, haciendo el proceso un poco más fácil. Incluso hay un editor
 basado completamente en él llamado <a class="reference external" href="https://panwriter.com/">Panwriter</a>.</p>
-</div>
-<div class="section" id="references">
-<h3>References</h3>
+</section><section id="references"><h3>References</h3>
 <ol class="arabic simple">
 <li><p>Matthew Butterick (2019). <a class="reference external" href="https://practicaltypography.com/">Butterick's Practical Typography</a>.
 Segunda edición, Matthew Butterick.</p></li>
@@ -1134,60 +973,176 @@ Sylvain Deville.</p></li>
 </ol>
 <p>5. Eric Holscher (2016).
 <a class="reference external" href="https://www.ericholscher.com/blog/2016/jul/1/sphinx-and-rtd-for-writers/">An introduction to Sphinx and Read the Docs for Technical Writers</a></p>
-<dl class="footnote brackets">
-<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="posts/tech_writing/tech_writing/#id1">*</a></span></dt>
-<dd>
+<aside class="footnote brackets" id="footnote-1" role="note"><span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="posts/tech_writing/tech_writing/#footnote-reference-1">*</a><span class="fn-bracket">]</span></span>
 <p>Esta publicación está (algo) relacionada con una
 <a class="reference external" href="posts/tech_writing/herramientas-investigacion/">publicación anterior</a>
 donde discutí sobre algunas herramientas de investigación que la mayoría
 de nosotros necesitamos pero que comúnmente no se enseñan de manera formal.</p>
-</dd>
-</dl>
+</aside></section></section>
 </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/tech_writing/tech_writing_math/" class="u-url">Escritura técnica: usando matemáticas</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
+            <p class="dateline"><a href="posts/tech_writing/tech_writing_math/" rel="bookmark"><time class="post-date published dt-published" datetime="2020-05-28T15:53:40-05:00" title="2020-05-28 15:53">2020-05-28 15:53</time></a></p>
+                <p class="commentline">
+    
+    <a href="posts/tech_writing/tech_writing_math/#disqus_thread" data-disqus-identifier="cache/posts/tech_writing/tech_writing_math.html">Comentarios</a>
+
+
+        </p>
 </div>
+    </header><div class="e-content entry-content">
+    <p>En una <a class="reference external" href="posts/tech_writing/tech_writing">publicación anterior</a> mencioné algunos aspectos
+generales de la escritura técnica. En este me gustaría hablar sobre la
+inclusión de expresiones matemáticas en documentos técnicos.</p>
+<p>Hay dos formas principales de incluir matemáticas en documentos:</p>
+<ul class="simple">
+<li><p>utilizando texto; y</p></li>
+<li><p>utilizando una interfaz gráfica.</p></li>
+</ul>
+<p>Usar una interfaz gráfica, como el editor de ecuaciones en LibreOffice Writer o
+MS Word, o <a class="reference external" href="http://www.dessci.com/en/products/mathtype/">MathType</a> es
+conveniente. No es necesario memorizar nada y se pueden mirar las expresiones
+mientras se crean. Sin embargo, puede ser algo lento en comparación con el uso
+de entrada de texto —una vez que se está cómodo con la sintaxis—.</p>
+<p>Hay dos tipos de ecuaciones utilizadas en Internet:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/MathML">MathML</a> es un
+<a class="reference external" href="https://en.wikipedia.org/wiki/World_Wide_Web_Consortium">estándar W3C</a>
+para ecuaciones y está incluido en HTML5, por lo que funcionaría en todos los
+navegadores modernos. El problema con este es que no está diseñado para ser
+escrito a mano. Por tanto, uno puede usarlo si tiene alguna forma automática
+de generar el código.</p></li>
+<li><p><a class="reference external" href="https://www.overleaf.com/learn/latex/Mathematical_expressions">LaTeX</a>
+es mi forma sugerida de escribir ecuaciones. La curva de aprendizaje podría
+ser un un poco empinada al principio pero vale la pena.</p></li>
+</ul>
+<p>Una herramienta que ayuda con las ecuaciones es
+<a class="reference external" href="https://mathpix.com/">MathPix Snip</a> que genera automáticamente código
+LaTeX o MathML a partir de una imagen, incluso una escrita a mano. Otra
+herramienta que es realmente útil es
+<a class="reference external" href="http://detexify.kirelabs.org/classify.html">Detexify</a> que permite
+dibujar un símbolo y proporciona la sintaxis de LaTeX de este.</p>
+<p>En el resto de la publicación mostraré mis sugerencias para trabajar
+con ecuaciones en LibreOffice y MS Word. Si estás utilizando LaTeX o
+MarkDown/ReStructuredText para tus documentos ya estás utilizando
+LaTeX para tus ecuaciones.</p>
+<section id="libreoffice"><h2>LibreOffice</h2>
+<p>LibreOffice tiene su propio editor de ecuaciones con su propia sintaxis y
+funciona bien para expresiones pequeñas, pero se complica para ecuaciones
+grandes o largas manipulaciones algebraicas. Para LibreOffice sugeriría usar
+<a class="reference external" href="http://roland65.free.fr/texmaths/install.html">TexMaths</a>, es fácil de
+usar y funciona para el procesador de textos (Writer) y presentaciones (Impress).
+Supongo que también funciona para hojas de cálculo (Calc), pero no recuerdo
+haber usado ecuaciones en una.</p>
+</section><section id="ms-office"><h2>MS Office</h2>
+<p>MS Office también tiene su propio editor de ecuaciones, funciona bien y es
+fácil de usar. Sin embargo, el mismo problema aparece cuando quieres expresiones
+largas. Una opción es usar directamente
+<a class="reference external" href="https://docs.microsoft.com/en-us/archive/blogs/murrays/latex-math-in-office">LaTeX en Office</a>
+pero prefiero usar
+<a class="reference external" href="http://www.jonathanleroux.org/software/iguanatex/download.html">IguanaTex</a>.
+Es un complemento que permite ingresar ecuaciones de forma similar a TexMaths en
+LibreOffice.</p>
+<p>También puede pegar directamente las ecuaciones MathML en MS Word (&gt;2013 y Windows).</p>
+</section><section id="usa-sympy"><h2>Usa SymPy</h2>
+<p>Independientemente de la herramienta que use para escribir sus documentos,
+sugiero usar un <a class="reference external" href="https://es.wikipedia.org/wiki/Sistema_algebraico_computacional">CAS</a>
+(del inglés Computer Algebra System), como Mathematica o SymPy. Estos programas
+permiten la generación automática de LaTeX y MathML a partir de expresiones y
+esto facilita mucho el proceso.</p>
+<p>Veamos un ejemplo. Supongamos que tenemos la función</p>
+<div class="math">
+\begin{equation*}
+f(x) = \exp(-x^2) \sin(3*x)
+\end{equation*}
 </div>
-    </div>
+<p>y queremos calcular su segunda derivada</p>
+<div class="math">
+\begin{equation*}
+f''(x) = \left(- 12 x \cos{\left(3 x \right)} + 2 \left(2 x^{2} - 1\right) \sin{\left(3 x \right)} - 9 \sin{\left(3 x \right)}\right) e^{- x^{2}}
+\end{equation*}
+</div>
+<p>El siguiente bloque de código nos da el código LaTex</p>
+<div class="code"><pre class="code python"><a id="rest_code_bf9ec7f59f974345b34cb73d1fce4f05-1" name="rest_code_bf9ec7f59f974345b34cb73d1fce4f05-1" href="posts/tech_writing/tech_writing_math/#rest_code_bf9ec7f59f974345b34cb73d1fce4f05-1"></a><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
+<a id="rest_code_bf9ec7f59f974345b34cb73d1fce4f05-2" name="rest_code_bf9ec7f59f974345b34cb73d1fce4f05-2" href="posts/tech_writing/tech_writing_math/#rest_code_bf9ec7f59f974345b34cb73d1fce4f05-2"></a><span class="n">init_session</span><span class="p">()</span>
+<a id="rest_code_bf9ec7f59f974345b34cb73d1fce4f05-3" name="rest_code_bf9ec7f59f974345b34cb73d1fce4f05-3" href="posts/tech_writing/tech_writing_math/#rest_code_bf9ec7f59f974345b34cb73d1fce4f05-3"></a><span class="n">f</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+<a id="rest_code_bf9ec7f59f974345b34cb73d1fce4f05-4" name="rest_code_bf9ec7f59f974345b34cb73d1fce4f05-4" href="posts/tech_writing/tech_writing_math/#rest_code_bf9ec7f59f974345b34cb73d1fce4f05-4"></a><span class="n">fxx</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<a id="rest_code_bf9ec7f59f974345b34cb73d1fce4f05-5" name="rest_code_bf9ec7f59f974345b34cb73d1fce4f05-5" href="posts/tech_writing/tech_writing_math/#rest_code_bf9ec7f59f974345b34cb73d1fce4f05-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">latex</span><span class="p">(</span><span class="n">fxx</span><span class="p">))</span>
+</pre></div>
+<p>que es</p>
+<div class="code"><pre class="code latex"><a id="rest_code_7cd1546827e24f3da3f83fec8387ac91-1" name="rest_code_7cd1546827e24f3da3f83fec8387ac91-1" href="posts/tech_writing/tech_writing_math/#rest_code_7cd1546827e24f3da3f83fec8387ac91-1"></a><span class="k">\left</span>(- 12 x <span class="k">\cos</span><span class="nb">{</span><span class="k">\left</span>(3 x <span class="k">\right</span>)<span class="nb">}</span> + 2 <span class="k">\left</span>(2 x<span class="nb">^{</span>2<span class="nb">}</span> - 1<span class="k">\right</span>) <span class="k">\sin</span><span class="nb">{</span><span class="k">\left</span>(3 x <span class="k">\right</span>)<span class="nb">}</span> - 9 <span class="k">\sin</span><span class="nb">{</span><span class="k">\left</span>(3 x <span class="k">\right</span>)<span class="nb">}</span><span class="k">\right</span>) e<span class="nb">^{</span>- x<span class="nb">^{</span>2<span class="nb">}}</span>
+</pre></div>
+<p>Este corresponde con el código que usé arriba para representar la ecuación.</p>
+<p>Si quisiéramos el código MathML de esa expresión podríamos usar
+el siguiente fragmento de código</p>
+<div class="code"><pre class="code python"><a id="rest_code_01c1ff4039fa4cf1a3f271726de051e9-1" name="rest_code_01c1ff4039fa4cf1a3f271726de051e9-1" href="posts/tech_writing/tech_writing_math/#rest_code_01c1ff4039fa4cf1a3f271726de051e9-1"></a><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
+<a id="rest_code_01c1ff4039fa4cf1a3f271726de051e9-2" name="rest_code_01c1ff4039fa4cf1a3f271726de051e9-2" href="posts/tech_writing/tech_writing_math/#rest_code_01c1ff4039fa4cf1a3f271726de051e9-2"></a><span class="n">init_session</span><span class="p">()</span>
+<a id="rest_code_01c1ff4039fa4cf1a3f271726de051e9-3" name="rest_code_01c1ff4039fa4cf1a3f271726de051e9-3" href="posts/tech_writing/tech_writing_math/#rest_code_01c1ff4039fa4cf1a3f271726de051e9-3"></a><span class="n">f</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+<a id="rest_code_01c1ff4039fa4cf1a3f271726de051e9-4" name="rest_code_01c1ff4039fa4cf1a3f271726de051e9-4" href="posts/tech_writing/tech_writing_math/#rest_code_01c1ff4039fa4cf1a3f271726de051e9-4"></a><span class="n">fxx</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<a id="rest_code_01c1ff4039fa4cf1a3f271726de051e9-5" name="rest_code_01c1ff4039fa4cf1a3f271726de051e9-5" href="posts/tech_writing/tech_writing_math/#rest_code_01c1ff4039fa4cf1a3f271726de051e9-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">mathml</span><span class="p">(</span><span class="n">fxx</span><span class="p">,</span> <span class="n">printer</span><span class="o">=</span><span class="s2">"presentation"</span><span class="p">))</span>
+</pre></div>
+<p>observe el argumento opcional <code class="docutils literal">printer = "presentation"</code>. Si queremos agregar
+esto a MS Word, por ejemplo, podríamos agregar la salida (que no voy a
+mostrar porque es realmente larga) dentro del siguiente código</p>
+<div class="code"><pre class="code xml"><a id="rest_code_59886680e67a4349880a33141c163000-1" name="rest_code_59886680e67a4349880a33141c163000-1" href="posts/tech_writing/tech_writing_math/#rest_code_59886680e67a4349880a33141c163000-1"></a><span class="nt">&lt;math</span> <span class="na">xmlns =</span> <span class="s">"http://www.w3.org/1998/Math/MathML"</span><span class="nt">&gt;</span>
+<a id="rest_code_59886680e67a4349880a33141c163000-2" name="rest_code_59886680e67a4349880a33141c163000-2" href="posts/tech_writing/tech_writing_math/#rest_code_59886680e67a4349880a33141c163000-2"></a><span class="nt">&lt;/math&gt;</span>
+</pre></div>
+<p>Cuando se usa Jupyter Notebook, esto se puede hacer gráficamente con un
+clic derecho sobre la expresión. Y se muestra el siguiente menú.</p>
+<img alt="/images/jupyter_export_eqs.png" src="../images/jupyter_export_eqs.png"></section><section id="referencias"><h2>Referencias</h2>
+<ol class="arabic simple">
+<li><p>“How to Insert Equations in Microsoft Word.” WikiHow,
+<a class="reference external" href="https://www.wikihow.com/Insert-Equations-in-Microsoft-Word">https://www.wikihow.com/Insert-Equations-in-Microsoft-Word</a>.
+Fecha de acceso: Agosto 3, 2020.</p></li>
+<li><p>“Copy MathML into Word to Use as Equation.” Stack Overflow,
+<a class="reference external" href="https://stackoverflow.com/questions/25430775/copy-mathml-into-word-to-use-as-equation">https://stackoverflow.com/questions/25430775/copy-mathml-into-word-to-use-as-equation</a>.
+Fecha de acceso: Agosto 3, 2020.</p></li>
+<li><p>“Python - Output Sympy Equation to Word Using Mathml.” Stack Overflow,
+<a class="reference external" href="https://stackoverflow.com/questions/40921128/output-sympy-equation-to-word-using-mathml">https://stackoverflow.com/questions/40921128/output-sympy-equation-to-word-using-mathml</a>.
+Fecha de acceso: Agosto 3, 2020.</p></li>
+<li><p>OERPUB (2016), “Mathconverter”, <a class="reference external" href="https://github.com/oerpub/mathconverter">https://github.com/oerpub/mathconverter</a>,
+Fecha de acceso: Agosto 3, 2020.</p></li>
+</ol></section>
+</div>
     </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/ortografia_jupyter/" class="u-url">Revisión ortográfica en Jupyter Notebook</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
             <p class="dateline"><a href="posts/ortografia_jupyter/" rel="bookmark"><time class="post-date published dt-published" datetime="2019-08-20T14:45:41-05:00" title="2019-08-20 14:45">2019-08-20 14:45</time></a></p>
                 <p class="commentline">
-        
+    
     <a href="posts/ortografia_jupyter/#disqus_thread" data-disqus-identifier="cache/posts/ortografia_jupyter.html">Comentarios</a>
 
 
         </p>
 </div>
     </header><div class="e-content entry-content">
-    <div>
-<p>El objetivo de esta publicación es mostrar cómo tener revisión automática
+    <p>El objetivo de esta publicación es mostrar cómo tener revisión automática
 de ortografía en Jupyter Notebook, como se muestra a continuación.</p>
 <img alt="Ejemplo de corrección ortográfica en Jupyter Notebook." class="align-center" src="../images/ortografia_jupyter/ejemplo_ortografia.png" style="width: 600px;"><p>Existen <a class="reference external" href="https://stackoverflow.com/q/39324039/3358223">varias formas</a> de
 realizar esto. Sin embargo, la forma más fácil es a través del complemento
 (<em>nbextension</em>) <a class="reference external" href="posts/ortografia_jupyter/&lt;https:/jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/spellchecker/README.html">Spellchecker</a>.</p>
-<div class="section" id="paso-a-paso">
-<h2>Paso a paso</h2>
+<section id="paso-a-paso"><h2>Paso a paso</h2>
 <p>Los pasos a seguir son los siguientes:</p>
 <ol class="arabic simple">
-<li>Instalar Jupyter notebook extensions (<a class="reference external" href="https://github.com/ipython-contrib/jupyter_contrib_nbextensions">nbextensions</a>). Este incluye
-<a class="reference external" href="posts/ortografia_jupyter/&lt;https:/jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/spellchecker/README.html">Spellchecker</a>.</li>
-<li>Ubicar los diccionarios en la carpeta donde está el complemento. Los
-diccionarios deben usar la codificación UTF-8.</li>
-<li>Configurar la ruta de los diccionarios. Esta puede ser una URL o
-una ruta relativa respecto a la carpeta en donde se encuentra el complemento.</li>
+<li><p>Instalar Jupyter notebook extensions (<a class="reference external" href="https://github.com/ipython-contrib/jupyter_contrib_nbextensions">nbextensions</a>). Este incluye
+<a class="reference external" href="posts/ortografia_jupyter/&lt;https:/jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/spellchecker/README.html">Spellchecker</a>.</p></li>
+<li><p>Ubicar los diccionarios en la carpeta donde está el complemento. Los
+diccionarios deben usar la codificación UTF-8.</p></li>
+<li><p>Configurar la ruta de los diccionarios. Esta puede ser una URL o
+una ruta relativa respecto a la carpeta en donde se encuentra el complemento.</p></li>
 </ol>
 <p>A continuación describiremos en detalle cada paso.</p>
-<div class="section" id="paso-1-instalacion-de-nbextensions">
-<h3>Paso 1: Instalación de nbextensions</h3>
+<section id="paso-1-instalacion-de-nbextensions"><h3>Paso 1: Instalación de nbextensions</h3>
 <p>Existe una lista de complementos que agregan algunas funcionalidades
 comúnmente usadas a Jupyter notebook.</p>
 <p>Escriba lo siguiente en una terminal, para instalarlo usando PIP.</p>
-<pre class="code bash"><a name="rest_code_61337fe4aea1469e9853925b86a7e869-1"></a>pip install jupyter_contrib_nbextensions
-</pre>
+<div class="code"><pre class="code bash"><a id="rest_code_93e04982d8b540bf88f877e91ff8319f-1" name="rest_code_93e04982d8b540bf88f877e91ff8319f-1" href="posts/ortografia_jupyter/#rest_code_93e04982d8b540bf88f877e91ff8319f-1"></a>pip install jupyter_contrib_nbextensions
+</pre></div>
 <p>Sin embargo, si se está usando Anaconda el <strong>método recomendado</strong> es usar
-<tt class="docutils literal">conda</tt>, como se muestra a continuación.</p>
-<pre class="code bash"><a name="rest_code_602547b5023c4ce390f69a95843c46a3-1"></a>conda install -c conda-forge jupyter_contrib_nbextensions
-</pre>
+<code class="docutils literal">conda</code>, como se muestra a continuación.</p>
+<div class="code"><pre class="code bash"><a id="rest_code_e243338726e643e092b34e29157eb3e8-1" name="rest_code_e243338726e643e092b34e29157eb3e8-1" href="posts/ortografia_jupyter/#rest_code_e243338726e643e092b34e29157eb3e8-1"></a>conda install -c conda-forge jupyter_contrib_nbextensions
+</pre></div>
 <p>Esto debe instalar los complementos y también la
 <a class="reference external" href="https://github.com/Jupyter-contrib/jupyter_nbextensions_configurator">interfaz de configuración</a>.
 En el menú principal de Jupyter notebook aparecerá una nueva pestaña
@@ -1195,14 +1150,9 @@ nombrada <em>Nbextensions</em> en donde se pueden elegir los complementos a usar
 La apariencia es la siguiente.</p>
 <img alt="Interfaz gráfica para los complementos de Jupyter." class="align-center" src="../images/ortografia_jupyter/interfaz_nbextensions.png" style="width: 600px;"><p>Algunos complementos recomendados son:</p>
 <ul class="simple">
-<li>
-<strong>Collapsible Headings:</strong> que permite ocultar secciones de los documentos.</li>
-<li>
-<strong>RISE:</strong> que convierte los notebooks en presentaciones.</li>
-</ul>
-</div>
-<div class="section" id="paso-2-diccionarios-para-espanol">
-<h3>Paso 2: Diccionarios para español</h3>
+<li><p><strong>Collapsible Headings:</strong> que permite ocultar secciones de los documentos.</p></li>
+<li><p><strong>RISE:</strong> que convierte los notebooks en presentaciones.</p></li>
+</ul></section><section id="paso-2-diccionarios-para-espanol"><h3>Paso 2: Diccionarios para español</h3>
 <p>La documentación de <a class="reference external" href="posts/ortografia_jupyter/&lt;https:/jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/spellchecker/README.html">Spellchecker</a> sugiere usar un script de Python para
 descargar diccionarios del proyecto <a class="reference external" href="https://chromium.googlesource.com/chromium/deps/hunspell_dictionaries/+/master">Chromium</a>.
 Sin embargo, estos tienen como codificación ISO-8859-1 (occidente) y falla
@@ -1211,58 +1161,46 @@ diccionario debe tener codificación <a class="reference external" href="https:/
 Pueden descargarse en <a class="reference external" href="../downloads/dict_es_ES.zip">este enlace</a>.</p>
 <p>Una vez que se tienen los diccionarios se deben ubicar en la ruta del
 complemento. En mi computador esta sería</p>
-<pre class="code text"><a name="rest_code_2c629a2aecfa4cd580c8ceca788484a9-1"></a>~/.local/share/jupyter/nbextensions/spellchecker/
-</pre>
+<div class="code"><pre class="code text"><a id="rest_code_f935d3336690416d8c843a7054d6496c-1" name="rest_code_f935d3336690416d8c843a7054d6496c-1" href="posts/ortografia_jupyter/#rest_code_f935d3336690416d8c843a7054d6496c-1"></a>~/.local/share/jupyter/nbextensions/spellchecker/
+</pre></div>
 <p>y dentro de esta los ubicaremos en</p>
-<pre class="code text"><a name="rest_code_445f012705ee493cbf3cd433292ec6fc-1"></a>~/.local/share/jupyter/nbextensions/spellchecker/typo/dictionaries
-</pre>
+<div class="code"><pre class="code text"><a id="rest_code_c8896bb9fbc84cc8902adeb993fdb864-1" name="rest_code_c8896bb9fbc84cc8902adeb993fdb864-1" href="posts/ortografia_jupyter/#rest_code_c8896bb9fbc84cc8902adeb993fdb864-1"></a>~/.local/share/jupyter/nbextensions/spellchecker/typo/dictionaries
+</pre></div>
 <p>Esta ubicación es arbitraria, lo importante es que necesitamos conocer
 la ruta relativa al complemento.</p>
-</div>
-<div class="section" id="paso-3-configuracion-complementos">
-<h3>Paso 3: Configuración complementos</h3>
+</section><section id="paso-3-configuracion-complementos"><h3>Paso 3: Configuración complementos</h3>
 <p>Ahora, en la pestaña <em>Nbextensions</em> seleccionamos el complemento y llenamos
 los campos con la información de nuestro diccionario:</p>
 <ul class="simple">
-<li>language code to use with typo.js: <tt class="docutils literal">es_ES</tt>
-</li>
-<li>url for the dictionary .dic file to use: <tt class="docutils literal">./typo/dictionaries/es_ES.dic</tt>
-</li>
-<li>url for the dictionary .aff file to use: <tt class="docutils literal">./typo/dictionaries/es_ES.aff</tt>
-</li>
+<li><p>language code to use with typo.js: <code class="docutils literal">es_ES</code></p></li>
+<li><p>url for the dictionary .dic file to use: <code class="docutils literal">./typo/dictionaries/es_ES.dic</code></p></li>
+<li><p>url for the dictionary .aff file to use: <code class="docutils literal">./typo/dictionaries/es_ES.aff</code></p></li>
 </ul>
 <p>Esto se muestra a continuación.</p>
 <img alt="Configuración con archivos locales." class="align-center" src="../images/ortografia_jupyter/config_local.png" style="width: 600px;"><p>Otra opción es usar la URL para los archivos. En <a class="reference external" href="https://github.com/wooorm/dictionaries">https://github.com/wooorm/dictionaries</a>
 están disponibles los diccionarios del proyecto <a class="reference external" href="https://hunspell.github.io/">hunspell</a>
 en UTF-8. En este caso, la configuración sería:</p>
 <ul class="simple">
-<li>language code to use with typo.js: <tt class="docutils literal">es_ES</tt>
-</li>
-<li>url for the dictionary .dic file to use: <tt class="docutils literal"><span class="pre">https://raw.githubusercontent.com/wooorm/dictionaries/master/dictionaries/es/index.dic</span></tt>
-</li>
-<li>url for the dictionary .aff file to use: <tt class="docutils literal"><span class="pre">https://raw.githubusercontent.com/wooorm/dictionaries/master/dictionaries/es/index.aff</span></tt>
-</li>
+<li><p>language code to use with typo.js: <code class="docutils literal">es_ES</code></p></li>
+<li><p>url for the dictionary .dic file to use: <code class="docutils literal"><span class="pre">https://raw.githubusercontent.com/wooorm/dictionaries/master/dictionaries/es/index.dic</span></code></p></li>
+<li><p>url for the dictionary .aff file to use: <code class="docutils literal"><span class="pre">https://raw.githubusercontent.com/wooorm/dictionaries/master/dictionaries/es/index.aff</span></code></p></li>
 </ul>
 <p>Y se muestra a continuación.</p>
-<img alt="Configuración con archivos remotos." class="align-center" src="../images/ortografia_jupyter/config_url.png" style="width: 600px;">
+<img alt="Configuración con archivos remotos." class="align-center" src="../images/ortografia_jupyter/config_url.png" style="width: 600px;"></section></section>
 </div>
-</div>
-</div>
-    </div>
     </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/graph_makeover/" class="u-url">#SWDchallenge: Mejorando un gráfico</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
             <p class="dateline"><a href="posts/graph_makeover/" rel="bookmark"><time class="post-date published dt-published" datetime="2018-07-12T18:32:40-05:00" title="2018-07-12 18:32">2018-07-12 18:32</time></a></p>
                 <p class="commentline">
-        
+    
     <a href="posts/graph_makeover/#disqus_thread" data-disqus-identifier="cache/posts/graph_makeover.html">Comentarios</a>
 
 
         </p>
 </div>
     </header><div class="e-content entry-content">
-    <div>
-<p>En <a class="reference external" href="http://www.storytellingwithdata.com/">storytelling with data</a> tienen
+    <p>En <a class="reference external" href="http://www.storytellingwithdata.com/">storytelling with data</a> tienen
 un reto mensual en visualización de datos llamado
 <a class="reference external" href="http://www.storytellingwithdata.com/swdchallenge/">#SWDchallenge</a>. La idea
 principal de los retos es poner a prueba las habilidades de visualización
@@ -1453,7 +1391,6 @@ John Wiley &amp; Sons, 2015.</p></li>
 <li><p>Nicolás Guarín-Zapata et al. <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S1742706115002172">"Shear wave filtering in naturally-occurring Bouligand structures."</a>
 Acta biomaterialia 23 (2015): 11-20. Preprint: <a class="reference external" href="https://arxiv.org/pdf/1505.04203.pdf">https://arxiv.org/pdf/1505.04203.pdf</a></p></li>
 </ul>
-</div>
 </div>
     </div>
     </article>

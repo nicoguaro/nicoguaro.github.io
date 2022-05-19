@@ -10,9 +10,9 @@
 <link rel="alternate" type="application/rss+xml" title="RSS (en)" href="../../../rss.xml">
 <link rel="alternate" type="application/rss+xml" title="RSS (es)" href="../../rss.xml">
 <link rel="canonical" href="https://nicoguaro.github.io/es/posts/ortografia_jupyter/">
-<!--[if lt IE 9]><script src="../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Nicolás Guarín-Zapata">
+<!--[if lt IE 9]><script src="../../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Nicolás Guarín-Zapata">
 <link rel="prev" href="../graph_makeover/" title="#SWDchallenge: Mejorando un gráfico" type="text/html">
-<link rel="next" href="../tech_writing/tech_writing/" title="Escritura técnica" type="text/html">
+<link rel="next" href="../tech_writing/tech_writing_math/" title="Escritura técnica: usando matemáticas" type="text/html">
 <meta property="og:site_name" content="Nicolás' blog">
 <meta property="og:title" content="Revisión ortográfica en Jupyter Notebook">
 <meta property="og:url" content="https://nicoguaro.github.io/es/posts/ortografia_jupyter/">
@@ -67,7 +67,7 @@
             <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
             <p class="dateline"><a href="." rel="bookmark"><time class="post-date published dt-published" datetime="2019-08-20T14:45:41-05:00" itemprop="datePublished" title="2019-08-20 14:45">2019-08-20 14:45</time></a></p>
                 <p class="commentline">
-        
+    
     <a href="#disqus_thread" data-disqus-identifier="cache/posts/ortografia_jupyter.html">Comentarios</a>
 
 
@@ -80,35 +80,32 @@
         </div>
 
     </header><div class="e-content entry-content" itemprop="articleBody text">
-    <div>
-<p>El objetivo de esta publicación es mostrar cómo tener revisión automática
+    <p>El objetivo de esta publicación es mostrar cómo tener revisión automática
 de ortografía en Jupyter Notebook, como se muestra a continuación.</p>
 <img alt="Ejemplo de corrección ortográfica en Jupyter Notebook." class="align-center" src="../../../images/ortografia_jupyter/ejemplo_ortografia.png" style="width: 600px;"><p>Existen <a class="reference external" href="https://stackoverflow.com/q/39324039/3358223">varias formas</a> de
 realizar esto. Sin embargo, la forma más fácil es a través del complemento
 (<em>nbextension</em>) <a class="reference external" href="&lt;https:/jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/spellchecker/README.html">Spellchecker</a>.</p>
-<div class="section" id="paso-a-paso">
-<h2>Paso a paso</h2>
+<section id="paso-a-paso"><h2>Paso a paso</h2>
 <p>Los pasos a seguir son los siguientes:</p>
 <ol class="arabic simple">
-<li>Instalar Jupyter notebook extensions (<a class="reference external" href="https://github.com/ipython-contrib/jupyter_contrib_nbextensions">nbextensions</a>). Este incluye
-<a class="reference external" href="&lt;https:/jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/spellchecker/README.html">Spellchecker</a>.</li>
-<li>Ubicar los diccionarios en la carpeta donde está el complemento. Los
-diccionarios deben usar la codificación UTF-8.</li>
-<li>Configurar la ruta de los diccionarios. Esta puede ser una URL o
-una ruta relativa respecto a la carpeta en donde se encuentra el complemento.</li>
+<li><p>Instalar Jupyter notebook extensions (<a class="reference external" href="https://github.com/ipython-contrib/jupyter_contrib_nbextensions">nbextensions</a>). Este incluye
+<a class="reference external" href="&lt;https:/jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/spellchecker/README.html">Spellchecker</a>.</p></li>
+<li><p>Ubicar los diccionarios en la carpeta donde está el complemento. Los
+diccionarios deben usar la codificación UTF-8.</p></li>
+<li><p>Configurar la ruta de los diccionarios. Esta puede ser una URL o
+una ruta relativa respecto a la carpeta en donde se encuentra el complemento.</p></li>
 </ol>
 <p>A continuación describiremos en detalle cada paso.</p>
-<div class="section" id="paso-1-instalacion-de-nbextensions">
-<h3>Paso 1: Instalación de nbextensions</h3>
+<section id="paso-1-instalacion-de-nbextensions"><h3>Paso 1: Instalación de nbextensions</h3>
 <p>Existe una lista de complementos que agregan algunas funcionalidades
 comúnmente usadas a Jupyter notebook.</p>
 <p>Escriba lo siguiente en una terminal, para instalarlo usando PIP.</p>
-<pre class="code bash"><a name="rest_code_61337fe4aea1469e9853925b86a7e869-1"></a>pip install jupyter_contrib_nbextensions
-</pre>
+<div class="code"><pre class="code bash"><a id="rest_code_93e04982d8b540bf88f877e91ff8319f-1" name="rest_code_93e04982d8b540bf88f877e91ff8319f-1" href="#rest_code_93e04982d8b540bf88f877e91ff8319f-1"></a>pip install jupyter_contrib_nbextensions
+</pre></div>
 <p>Sin embargo, si se está usando Anaconda el <strong>método recomendado</strong> es usar
-<tt class="docutils literal">conda</tt>, como se muestra a continuación.</p>
-<pre class="code bash"><a name="rest_code_602547b5023c4ce390f69a95843c46a3-1"></a>conda install -c conda-forge jupyter_contrib_nbextensions
-</pre>
+<code class="docutils literal">conda</code>, como se muestra a continuación.</p>
+<div class="code"><pre class="code bash"><a id="rest_code_e243338726e643e092b34e29157eb3e8-1" name="rest_code_e243338726e643e092b34e29157eb3e8-1" href="#rest_code_e243338726e643e092b34e29157eb3e8-1"></a>conda install -c conda-forge jupyter_contrib_nbextensions
+</pre></div>
 <p>Esto debe instalar los complementos y también la
 <a class="reference external" href="https://github.com/Jupyter-contrib/jupyter_nbextensions_configurator">interfaz de configuración</a>.
 En el menú principal de Jupyter notebook aparecerá una nueva pestaña
@@ -116,14 +113,9 @@ nombrada <em>Nbextensions</em> en donde se pueden elegir los complementos a usar
 La apariencia es la siguiente.</p>
 <img alt="Interfaz gráfica para los complementos de Jupyter." class="align-center" src="../../../images/ortografia_jupyter/interfaz_nbextensions.png" style="width: 600px;"><p>Algunos complementos recomendados son:</p>
 <ul class="simple">
-<li>
-<strong>Collapsible Headings:</strong> que permite ocultar secciones de los documentos.</li>
-<li>
-<strong>RISE:</strong> que convierte los notebooks en presentaciones.</li>
-</ul>
-</div>
-<div class="section" id="paso-2-diccionarios-para-espanol">
-<h3>Paso 2: Diccionarios para español</h3>
+<li><p><strong>Collapsible Headings:</strong> que permite ocultar secciones de los documentos.</p></li>
+<li><p><strong>RISE:</strong> que convierte los notebooks en presentaciones.</p></li>
+</ul></section><section id="paso-2-diccionarios-para-espanol"><h3>Paso 2: Diccionarios para español</h3>
 <p>La documentación de <a class="reference external" href="&lt;https:/jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/spellchecker/README.html">Spellchecker</a> sugiere usar un script de Python para
 descargar diccionarios del proyecto <a class="reference external" href="https://chromium.googlesource.com/chromium/deps/hunspell_dictionaries/+/master">Chromium</a>.
 Sin embargo, estos tienen como codificación ISO-8859-1 (occidente) y falla
@@ -132,44 +124,33 @@ diccionario debe tener codificación <a class="reference external" href="https:/
 Pueden descargarse en <a class="reference external" href="../../../downloads/dict_es_ES.zip">este enlace</a>.</p>
 <p>Una vez que se tienen los diccionarios se deben ubicar en la ruta del
 complemento. En mi computador esta sería</p>
-<pre class="code text"><a name="rest_code_2c629a2aecfa4cd580c8ceca788484a9-1"></a>~/.local/share/jupyter/nbextensions/spellchecker/
-</pre>
+<div class="code"><pre class="code text"><a id="rest_code_f935d3336690416d8c843a7054d6496c-1" name="rest_code_f935d3336690416d8c843a7054d6496c-1" href="#rest_code_f935d3336690416d8c843a7054d6496c-1"></a>~/.local/share/jupyter/nbextensions/spellchecker/
+</pre></div>
 <p>y dentro de esta los ubicaremos en</p>
-<pre class="code text"><a name="rest_code_445f012705ee493cbf3cd433292ec6fc-1"></a>~/.local/share/jupyter/nbextensions/spellchecker/typo/dictionaries
-</pre>
+<div class="code"><pre class="code text"><a id="rest_code_c8896bb9fbc84cc8902adeb993fdb864-1" name="rest_code_c8896bb9fbc84cc8902adeb993fdb864-1" href="#rest_code_c8896bb9fbc84cc8902adeb993fdb864-1"></a>~/.local/share/jupyter/nbextensions/spellchecker/typo/dictionaries
+</pre></div>
 <p>Esta ubicación es arbitraria, lo importante es que necesitamos conocer
 la ruta relativa al complemento.</p>
-</div>
-<div class="section" id="paso-3-configuracion-complementos">
-<h3>Paso 3: Configuración complementos</h3>
+</section><section id="paso-3-configuracion-complementos"><h3>Paso 3: Configuración complementos</h3>
 <p>Ahora, en la pestaña <em>Nbextensions</em> seleccionamos el complemento y llenamos
 los campos con la información de nuestro diccionario:</p>
 <ul class="simple">
-<li>language code to use with typo.js: <tt class="docutils literal">es_ES</tt>
-</li>
-<li>url for the dictionary .dic file to use: <tt class="docutils literal">./typo/dictionaries/es_ES.dic</tt>
-</li>
-<li>url for the dictionary .aff file to use: <tt class="docutils literal">./typo/dictionaries/es_ES.aff</tt>
-</li>
+<li><p>language code to use with typo.js: <code class="docutils literal">es_ES</code></p></li>
+<li><p>url for the dictionary .dic file to use: <code class="docutils literal">./typo/dictionaries/es_ES.dic</code></p></li>
+<li><p>url for the dictionary .aff file to use: <code class="docutils literal">./typo/dictionaries/es_ES.aff</code></p></li>
 </ul>
 <p>Esto se muestra a continuación.</p>
 <img alt="Configuración con archivos locales." class="align-center" src="../../../images/ortografia_jupyter/config_local.png" style="width: 600px;"><p>Otra opción es usar la URL para los archivos. En <a class="reference external" href="https://github.com/wooorm/dictionaries">https://github.com/wooorm/dictionaries</a>
 están disponibles los diccionarios del proyecto <a class="reference external" href="https://hunspell.github.io/">hunspell</a>
 en UTF-8. En este caso, la configuración sería:</p>
 <ul class="simple">
-<li>language code to use with typo.js: <tt class="docutils literal">es_ES</tt>
-</li>
-<li>url for the dictionary .dic file to use: <tt class="docutils literal"><span class="pre">https://raw.githubusercontent.com/wooorm/dictionaries/master/dictionaries/es/index.dic</span></tt>
-</li>
-<li>url for the dictionary .aff file to use: <tt class="docutils literal"><span class="pre">https://raw.githubusercontent.com/wooorm/dictionaries/master/dictionaries/es/index.aff</span></tt>
-</li>
+<li><p>language code to use with typo.js: <code class="docutils literal">es_ES</code></p></li>
+<li><p>url for the dictionary .dic file to use: <code class="docutils literal"><span class="pre">https://raw.githubusercontent.com/wooorm/dictionaries/master/dictionaries/es/index.dic</span></code></p></li>
+<li><p>url for the dictionary .aff file to use: <code class="docutils literal"><span class="pre">https://raw.githubusercontent.com/wooorm/dictionaries/master/dictionaries/es/index.aff</span></code></p></li>
 </ul>
 <p>Y se muestra a continuación.</p>
-<img alt="Configuración con archivos remotos." class="align-center" src="../../../images/ortografia_jupyter/config_url.png" style="width: 600px;">
+<img alt="Configuración con archivos remotos." class="align-center" src="../../../images/ortografia_jupyter/config_url.png" style="width: 600px;"></section></section>
 </div>
-</div>
-</div>
-    </div>
     <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
 <li><a class="tag p-category" href="../../categories/ciencia-de-datos/" rel="tag">ciencia de datos</a></li>
             <li><a class="tag p-category" href="../../categories/computacion-cientifica/" rel="tag">computación científica</a></li>
@@ -181,11 +162,11 @@ en UTF-8. En este caso, la configuración sería:</p>
                 <a href="../graph_makeover/" rel="prev" title="#SWDchallenge: Mejorando un gráfico">Publicación anterior</a>
             </li>
             <li class="next">
-                <a href="../tech_writing/tech_writing/" rel="next" title="Escritura técnica">Siguiente publicación</a>
+                <a href="../tech_writing/tech_writing_math/" rel="next" title="Escritura técnica: usando matemáticas">Siguiente publicación</a>
             </li>
         </ul></nav></aside><section class="comments hidden-print"><h2>Comentarios</h2>
         
-        
+    
         <div id="disqus_thread"></div>
         <script>
         var disqus_shortname ="nicoguaro-github",
