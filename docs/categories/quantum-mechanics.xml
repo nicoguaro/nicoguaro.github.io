@@ -3,7 +3,7 @@
 &lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
 &lt;img alt="Creative Commons License"
 style="border-width:0"
-src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Fri, 06 May 2022 17:24:12 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Finite differences in infinite domains</title><link>https://nicoguaro.github.io/posts/infinite_fdm/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;section id="finite-differences-in-infinite-domains"&gt;
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Mon, 11 Jul 2022 18:47:25 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Finite differences in infinite domains</title><link>https://nicoguaro.github.io/posts/infinite_fdm/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;section id="finite-differences-in-infinite-domains"&gt;
 &lt;h2&gt;Finite differences in infinite domains&lt;/h2&gt;
 &lt;p&gt;Because of my friend, &lt;a class="reference external" href="http://cosmoscalibur.com/"&gt;Edward Villegas&lt;/a&gt;, I
 ended up thinking about using a change of variables when solving an

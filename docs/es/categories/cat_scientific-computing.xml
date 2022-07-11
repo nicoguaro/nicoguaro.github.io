@@ -3,7 +3,7 @@
 &lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
 &lt;img alt="Creative Commons License"
 style="border-width:0"
-src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Fri, 06 May 2022 17:24:07 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Regresando al Método de elementos de frontera</title><link>https://nicoguaro.github.io/es/posts/bem_corrected/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;Durante octubre (2017) estuve escribiendo un programa por día para algunos
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Mon, 11 Jul 2022 18:47:34 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Regresando al Método de elementos de frontera</title><link>https://nicoguaro.github.io/es/posts/bem_corrected/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;Durante octubre (2017) estuve escribiendo un programa por día para algunos
 métodos numéricos famosos en Python y Julia. Esto estaba pensado como
 un ejercicio para aprender Julia. Puedne ver un  &lt;a class="reference external" href="https://nicoguaro.github.io/es/posts/numerical_summary"&gt;resumen aquí&lt;/a&gt;.
 Tuve éxito en 30 de los retos, exceptuando por el BEM

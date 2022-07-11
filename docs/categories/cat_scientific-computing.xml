@@ -3,7 +3,7 @@
 &lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
 &lt;img alt="Creative Commons License"
 style="border-width:0"
-src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Fri, 06 May 2022 17:24:11 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Coming back to the Boundary element method</title><link>https://nicoguaro.github.io/posts/bem_corrected/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;During October (2017) I wrote a program per day for some well-known numerical
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Mon, 11 Jul 2022 18:47:24 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Coming back to the Boundary element method</title><link>https://nicoguaro.github.io/posts/bem_corrected/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;During October (2017) I wrote a program per day for some well-known numerical
 methods in both Python and Julia. It was intended to be an exercise to learn
 some Julia. You can see a &lt;a class="reference external" href="https://nicoguaro.github.io/posts/numerical_summary"&gt;summary here&lt;/a&gt;. I succeeded
 in 30 of the challenges, except for the BEM

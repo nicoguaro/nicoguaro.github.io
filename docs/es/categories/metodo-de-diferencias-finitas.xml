@@ -3,7 +3,7 @@
 &lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
 &lt;img alt="Creative Commons License"
 style="border-width:0"
-src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Fri, 06 May 2022 17:24:08 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Diferencias finitas en dominios infinitos</title><link>https://nicoguaro.github.io/es/posts/infinite_fdm/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;section id="diferencias-finitas-en-dominios-infinitos"&gt;
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Mon, 11 Jul 2022 18:47:36 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Diferencias finitas en dominios infinitos</title><link>https://nicoguaro.github.io/es/posts/infinite_fdm/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;section id="diferencias-finitas-en-dominios-infinitos"&gt;
 &lt;h2&gt;Diferencias finitas en dominios infinitos&lt;/h2&gt;
 &lt;p&gt;Gracias a mi amigo, &lt;a class="reference external" href="http://cosmoscalibur.com/"&gt;Edward Villegas&lt;/a&gt;,
 terminé pensando acerca del uso de cambio de variables en la solución
