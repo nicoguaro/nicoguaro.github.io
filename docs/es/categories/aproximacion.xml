@@ -3,7 +3,7 @@
 &lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
 &lt;img alt="Creative Commons License"
 style="border-width:0"
-src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Mon, 11 Jul 2022 18:47:24 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Interpolación de Hermite a trozos</title><link>https://nicoguaro.github.io/es/posts/hermite_interp/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;En esta entrada encontramos las funciones de interpolación de Hermite
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Wed, 17 Aug 2022 03:34:00 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Interpolación de Hermite a trozos</title><link>https://nicoguaro.github.io/es/posts/hermite_interp/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;En esta entrada encontramos las funciones de interpolación de Hermite
 para el dominio [-1, 1]. Luego, las usamos para una interpolación a
 trozos. Observe que esta interpolación tiene continuidad  &lt;span class="math"&gt;\(C^1\)&lt;/span&gt;
 y no &lt;span class="math"&gt;\(C^0\)&lt;/span&gt; como en la interpolación de Lagrange.&lt;/p&gt;

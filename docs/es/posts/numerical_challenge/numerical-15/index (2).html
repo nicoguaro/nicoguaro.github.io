@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html prefix="" lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Reto de métodos numéricos: Día 15 | Nicolás' blog</title>
+<link href="../../../../assets/css/all.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+<link rel="alternate" type="application/rss+xml" title="RSS (en)" href="../../../../rss.xml">
+<link rel="alternate" type="application/rss+xml" title="RSS (es)" href="../../../rss.xml">
+<link rel="canonical" href="https://nicoguaro.github.io/es/posts/numerical_challenge/numerical-15/">
+<!--[if lt IE 9]><script src="../../../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Nicolás Guarín-Zapata">
+<link rel="prev" href="../numerical-14/" title="Reto de métodos numéricos: Día 14" type="text/html">
+<link rel="next" href="../numerical-16/" title="Reto de métodos numéricos: Día 16" type="text/html">
+<meta property="og:site_name" content="Nicolás' blog">
+<meta property="og:title" content="Reto de métodos numéricos: Día 15">
+<meta property="og:url" content="https://nicoguaro.github.io/es/posts/numerical_challenge/numerical-15/">
+<meta property="og:description" content="Durante octubre (2017) estaré escribiendo un programa por día para algunos
+métodos numéricos famosos en Python y Julia. Esto está pensado como
+un ejercicio, no esperen que el código sea lo suficientem">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2017-10-17T16:22:06-05:00">
+<meta property="article:tag" content="computación científica">
+<meta property="article:tag" content="cuadratura">
+<meta property="article:tag" content="julia">
+<meta property="article:tag" content="métodos numéricos">
+<meta property="article:tag" content="python">
+<link rel="alternate" hreflang="en" href="../../../../posts/numerical_challenge/numerical-15/">
+</head>
+<body>
+    <a href="#content" class="sr-only sr-only-focusable">Ir al contenido principal</a>
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+            styles, `#sidebar-checkbox` for behavior. -->
+    <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox"><!-- Toggleable sidebar --><div class="sidebar" id="sidebar">
+        <div class="sidebar-item">
+            <p>This is my personal website and blog.</p>
+        </div>
+        
+    <nav id="menu" role="navigation" class="sidebar-nav"><a class="sidebar-nav-item" href="../../../../pages/about/">About</a>
+        <a class="sidebar-nav-item" href="../../../../index.html">Blog</a>
+        <a class="sidebar-nav-item" href="../../../../pages/preprints-archive/">Preprints</a>
+        <a class="sidebar-nav-item" href="../../../../pages/links/">Links</a>
+        <a class="sidebar-nav-item" href="../../../../archive.html">Archive</a>
+        <a class="sidebar-nav-item" href="../../../../categories/">Tags</a>
+        <a class="sidebar-nav-item" href="../../../../rss.xml">RSS feed</a>
+    
+    
+    </nav>
+</div>
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          
+    <h3 id="brand" class="masthead-title">
+      <a href="https://nicoguaro.github.io/es/" title="Nicolás' blog" rel="home">Nicolás' blog</a>
+    </h3>
+
+        </div>
+      </div>
+
+      <div class="container content" id="content">
+        
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="post-title p-name entry-title" itemprop="headline name"><a href="." class="u-url">Reto de métodos numéricos: Día 15</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
+            <p class="dateline"><a href="." rel="bookmark"><time class="post-date published dt-published" datetime="2017-10-17T16:22:06-05:00" itemprop="datePublished" title="2017-10-17 16:22">2017-10-17 16:22</time></a></p>
+                <p class="commentline">
+    
+    <a href="#disqus_thread" data-disqus-identifier="cache/posts/numerical_challenge/numerical-15.html">Comentarios</a>
+
+
+        </p>
+</div>
+        
+        <div class="metadata posttranslations translations">
+            <h3 class="posttranslations-intro">También disponible en:</h3>
+                <p><a href="../../../../posts/numerical_challenge/numerical-15/" rel="alternate" hreflang="en">English</a></p>
+        </div>
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <p>Durante octubre (2017) estaré escribiendo un programa por día para algunos
+métodos numéricos famosos en Python y Julia. Esto está pensado como
+un ejercicio, no esperen que el código sea lo suficientemente bueno para
+usarse en la "vida real". Además, también debo mencionar que casi que no
+tengo experiencia con Julia, así que probablemente no escriba un Julia
+idiomático y se parezca más a Python.</p>
+<section id="regla-de-simpson"><h2>Regla de Simpson</h2>
+<p>Hoy tenemos la <a class="reference external" href="https://es.wikipedia.org/wiki/Regla_de_Simpson">regla de Simpson</a>. Esta es otra de las
+<a class="reference external" href="https://es.wikipedia.org/wiki/F%C3%B3rmulas_de_Newton%E2%80%93Cotes">fórmulas de Newton-Cotes</a>,
+que se usa para la integración numérica. Newton-Cotes está relacionada con
+la interpolación de Lagrange con puntos equidistantes.</p>
+<p>A continuación se presentan los códigos.</p>
+<section id="python"><h3>Python</h3>
+<div class="code"><pre class="code python"><a id="rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-1" name="rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-1" href="#rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-1"></a><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span>
+<a id="rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-2" name="rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-2" href="#rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-2"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<a id="rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-3" name="rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-3" href="#rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-3"></a>
+<a id="rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-4" name="rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-4" href="#rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-4"></a>
+<a id="rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-5" name="rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-5" href="#rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-5"></a><span class="k">def</span> <span class="nf">simps</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+<a id="rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-6" name="rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-6" href="#rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-6"></a>    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<a id="rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-7" name="rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-7" href="#rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-7"></a>    <span class="k">if</span> <span class="n">x</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<a id="rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-8" name="rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-8" href="#rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-8"></a>        <span class="n">inte</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="n">n</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span><span class="o">*</span><span class="n">dx</span>
+<a id="rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-9" name="rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-9" href="#rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-9"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-10" name="rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-10" href="#rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-10"></a>        <span class="n">dx</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+<a id="rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-11" name="rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-11" href="#rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-11"></a>        <span class="n">inte</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="n">n</span><span class="p">:</span><span class="mi">2</span><span class="p">],</span> <span class="n">dx</span><span class="p">)</span>
+<a id="rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-12" name="rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-12" href="#rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-12"></a>    <span class="k">return</span> <span class="n">inte</span><span class="o">/</span><span class="mi">3</span>
+<a id="rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-13" name="rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-13" href="#rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-13"></a>
+<a id="rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-14" name="rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-14" href="#rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-14"></a>
+<a id="rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-15" name="rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-15" href="#rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-15"></a><span class="n">n</span> <span class="o">=</span> <span class="mi">21</span>
+<a id="rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-16" name="rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-16" href="#rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-16"></a><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<a id="rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-17" name="rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-17" href="#rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-17"></a><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a id="rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-18" name="rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-18" href="#rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-18"></a><span class="nb">print</span><span class="p">(</span><span class="n">simps</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">))</span>
+<a id="rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-19" name="rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-19" href="#rest_code_a2096c5dfa0d47d99ff044961dfaf8ae-19"></a><span class="nb">print</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+<p>con resultados</p>
+<div class="code"><pre class="code python"><a id="rest_code_1d4d01b841974529b2e7606bb4188d95-1" name="rest_code_1d4d01b841974529b2e7606bb4188d95-1" href="#rest_code_1d4d01b841974529b2e7606bb4188d95-1"></a><span class="mf">1.8397296125</span>
+<a id="rest_code_1d4d01b841974529b2e7606bb4188d95-2" name="rest_code_1d4d01b841974529b2e7606bb4188d95-2" href="#rest_code_1d4d01b841974529b2e7606bb4188d95-2"></a><span class="mf">1.83907152908</span>
+</pre></div>
+</section><section id="julia"><h3>Julia</h3>
+<div class="code"><pre class="code julia"><a id="rest_code_19f04f611cca4bb79eb3834551241e77-1" name="rest_code_19f04f611cca4bb79eb3834551241e77-1" href="#rest_code_19f04f611cca4bb79eb3834551241e77-1"></a><span class="k">function</span><span class="w"> </span><span class="n">simps</span><span class="p">(</span><span class="n">y</span><span class="p">;</span><span class="w"> </span><span class="n">x</span><span class="o">=</span><span class="nb">nothing</span><span class="p">,</span><span class="w"> </span><span class="n">dx</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span><span class="w"></span>
+<a id="rest_code_19f04f611cca4bb79eb3834551241e77-2" name="rest_code_19f04f611cca4bb79eb3834551241e77-2" href="#rest_code_19f04f611cca4bb79eb3834551241e77-2"></a><span class="w">    </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">length</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="w"></span>
+<a id="rest_code_19f04f611cca4bb79eb3834551241e77-3" name="rest_code_19f04f611cca4bb79eb3834551241e77-3" href="#rest_code_19f04f611cca4bb79eb3834551241e77-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">nothing</span><span class="w"></span>
+<a id="rest_code_19f04f611cca4bb79eb3834551241e77-4" name="rest_code_19f04f611cca4bb79eb3834551241e77-4" href="#rest_code_19f04f611cca4bb79eb3834551241e77-4"></a><span class="w">        </span><span class="n">inte</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sum</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="o">:</span><span class="mi">2</span><span class="o">:</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">4</span><span class="o">*</span><span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="o">:</span><span class="mi">2</span><span class="o">:</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="p">[</span><span class="mi">3</span><span class="o">:</span><span class="mi">2</span><span class="o">:</span><span class="n">n</span><span class="p">])</span><span class="o">*</span><span class="n">dx</span><span class="w"></span>
+<a id="rest_code_19f04f611cca4bb79eb3834551241e77-5" name="rest_code_19f04f611cca4bb79eb3834551241e77-5" href="#rest_code_19f04f611cca4bb79eb3834551241e77-5"></a><span class="w">    </span><span class="k">else</span><span class="w"></span>
+<a id="rest_code_19f04f611cca4bb79eb3834551241e77-6" name="rest_code_19f04f611cca4bb79eb3834551241e77-6" href="#rest_code_19f04f611cca4bb79eb3834551241e77-6"></a><span class="w">        </span><span class="n">dx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="o">:</span><span class="mi">2</span><span class="o">:</span><span class="k">end</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="o">:</span><span class="mi">2</span><span class="o">:</span><span class="k">end</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="w"></span>
+<a id="rest_code_19f04f611cca4bb79eb3834551241e77-7" name="rest_code_19f04f611cca4bb79eb3834551241e77-7" href="#rest_code_19f04f611cca4bb79eb3834551241e77-7"></a><span class="w">        </span><span class="n">inte</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="o">:</span><span class="mi">2</span><span class="o">:</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">4</span><span class="o">*</span><span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="o">:</span><span class="mi">2</span><span class="o">:</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="p">[</span><span class="mi">3</span><span class="o">:</span><span class="mi">2</span><span class="o">:</span><span class="n">n</span><span class="p">])</span><span class="o">'</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">dx</span><span class="w"></span>
+<a id="rest_code_19f04f611cca4bb79eb3834551241e77-8" name="rest_code_19f04f611cca4bb79eb3834551241e77-8" href="#rest_code_19f04f611cca4bb79eb3834551241e77-8"></a><span class="w">    </span><span class="k">end</span><span class="w"></span>
+<a id="rest_code_19f04f611cca4bb79eb3834551241e77-9" name="rest_code_19f04f611cca4bb79eb3834551241e77-9" href="#rest_code_19f04f611cca4bb79eb3834551241e77-9"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">inte</span><span class="o">/</span><span class="mi">3</span><span class="w"></span>
+<a id="rest_code_19f04f611cca4bb79eb3834551241e77-10" name="rest_code_19f04f611cca4bb79eb3834551241e77-10" href="#rest_code_19f04f611cca4bb79eb3834551241e77-10"></a><span class="k">end</span><span class="w"></span>
+<a id="rest_code_19f04f611cca4bb79eb3834551241e77-11" name="rest_code_19f04f611cca4bb79eb3834551241e77-11" href="#rest_code_19f04f611cca4bb79eb3834551241e77-11"></a>
+<a id="rest_code_19f04f611cca4bb79eb3834551241e77-12" name="rest_code_19f04f611cca4bb79eb3834551241e77-12" href="#rest_code_19f04f611cca4bb79eb3834551241e77-12"></a>
+<a id="rest_code_19f04f611cca4bb79eb3834551241e77-13" name="rest_code_19f04f611cca4bb79eb3834551241e77-13" href="#rest_code_19f04f611cca4bb79eb3834551241e77-13"></a><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">21</span><span class="w"></span>
+<a id="rest_code_19f04f611cca4bb79eb3834551241e77-14" name="rest_code_19f04f611cca4bb79eb3834551241e77-14" href="#rest_code_19f04f611cca4bb79eb3834551241e77-14"></a><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"></span>
+<a id="rest_code_19f04f611cca4bb79eb3834551241e77-15" name="rest_code_19f04f611cca4bb79eb3834551241e77-15" href="#rest_code_19f04f611cca4bb79eb3834551241e77-15"></a><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sin</span><span class="o">.</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"></span>
+<a id="rest_code_19f04f611cca4bb79eb3834551241e77-16" name="rest_code_19f04f611cca4bb79eb3834551241e77-16" href="#rest_code_19f04f611cca4bb79eb3834551241e77-16"></a><span class="n">println</span><span class="p">(</span><span class="n">simps</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">))</span><span class="w"></span>
+<a id="rest_code_19f04f611cca4bb79eb3834551241e77-17" name="rest_code_19f04f611cca4bb79eb3834551241e77-17" href="#rest_code_19f04f611cca4bb79eb3834551241e77-17"></a><span class="n">println</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">cos</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span><span class="w"></span>
+</pre></div>
+<p>con resultados</p>
+<div class="code"><pre class="code julia"><a id="rest_code_5eeda3beb396405fbb670a66c745b46a-1" name="rest_code_5eeda3beb396405fbb670a66c745b46a-1" href="#rest_code_5eeda3beb396405fbb670a66c745b46a-1"></a><span class="mf">1.8397296124951257</span><span class="w"></span>
+<a id="rest_code_5eeda3beb396405fbb670a66c745b46a-2" name="rest_code_5eeda3beb396405fbb670a66c745b46a-2" href="#rest_code_5eeda3beb396405fbb670a66c745b46a-2"></a><span class="mf">1.8390715290764525</span><span class="w"></span>
+</pre></div>
+</section><section id="comparacion-python-julia"><h3>Comparación Python/Julia</h3>
+<p>Respecto al número de líneas tenemos: 19 en Python y 17 en Julia.  La comparación
+en tiempo de ejecución se realizó con el comando mágico de IPython <code class="docutils literal">%timeit</code>
+y con <code class="docutils literal">@benchmark</code> en Julia.</p>
+<p>Para Python:</p>
+<div class="code"><pre class="code IPython"><a id="rest_code_d6d09c83aceb4b15873bf7d4aa21f8b1-1" name="rest_code_d6d09c83aceb4b15873bf7d4aa21f8b1-1" href="#rest_code_d6d09c83aceb4b15873bf7d4aa21f8b1-1"></a><span class="o">%</span><span class="k">timeit</span> simps(y, x=x)
+</pre></div>
+<p>con resultado</p>
+<div class="code"><pre class="code text"><a id="rest_code_0ab22142cab747ab9eacb8fa69bf295a-1" name="rest_code_0ab22142cab747ab9eacb8fa69bf295a-1" href="#rest_code_0ab22142cab747ab9eacb8fa69bf295a-1"></a>100000 loops, best of 3: 13.8 µs per loop
+</pre></div>
+<p>Para Julia:</p>
+<div class="code"><pre class="code julia"><a id="rest_code_0e18403cb24a48f6886c28b455a13bf9-1" name="rest_code_0e18403cb24a48f6886c28b455a13bf9-1" href="#rest_code_0e18403cb24a48f6886c28b455a13bf9-1"></a><span class="nd">@benchmark</span><span class="w"> </span><span class="n">simps</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+<p>con resultado</p>
+<div class="code"><pre class="code julia"><a id="rest_code_1bce62eb2f294f6fbe45fd5b0fc73b83-1" name="rest_code_1bce62eb2f294f6fbe45fd5b0fc73b83-1" href="#rest_code_1bce62eb2f294f6fbe45fd5b0fc73b83-1"></a><span class="n">BenchmarkTools</span><span class="o">.</span><span class="n">Trial</span><span class="o">:</span><span class="w"></span>
+<a id="rest_code_1bce62eb2f294f6fbe45fd5b0fc73b83-2" name="rest_code_1bce62eb2f294f6fbe45fd5b0fc73b83-2" href="#rest_code_1bce62eb2f294f6fbe45fd5b0fc73b83-2"></a><span class="w">  </span><span class="n">memory</span><span class="w"> </span><span class="n">estimate</span><span class="o">:</span><span class="w">  </span><span class="mf">1.23</span><span class="w"> </span><span class="n">KiB</span><span class="w"></span>
+<a id="rest_code_1bce62eb2f294f6fbe45fd5b0fc73b83-3" name="rest_code_1bce62eb2f294f6fbe45fd5b0fc73b83-3" href="#rest_code_1bce62eb2f294f6fbe45fd5b0fc73b83-3"></a><span class="w">  </span><span class="n">allocs</span><span class="w"> </span><span class="n">estimate</span><span class="o">:</span><span class="w">  </span><span class="mi">14</span><span class="w"></span>
+<a id="rest_code_1bce62eb2f294f6fbe45fd5b0fc73b83-4" name="rest_code_1bce62eb2f294f6fbe45fd5b0fc73b83-4" href="#rest_code_1bce62eb2f294f6fbe45fd5b0fc73b83-4"></a><span class="w">  </span><span class="o">--------------</span><span class="w"></span>
+<a id="rest_code_1bce62eb2f294f6fbe45fd5b0fc73b83-5" name="rest_code_1bce62eb2f294f6fbe45fd5b0fc73b83-5" href="#rest_code_1bce62eb2f294f6fbe45fd5b0fc73b83-5"></a><span class="w">  </span><span class="n">minimum</span><span class="w"> </span><span class="n">time</span><span class="o">:</span><span class="w">     </span><span class="mf">1.117</span><span class="w"> </span><span class="n">μs</span><span class="w"> </span><span class="p">(</span><span class="mf">0.00</span><span class="o">%</span><span class="w"> </span><span class="n">GC</span><span class="p">)</span><span class="w"></span>
+<a id="rest_code_1bce62eb2f294f6fbe45fd5b0fc73b83-6" name="rest_code_1bce62eb2f294f6fbe45fd5b0fc73b83-6" href="#rest_code_1bce62eb2f294f6fbe45fd5b0fc73b83-6"></a><span class="w">  </span><span class="n">median</span><span class="w"> </span><span class="n">time</span><span class="o">:</span><span class="w">      </span><span class="mf">1.200</span><span class="w"> </span><span class="n">μs</span><span class="w"> </span><span class="p">(</span><span class="mf">0.00</span><span class="o">%</span><span class="w"> </span><span class="n">GC</span><span class="p">)</span><span class="w"></span>
+<a id="rest_code_1bce62eb2f294f6fbe45fd5b0fc73b83-7" name="rest_code_1bce62eb2f294f6fbe45fd5b0fc73b83-7" href="#rest_code_1bce62eb2f294f6fbe45fd5b0fc73b83-7"></a><span class="w">  </span><span class="n">mean</span><span class="w"> </span><span class="n">time</span><span class="o">:</span><span class="w">        </span><span class="mf">1.404</span><span class="w"> </span><span class="n">μs</span><span class="w"> </span><span class="p">(</span><span class="mf">7.04</span><span class="o">%</span><span class="w"> </span><span class="n">GC</span><span class="p">)</span><span class="w"></span>
+<a id="rest_code_1bce62eb2f294f6fbe45fd5b0fc73b83-8" name="rest_code_1bce62eb2f294f6fbe45fd5b0fc73b83-8" href="#rest_code_1bce62eb2f294f6fbe45fd5b0fc73b83-8"></a><span class="w">  </span><span class="n">maximum</span><span class="w"> </span><span class="n">time</span><span class="o">:</span><span class="w">     </span><span class="mf">222.286</span><span class="w"> </span><span class="n">μs</span><span class="w"> </span><span class="p">(</span><span class="mf">96.45</span><span class="o">%</span><span class="w"> </span><span class="n">GC</span><span class="p">)</span><span class="w"></span>
+<a id="rest_code_1bce62eb2f294f6fbe45fd5b0fc73b83-9" name="rest_code_1bce62eb2f294f6fbe45fd5b0fc73b83-9" href="#rest_code_1bce62eb2f294f6fbe45fd5b0fc73b83-9"></a><span class="w">  </span><span class="o">--------------</span><span class="w"></span>
+<a id="rest_code_1bce62eb2f294f6fbe45fd5b0fc73b83-10" name="rest_code_1bce62eb2f294f6fbe45fd5b0fc73b83-10" href="#rest_code_1bce62eb2f294f6fbe45fd5b0fc73b83-10"></a><span class="w">  </span><span class="n">samples</span><span class="o">:</span><span class="w">          </span><span class="mi">10000</span><span class="w"></span>
+<a id="rest_code_1bce62eb2f294f6fbe45fd5b0fc73b83-11" name="rest_code_1bce62eb2f294f6fbe45fd5b0fc73b83-11" href="#rest_code_1bce62eb2f294f6fbe45fd5b0fc73b83-11"></a><span class="w">  </span><span class="n">evals</span><span class="o">/</span><span class="n">sample</span><span class="o">:</span><span class="w">     </span><span class="mi">10</span><span class="w"></span>
+</pre></div>
+<p>En este caso, podemos decir que el código de Python es alrededor de 10 veces
+más lento que el de Julia.</p>
+</section></section>
+</div>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../../../categories/computacion-cientifica/" rel="tag">computación científica</a></li>
+            <li><a class="tag p-category" href="../../../categories/cuadratura/" rel="tag">cuadratura</a></li>
+            <li><a class="tag p-category" href="../../../categories/julia/" rel="tag">julia</a></li>
+            <li><a class="tag p-category" href="../../../categories/metodos-numericos/" rel="tag">métodos numéricos</a></li>
+            <li><a class="tag p-category" href="../../../categories/python/" rel="tag">python</a></li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="previous">
+                <a href="../numerical-14/" rel="prev" title="Reto de métodos numéricos: Día 14">Publicación anterior</a>
+            </li>
+            <li class="next">
+                <a href="../numerical-16/" rel="next" title="Reto de métodos numéricos: Día 16">Siguiente publicación</a>
+            </li>
+        </ul></nav></aside><section class="comments hidden-print"><h2>Comentarios</h2>
+        
+    
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="nicoguaro-github",
+            disqus_url="https://nicoguaro.github.io/es/posts/numerical_challenge/numerical-15/",
+        disqus_title="Reto de m\u00e9todos num\u00e9ricos: D\u00eda 15",
+        disqus_identifier="cache/posts/numerical_challenge/numerical-15.html",
+        disqus_config = function () {
+            this.language = "es_ES";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
+        </script></article><script>var disqus_shortname="nicoguaro-github";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><footer id="footer"><p><a href="https://creativecommons.org/licenses/by/4.0/" rel="nofollow">CC BY 4.0</a> © 2022 <a href="mailto:nicoguarin@gmail.com">Nicolás Guarín-Zapata</a>- Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a></p>
+            
+        </footer>
+</div>
+    </div>
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+    
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-145359674-1', 'auto');
+ga('send', 'pageview');
+</script><script src="../../../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+    moment.locale("es");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>

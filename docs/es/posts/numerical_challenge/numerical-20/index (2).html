@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html prefix="" lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Reto de métodos numéricos: Día 20 | Nicolás' blog</title>
+<link href="../../../../assets/css/all.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+<link rel="alternate" type="application/rss+xml" title="RSS (en)" href="../../../../rss.xml">
+<link rel="alternate" type="application/rss+xml" title="RSS (es)" href="../../../rss.xml">
+<link rel="canonical" href="https://nicoguaro.github.io/es/posts/numerical_challenge/numerical-20/">
+<!--[if lt IE 9]><script src="../../../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Nicolás Guarín-Zapata">
+<link rel="prev" href="../numerical-19/" title="Reto de métodos numéricos: Día 19" type="text/html">
+<link rel="next" href="../numerical-21/" title="Reto de métodos numéricos: Día 21" type="text/html">
+<meta property="og:site_name" content="Nicolás' blog">
+<meta property="og:title" content="Reto de métodos numéricos: Día 20">
+<meta property="og:url" content="https://nicoguaro.github.io/es/posts/numerical_challenge/numerical-20/">
+<meta property="og:description" content="Durante octubre (2017) estaré escribiendo un programa por día para algunos
+métodos numéricos famosos en Python y Julia. Esto está pensado como
+un ejercicio, no esperen que el código sea lo suficientem">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2017-10-20T20:10:43-05:00">
+<meta property="article:tag" content="computación científica">
+<meta property="article:tag" content="edo">
+<meta property="article:tag" content="julia">
+<meta property="article:tag" content="método del disparo">
+<meta property="article:tag" content="métodos numéricos">
+<meta property="article:tag" content="python">
+<link rel="alternate" hreflang="en" href="../../../../posts/numerical_challenge/numerical-20/">
+</head>
+<body>
+    <a href="#content" class="sr-only sr-only-focusable">Ir al contenido principal</a>
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+            styles, `#sidebar-checkbox` for behavior. -->
+    <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox"><!-- Toggleable sidebar --><div class="sidebar" id="sidebar">
+        <div class="sidebar-item">
+            <p>This is my personal website and blog.</p>
+        </div>
+        
+    <nav id="menu" role="navigation" class="sidebar-nav"><a class="sidebar-nav-item" href="../../../../pages/about/">About</a>
+        <a class="sidebar-nav-item" href="../../../../index.html">Blog</a>
+        <a class="sidebar-nav-item" href="../../../../pages/preprints-archive/">Preprints</a>
+        <a class="sidebar-nav-item" href="../../../../pages/links/">Links</a>
+        <a class="sidebar-nav-item" href="../../../../archive.html">Archive</a>
+        <a class="sidebar-nav-item" href="../../../../categories/">Tags</a>
+        <a class="sidebar-nav-item" href="../../../../rss.xml">RSS feed</a>
+    
+    
+    </nav>
+</div>
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          
+    <h3 id="brand" class="masthead-title">
+      <a href="https://nicoguaro.github.io/es/" title="Nicolás' blog" rel="home">Nicolás' blog</a>
+    </h3>
+
+        </div>
+      </div>
+
+      <div class="container content" id="content">
+        
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="post-title p-name entry-title" itemprop="headline name"><a href="." class="u-url">Reto de métodos numéricos: Día 20</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
+            <p class="dateline"><a href="." rel="bookmark"><time class="post-date published dt-published" datetime="2017-10-20T20:10:43-05:00" itemprop="datePublished" title="2017-10-20 20:10">2017-10-20 20:10</time></a></p>
+                <p class="commentline">
+    
+    <a href="#disqus_thread" data-disqus-identifier="cache/posts/numerical_challenge/numerical-20.html">Comentarios</a>
+
+
+        </p>
+</div>
+        
+        <div class="metadata posttranslations translations">
+            <h3 class="posttranslations-intro">También disponible en:</h3>
+                <p><a href="../../../../posts/numerical_challenge/numerical-20/" rel="alternate" hreflang="en">English</a></p>
+        </div>
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <p>Durante octubre (2017) estaré escribiendo un programa por día para algunos
+métodos numéricos famosos en Python y Julia. Esto está pensado como
+un ejercicio, no esperen que el código sea lo suficientemente bueno para
+usarse en la "vida real". Además, también debo mencionar que casi que no
+tengo experiencia con Julia, así que probablemente no escriba un Julia
+idiomático y se parezca más a Python.</p>
+<section id="metodo-del-disparo"><h2>Método del disparo</h2>
+<p>Hoy tenemos el <a class="reference external" href="https://en.wikipedia.org/wiki/Shooting_method">método del disparo</a>.
+Este es un método para resolver problemas de valores en la frontera
+convirtiéndolos en una sucesión de problemas de valores iniciales.</p>
+<p>A grandes rasgos, para una ecuación de segundo orden tenemos</p>
+<div class="math">
+\begin{equation*}
+y''(x) = f(x, y(x), y'(x)),\quad y(x_0) = y_0,\quad y(x_1) = y_1\, ,
+\end{equation*}
+</div>
+<p>y resolvemos la sucesión de problemas
+and we solve the sequence of problems</p>
+<div class="math">
+\begin{equation*}
+y''(x) = f(x, y(x), y'(x)),\quad y(x_0) = y_0,\quad y'(x_0) = a
+\end{equation*}
+</div>
+<p>hasta que la función <span class="math">\(F(a) = y(x_1; a) - y_1\)</span> tenga una raíz.</p>
+<p>Vamos a probar este método con el problema de valores en la frontera</p>
+<div class="math">
+\begin{equation*}
+y''(x) = \frac{3}{2} y^2,\quad w(0) = 4,\quad w(1) = 1\, .
+\end{equation*}
+</div>
+<p>A continuación se presenta el código.</p>
+<section id="python"><h3>Python</h3>
+<div class="code"><pre class="code python"><a id="rest_code_20c6c05c7c5e415ba05c140f8264f1d3-1" name="rest_code_20c6c05c7c5e415ba05c140f8264f1d3-1" href="#rest_code_20c6c05c7c5e415ba05c140f8264f1d3-1"></a><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span>
+<a id="rest_code_20c6c05c7c5e415ba05c140f8264f1d3-2" name="rest_code_20c6c05c7c5e415ba05c140f8264f1d3-2" href="#rest_code_20c6c05c7c5e415ba05c140f8264f1d3-2"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<a id="rest_code_20c6c05c7c5e415ba05c140f8264f1d3-3" name="rest_code_20c6c05c7c5e415ba05c140f8264f1d3-3" href="#rest_code_20c6c05c7c5e415ba05c140f8264f1d3-3"></a><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<a id="rest_code_20c6c05c7c5e415ba05c140f8264f1d3-4" name="rest_code_20c6c05c7c5e415ba05c140f8264f1d3-4" href="#rest_code_20c6c05c7c5e415ba05c140f8264f1d3-4"></a><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">newton</span>
+<a id="rest_code_20c6c05c7c5e415ba05c140f8264f1d3-5" name="rest_code_20c6c05c7c5e415ba05c140f8264f1d3-5" href="#rest_code_20c6c05c7c5e415ba05c140f8264f1d3-5"></a><span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">odeint</span>
+<a id="rest_code_20c6c05c7c5e415ba05c140f8264f1d3-6" name="rest_code_20c6c05c7c5e415ba05c140f8264f1d3-6" href="#rest_code_20c6c05c7c5e415ba05c140f8264f1d3-6"></a>
+<a id="rest_code_20c6c05c7c5e415ba05c140f8264f1d3-7" name="rest_code_20c6c05c7c5e415ba05c140f8264f1d3-7" href="#rest_code_20c6c05c7c5e415ba05c140f8264f1d3-7"></a>
+<a id="rest_code_20c6c05c7c5e415ba05c140f8264f1d3-8" name="rest_code_20c6c05c7c5e415ba05c140f8264f1d3-8" href="#rest_code_20c6c05c7c5e415ba05c140f8264f1d3-8"></a><span class="k">def</span> <span class="nf">shooting</span><span class="p">(</span><span class="n">dydx</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">xf</span><span class="p">,</span> <span class="n">shoot</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<a id="rest_code_20c6c05c7c5e415ba05c140f8264f1d3-9" name="rest_code_20c6c05c7c5e415ba05c140f8264f1d3-9" href="#rest_code_20c6c05c7c5e415ba05c140f8264f1d3-9"></a>    <span class="k">if</span> <span class="n">shoot</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<a id="rest_code_20c6c05c7c5e415ba05c140f8264f1d3-10" name="rest_code_20c6c05c7c5e415ba05c140f8264f1d3-10" href="#rest_code_20c6c05c7c5e415ba05c140f8264f1d3-10"></a>        <span class="n">shoot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<a id="rest_code_20c6c05c7c5e415ba05c140f8264f1d3-11" name="rest_code_20c6c05c7c5e415ba05c140f8264f1d3-11" href="#rest_code_20c6c05c7c5e415ba05c140f8264f1d3-11"></a>    <span class="n">F</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">s</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">xf</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">odeint</span><span class="p">(</span><span class="n">dydx</span><span class="p">,</span> <span class="p">[</span><span class="n">x0</span><span class="p">,</span> <span class="n">s</span><span class="p">],</span> <span class="n">x</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">xf</span>
+<a id="rest_code_20c6c05c7c5e415ba05c140f8264f1d3-12" name="rest_code_20c6c05c7c5e415ba05c140f8264f1d3-12" href="#rest_code_20c6c05c7c5e415ba05c140f8264f1d3-12"></a>    <span class="n">shoot</span> <span class="o">=</span> <span class="n">newton</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">shoot</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">xf</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
+<a id="rest_code_20c6c05c7c5e415ba05c140f8264f1d3-13" name="rest_code_20c6c05c7c5e415ba05c140f8264f1d3-13" href="#rest_code_20c6c05c7c5e415ba05c140f8264f1d3-13"></a>    <span class="n">y</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">dydx</span><span class="p">,</span> <span class="p">[</span><span class="n">x0</span><span class="p">,</span> <span class="n">shoot</span><span class="p">],</span> <span class="n">x</span><span class="p">)</span>
+<a id="rest_code_20c6c05c7c5e415ba05c140f8264f1d3-14" name="rest_code_20c6c05c7c5e415ba05c140f8264f1d3-14" href="#rest_code_20c6c05c7c5e415ba05c140f8264f1d3-14"></a>    <span class="k">return</span> <span class="n">y</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">shoot</span>
+<a id="rest_code_20c6c05c7c5e415ba05c140f8264f1d3-15" name="rest_code_20c6c05c7c5e415ba05c140f8264f1d3-15" href="#rest_code_20c6c05c7c5e415ba05c140f8264f1d3-15"></a>
+<a id="rest_code_20c6c05c7c5e415ba05c140f8264f1d3-16" name="rest_code_20c6c05c7c5e415ba05c140f8264f1d3-16" href="#rest_code_20c6c05c7c5e415ba05c140f8264f1d3-16"></a>
+<a id="rest_code_20c6c05c7c5e415ba05c140f8264f1d3-17" name="rest_code_20c6c05c7c5e415ba05c140f8264f1d3-17" href="#rest_code_20c6c05c7c5e415ba05c140f8264f1d3-17"></a><span class="n">func</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">:</span> <span class="p">[</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mf">1.5</span><span class="o">*</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">]</span>
+<a id="rest_code_20c6c05c7c5e415ba05c140f8264f1d3-18" name="rest_code_20c6c05c7c5e415ba05c140f8264f1d3-18" href="#rest_code_20c6c05c7c5e415ba05c140f8264f1d3-18"></a><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<a id="rest_code_20c6c05c7c5e415ba05c140f8264f1d3-19" name="rest_code_20c6c05c7c5e415ba05c140f8264f1d3-19" href="#rest_code_20c6c05c7c5e415ba05c140f8264f1d3-19"></a><span class="n">y</span><span class="p">,</span> <span class="n">shoot</span> <span class="o">=</span> <span class="n">shooting</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">shoot</span><span class="o">=-</span><span class="mi">5</span><span class="p">)</span>
+<a id="rest_code_20c6c05c7c5e415ba05c140f8264f1d3-20" name="rest_code_20c6c05c7c5e415ba05c140f8264f1d3-20" href="#rest_code_20c6c05c7c5e415ba05c140f8264f1d3-20"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<a id="rest_code_20c6c05c7c5e415ba05c140f8264f1d3-21" name="rest_code_20c6c05c7c5e415ba05c140f8264f1d3-21" href="#rest_code_20c6c05c7c5e415ba05c140f8264f1d3-21"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$x$"</span><span class="p">)</span>
+<a id="rest_code_20c6c05c7c5e415ba05c140f8264f1d3-22" name="rest_code_20c6c05c7c5e415ba05c140f8264f1d3-22" href="#rest_code_20c6c05c7c5e415ba05c140f8264f1d3-22"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$y$"</span><span class="p">)</span>
+<a id="rest_code_20c6c05c7c5e415ba05c140f8264f1d3-23" name="rest_code_20c6c05c7c5e415ba05c140f8264f1d3-23" href="#rest_code_20c6c05c7c5e415ba05c140f8264f1d3-23"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</section><section id="julia"><h3>Julia</h3>
+<div class="code"><pre class="code julia"><a id="rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-1" name="rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-1" href="#rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-1"></a><span class="k">using</span><span class="w"> </span><span class="n">PyPlot</span><span class="p">,</span><span class="w"> </span><span class="n">DifferentialEquations</span><span class="p">,</span><span class="w"> </span><span class="n">Roots</span><span class="w"></span>
+<a id="rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-2" name="rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-2" href="#rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-2"></a>
+<a id="rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-3" name="rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-3" href="#rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-3"></a>
+<a id="rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-4" name="rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-4" href="#rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-4"></a><span class="k">function</span><span class="w"> </span><span class="n">shooting</span><span class="p">(</span><span class="n">dydx</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y0</span><span class="p">,</span><span class="w"> </span><span class="n">yf</span><span class="p">;</span><span class="w"> </span><span class="n">shoot</span><span class="o">=</span><span class="nb">nothing</span><span class="p">)</span><span class="w"></span>
+<a id="rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-5" name="rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-5" href="#rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-5"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">shoot</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">nothing</span><span class="w"></span>
+<a id="rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-6" name="rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-6" href="#rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-6"></a><span class="w">        </span><span class="n">shoot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="o">:</span><span class="mf">0.1</span><span class="o">:</span><span class="mi">20</span><span class="p">)</span><span class="w"></span>
+<a id="rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-7" name="rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-7" href="#rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-7"></a><span class="w">    </span><span class="k">end</span><span class="w"></span>
+<a id="rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-8" name="rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-8" href="#rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-8"></a><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">F</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"></span>
+<a id="rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-9" name="rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-9" href="#rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-9"></a><span class="w">        </span><span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ODEProblem</span><span class="p">(</span><span class="n">dydx</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">y0</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">],</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="k">end</span><span class="p">]))</span><span class="w"></span>
+<a id="rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-10" name="rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-10" href="#rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-10"></a><span class="w">        </span><span class="n">sol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">solve</span><span class="p">(</span><span class="n">prob</span><span class="p">)</span><span class="w"></span>
+<a id="rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-11" name="rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-11" href="#rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-11"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">sol</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="k">end</span><span class="p">])[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">yf</span><span class="w"></span>
+<a id="rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-12" name="rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-12" href="#rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-12"></a><span class="w">    </span><span class="k">end</span><span class="w"></span>
+<a id="rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-13" name="rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-13" href="#rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-13"></a><span class="w">    </span><span class="n">shoot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fzero</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="w"> </span><span class="n">shoot</span><span class="p">)</span><span class="w"></span>
+<a id="rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-14" name="rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-14" href="#rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-14"></a><span class="w">    </span><span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ODEProblem</span><span class="p">(</span><span class="n">dydx</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">y0</span><span class="p">,</span><span class="w"> </span><span class="n">shoot</span><span class="p">],</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="k">end</span><span class="p">]))</span><span class="w"></span>
+<a id="rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-15" name="rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-15" href="#rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-15"></a><span class="w">    </span><span class="n">sol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">solve</span><span class="p">(</span><span class="n">prob</span><span class="p">,</span><span class="w"> </span><span class="n">solveat</span><span class="o">=</span><span class="n">x</span><span class="p">)</span><span class="w"></span>
+<a id="rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-16" name="rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-16" href="#rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-16"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">sol</span><span class="p">(</span><span class="n">x</span><span class="p">)[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">:</span><span class="p">],</span><span class="w"> </span><span class="n">shoot</span><span class="w"></span>
+<a id="rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-17" name="rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-17" href="#rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-17"></a><span class="k">end</span><span class="w"></span>
+<a id="rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-18" name="rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-18" href="#rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-18"></a>
+<a id="rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-19" name="rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-19" href="#rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-19"></a>
+<a id="rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-20" name="rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-20" href="#rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-20"></a><span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="mf">1.5</span><span class="o">*</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">^</span><span class="mi">2</span><span class="p">]</span><span class="w"></span>
+<a id="rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-21" name="rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-21" href="#rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-21"></a><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1000</span><span class="p">)</span><span class="w"></span>
+<a id="rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-22" name="rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-22" href="#rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-22"></a><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">shoot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">shooting</span><span class="p">(</span><span class="n">func</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="mf">4.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="n">shoot</span><span class="o">=-</span><span class="mf">5.0</span><span class="p">)</span><span class="w"></span>
+<a id="rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-23" name="rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-23" href="#rest_code_10eaa96d45b74c9abecb2bd5a97d36c6-23"></a><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+<p>En ambos casos el resultado es el siguiente gráfico, y la pendiente es
+-7.9999999657800833.</p>
+<img alt="Solución de la ecuación diferencial que satisface las condiciones de frontera." class="align-center" src="../../../../images/shooting.svg" style="width: 600px;"><p>Debemos mentionar que la convergencia del método depende de la selección de la
+aproximación inicial. Por ejemplo, si escogemos como parámetro inicial -50
+en el problema anterior, obtenemos una solución completamente diferente.</p>
+<div class="code"><pre class="code text"><a id="rest_code_85b791264ac04fa3ae8fcc63f6d64a90-1" name="rest_code_85b791264ac04fa3ae8fcc63f6d64a90-1" href="#rest_code_85b791264ac04fa3ae8fcc63f6d64a90-1"></a>y, shoot = shooting(func, x , 4.0, 1.0, shoot=-50.0)
+</pre></div>
+<img alt="Solución de la ecuación diferencial que satisface las condiciones de frontera." class="align-center" src="../../../../images/shooting-s-50.svg" style="width: 600px;"><p>Y la pendiente que se obtiene es -35.858547970130971.</p>
+</section><section id="comparacion-python-julia"><h3>Comparación Python/Julia</h3>
+<p>Respecto al número de líneas tenemos: 20 en Python y 23 en Julia.  La comparación
+en tiempo de ejecución se realizó con el comando mágico de IPython <code class="docutils literal">%timeit</code>
+y con <code class="docutils literal">@benchmark</code> en Julia.</p>
+<p>Para Python:</p>
+<div class="code"><pre class="code IPython"><a id="rest_code_19b1b12127b74c299a3fd4ac399aa4a5-1" name="rest_code_19b1b12127b74c299a3fd4ac399aa4a5-1" href="#rest_code_19b1b12127b74c299a3fd4ac399aa4a5-1"></a><span class="o">%</span><span class="k">timeit</span> shooting(func, x, 4, 1, shoot=-5)
+</pre></div>
+<p>con resultado</p>
+<div class="code"><pre class="code text"><a id="rest_code_b4a8e6bfb2ec4986aad7970cce794bf7-1" name="rest_code_b4a8e6bfb2ec4986aad7970cce794bf7-1" href="#rest_code_b4a8e6bfb2ec4986aad7970cce794bf7-1"></a>100 loops, best of 3: 1.9 ms per loop
+</pre></div>
+<p>Para Julia:</p>
+<div class="code"><pre class="code julia"><a id="rest_code_704e6c9363d04148abb05f8d789eb4c9-1" name="rest_code_704e6c9363d04148abb05f8d789eb4c9-1" href="#rest_code_704e6c9363d04148abb05f8d789eb4c9-1"></a><span class="nd">@benchmark</span><span class="w"> </span><span class="n">shooting</span><span class="p">(</span><span class="n">func</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="mf">4.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="n">shoot</span><span class="o">=-</span><span class="mf">5.0</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+<p>con resultado</p>
+<div class="code"><pre class="code julia"><a id="rest_code_007f17385f1c4bcbb168a626291423e6-1" name="rest_code_007f17385f1c4bcbb168a626291423e6-1" href="#rest_code_007f17385f1c4bcbb168a626291423e6-1"></a><span class="n">BenchmarkTools</span><span class="o">.</span><span class="n">Trial</span><span class="o">:</span><span class="w"></span>
+<a id="rest_code_007f17385f1c4bcbb168a626291423e6-2" name="rest_code_007f17385f1c4bcbb168a626291423e6-2" href="#rest_code_007f17385f1c4bcbb168a626291423e6-2"></a><span class="w">  </span><span class="n">memory</span><span class="w"> </span><span class="n">estimate</span><span class="o">:</span><span class="w">  </span><span class="mf">4.18</span><span class="w"> </span><span class="n">MiB</span><span class="w"></span>
+<a id="rest_code_007f17385f1c4bcbb168a626291423e6-3" name="rest_code_007f17385f1c4bcbb168a626291423e6-3" href="#rest_code_007f17385f1c4bcbb168a626291423e6-3"></a><span class="w">  </span><span class="n">allocs</span><span class="w"> </span><span class="n">estimate</span><span class="o">:</span><span class="w">  </span><span class="mi">78552</span><span class="w"></span>
+<a id="rest_code_007f17385f1c4bcbb168a626291423e6-4" name="rest_code_007f17385f1c4bcbb168a626291423e6-4" href="#rest_code_007f17385f1c4bcbb168a626291423e6-4"></a><span class="w">  </span><span class="o">--------------</span><span class="w"></span>
+<a id="rest_code_007f17385f1c4bcbb168a626291423e6-5" name="rest_code_007f17385f1c4bcbb168a626291423e6-5" href="#rest_code_007f17385f1c4bcbb168a626291423e6-5"></a><span class="w">  </span><span class="n">minimum</span><span class="w"> </span><span class="n">time</span><span class="o">:</span><span class="w">     </span><span class="mf">10.065</span><span class="w"> </span><span class="n">ms</span><span class="w"> </span><span class="p">(</span><span class="mf">0.00</span><span class="o">%</span><span class="w"> </span><span class="n">GC</span><span class="p">)</span><span class="w"></span>
+<a id="rest_code_007f17385f1c4bcbb168a626291423e6-6" name="rest_code_007f17385f1c4bcbb168a626291423e6-6" href="#rest_code_007f17385f1c4bcbb168a626291423e6-6"></a><span class="w">  </span><span class="n">median</span><span class="w"> </span><span class="n">time</span><span class="o">:</span><span class="w">      </span><span class="mf">10.593</span><span class="w"> </span><span class="n">ms</span><span class="w"> </span><span class="p">(</span><span class="mf">0.00</span><span class="o">%</span><span class="w"> </span><span class="n">GC</span><span class="p">)</span><span class="w"></span>
+<a id="rest_code_007f17385f1c4bcbb168a626291423e6-7" name="rest_code_007f17385f1c4bcbb168a626291423e6-7" href="#rest_code_007f17385f1c4bcbb168a626291423e6-7"></a><span class="w">  </span><span class="n">mean</span><span class="w"> </span><span class="n">time</span><span class="o">:</span><span class="w">        </span><span class="mf">11.769</span><span class="w"> </span><span class="n">ms</span><span class="w"> </span><span class="p">(</span><span class="mf">9.28</span><span class="o">%</span><span class="w"> </span><span class="n">GC</span><span class="p">)</span><span class="w"></span>
+<a id="rest_code_007f17385f1c4bcbb168a626291423e6-8" name="rest_code_007f17385f1c4bcbb168a626291423e6-8" href="#rest_code_007f17385f1c4bcbb168a626291423e6-8"></a><span class="w">  </span><span class="n">maximum</span><span class="w"> </span><span class="n">time</span><span class="o">:</span><span class="w">     </span><span class="mf">22.252</span><span class="w"> </span><span class="n">ms</span><span class="w"> </span><span class="p">(</span><span class="mf">48.58</span><span class="o">%</span><span class="w"> </span><span class="n">GC</span><span class="p">)</span><span class="w"></span>
+<a id="rest_code_007f17385f1c4bcbb168a626291423e6-9" name="rest_code_007f17385f1c4bcbb168a626291423e6-9" href="#rest_code_007f17385f1c4bcbb168a626291423e6-9"></a><span class="w">  </span><span class="o">--------------</span><span class="w"></span>
+<a id="rest_code_007f17385f1c4bcbb168a626291423e6-10" name="rest_code_007f17385f1c4bcbb168a626291423e6-10" href="#rest_code_007f17385f1c4bcbb168a626291423e6-10"></a><span class="w">  </span><span class="n">samples</span><span class="o">:</span><span class="w">          </span><span class="mi">425</span><span class="w"></span>
+<a id="rest_code_007f17385f1c4bcbb168a626291423e6-11" name="rest_code_007f17385f1c4bcbb168a626291423e6-11" href="#rest_code_007f17385f1c4bcbb168a626291423e6-11"></a><span class="w">  </span><span class="n">evals</span><span class="o">/</span><span class="n">sample</span><span class="o">:</span><span class="w">     </span><span class="mi">1</span><span class="w"></span>
+</pre></div>
+<p>En este caso, podemos decir que el código de Python es alrededor de 5 veces más
+rápido que el de Julia. Sin embargo, el código es más diferente que en los otros
+retos. Por ejemplo, no estoy usando <code class="docutils literal">newton</code> en Julia.</p>
+</section></section>
+</div>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../../../categories/computacion-cientifica/" rel="tag">computación científica</a></li>
+            <li><a class="tag p-category" href="../../../categories/edo/" rel="tag">edo</a></li>
+            <li><a class="tag p-category" href="../../../categories/julia/" rel="tag">julia</a></li>
+            <li><a class="tag p-category" href="../../../categories/metodo-del-disparo/" rel="tag">método del disparo</a></li>
+            <li><a class="tag p-category" href="../../../categories/metodos-numericos/" rel="tag">métodos numéricos</a></li>
+            <li><a class="tag p-category" href="../../../categories/python/" rel="tag">python</a></li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="previous">
+                <a href="../numerical-19/" rel="prev" title="Reto de métodos numéricos: Día 19">Publicación anterior</a>
+            </li>
+            <li class="next">
+                <a href="../numerical-21/" rel="next" title="Reto de métodos numéricos: Día 21">Siguiente publicación</a>
+            </li>
+        </ul></nav></aside><section class="comments hidden-print"><h2>Comentarios</h2>
+        
+    
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="nicoguaro-github",
+            disqus_url="https://nicoguaro.github.io/es/posts/numerical_challenge/numerical-20/",
+        disqus_title="Reto de m\u00e9todos num\u00e9ricos: D\u00eda 20",
+        disqus_identifier="cache/posts/numerical_challenge/numerical-20.html",
+        disqus_config = function () {
+            this.language = "es_ES";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
+        </script></article><script>var disqus_shortname="nicoguaro-github";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><footer id="footer"><p><a href="https://creativecommons.org/licenses/by/4.0/" rel="nofollow">CC BY 4.0</a> © 2022 <a href="mailto:nicoguarin@gmail.com">Nicolás Guarín-Zapata</a>- Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a></p>
+            
+        </footer>
+</div>
+    </div>
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+    
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-145359674-1', 'auto');
+ga('send', 'pageview');
+</script><script src="../../../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+    moment.locale("es");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>

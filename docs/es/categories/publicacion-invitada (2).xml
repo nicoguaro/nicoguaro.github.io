@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nicolás' blog (Publicaciones sobre publicación invitada)</title><link>https://nicoguaro.github.io/</link><description></description><atom:link href="https://nicoguaro.github.io/es/categories/publicacion-invitada.xml" rel="self" type="application/rss+xml"></atom:link><language>es</language><copyright>Contents © 2022 &lt;a href="mailto:nicoguarin@gmail.com"&gt;Nicolás Guarín-Zapata&lt;/a&gt; 
+&lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
+&lt;img alt="Creative Commons License"
+style="border-width:0"
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Mon, 11 Jul 2022 18:47:38 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>¿Cuánto chicharrón puede comprar Jeff Bezos?</title><link>https://nicoguaro.github.io/es/posts/chicharron/</link><dc:creator>Sebastián Tobón</dc:creator><description>&lt;p&gt;Este es un cálculo que hizo Sebastián Tobón cuando estaba cursando
+Métodos Numéricos para Ecuaciones en Derivadas Parciales (en 2020). El
+propósito era incentivar realizar cuentas rápidas (cuentas de servilleta)
+y que tuvieran el tamaño de algunos números (por ejemplo, 10¹²) en su
+cabeza. Esta fue la pregunta que hice:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;¿Cuánto chicharrón puede comprar Jeff Bezos?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;A continuación está su respuesta.&lt;/p&gt;
+&lt;section id="respuesta-de-sebastian"&gt;
+&lt;h2&gt;Respuesta de Sebastián&lt;/h2&gt;
+&lt;p&gt;Supongamos que un cerdo promedio pesa 80 kg. Si su tejido muscular constituye
+de un 35 % a 40 % de su peso corporal, se pueden sacar 30 kg de carne.&lt;/p&gt;
+&lt;p&gt;Jeff Bezos tiene un patrimonio neto igual a&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+JB = 115.7 \times 10^9 \text{ USD}\, .
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;El precio de 100 g de chicharrón era&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+7000\text{ COP}\, \frac{1\text{ USD}}{3539.13\text{ COP}} = 1.978\text{ USD}\, .
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;Por tanto, Jeff Bezos puede comprar&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+\frac{115.7\times 10^9\text{ USD}}{\frac{1.978\text{ USD}}{100\text{ g}}}
+= 5.85\times 10^{12}\text{ g de chicharrón.}
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;El total de cerdos en el mundo es 1×10⁹ cabezas. Esto equivale
+a un total de chicharrón&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+1\times 10^9 \text{ cabezas} \times \frac{30\text{ kg}}{1\text{ cabeza}}
+= 3\times 10^{13} \text{ g de chicharrón.}
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;Para poder comprar todo el chicharrón del mundo debe aumentar su patrimonio
+neto en 5.13 veces el valor actual.&lt;/p&gt;
+&lt;p&gt;Los cerdos más caros del mundo cuestan alrededor de 1000 USD, luego&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+\frac{1000\text{ USD}}{\text{cabeza}}\times 10^9\text{ cabezas}
+= 10^{12}\text{ USD}\, .
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;Por otra parte, puede comprar 5.85 veces la cantidad de cerdos a nivel global—
+siendo estos de los más caros del mercado—. Por lo tanto&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;le sale más rentable comprar todos los cerdos del mundo.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;</description><category>ciencia popular</category><category>cuentas de servilleta</category><category>publicación invitada</category><guid>https://nicoguaro.github.io/es/posts/chicharron/</guid><pubDate>Thu, 30 Sep 2021 15:42:44 GMT</pubDate></item></channel></rss>

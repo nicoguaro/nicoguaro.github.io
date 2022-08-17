@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html prefix="" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Using Wolfram Language in Jupyter: A free alternative to Mathematica | Nicolás' blog</title>
+<link href="../../assets/css/all.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+<link rel="alternate" type="application/rss+xml" title="RSS (en)" href="../../rss.xml">
+<link rel="alternate" type="application/rss+xml" title="RSS (es)" href="../../es/rss.xml">
+<link rel="canonical" href="https://nicoguaro.github.io/posts/wolfram_jupyter/">
+<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Nicolás Guarín-Zapata">
+<link rel="prev" href="../bem_corrected/" title="Coming back to the Boundary element method" type="text/html">
+<link rel="next" href="../chicharron/" title="How much chicharrón can Jeff Bezos buy?" type="text/html">
+<meta property="og:site_name" content="Nicolás' blog">
+<meta property="og:title" content="Using Wolfram Language in Jupyter: A free alternative to Mathematica">
+<meta property="og:url" content="https://nicoguaro.github.io/posts/wolfram_jupyter/">
+<meta property="og:description" content="In this post I am going to describe how to add the Wolfram Language to
+the Jupyter notebook. This provides a free alternative to Mathematica with,
+pretty much, the same syntax. The use of the Wolfram ">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2021-03-30T19:50:09-05:00">
+<meta property="article:tag" content="computer algebra system">
+<meta property="article:tag" content="jupyter">
+<meta property="article:tag" content="mathematica">
+<meta property="article:tag" content="wolfram engine">
+<link rel="alternate" hreflang="es" href="../../es/posts/wolfram_jupyter/">
+</head>
+<body>
+    <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+            styles, `#sidebar-checkbox` for behavior. -->
+    <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox"><!-- Toggleable sidebar --><div class="sidebar" id="sidebar">
+        <div class="sidebar-item">
+            <p>This is my personal website and blog.</p>
+        </div>
+        
+    <nav id="menu" role="navigation" class="sidebar-nav"><a class="sidebar-nav-item" href="../../pages/about/">About</a>
+        <a class="sidebar-nav-item" href="../../index.html">Blog</a>
+        <a class="sidebar-nav-item" href="../../pages/preprints-archive/">Preprints</a>
+        <a class="sidebar-nav-item" href="../../pages/links/">Links</a>
+        <a class="sidebar-nav-item" href="../../archive.html">Archive</a>
+        <a class="sidebar-nav-item" href="../../categories/">Tags</a>
+        <a class="sidebar-nav-item" href="../../rss.xml">RSS feed</a>
+    
+    
+    </nav>
+</div>
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          
+    <h3 id="brand" class="masthead-title">
+      <a href="https://nicoguaro.github.io/" title="Nicolás' blog" rel="home">Nicolás' blog</a>
+    </h3>
+
+        </div>
+      </div>
+
+      <div class="container content" id="content">
+        
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="post-title p-name entry-title" itemprop="headline name"><a href="." class="u-url">Using Wolfram Language in Jupyter: A free alternative to Mathematica</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
+            <p class="dateline"><a href="." rel="bookmark"><time class="post-date published dt-published" datetime="2021-03-30T19:50:09-05:00" itemprop="datePublished" title="2021-03-30 19:50">2021-03-30 19:50</time></a></p>
+                <p class="commentline">
+    
+    <a href="#disqus_thread" data-disqus-identifier="cache/posts/wolfram_jupyter.html">Comments</a>
+
+
+        </p>
+</div>
+        
+        <div class="metadata posttranslations translations">
+            <h3 class="posttranslations-intro">Also available in:</h3>
+                <p><a href="../../es/posts/wolfram_jupyter/" rel="alternate" hreflang="es">Español</a></p>
+        </div>
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <p>In this post I am going to describe how to add the Wolfram Language to
+the Jupyter notebook. This provides a free alternative to Mathematica with,
+pretty much, the same syntax. The use of the Wolfram Engine is free for
+non-production as described in their website:</p>
+<blockquote>
+<p>The Free Wolfram Engine for Developers is available for non-production
+software development.</p>
+<p>You can use this product to:</p>
+<ul class="simple">
+<li><p>develop a product for yourself or your company</p></li>
+<li><p>conduct personal projects at home, at school, at work</p></li>
+<li><p>explore the Wolfram Language for future production projects</p></li>
+</ul>
+</blockquote>
+<div class="section" id="installation">
+<h2>Installation</h2>
+<p>To install you should do the following steps:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.wolfram.com/engine">Download Wolfram Engine</a>.</p></li>
+<li><p>Create a Wolfram account, if you don't have one.</p></li>
+<li><p>Execute the installer.</p></li>
+<li><p>Type the following in a terminal</p></li>
+</ul>
+<pre class="code text"><a name="rest_code_9070eb91d8c9452fa0ebd39a9fb2808f-1"></a>wolframscript
+</pre>
+<p>and you should be asked for your email and password.</p>
+<p>After that you should be in a terminal and see the following</p>
+<pre class="code text"><a name="rest_code_68ed263579c148c09ba7ff3de45cfb84-1"></a>Wolfram Engine activated. See https://www.wolfram.com/wolframscript/ for more information.
+<a name="rest_code_68ed263579c148c09ba7ff3de45cfb84-2"></a>Wolfram Language 12.2.0 Engine for Linux x86 (64-bit)
+<a name="rest_code_68ed263579c148c09ba7ff3de45cfb84-3"></a>Copyright 1988-2021 Wolfram Research, Inc.
+</pre>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>And we can try that it is working</p>
+<pre class="code mathematica"><a name="rest_code_25867bba4022446597c5c760938ae07a-1"></a><span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">:=</span><span class="w"> </span><span class="err">$</span><span class="n">Version</span><span class="w"></span>
+<a name="rest_code_25867bba4022446597c5c760938ae07a-2"></a>
+<a name="rest_code_25867bba4022446597c5c760938ae07a-3"></a><span class="n">Out</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="w"> </span><span class="mf">12.2.0</span><span class="w"> </span><span class="n">for</span><span class="w"> </span><span class="n">Linux</span><span class="w"> </span><span class="n">x86</span><span class="w"> </span><span class="p">(</span><span class="mi">64</span><span class="o">-</span><span class="n">bit</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">January</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">2021</span><span class="p">)</span><span class="w"></span>
+<a name="rest_code_25867bba4022446597c5c760938ae07a-4"></a>
+<a name="rest_code_25867bba4022446597c5c760938ae07a-5"></a><span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">:=</span><span class="w"> </span><span class="n">Integrate</span><span class="p">[</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">x</span><span class="p">]</span><span class="w"></span>
+<a name="rest_code_25867bba4022446597c5c760938ae07a-6"></a>
+<a name="rest_code_25867bba4022446597c5c760938ae07a-7"></a><span class="n">Out</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">=</span><span class="w"> </span><span class="n">ArcTan</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="w"></span>
+</pre>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>Now we need to install
+<a class="reference external" href="https://github.com/WolframResearch/WolframLanguageForJupyter.git">WolframLanguageForJupyter</a>.
+For that we can type the following in a terminal</p>
+<pre class="code bash"><a name="rest_code_a79b4576a1094713bb699d65df6006b1-1"></a>git clone https://github.com/WolframResearch/WolframLanguageForJupyter.git
+<a name="rest_code_a79b4576a1094713bb699d65df6006b1-2"></a>
+<a name="rest_code_a79b4576a1094713bb699d65df6006b1-3"></a><span class="nb">cd</span> WolframLanguageForJupyter/
+<a name="rest_code_a79b4576a1094713bb699d65df6006b1-4"></a>
+<a name="rest_code_a79b4576a1094713bb699d65df6006b1-5"></a>./configure-jupyter.wls add
+</pre>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>To test that it is installed we can type the following in a terminal</p>
+<pre class="code bash"><a name="rest_code_79b58637716d4347b8c3fe31a77c46dd-1"></a>jupyter kernelspec list
+</pre>
+<p>and it should have an output that includes a line similar to the following</p>
+<pre class="code bash"><a name="rest_code_dbd81b90ce7248ddad8af7a247dc433b-1"></a>wolframlanguage12.   /home/nicoguaro/.local/share/jupyter/kernels/wolframlanguage12.2
+</pre>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>Or we could also try with</p>
+<pre class="code bash"><a name="rest_code_cb712b2b985f484d822a44cbd8354f61-1"></a>jupyter notebook
+</pre>
+<p>and see the following in the kernel menu.</p>
+<img alt="Kernel menu after installing WolframLanguageForJupyter." class="align-center" src="../../images/wolfram_menu.png" style="width: 400px;"><div class="line-block">
+<div class="line"><br></div>
+</div>
+</div>
+<div class="section" id="test-drive">
+<h2>Test drive</h2>
+<p>I tested some of the capabilities and you can download the
+<a class="reference external" href="../../downloads/notebooks/wolfram_notebook.ipynb">notebook</a> or
+see a static version
+<a class="reference external" href="http://nbviewer.jupyter.org/url/nicoguaro.github.io/downloads/notebooks/wolfram_notebook.ipynb">here</a>.</p>
+<p>Let's compute the integral</p>
+<div class="math">
+\begin{equation*}
+\int \frac{1}{1 + x^3}\mathrm{d}x\, .
+\end{equation*}
+</div>
+<pre class="code mathematica"><a name="rest_code_23c03684efc84bf3a6c070111d1a52d3-1"></a><span class="n">sol</span><span class="o">:=</span><span class="w"> </span><span class="n">Integrate</span><span class="p">[</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="o">^</span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="n">x</span><span class="p">]</span><span class="w"></span>
+<a name="rest_code_23c03684efc84bf3a6c070111d1a52d3-2"></a><span class="n">TeXForm</span><span class="p">[</span><span class="n">sol</span><span class="p">]</span><span class="w"></span>
+</pre>
+<div class="math">
+\begin{equation*}
+-\frac{1}{6} \log \left(x^2-x+1\right)+\frac{1}{3} \log (x+1)+\frac{\tan^{-1}\left(\frac{2 x-1}{\sqrt{3}}\right)}{\sqrt{3}}
+\end{equation*}
+</div>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>And make a 3D plot.</p>
+<pre class="code text"><a name="rest_code_f293df438d7a4ad2a9d4522a0722c737-1"></a>fun:= Sin[Sqrt[x^2 + y^2]]/Sqrt[x^2 + y^2]
+<a name="rest_code_f293df438d7a4ad2a9d4522a0722c737-2"></a>Plot3D[fun, {x, -5*Pi, 5*Pi}, {y, -5*Pi, 5*Pi},
+<a name="rest_code_f293df438d7a4ad2a9d4522a0722c737-3"></a>    PlotPoints -&gt; 100, BoxRatios -&gt; {1, 1, 0.2},
+<a name="rest_code_f293df438d7a4ad2a9d4522a0722c737-4"></a>    PlotRange -&gt; All]
+</pre>
+<img alt="3D plot in the notebook." class="align-center" src="../../images/wolfram_plot.png" style="width: 600px;"><div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>In this case we don't have an interactive image. This is still not implemented,
+but if you are interested there is an
+<a class="reference external" href="https://github.com/WolframResearch/WolframLanguageForJupyter/issues/76">open issue</a>
+about it in GitHub.</p>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../../categories/computer-algebra-system/" rel="tag">computer algebra system</a></li>
+            <li><a class="tag p-category" href="../../categories/jupyter/" rel="tag">jupyter</a></li>
+            <li><a class="tag p-category" href="../../categories/mathematica/" rel="tag">mathematica</a></li>
+            <li><a class="tag p-category" href="../../categories/wolfram-engine/" rel="tag">wolfram engine</a></li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="previous">
+                <a href="../bem_corrected/" rel="prev" title="Coming back to the Boundary element method">Previous post</a>
+            </li>
+            <li class="next">
+                <a href="../chicharron/" rel="next" title="How much chicharrón can Jeff Bezos buy?">Next post</a>
+            </li>
+        </ul></nav></aside><section class="comments hidden-print"><h2>Comments</h2>
+        
+    
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="nicoguaro-github",
+            disqus_url="https://nicoguaro.github.io/posts/wolfram_jupyter/",
+        disqus_title="Using Wolfram Language in Jupyter: A free alternative to Mathematica",
+        disqus_identifier="cache/posts/wolfram_jupyter.html",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
+        </script></article><script>var disqus_shortname="nicoguaro-github";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><footer id="footer"><p><a href="https://creativecommons.org/licenses/by/4.0/" rel="nofollow">CC BY 4.0</a> © 2022 <a href="mailto:nicoguarin@gmail.com">Nicolás Guarín-Zapata</a>- Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a></p>
+            
+        </footer>
+</div>
+    </div>
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+    
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-145359674-1', 'auto');
+ga('send', 'pageview');
+</script><script src="../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>

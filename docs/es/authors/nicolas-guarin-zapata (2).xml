@@ -1,0 +1,1238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nicolás' blog (Publicaciones de Nicolás Guarín-Zapata)</title><link>https://nicoguaro.github.io/</link><description></description><atom:link href="https://nicoguaro.github.io/es/authors/nicolas-guarin-zapata.xml" rel="self" type="application/rss+xml"></atom:link><language>es</language><copyright>Contents © 2022 &lt;a href="mailto:nicoguarin@gmail.com"&gt;Nicolás Guarín-Zapata&lt;/a&gt; 
+&lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
+&lt;img alt="Creative Commons License"
+style="border-width:0"
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Mon, 11 Jul 2022 18:47:36 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Escritura técnica: usando figuras</title><link>https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;En una &lt;a class="reference external" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing"&gt;publicación anterior&lt;/a&gt; mencioné algunos aspectos
+generales de la escritura técnica. En este me gustaría hablar sobre la
+inclusión de figuras en documentos técnicos.&lt;/p&gt;
+&lt;section id="formatos-de-graficos"&gt;
+&lt;h2&gt;Formatos de gráficos&lt;/h2&gt;
+&lt;p&gt;Primero, debo mencionar que hay dos tipos principales de gráficos, a saber:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;gráficos vectoriales; y&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;gráficos de mapa de bits.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Sirven para diferentes propósitos y deberíamos usarlos teniendo esto en cuenta.
+Por ejemplo, para diagramas o esquemas es mejor utilizar formatos vectoriales,
+en general. Por otro lado, los formatos ráster son más adecuados para imágenes
+como fotografías o ilustraciones.&lt;/p&gt;
+&lt;section id="graficos-vectoriales"&gt;
+&lt;h3&gt;Gráficos vectoriales&lt;/h3&gt;
+&lt;p&gt;Una &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Vector_graphics"&gt;imagen vectorial&lt;/a&gt; es una
+imagen que está conformada por entidades geométricas. En este caso, la
+información almacenada no es punto a punto sino &lt;em&gt;la construcción&lt;/em&gt; de las formas
+que la conforman. Por esta razón, estas imágenes no se &lt;em&gt;pixelan&lt;/em&gt; ya que que la
+información con la que se cuenta es de cómo se construye. Este tipo de imágenes
+es la mejor opción para esquemas y diagramas, ya que sólo se almacenaría la
+información de trazos y texto. El estándar &lt;em&gt;de facto&lt;/em&gt; para este tipo de imágenes
+es PDF—este es el tipo que uso en mis documentos de \(\LaTeX\)—. Aunque PDF
+es el &lt;em&gt;estándar&lt;/em&gt;, mi formato preferido es &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Scalable_Vector_Graphics"&gt;SVG (Scalable Vector Graphics)&lt;/a&gt; que es un estándar
+a través de internet y que se puede renderizar en la mayoría de navegadores
+&lt;em&gt;modernos&lt;/em&gt;.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="graficos-raster"&gt;
+&lt;h3&gt;Gráficos ráster&lt;/h3&gt;
+&lt;p&gt;Una &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Raster_graphics"&gt;imagen ráster&lt;/a&gt; es una
+imagen que está representada por un arreglo (o rejilla rectangular) de píxeles.
+En otras palabras, la información del color que hay en cada uno de los puntos
+de la imagen. Los formatos más populares almacenan la información de forma
+comprimida. Para gráficos de alto contraste (como esquemas o diagramas) el mejor
+formato es PNG. Si se tienen animaciones, sería preferible usar GIF. Y en el
+caso de fotografías es mejor usar JPG.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="resumen-para-los-formatos"&gt;
+&lt;h3&gt;Resumen para los formatos&lt;/h3&gt;
+&lt;p&gt;Resumiendo, deberíamos usar imágenes JPG (solo) para fotografías y SVG para
+esquemas/diagramas. Otro atributo que puede resultar útil es la gestión de
+capas. Tener varias capas brinda la opción de apilar diferentes tipos de
+información por separado. Por ejemplo, puede tener el fondo, la imagen y las
+anotaciones en diferentes capas. De esta forma se puede modificar sólo la parte
+de la figura de interés. Se puede automatizar la traducción de las anotaciones
+de esta manera sin muchos problemas. Los formatos como SVG permiten tener
+varias capas. En el caso de los formatos ráster, tenemos la opción de utilizar
+TIFF.&lt;/p&gt;
+&lt;p&gt;En cuanto al software para generar/editar este tipo de imágenes debo decir
+que existe una gran cantidad de programas que permiten exportar a estos
+formatos: Python/Matplotlib, Matlab, Inkscape, Adobe Illustrator, GIMP,
+Photoshop, LibreOffice. Si el gráfico se genera a partir de un cálculo o una
+serie de datos, uso Matplotlib. Si, en cambio, queremos hacer un esquema, mi
+herramienta de elección es &lt;a class="reference external" href="http://www.inkscape.org/"&gt;Inkscape&lt;/a&gt;. Este programa
+está destinado a ser una alternativa gratuita a programas como Adobe
+Illustrator, y lo logra. Obviamente, se puede usar Illustrator o Corel Draw para
+esto. Si el único uso es hacer esquemas técnicos, creo que sería un desperdicio.&lt;/p&gt;
+&lt;/section&gt;
+&lt;/section&gt;
+&lt;section id="disenando-figuras-para-documentos"&gt;
+&lt;h2&gt;Diseñando figuras para documentos&lt;/h2&gt;
+&lt;p&gt;Mi sugerencia es partir del tamaño nominal de la figura del documento. Para la
+mayoría de nuestros documentos, las cifras seguirán siendo digitales y esto
+puede parecer contradictorio. Sin embargo, encuentro este enfoque mucho más
+fácil. Una de las razones es que todavía incrustamos nuestra figura en un
+documento con un tamaño nominal. Además, a la hora de pensar en el tamaño de
+la fuente es habitual que tengamos como referencia el texto impreso. Además de
+eso, debemos considerar que el ojo humano tiene un límite de resolución, por lo
+que no podemos simplemente reducir nuestras figuras.&lt;/p&gt;
+&lt;p&gt;Además, no existe la resolución de una imagen digital. La resolución se refiere
+a una densidad de píxeles por unidad de longitud. Esto tiene sentido al imprimir
+imágenes, pero no en el caso digital. Sin embargo, las figuras tienen un tamaño
+nominal y, por lo tanto, una resolución nominal. Es decir, el número de píxeles
+en una dirección dividido por su tamaño nominal. Es una buena idea considerar
+una resolución mínima de 150 ppp (puntos por pulgada). Por ejemplo, una imagen
+de 6 × 3 pulgadas. Esta imagen tendría un tamaño de (a 150 ppp) de
+900 px × 450 px.&lt;/p&gt;
+&lt;p&gt;El siguiente código de Python crea una figura de tamaño 6 in × 3 in, y grafica
+la función \(f(x) = \sin(x^2)\) y la guarda como una imagen de tamaño
+900 in × 450 in.&lt;/p&gt;
+&lt;div class="code"&gt;&lt;pre class="code python"&gt;&lt;a id="rest_code_92b7aca8108746d881a9b5dd54604a5e-1" name="rest_code_92b7aca8108746d881a9b5dd54604a5e-1" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_92b7aca8108746d881a9b5dd54604a5e-1"&gt;&lt;/a&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
+&lt;a id="rest_code_92b7aca8108746d881a9b5dd54604a5e-2" name="rest_code_92b7aca8108746d881a9b5dd54604a5e-2" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_92b7aca8108746d881a9b5dd54604a5e-2"&gt;&lt;/a&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
+&lt;a id="rest_code_92b7aca8108746d881a9b5dd54604a5e-3" name="rest_code_92b7aca8108746d881a9b5dd54604a5e-3" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_92b7aca8108746d881a9b5dd54604a5e-3"&gt;&lt;/a&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;linspace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;500&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;linewidth&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a id="rest_code_92b7aca8108746d881a9b5dd54604a5e-4" name="rest_code_92b7aca8108746d881a9b5dd54604a5e-4" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_92b7aca8108746d881a9b5dd54604a5e-4"&gt;&lt;/a&gt;&lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a id="rest_code_92b7aca8108746d881a9b5dd54604a5e-5" name="rest_code_92b7aca8108746d881a9b5dd54604a5e-5" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_92b7aca8108746d881a9b5dd54604a5e-5"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;figsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;a id="rest_code_92b7aca8108746d881a9b5dd54604a5e-6" name="rest_code_92b7aca8108746d881a9b5dd54604a5e-6" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_92b7aca8108746d881a9b5dd54604a5e-6"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a id="rest_code_92b7aca8108746d881a9b5dd54604a5e-7" name="rest_code_92b7aca8108746d881a9b5dd54604a5e-7" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_92b7aca8108746d881a9b5dd54604a5e-7"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"x"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fontsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a id="rest_code_92b7aca8108746d881a9b5dd54604a5e-8" name="rest_code_92b7aca8108746d881a9b5dd54604a5e-8" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_92b7aca8108746d881a9b5dd54604a5e-8"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"y"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fontsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a id="rest_code_92b7aca8108746d881a9b5dd54604a5e-9" name="rest_code_92b7aca8108746d881a9b5dd54604a5e-9" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_92b7aca8108746d881a9b5dd54604a5e-9"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;savefig&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"fig_ex_python.png"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dpi&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Y el siguiente código de Matlab.&lt;/p&gt;
+&lt;div class="code"&gt;&lt;pre class="code matlab"&gt;&lt;a id="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-1" name="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-1" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;a id="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-2" name="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-2" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-2"&gt;&lt;/a&gt;&lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Units&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;'inches'&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;a id="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-3" name="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-3" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-3"&gt;&lt;/a&gt;&lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Position&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;a id="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-4" name="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-4" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-4"&gt;&lt;/a&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;linspace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="nb"&gt;pi&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;500&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;a id="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-5" name="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-5" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-5"&gt;&lt;/a&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;sin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;.^&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;a id="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-6" name="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-6" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-6"&gt;&lt;/a&gt;&lt;span class="nb"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;'LineWidth'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;a id="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-7" name="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-7" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-7"&gt;&lt;/a&gt;&lt;span class="nb"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'x'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;'FontSize'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;a id="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-8" name="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-8" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-8"&gt;&lt;/a&gt;&lt;span class="nb"&gt;ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'y'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;'FontSize'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;a id="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-9" name="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-9" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-9"&gt;&lt;/a&gt;&lt;span class="nb"&gt;set&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;'PaperSize'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;]);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;a id="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-10" name="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-10" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-10"&gt;&lt;/a&gt;&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;'fig_ex_matlab'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;'-dpng'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;'-r150'&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;A continuación resumo algunos tamaños para artículos, pósters y diapositivas.&lt;/p&gt;
+&lt;section id="articulos"&gt;
+&lt;h3&gt;Artículos&lt;/h3&gt;
+&lt;p&gt;Para un artículo es común usar tamaño carta que es 8.5 in × 11 in
+(215.9 mm × 279.4 mm). Otro formato común es A4 que es 210 mm × 297 mm
+(8.27 in × 11.7 in).&lt;/p&gt;
+&lt;p&gt;Una guía para tamaños comunes es la siguiente:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;ancho de 1.0 columna: 90 mm (3.5 in);&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;ancho de 1.5 columna: 140 mm (5.5 in);&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;ancho de 2.0 columna: 190 mm (6.5 in);&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;y se muestra en la siguiente imagen.&lt;/p&gt;
+&lt;img alt="Anchos de figuras comparados con papel tamaño carta." class="align-center" src="https://nicoguaro.github.io/images/tech_writing/sizes.png" style="width: 400px;"&gt;
+&lt;p&gt;Si consideramos una &lt;em&gt;resolución&lt;/em&gt; de 300 ppi, tenemos los siguientes números de
+píxeles horizontalmente&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;ancho de 1.0 columna: 1050 píxeles;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;ancho de 1.5 columna: 1650 píxeles; y&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;ancho de 2.0 columna: 1950 píxeles.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Tenga en cuenta que un monitor HD tiene 1920 píxeles en la dirección horizontal.
+Esto significa que se necesita un monitor HD para ser capaz de ver tanto
+píxeles.&lt;/p&gt;
+&lt;p&gt;Respecto al tamaño del texto, es común tener tamaños entre 8 y 12 pts para
+figuras.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="posters"&gt;
+&lt;h3&gt;Pósters&lt;/h3&gt;
+&lt;p&gt;En el caso de papel tamaño A0 (841 mm × 1189 mm, 33 in × 47 in) los tamaños
+serían algo como:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;ancho de 1.0 columna: 360 mm (14 in);&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;ancho de 1.5 columna: 560 mm (22 in); y&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;ancho de 2.0 columna: 760 mm (26 in).&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Tenga en cuenta que un póster puede que no encaje tan bien en el formato
+de dos columans. Sin embargo, creo que la referencia sigue siendo útil.&lt;/p&gt;
+&lt;p&gt;Respecto al tamaño dl texto en pósters es una buena idea mantenerlo por encima
+de 24 pts (ver referencia 3).&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="diapositivas"&gt;
+&lt;h3&gt;Diapositivas&lt;/h3&gt;
+&lt;p&gt;En el caso de diapositivas hay dos relaciones de aspecto comunes 16:9 y 4:3.
+Además, diferentes programas usan diferentes tamaños nominales. La siguiente
+tabla muestra los tamaños nomiales para LibreOffice Impress y MS Power Point.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;&lt;th class="head"&gt;&lt;/th&gt;
+&lt;th class="head"&gt;&lt;p&gt;16:9&lt;/p&gt;&lt;/th&gt;
+&lt;th class="head"&gt;&lt;p&gt;4:3&lt;/p&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;&lt;p&gt;LibreOffice Impress&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;11.02 in × 6.20 in&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;11.02 in × 8.00 in&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;p&gt;MS Power Point&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;13.32 in × 7.50 in&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;10.00 in × 7.50 in&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/section&gt;
+&lt;section id="referencias"&gt;
+&lt;h3&gt;Referencias&lt;/h3&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;&lt;p&gt;Matthew Butterick (2019). &lt;a class="reference external" href="https://practicaltypography.com/"&gt;Butterick's Practical Typography&lt;/a&gt;.
+Segunda edición, Matthew Butterick.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Rougier, Nicolas P., Michael Droettboom, y Philip E. Bourne (2014).
+“Ten Simple Rules for Better Figures.” PLOS Computational Biology 10(9):e1003833.
+DOI: 10.1371/journal.pcbi.1003833.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Erren, Thomas C., y Philip E. Bourne. 2007.
+“Ten Simple Rules for a Good Poster Presentation.”
+PLOS Computational Biology 3(5):e102. DOI: 10.1371/journal.pcbi.0030102&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Elsevier. (n.d.). "Artwork Overview." Fecha de acceso: Noviembre 1, 2021,
+de &lt;a class="reference external" href="https://www.elsevier.com/authors/policies-and-guidelines/artwork-and-media-instructions/artwork-overview"&gt;https://www.elsevier.com/authors/policies-and-guidelines/artwork-and-media-instructions/artwork-overview&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Elsevier. (n.d.). "Artwork sizing." Fecha de acceso: Noviembre 1, 2021,
+de &lt;a class="reference external" href="https://www.elsevier.com/authors/policies-and-guidelines/artwork-and-media-instructions/artwork-sizing"&gt;https://www.elsevier.com/authors/policies-and-guidelines/artwork-and-media-instructions/artwork-sizing&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Journal of applied physics (n.d.). "Preparing Your Manuscript: Authors
+Instruction." Fecha de acceso: Noviembre 1, 2021, de &lt;a class="reference external" href="https://aip.scitation.org/jap/authors/manuscript"&gt;https://aip.scitation.org/jap/authors/manuscript&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;/section&gt;</description><category>escritura</category><category>figuras</category><category>inkscape</category><category>investigación</category><category>latex</category><category>libreoffice</category><category>tipografía</category><guid>https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/</guid><pubDate>Wed, 03 Nov 2021 17:53:40 GMT</pubDate></item><item><title>Usando el lenguaje de Wolfram en Jupyter: Alternativa gratuita a Mathematica</title><link>https://nicoguaro.github.io/es/posts/wolfram_jupyter/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;En esta publicación voy a describir cómo agregar Wolfram Language a
+Jupyter. Esto proporciona una alternativa gratuita a Mathematica con,
+prácticamente, la misma sintaxis. El uso de Wolfram Engine es gratuito en un
+ambiente que no sea de producción como se describe en su sitio web:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Wolfram Engine es gratuito para desarrolladores está disponible para
+desarrollo de software en aplicaciones que no son de producción.&lt;/p&gt;
+&lt;p&gt;Puede utilizar este producto para:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;desarrollar un producto para usted o su empresa&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;realizar proyectos personales en casa, en la escuela, en el trabajo&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;explorar Wolfram Language para futuros proyectos de producción&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;div class="section" id="instalacion"&gt;
+&lt;h2&gt;Instalación&lt;/h2&gt;
+&lt;p&gt;Para instalar debes seguir los siguientes pasos:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://www.wolfram.com/engine"&gt;Descargar Wolfram Engine&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Crear una cuenta de Wolfram, si no tienes una.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Ejecutar el instalador.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Digitar lo siguiente en la terminal.&lt;/p&gt;
+&lt;pre class="code text"&gt;&lt;a name="rest_code_d40132c6bed5426ca76dadf38c67eb7d-1"&gt;&lt;/a&gt;wolframscript
+&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;y te debería preguntar por tu correo y contraseña.&lt;/p&gt;
+&lt;p&gt;Luego deberías estar en una terminal y ver lo siguiente&lt;/p&gt;
+&lt;pre class="code text"&gt;&lt;a name="rest_code_3d980033e4984cf4bb06f86130023be6-1"&gt;&lt;/a&gt;Wolfram Engine activated. See https://www.wolfram.com/wolframscript/ for more information.
+&lt;a name="rest_code_3d980033e4984cf4bb06f86130023be6-2"&gt;&lt;/a&gt;Wolfram Language 12.2.0 Engine for Linux x86 (64-bit)
+&lt;a name="rest_code_3d980033e4984cf4bb06f86130023be6-3"&gt;&lt;/a&gt;Copyright 1988-2021 Wolfram Research, Inc.
+&lt;/pre&gt;&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Y podemos probar que está funcionando&lt;/p&gt;
+&lt;pre class="code mathematica"&gt;&lt;a name="rest_code_721c5e3308464de7bbcff29a8fcfa95b-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;In&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;Version&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;a name="rest_code_721c5e3308464de7bbcff29a8fcfa95b-2"&gt;&lt;/a&gt;
+&lt;a name="rest_code_721c5e3308464de7bbcff29a8fcfa95b-3"&gt;&lt;/a&gt;&lt;span class="n"&gt;Out&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;12.2.0&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;for&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Linux&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;x86&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;64&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bit&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;January&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;2021&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;a name="rest_code_721c5e3308464de7bbcff29a8fcfa95b-4"&gt;&lt;/a&gt;
+&lt;a name="rest_code_721c5e3308464de7bbcff29a8fcfa95b-5"&gt;&lt;/a&gt;&lt;span class="n"&gt;In&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Integrate&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;^&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;a name="rest_code_721c5e3308464de7bbcff29a8fcfa95b-6"&gt;&lt;/a&gt;
+&lt;a name="rest_code_721c5e3308464de7bbcff29a8fcfa95b-7"&gt;&lt;/a&gt;&lt;span class="n"&gt;Out&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ArcTan&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Ahora debemos instalar
+&lt;a class="reference external" href="https://github.com/WolframResearch/WolframLanguageForJupyter.git"&gt;WolframLanguageForJupyter&lt;/a&gt;.
+Para esto debemos digitar lo siguiente en una terminal&lt;/p&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_4b45451784be4fbe945c2fdbe7494f4a-1"&gt;&lt;/a&gt;git clone https://github.com/WolframResearch/WolframLanguageForJupyter.git
+&lt;a name="rest_code_4b45451784be4fbe945c2fdbe7494f4a-2"&gt;&lt;/a&gt;
+&lt;a name="rest_code_4b45451784be4fbe945c2fdbe7494f4a-3"&gt;&lt;/a&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; WolframLanguageForJupyter/
+&lt;a name="rest_code_4b45451784be4fbe945c2fdbe7494f4a-4"&gt;&lt;/a&gt;
+&lt;a name="rest_code_4b45451784be4fbe945c2fdbe7494f4a-5"&gt;&lt;/a&gt;./configure-jupyter.wls add
+&lt;/pre&gt;&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Para probar que está instalado podemos digitar lo siguiente&lt;/p&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_5b4b5c02e3bd45e7ae6120dba99ce2a5-1"&gt;&lt;/a&gt;jupyter kernelspec list
+&lt;/pre&gt;&lt;p&gt;y debería tener una salida similar a la siguiente&lt;/p&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_15f1a3a4a7d04c1cb8e2bba3d6cd955b-1"&gt;&lt;/a&gt;wolframlanguage12.   /home/nicoguaro/.local/share/jupyter/kernels/wolframlanguage12.2
+&lt;/pre&gt;&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;O también podemos intentar con&lt;/p&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_83d93f77b03843ecaecaebeca66537e8-1"&gt;&lt;/a&gt;jupyter notebook
+&lt;/pre&gt;&lt;p&gt;y ver lo siguiente en el menú de kernel.&lt;/p&gt;
+&lt;img alt="Menú de kernels luego de instalar  WolframLanguageForJupyter." class="align-center" src="https://nicoguaro.github.io/images/wolfram_menu.png" style="width: 400px;"&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="prueba"&gt;
+&lt;h2&gt;Prueba&lt;/h2&gt;
+&lt;p&gt;Probé algunas de las capacidades y puedes descargar el
+&lt;a class="reference external" href="https://nicoguaro.github.io/downloads/notebooks/wolfram_notebook.ipynb"&gt;notebook&lt;/a&gt; o
+ver una versión estática
+&lt;a class="reference external" href="http://nbviewer.jupyter.org/url/nicoguaro.github.io/downloads/notebooks/wolfram_notebook.ipynb"&gt;aquí&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Calculemos la integral&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+\int \frac{1}{1 + x^3}\mathrm{d}x\, .
+\end{equation*}
+&lt;/div&gt;
+&lt;pre class="code text"&gt;&lt;a name="rest_code_f87f4da6d6be4226b1bbed871bf15af7-1"&gt;&lt;/a&gt;sol:= Integrate[1/(1 + x^3), x]
+&lt;a name="rest_code_f87f4da6d6be4226b1bbed871bf15af7-2"&gt;&lt;/a&gt;TeXForm[sol]
+&lt;/pre&gt;&lt;div class="math"&gt;
+\begin{equation*}
+-\frac{1}{6} \log \left(x^2-x+1\right)+\frac{1}{3} \log (x+1)+\frac{\tan^{-1}\left(\frac{2 x-1}{\sqrt{3}}\right)}{\sqrt{3}}
+\end{equation*}
+&lt;/div&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Y realicemos un gráfico 3D.&lt;/p&gt;
+&lt;pre class="code text"&gt;&lt;a name="rest_code_f619975ff6f94c1787305e0c256010b5-1"&gt;&lt;/a&gt;fun:= Sin[Sqrt[x^2 + y^2]]/Sqrt[x^2 + y^2]
+&lt;a name="rest_code_f619975ff6f94c1787305e0c256010b5-2"&gt;&lt;/a&gt;Plot3D[fun, {x, -5*Pi, 5*Pi}, {y, -5*Pi, 5*Pi},
+&lt;a name="rest_code_f619975ff6f94c1787305e0c256010b5-3"&gt;&lt;/a&gt;    PlotPoints -&amp;gt; 100, BoxRatios -&amp;gt; {1, 1, 0.2},
+&lt;a name="rest_code_f619975ff6f94c1787305e0c256010b5-4"&gt;&lt;/a&gt;    PlotRange -&amp;gt; All]
+&lt;/pre&gt;&lt;img alt="Gráfico 3D en el notebook." class="align-center" src="https://nicoguaro.github.io/images/wolfram_plot.png" style="width: 600px;"&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;En este caso no tenemos gráficos interactivos. Esto no está implementado aún,
+pero si estás interesado puede ver el
+&lt;a class="reference external" href="https://github.com/WolframResearch/WolframLanguageForJupyter/issues/76"&gt;issue&lt;/a&gt;
+sobre esto en GitHub.&lt;/p&gt;
+&lt;/div&gt;</description><category>computer algebra system</category><category>jupyter</category><category>mathematica</category><category>wolfram engine</category><guid>https://nicoguaro.github.io/es/posts/wolfram_jupyter/</guid><pubDate>Wed, 31 Mar 2021 00:50:09 GMT</pubDate></item><item><title>Regresando al Método de elementos de frontera</title><link>https://nicoguaro.github.io/es/posts/bem_corrected/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;Durante octubre (2017) estuve escribiendo un programa por día para algunos
+métodos numéricos famosos en Python y Julia. Esto estaba pensado como
+un ejercicio para aprender Julia. Puedne ver un  &lt;a class="reference external" href="https://nicoguaro.github.io/es/posts/numerical_summary"&gt;resumen aquí&lt;/a&gt;.
+Tuve éxito en 30 de los retos, exceptuando por el BEM
+(&lt;a class="reference external" href="https://en.wikipedia.org/wiki/Boundary_element_method"&gt;Método de elementos de frontera, en inglés&lt;/a&gt;),
+donde no pude encontrar que hice mal ese día. La publicación original está
+&lt;a class="reference external" href="https://nicoguaro.github.io/es/posts/numerical-26"&gt;aquí&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Thomas Klimpel encontró el error y me escribió un email describiendo lo
+que estaba mal. Entonces, estoy creando esta publicación con la implementación
+correcta del BEM.&lt;/p&gt;
+&lt;div class="section" id="el-metodo-de-elementos-de-frontera"&gt;
+&lt;h2&gt;El Método de Elementos de Frontera&lt;/h2&gt;
+&lt;p&gt;Queremos rsolver la ecuación&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+\nabla^2 u = -f(x, y)\quad \forall (x, y) \in \Omega\, ,
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;con&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+u(x) = g(x, y), \quad \forall (x, y)\in \partial \Omega \, .
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;Para este método, necesitamos usar la representación integral de la ecuación,
+que, en este caso, es&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+u(\boldsymbol{\xi})  = \int_{S} [u(\mathbf{x}) F(\mathbf{x}, \boldsymbol{\xi})
+    - q(\mathbf{x})G(\mathbf{x}, \boldsymbol{\xi})]\mathrm{d}S(\mathbf{x})
+    + \int_{V} f(\mathbf{x}) G(\mathbf{x}, \boldsymbol{\xi}) \mathrm{d}V(\mathbf{x})
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;con&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+G(\mathbf{x}, \boldsymbol{\xi})= -\frac{1}{2\pi}\ln|\mathbf{x} - \xi|
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;y&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+F(\mathbf{x}, \boldsymbol{\xi}) =
+  -\frac{1}{2\pi |\mathbf{x} - \boldsymbol{\xi}|^2}
+  (\mathbf{x} - \boldsymbol{\xi})\cdot\hat{\mathbf{n}}
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;Entonces, podemos formar un sistema de ecuaciones&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+[G]\{q\} = [F]\{u\}\, ,
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;que obtenemos discretizando la frontera. Si tomamos variables constantes en
+la discretización, las integrales se pueden calcular analíticamente&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+G_{nm} = -\frac{1}{2\pi}\left[r \sin\theta\left(\ln|r| - 1\right)
+         + \theta r\cos\theta\right]^{\theta_B, r_B}_{\theta_A, r_A}
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;y&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+F_{nm} = \left[\frac{\theta}{2\pi}\right]^{\theta_B}_{\theta_A}
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;para puntos &lt;span class="math"&gt;\(n\)&lt;/span&gt; y &lt;span class="math"&gt;\(m\)&lt;/span&gt; en diferentos elementos, y los subíndices
+&lt;span class="math"&gt;\(A, B\)&lt;/span&gt; se refieren a los puntos finales del elemento de evaluación.
+Debemos tener cuidado al evaluar esta expresión ya que &lt;span class="math"&gt;\(r_A\)&lt;/span&gt; y &lt;span class="math"&gt;\(r_B\)&lt;/span&gt;
+pueden ser (casi) cero y hacer que &lt;em&gt;explote&lt;/em&gt;. Además, aquí es donde estaba el
+problema principal ya que olvidé calcular los ángulos para elements que están,
+en general, no alineados con los ejes vertical u horizontal.&lt;/p&gt;
+&lt;p&gt;Para los términos en la diagonal las integrales se evalúan como&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+G_{nn} = -\frac{L}{2\pi}\left(\ln\left\vert\frac{L}{2}\right\vert - 1\right)
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;y&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+F_{nn} = - \frac{1}{2}
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;con &lt;span class="math"&gt;\(L\)&lt;/span&gt; el tamaño del elemento.&lt;/p&gt;
+&lt;p&gt;A continuación está el código. Tengan en cuenta que este código funciona para
+problemas puramente de Dirichlet. Para problemas mixtos Dirichlet-Neumann,
+las matrices de influencia deben reordenarse para separar las incógnitas de
+las variables conocidas en lados opuestos de la ecuación.&lt;/p&gt;
+&lt;p&gt;Pueden descargar los archivos para este  &lt;a class="reference external" href="https://nicoguaro.github.io/downloads/bem.zip"&gt;proyecto aquí&lt;/a&gt;.
+Se incluye un archivo YML para crear un ambiente de conda con la lista de
+dependencias. Por ejemplo, se usa la versión 3.0 de
+&lt;a class="reference external" href="https://github.com/nschloe/meshio"&gt;Meshio&lt;/a&gt;.&lt;/p&gt;
+&lt;pre class="code python"&gt;&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-1"&gt;&lt;/a&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-2"&gt;&lt;/a&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;arctan2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;pi&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;mean&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;arctan&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-3"&gt;&lt;/a&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;numpy.linalg&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;norm&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;solve&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-4"&gt;&lt;/a&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-5"&gt;&lt;/a&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;mpl_toolkits.mplot3d&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Axes3D&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-6"&gt;&lt;/a&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;meshio&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-7"&gt;&lt;/a&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-8"&gt;&lt;/a&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-9"&gt;&lt;/a&gt;  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;assem&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;coords&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;elems&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-10"&gt;&lt;/a&gt;      &lt;span class="sd"&gt;"""Assembly matrices for the BEM problem&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-11"&gt;&lt;/a&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-12"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      Parameters&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-13"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      ----------&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-14"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      coords : ndarray, float&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-15"&gt;&lt;/a&gt;&lt;span class="sd"&gt;          Coordinates for the nodes.&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-16"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      elems : ndarray, int&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-17"&gt;&lt;/a&gt;&lt;span class="sd"&gt;          Connectivity for the elements.&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-18"&gt;&lt;/a&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-19"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      Returns&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-20"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      -------&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-21"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      Gmat : ndarray, float&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-22"&gt;&lt;/a&gt;&lt;span class="sd"&gt;          Influence matrix for the flow.&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-23"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      Fmat : ndarray, float&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-24"&gt;&lt;/a&gt;&lt;span class="sd"&gt;          Influence matrix for primary variable.&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-25"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      """&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-26"&gt;&lt;/a&gt;      &lt;span class="n"&gt;nelems&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;elems&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-27"&gt;&lt;/a&gt;      &lt;span class="n"&gt;Gmat&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;zeros&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;nelems&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;nelems&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-28"&gt;&lt;/a&gt;      &lt;span class="n"&gt;Fmat&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;zeros&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;nelems&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;nelems&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-29"&gt;&lt;/a&gt;      &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;ev_cont&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;elem1&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;enumerate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;elems&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-30"&gt;&lt;/a&gt;          &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;col_cont&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;elem2&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;enumerate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;elems&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-31"&gt;&lt;/a&gt;              &lt;span class="n"&gt;pt_col&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;mean&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;coords&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;elem2&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;axis&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-32"&gt;&lt;/a&gt;              &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;ev_cont&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;col_cont&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-33"&gt;&lt;/a&gt;                  &lt;span class="n"&gt;L&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;norm&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;coords&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;elem1&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]]&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;coords&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;elem1&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]])&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-34"&gt;&lt;/a&gt;                  &lt;span class="n"&gt;Gmat&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;ev_cont&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ev_cont&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;L&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;L&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-35"&gt;&lt;/a&gt;                  &lt;span class="n"&gt;Fmat&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;ev_cont&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ev_cont&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mf"&gt;0.5&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-36"&gt;&lt;/a&gt;              &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-37"&gt;&lt;/a&gt;                  &lt;span class="n"&gt;Gij&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Fij&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;influence_coeff&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;elem1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;coords&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;pt_col&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-38"&gt;&lt;/a&gt;                  &lt;span class="n"&gt;Gmat&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;ev_cont&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;col_cont&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Gij&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-39"&gt;&lt;/a&gt;                  &lt;span class="n"&gt;Fmat&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;ev_cont&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;col_cont&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Fij&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-40"&gt;&lt;/a&gt;      &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;Gmat&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Fmat&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-41"&gt;&lt;/a&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-42"&gt;&lt;/a&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-43"&gt;&lt;/a&gt;  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;influence_coeff&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;elem&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;coords&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;pt_col&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-44"&gt;&lt;/a&gt;      &lt;span class="sd"&gt;"""Compute influence coefficients&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-45"&gt;&lt;/a&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-46"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      Parameters&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-47"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      ----------&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-48"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      elems : ndarray, int&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-49"&gt;&lt;/a&gt;&lt;span class="sd"&gt;          Connectivity for the elements.&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-50"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      coords : ndarray, float&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-51"&gt;&lt;/a&gt;&lt;span class="sd"&gt;          Coordinates for the nodes.&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-52"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      pt_col : ndarray&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-53"&gt;&lt;/a&gt;&lt;span class="sd"&gt;          Coordinates of the colocation point.&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-54"&gt;&lt;/a&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-55"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      Returns&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-56"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      -------&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-57"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      G_coeff : float&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-58"&gt;&lt;/a&gt;&lt;span class="sd"&gt;          Influence coefficient for flows.&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-59"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      F_coeff : float&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-60"&gt;&lt;/a&gt;&lt;span class="sd"&gt;          Influence coefficient for primary variable.&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-61"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      """&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-62"&gt;&lt;/a&gt;      &lt;span class="n"&gt;dcos&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;coords&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;elem&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]]&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;coords&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;elem&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]]&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-63"&gt;&lt;/a&gt;      &lt;span class="n"&gt;dcos&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;dcos&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="n"&gt;norm&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dcos&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-64"&gt;&lt;/a&gt;      &lt;span class="n"&gt;rotmat&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;([[&lt;/span&gt;&lt;span class="n"&gt;dcos&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dcos&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]],&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-65"&gt;&lt;/a&gt;                      &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;dcos&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;dcos&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]]])&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-66"&gt;&lt;/a&gt;      &lt;span class="n"&gt;r_A&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;rotmat&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;coords&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;elem&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]]&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;pt_col&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-67"&gt;&lt;/a&gt;      &lt;span class="n"&gt;r_B&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;rotmat&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;coords&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;elem&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]]&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;pt_col&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-68"&gt;&lt;/a&gt;      &lt;span class="n"&gt;theta_A&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;arctan2&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;r_A&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;r_A&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-69"&gt;&lt;/a&gt;      &lt;span class="n"&gt;theta_B&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;arctan2&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;r_B&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;r_B&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-70"&gt;&lt;/a&gt;      &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;norm&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;r_A&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mf"&gt;1e-6&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-71"&gt;&lt;/a&gt;          &lt;span class="n"&gt;G_coeff&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;r_B&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;norm&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;r_B&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;theta_B&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;r_B&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-72"&gt;&lt;/a&gt;      &lt;span class="k"&gt;elif&lt;/span&gt; &lt;span class="n"&gt;norm&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;r_B&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mf"&gt;1e-6&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-73"&gt;&lt;/a&gt;          &lt;span class="n"&gt;G_coeff&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;r_A&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;norm&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;r_A&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;theta_A&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;r_A&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-74"&gt;&lt;/a&gt;      &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-75"&gt;&lt;/a&gt;          &lt;span class="n"&gt;G_coeff&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;r_B&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;norm&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;r_B&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;theta_B&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;r_B&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;\
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-76"&gt;&lt;/a&gt;                  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;r_A&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;norm&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;r_A&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;theta_A&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;r_A&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-77"&gt;&lt;/a&gt;      &lt;span class="n"&gt;F_coeff&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;theta_B&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;theta_A&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-78"&gt;&lt;/a&gt;      &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;G_coeff&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;F_coeff&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-79"&gt;&lt;/a&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-80"&gt;&lt;/a&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-81"&gt;&lt;/a&gt;  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;eval_sol&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ev_coords&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;coords&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;elems&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;u_boundary&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;q_boundary&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-82"&gt;&lt;/a&gt;      &lt;span class="sd"&gt;"""Evaluate the solution in a set of points&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-83"&gt;&lt;/a&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-84"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      Parameters&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-85"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      ----------&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-86"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      ev_coords : ndarray, float&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-87"&gt;&lt;/a&gt;&lt;span class="sd"&gt;          Coordinates of the evaluation points.&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-88"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      coords : ndarray, float&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-89"&gt;&lt;/a&gt;&lt;span class="sd"&gt;          Coordinates for the nodes.&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-90"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      elems : ndarray, int&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-91"&gt;&lt;/a&gt;&lt;span class="sd"&gt;          Connectivity for the elements.&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-92"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      u_boundary : ndarray, float&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-93"&gt;&lt;/a&gt;&lt;span class="sd"&gt;          Primary variable in the nodes.&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-94"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      q_boundary : [type]&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-95"&gt;&lt;/a&gt;&lt;span class="sd"&gt;          Flows in the nodes.&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-96"&gt;&lt;/a&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-97"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      Returns&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-98"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      -------&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-99"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      solution : ndarray, float&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-100"&gt;&lt;/a&gt;&lt;span class="sd"&gt;          Solution evaluated in the given points.&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-101"&gt;&lt;/a&gt;&lt;span class="sd"&gt;      """&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-102"&gt;&lt;/a&gt;      &lt;span class="n"&gt;npts&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ev_coords&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-103"&gt;&lt;/a&gt;      &lt;span class="n"&gt;solution&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;zeros&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;npts&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-104"&gt;&lt;/a&gt;      &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;k&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;npts&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-105"&gt;&lt;/a&gt;          &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;ev_cont&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;elem&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;enumerate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;elems&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-106"&gt;&lt;/a&gt;              &lt;span class="n"&gt;pt_col&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ev_coords&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-107"&gt;&lt;/a&gt;              &lt;span class="n"&gt;G&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;F&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;influence_coeff&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;elem&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;coords&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;pt_col&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-108"&gt;&lt;/a&gt;              &lt;span class="n"&gt;solution&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="n"&gt;u_boundary&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;ev_cont&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;F&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;q_boundary&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;ev_cont&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;G&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-109"&gt;&lt;/a&gt;      &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;solution&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-110"&gt;&lt;/a&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-111"&gt;&lt;/a&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-112"&gt;&lt;/a&gt;&lt;span class="c1"&gt;#%% Simulation&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-113"&gt;&lt;/a&gt;&lt;span class="n"&gt;mesh&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;meshio&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"disk.msh"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-114"&gt;&lt;/a&gt;&lt;span class="n"&gt;elems&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;mesh&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cells&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"line"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-115"&gt;&lt;/a&gt;&lt;span class="n"&gt;bound_nodes&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;set&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;elems&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;flatten&lt;/span&gt;&lt;span class="p"&gt;()))&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-116"&gt;&lt;/a&gt;&lt;span class="n"&gt;coords&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;mesh&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;points&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;bound_nodes&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-117"&gt;&lt;/a&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;coords&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;T&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-118"&gt;&lt;/a&gt;&lt;span class="n"&gt;x_m&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y_m&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;coords&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;elems&lt;/span&gt;&lt;span class="p"&gt;[:,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]]&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;coords&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;elems&lt;/span&gt;&lt;span class="p"&gt;[:,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]])&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;T&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-119"&gt;&lt;/a&gt;&lt;span class="n"&gt;theta&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;arctan2&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;y_m&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x_m&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-120"&gt;&lt;/a&gt;&lt;span class="n"&gt;u_boundary&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cos&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;theta&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-121"&gt;&lt;/a&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-122"&gt;&lt;/a&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-123"&gt;&lt;/a&gt;&lt;span class="c1"&gt;#%% Assembly&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-124"&gt;&lt;/a&gt;&lt;span class="n"&gt;Gmat&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Fmat&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;assem&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;coords&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;elems&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-125"&gt;&lt;/a&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-126"&gt;&lt;/a&gt;&lt;span class="c1"&gt;#%% Solution&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-127"&gt;&lt;/a&gt;&lt;span class="n"&gt;q_boundary&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;solve&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Gmat&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Fmat&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;u_boundary&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-128"&gt;&lt;/a&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-129"&gt;&lt;/a&gt;&lt;span class="c1"&gt;#%% Evaluation&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-130"&gt;&lt;/a&gt;&lt;span class="n"&gt;ev_coords&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;  &lt;span class="n"&gt;mesh&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;points&lt;/span&gt;&lt;span class="p"&gt;[:,&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-131"&gt;&lt;/a&gt;&lt;span class="n"&gt;ev_x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ev_y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ev_coords&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;T&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-132"&gt;&lt;/a&gt;&lt;span class="n"&gt;solution&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;eval_sol&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ev_coords&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;coords&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;elems&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;u_boundary&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;q_boundary&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-133"&gt;&lt;/a&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-134"&gt;&lt;/a&gt;&lt;span class="c1"&gt;#%% Visualization&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-135"&gt;&lt;/a&gt;&lt;span class="n"&gt;tris&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;mesh&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cells&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"triangle"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-136"&gt;&lt;/a&gt;&lt;span class="n"&gt;fig&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-137"&gt;&lt;/a&gt;&lt;span class="n"&gt;ax&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add_subplot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;111&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;projection&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'3d'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-138"&gt;&lt;/a&gt;&lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot_trisurf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ev_x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ev_y&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;solution&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;cmap&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"RdYlBu"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;lw&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-139"&gt;&lt;/a&gt;                &lt;span class="n"&gt;edgecolor&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"#3c3c3c"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-140"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xticks&lt;/span&gt;&lt;span class="p"&gt;([])&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-141"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;yticks&lt;/span&gt;&lt;span class="p"&gt;([])&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-142"&gt;&lt;/a&gt;&lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_zticks&lt;/span&gt;&lt;span class="p"&gt;([])&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-143"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;savefig&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"bem_solution.png"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;bbox_inches&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"tight"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;transparent&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;a name="rest_code_db65e43a6c4f4f169027d1f027f9839a-144"&gt;&lt;/a&gt;            &lt;span class="n"&gt;dpi&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;300&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;p&gt;En este caso obtenemos el siguiente resultado.&lt;/p&gt;
+&lt;img alt="Solución de la ecuación diferencial usando BEM." class="align-center" src="https://nicoguaro.github.io/images/bem_solution.png" style="width: 600px;"&gt;
+&lt;/div&gt;</description><category>computación científica</category><category>julia</category><category>método de elementos de frontera</category><category>métodos numéricos</category><category>python</category><guid>https://nicoguaro.github.io/es/posts/bem_corrected/</guid><pubDate>Mon, 22 Feb 2021 15:00:00 GMT</pubDate></item><item><title>Descargar videos de MS Stream</title><link>https://nicoguaro.github.io/es/posts/download_stream/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;Esta semana un estudiante me preguntó acerca de descargar los videos de uno
+de los cursos de MS Stream. El problema es que si no eres propietario
+del video no puedes descargarlo. Entonces, voy a mostrar una opción para
+descargar videos sin ser propietario de los mismos.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Descargo de responsabilidad:&lt;/strong&gt; puede ser una buena idea preguntar a tu
+organización sobre los derechos de autor de los videos.&lt;/p&gt;
+&lt;div class="section" id="prerrequisitos"&gt;
+&lt;h2&gt;Prerrequisitos&lt;/h2&gt;
+&lt;p&gt;Vas a necesitar lo siguiente:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://git-scm.com/downloads"&gt;git&lt;/a&gt;;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://www.ffmpeg.org/download.html"&gt;ffmpeg&lt;/a&gt;; and&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://nodejs.org/en/download/"&gt;Node.js&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="instalacion-de-destreamer"&gt;
+&lt;h2&gt;Instalación de &lt;code class="docutils literal"&gt;destreamer&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;Después de obtener los requisitos previos, puedes descargar
+&lt;a class="reference external" href="https://github.com/snobu/destreamer"&gt;destreamer&lt;/a&gt; usando&lt;/p&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_e6bfe98f67714513954e0dad61a7b4f6-1"&gt;&lt;/a&gt;$ git clone https://github.com/snobu/destreamer
+&lt;a name="rest_code_e6bfe98f67714513954e0dad61a7b4f6-2"&gt;&lt;/a&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; destreamer
+&lt;a name="rest_code_e6bfe98f67714513954e0dad61a7b4f6-3"&gt;&lt;/a&gt;$ npm install
+&lt;a name="rest_code_e6bfe98f67714513954e0dad61a7b4f6-4"&gt;&lt;/a&gt;$ npm run build
+&lt;/pre&gt;&lt;p&gt;en una terminal.&lt;/p&gt;
+&lt;p&gt;Si no se quiere jugar con
+&lt;a class="reference external" href="https://en.wikipedia.org/wiki/Environment_variable"&gt;variables de entorno&lt;/a&gt;,
+sugiero agregar &lt;code class="docutils literal"&gt;ffmpeg&lt;/code&gt; a la misma carpeta en donde se encuentra
+&lt;code class="docutils literal"&gt;destreamer&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="descarga"&gt;
+&lt;h2&gt;Descarga&lt;/h2&gt;
+&lt;p&gt;Después de eso, debe navegar a la carpeta donde descargaste &lt;code class="docutils literal"&gt;destreamer&lt;/code&gt; y&lt;/p&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_75ab903f7a974eb2af69e6565caed9ae-1"&gt;&lt;/a&gt;$ ./destreamer.sh -i &lt;span class="s2"&gt;"https://web.microsoftstream.com/video/VIDEO_ID"&lt;/span&gt;
+&lt;/pre&gt;&lt;p&gt;en Mac o Linux,&lt;/p&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_19d495e4afb145a3ba46e1ac9bf4ab03-1"&gt;&lt;/a&gt;$ destreamer.cmd -i &lt;span class="s2"&gt;"https://web.microsoftstream.com/video/VIDEO_ID"&lt;/span&gt;
+&lt;/pre&gt;&lt;p&gt;en el &lt;em&gt;command prompt&lt;/em&gt; en Windows, y&lt;/p&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_bc735f124db444a8abd64b03e1b72f95-1"&gt;&lt;/a&gt;$ destreamer.ps1 -i &lt;span class="s2"&gt;"https://web.microsoftstream.com/video/VIDEO_ID"&lt;/span&gt;
+&lt;/pre&gt;&lt;p&gt;en PowerShell. &lt;code class="docutils literal"&gt;VIDEO_ID&lt;/code&gt; se refiere al identificador del video
+en MS Stream.&lt;/p&gt;
+&lt;p&gt;Si deseas descargar varios archivos (como un curso completo),
+puedes crear un archivo con las URL y usar&lt;/p&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_de4dc51268934ddfaddbcf9f5f6f821e-1"&gt;&lt;/a&gt;$ destreamer.cmd -f filename.txt
+&lt;/pre&gt;&lt;/div&gt;</description><category>nodejs</category><category>tutorial</category><category>videos</category><guid>https://nicoguaro.github.io/es/posts/download_stream/</guid><pubDate>Fri, 12 Jun 2020 20:31:22 GMT</pubDate></item><item><title>Marcado Aleatorio de un Tetraedro</title><link>https://nicoguaro.github.io/es/posts/marking-tetrahedron/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;El día de ayer (junio 4 de 2020), Christian Howard publicó en
+&lt;a class="reference external" href="https://twitter.com/choward1491/status/1268736220055699457"&gt;Twitter&lt;/a&gt;
+la siguiente pregunta&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Dado un tetraedro τ. Para cada cara triangular de τ,
+marcamos al azar uniformemente uno de sus aristas. ¿Cuál es el
+probabilidad de que exista una arista de τ que se marca dos veces?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Pensé un poco pero no pude encontrar la manera apropiada de
+hacer e conteo. Entonces, se me ocurrió un número de la nada:
+&lt;span class="math"&gt;\(2/3\)&lt;/span&gt;, pero no sé por qué. Así que decidí correr una
+simulación para verificar este número.&lt;/p&gt;
+&lt;p&gt;La respuesta correcta es &lt;span class="math"&gt;\(51/81\)&lt;/span&gt;, aproximadamente 63%. este
+cálculo está bien explicado en el
+&lt;a class="reference external" href="https://medium.com/@choward1491/randomized-marking-of-a-tetrahedron-f978593f43d2"&gt;blog de Christian&lt;/a&gt;
+con algunos gráficos interesantes (y memes).&lt;/p&gt;
+&lt;div class="section" id="el-algoritmo"&gt;
+&lt;h2&gt;El algoritmo&lt;/h2&gt;
+&lt;p&gt;El algoritmo es bastante simple. Se enumeran las aristas de cada
+cara siguiendo una orientación antihooraria:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;cara 0&lt;/strong&gt;: arista 0, arista 1, arista 2&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;cara 1&lt;/strong&gt;: arista 0, arista 3, arista 4&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;cara 2&lt;/strong&gt;: arista 1, arista 5, arista 3&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;cara 3&lt;/strong&gt;: arista 2, arista 4, arista 5&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Luego, se toma cada cara y se elige un número al azar
+entre &lt;span class="math"&gt;\((0, 1, 2)\)&lt;/span&gt; se marca la arista correspondiente,
+y se procede a la siguiente cara. Se repite este proceso muchas
+veces y se cuentan los casos favorables y se dividen por el
+número total de intentos para obtener un estimado de la
+probabilidad.&lt;/p&gt;
+&lt;p&gt;A continuación se muestra un código de Python con esta idea.&lt;/p&gt;
+&lt;pre class="code python"&gt;&lt;a name="rest_code_65c5adb1d529489db216fed4b0ae4eb5-1"&gt;&lt;/a&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
+&lt;a name="rest_code_65c5adb1d529489db216fed4b0ae4eb5-2"&gt;&lt;/a&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
+&lt;a name="rest_code_65c5adb1d529489db216fed4b0ae4eb5-3"&gt;&lt;/a&gt;
+&lt;a name="rest_code_65c5adb1d529489db216fed4b0ae4eb5-4"&gt;&lt;/a&gt;&lt;span class="n"&gt;faces&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;
+&lt;a name="rest_code_65c5adb1d529489db216fed4b0ae4eb5-5"&gt;&lt;/a&gt;        &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+&lt;a name="rest_code_65c5adb1d529489db216fed4b0ae4eb5-6"&gt;&lt;/a&gt;        &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+&lt;a name="rest_code_65c5adb1d529489db216fed4b0ae4eb5-7"&gt;&lt;/a&gt;        &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+&lt;a name="rest_code_65c5adb1d529489db216fed4b0ae4eb5-8"&gt;&lt;/a&gt;        &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;]])&lt;/span&gt;
+&lt;a name="rest_code_65c5adb1d529489db216fed4b0ae4eb5-9"&gt;&lt;/a&gt;
+&lt;a name="rest_code_65c5adb1d529489db216fed4b0ae4eb5-10"&gt;&lt;/a&gt;
+&lt;a name="rest_code_65c5adb1d529489db216fed4b0ae4eb5-11"&gt;&lt;/a&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;mark_edges&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+&lt;a name="rest_code_65c5adb1d529489db216fed4b0ae4eb5-12"&gt;&lt;/a&gt;    &lt;span class="n"&gt;marked_edges&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;zeros&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;dtype&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_65c5adb1d529489db216fed4b0ae4eb5-13"&gt;&lt;/a&gt;    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;face&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;faces&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;a name="rest_code_65c5adb1d529489db216fed4b0ae4eb5-14"&gt;&lt;/a&gt;        &lt;span class="n"&gt;num&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;randint&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_65c5adb1d529489db216fed4b0ae4eb5-15"&gt;&lt;/a&gt;        &lt;span class="n"&gt;edge&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;face&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;num&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;a name="rest_code_65c5adb1d529489db216fed4b0ae4eb5-16"&gt;&lt;/a&gt;        &lt;span class="n"&gt;marked_edges&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;edge&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;a name="rest_code_65c5adb1d529489db216fed4b0ae4eb5-17"&gt;&lt;/a&gt;    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;marked_edges&lt;/span&gt;
+&lt;a name="rest_code_65c5adb1d529489db216fed4b0ae4eb5-18"&gt;&lt;/a&gt;
+&lt;a name="rest_code_65c5adb1d529489db216fed4b0ae4eb5-19"&gt;&lt;/a&gt;
+&lt;a name="rest_code_65c5adb1d529489db216fed4b0ae4eb5-20"&gt;&lt;/a&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;comp_probs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;N_min&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;N_max&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ntrials&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;a name="rest_code_65c5adb1d529489db216fed4b0ae4eb5-21"&gt;&lt;/a&gt;    &lt;span class="n"&gt;prob&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
+&lt;a name="rest_code_65c5adb1d529489db216fed4b0ae4eb5-22"&gt;&lt;/a&gt;    &lt;span class="n"&gt;N_vals&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;logspace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;N_min&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;N_max&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ntrials&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dtype&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_65c5adb1d529489db216fed4b0ae4eb5-23"&gt;&lt;/a&gt;    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;N&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;N_vals&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;a name="rest_code_65c5adb1d529489db216fed4b0ae4eb5-24"&gt;&lt;/a&gt;        &lt;span class="n"&gt;cont_marked&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;a name="rest_code_65c5adb1d529489db216fed4b0ae4eb5-25"&gt;&lt;/a&gt;        &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;cont&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;N&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;a name="rest_code_65c5adb1d529489db216fed4b0ae4eb5-26"&gt;&lt;/a&gt;            &lt;span class="n"&gt;marked&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;mark_edges&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;a name="rest_code_65c5adb1d529489db216fed4b0ae4eb5-27"&gt;&lt;/a&gt;            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;marked&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;a name="rest_code_65c5adb1d529489db216fed4b0ae4eb5-28"&gt;&lt;/a&gt;                &lt;span class="n"&gt;cont_marked&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;a name="rest_code_65c5adb1d529489db216fed4b0ae4eb5-29"&gt;&lt;/a&gt;        &lt;span class="n"&gt;prob&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;cont_marked&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;N&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_65c5adb1d529489db216fed4b0ae4eb5-30"&gt;&lt;/a&gt;    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;N_vals&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;prob&lt;/span&gt;
+&lt;a name="rest_code_65c5adb1d529489db216fed4b0ae4eb5-31"&gt;&lt;/a&gt;
+&lt;a name="rest_code_65c5adb1d529489db216fed4b0ae4eb5-32"&gt;&lt;/a&gt;
+&lt;a name="rest_code_65c5adb1d529489db216fed4b0ae4eb5-33"&gt;&lt;/a&gt;&lt;span class="c1"&gt;#%% Cálculos&lt;/span&gt;
+&lt;a name="rest_code_65c5adb1d529489db216fed4b0ae4eb5-34"&gt;&lt;/a&gt;&lt;span class="n"&gt;N_min&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;a name="rest_code_65c5adb1d529489db216fed4b0ae4eb5-35"&gt;&lt;/a&gt;&lt;span class="n"&gt;N_max&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;
+&lt;a name="rest_code_65c5adb1d529489db216fed4b0ae4eb5-36"&gt;&lt;/a&gt;&lt;span class="n"&gt;ntrials&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;
+&lt;a name="rest_code_65c5adb1d529489db216fed4b0ae4eb5-37"&gt;&lt;/a&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;seed&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;seed&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_65c5adb1d529489db216fed4b0ae4eb5-38"&gt;&lt;/a&gt;&lt;span class="n"&gt;N_vals&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;prob&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;comp_probs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;N_min&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;N_max&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ntrials&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_65c5adb1d529489db216fed4b0ae4eb5-39"&gt;&lt;/a&gt;
+&lt;a name="rest_code_65c5adb1d529489db216fed4b0ae4eb5-40"&gt;&lt;/a&gt;&lt;span class="c1"&gt;#%% Gráficos&lt;/span&gt;
+&lt;a name="rest_code_65c5adb1d529489db216fed4b0ae4eb5-41"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;figsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;a name="rest_code_65c5adb1d529489db216fed4b0ae4eb5-42"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;hlines&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;0.63&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;N_min&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;N_max&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"#3f3f3f"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_65c5adb1d529489db216fed4b0ae4eb5-43"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;semilogx&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;N_vals&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;prob&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="s2"&gt;"o"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;alpha&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_65c5adb1d529489db216fed4b0ae4eb5-44"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Number of trials"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_65c5adb1d529489db216fed4b0ae4eb5-45"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Estimated probability"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_65c5adb1d529489db216fed4b0ae4eb5-46"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;savefig&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"prob_tet.svg"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dpi&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;300&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;bbox_inches&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"tight"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_65c5adb1d529489db216fed4b0ae4eb5-47"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;p&gt;Y podemos ver la evolución del estimado para diferente número
+de intentos.&lt;/p&gt;
+&lt;img alt="Probabilidad estimada para diferente número de intentos." class="align-center" src="https://nicoguaro.github.io/images/marked_tets.svg" style="width: 600px;"&gt;
+&lt;/div&gt;</description><category>combinatoria</category><category>geometría computacional</category><category>monte carlo</category><guid>https://nicoguaro.github.io/es/posts/marking-tetrahedron/</guid><pubDate>Sat, 06 Jun 2020 03:58:32 GMT</pubDate></item><item><title>Escritura técnica</title><link>https://nicoguaro.github.io/es/posts/tech_writing/tech_writing/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;Esta es la primera publicación sobre redacción técnica &lt;a class="footnote-reference brackets" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing/#footnote-1" id="footnote-reference-1" role="doc-noteref"&gt;&lt;span class="fn-bracket"&gt;[&lt;/span&gt;*&lt;span class="fn-bracket"&gt;]&lt;/span&gt;&lt;/a&gt; de una serie que
+crearé durante el transcurso de este año. La escritura técnica es algo con lo
+que la mayoría de nosotros tenemos que lidiar en diferentes contextos. Por
+ejemplo, en cursos universitarios, publicaciones de investigación,
+documentación de software. La idea principal de la serie es mencionar algunos
+de los trucos que he aprendido a lo largo de los años y algunas herramientas
+que pueden ser útiles.&lt;/p&gt;
+&lt;p&gt;Las publicaciones futuras serán (probablemente) sobre:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_math"&gt;Uso de ecuaciones&lt;/a&gt;;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs"&gt;Uso de figuras&lt;/a&gt;;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Uso de tablas; y&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Gestión de referencias bibliográficas.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;section id="esta-publicacion"&gt;
+&lt;h2&gt;Esta publicación&lt;/h2&gt;
+&lt;p&gt;Como se mencionó anteriormente, la escritura técnica es algo con lo que muchas
+personas tienen que lidiar. Esta es una habilidad que a veces se pasa por alto,
+pero no debería. De acuerdo con la
+&lt;a class="reference external" href="https://www.bls.gov/ooh/media-and-communication/technical-writers.htm"&gt;U.S. Bureau of Labor Statistics&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Los redactores técnicos preparan manuales, guías prácticas,
+artículos de revistas y otros documentos de respaldo para comunicar
+información compleja y técnica con mayor facilidad.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Y es una habilidad deseada en el lugar de trabajo. Se espera que su demanda crezca
+alrededor del 10% en la década actual.&lt;/p&gt;
+&lt;section id="tipografia"&gt;
+&lt;h3&gt;Tipografía&lt;/h3&gt;
+&lt;p&gt;Lo primero que debo mencionar es que escribir documentos es
+tipografía ya que estamos &lt;em&gt;diseñando con texto&lt;/em&gt; (Butterick, 2019). Por lo tanto,
+deberíamos considerarnos tipógrafos, ya que constantemente diseñamos documentos.&lt;/p&gt;
+&lt;p&gt;Sugeriría echar un vistazo a "Butterick's Practical Typography"
+ya que es un libro muy bueno sobre el tema y es fácil de leer. Voy a
+mencionar algunos puntos importantes de acuerdo con la sección
+"Tipografía en diez minutos":&lt;/p&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;&lt;p&gt;La selección tipográfica más importante está en el cuerpo del texto.
+Esto se debe al hecho de que es la mayor parte del documento.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Elija un tamaño de punto entre 10-12 puntos para documentos impresos
+y 15-25 píxeles para documentos digitales.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;El espacio entre líneas debe estar entre 120-145% del tamaño de la letra.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;La longitud de la línea debe tener entre 45 y 90 caracteres. Esto es
+aproximadamente 2 o 3 alfabetos en minúsculas:&lt;/p&gt;
+&lt;p&gt;abcdefghijklmnñopqrstuvwxyzabcdefghijklmnñopqrstuvwxyzabcd&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Cuidado con la selección de su fuente. Intente evitar las fuentes
+predeterminadas como Arial, Calibri o Times New Roman.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
+&lt;section id="editores"&gt;
+&lt;h3&gt;Editores&lt;/h3&gt;
+&lt;p&gt;Otro punto que quiero tocar en esta publicación es el de los editores. La
+primera pregunta que surge es "¿qué editor debo usar?". La respuesta corta es:
+&lt;strong&gt;usa lo que tus colegas estén usando&lt;/strong&gt;. Ese es mi mejor consejo; de esa
+manera tu tienes personas con quienes hablar sobre tus dudas.&lt;/p&gt;
+&lt;p&gt;La respuesta larga ... es que cada editor tiene sus puntos débiles y fuertes.
+Yo ha escrito artículos científicos en LaTeX, LibreOffice Writer y MS Word;
+todos se ven profesionales. Entonces, al final, puedes escribir tu
+documentos de varias maneras y lograr un resultado similar. Prefiero usar
+LaTeX para documentos largos, ya que se centra en la estructura de la
+documento en lugar de la apariencia y esta es la forma en que uno debe
+administrar un documento largo como una disertación, en mi opinión.&lt;/p&gt;
+&lt;p&gt;Si solo quieres que elija un editor y te lo sugiera, diría que
+&lt;a class="reference external" href="https://www.libreoffice.org/"&gt;LibreOffice&lt;/a&gt;. Una buena referencia para
+es "Designing with LibreOffice". Una vez que aprendas
+cómo usar estilos, preguntarás cómo has estado escribiendo todos los documentos
+hasta ahora.&lt;/p&gt;
+&lt;p&gt;Hay dos grupos de editores que voy a discutir:
+WYSIWYG (siglas en inglés para "Lo que ves es lo que obtienes") y
+editores basados en marcado.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;WYSIWYG. Esta categoría es la que la mayoría de la gente conoce.
+Dos ejemplos son:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;LibreOffice writer; y&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Microsoft Word.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Los editores basados en marcado dependen de las marcas en el "texto" para
+diferenciar secciones y estilos. En este caso, su texto parece código,
+como se ve en la siguiente imagen&lt;/p&gt;
+&lt;img alt="/images/rst_code.png" src="https://nicoguaro.github.io/images/rst_code.png"&gt;
+&lt;p&gt;Algunos ejemplos son:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;LaTeX;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://www.markdownguide.org/getting-started"&gt;Markdown&lt;/a&gt;; y&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://docutils.sourceforge.io/rst.html"&gt;reStructuredtext&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Independientemente de cuál sea tu editor principal, sugiero utilizar
+&lt;a class="reference external" href="https://pandoc.org/"&gt;Pandoc&lt;/a&gt;. Te permite convertir entre varios
+formatos, haciendo el proceso un poco más fácil. Incluso hay un editor
+basado completamente en él llamado &lt;a class="reference external" href="https://panwriter.com/"&gt;Panwriter&lt;/a&gt;.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="references"&gt;
+&lt;h3&gt;References&lt;/h3&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;&lt;p&gt;Matthew Butterick (2019). &lt;a class="reference external" href="https://practicaltypography.com/"&gt;Butterick's Practical Typography&lt;/a&gt;.
+Segunda edición, Matthew Butterick.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Wikibooks contributors. (2020). &lt;a class="reference external" href="https://en.wikibooks.org/wiki/LaTeX"&gt;LaTeX&lt;/a&gt;.
+Wikibooks, The Free Textbook Project.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Bruce Byfield (2016). &lt;a class="reference external" href="https://designingwithlibreoffice.com/"&gt;Designing with LibreOffice&lt;/a&gt;.
+Friends of OpenDocument, Inc.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Deville, S. (2015).
+&lt;a class="reference external" href="https://sylvaindeville.net/2015/07/17/writing-academic-papers-in-plain-text-with-markdown-and-jupyter-notebook/"&gt;Writing academic papers in plain text with Markdown and Jupyter notebook&lt;/a&gt;.
+Sylvain Deville.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;5. Eric Holscher (2016).
+&lt;a class="reference external" href="https://www.ericholscher.com/blog/2016/jul/1/sphinx-and-rtd-for-writers/"&gt;An introduction to Sphinx and Read the Docs for Technical Writers&lt;/a&gt;&lt;/p&gt;
+&lt;aside class="footnote brackets" id="footnote-1" role="note"&gt;
+&lt;span class="label"&gt;&lt;span class="fn-bracket"&gt;[&lt;/span&gt;&lt;a role="doc-backlink" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing/#footnote-reference-1"&gt;*&lt;/a&gt;&lt;span class="fn-bracket"&gt;]&lt;/span&gt;&lt;/span&gt;
+&lt;p&gt;Esta publicación está (algo) relacionada con una
+&lt;a class="reference external" href="https://nicoguaro.github.io/es/posts/tech_writing/herramientas-investigacion/"&gt;publicación anterior&lt;/a&gt;
+donde discutí sobre algunas herramientas de investigación que la mayoría
+de nosotros necesitamos pero que comúnmente no se enseñan de manera formal.&lt;/p&gt;
+&lt;/aside&gt;
+&lt;/section&gt;
+&lt;/section&gt;</description><category>escritura</category><category>investigación</category><category>latex</category><category>libreoffice</category><category>tipografía</category><guid>https://nicoguaro.github.io/es/posts/tech_writing/tech_writing/</guid><pubDate>Thu, 28 May 2020 20:53:40 GMT</pubDate></item><item><title>Escritura técnica: usando matemáticas</title><link>https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_math/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;En una &lt;a class="reference external" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing"&gt;publicación anterior&lt;/a&gt; mencioné algunos aspectos
+generales de la escritura técnica. En este me gustaría hablar sobre la
+inclusión de expresiones matemáticas en documentos técnicos.&lt;/p&gt;
+&lt;p&gt;Hay dos formas principales de incluir matemáticas en documentos:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;utilizando texto; y&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;utilizando una interfaz gráfica.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Usar una interfaz gráfica, como el editor de ecuaciones en LibreOffice Writer o
+MS Word, o &lt;a class="reference external" href="http://www.dessci.com/en/products/mathtype/"&gt;MathType&lt;/a&gt; es
+conveniente. No es necesario memorizar nada y se pueden mirar las expresiones
+mientras se crean. Sin embargo, puede ser algo lento en comparación con el uso
+de entrada de texto —una vez que se está cómodo con la sintaxis—.&lt;/p&gt;
+&lt;p&gt;Hay dos tipos de ecuaciones utilizadas en Internet:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://en.wikipedia.org/wiki/MathML"&gt;MathML&lt;/a&gt; es un
+&lt;a class="reference external" href="https://en.wikipedia.org/wiki/World_Wide_Web_Consortium"&gt;estándar W3C&lt;/a&gt;
+para ecuaciones y está incluido en HTML5, por lo que funcionaría en todos los
+navegadores modernos. El problema con este es que no está diseñado para ser
+escrito a mano. Por tanto, uno puede usarlo si tiene alguna forma automática
+de generar el código.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://www.overleaf.com/learn/latex/Mathematical_expressions"&gt;LaTeX&lt;/a&gt;
+es mi forma sugerida de escribir ecuaciones. La curva de aprendizaje podría
+ser un un poco empinada al principio pero vale la pena.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Una herramienta que ayuda con las ecuaciones es
+&lt;a class="reference external" href="https://mathpix.com/"&gt;MathPix Snip&lt;/a&gt; que genera automáticamente código
+LaTeX o MathML a partir de una imagen, incluso una escrita a mano. Otra
+herramienta que es realmente útil es
+&lt;a class="reference external" href="http://detexify.kirelabs.org/classify.html"&gt;Detexify&lt;/a&gt; que permite
+dibujar un símbolo y proporciona la sintaxis de LaTeX de este.&lt;/p&gt;
+&lt;p&gt;En el resto de la publicación mostraré mis sugerencias para trabajar
+con ecuaciones en LibreOffice y MS Word. Si estás utilizando LaTeX o
+MarkDown/ReStructuredText para tus documentos ya estás utilizando
+LaTeX para tus ecuaciones.&lt;/p&gt;
+&lt;section id="libreoffice"&gt;
+&lt;h2&gt;LibreOffice&lt;/h2&gt;
+&lt;p&gt;LibreOffice tiene su propio editor de ecuaciones con su propia sintaxis y
+funciona bien para expresiones pequeñas, pero se complica para ecuaciones
+grandes o largas manipulaciones algebraicas. Para LibreOffice sugeriría usar
+&lt;a class="reference external" href="http://roland65.free.fr/texmaths/install.html"&gt;TexMaths&lt;/a&gt;, es fácil de
+usar y funciona para el procesador de textos (Writer) y presentaciones (Impress).
+Supongo que también funciona para hojas de cálculo (Calc), pero no recuerdo
+haber usado ecuaciones en una.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="ms-office"&gt;
+&lt;h2&gt;MS Office&lt;/h2&gt;
+&lt;p&gt;MS Office también tiene su propio editor de ecuaciones, funciona bien y es
+fácil de usar. Sin embargo, el mismo problema aparece cuando quieres expresiones
+largas. Una opción es usar directamente
+&lt;a class="reference external" href="https://docs.microsoft.com/en-us/archive/blogs/murrays/latex-math-in-office"&gt;LaTeX en Office&lt;/a&gt;
+pero prefiero usar
+&lt;a class="reference external" href="http://www.jonathanleroux.org/software/iguanatex/download.html"&gt;IguanaTex&lt;/a&gt;.
+Es un complemento que permite ingresar ecuaciones de forma similar a TexMaths en
+LibreOffice.&lt;/p&gt;
+&lt;p&gt;También puede pegar directamente las ecuaciones MathML en MS Word (&amp;gt;2013 y Windows).&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="usa-sympy"&gt;
+&lt;h2&gt;Usa SymPy&lt;/h2&gt;
+&lt;p&gt;Independientemente de la herramienta que use para escribir sus documentos,
+sugiero usar un &lt;a class="reference external" href="https://es.wikipedia.org/wiki/Sistema_algebraico_computacional"&gt;CAS&lt;/a&gt;
+(del inglés Computer Algebra System), como Mathematica o SymPy. Estos programas
+permiten la generación automática de LaTeX y MathML a partir de expresiones y
+esto facilita mucho el proceso.&lt;/p&gt;
+&lt;p&gt;Veamos un ejemplo. Supongamos que tenemos la función&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+f(x) = \exp(-x^2) \sin(3*x)
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;y queremos calcular su segunda derivada&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+f''(x) = \left(- 12 x \cos{\left(3 x \right)} + 2 \left(2 x^{2} - 1\right) \sin{\left(3 x \right)} - 9 \sin{\left(3 x \right)}\right) e^{- x^{2}}
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;El siguiente bloque de código nos da el código LaTex&lt;/p&gt;
+&lt;div class="code"&gt;&lt;pre class="code python"&gt;&lt;a id="rest_code_bf9ec7f59f974345b34cb73d1fce4f05-1" name="rest_code_bf9ec7f59f974345b34cb73d1fce4f05-1" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_math/#rest_code_bf9ec7f59f974345b34cb73d1fce4f05-1"&gt;&lt;/a&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sympy&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
+&lt;a id="rest_code_bf9ec7f59f974345b34cb73d1fce4f05-2" name="rest_code_bf9ec7f59f974345b34cb73d1fce4f05-2" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_math/#rest_code_bf9ec7f59f974345b34cb73d1fce4f05-2"&gt;&lt;/a&gt;&lt;span class="n"&gt;init_session&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;a id="rest_code_bf9ec7f59f974345b34cb73d1fce4f05-3" name="rest_code_bf9ec7f59f974345b34cb73d1fce4f05-3" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_math/#rest_code_bf9ec7f59f974345b34cb73d1fce4f05-3"&gt;&lt;/a&gt;&lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;exp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;sin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a id="rest_code_bf9ec7f59f974345b34cb73d1fce4f05-4" name="rest_code_bf9ec7f59f974345b34cb73d1fce4f05-4" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_math/#rest_code_bf9ec7f59f974345b34cb73d1fce4f05-4"&gt;&lt;/a&gt;&lt;span class="n"&gt;fxx&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;diff&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a id="rest_code_bf9ec7f59f974345b34cb73d1fce4f05-5" name="rest_code_bf9ec7f59f974345b34cb73d1fce4f05-5" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_math/#rest_code_bf9ec7f59f974345b34cb73d1fce4f05-5"&gt;&lt;/a&gt;&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;latex&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fxx&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;que es&lt;/p&gt;
+&lt;div class="code"&gt;&lt;pre class="code latex"&gt;&lt;a id="rest_code_7cd1546827e24f3da3f83fec8387ac91-1" name="rest_code_7cd1546827e24f3da3f83fec8387ac91-1" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_math/#rest_code_7cd1546827e24f3da3f83fec8387ac91-1"&gt;&lt;/a&gt;&lt;span class="k"&gt;\left&lt;/span&gt;(- 12 x &lt;span class="k"&gt;\cos&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;&lt;span class="k"&gt;\left&lt;/span&gt;(3 x &lt;span class="k"&gt;\right&lt;/span&gt;)&lt;span class="nb"&gt;}&lt;/span&gt; + 2 &lt;span class="k"&gt;\left&lt;/span&gt;(2 x&lt;span class="nb"&gt;^{&lt;/span&gt;2&lt;span class="nb"&gt;}&lt;/span&gt; - 1&lt;span class="k"&gt;\right&lt;/span&gt;) &lt;span class="k"&gt;\sin&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;&lt;span class="k"&gt;\left&lt;/span&gt;(3 x &lt;span class="k"&gt;\right&lt;/span&gt;)&lt;span class="nb"&gt;}&lt;/span&gt; - 9 &lt;span class="k"&gt;\sin&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;&lt;span class="k"&gt;\left&lt;/span&gt;(3 x &lt;span class="k"&gt;\right&lt;/span&gt;)&lt;span class="nb"&gt;}&lt;/span&gt;&lt;span class="k"&gt;\right&lt;/span&gt;) e&lt;span class="nb"&gt;^{&lt;/span&gt;- x&lt;span class="nb"&gt;^{&lt;/span&gt;2&lt;span class="nb"&gt;}}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Este corresponde con el código que usé arriba para representar la ecuación.&lt;/p&gt;
+&lt;p&gt;Si quisiéramos el código MathML de esa expresión podríamos usar
+el siguiente fragmento de código&lt;/p&gt;
+&lt;div class="code"&gt;&lt;pre class="code python"&gt;&lt;a id="rest_code_01c1ff4039fa4cf1a3f271726de051e9-1" name="rest_code_01c1ff4039fa4cf1a3f271726de051e9-1" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_math/#rest_code_01c1ff4039fa4cf1a3f271726de051e9-1"&gt;&lt;/a&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sympy&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
+&lt;a id="rest_code_01c1ff4039fa4cf1a3f271726de051e9-2" name="rest_code_01c1ff4039fa4cf1a3f271726de051e9-2" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_math/#rest_code_01c1ff4039fa4cf1a3f271726de051e9-2"&gt;&lt;/a&gt;&lt;span class="n"&gt;init_session&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;a id="rest_code_01c1ff4039fa4cf1a3f271726de051e9-3" name="rest_code_01c1ff4039fa4cf1a3f271726de051e9-3" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_math/#rest_code_01c1ff4039fa4cf1a3f271726de051e9-3"&gt;&lt;/a&gt;&lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;exp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;sin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a id="rest_code_01c1ff4039fa4cf1a3f271726de051e9-4" name="rest_code_01c1ff4039fa4cf1a3f271726de051e9-4" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_math/#rest_code_01c1ff4039fa4cf1a3f271726de051e9-4"&gt;&lt;/a&gt;&lt;span class="n"&gt;fxx&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;diff&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a id="rest_code_01c1ff4039fa4cf1a3f271726de051e9-5" name="rest_code_01c1ff4039fa4cf1a3f271726de051e9-5" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_math/#rest_code_01c1ff4039fa4cf1a3f271726de051e9-5"&gt;&lt;/a&gt;&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mathml&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fxx&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;printer&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"presentation"&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;observe el argumento opcional &lt;code class="docutils literal"&gt;printer = "presentation"&lt;/code&gt;. Si queremos agregar
+esto a MS Word, por ejemplo, podríamos agregar la salida (que no voy a
+mostrar porque es realmente larga) dentro del siguiente código&lt;/p&gt;
+&lt;div class="code"&gt;&lt;pre class="code xml"&gt;&lt;a id="rest_code_59886680e67a4349880a33141c163000-1" name="rest_code_59886680e67a4349880a33141c163000-1" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_math/#rest_code_59886680e67a4349880a33141c163000-1"&gt;&lt;/a&gt;&lt;span class="nt"&gt;&amp;lt;math&lt;/span&gt; &lt;span class="na"&gt;xmlns =&lt;/span&gt; &lt;span class="s"&gt;"http://www.w3.org/1998/Math/MathML"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+&lt;a id="rest_code_59886680e67a4349880a33141c163000-2" name="rest_code_59886680e67a4349880a33141c163000-2" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_math/#rest_code_59886680e67a4349880a33141c163000-2"&gt;&lt;/a&gt;&lt;span class="nt"&gt;&amp;lt;/math&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Cuando se usa Jupyter Notebook, esto se puede hacer gráficamente con un
+clic derecho sobre la expresión. Y se muestra el siguiente menú.&lt;/p&gt;
+&lt;img alt="/images/jupyter_export_eqs.png" src="https://nicoguaro.github.io/images/jupyter_export_eqs.png"&gt;
+&lt;/section&gt;
+&lt;section id="referencias"&gt;
+&lt;h2&gt;Referencias&lt;/h2&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;&lt;p&gt;“How to Insert Equations in Microsoft Word.” WikiHow,
+&lt;a class="reference external" href="https://www.wikihow.com/Insert-Equations-in-Microsoft-Word"&gt;https://www.wikihow.com/Insert-Equations-in-Microsoft-Word&lt;/a&gt;.
+Fecha de acceso: Agosto 3, 2020.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;“Copy MathML into Word to Use as Equation.” Stack Overflow,
+&lt;a class="reference external" href="https://stackoverflow.com/questions/25430775/copy-mathml-into-word-to-use-as-equation"&gt;https://stackoverflow.com/questions/25430775/copy-mathml-into-word-to-use-as-equation&lt;/a&gt;.
+Fecha de acceso: Agosto 3, 2020.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;“Python - Output Sympy Equation to Word Using Mathml.” Stack Overflow,
+&lt;a class="reference external" href="https://stackoverflow.com/questions/40921128/output-sympy-equation-to-word-using-mathml"&gt;https://stackoverflow.com/questions/40921128/output-sympy-equation-to-word-using-mathml&lt;/a&gt;.
+Fecha de acceso: Agosto 3, 2020.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;OERPUB (2016), “Mathconverter”, &lt;a class="reference external" href="https://github.com/oerpub/mathconverter"&gt;https://github.com/oerpub/mathconverter&lt;/a&gt;,
+Fecha de acceso: Agosto 3, 2020.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;</description><category>escritura</category><category>investigación</category><category>latex</category><category>libreoffice</category><category>matemáticas</category><category>ms-word</category><category>tipografía</category><guid>https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_math/</guid><pubDate>Thu, 28 May 2020 20:53:40 GMT</pubDate></item><item><title>Revisión ortográfica en Jupyter Notebook</title><link>https://nicoguaro.github.io/es/posts/ortografia_jupyter/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;El objetivo de esta publicación es mostrar cómo tener revisión automática
+de ortografía en Jupyter Notebook, como se muestra a continuación.&lt;/p&gt;
+&lt;img alt="Ejemplo de corrección ortográfica en Jupyter Notebook." class="align-center" src="https://nicoguaro.github.io/images/ortografia_jupyter/ejemplo_ortografia.png" style="width: 600px;"&gt;
+&lt;p&gt;Existen &lt;a class="reference external" href="https://stackoverflow.com/q/39324039/3358223"&gt;varias formas&lt;/a&gt; de
+realizar esto. Sin embargo, la forma más fácil es a través del complemento
+(&lt;em&gt;nbextension&lt;/em&gt;) &lt;a class="reference external" href="https://nicoguaro.github.io/es/posts/ortografia_jupyter/&amp;lt;https:/jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/spellchecker/README.html"&gt;Spellchecker&lt;/a&gt;.&lt;/p&gt;
+&lt;section id="paso-a-paso"&gt;
+&lt;h2&gt;Paso a paso&lt;/h2&gt;
+&lt;p&gt;Los pasos a seguir son los siguientes:&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;&lt;p&gt;Instalar Jupyter notebook extensions (&lt;a class="reference external" href="https://github.com/ipython-contrib/jupyter_contrib_nbextensions"&gt;nbextensions&lt;/a&gt;). Este incluye
+&lt;a class="reference external" href="https://nicoguaro.github.io/es/posts/ortografia_jupyter/&amp;lt;https:/jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/spellchecker/README.html"&gt;Spellchecker&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Ubicar los diccionarios en la carpeta donde está el complemento. Los
+diccionarios deben usar la codificación UTF-8.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Configurar la ruta de los diccionarios. Esta puede ser una URL o
+una ruta relativa respecto a la carpeta en donde se encuentra el complemento.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;A continuación describiremos en detalle cada paso.&lt;/p&gt;
+&lt;section id="paso-1-instalacion-de-nbextensions"&gt;
+&lt;h3&gt;Paso 1: Instalación de nbextensions&lt;/h3&gt;
+&lt;p&gt;Existe una lista de complementos que agregan algunas funcionalidades
+comúnmente usadas a Jupyter notebook.&lt;/p&gt;
+&lt;p&gt;Escriba lo siguiente en una terminal, para instalarlo usando PIP.&lt;/p&gt;
+&lt;div class="code"&gt;&lt;pre class="code bash"&gt;&lt;a id="rest_code_93e04982d8b540bf88f877e91ff8319f-1" name="rest_code_93e04982d8b540bf88f877e91ff8319f-1" href="https://nicoguaro.github.io/es/posts/ortografia_jupyter/#rest_code_93e04982d8b540bf88f877e91ff8319f-1"&gt;&lt;/a&gt;pip install jupyter_contrib_nbextensions
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Sin embargo, si se está usando Anaconda el &lt;strong&gt;método recomendado&lt;/strong&gt; es usar
+&lt;code class="docutils literal"&gt;conda&lt;/code&gt;, como se muestra a continuación.&lt;/p&gt;
+&lt;div class="code"&gt;&lt;pre class="code bash"&gt;&lt;a id="rest_code_e243338726e643e092b34e29157eb3e8-1" name="rest_code_e243338726e643e092b34e29157eb3e8-1" href="https://nicoguaro.github.io/es/posts/ortografia_jupyter/#rest_code_e243338726e643e092b34e29157eb3e8-1"&gt;&lt;/a&gt;conda install -c conda-forge jupyter_contrib_nbextensions
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Esto debe instalar los complementos y también la
+&lt;a class="reference external" href="https://github.com/Jupyter-contrib/jupyter_nbextensions_configurator"&gt;interfaz de configuración&lt;/a&gt;.
+En el menú principal de Jupyter notebook aparecerá una nueva pestaña
+nombrada &lt;em&gt;Nbextensions&lt;/em&gt; en donde se pueden elegir los complementos a usar.
+La apariencia es la siguiente.&lt;/p&gt;
+&lt;img alt="Interfaz gráfica para los complementos de Jupyter." class="align-center" src="https://nicoguaro.github.io/images/ortografia_jupyter/interfaz_nbextensions.png" style="width: 600px;"&gt;
+&lt;p&gt;Algunos complementos recomendados son:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Collapsible Headings:&lt;/strong&gt; que permite ocultar secciones de los documentos.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;RISE:&lt;/strong&gt; que convierte los notebooks en presentaciones.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/section&gt;
+&lt;section id="paso-2-diccionarios-para-espanol"&gt;
+&lt;h3&gt;Paso 2: Diccionarios para español&lt;/h3&gt;
+&lt;p&gt;La documentación de &lt;a class="reference external" href="https://nicoguaro.github.io/es/posts/ortografia_jupyter/&amp;lt;https:/jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/spellchecker/README.html"&gt;Spellchecker&lt;/a&gt; sugiere usar un script de Python para
+descargar diccionarios del proyecto &lt;a class="reference external" href="https://chromium.googlesource.com/chromium/deps/hunspell_dictionaries/+/master"&gt;Chromium&lt;/a&gt;.
+Sin embargo, estos tienen como codificación ISO-8859-1 (occidente) y falla
+para caracteres con tildes o virgulillas. Para que no haya problemas el
+diccionario debe tener codificación &lt;a class="reference external" href="https://en.wikipedia.org/wiki/UTF-8"&gt;UTF-8&lt;/a&gt;.
+Pueden descargarse en &lt;a class="reference external" href="https://nicoguaro.github.io/downloads/dict_es_ES.zip"&gt;este enlace&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Una vez que se tienen los diccionarios se deben ubicar en la ruta del
+complemento. En mi computador esta sería&lt;/p&gt;
+&lt;div class="code"&gt;&lt;pre class="code text"&gt;&lt;a id="rest_code_f935d3336690416d8c843a7054d6496c-1" name="rest_code_f935d3336690416d8c843a7054d6496c-1" href="https://nicoguaro.github.io/es/posts/ortografia_jupyter/#rest_code_f935d3336690416d8c843a7054d6496c-1"&gt;&lt;/a&gt;~/.local/share/jupyter/nbextensions/spellchecker/
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;y dentro de esta los ubicaremos en&lt;/p&gt;
+&lt;div class="code"&gt;&lt;pre class="code text"&gt;&lt;a id="rest_code_c8896bb9fbc84cc8902adeb993fdb864-1" name="rest_code_c8896bb9fbc84cc8902adeb993fdb864-1" href="https://nicoguaro.github.io/es/posts/ortografia_jupyter/#rest_code_c8896bb9fbc84cc8902adeb993fdb864-1"&gt;&lt;/a&gt;~/.local/share/jupyter/nbextensions/spellchecker/typo/dictionaries
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Esta ubicación es arbitraria, lo importante es que necesitamos conocer
+la ruta relativa al complemento.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="paso-3-configuracion-complementos"&gt;
+&lt;h3&gt;Paso 3: Configuración complementos&lt;/h3&gt;
+&lt;p&gt;Ahora, en la pestaña &lt;em&gt;Nbextensions&lt;/em&gt; seleccionamos el complemento y llenamos
+los campos con la información de nuestro diccionario:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;language code to use with typo.js: &lt;code class="docutils literal"&gt;es_ES&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;url for the dictionary .dic file to use: &lt;code class="docutils literal"&gt;./typo/dictionaries/es_ES.dic&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;url for the dictionary .aff file to use: &lt;code class="docutils literal"&gt;./typo/dictionaries/es_ES.aff&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Esto se muestra a continuación.&lt;/p&gt;
+&lt;img alt="Configuración con archivos locales." class="align-center" src="https://nicoguaro.github.io/images/ortografia_jupyter/config_local.png" style="width: 600px;"&gt;
+&lt;p&gt;Otra opción es usar la URL para los archivos. En &lt;a class="reference external" href="https://github.com/wooorm/dictionaries"&gt;https://github.com/wooorm/dictionaries&lt;/a&gt;
+están disponibles los diccionarios del proyecto &lt;a class="reference external" href="https://hunspell.github.io/"&gt;hunspell&lt;/a&gt;
+en UTF-8. En este caso, la configuración sería:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;language code to use with typo.js: &lt;code class="docutils literal"&gt;es_ES&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;url for the dictionary .dic file to use: &lt;code class="docutils literal"&gt;&lt;span class="pre"&gt;https://raw.githubusercontent.com/wooorm/dictionaries/master/dictionaries/es/index.dic&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;url for the dictionary .aff file to use: &lt;code class="docutils literal"&gt;&lt;span class="pre"&gt;https://raw.githubusercontent.com/wooorm/dictionaries/master/dictionaries/es/index.aff&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Y se muestra a continuación.&lt;/p&gt;
+&lt;img alt="Configuración con archivos remotos." class="align-center" src="https://nicoguaro.github.io/images/ortografia_jupyter/config_url.png" style="width: 600px;"&gt;
+&lt;/section&gt;
+&lt;/section&gt;</description><category>ciencia de datos</category><category>computación científica</category><category>python</category><category>tutorial</category><guid>https://nicoguaro.github.io/es/posts/ortografia_jupyter/</guid><pubDate>Tue, 20 Aug 2019 19:45:41 GMT</pubDate></item><item><title>#SWDchallenge: Mejorando un gráfico</title><link>https://nicoguaro.github.io/es/posts/graph_makeover/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;En &lt;a class="reference external" href="http://www.storytellingwithdata.com/"&gt;storytelling with data&lt;/a&gt; tienen
+un reto mensual en visualización de datos llamado
+&lt;a class="reference external" href="http://www.storytellingwithdata.com/swdchallenge/"&gt;#SWDchallenge&lt;/a&gt;. La idea
+principal de los retos es poner a prueba las habilidades de visualización
+de datos y &lt;em&gt;storytelling&lt;/em&gt; — contar historias atractivas
+para facilitar su entendimiento —.&lt;/p&gt;
+&lt;p&gt;Cada mes el reto tiene un tópico diferente. Este
+&lt;a class="reference external" href="http://www.storytellingwithdata.com/blog/2018/7/1/swdchallenge-your-choice-makeover"&gt;mes&lt;/a&gt;
+el reto era mejorar un gráfico existente. Yo decidí tomar un gráfico hecho
+por mí que fue publicado en un
+&lt;a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S1742706115002172"&gt;artículo&lt;/a&gt;
+en 2015.&lt;/p&gt;
+&lt;div class="section" id="el-original"&gt;
+&lt;h2&gt;El "original"&lt;/h2&gt;
+&lt;p&gt;El gráfico original con el que vamos a empezar es el siguiente.&lt;/p&gt;
+&lt;img alt="Gráfico original." class="align-center" src="https://nicoguaro.github.io/images/graph_makeover/energy_vs_D_orig.svg" style="width: 600px;"&gt;
+&lt;p&gt;Este no es el gráfico original en el artículo de 2015 pero sirve el propósito
+del reto. Los datos se pueden descargar
+&lt;a class="reference external" href="https://nicoguaro.github.io/downloads/Energy_vs_D.csv"&gt;aquí&lt;/a&gt;. Este grafico presenta la fracción
+de energía transmitida (&lt;span class="math"&gt;\(\eta\)&lt;/span&gt;) para un compuesto helicoidadl
+con diferentes parámetros geométricos. Los parámetros que se variaron
+fueron los siguientes:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;Ángulo de rotación &lt;span class="math"&gt;\(\alpha\)&lt;/span&gt;: el ángulo formado entre capas consecutivas;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Grosor del compuesto &lt;span class="math"&gt;\(D\)&lt;/span&gt;, normalizdo por la longitud de onda
+&lt;span class="math"&gt;\(\lambda\)&lt;/span&gt;; y&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Número de capas &lt;span class="math"&gt;\(N\)&lt;/span&gt; en cada celda del compuesto.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;El siguiente esquema ilustra estos parámetros.&lt;/p&gt;
+&lt;img alt="Parámetros del compuesto helicoidal." class="align-center" src="https://nicoguaro.github.io/images/graph_makeover/coordinates_and_cells.png" style="width: 600px;"&gt;
+&lt;p&gt;Yo no diría que el gráfico es horrible, y, en comparación con lo que se
+encuentra en la literatura cientítica es incluso bueno. Pero … en tierra
+de ciegos, el tuerto es rey. Entonces, vamos a enumarara cada uno de los
+&lt;em&gt;pecados&lt;/em&gt; del gráfico, y a corregirlos:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;Tiene dos ejes horizontales.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;La leyenda está encerrada en una recuadro que no es necesario.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Los ejes de la derecha y la parte superior no contribuyen al gráfico.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Las anotaciones están robando protagonismo a los datos.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Se ve desordenado con las líneas y los marcadores.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Es un &lt;a class="reference external" href="http://www.storytellingwithdata.com/blog/2013/03/avoiding-spaghetti-graph"&gt;gráfico espagueti&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;El siguiente código genera este gráfico.&lt;/p&gt;
+&lt;pre class="code python"&gt;&lt;a name="rest_code_09618e4ed6dc4cd39722f680183b13ea-1"&gt;&lt;/a&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
+&lt;a name="rest_code_09618e4ed6dc4cd39722f680183b13ea-2"&gt;&lt;/a&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;matplotlib&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;pyplot&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;plt&lt;/span&gt;
+&lt;a name="rest_code_09618e4ed6dc4cd39722f680183b13ea-3"&gt;&lt;/a&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;matplotlib&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;rcParams&lt;/span&gt;
+&lt;a name="rest_code_09618e4ed6dc4cd39722f680183b13ea-4"&gt;&lt;/a&gt;
+&lt;a name="rest_code_09618e4ed6dc4cd39722f680183b13ea-5"&gt;&lt;/a&gt;&lt;span class="n"&gt;rcParams&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'font.family'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'serif'&lt;/span&gt;
+&lt;a name="rest_code_09618e4ed6dc4cd39722f680183b13ea-6"&gt;&lt;/a&gt;&lt;span class="n"&gt;rcParams&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'font.size'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;16&lt;/span&gt;
+&lt;a name="rest_code_09618e4ed6dc4cd39722f680183b13ea-7"&gt;&lt;/a&gt;&lt;span class="n"&gt;rcParams&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'legend.fontsize'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;15&lt;/span&gt;
+&lt;a name="rest_code_09618e4ed6dc4cd39722f680183b13ea-8"&gt;&lt;/a&gt;&lt;span class="n"&gt;rcParams&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'mathtext.fontset'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'cm'&lt;/span&gt;
+&lt;a name="rest_code_09618e4ed6dc4cd39722f680183b13ea-9"&gt;&lt;/a&gt;
+&lt;a name="rest_code_09618e4ed6dc4cd39722f680183b13ea-10"&gt;&lt;/a&gt;&lt;span class="n"&gt;markers&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'o'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'^'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'v'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'s'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'&amp;lt;'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'&amp;gt;'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'d'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'*'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'x'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'D'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'+'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'H'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;a name="rest_code_09618e4ed6dc4cd39722f680183b13ea-11"&gt;&lt;/a&gt;&lt;span class="n"&gt;data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;loadtxt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Energy_vs_D.csv"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;skiprows&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;delimiter&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;","&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_09618e4ed6dc4cd39722f680183b13ea-12"&gt;&lt;/a&gt;&lt;span class="n"&gt;labels&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;loadtxt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Energy_vs_D.csv"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;skiprows&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;delimiter&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;","&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;a name="rest_code_09618e4ed6dc4cd39722f680183b13ea-13"&gt;&lt;/a&gt;                    &lt;span class="n"&gt;usecols&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;a name="rest_code_09618e4ed6dc4cd39722f680183b13ea-14"&gt;&lt;/a&gt;&lt;span class="n"&gt;labels&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;labels&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;:]&lt;/span&gt;
+&lt;a name="rest_code_09618e4ed6dc4cd39722f680183b13ea-15"&gt;&lt;/a&gt;
+&lt;a name="rest_code_09618e4ed6dc4cd39722f680183b13ea-16"&gt;&lt;/a&gt;&lt;span class="n"&gt;fig&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;a name="rest_code_09618e4ed6dc4cd39722f680183b13ea-17"&gt;&lt;/a&gt;&lt;span class="n"&gt;ax&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;subplot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;111&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_09618e4ed6dc4cd39722f680183b13ea-18"&gt;&lt;/a&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;cont&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;a name="rest_code_09618e4ed6dc4cd39722f680183b13ea-19"&gt;&lt;/a&gt;    &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;[:,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;[:,&lt;/span&gt; &lt;span class="n"&gt;cont&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;marker&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;markers&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;cont&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+&lt;a name="rest_code_09618e4ed6dc4cd39722f680183b13ea-20"&gt;&lt;/a&gt;             &lt;span class="n"&gt;label&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="sa"&gt;r&lt;/span&gt;&lt;span class="s2"&gt;"$D/\lambda=&lt;/span&gt;&lt;span class="si"&gt;{:.3g}&lt;/span&gt;&lt;span class="s2"&gt;$"&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;labels&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;cont&lt;/span&gt;&lt;span class="p"&gt;]))&lt;/span&gt;
+&lt;a name="rest_code_09618e4ed6dc4cd39722f680183b13ea-21"&gt;&lt;/a&gt;
+&lt;a name="rest_code_09618e4ed6dc4cd39722f680183b13ea-22"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# First x-axis&lt;/span&gt;
+&lt;a name="rest_code_09618e4ed6dc4cd39722f680183b13ea-23"&gt;&lt;/a&gt;&lt;span class="n"&gt;xticks&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;xlabels&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xticks&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;a name="rest_code_09618e4ed6dc4cd39722f680183b13ea-24"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sa"&gt;r&lt;/span&gt;&lt;span class="s2"&gt;"Number of layers - $N$"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_09618e4ed6dc4cd39722f680183b13ea-25"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sa"&gt;r&lt;/span&gt;&lt;span class="s2"&gt;"Fraction of Energy - $\eta$"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_09618e4ed6dc4cd39722f680183b13ea-26"&gt;&lt;/a&gt;&lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;legend&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;loc&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'center left'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;bbox_to_anchor&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;a name="rest_code_09618e4ed6dc4cd39722f680183b13ea-27"&gt;&lt;/a&gt;
+&lt;a name="rest_code_09618e4ed6dc4cd39722f680183b13ea-28"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Second x-axis&lt;/span&gt;
+&lt;a name="rest_code_09618e4ed6dc4cd39722f680183b13ea-29"&gt;&lt;/a&gt;&lt;span class="n"&gt;ax2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;twiny&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;a name="rest_code_09618e4ed6dc4cd39722f680183b13ea-30"&gt;&lt;/a&gt;&lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_xticks&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;xticks&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;:])&lt;/span&gt;
+&lt;a name="rest_code_09618e4ed6dc4cd39722f680183b13ea-31"&gt;&lt;/a&gt;&lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_xticklabels&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;180.&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;xticks&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;:])&lt;/span&gt;
+&lt;a name="rest_code_09618e4ed6dc4cd39722f680183b13ea-32"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sa"&gt;r&lt;/span&gt;&lt;span class="s2"&gt;"Angle - $\alpha\ (^\circ)$"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_09618e4ed6dc4cd39722f680183b13ea-33"&gt;&lt;/a&gt;
+&lt;a name="rest_code_09618e4ed6dc4cd39722f680183b13ea-34"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tight_layout&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;a name="rest_code_09618e4ed6dc4cd39722f680183b13ea-35"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;savefig&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"energy_vs_D_orig.svg"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_09618e4ed6dc4cd39722f680183b13ea-36"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;savefig&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"energy_vs_D_orig.png"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dpi&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;300&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="section" id="correcciones"&gt;
+&lt;h2&gt;Correcciones&lt;/h2&gt;
+&lt;p&gt;Voy a reivindicar el gráfico un pecado a la vez, veamos cómo resulta.&lt;/p&gt;
+&lt;div class="section" id="tiene-dos-ejes-horizontales"&gt;
+&lt;h3&gt;Tiene dos ejes horizontales&lt;/h3&gt;
+&lt;p&gt;Originalmente, agregue dos ejes horizontales para mostrar el número de
+capas y el ángulo de rotación al mismo tiempo. La recomendación general
+es evitar esto, así que vamos a deshacernos del eje superior.&lt;/p&gt;
+&lt;img alt="Primera iteración." class="align-center" src="https://nicoguaro.github.io/images/graph_makeover/energy_vs_D_1.svg" style="width: 600px;"&gt;
+&lt;/div&gt;
+&lt;div class="section" id="leyenda-en-un-recuadro"&gt;
+&lt;h3&gt;Leyenda en un recuadro&lt;/h3&gt;
+&lt;p&gt;Es claro a qué se refiere …&lt;/p&gt;
+&lt;img alt="Segunda iteración." class="align-center" src="https://nicoguaro.github.io/images/graph_makeover/energy_vs_D_2.svg" style="width: 600px;"&gt;
+&lt;/div&gt;
+&lt;div class="section" id="ejes-a-la-derecha-y-arriba"&gt;
+&lt;h3&gt;Ejes a la derecha y arriba&lt;/h3&gt;
+&lt;p&gt;Quítemoslos&lt;/p&gt;
+&lt;img alt="Tercera iteración." class="align-center" src="https://nicoguaro.github.io/images/graph_makeover/energy_vs_D_3.svg" style="width: 600px;"&gt;
+&lt;/div&gt;
+&lt;div class="section" id="las-anotaciones-estan-robando-protagonismo"&gt;
+&lt;h3&gt;Las anotaciones están robando protagonismo&lt;/h3&gt;
+&lt;p&gt;Vamos a desplazar las anotaciones hacia el fondo cambiando el color del
+texto a un gris claro.&lt;/p&gt;
+&lt;img alt="Cuarta iteración." class="align-center" src="https://nicoguaro.github.io/images/graph_makeover/energy_vs_D_4.svg" style="width: 600px;"&gt;
+&lt;/div&gt;
+&lt;div class="section" id="lineas-y-marcadores"&gt;
+&lt;h3&gt;Líneas y marcadores&lt;/h3&gt;
+&lt;p&gt;Conservemos únicamente las líneas.&lt;/p&gt;
+&lt;img alt="Quinta iteración." class="align-center" src="https://nicoguaro.github.io/images/graph_makeover/energy_vs_D_5.svg" style="width: 600px;"&gt;
+&lt;p&gt;E incrementemos su grosor.&lt;/p&gt;
+&lt;img alt="Sexta iteración." class="align-center" src="https://nicoguaro.github.io/images/graph_makeover/energy_vs_D_6.svg" style="width: 600px;"&gt;
+&lt;/div&gt;
+&lt;div class="section" id="es-un-grafico-espagueti"&gt;
+&lt;h3&gt;Es un gráfico espagueti&lt;/h3&gt;
+&lt;p&gt;Creo que una buena opción para este gráfico sería resaltar una línea al
+tiempo. Haciendo esto, terminamos con el siguiente gráfico.&lt;/p&gt;
+&lt;img alt="Séptima iteración." class="align-center" src="https://nicoguaro.github.io/images/graph_makeover/energy_vs_D_7.svg" style="width: 600px;"&gt;
+&lt;p&gt;El siguiente bloque de código genera esta versión.&lt;/p&gt;
+&lt;pre class="code python"&gt;&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-1"&gt;&lt;/a&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-2"&gt;&lt;/a&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;matplotlib&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;pyplot&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;plt&lt;/span&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-3"&gt;&lt;/a&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;matplotlib&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;rcParams&lt;/span&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-4"&gt;&lt;/a&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-5"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Plots setup&lt;/span&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-6"&gt;&lt;/a&gt;&lt;span class="n"&gt;gray&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'#757575'&lt;/span&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-7"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rcParams&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"mathtext.fontset"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"cm"&lt;/span&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-8"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rcParams&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"text.color"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;gray&lt;/span&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-9"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rcParams&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"xtick.color"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;gray&lt;/span&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-10"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rcParams&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"ytick.color"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;gray&lt;/span&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-11"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rcParams&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"axes.labelcolor"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;gray&lt;/span&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-12"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rcParams&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"axes.edgecolor"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;gray&lt;/span&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-13"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rcParams&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"axes.spines.right"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;False&lt;/span&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-14"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rcParams&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"axes.spines.top"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;False&lt;/span&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-15"&gt;&lt;/a&gt;&lt;span class="n"&gt;rcParams&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'font.family'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'serif'&lt;/span&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-16"&gt;&lt;/a&gt;&lt;span class="n"&gt;rcParams&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'mathtext.fontset'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'cm'&lt;/span&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-17"&gt;&lt;/a&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-18"&gt;&lt;/a&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-19"&gt;&lt;/a&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-20"&gt;&lt;/a&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;line_plots&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;highlight_line&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-21"&gt;&lt;/a&gt;    &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-22"&gt;&lt;/a&gt;    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;cont&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;datum&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;enumerate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;[:,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-23"&gt;&lt;/a&gt;        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;cont&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;highlight_line&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-24"&gt;&lt;/a&gt;            &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;[:,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;datum&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;zorder&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"#984ea3"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-25"&gt;&lt;/a&gt;                     &lt;span class="n"&gt;linewidth&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-26"&gt;&lt;/a&gt;        &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-27"&gt;&lt;/a&gt;            &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;[:,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;datum&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;zorder&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;gray&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-28"&gt;&lt;/a&gt;                     &lt;span class="n"&gt;linewidth&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;alpha&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-29"&gt;&lt;/a&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-30"&gt;&lt;/a&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-31"&gt;&lt;/a&gt;&lt;span class="n"&gt;data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;loadtxt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Energy_vs_D.csv"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;skiprows&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;delimiter&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;","&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-32"&gt;&lt;/a&gt;&lt;span class="n"&gt;labels&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;loadtxt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Energy_vs_D.csv"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;skiprows&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;delimiter&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;","&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-33"&gt;&lt;/a&gt;                    &lt;span class="n"&gt;usecols&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-34"&gt;&lt;/a&gt;&lt;span class="n"&gt;labels&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;labels&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;:]&lt;/span&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-35"&gt;&lt;/a&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-36"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;close&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"all"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-37"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;figsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-38"&gt;&lt;/a&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;cont&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-39"&gt;&lt;/a&gt;    &lt;span class="n"&gt;ax&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;subplot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;cont&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-40"&gt;&lt;/a&gt;    &lt;span class="n"&gt;title&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="sa"&gt;r&lt;/span&gt;&lt;span class="s2"&gt;"$D/\lambda=&lt;/span&gt;&lt;span class="si"&gt;{:.3g}&lt;/span&gt;&lt;span class="s2"&gt;$"&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;labels&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;cont&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-41"&gt;&lt;/a&gt;    &lt;span class="n"&gt;line_plots&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;cont&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-42"&gt;&lt;/a&gt;    &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ylim&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;0.4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1.0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-43"&gt;&lt;/a&gt;    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;cont&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-44"&gt;&lt;/a&gt;        &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;""&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-45"&gt;&lt;/a&gt;        &lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xaxis&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_ticks&lt;/span&gt;&lt;span class="p"&gt;([])&lt;/span&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-46"&gt;&lt;/a&gt;        &lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;spines&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"bottom"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_color&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"none"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-47"&gt;&lt;/a&gt;    &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-48"&gt;&lt;/a&gt;        &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sa"&gt;r&lt;/span&gt;&lt;span class="s2"&gt;"Number of layers - $N$"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-49"&gt;&lt;/a&gt;    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;cont&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-50"&gt;&lt;/a&gt;        &lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;yaxis&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_ticks&lt;/span&gt;&lt;span class="p"&gt;([])&lt;/span&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-51"&gt;&lt;/a&gt;        &lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;spines&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"left"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_color&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"none"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-52"&gt;&lt;/a&gt;    &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-53"&gt;&lt;/a&gt;        &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sa"&gt;r&lt;/span&gt;&lt;span class="s2"&gt;"Fraction of Energy - $\eta$"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-54"&gt;&lt;/a&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-55"&gt;&lt;/a&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-56"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tight_layout&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-57"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;savefig&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"energy_vs_D_7.svg"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_9fdb4d72f2524c218e163243b4d64973-58"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;savefig&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"energy_vs_D_7.png"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dpi&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;300&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="ajustes-finales"&gt;
+&lt;h2&gt;Ajustes finales&lt;/h2&gt;
+&lt;p&gt;Añadimos algunos detalles en Inkscape para terminar con la siguiente
+versión.&lt;/p&gt;
+&lt;img alt="Versión final." class="align-center" src="https://nicoguaro.github.io/images/graph_makeover/energy_vs_D_final.svg" style="width: 600px;"&gt;
+&lt;/div&gt;
+&lt;div class="section" id="lecturas-adicionales"&gt;
+&lt;h2&gt;Lecturas adicionales&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;Knaflic, Cole Nussbaumer. &lt;a class="reference external" href="http://www.storytellingwithdata.com/book/"&gt;Storytelling with data: A data visualization guide for business professionals&lt;/a&gt;.
+John Wiley &amp;amp; Sons, 2015.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Nicolás Guarín-Zapata et al. &lt;a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S1742706115002172"&gt;"Shear wave filtering in naturally-occurring Bouligand structures."&lt;/a&gt;
+Acta biomaterialia 23 (2015): 11-20. Preprint: &lt;a class="reference external" href="https://arxiv.org/pdf/1505.04203.pdf"&gt;https://arxiv.org/pdf/1505.04203.pdf&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;</description><category>artículos</category><category>python</category><category>visualización</category><guid>https://nicoguaro.github.io/es/posts/graph_makeover/</guid><pubDate>Thu, 12 Jul 2018 23:32:40 GMT</pubDate></item><item><title>Gráficos isométricos en Inkscape: Parte 2</title><link>https://nicoguaro.github.io/es/posts/isometric_inkscape2/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;&lt;a class="reference external" href="https://nicoguaro.github.io/es/posts/isometric_inkscape"&gt;La semana pasada&lt;/a&gt; publiqué una guía rápida
+sobre dibujos isométricos dibujar usando &lt;a class="reference external" href="https://inkscape.org/en/"&gt;Inkscape&lt;/a&gt;.
+En ese post, mostré cómo obtener imágenes que se proyectan a las caras de
+un bloque isométrico.&lt;/p&gt;
+&lt;p&gt;Después de mi publicación, &lt;a class="reference external" href="https://twitter.com/parresianz"&gt;Biswajit Banerjee&lt;/a&gt;
+me preguntó en &lt;a class="reference external" href="https://twitter.com/parresianz/status/999787980658126848"&gt;Twitter&lt;/a&gt;
+si podría repetir el proceso con un ejemplo más complejo, y él sugirió
+el siguiente diagramaa&lt;/p&gt;
+&lt;img alt="Cálculo del momento de inercia para una viga." class="align-center" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Beam_moment_plain.svg/512px-Beam_moment_plain.svg.png"&gt;
+&lt;p&gt;que, creo, se creó en Inkscape usando la opción "Crear caja 3D".&lt;/p&gt;
+&lt;p&gt;En esta publicación, haré lo siguiente:&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;&lt;p&gt;Usar el mismo enfoque de la semana pasada para recrear este esquema.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Sugerir mi enfoque preferido para dibujar este esquema.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="section" id="primer-enfoque"&gt;
+&lt;h2&gt;Primer enfoque&lt;/h2&gt;
+&lt;p&gt;Repetiré el resumen de la semana pasada. Hay que tener en cuenta que
+Inkscape trata la rotación en sentido horario como positiva.&lt;/p&gt;
+&lt;img alt="Resumen para esquemas isométricos en Inkscape." class="align-center" src="https://nicoguaro.github.io/images/isometric_inkscape/isometric_instructions.svg" style="width: 500px;"&gt;
+&lt;p&gt;Luego, para crear una caja con las dimensiones deseadas, primero creamos
+cada rectángulo con las dimensiones correctas (en proyecciones paralelas).
+En el siguiente ejemplo, usamos caras con relaciones de aspecto 3:2,
+2:1 y 4:3. La caja de la derecha es la cifra obtenida después de aplicar
+las transformaciones descritas en el esquema anterior.&lt;/p&gt;
+&lt;img alt="Orthogonal views and final isometric figure" class="align-center" src="https://nicoguaro.github.io/images/isometric_inkscape/isometric_ex2.svg" style="width: 500px;"&gt;
+&lt;p&gt;Ahora podemos proceder, para recrear la figura deseada. No conozco las
+dimensiones exactas de la caja; supongo que la sección transversal era
+un cuadrado y la relación de aspecto era 5:1. Después de aplicar las
+transformaciones para cada rectángulo obtenemos lo siguiente
+(agregando algunos ajustes aquí y allá).&lt;/p&gt;
+&lt;img alt="Figura usando el enfoque descrito." class="align-center" src="https://nicoguaro.github.io/images/isometric_inkscape/isometric_beam.svg" style="width: 500px;"&gt;
+&lt;/div&gt;
+&lt;div class="section" id="segundo-enfoque"&gt;
+&lt;h2&gt;Segundo enfoque&lt;/h2&gt;
+&lt;p&gt;Para este tipo de esquema, preferiría crear una cuadrícula axonométrica
+(&lt;code class="docutils literal"&gt;Archivo &amp;gt; Propiedades de documento &amp;gt; Cuadrículas&lt;/code&gt;). Después de
+agregar la cuadrícula a nuestro lienzo es bastante sencillo dibujar las
+figuras en vista isométrica. El lienzo debe ser similar a la siguiente
+imagen.&lt;/p&gt;
+&lt;img alt="Segundo enfoque: usando una rejilla axonométrica." class="align-center" src="https://nicoguaro.github.io/images/isometric_inkscape/screenshot_inkscape.png" style="width: 500px;"&gt;
+&lt;p&gt;Luego podemos dibujar cada cara usando la cuadrícula. Si queremos ser
+más precisos podemos activar &lt;code class="docutils literal"&gt;Ajustar a nodos cúspides&lt;/code&gt;. La siguiente
+animación muestra la construcción paso a paso.&lt;/p&gt;
+&lt;img alt="Construcción del isométrico paso a paso." class="align-center" src="https://nicoguaro.github.io/images/isometric_inkscape/isometric_construction.gif" style="width: 500px;"&gt;
+&lt;p&gt;Y obtenemos la siguiente imagen.&lt;/p&gt;
+&lt;img alt="Figura usando el segundo enfoque." class="align-center" src="https://nicoguaro.github.io/images/isometric_inkscape/isometric_beam2.svg" style="width: 500px;"&gt;
+&lt;/div&gt;
+&lt;div class="section" id="conclusion"&gt;
+&lt;h2&gt;Conclusión&lt;/h2&gt;
+&lt;p&gt;Como mencioné, Inkscape se puede usar para dibujar figuras simples en
+proyección isométrica. Sin embargo, sugiero utilizar un CAD como
+&lt;a class="reference external" href="https://freecadweb.org/"&gt;FreeCAD&lt;/a&gt; para geometrías más complicadas.&lt;/p&gt;
+&lt;/div&gt;</description><category>gráficos por computador</category><category>inkscape</category><category>tutorial</category><guid>https://nicoguaro.github.io/es/posts/isometric_inkscape2/</guid><pubDate>Wed, 30 May 2018 17:40:57 GMT</pubDate></item></channel></rss>

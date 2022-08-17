@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nicolás' blog (Publicaciones sobre figuras)</title><link>https://nicoguaro.github.io/</link><description></description><atom:link href="https://nicoguaro.github.io/es/categories/figuras.xml" rel="self" type="application/rss+xml"></atom:link><language>es</language><copyright>Contents © 2022 &lt;a href="mailto:nicoguarin@gmail.com"&gt;Nicolás Guarín-Zapata&lt;/a&gt; 
+&lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
+&lt;img alt="Creative Commons License"
+style="border-width:0"
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Mon, 11 Jul 2022 18:47:37 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Escritura técnica: usando figuras</title><link>https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;En una &lt;a class="reference external" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing"&gt;publicación anterior&lt;/a&gt; mencioné algunos aspectos
+generales de la escritura técnica. En este me gustaría hablar sobre la
+inclusión de figuras en documentos técnicos.&lt;/p&gt;
+&lt;section id="formatos-de-graficos"&gt;
+&lt;h2&gt;Formatos de gráficos&lt;/h2&gt;
+&lt;p&gt;Primero, debo mencionar que hay dos tipos principales de gráficos, a saber:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;gráficos vectoriales; y&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;gráficos de mapa de bits.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Sirven para diferentes propósitos y deberíamos usarlos teniendo esto en cuenta.
+Por ejemplo, para diagramas o esquemas es mejor utilizar formatos vectoriales,
+en general. Por otro lado, los formatos ráster son más adecuados para imágenes
+como fotografías o ilustraciones.&lt;/p&gt;
+&lt;section id="graficos-vectoriales"&gt;
+&lt;h3&gt;Gráficos vectoriales&lt;/h3&gt;
+&lt;p&gt;Una &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Vector_graphics"&gt;imagen vectorial&lt;/a&gt; es una
+imagen que está conformada por entidades geométricas. En este caso, la
+información almacenada no es punto a punto sino &lt;em&gt;la construcción&lt;/em&gt; de las formas
+que la conforman. Por esta razón, estas imágenes no se &lt;em&gt;pixelan&lt;/em&gt; ya que que la
+información con la que se cuenta es de cómo se construye. Este tipo de imágenes
+es la mejor opción para esquemas y diagramas, ya que sólo se almacenaría la
+información de trazos y texto. El estándar &lt;em&gt;de facto&lt;/em&gt; para este tipo de imágenes
+es PDF—este es el tipo que uso en mis documentos de \(\LaTeX\)—. Aunque PDF
+es el &lt;em&gt;estándar&lt;/em&gt;, mi formato preferido es &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Scalable_Vector_Graphics"&gt;SVG (Scalable Vector Graphics)&lt;/a&gt; que es un estándar
+a través de internet y que se puede renderizar en la mayoría de navegadores
+&lt;em&gt;modernos&lt;/em&gt;.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="graficos-raster"&gt;
+&lt;h3&gt;Gráficos ráster&lt;/h3&gt;
+&lt;p&gt;Una &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Raster_graphics"&gt;imagen ráster&lt;/a&gt; es una
+imagen que está representada por un arreglo (o rejilla rectangular) de píxeles.
+En otras palabras, la información del color que hay en cada uno de los puntos
+de la imagen. Los formatos más populares almacenan la información de forma
+comprimida. Para gráficos de alto contraste (como esquemas o diagramas) el mejor
+formato es PNG. Si se tienen animaciones, sería preferible usar GIF. Y en el
+caso de fotografías es mejor usar JPG.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="resumen-para-los-formatos"&gt;
+&lt;h3&gt;Resumen para los formatos&lt;/h3&gt;
+&lt;p&gt;Resumiendo, deberíamos usar imágenes JPG (solo) para fotografías y SVG para
+esquemas/diagramas. Otro atributo que puede resultar útil es la gestión de
+capas. Tener varias capas brinda la opción de apilar diferentes tipos de
+información por separado. Por ejemplo, puede tener el fondo, la imagen y las
+anotaciones en diferentes capas. De esta forma se puede modificar sólo la parte
+de la figura de interés. Se puede automatizar la traducción de las anotaciones
+de esta manera sin muchos problemas. Los formatos como SVG permiten tener
+varias capas. En el caso de los formatos ráster, tenemos la opción de utilizar
+TIFF.&lt;/p&gt;
+&lt;p&gt;En cuanto al software para generar/editar este tipo de imágenes debo decir
+que existe una gran cantidad de programas que permiten exportar a estos
+formatos: Python/Matplotlib, Matlab, Inkscape, Adobe Illustrator, GIMP,
+Photoshop, LibreOffice. Si el gráfico se genera a partir de un cálculo o una
+serie de datos, uso Matplotlib. Si, en cambio, queremos hacer un esquema, mi
+herramienta de elección es &lt;a class="reference external" href="http://www.inkscape.org/"&gt;Inkscape&lt;/a&gt;. Este programa
+está destinado a ser una alternativa gratuita a programas como Adobe
+Illustrator, y lo logra. Obviamente, se puede usar Illustrator o Corel Draw para
+esto. Si el único uso es hacer esquemas técnicos, creo que sería un desperdicio.&lt;/p&gt;
+&lt;/section&gt;
+&lt;/section&gt;
+&lt;section id="disenando-figuras-para-documentos"&gt;
+&lt;h2&gt;Diseñando figuras para documentos&lt;/h2&gt;
+&lt;p&gt;Mi sugerencia es partir del tamaño nominal de la figura del documento. Para la
+mayoría de nuestros documentos, las cifras seguirán siendo digitales y esto
+puede parecer contradictorio. Sin embargo, encuentro este enfoque mucho más
+fácil. Una de las razones es que todavía incrustamos nuestra figura en un
+documento con un tamaño nominal. Además, a la hora de pensar en el tamaño de
+la fuente es habitual que tengamos como referencia el texto impreso. Además de
+eso, debemos considerar que el ojo humano tiene un límite de resolución, por lo
+que no podemos simplemente reducir nuestras figuras.&lt;/p&gt;
+&lt;p&gt;Además, no existe la resolución de una imagen digital. La resolución se refiere
+a una densidad de píxeles por unidad de longitud. Esto tiene sentido al imprimir
+imágenes, pero no en el caso digital. Sin embargo, las figuras tienen un tamaño
+nominal y, por lo tanto, una resolución nominal. Es decir, el número de píxeles
+en una dirección dividido por su tamaño nominal. Es una buena idea considerar
+una resolución mínima de 150 ppp (puntos por pulgada). Por ejemplo, una imagen
+de 6 × 3 pulgadas. Esta imagen tendría un tamaño de (a 150 ppp) de
+900 px × 450 px.&lt;/p&gt;
+&lt;p&gt;El siguiente código de Python crea una figura de tamaño 6 in × 3 in, y grafica
+la función \(f(x) = \sin(x^2)\) y la guarda como una imagen de tamaño
+900 in × 450 in.&lt;/p&gt;
+&lt;div class="code"&gt;&lt;pre class="code python"&gt;&lt;a id="rest_code_92b7aca8108746d881a9b5dd54604a5e-1" name="rest_code_92b7aca8108746d881a9b5dd54604a5e-1" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_92b7aca8108746d881a9b5dd54604a5e-1"&gt;&lt;/a&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
+&lt;a id="rest_code_92b7aca8108746d881a9b5dd54604a5e-2" name="rest_code_92b7aca8108746d881a9b5dd54604a5e-2" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_92b7aca8108746d881a9b5dd54604a5e-2"&gt;&lt;/a&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
+&lt;a id="rest_code_92b7aca8108746d881a9b5dd54604a5e-3" name="rest_code_92b7aca8108746d881a9b5dd54604a5e-3" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_92b7aca8108746d881a9b5dd54604a5e-3"&gt;&lt;/a&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;linspace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;500&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;linewidth&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a id="rest_code_92b7aca8108746d881a9b5dd54604a5e-4" name="rest_code_92b7aca8108746d881a9b5dd54604a5e-4" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_92b7aca8108746d881a9b5dd54604a5e-4"&gt;&lt;/a&gt;&lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a id="rest_code_92b7aca8108746d881a9b5dd54604a5e-5" name="rest_code_92b7aca8108746d881a9b5dd54604a5e-5" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_92b7aca8108746d881a9b5dd54604a5e-5"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;figsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;a id="rest_code_92b7aca8108746d881a9b5dd54604a5e-6" name="rest_code_92b7aca8108746d881a9b5dd54604a5e-6" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_92b7aca8108746d881a9b5dd54604a5e-6"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a id="rest_code_92b7aca8108746d881a9b5dd54604a5e-7" name="rest_code_92b7aca8108746d881a9b5dd54604a5e-7" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_92b7aca8108746d881a9b5dd54604a5e-7"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"x"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fontsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a id="rest_code_92b7aca8108746d881a9b5dd54604a5e-8" name="rest_code_92b7aca8108746d881a9b5dd54604a5e-8" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_92b7aca8108746d881a9b5dd54604a5e-8"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"y"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fontsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a id="rest_code_92b7aca8108746d881a9b5dd54604a5e-9" name="rest_code_92b7aca8108746d881a9b5dd54604a5e-9" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_92b7aca8108746d881a9b5dd54604a5e-9"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;savefig&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"fig_ex_python.png"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dpi&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Y el siguiente código de Matlab.&lt;/p&gt;
+&lt;div class="code"&gt;&lt;pre class="code matlab"&gt;&lt;a id="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-1" name="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-1" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;a id="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-2" name="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-2" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-2"&gt;&lt;/a&gt;&lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Units&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;'inches'&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;a id="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-3" name="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-3" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-3"&gt;&lt;/a&gt;&lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Position&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;a id="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-4" name="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-4" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-4"&gt;&lt;/a&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;linspace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="nb"&gt;pi&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;500&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;a id="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-5" name="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-5" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-5"&gt;&lt;/a&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;sin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;.^&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;a id="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-6" name="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-6" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-6"&gt;&lt;/a&gt;&lt;span class="nb"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;'LineWidth'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;a id="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-7" name="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-7" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-7"&gt;&lt;/a&gt;&lt;span class="nb"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'x'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;'FontSize'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;a id="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-8" name="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-8" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-8"&gt;&lt;/a&gt;&lt;span class="nb"&gt;ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'y'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;'FontSize'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;a id="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-9" name="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-9" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-9"&gt;&lt;/a&gt;&lt;span class="nb"&gt;set&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;'PaperSize'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;]);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;a id="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-10" name="rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-10" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/#rest_code_ef78e61cf2a04df08bf0f5b4f238e2bc-10"&gt;&lt;/a&gt;&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;'fig_ex_matlab'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;'-dpng'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;'-r150'&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;A continuación resumo algunos tamaños para artículos, pósters y diapositivas.&lt;/p&gt;
+&lt;section id="articulos"&gt;
+&lt;h3&gt;Artículos&lt;/h3&gt;
+&lt;p&gt;Para un artículo es común usar tamaño carta que es 8.5 in × 11 in
+(215.9 mm × 279.4 mm). Otro formato común es A4 que es 210 mm × 297 mm
+(8.27 in × 11.7 in).&lt;/p&gt;
+&lt;p&gt;Una guía para tamaños comunes es la siguiente:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;ancho de 1.0 columna: 90 mm (3.5 in);&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;ancho de 1.5 columna: 140 mm (5.5 in);&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;ancho de 2.0 columna: 190 mm (6.5 in);&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;y se muestra en la siguiente imagen.&lt;/p&gt;
+&lt;img alt="Anchos de figuras comparados con papel tamaño carta." class="align-center" src="https://nicoguaro.github.io/images/tech_writing/sizes.png" style="width: 400px;"&gt;
+&lt;p&gt;Si consideramos una &lt;em&gt;resolución&lt;/em&gt; de 300 ppi, tenemos los siguientes números de
+píxeles horizontalmente&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;ancho de 1.0 columna: 1050 píxeles;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;ancho de 1.5 columna: 1650 píxeles; y&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;ancho de 2.0 columna: 1950 píxeles.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Tenga en cuenta que un monitor HD tiene 1920 píxeles en la dirección horizontal.
+Esto significa que se necesita un monitor HD para ser capaz de ver tanto
+píxeles.&lt;/p&gt;
+&lt;p&gt;Respecto al tamaño del texto, es común tener tamaños entre 8 y 12 pts para
+figuras.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="posters"&gt;
+&lt;h3&gt;Pósters&lt;/h3&gt;
+&lt;p&gt;En el caso de papel tamaño A0 (841 mm × 1189 mm, 33 in × 47 in) los tamaños
+serían algo como:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;ancho de 1.0 columna: 360 mm (14 in);&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;ancho de 1.5 columna: 560 mm (22 in); y&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;ancho de 2.0 columna: 760 mm (26 in).&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Tenga en cuenta que un póster puede que no encaje tan bien en el formato
+de dos columans. Sin embargo, creo que la referencia sigue siendo útil.&lt;/p&gt;
+&lt;p&gt;Respecto al tamaño dl texto en pósters es una buena idea mantenerlo por encima
+de 24 pts (ver referencia 3).&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="diapositivas"&gt;
+&lt;h3&gt;Diapositivas&lt;/h3&gt;
+&lt;p&gt;En el caso de diapositivas hay dos relaciones de aspecto comunes 16:9 y 4:3.
+Además, diferentes programas usan diferentes tamaños nominales. La siguiente
+tabla muestra los tamaños nomiales para LibreOffice Impress y MS Power Point.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;&lt;th class="head"&gt;&lt;/th&gt;
+&lt;th class="head"&gt;&lt;p&gt;16:9&lt;/p&gt;&lt;/th&gt;
+&lt;th class="head"&gt;&lt;p&gt;4:3&lt;/p&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;&lt;p&gt;LibreOffice Impress&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;11.02 in × 6.20 in&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;11.02 in × 8.00 in&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;p&gt;MS Power Point&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;13.32 in × 7.50 in&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;10.00 in × 7.50 in&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/section&gt;
+&lt;section id="referencias"&gt;
+&lt;h3&gt;Referencias&lt;/h3&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;&lt;p&gt;Matthew Butterick (2019). &lt;a class="reference external" href="https://practicaltypography.com/"&gt;Butterick's Practical Typography&lt;/a&gt;.
+Segunda edición, Matthew Butterick.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Rougier, Nicolas P., Michael Droettboom, y Philip E. Bourne (2014).
+“Ten Simple Rules for Better Figures.” PLOS Computational Biology 10(9):e1003833.
+DOI: 10.1371/journal.pcbi.1003833.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Erren, Thomas C., y Philip E. Bourne. 2007.
+“Ten Simple Rules for a Good Poster Presentation.”
+PLOS Computational Biology 3(5):e102. DOI: 10.1371/journal.pcbi.0030102&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Elsevier. (n.d.). "Artwork Overview." Fecha de acceso: Noviembre 1, 2021,
+de &lt;a class="reference external" href="https://www.elsevier.com/authors/policies-and-guidelines/artwork-and-media-instructions/artwork-overview"&gt;https://www.elsevier.com/authors/policies-and-guidelines/artwork-and-media-instructions/artwork-overview&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Elsevier. (n.d.). "Artwork sizing." Fecha de acceso: Noviembre 1, 2021,
+de &lt;a class="reference external" href="https://www.elsevier.com/authors/policies-and-guidelines/artwork-and-media-instructions/artwork-sizing"&gt;https://www.elsevier.com/authors/policies-and-guidelines/artwork-and-media-instructions/artwork-sizing&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Journal of applied physics (n.d.). "Preparing Your Manuscript: Authors
+Instruction." Fecha de acceso: Noviembre 1, 2021, de &lt;a class="reference external" href="https://aip.scitation.org/jap/authors/manuscript"&gt;https://aip.scitation.org/jap/authors/manuscript&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;/section&gt;</description><category>escritura</category><category>figuras</category><category>inkscape</category><category>investigación</category><category>latex</category><category>libreoffice</category><category>tipografía</category><guid>https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/</guid><pubDate>Wed, 03 Nov 2021 17:53:40 GMT</pubDate></item></channel></rss>
