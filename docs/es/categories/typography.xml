@@ -3,9 +3,38 @@
 &lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
 &lt;img alt="Creative Commons License"
 style="border-width:0"
-src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Thu, 19 May 2022 23:49:44 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Technical writing: Using Tables</title><link>https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_tables/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;In a &lt;a class="reference external" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing"&gt;previous post&lt;/a&gt; I mentioned some general aspects of
-technical writing. In this one, I would like to talk about including
-tables in technical documents.&lt;/p&gt;
-&lt;p&gt;&lt;a class="reference external" href="https://www.tablesgenerator.com/"&gt;https://www.tablesgenerator.com/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_latex.html"&gt;https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_latex.html&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_xml.html"&gt;https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_xml.html&lt;/a&gt;&lt;/p&gt;</description><guid>https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_tables/</guid><pubDate>Fri, 06 May 2022 17:00:00 GMT</pubDate></item></channel></rss>
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Fri, 23 Sep 2022 19:34:36 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Using MikTex with LaTeX Workshop on Windows</title><link>https://nicoguaro.github.io/es/posts/latex_vscode_wind/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;This is a post to mention how to setup Visual Studio Code for LaTeX—through
+the &lt;a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop"&gt;LaTeX Workshop extension&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;In the past,  I have used several text editors and for LaTeX. A couple of years
+ago I replaced &lt;a class="reference external" href="https://www.texstudio.org/"&gt;TeXstudio&lt;/a&gt; for VS Code, and I think
+that it works just fine. &lt;a class="reference external" href="https://code.visualstudio.com/"&gt;Visual Studio Code&lt;/a&gt;
+is one of the &lt;a class="reference external" href="https://insights.stackoverflow.com/survey/2019#development-environments-and-tools"&gt;most used IDE right now&lt;/a&gt;.
+One advantage of using VS Code to type your documents is that you can set it up
+to fit your workflow and use it for several languages/purposes. It is also
+cross-platform, you will not be worrying for having different workflows in
+Linux or Windows.&lt;/p&gt;
+&lt;p&gt;You need to follow these steps to make it work:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;Install Perl. You can use &lt;a class="reference external" href="https://strawberryperl.com/"&gt;Strawberry Perl&lt;/a&gt; in
+Windows.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;If you don't have administrator privileges you can install the &lt;a class="reference external" href="https://strawberryperl.com/releases.html"&gt;portable
+version&lt;/a&gt; and add the path to the
+executable to the PATH environment variable.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Install MikTeX. The creator of LaTeX Workshop suggests to use TeX Live instead
+because it already comes with Perl and you could skip one step in this list.
+The disadvantages of using TeX Live instead of MikTeX are more
+(see &lt;a class="reference external" href="https://tex.stackexchange.com/questions/20036/what-are-the-advantages-of-tex-live-over-miktex"&gt;here&lt;/a&gt;).&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Install &lt;a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop"&gt;LaTeX Workshop&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;section id="references"&gt;
+&lt;h2&gt;References&lt;/h2&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;&lt;p&gt;Cangemi, Denis. “The Reasons Why You Must Use Visual Studio Code.” Medium,
+13 Aug. 2020, &lt;a class="reference external" href="https://blog.devgenius.io/the-reasons-why-you-must-use-visual-studio-code-b522f946a849"&gt;https://blog.devgenius.io/the-reasons-why-you-must-use-visual-studio-code-b522f946a849&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Wright, Joseph. “TeX on Windows: TeX Live versus MiKTeX Revisited.” Some TeX
+Developments, 18 Dec. 2016, &lt;a class="reference external" href="https://www.texdev.net/2016/12/18/tex-on-windows-tex-live-versus-miktex-revisited/"&gt;https://www.texdev.net/2016/12/18/tex-on-windows-tex-live-versus-miktex-revisited/&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;</description><guid>https://nicoguaro.github.io/es/posts/latex_vscode_wind/</guid><pubDate>Fri, 23 Sep 2022 17:00:00 GMT</pubDate></item></channel></rss>

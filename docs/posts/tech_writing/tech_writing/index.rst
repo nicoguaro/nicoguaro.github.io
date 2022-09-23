@@ -9,7 +9,7 @@
 .. status:
 
 This is the first post about technical writing [*]_ from a series that
-I will be creating and uploading. Technical writing is
+I will be creating during the course of this year. Technical writing is
 something that most of us have to deal with in different contexts. For
 example, in college coursework, research publications, software documentation.
 The main idea of the series is to mention some of the tricks that I have
@@ -141,7 +141,7 @@ References
 
 5. Eric Holscher (2016).
    `An introduction to Sphinx and Read the Docs for Technical Writers
-   <https://www.ericholscher.com/blog/2016/jul/1/sphinx-and-rtd-for-writers/>`_.
+   <https://www.ericholscher.com/blog/2016/jul/1/sphinx-and-rtd-for-writers/>`__
 
 
 .. [*] This post is (somewhat) related to a

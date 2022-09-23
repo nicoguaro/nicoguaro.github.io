@@ -11,7 +11,7 @@
 <link rel="alternate" type="application/rss+xml" title="RSS (es)" href="es/rss.xml">
 <link rel="canonical" href="https://nicoguaro.github.io/">
 <link rel="next" href="index-5.html" type="text/html">
-<!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link rel="prefetch" href="posts/tech_writing/tech_writing_figs/" type="text/html">
+<!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link rel="prefetch" href="posts/latex_vscode_wind/" type="text/html">
 </head>
 <body>
     <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -51,7 +51,54 @@
         
 
 <div class="posts">
-    <article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/tech_writing/tech_writing_figs/" class="u-url">Technical writing: Using Figures</a></h1>
+    <article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/latex_vscode_wind/" class="u-url">Using MikTex with LaTeX Workshop on Windows</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
+            <p class="dateline"><a href="posts/latex_vscode_wind/" rel="bookmark"><time class="post-date published dt-published" datetime="2022-09-23T12:00:00-05:00" title="2022-09-23 12:00">2022-09-23 12:00</time></a></p>
+                <p class="commentline">
+    
+    <a href="posts/latex_vscode_wind/#disqus_thread" data-disqus-identifier="cache/posts/latex_vscode_win.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <p>This is a post to mention how to setup Visual Studio Code for LaTeX—through
+the <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop">LaTeX Workshop extension</a>.</p>
+<p>In the past,  I have used several text editors and for LaTeX. A couple of years
+ago I replaced <a class="reference external" href="https://www.texstudio.org/">TeXstudio</a> for VS Code, and I think
+that it works just fine. <a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code</a>
+is one of the <a class="reference external" href="https://insights.stackoverflow.com/survey/2019#development-environments-and-tools">most used IDE right now</a>.
+One advantage of using VS Code to type your documents is that you can set it up
+to fit your workflow and use it for several languages/purposes. It is also
+cross-platform, you will not be worrying for having different workflows in
+Linux or Windows.</p>
+<p>You need to follow these steps to make it work:</p>
+<ul class="simple">
+<li><p>Install Perl. You can use <a class="reference external" href="https://strawberryperl.com/">Strawberry Perl</a> in
+Windows.</p></li>
+<li><p>If you don't have administrator privileges you can install the <a class="reference external" href="https://strawberryperl.com/releases.html">portable
+version</a> and add the path to the
+executable to the PATH environment variable.</p></li>
+<li><p>Install MikTeX. The creator of LaTeX Workshop suggests to use TeX Live instead
+because it already comes with Perl and you could skip one step in this list.
+The disadvantages of using TeX Live instead of MikTeX are more
+(see <a class="reference external" href="https://tex.stackexchange.com/questions/20036/what-are-the-advantages-of-tex-live-over-miktex">here</a>).</p></li>
+<li><p>Install <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop">LaTeX Workshop</a>.</p></li>
+</ul>
+<section id="references"><h2>References</h2>
+<ol class="arabic simple">
+<li><p>Cangemi, Denis. “The Reasons Why You Must Use Visual Studio Code.” Medium,
+13 Aug. 2020, <a class="reference external" href="https://blog.devgenius.io/the-reasons-why-you-must-use-visual-studio-code-b522f946a849">https://blog.devgenius.io/the-reasons-why-you-must-use-visual-studio-code-b522f946a849</a>.</p></li>
+<li><p>Wright, Joseph. “TeX on Windows: TeX Live versus MiKTeX Revisited.” Some TeX
+Developments, 18 Dec. 2016, <a class="reference external" href="https://www.texdev.net/2016/12/18/tex-on-windows-tex-live-versus-miktex-revisited/">https://www.texdev.net/2016/12/18/tex-on-windows-tex-live-versus-miktex-revisited/</a>.</p></li>
+</ol>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+</section>
+</div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/tech_writing/tech_writing_figs/" class="u-url">Technical writing: Using Figures</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
             <p class="dateline"><a href="posts/tech_writing/tech_writing_figs/" rel="bookmark"><time class="post-date published dt-published" datetime="2021-11-03T12:53:40-05:00" title="2021-11-03 12:53">2021-11-03 12:53</time></a></p>
@@ -138,30 +185,30 @@ minimal resolution of 150 dpi (dots per inch). For example, an image of
 <p>The following Python snippet creates a figure of size 6 in × 3 in, and plots
 the function \(f(x) = \sin(x^2)\) and stores it as an image of size
 900 in × 450 in.</p>
-<div class="code"><pre class="code python"><a id="rest_code_a28eef06527540a89f993802b1afdd48-1" name="rest_code_a28eef06527540a89f993802b1afdd48-1" href="posts/tech_writing/tech_writing_figs/#rest_code_a28eef06527540a89f993802b1afdd48-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<a id="rest_code_a28eef06527540a89f993802b1afdd48-2" name="rest_code_a28eef06527540a89f993802b1afdd48-2" href="posts/tech_writing/tech_writing_figs/#rest_code_a28eef06527540a89f993802b1afdd48-2"></a><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<a id="rest_code_a28eef06527540a89f993802b1afdd48-3" name="rest_code_a28eef06527540a89f993802b1afdd48-3" href="posts/tech_writing/tech_writing_figs/#rest_code_a28eef06527540a89f993802b1afdd48-3"></a><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<a id="rest_code_a28eef06527540a89f993802b1afdd48-4" name="rest_code_a28eef06527540a89f993802b1afdd48-4" href="posts/tech_writing/tech_writing_figs/#rest_code_a28eef06527540a89f993802b1afdd48-4"></a><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-<a id="rest_code_a28eef06527540a89f993802b1afdd48-5" name="rest_code_a28eef06527540a89f993802b1afdd48-5" href="posts/tech_writing/tech_writing_figs/#rest_code_a28eef06527540a89f993802b1afdd48-5"></a><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-<a id="rest_code_a28eef06527540a89f993802b1afdd48-6" name="rest_code_a28eef06527540a89f993802b1afdd48-6" href="posts/tech_writing/tech_writing_figs/#rest_code_a28eef06527540a89f993802b1afdd48-6"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<a id="rest_code_a28eef06527540a89f993802b1afdd48-7" name="rest_code_a28eef06527540a89f993802b1afdd48-7" href="posts/tech_writing/tech_writing_figs/#rest_code_a28eef06527540a89f993802b1afdd48-7"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"x"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<a id="rest_code_a28eef06527540a89f993802b1afdd48-8" name="rest_code_a28eef06527540a89f993802b1afdd48-8" href="posts/tech_writing/tech_writing_figs/#rest_code_a28eef06527540a89f993802b1afdd48-8"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"y"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<a id="rest_code_a28eef06527540a89f993802b1afdd48-9" name="rest_code_a28eef06527540a89f993802b1afdd48-9" href="posts/tech_writing/tech_writing_figs/#rest_code_a28eef06527540a89f993802b1afdd48-9"></a><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">"fig_ex_python.png"</span><span class="p">,</span> <span class="n">dpi</span><span class="p">)</span>
+<div class="code"><pre class="code python"><a id="rest_code_86721c8171904d50b896f15f823acc7b-1" name="rest_code_86721c8171904d50b896f15f823acc7b-1" href="posts/tech_writing/tech_writing_figs/#rest_code_86721c8171904d50b896f15f823acc7b-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<a id="rest_code_86721c8171904d50b896f15f823acc7b-2" name="rest_code_86721c8171904d50b896f15f823acc7b-2" href="posts/tech_writing/tech_writing_figs/#rest_code_86721c8171904d50b896f15f823acc7b-2"></a><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<a id="rest_code_86721c8171904d50b896f15f823acc7b-3" name="rest_code_86721c8171904d50b896f15f823acc7b-3" href="posts/tech_writing/tech_writing_figs/#rest_code_86721c8171904d50b896f15f823acc7b-3"></a><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<a id="rest_code_86721c8171904d50b896f15f823acc7b-4" name="rest_code_86721c8171904d50b896f15f823acc7b-4" href="posts/tech_writing/tech_writing_figs/#rest_code_86721c8171904d50b896f15f823acc7b-4"></a><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<a id="rest_code_86721c8171904d50b896f15f823acc7b-5" name="rest_code_86721c8171904d50b896f15f823acc7b-5" href="posts/tech_writing/tech_writing_figs/#rest_code_86721c8171904d50b896f15f823acc7b-5"></a><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<a id="rest_code_86721c8171904d50b896f15f823acc7b-6" name="rest_code_86721c8171904d50b896f15f823acc7b-6" href="posts/tech_writing/tech_writing_figs/#rest_code_86721c8171904d50b896f15f823acc7b-6"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<a id="rest_code_86721c8171904d50b896f15f823acc7b-7" name="rest_code_86721c8171904d50b896f15f823acc7b-7" href="posts/tech_writing/tech_writing_figs/#rest_code_86721c8171904d50b896f15f823acc7b-7"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"x"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<a id="rest_code_86721c8171904d50b896f15f823acc7b-8" name="rest_code_86721c8171904d50b896f15f823acc7b-8" href="posts/tech_writing/tech_writing_figs/#rest_code_86721c8171904d50b896f15f823acc7b-8"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"y"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<a id="rest_code_86721c8171904d50b896f15f823acc7b-9" name="rest_code_86721c8171904d50b896f15f823acc7b-9" href="posts/tech_writing/tech_writing_figs/#rest_code_86721c8171904d50b896f15f823acc7b-9"></a><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">"fig_ex_python.png"</span><span class="p">,</span> <span class="n">dpi</span><span class="p">)</span>
 </pre></div>
 <div class="line-block">
 <div class="line"><br></div>
 </div>
 <p>And the following in Matlab.</p>
-<div class="code"><pre class="code matlab"><a id="rest_code_a4c6b1bf14d043cdb91496ca4fd44517-1" name="rest_code_a4c6b1bf14d043cdb91496ca4fd44517-1" href="posts/tech_writing/tech_writing_figs/#rest_code_a4c6b1bf14d043cdb91496ca4fd44517-1"></a><span class="n">fig</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
-<a id="rest_code_a4c6b1bf14d043cdb91496ca4fd44517-2" name="rest_code_a4c6b1bf14d043cdb91496ca4fd44517-2" href="posts/tech_writing/tech_writing_figs/#rest_code_a4c6b1bf14d043cdb91496ca4fd44517-2"></a><span class="n">fig</span><span class="p">.</span><span class="n">Units</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">'inches'</span><span class="p">;</span><span class="w"></span>
-<a id="rest_code_a4c6b1bf14d043cdb91496ca4fd44517-3" name="rest_code_a4c6b1bf14d043cdb91496ca4fd44517-3" href="posts/tech_writing/tech_writing_figs/#rest_code_a4c6b1bf14d043cdb91496ca4fd44517-3"></a><span class="n">fig</span><span class="p">.</span><span class="n">Position</span><span class="p">(</span><span class="mi">3</span><span class="p">:</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w">  </span><span class="p">[</span><span class="mi">6</span><span class="w"> </span><span class="mi">4</span><span class="p">];</span><span class="w"></span>
-<a id="rest_code_a4c6b1bf14d043cdb91496ca4fd44517-4" name="rest_code_a4c6b1bf14d043cdb91496ca4fd44517-4" href="posts/tech_writing/tech_writing_figs/#rest_code_a4c6b1bf14d043cdb91496ca4fd44517-4"></a><span class="n">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="p">,</span><span class="w"> </span><span class="mi">500</span><span class="p">);</span><span class="w"></span>
-<a id="rest_code_a4c6b1bf14d043cdb91496ca4fd44517-5" name="rest_code_a4c6b1bf14d043cdb91496ca4fd44517-5" href="posts/tech_writing/tech_writing_figs/#rest_code_a4c6b1bf14d043cdb91496ca4fd44517-5"></a><span class="n">y</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">sin</span><span class="p">(</span><span class="n">x</span><span class="o">.^</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
-<a id="rest_code_a4c6b1bf14d043cdb91496ca4fd44517-6" name="rest_code_a4c6b1bf14d043cdb91496ca4fd44517-6" href="posts/tech_writing/tech_writing_figs/#rest_code_a4c6b1bf14d043cdb91496ca4fd44517-6"></a><span class="nb">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="s">'LineWidth'</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
-<a id="rest_code_a4c6b1bf14d043cdb91496ca4fd44517-7" name="rest_code_a4c6b1bf14d043cdb91496ca4fd44517-7" href="posts/tech_writing/tech_writing_figs/#rest_code_a4c6b1bf14d043cdb91496ca4fd44517-7"></a><span class="nb">xlabel</span><span class="p">(</span><span class="s">'x'</span><span class="p">,</span><span class="w"> </span><span class="s">'FontSize'</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"></span>
-<a id="rest_code_a4c6b1bf14d043cdb91496ca4fd44517-8" name="rest_code_a4c6b1bf14d043cdb91496ca4fd44517-8" href="posts/tech_writing/tech_writing_figs/#rest_code_a4c6b1bf14d043cdb91496ca4fd44517-8"></a><span class="nb">ylabel</span><span class="p">(</span><span class="s">'y'</span><span class="p">,</span><span class="w"> </span><span class="s">'FontSize'</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"></span>
-<a id="rest_code_a4c6b1bf14d043cdb91496ca4fd44517-9" name="rest_code_a4c6b1bf14d043cdb91496ca4fd44517-9" href="posts/tech_writing/tech_writing_figs/#rest_code_a4c6b1bf14d043cdb91496ca4fd44517-9"></a><span class="nb">set</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span><span class="w"> </span><span class="s">'PaperSize'</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">]);</span><span class="w"></span>
-<a id="rest_code_a4c6b1bf14d043cdb91496ca4fd44517-10" name="rest_code_a4c6b1bf14d043cdb91496ca4fd44517-10" href="posts/tech_writing/tech_writing_figs/#rest_code_a4c6b1bf14d043cdb91496ca4fd44517-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span><span class="s">'fig_ex_matlab'</span><span class="p">,</span><span class="w"> </span><span class="s">'-dpng'</span><span class="p">,</span><span class="w"> </span><span class="s">'-r150'</span><span class="p">);</span><span class="w"></span>
+<div class="code"><pre class="code matlab"><a id="rest_code_2ba441483bc54b06b3d566b8762f8753-1" name="rest_code_2ba441483bc54b06b3d566b8762f8753-1" href="posts/tech_writing/tech_writing_figs/#rest_code_2ba441483bc54b06b3d566b8762f8753-1"></a><span class="n">fig</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<a id="rest_code_2ba441483bc54b06b3d566b8762f8753-2" name="rest_code_2ba441483bc54b06b3d566b8762f8753-2" href="posts/tech_writing/tech_writing_figs/#rest_code_2ba441483bc54b06b3d566b8762f8753-2"></a><span class="n">fig</span><span class="p">.</span><span class="n">Units</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">'inches'</span><span class="p">;</span><span class="w"></span>
+<a id="rest_code_2ba441483bc54b06b3d566b8762f8753-3" name="rest_code_2ba441483bc54b06b3d566b8762f8753-3" href="posts/tech_writing/tech_writing_figs/#rest_code_2ba441483bc54b06b3d566b8762f8753-3"></a><span class="n">fig</span><span class="p">.</span><span class="n">Position</span><span class="p">(</span><span class="mi">3</span><span class="p">:</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w">  </span><span class="p">[</span><span class="mi">6</span><span class="w"> </span><span class="mi">4</span><span class="p">];</span><span class="w"></span>
+<a id="rest_code_2ba441483bc54b06b3d566b8762f8753-4" name="rest_code_2ba441483bc54b06b3d566b8762f8753-4" href="posts/tech_writing/tech_writing_figs/#rest_code_2ba441483bc54b06b3d566b8762f8753-4"></a><span class="n">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="p">,</span><span class="w"> </span><span class="mi">500</span><span class="p">);</span><span class="w"></span>
+<a id="rest_code_2ba441483bc54b06b3d566b8762f8753-5" name="rest_code_2ba441483bc54b06b3d566b8762f8753-5" href="posts/tech_writing/tech_writing_figs/#rest_code_2ba441483bc54b06b3d566b8762f8753-5"></a><span class="n">y</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">sin</span><span class="p">(</span><span class="n">x</span><span class="o">.^</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
+<a id="rest_code_2ba441483bc54b06b3d566b8762f8753-6" name="rest_code_2ba441483bc54b06b3d566b8762f8753-6" href="posts/tech_writing/tech_writing_figs/#rest_code_2ba441483bc54b06b3d566b8762f8753-6"></a><span class="nb">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="s">'LineWidth'</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
+<a id="rest_code_2ba441483bc54b06b3d566b8762f8753-7" name="rest_code_2ba441483bc54b06b3d566b8762f8753-7" href="posts/tech_writing/tech_writing_figs/#rest_code_2ba441483bc54b06b3d566b8762f8753-7"></a><span class="nb">xlabel</span><span class="p">(</span><span class="s">'x'</span><span class="p">,</span><span class="w"> </span><span class="s">'FontSize'</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"></span>
+<a id="rest_code_2ba441483bc54b06b3d566b8762f8753-8" name="rest_code_2ba441483bc54b06b3d566b8762f8753-8" href="posts/tech_writing/tech_writing_figs/#rest_code_2ba441483bc54b06b3d566b8762f8753-8"></a><span class="nb">ylabel</span><span class="p">(</span><span class="s">'y'</span><span class="p">,</span><span class="w"> </span><span class="s">'FontSize'</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"></span>
+<a id="rest_code_2ba441483bc54b06b3d566b8762f8753-9" name="rest_code_2ba441483bc54b06b3d566b8762f8753-9" href="posts/tech_writing/tech_writing_figs/#rest_code_2ba441483bc54b06b3d566b8762f8753-9"></a><span class="nb">set</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span><span class="w"> </span><span class="s">'PaperSize'</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">]);</span><span class="w"></span>
+<a id="rest_code_2ba441483bc54b06b3d566b8762f8753-10" name="rest_code_2ba441483bc54b06b3d566b8762f8753-10" href="posts/tech_writing/tech_writing_figs/#rest_code_2ba441483bc54b06b3d566b8762f8753-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span><span class="s">'fig_ex_matlab'</span><span class="p">,</span><span class="w"> </span><span class="s">'-dpng'</span><span class="p">,</span><span class="w"> </span><span class="s">'-r150'</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 <div class="line-block">
 <div class="line"><br></div>
@@ -864,7 +911,7 @@ them by the number of trials to get an estimate of the probability.</p>
 </div>
     </header><div class="e-content entry-content">
     <p>This is the first post about technical writing <a class="footnote-reference brackets" href="posts/tech_writing/tech_writing/#footnote-1" id="footnote-reference-1" role="doc-noteref"><span class="fn-bracket">[</span>*<span class="fn-bracket">]</span></a> from a series that
-I will be creating and uploading. Technical writing is
+I will be creating during the course of this year. Technical writing is
 something that most of us have to deal with in different contexts. For
 example, in college coursework, research publications, software documentation.
 The main idea of the series is to mention some of the tricks that I have
@@ -966,14 +1013,14 @@ Friends of OpenDocument, Inc.</p></li>
 <a class="reference external" href="https://sylvaindeville.net/2015/07/17/writing-academic-papers-in-plain-text-with-markdown-and-jupyter-notebook/">Writing academic papers in plain text with Markdown and Jupyter notebook</a>.
 Sylvain Deville.</p></li>
 <li><p>Eric Holscher (2016).
-<a class="reference external" href="https://www.ericholscher.com/blog/2016/jul/1/sphinx-and-rtd-for-writers/">An introduction to Sphinx and Read the Docs for Technical Writers</a>.</p></li>
+<a class="reference external" href="https://www.ericholscher.com/blog/2016/jul/1/sphinx-and-rtd-for-writers/">An introduction to Sphinx and Read the Docs for Technical Writers</a></p></li>
 </ol>
-<aside class="footnote-list brackets"><aside class="footnote brackets" id="footnote-1" role="note"><span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="posts/tech_writing/tech_writing/#footnote-reference-1">*</a><span class="fn-bracket">]</span></span>
+<aside class="footnote brackets" id="footnote-1" role="note"><span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="posts/tech_writing/tech_writing/#footnote-reference-1">*</a><span class="fn-bracket">]</span></span>
 <p>This post is (somewhat) related to a
 <a class="reference external" href="posts/tech_writing/herramientas-investigacion/">previous post</a>
 where I discussed research tools that most of us need but are not
 commonly taught in a formal fashion.</p>
-</aside></aside></section></section>
+</aside></section></section>
 </div>
     </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/tech_writing/tech_writing_math/" class="u-url">Technical writing: using math</a></h1>
         <div class="metadata">
@@ -1058,29 +1105,29 @@ f''(x) = \left(- 12 x \cos{\left(3 x \right)} + 2 \left(2 x^{2} - 1\right) \sin{
 \end{equation*}
 </div>
 <p>The following code gives us the LaTex code</p>
-<div class="code"><pre class="code python"><a id="rest_code_287abc24731342c4a40de96ece3f2ee0-1" name="rest_code_287abc24731342c4a40de96ece3f2ee0-1" href="posts/tech_writing/tech_writing_math/#rest_code_287abc24731342c4a40de96ece3f2ee0-1"></a><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
-<a id="rest_code_287abc24731342c4a40de96ece3f2ee0-2" name="rest_code_287abc24731342c4a40de96ece3f2ee0-2" href="posts/tech_writing/tech_writing_math/#rest_code_287abc24731342c4a40de96ece3f2ee0-2"></a><span class="n">init_session</span><span class="p">()</span>
-<a id="rest_code_287abc24731342c4a40de96ece3f2ee0-3" name="rest_code_287abc24731342c4a40de96ece3f2ee0-3" href="posts/tech_writing/tech_writing_math/#rest_code_287abc24731342c4a40de96ece3f2ee0-3"></a><span class="n">f</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
-<a id="rest_code_287abc24731342c4a40de96ece3f2ee0-4" name="rest_code_287abc24731342c4a40de96ece3f2ee0-4" href="posts/tech_writing/tech_writing_math/#rest_code_287abc24731342c4a40de96ece3f2ee0-4"></a><span class="n">fxx</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<a id="rest_code_287abc24731342c4a40de96ece3f2ee0-5" name="rest_code_287abc24731342c4a40de96ece3f2ee0-5" href="posts/tech_writing/tech_writing_math/#rest_code_287abc24731342c4a40de96ece3f2ee0-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">latex</span><span class="p">(</span><span class="n">fxx</span><span class="p">))</span>
+<div class="code"><pre class="code python"><a id="rest_code_53e0280489604d7fb43a45aaaef850af-1" name="rest_code_53e0280489604d7fb43a45aaaef850af-1" href="posts/tech_writing/tech_writing_math/#rest_code_53e0280489604d7fb43a45aaaef850af-1"></a><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
+<a id="rest_code_53e0280489604d7fb43a45aaaef850af-2" name="rest_code_53e0280489604d7fb43a45aaaef850af-2" href="posts/tech_writing/tech_writing_math/#rest_code_53e0280489604d7fb43a45aaaef850af-2"></a><span class="n">init_session</span><span class="p">()</span>
+<a id="rest_code_53e0280489604d7fb43a45aaaef850af-3" name="rest_code_53e0280489604d7fb43a45aaaef850af-3" href="posts/tech_writing/tech_writing_math/#rest_code_53e0280489604d7fb43a45aaaef850af-3"></a><span class="n">f</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+<a id="rest_code_53e0280489604d7fb43a45aaaef850af-4" name="rest_code_53e0280489604d7fb43a45aaaef850af-4" href="posts/tech_writing/tech_writing_math/#rest_code_53e0280489604d7fb43a45aaaef850af-4"></a><span class="n">fxx</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<a id="rest_code_53e0280489604d7fb43a45aaaef850af-5" name="rest_code_53e0280489604d7fb43a45aaaef850af-5" href="posts/tech_writing/tech_writing_math/#rest_code_53e0280489604d7fb43a45aaaef850af-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">latex</span><span class="p">(</span><span class="n">fxx</span><span class="p">))</span>
 </pre></div>
 <p>that is</p>
-<div class="code"><pre class="code latex"><a id="rest_code_ff89b4b67aa84475abea69a4bb3c7a6c-1" name="rest_code_ff89b4b67aa84475abea69a4bb3c7a6c-1" href="posts/tech_writing/tech_writing_math/#rest_code_ff89b4b67aa84475abea69a4bb3c7a6c-1"></a><span class="k">\left</span>(- 12 x <span class="k">\cos</span><span class="nb">{</span><span class="k">\left</span>(3 x <span class="k">\right</span>)<span class="nb">}</span> + 2 <span class="k">\left</span>(2 x<span class="nb">^{</span>2<span class="nb">}</span> - 1<span class="k">\right</span>) <span class="k">\sin</span><span class="nb">{</span><span class="k">\left</span>(3 x <span class="k">\right</span>)<span class="nb">}</span> - 9 <span class="k">\sin</span><span class="nb">{</span><span class="k">\left</span>(3 x <span class="k">\right</span>)<span class="nb">}</span><span class="k">\right</span>) e<span class="nb">^{</span>- x<span class="nb">^{</span>2<span class="nb">}}</span>
+<div class="code"><pre class="code latex"><a id="rest_code_2189df0bc818437eb9091481ed43be6f-1" name="rest_code_2189df0bc818437eb9091481ed43be6f-1" href="posts/tech_writing/tech_writing_math/#rest_code_2189df0bc818437eb9091481ed43be6f-1"></a><span class="k">\left</span>(- 12 x <span class="k">\cos</span><span class="nb">{</span><span class="k">\left</span>(3 x <span class="k">\right</span>)<span class="nb">}</span> + 2 <span class="k">\left</span>(2 x<span class="nb">^{</span>2<span class="nb">}</span> - 1<span class="k">\right</span>) <span class="k">\sin</span><span class="nb">{</span><span class="k">\left</span>(3 x <span class="k">\right</span>)<span class="nb">}</span> - 9 <span class="k">\sin</span><span class="nb">{</span><span class="k">\left</span>(3 x <span class="k">\right</span>)<span class="nb">}</span><span class="k">\right</span>) e<span class="nb">^{</span>- x<span class="nb">^{</span>2<span class="nb">}}</span>
 </pre></div>
 <p>That corresponds to the code that I used above to render the equation</p>
 <p>If, we wanted the MathML code of that expression we could use
 the following snippet</p>
-<div class="code"><pre class="code python"><a id="rest_code_3cd68bc84931429b8d8164f7b1d1f777-1" name="rest_code_3cd68bc84931429b8d8164f7b1d1f777-1" href="posts/tech_writing/tech_writing_math/#rest_code_3cd68bc84931429b8d8164f7b1d1f777-1"></a><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
-<a id="rest_code_3cd68bc84931429b8d8164f7b1d1f777-2" name="rest_code_3cd68bc84931429b8d8164f7b1d1f777-2" href="posts/tech_writing/tech_writing_math/#rest_code_3cd68bc84931429b8d8164f7b1d1f777-2"></a><span class="n">init_session</span><span class="p">()</span>
-<a id="rest_code_3cd68bc84931429b8d8164f7b1d1f777-3" name="rest_code_3cd68bc84931429b8d8164f7b1d1f777-3" href="posts/tech_writing/tech_writing_math/#rest_code_3cd68bc84931429b8d8164f7b1d1f777-3"></a><span class="n">f</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
-<a id="rest_code_3cd68bc84931429b8d8164f7b1d1f777-4" name="rest_code_3cd68bc84931429b8d8164f7b1d1f777-4" href="posts/tech_writing/tech_writing_math/#rest_code_3cd68bc84931429b8d8164f7b1d1f777-4"></a><span class="n">fxx</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<a id="rest_code_3cd68bc84931429b8d8164f7b1d1f777-5" name="rest_code_3cd68bc84931429b8d8164f7b1d1f777-5" href="posts/tech_writing/tech_writing_math/#rest_code_3cd68bc84931429b8d8164f7b1d1f777-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">mathml</span><span class="p">(</span><span class="n">fxx</span><span class="p">,</span> <span class="n">printer</span><span class="o">=</span><span class="s2">"presentation"</span><span class="p">))</span>
+<div class="code"><pre class="code python"><a id="rest_code_8ab8b051428c41b29ea3166cee065734-1" name="rest_code_8ab8b051428c41b29ea3166cee065734-1" href="posts/tech_writing/tech_writing_math/#rest_code_8ab8b051428c41b29ea3166cee065734-1"></a><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
+<a id="rest_code_8ab8b051428c41b29ea3166cee065734-2" name="rest_code_8ab8b051428c41b29ea3166cee065734-2" href="posts/tech_writing/tech_writing_math/#rest_code_8ab8b051428c41b29ea3166cee065734-2"></a><span class="n">init_session</span><span class="p">()</span>
+<a id="rest_code_8ab8b051428c41b29ea3166cee065734-3" name="rest_code_8ab8b051428c41b29ea3166cee065734-3" href="posts/tech_writing/tech_writing_math/#rest_code_8ab8b051428c41b29ea3166cee065734-3"></a><span class="n">f</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+<a id="rest_code_8ab8b051428c41b29ea3166cee065734-4" name="rest_code_8ab8b051428c41b29ea3166cee065734-4" href="posts/tech_writing/tech_writing_math/#rest_code_8ab8b051428c41b29ea3166cee065734-4"></a><span class="n">fxx</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<a id="rest_code_8ab8b051428c41b29ea3166cee065734-5" name="rest_code_8ab8b051428c41b29ea3166cee065734-5" href="posts/tech_writing/tech_writing_math/#rest_code_8ab8b051428c41b29ea3166cee065734-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">mathml</span><span class="p">(</span><span class="n">fxx</span><span class="p">,</span> <span class="n">printer</span><span class="o">=</span><span class="s2">"presentation"</span><span class="p">))</span>
 </pre></div>
 <p>notice the extra argument <code class="docutils literal"><span class="pre">printer="presentation"</span></code>. If we want to add
 this to MS Word, for example, we could add the output (that I will not
 show because is really long) inside the following</p>
-<div class="code"><pre class="code xml"><a id="rest_code_dd82455d9d0e44d2a4070d75d11d2008-1" name="rest_code_dd82455d9d0e44d2a4070d75d11d2008-1" href="posts/tech_writing/tech_writing_math/#rest_code_dd82455d9d0e44d2a4070d75d11d2008-1"></a><span class="nt">&lt;math</span> <span class="na">xmlns =</span> <span class="s">"http://www.w3.org/1998/Math/MathML"</span><span class="nt">&gt;</span>
-<a id="rest_code_dd82455d9d0e44d2a4070d75d11d2008-2" name="rest_code_dd82455d9d0e44d2a4070d75d11d2008-2" href="posts/tech_writing/tech_writing_math/#rest_code_dd82455d9d0e44d2a4070d75d11d2008-2"></a><span class="nt">&lt;/math&gt;</span>
+<div class="code"><pre class="code xml"><a id="rest_code_82dddb956cbf40bfbc4bdfb403631193-1" name="rest_code_82dddb956cbf40bfbc4bdfb403631193-1" href="posts/tech_writing/tech_writing_math/#rest_code_82dddb956cbf40bfbc4bdfb403631193-1"></a><span class="nt">&lt;math</span> <span class="na">xmlns =</span> <span class="s">"http://www.w3.org/1998/Math/MathML"</span><span class="nt">&gt;</span>
+<a id="rest_code_82dddb956cbf40bfbc4bdfb403631193-2" name="rest_code_82dddb956cbf40bfbc4bdfb403631193-2" href="posts/tech_writing/tech_writing_math/#rest_code_82dddb956cbf40bfbc4bdfb403631193-2"></a><span class="nt">&lt;/math&gt;</span>
 </pre></div>
 <p>When using Jupyter Notebook this can be done graphically with a
 right click over the expression. Then, the following menu is
@@ -1184,206 +1231,6 @@ would be:</p>
 <p>And it is shown below.</p>
 <img alt="Configuration with remote files." class="align-center" src="images/ortografia_jupyter/config_url.png" style="width: 600px;"></section></section>
 </div>
-    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/graph_makeover/" class="u-url">#SWDchallenge: Graph makeover</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
-            <p class="dateline"><a href="posts/graph_makeover/" rel="bookmark"><time class="post-date published dt-published" datetime="2018-07-12T18:32:40-05:00" title="2018-07-12 18:32">2018-07-12 18:32</time></a></p>
-                <p class="commentline">
-    
-    <a href="posts/graph_makeover/#disqus_thread" data-disqus-identifier="cache/posts/graph_makeover.html">Comments</a>
-
-
-        </p>
-</div>
-    </header><div class="e-content entry-content">
-    <p>At <a class="reference external" href="http://www.storytellingwithdata.com/">storytelling with data</a>, they run
-a monthly challenge on data visualization named
-<a class="reference external" href="http://www.storytellingwithdata.com/swdchallenge/">#SWDchallenge</a>. The main
-idea of the challenges is to test data visualization and
-storytelling skills.</p>
-<p>Each month the challenge has a different topic. This
-<a class="reference external" href="http://www.storytellingwithdata.com/blog/2018/7/1/swdchallenge-your-choice-makeover">month</a>
-the challenge was to improve an existing graph. I decided to take a previous
-graph of mine that was published on a
-<a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S1742706115002172">paper</a>
-that was published on 2015.</p>
-<div class="section" id="the-original">
-<h2>The "original"</h2>
-<p>The following is the graph that we are going to start with.</p>
-<img alt="Original plot" class="align-center" src="images/graph_makeover/energy_vs_D_orig.svg" style="width: 600px;"><p>This is not the exact same graph that was presented in the article on 2015, but
-it serves the purpose of the challenge. The data can be downloaded from
-<a class="reference external" href="downloads/Energy_vs_D.csv">here</a>. This graph present the fraction of energy (<span class="math">\(\eta\)</span>) transmitted for helical composites
-with different geometrical parameters. The parameters varied were:</p>
-<ul class="simple">
-<li><p>Pitch angle <span class="math">\(\alpha\)</span>: the angle between consecutive layers;</p></li>
-<li><p>Composite thickness <span class="math">\(D\)</span>, that is normalized to the wavelength <span class="math">\(\lambda\)</span>; and</p></li>
-<li><p>Number of layers <span class="math">\(N\)</span> in each cell of the composite.</p></li>
-</ul>
-<p>The following schematic illustrate these parameters.</p>
-<img alt="Composites" class="align-center" src="images/graph_makeover/coordinates_and_cells.png" style="width: 600px;"><p>I would not say that the graph is awful, and, in comparison to what you would
-find in most scientific literature it is even good. But … in the land of the
-blind, the one-eyed is king. So, let's enumerate what are the <em>sins</em> of the
-plot and see if we can correct them:</p>
-<ul class="simple">
-<li><p>It has two x axes.</p></li>
-<li><p>The legend is enclosed in a box that seems unnecessary.</p></li>
-<li><p>Right and top spines are not contributing to the plot.</p></li>
-<li><p>Annotations are stealing protagonism from the data.</p></li>
-<li><p>It looks clutterd with lines and markers.</p></li>
-<li><p>It is a <a class="reference external" href="http://www.storytellingwithdata.com/blog/2013/03/avoiding-spaghetti-graph">spaghetti graph</a>.</p></li>
-</ul>
-<p>The following snippet generates this graph.</p>
-<pre class="code python"><a name="rest_code_ae82c0546b064fdea20bda1a4e9675e7-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<a name="rest_code_ae82c0546b064fdea20bda1a4e9675e7-2"></a><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<a name="rest_code_ae82c0546b064fdea20bda1a4e9675e7-3"></a><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">rcParams</span>
-<a name="rest_code_ae82c0546b064fdea20bda1a4e9675e7-4"></a>
-<a name="rest_code_ae82c0546b064fdea20bda1a4e9675e7-5"></a><span class="n">rcParams</span><span class="p">[</span><span class="s1">'font.family'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'serif'</span>
-<a name="rest_code_ae82c0546b064fdea20bda1a4e9675e7-6"></a><span class="n">rcParams</span><span class="p">[</span><span class="s1">'font.size'</span><span class="p">]</span> <span class="o">=</span> <span class="mi">16</span>
-<a name="rest_code_ae82c0546b064fdea20bda1a4e9675e7-7"></a><span class="n">rcParams</span><span class="p">[</span><span class="s1">'legend.fontsize'</span><span class="p">]</span> <span class="o">=</span> <span class="mi">15</span>
-<a name="rest_code_ae82c0546b064fdea20bda1a4e9675e7-8"></a><span class="n">rcParams</span><span class="p">[</span><span class="s1">'mathtext.fontset'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'cm'</span>
-<a name="rest_code_ae82c0546b064fdea20bda1a4e9675e7-9"></a>
-<a name="rest_code_ae82c0546b064fdea20bda1a4e9675e7-10"></a><span class="n">markers</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'o'</span><span class="p">,</span> <span class="s1">'^'</span><span class="p">,</span> <span class="s1">'v'</span><span class="p">,</span> <span class="s1">'s'</span><span class="p">,</span> <span class="s1">'&lt;'</span><span class="p">,</span> <span class="s1">'&gt;'</span><span class="p">,</span> <span class="s1">'d'</span><span class="p">,</span> <span class="s1">'*'</span><span class="p">,</span> <span class="s1">'x'</span><span class="p">,</span> <span class="s1">'D'</span><span class="p">,</span> <span class="s1">'+'</span><span class="p">,</span> <span class="s1">'H'</span><span class="p">]</span>
-<a name="rest_code_ae82c0546b064fdea20bda1a4e9675e7-11"></a><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">"Energy_vs_D.csv"</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">","</span><span class="p">)</span>
-<a name="rest_code_ae82c0546b064fdea20bda1a4e9675e7-12"></a><span class="n">labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">"Energy_vs_D.csv"</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">","</span><span class="p">,</span>
-<a name="rest_code_ae82c0546b064fdea20bda1a4e9675e7-13"></a>                    <span class="n">usecols</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
-<a name="rest_code_ae82c0546b064fdea20bda1a4e9675e7-14"></a><span class="n">labels</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span>
-<a name="rest_code_ae82c0546b064fdea20bda1a4e9675e7-15"></a>
-<a name="rest_code_ae82c0546b064fdea20bda1a4e9675e7-16"></a><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<a name="rest_code_ae82c0546b064fdea20bda1a4e9675e7-17"></a><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
-<a name="rest_code_ae82c0546b064fdea20bda1a4e9675e7-18"></a><span class="k">for</span> <span class="n">cont</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
-<a name="rest_code_ae82c0546b064fdea20bda1a4e9675e7-19"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span> <span class="n">cont</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="n">markers</span><span class="p">[</span><span class="n">cont</span><span class="p">],</span>
-<a name="rest_code_ae82c0546b064fdea20bda1a4e9675e7-20"></a>             <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">"$D/\lambda=</span><span class="si">{:.3g}</span><span class="s2">$"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">labels</span><span class="p">[</span><span class="n">cont</span><span class="p">]))</span>
-<a name="rest_code_ae82c0546b064fdea20bda1a4e9675e7-21"></a>
-<a name="rest_code_ae82c0546b064fdea20bda1a4e9675e7-22"></a><span class="c1"># First x-axis</span>
-<a name="rest_code_ae82c0546b064fdea20bda1a4e9675e7-23"></a><span class="n">xticks</span><span class="p">,</span> <span class="n">xlabels</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">()</span>
-<a name="rest_code_ae82c0546b064fdea20bda1a4e9675e7-24"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"Number of layers - $N$"</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
-<a name="rest_code_ae82c0546b064fdea20bda1a4e9675e7-25"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"Fraction of Energy - $\eta$"</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
-<a name="rest_code_ae82c0546b064fdea20bda1a4e9675e7-26"></a><span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">'center left'</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
-<a name="rest_code_ae82c0546b064fdea20bda1a4e9675e7-27"></a>
-<a name="rest_code_ae82c0546b064fdea20bda1a4e9675e7-28"></a><span class="c1"># Second x-axis</span>
-<a name="rest_code_ae82c0546b064fdea20bda1a4e9675e7-29"></a><span class="n">ax2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">twiny</span><span class="p">()</span>
-<a name="rest_code_ae82c0546b064fdea20bda1a4e9675e7-30"></a><span class="n">ax2</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">xticks</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span>
-<a name="rest_code_ae82c0546b064fdea20bda1a4e9675e7-31"></a><span class="n">ax2</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="mf">180.</span><span class="o">/</span><span class="n">xticks</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span>
-<a name="rest_code_ae82c0546b064fdea20bda1a4e9675e7-32"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"Angle - $\alpha\ (^\circ)$"</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
-<a name="rest_code_ae82c0546b064fdea20bda1a4e9675e7-33"></a>
-<a name="rest_code_ae82c0546b064fdea20bda1a4e9675e7-34"></a><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<a name="rest_code_ae82c0546b064fdea20bda1a4e9675e7-35"></a><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">"energy_vs_D_orig.svg"</span><span class="p">)</span>
-<a name="rest_code_ae82c0546b064fdea20bda1a4e9675e7-36"></a><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">"energy_vs_D_orig.png"</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
-</pre>
-</div>
-<div class="section" id="corrections">
-<h2>Corrections</h2>
-<p>I will vindicate the graph one <em>sin</em> at a time, let's see how it turns out.</p>
-<div class="section" id="it-has-two-x-axes">
-<h3>It has two x axes</h3>
-<p>I, originally, added two axes to show both the number of layers
-and the angle between them at the same time. The general recommendation is
-to avoid this, so let's get rid of the top one.</p>
-<img alt="First iteration" class="align-center" src="images/graph_makeover/energy_vs_D_1.svg" style="width: 600px;">
-</div>
-<div class="section" id="legend-in-a-box">
-<h3>Legend in a box</h3>
-<p>Pretty straightforward …</p>
-<img alt="Second iteration" class="align-center" src="images/graph_makeover/energy_vs_D_2.svg" style="width: 600px;">
-</div>
-<div class="section" id="right-and-top-spines">
-<h3>Right and top spines</h3>
-<p>Let's remove them</p>
-<img alt="Third iteration" class="align-center" src="images/graph_makeover/energy_vs_D_3.svg" style="width: 600px;">
-</div>
-<div class="section" id="annotations-are-stealing-protagonism">
-<h3>Annotations are stealing protagonism</h3>
-<p>Let's move all the annotations to the background by changing the color
-to a lighter gray.</p>
-<img alt="Fourth iteration" class="align-center" src="images/graph_makeover/energy_vs_D_4.svg" style="width: 600px;">
-</div>
-<div class="section" id="clutterd-with-lines-and-markers">
-<h3>Clutterd with lines and markers</h3>
-<p>Let's just keep the lines.</p>
-<img alt="Fifth iteration" class="align-center" src="images/graph_makeover/energy_vs_D_5.svg" style="width: 600px;"><p>And increase the linewidth.</p>
-<img alt="Sixth iteration" class="align-center" src="images/graph_makeover/energy_vs_D_6.svg" style="width: 600px;">
-</div>
-<div class="section" id="it-is-a-spaghetti-graph">
-<h3>It is a spaghetti graph</h3>
-<p>I think that a good option for this graph would be to highlight
-one line at a time. Doing this, we end up with.</p>
-<img alt="Seventh iteration" class="align-center" src="images/graph_makeover/energy_vs_D_7.svg" style="width: 600px;"><p>The following snippet generates this version.</p>
-<pre class="code python"><a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-2"></a><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-3"></a><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">rcParams</span>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-4"></a>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-5"></a><span class="c1"># Plots setup</span>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-6"></a><span class="n">gray</span> <span class="o">=</span> <span class="s1">'#757575'</span>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-7"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"mathtext.fontset"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"cm"</span>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-8"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"text.color"</span><span class="p">]</span> <span class="o">=</span> <span class="n">gray</span>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-9"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"xtick.color"</span><span class="p">]</span> <span class="o">=</span> <span class="n">gray</span>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-10"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"ytick.color"</span><span class="p">]</span> <span class="o">=</span> <span class="n">gray</span>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-11"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"axes.labelcolor"</span><span class="p">]</span> <span class="o">=</span> <span class="n">gray</span>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-12"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"axes.edgecolor"</span><span class="p">]</span> <span class="o">=</span> <span class="n">gray</span>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-13"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"axes.spines.right"</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-14"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"axes.spines.top"</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-15"></a><span class="n">rcParams</span><span class="p">[</span><span class="s1">'font.family'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'serif'</span>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-16"></a><span class="n">rcParams</span><span class="p">[</span><span class="s1">'mathtext.fontset'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'cm'</span>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-17"></a>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-18"></a>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-19"></a>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-20"></a><span class="k">def</span> <span class="nf">line_plots</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">highlight_line</span><span class="p">,</span> <span class="n">title</span><span class="p">):</span>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-21"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-22"></a>    <span class="k">for</span> <span class="n">cont</span><span class="p">,</span> <span class="n">datum</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">T</span><span class="p">):</span>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-23"></a>        <span class="k">if</span> <span class="n">cont</span> <span class="o">==</span> <span class="n">highlight_line</span><span class="p">:</span>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-24"></a>            <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">datum</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"#984ea3"</span><span class="p">,</span>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-25"></a>                     <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-26"></a>        <span class="k">else</span><span class="p">:</span>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-27"></a>            <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">datum</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">gray</span><span class="p">,</span>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-28"></a>                     <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-29"></a>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-30"></a>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-31"></a><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">"Energy_vs_D.csv"</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">","</span><span class="p">)</span>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-32"></a><span class="n">labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">"Energy_vs_D.csv"</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">","</span><span class="p">,</span>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-33"></a>                    <span class="n">usecols</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-34"></a><span class="n">labels</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-35"></a>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-36"></a><span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="s2">"all"</span><span class="p">)</span>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-37"></a><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-38"></a><span class="k">for</span> <span class="n">cont</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-39"></a>    <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">cont</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-40"></a>    <span class="n">title</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">"$D/\lambda=</span><span class="si">{:.3g}</span><span class="s2">$"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">labels</span><span class="p">[</span><span class="n">cont</span><span class="p">])</span>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-41"></a>    <span class="n">line_plots</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">cont</span><span class="p">,</span> <span class="n">title</span><span class="p">)</span>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-42"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-43"></a>    <span class="k">if</span> <span class="n">cont</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">:</span>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-44"></a>        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-45"></a>        <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_ticks</span><span class="p">([])</span>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-46"></a>        <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s2">"bottom"</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s2">"none"</span><span class="p">)</span>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-47"></a>    <span class="k">else</span><span class="p">:</span>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-48"></a>        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"Number of layers - $N$"</span><span class="p">)</span>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-49"></a>    <span class="k">if</span> <span class="n">cont</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-50"></a>        <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_ticks</span><span class="p">([])</span>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-51"></a>        <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s2">"left"</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s2">"none"</span><span class="p">)</span>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-52"></a>    <span class="k">else</span><span class="p">:</span>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-53"></a>        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"Fraction of Energy - $\eta$"</span><span class="p">)</span>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-54"></a>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-55"></a>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-56"></a><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-57"></a><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">"energy_vs_D_7.svg"</span><span class="p">)</span>
-<a name="rest_code_402ba4fb45c44964938fec9bcde48c1e-58"></a><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">"energy_vs_D_7.png"</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
-</pre>
-</div>
-</div>
-<div class="section" id="final-tweaks">
-<h2>Final tweaks</h2>
-<p>Using Inkscape I added some final details to get the following version.</p>
-<img alt="Final" class="align-center" src="images/graph_makeover/energy_vs_D_final.svg" style="width: 600px;">
-</div>
-<div class="section" id="further-reading">
-<h2>Further reading</h2>
-<ul class="simple">
-<li><p>Knaflic, Cole Nussbaumer. <a class="reference external" href="http://www.storytellingwithdata.com/book/">Storytelling with data: A data visualization guide for business professionals</a>.
-John Wiley &amp; Sons, 2015.</p></li>
-<li><p>Nicolás Guarín-Zapata et al. <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S1742706115002172">"Shear wave filtering in naturally-occurring Bouligand structures."</a>
-Acta biomaterialia 23 (2015): 11-20. Preprint: <a class="reference external" href="https://arxiv.org/pdf/1505.04203.pdf">https://arxiv.org/pdf/1505.04203.pdf</a></p></li>
-</ul>
-</div>
-    </div>
     </article>
 </div>
 
