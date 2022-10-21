@@ -86,49 +86,43 @@ of the video you cannot download it. So, I will show you an option to
 download videos without being a proprietary of them.</p>
 <p><strong>Disclaimer:</strong> It might be a good idea if you ask your organization about
 the copyright of the videos.</p>
-<div class="section" id="prerequisites">
-<h2>Prerequisites</h2>
+<section id="prerequisites"><h2>Prerequisites</h2>
 <p>You will need the following:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://git-scm.com/downloads">git</a>;</p></li>
 <li><p><a class="reference external" href="https://www.ffmpeg.org/download.html">ffmpeg</a>; and</p></li>
 <li><p><a class="reference external" href="https://nodejs.org/en/download/">Node.js</a>.</p></li>
-</ul>
-</div>
-<div class="section" id="destreamer-installation">
-<h2>
+</ul></section><section id="destreamer-installation"><h2>
 <code class="docutils literal">destreamer</code> installation</h2>
 <p>After getting the prerequisites you can download
 <a class="reference external" href="https://github.com/snobu/destreamer">destreamer</a> using</p>
-<pre class="code bash"><a name="rest_code_f6efd91099a54b23989094672ac22768-1"></a>$ git clone https://github.com/snobu/destreamer
-<a name="rest_code_f6efd91099a54b23989094672ac22768-2"></a>$ <span class="nb">cd</span> destreamer
-<a name="rest_code_f6efd91099a54b23989094672ac22768-3"></a>$ npm install
-<a name="rest_code_f6efd91099a54b23989094672ac22768-4"></a>$ npm run build
-</pre>
+<div class="code"><pre class="code bash"><a id="rest_code_0898cea3765b478894622a1466e8c865-1" name="rest_code_0898cea3765b478894622a1466e8c865-1" href="#rest_code_0898cea3765b478894622a1466e8c865-1"></a>$ git clone https://github.com/snobu/destreamer
+<a id="rest_code_0898cea3765b478894622a1466e8c865-2" name="rest_code_0898cea3765b478894622a1466e8c865-2" href="#rest_code_0898cea3765b478894622a1466e8c865-2"></a>$ <span class="nb">cd</span> destreamer
+<a id="rest_code_0898cea3765b478894622a1466e8c865-3" name="rest_code_0898cea3765b478894622a1466e8c865-3" href="#rest_code_0898cea3765b478894622a1466e8c865-3"></a>$ npm install
+<a id="rest_code_0898cea3765b478894622a1466e8c865-4" name="rest_code_0898cea3765b478894622a1466e8c865-4" href="#rest_code_0898cea3765b478894622a1466e8c865-4"></a>$ npm run build
+</pre></div>
 <p>in a terminal.</p>
 <p>If you do not want to play with
 <a class="reference external" href="https://en.wikipedia.org/wiki/Environment_variable">environment variables</a>,
 I suggest that you just add <code class="docutils literal">ffmpeg</code> to the same folder as <code class="docutils literal">destreamer</code>.</p>
-</div>
-<div class="section" id="downloading">
-<h2>Downloading</h2>
+</section><section id="downloading"><h2>Downloading</h2>
 <p>After that, you need to navigate to the folder where you downloaded
 <code class="docutils literal">destreamer</code> and</p>
-<pre class="code bash"><a name="rest_code_bd4bfcfde9674938a67b707a3bf314a1-1"></a>$ ./destreamer.sh -i <span class="s2">"https://web.microsoftstream.com/video/VIDEO_ID"</span>
-</pre>
+<div class="code"><pre class="code bash"><a id="rest_code_6bb6e095c0224362b0e8993527140767-1" name="rest_code_6bb6e095c0224362b0e8993527140767-1" href="#rest_code_6bb6e095c0224362b0e8993527140767-1"></a>$ ./destreamer.sh -i <span class="s2">"https://web.microsoftstream.com/video/VIDEO_ID"</span>
+</pre></div>
 <p>in Mac or Linux,</p>
-<pre class="code bash"><a name="rest_code_6ab9d7bf29134200b77b86aadb814e95-1"></a>$ destreamer.cmd -i <span class="s2">"https://web.microsoftstream.com/video/VIDEO_ID"</span>
-</pre>
+<div class="code"><pre class="code bash"><a id="rest_code_3fbcfc82ec0f4ce5a2aaa6cb779f2097-1" name="rest_code_3fbcfc82ec0f4ce5a2aaa6cb779f2097-1" href="#rest_code_3fbcfc82ec0f4ce5a2aaa6cb779f2097-1"></a>$ destreamer.cmd -i <span class="s2">"https://web.microsoftstream.com/video/VIDEO_ID"</span>
+</pre></div>
 <p>in the command prompt in Windows, and</p>
-<pre class="code bash"><a name="rest_code_8b89029095694f9a9b9ead4ff9c76958-1"></a>$ destreamer.ps1 -i <span class="s2">"https://web.microsoftstream.com/video/VIDEO_ID"</span>
-</pre>
+<div class="code"><pre class="code bash"><a id="rest_code_af5e6dc094ae44fa816ffa3d13aa430b-1" name="rest_code_af5e6dc094ae44fa816ffa3d13aa430b-1" href="#rest_code_af5e6dc094ae44fa816ffa3d13aa430b-1"></a>$ destreamer.ps1 -i <span class="s2">"https://web.microsoftstream.com/video/VIDEO_ID"</span>
+</pre></div>
 <p>in PowerShell.``VIDEO_ID`` refers to the identifier in MS Stream.</p>
 <p>If you want to download several files (like a complete course), you
 can create a file with the URLs and use</p>
-<pre class="code bash"><a name="rest_code_954588134e8a42b8a62cdf2574a1d6ed-1"></a>$ destreamer.cmd -f filename.txt
-</pre>
+<div class="code"><pre class="code bash"><a id="rest_code_f973007cd7734f7db204b62f04a45ed7-1" name="rest_code_f973007cd7734f7db204b62f04a45ed7-1" href="#rest_code_f973007cd7734f7db204b62f04a45ed7-1"></a>$ destreamer.cmd -f filename.txt
+</pre></div>
+</section>
 </div>
-    </div>
     <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
 <li><a class="tag p-category" href="../../categories/nodejs/" rel="tag">nodejs</a></li>
             <li><a class="tag p-category" href="../../categories/tutorial/" rel="tag">tutorial</a></li>

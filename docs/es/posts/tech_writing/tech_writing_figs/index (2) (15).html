@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html prefix="" lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="Consejos para escritura técnica con figuras.">
+<meta name="viewport" content="width=device-width">
+<title>Escritura técnica: usando figuras | Nicolás' blog</title>
+<link href="../../../../assets/css/all.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+<link rel="alternate" type="application/rss+xml" title="RSS (en)" href="../../../../rss.xml">
+<link rel="alternate" type="application/rss+xml" title="RSS (es)" href="../../../rss.xml">
+<link rel="canonical" href="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/">
+<!--[if lt IE 9]><script src="../../../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Nicolás Guarín-Zapata">
+<link rel="prev" href="../../chicharron/" title="¿Cuánto chicharrón puede comprar Jeff Bezos?" type="text/html">
+<meta property="og:site_name" content="Nicolás' blog">
+<meta property="og:title" content="Escritura técnica: usando figuras">
+<meta property="og:url" content="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/">
+<meta property="og:description" content="Consejos para escritura técnica con figuras.">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2021-11-03T12:53:40-05:00">
+<meta property="article:tag" content="escritura">
+<meta property="article:tag" content="figuras">
+<meta property="article:tag" content="inkscape">
+<meta property="article:tag" content="investigación">
+<meta property="article:tag" content="latex">
+<meta property="article:tag" content="libreoffice">
+<meta property="article:tag" content="tipografía">
+<link rel="alternate" hreflang="en" href="../../../../posts/tech_writing/tech_writing_figs/">
+</head>
+<body>
+    <a href="#content" class="sr-only sr-only-focusable">Ir al contenido principal</a>
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+            styles, `#sidebar-checkbox` for behavior. -->
+    <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox"><!-- Toggleable sidebar --><div class="sidebar" id="sidebar">
+        <div class="sidebar-item">
+            <p>This is my personal website and blog.</p>
+        </div>
+        
+    <nav id="menu" role="navigation" class="sidebar-nav"><a class="sidebar-nav-item" href="../../../../pages/about/">About</a>
+        <a class="sidebar-nav-item" href="../../../../index.html">Blog</a>
+        <a class="sidebar-nav-item" href="../../../../pages/preprints-archive/">Preprints</a>
+        <a class="sidebar-nav-item" href="../../../../pages/links/">Links</a>
+        <a class="sidebar-nav-item" href="../../../../archive.html">Archive</a>
+        <a class="sidebar-nav-item" href="../../../../categories/">Tags</a>
+        <a class="sidebar-nav-item" href="../../../../rss.xml">RSS feed</a>
+    
+    
+    </nav>
+</div>
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          
+    <h3 id="brand" class="masthead-title">
+      <a href="https://nicoguaro.github.io/es/" title="Nicolás' blog" rel="home">Nicolás' blog</a>
+    </h3>
+
+        </div>
+      </div>
+
+      <div class="container content" id="content">
+        
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="post-title p-name entry-title" itemprop="headline name"><a href="." class="u-url">Escritura técnica: usando figuras</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
+            <p class="dateline"><a href="." rel="bookmark"><time class="post-date published dt-published" datetime="2021-11-03T12:53:40-05:00" itemprop="datePublished" title="2021-11-03 12:53">2021-11-03 12:53</time></a></p>
+                <p class="commentline">
+    
+    <a href="#disqus_thread" data-disqus-identifier="cache/posts/tech_writing/tech_writing_figs.html">Comentarios</a>
+
+
+                <meta name="description" itemprop="description" content="Consejos para escritura técnica con figuras."></p>
+</div>
+        
+        <div class="metadata posttranslations translations">
+            <h3 class="posttranslations-intro">También disponible en:</h3>
+                <p><a href="../../../../posts/tech_writing/tech_writing_figs/" rel="alternate" hreflang="en">English</a></p>
+        </div>
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <p>En una <a class="reference external" href="../tech_writing">publicación anterior</a> mencioné algunos aspectos
+generales de la escritura técnica. En este me gustaría hablar sobre la
+inclusión de figuras en documentos técnicos.</p>
+<section id="formatos-de-graficos"><h2>Formatos de gráficos</h2>
+<p>Primero, debo mencionar que hay dos tipos principales de gráficos, a saber:</p>
+<ul class="simple">
+<li><p>gráficos vectoriales; y</p></li>
+<li><p>gráficos de mapa de bits.</p></li>
+</ul>
+<p>Sirven para diferentes propósitos y deberíamos usarlos teniendo esto en cuenta.
+Por ejemplo, para diagramas o esquemas es mejor utilizar formatos vectoriales,
+en general. Por otro lado, los formatos ráster son más adecuados para imágenes
+como fotografías o ilustraciones.</p>
+<section id="graficos-vectoriales"><h3>Gráficos vectoriales</h3>
+<p>Una <a class="reference external" href="http://en.wikipedia.org/wiki/Vector_graphics">imagen vectorial</a> es una
+imagen que está conformada por entidades geométricas. En este caso, la
+información almacenada no es punto a punto sino <em>la construcción</em> de las formas
+que la conforman. Por esta razón, estas imágenes no se <em>pixelan</em> ya que que la
+información con la que se cuenta es de cómo se construye. Este tipo de imágenes
+es la mejor opción para esquemas y diagramas, ya que sólo se almacenaría la
+información de trazos y texto. El estándar <em>de facto</em> para este tipo de imágenes
+es PDF—este es el tipo que uso en mis documentos de \(\LaTeX\)—. Aunque PDF
+es el <em>estándar</em>, mi formato preferido es <a class="reference external" href="http://en.wikipedia.org/wiki/Scalable_Vector_Graphics">SVG (Scalable Vector Graphics)</a> que es un estándar
+a través de internet y que se puede renderizar en la mayoría de navegadores
+<em>modernos</em>.</p>
+</section><section id="graficos-raster"><h3>Gráficos ráster</h3>
+<p>Una <a class="reference external" href="http://en.wikipedia.org/wiki/Raster_graphics">imagen ráster</a> es una
+imagen que está representada por un arreglo (o rejilla rectangular) de píxeles.
+En otras palabras, la información del color que hay en cada uno de los puntos
+de la imagen. Los formatos más populares almacenan la información de forma
+comprimida. Para gráficos de alto contraste (como esquemas o diagramas) el mejor
+formato es PNG. Si se tienen animaciones, sería preferible usar GIF. Y en el
+caso de fotografías es mejor usar JPG.</p>
+</section><section id="resumen-para-los-formatos"><h3>Resumen para los formatos</h3>
+<p>Resumiendo, deberíamos usar imágenes JPG (solo) para fotografías y SVG para
+esquemas/diagramas. Otro atributo que puede resultar útil es la gestión de
+capas. Tener varias capas brinda la opción de apilar diferentes tipos de
+información por separado. Por ejemplo, puede tener el fondo, la imagen y las
+anotaciones en diferentes capas. De esta forma se puede modificar sólo la parte
+de la figura de interés. Se puede automatizar la traducción de las anotaciones
+de esta manera sin muchos problemas. Los formatos como SVG permiten tener
+varias capas. En el caso de los formatos ráster, tenemos la opción de utilizar
+TIFF.</p>
+<p>En cuanto al software para generar/editar este tipo de imágenes debo decir
+que existe una gran cantidad de programas que permiten exportar a estos
+formatos: Python/Matplotlib, Matlab, Inkscape, Adobe Illustrator, GIMP,
+Photoshop, LibreOffice. Si el gráfico se genera a partir de un cálculo o una
+serie de datos, uso Matplotlib. Si, en cambio, queremos hacer un esquema, mi
+herramienta de elección es <a class="reference external" href="http://www.inkscape.org/">Inkscape</a>. Este programa
+está destinado a ser una alternativa gratuita a programas como Adobe
+Illustrator, y lo logra. Obviamente, se puede usar Illustrator o Corel Draw para
+esto. Si el único uso es hacer esquemas técnicos, creo que sería un desperdicio.</p>
+</section></section><section id="disenando-figuras-para-documentos"><h2>Diseñando figuras para documentos</h2>
+<p>Mi sugerencia es partir del tamaño nominal de la figura del documento. Para la
+mayoría de nuestros documentos, las cifras seguirán siendo digitales y esto
+puede parecer contradictorio. Sin embargo, encuentro este enfoque mucho más
+fácil. Una de las razones es que todavía incrustamos nuestra figura en un
+documento con un tamaño nominal. Además, a la hora de pensar en el tamaño de
+la fuente es habitual que tengamos como referencia el texto impreso. Además de
+eso, debemos considerar que el ojo humano tiene un límite de resolución, por lo
+que no podemos simplemente reducir nuestras figuras.</p>
+<p>Además, no existe la resolución de una imagen digital. La resolución se refiere
+a una densidad de píxeles por unidad de longitud. Esto tiene sentido al imprimir
+imágenes, pero no en el caso digital. Sin embargo, las figuras tienen un tamaño
+nominal y, por lo tanto, una resolución nominal. Es decir, el número de píxeles
+en una dirección dividido por su tamaño nominal. Es una buena idea considerar
+una resolución mínima de 150 ppp (puntos por pulgada). Por ejemplo, una imagen
+de 6 × 3 pulgadas. Esta imagen tendría un tamaño de (a 150 ppp) de
+900 px × 450 px.</p>
+<p>El siguiente código de Python crea una figura de tamaño 6 in × 3 in, y grafica
+la función \(f(x) = \sin(x^2)\) y la guarda como una imagen de tamaño
+900 in × 450 in.</p>
+<div class="code"><pre class="code python"><a id="rest_code_18685a8c0ceb4ced844db6b2a0317443-1" name="rest_code_18685a8c0ceb4ced844db6b2a0317443-1" href="#rest_code_18685a8c0ceb4ced844db6b2a0317443-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<a id="rest_code_18685a8c0ceb4ced844db6b2a0317443-2" name="rest_code_18685a8c0ceb4ced844db6b2a0317443-2" href="#rest_code_18685a8c0ceb4ced844db6b2a0317443-2"></a><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<a id="rest_code_18685a8c0ceb4ced844db6b2a0317443-3" name="rest_code_18685a8c0ceb4ced844db6b2a0317443-3" href="#rest_code_18685a8c0ceb4ced844db6b2a0317443-3"></a><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<a id="rest_code_18685a8c0ceb4ced844db6b2a0317443-4" name="rest_code_18685a8c0ceb4ced844db6b2a0317443-4" href="#rest_code_18685a8c0ceb4ced844db6b2a0317443-4"></a><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<a id="rest_code_18685a8c0ceb4ced844db6b2a0317443-5" name="rest_code_18685a8c0ceb4ced844db6b2a0317443-5" href="#rest_code_18685a8c0ceb4ced844db6b2a0317443-5"></a><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<a id="rest_code_18685a8c0ceb4ced844db6b2a0317443-6" name="rest_code_18685a8c0ceb4ced844db6b2a0317443-6" href="#rest_code_18685a8c0ceb4ced844db6b2a0317443-6"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<a id="rest_code_18685a8c0ceb4ced844db6b2a0317443-7" name="rest_code_18685a8c0ceb4ced844db6b2a0317443-7" href="#rest_code_18685a8c0ceb4ced844db6b2a0317443-7"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"x"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<a id="rest_code_18685a8c0ceb4ced844db6b2a0317443-8" name="rest_code_18685a8c0ceb4ced844db6b2a0317443-8" href="#rest_code_18685a8c0ceb4ced844db6b2a0317443-8"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"y"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<a id="rest_code_18685a8c0ceb4ced844db6b2a0317443-9" name="rest_code_18685a8c0ceb4ced844db6b2a0317443-9" href="#rest_code_18685a8c0ceb4ced844db6b2a0317443-9"></a><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">"fig_ex_python.png"</span><span class="p">,</span> <span class="n">dpi</span><span class="p">)</span>
+</pre></div>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>Y el siguiente código de Matlab.</p>
+<div class="code"><pre class="code matlab"><a id="rest_code_b490c9eac5e845759b02f1ce18d6457f-1" name="rest_code_b490c9eac5e845759b02f1ce18d6457f-1" href="#rest_code_b490c9eac5e845759b02f1ce18d6457f-1"></a><span class="n">fig</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<a id="rest_code_b490c9eac5e845759b02f1ce18d6457f-2" name="rest_code_b490c9eac5e845759b02f1ce18d6457f-2" href="#rest_code_b490c9eac5e845759b02f1ce18d6457f-2"></a><span class="n">fig</span><span class="p">.</span><span class="n">Units</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">'inches'</span><span class="p">;</span><span class="w"></span>
+<a id="rest_code_b490c9eac5e845759b02f1ce18d6457f-3" name="rest_code_b490c9eac5e845759b02f1ce18d6457f-3" href="#rest_code_b490c9eac5e845759b02f1ce18d6457f-3"></a><span class="n">fig</span><span class="p">.</span><span class="n">Position</span><span class="p">(</span><span class="mi">3</span><span class="p">:</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w">  </span><span class="p">[</span><span class="mi">6</span><span class="w"> </span><span class="mi">4</span><span class="p">];</span><span class="w"></span>
+<a id="rest_code_b490c9eac5e845759b02f1ce18d6457f-4" name="rest_code_b490c9eac5e845759b02f1ce18d6457f-4" href="#rest_code_b490c9eac5e845759b02f1ce18d6457f-4"></a><span class="n">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="p">,</span><span class="w"> </span><span class="mi">500</span><span class="p">);</span><span class="w"></span>
+<a id="rest_code_b490c9eac5e845759b02f1ce18d6457f-5" name="rest_code_b490c9eac5e845759b02f1ce18d6457f-5" href="#rest_code_b490c9eac5e845759b02f1ce18d6457f-5"></a><span class="n">y</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">sin</span><span class="p">(</span><span class="n">x</span><span class="o">.^</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
+<a id="rest_code_b490c9eac5e845759b02f1ce18d6457f-6" name="rest_code_b490c9eac5e845759b02f1ce18d6457f-6" href="#rest_code_b490c9eac5e845759b02f1ce18d6457f-6"></a><span class="nb">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="s">'LineWidth'</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
+<a id="rest_code_b490c9eac5e845759b02f1ce18d6457f-7" name="rest_code_b490c9eac5e845759b02f1ce18d6457f-7" href="#rest_code_b490c9eac5e845759b02f1ce18d6457f-7"></a><span class="nb">xlabel</span><span class="p">(</span><span class="s">'x'</span><span class="p">,</span><span class="w"> </span><span class="s">'FontSize'</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"></span>
+<a id="rest_code_b490c9eac5e845759b02f1ce18d6457f-8" name="rest_code_b490c9eac5e845759b02f1ce18d6457f-8" href="#rest_code_b490c9eac5e845759b02f1ce18d6457f-8"></a><span class="nb">ylabel</span><span class="p">(</span><span class="s">'y'</span><span class="p">,</span><span class="w"> </span><span class="s">'FontSize'</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"></span>
+<a id="rest_code_b490c9eac5e845759b02f1ce18d6457f-9" name="rest_code_b490c9eac5e845759b02f1ce18d6457f-9" href="#rest_code_b490c9eac5e845759b02f1ce18d6457f-9"></a><span class="nb">set</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span><span class="w"> </span><span class="s">'PaperSize'</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">]);</span><span class="w"></span>
+<a id="rest_code_b490c9eac5e845759b02f1ce18d6457f-10" name="rest_code_b490c9eac5e845759b02f1ce18d6457f-10" href="#rest_code_b490c9eac5e845759b02f1ce18d6457f-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span><span class="s">'fig_ex_matlab'</span><span class="p">,</span><span class="w"> </span><span class="s">'-dpng'</span><span class="p">,</span><span class="w"> </span><span class="s">'-r150'</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>A continuación resumo algunos tamaños para artículos, pósters y diapositivas.</p>
+<section id="articulos"><h3>Artículos</h3>
+<p>Para un artículo es común usar tamaño carta que es 8.5 in × 11 in
+(215.9 mm × 279.4 mm). Otro formato común es A4 que es 210 mm × 297 mm
+(8.27 in × 11.7 in).</p>
+<p>Una guía para tamaños comunes es la siguiente:</p>
+<ul class="simple">
+<li><p>ancho de 1.0 columna: 90 mm (3.5 in);</p></li>
+<li><p>ancho de 1.5 columna: 140 mm (5.5 in);</p></li>
+<li><p>ancho de 2.0 columna: 190 mm (6.5 in);</p></li>
+</ul>
+<p>y se muestra en la siguiente imagen.</p>
+<img alt="Anchos de figuras comparados con papel tamaño carta." class="align-center" src="../../../../images/tech_writing/sizes.png" style="width: 400px;"><p>Si consideramos una <em>resolución</em> de 300 ppi, tenemos los siguientes números de
+píxeles horizontalmente</p>
+<ul class="simple">
+<li><p>ancho de 1.0 columna: 1050 píxeles;</p></li>
+<li><p>ancho de 1.5 columna: 1650 píxeles; y</p></li>
+<li><p>ancho de 2.0 columna: 1950 píxeles.</p></li>
+</ul>
+<p>Tenga en cuenta que un monitor HD tiene 1920 píxeles en la dirección horizontal.
+Esto significa que se necesita un monitor HD para ser capaz de ver tanto
+píxeles.</p>
+<p>Respecto al tamaño del texto, es común tener tamaños entre 8 y 12 pts para
+figuras.</p>
+</section><section id="posters"><h3>Pósters</h3>
+<p>En el caso de papel tamaño A0 (841 mm × 1189 mm, 33 in × 47 in) los tamaños
+serían algo como:</p>
+<ul class="simple">
+<li><p>ancho de 1.0 columna: 360 mm (14 in);</p></li>
+<li><p>ancho de 1.5 columna: 560 mm (22 in); y</p></li>
+<li><p>ancho de 2.0 columna: 760 mm (26 in).</p></li>
+</ul>
+<p>Tenga en cuenta que un póster puede que no encaje tan bien en el formato
+de dos columans. Sin embargo, creo que la referencia sigue siendo útil.</p>
+<p>Respecto al tamaño dl texto en pósters es una buena idea mantenerlo por encima
+de 24 pts (ver referencia 3).</p>
+</section><section id="diapositivas"><h3>Diapositivas</h3>
+<p>En el caso de diapositivas hay dos relaciones de aspecto comunes 16:9 y 4:3.
+Además, diferentes programas usan diferentes tamaños nominales. La siguiente
+tabla muestra los tamaños nomiales para LibreOffice Impress y MS Power Point.</p>
+<table>
+<thead><tr>
+<th class="head"></th>
+<th class="head"><p>16:9</p></th>
+<th class="head"><p>4:3</p></th>
+</tr></thead>
+<tbody>
+<tr>
+<td><p>LibreOffice Impress</p></td>
+<td><p>11.02 in × 6.20 in</p></td>
+<td><p>11.02 in × 8.00 in</p></td>
+</tr>
+<tr>
+<td><p>MS Power Point</p></td>
+<td><p>13.32 in × 7.50 in</p></td>
+<td><p>10.00 in × 7.50 in</p></td>
+</tr>
+</tbody>
+</table></section><section id="referencias"><h3>Referencias</h3>
+<ol class="arabic simple">
+<li><p>Matthew Butterick (2019). <a class="reference external" href="https://practicaltypography.com/">Butterick's Practical Typography</a>.
+Segunda edición, Matthew Butterick.</p></li>
+<li><p>Rougier, Nicolas P., Michael Droettboom, y Philip E. Bourne (2014).
+“Ten Simple Rules for Better Figures.” PLOS Computational Biology 10(9):e1003833.
+DOI: 10.1371/journal.pcbi.1003833.</p></li>
+<li><p>Erren, Thomas C., y Philip E. Bourne. 2007.
+“Ten Simple Rules for a Good Poster Presentation.”
+PLOS Computational Biology 3(5):e102. DOI: 10.1371/journal.pcbi.0030102</p></li>
+<li><p>Elsevier. (n.d.). "Artwork Overview." Fecha de acceso: Noviembre 1, 2021,
+de <a class="reference external" href="https://www.elsevier.com/authors/policies-and-guidelines/artwork-and-media-instructions/artwork-overview">https://www.elsevier.com/authors/policies-and-guidelines/artwork-and-media-instructions/artwork-overview</a></p></li>
+<li><p>Elsevier. (n.d.). "Artwork sizing." Fecha de acceso: Noviembre 1, 2021,
+de <a class="reference external" href="https://www.elsevier.com/authors/policies-and-guidelines/artwork-and-media-instructions/artwork-sizing">https://www.elsevier.com/authors/policies-and-guidelines/artwork-and-media-instructions/artwork-sizing</a></p></li>
+<li><p>Journal of applied physics (n.d.). "Preparing Your Manuscript: Authors
+Instruction." Fecha de acceso: Noviembre 1, 2021, de <a class="reference external" href="https://aip.scitation.org/jap/authors/manuscript">https://aip.scitation.org/jap/authors/manuscript</a></p></li>
+</ol>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+</section></section>
+</div>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../../../categories/escritura/" rel="tag">escritura</a></li>
+            <li><a class="tag p-category" href="../../../categories/figuras/" rel="tag">figuras</a></li>
+            <li><a class="tag p-category" href="../../../categories/inkscape/" rel="tag">inkscape</a></li>
+            <li><a class="tag p-category" href="../../../categories/investigacion/" rel="tag">investigación</a></li>
+            <li><a class="tag p-category" href="../../../categories/latex/" rel="tag">latex</a></li>
+            <li><a class="tag p-category" href="../../../categories/libreoffice/" rel="tag">libreoffice</a></li>
+            <li><a class="tag p-category" href="../../../categories/tipografia/" rel="tag">tipografía</a></li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="previous">
+                <a href="../../chicharron/" rel="prev" title="¿Cuánto chicharrón puede comprar Jeff Bezos?">Publicación anterior</a>
+            </li>
+        </ul></nav></aside><section class="comments hidden-print"><h2>Comentarios</h2>
+        
+    
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="nicoguaro-github",
+            disqus_url="https://nicoguaro.github.io/es/posts/tech_writing/tech_writing_figs/",
+        disqus_title="Escritura t\u00e9cnica: usando figuras",
+        disqus_identifier="cache/posts/tech_writing/tech_writing_figs.html",
+        disqus_config = function () {
+            this.language = "es_ES";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
+        </script></article><script>var disqus_shortname="nicoguaro-github";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><footer id="footer"><p><a href="https://creativecommons.org/licenses/by/4.0/" rel="nofollow">CC BY 4.0</a> © 2022 <a href="mailto:nicoguarin@gmail.com">Nicolás Guarín-Zapata</a>- Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a></p>
+            
+        </footer>
+</div>
+    </div>
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+    
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-145359674-1', 'auto');
+ga('send', 'pageview');
+</script><script src="../../../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+    moment.locale("es");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>

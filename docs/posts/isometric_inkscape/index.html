@@ -95,8 +95,7 @@ been seen on one of the faces of an isometric box.</p>
 <p>Following, I will describe briefly the transformations involved in this process.
 If you are just interested in the recipe for doing this in Inkscape, skip to
 the end of this post.</p>
-<div class="section" id="transformations-involved">
-<h2>Transformations involved</h2>
+<section id="transformations-involved"><h2>Transformations involved</h2>
 <p>Since we are working on a computer screen, we are talking of 2 dimensions.
 Hence, all transformations are represented by 2×2 matrices. In the particular
 example of interest in this post we need the following transformations:</p>
@@ -106,8 +105,7 @@ example of interest in this post we need the following transformations:</p>
 <li><p>Rotation</p></li>
 </ol>
 <p>Following are the transformation matrices.</p>
-<div class="section" id="scaling-in-the-vertical-direction">
-<h3>Scaling in the vertical direction</h3>
+<section id="scaling-in-the-vertical-direction"><h3>Scaling in the vertical direction</h3>
 <p>The matrix is given by</p>
 <div class="math">
 \begin{equation*}
@@ -115,9 +113,7 @@ M_\text{scaling} = \begin{bmatrix} 1 &amp;0\\ 0 &amp;a\end{bmatrix}\, ,
 \end{equation*}
 </div>
 <p>where <span class="math">\(a\)</span> is the scaling factor.</p>
-</div>
-<div class="section" id="horizontal-skew">
-<h3>Horizontal skew</h3>
+</section><section id="horizontal-skew"><h3>Horizontal skew</h3>
 <p>The matrix is given by</p>
 <div class="math">
 \begin{equation*}
@@ -125,9 +121,7 @@ M_\text{skew} = \begin{bmatrix} 1 &amp;\tan a\\ 0 &amp;1\end{bmatrix}\, ,
 \end{equation*}
 </div>
 <p>where <span class="math">\(a\)</span> is the skewing angle.</p>
-</div>
-<div class="section" id="rotation">
-<h3>Rotation</h3>
+</section><section id="rotation"><h3>Rotation</h3>
 <p>The matrix is given by</p>
 <div class="math">
 \begin{equation*}
@@ -135,9 +129,7 @@ M_\text{rotation} = \begin{bmatrix} \cos a &amp;-\sin a\\ \sin a &amp;\cos a\end
 \end{equation*}
 </div>
 <p>where <span class="math">\(a\)</span> is the rotation angle.</p>
-</div>
-<div class="section" id="complete-transformation">
-<h3>Complete transformation</h3>
+</section><section id="complete-transformation"><h3>Complete transformation</h3>
 <p>The complete transformation is given by</p>
 <div class="math">
 \begin{equation*}
@@ -159,9 +151,7 @@ M_\text{complete} = M_\text{rotation} M_\text{skew} M_\text{scaling}\, ,
 <p>The values seem a bit arbitrary, but they can be obtained from the
 <a class="reference external" href="https://en.wikipedia.org/wiki/Isometric_projection#Mathematics">isometric projection</a>
 itself. But that explanation would be a bit too long for this post.</p>
-</div>
-<div class="section" id="tranformation-in-inkscape">
-<h3>Tranformation in Inkscape</h3>
+</section><section id="tranformation-in-inkscape"><h3>Tranformation in Inkscape</h3>
 <p>We already have the transformation matrices and we can use them in Inkscape.
 But first, we need to understand how it works. Inkscape uses
 <a class="reference external" href="https://en.wikipedia.org/wiki/Scalable_Vector_Graphics">SVG</a>, the web
@@ -179,21 +169,15 @@ and type the components of the matrices obtained above for
 <p>My preferred method, though, is to apply each transformation after the
 other in the <cite>Transform</cite> dialog (<code class="docutils literal">Shift + Ctrl + M</code>). And, this is the
 method presented in the cheatsheet at the bottom of this post.</p>
-</div>
-</div>
-<div class="section" id="tl-dr">
-<h2>TL;DR</h2>
+</section></section><section id="tl-dr"><h2>TL;DR</h2>
 <p>If you are just interested in the transformations needed in Inkscape
 you can check the cheatsheet below. It uses third-angle as presented
 below.</p>
-<img alt="Views names in third angle representation" class="align-center" src="../../images/isometric_inkscape/third_angle.svg" style="width: 400px;"><div class="section" id="cheatsheet">
-<h3>Cheatsheet</h3>
+<img alt="Views names in third angle representation" class="align-center" src="../../images/isometric_inkscape/third_angle.svg" style="width: 400px;"><section id="cheatsheet"><h3>Cheatsheet</h3>
 <p>Keep in mind that Inkscape treats clockwise rotation as positive. Opposite
 to common notation in mathematics.</p>
-<img alt="Cheatsheet for isometric schematics in Inkscape" class="align-center" src="../../images/isometric_inkscape/isometric_instructions.svg" style="width: 500px;">
+<img alt="Cheatsheet for isometric schematics in Inkscape" class="align-center" src="../../images/isometric_inkscape/isometric_instructions.svg" style="width: 500px;"></section></section>
 </div>
-</div>
-    </div>
     <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
 <li><a class="tag p-category" href="../../categories/computer-graphics/" rel="tag">computer graphics</a></li>
             <li><a class="tag p-category" href="../../categories/inkscape/" rel="tag">inkscape</a></li>

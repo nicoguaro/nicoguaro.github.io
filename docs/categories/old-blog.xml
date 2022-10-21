@@ -3,10 +3,10 @@
 &lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
 &lt;img alt="Creative Commons License"
 style="border-width:0"
-src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Mon, 11 Jul 2022 18:47:30 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>(Auxiliary) Tools for research</title><link>https://nicoguaro.github.io/posts/herramientas-investigacion/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;In this post I want to talk about some tools (or something like that)
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Fri, 21 Oct 2022 17:34:15 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>(Auxiliary) Tools for research</title><link>https://nicoguaro.github.io/posts/herramientas-investigacion/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;In this post I want to talk about some tools (or something like that)
 that are useful in the day-to-day research, but usually not so popular
 for being somewhat &lt;em&gt;tangential&lt;/em&gt; to the area specific in which each one works.&lt;/p&gt;
-&lt;div class="section" id="scripting"&gt;
+&lt;section id="scripting"&gt;
 &lt;h2&gt;Scripting&lt;/h2&gt;
 &lt;p&gt;A &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Scripting_language"&gt;script&lt;/a&gt; is a
 &lt;em&gt;usually&lt;/em&gt; simple program that performs a series of tasks.
@@ -26,8 +26,8 @@ they involve are tedious.&lt;/p&gt;
 &lt;a class="reference external" href="http://www.mathworks.com/products/matlab/"&gt;Matlab&lt;/a&gt;/&lt;a class="reference external" href="http://www.gnu.org/software/octave/"&gt;Octave&lt;/a&gt;,
 &lt;a class="reference external" href="http://www.scilab.org/"&gt;Scilab&lt;/a&gt;. Allowing myself to follow my bias,
 I would recommend to use Python.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="graphics-and-schematics"&gt;
+&lt;/section&gt;
+&lt;section id="graphics-and-schematics"&gt;
 &lt;h2&gt;Graphics and schematics&lt;/h2&gt;
 &lt;p&gt;A picture is worth a thousand words, or so the saying goes.
 Personally, it seems absolutely true to me and I try to do
@@ -74,9 +74,6 @@ Illustrator —and it does achieve it. Obviously, you could use
 Illustrator or Corel Draw for this task. If the only use would be to make
 Technical schematics, I think it would be a waste.&lt;/p&gt;
 &lt;table&gt;
-&lt;colgroup&gt;
-&lt;col style="width: 100%"&gt;
-&lt;/colgroup&gt;
 &lt;tbody&gt;
 &lt;tr&gt;&lt;td&gt;&lt;img alt="/images/sensor_hall.png" src="https://nicoguaro.github.io/images/sensor_hall.png"&gt;
 &lt;/td&gt;
@@ -88,8 +85,8 @@ my Engineering Physics &lt;a class="reference external" href="https://goo.gl/G9R
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;/div&gt;
-&lt;div class="section" id="taking-notes"&gt;
+&lt;/section&gt;
+&lt;section id="taking-notes"&gt;
 &lt;h2&gt;Taking notes&lt;/h2&gt;
 &lt;p&gt;I suppose that to some it would seem a bit trivial to speak of "notetaking"
 and much more coming from someone who didn't have notebooks in
@@ -136,8 +133,8 @@ comparing bibliography handlers are::
 &lt;a class="reference external" href="https://www.researchgate.net/post/alternative_to_Endnote?_tpcectx=qa_overview_following"&gt;[A]&lt;/a&gt;
 &lt;a class="reference external" href="http://www.docear.org/2013/10/14/what-makes-a-bad-reference-manager/"&gt;[B]&lt;/a&gt;
 &lt;a class="reference external" href="http://www.docear.org/2014/01/15/comprehensive-comparison-of-reference-managers-mendeley-vs-zotero-vs-docear/"&gt;[C]&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="graphic-reconstruction"&gt;
+&lt;/section&gt;
+&lt;section id="graphic-reconstruction"&gt;
 &lt;h2&gt;Graphic reconstruction&lt;/h2&gt;
 &lt;p&gt;It is common to find information presented in the form of graphics.
 It is also common that we want to have the numerical data of these
@@ -146,9 +143,6 @@ our measurements/simulations/methods give results similar to others
 presented in the literature. We could use powerful image processing software,
 or other more modest ones designed specifically for this purpose.&lt;/p&gt;
 &lt;table&gt;
-&lt;colgroup&gt;
-&lt;col style="width: 100%"&gt;
-&lt;/colgroup&gt;
 &lt;tbody&gt;
 &lt;tr&gt;&lt;td&gt;&lt;img alt="/images/pointplot.jpg" src="https://nicoguaro.github.io/images/pointplot.jpg"&gt;
 &lt;/td&gt;
@@ -158,9 +152,6 @@ or other more modest ones designed specifically for this purpose.&lt;/p&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;table&gt;
-&lt;colgroup&gt;
-&lt;col style="width: 100%"&gt;
-&lt;/colgroup&gt;
 &lt;tbody&gt;
 &lt;tr&gt;&lt;td&gt;&lt;img alt="/images/digitized_pts.png" src="https://nicoguaro.github.io/images/digitized_pts.png"&gt;
 &lt;/td&gt;
@@ -185,8 +176,8 @@ it is written in Java.&lt;/p&gt;&lt;/li&gt;
 image processing that is written in Java. I have not used it
 for this task on a regular basis, but could be used for it.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="section" id="scientific-visualization"&gt;
+&lt;/section&gt;
+&lt;section id="scientific-visualization"&gt;
 &lt;h2&gt;Scientific visualization&lt;/h2&gt;
 &lt;p&gt;&lt;a class="reference external" href="https://en.wikipedia.org/wiki/Scientific_visualization"&gt;Scientific visualization&lt;/a&gt;
 is in charge of generating graphs that allow visualizing "scientific data"
@@ -230,8 +221,8 @@ want to leave it out because I've always heard great things about it
     &lt;ahref&gt;
     Cross fire simulation
     &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.
-&lt;/ahref&gt;&lt;/p&gt;&lt;/div&gt;
-&lt;div class="section" id="version-control"&gt;
+&lt;/ahref&gt;&lt;/p&gt;&lt;/section&gt;
+&lt;section id="version-control"&gt;
 &lt;h2&gt;Version control&lt;/h2&gt;
 &lt;p&gt;&lt;a class="reference external" href="https://en.wikipedia.org/wiki/Version_control"&gt;Version control&lt;/a&gt; is the
 management of changes in documents, source code and other types of
@@ -271,8 +262,8 @@ allows you to have private repositories without the need to pay. It is only
 free for projects with 5 or fewer collaborators (or for
 &lt;a class="reference external" href="https://bitbucket.org/account/user/nicoguaro/plans/"&gt;academic projects&lt;/a&gt;).&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="section" id="suggested-links"&gt;
+&lt;/section&gt;
+&lt;section id="suggested-links"&gt;
 &lt;h2&gt;Suggested links&lt;/h2&gt;
 &lt;ol class="arabic simple"&gt;
 &lt;li&gt;&lt;p&gt;Software Carpentry. &lt;a class="reference external" href="http://software-carpentry.org/"&gt;http://software-carpentry.org/&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
@@ -280,7 +271,7 @@ free for projects with 5 or fewer collaborators (or for
 &lt;/ol&gt;
 &lt;p&gt;Surely I left a lot of topics outside as well as tools within a topic. If that's
 the case, I would appreciate if you tell me in the comments.&lt;/p&gt;
-&lt;/div&gt;</description><category>note taking</category><category>old blog</category><category>research</category><category>scientific visualization</category><guid>https://nicoguaro.github.io/posts/herramientas-investigacion/</guid><pubDate>Sat, 12 Jul 2014 09:24:00 GMT</pubDate></item><item><title>Note taking with my tablet</title><link>https://nicoguaro.github.io/posts/notas-tableta/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;Last year baby Jesus gave me a &lt;a class="reference external" href="http://www.samsung.com/us/mobile/galaxy-note/GT-N8013EAVXAR"&gt;Samsung Galaxy Note
+&lt;/section&gt;</description><category>note taking</category><category>old blog</category><category>research</category><category>scientific visualization</category><guid>https://nicoguaro.github.io/posts/herramientas-investigacion/</guid><pubDate>Sat, 12 Jul 2014 09:24:00 GMT</pubDate></item><item><title>Note taking with my tablet</title><link>https://nicoguaro.github.io/posts/notas-tableta/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;Last year baby Jesus gave me a &lt;a class="reference external" href="http://www.samsung.com/us/mobile/galaxy-note/GT-N8013EAVXAR"&gt;Samsung Galaxy Note
 10.1&lt;/a&gt;
 (model 2012). This tablet is designed for taking notes, as it brings
 an S-Pen (made by Wacom, which I think makes the
@@ -311,7 +302,7 @@ expectations. As for taking notes: it is highly recommended to take
 short notes (like meetings); not so much for taking long notes (like
 class notes), unless you want to have a digital copy
 easily.&lt;/p&gt;
-&lt;div class="section" id="apps"&gt;
+&lt;section id="apps"&gt;
 &lt;h2&gt;Apps&lt;/h2&gt;
 &lt;p&gt;The technology behind the tablet is the most important part. Simply pu, the pen
 has an antenna and the tablet a grid of antennas that are tuned to the same
@@ -359,15 +350,15 @@ it is adjustable).&lt;/p&gt;&lt;/li&gt;
 (by FiftyThree) on Android, and, although there is a version of &lt;a class="reference external" href="http://www.wacom.com/en/us/everyday/bamboo-paper"&gt;Bamboo
 Paper&lt;/a&gt; (by Wacom)
 for Android it is not compatible with the tablet.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="in-conclusion"&gt;
+&lt;/section&gt;
+&lt;section id="in-conclusion"&gt;
 &lt;h2&gt;In conclusion&lt;/h2&gt;
 &lt;p&gt;Replacing "traditional" note taking with "digital" notes
 It may be a bit rushed, but it is doable. The application that
 comes by default (S Note) allows to do the job "out of the
 box", but it could be better. The applications that I find the most
 Promising are: Note Anytime and Quill.&lt;/p&gt;
-&lt;/div&gt;</description><category>note taking</category><category>old blog</category><category>tablet</category><guid>https://nicoguaro.github.io/posts/notas-tableta/</guid><pubDate>Wed, 21 May 2014 02:23:00 GMT</pubDate></item><item><title>About teleportation in Star Trek</title><link>https://nicoguaro.github.io/posts/teletransportacion-star-trek/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;A friend once asked me about which of two methods was easier to
+&lt;/section&gt;</description><category>note taking</category><category>old blog</category><category>tablet</category><guid>https://nicoguaro.github.io/posts/notas-tableta/</guid><pubDate>Wed, 21 May 2014 02:23:00 GMT</pubDate></item><item><title>About teleportation in Star Trek</title><link>https://nicoguaro.github.io/posts/teletransportacion-star-trek/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;A friend once asked me about which of two methods was easier to
 teleport people. One consisted of "deconfiguring" and "reconfiguring"
 the person (as information, similar to &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Transporter_%28Star_Trek%29"&gt;Start Trek&lt;/a&gt;
 and the other in "creating a shortcut" between two places in space-time to pass

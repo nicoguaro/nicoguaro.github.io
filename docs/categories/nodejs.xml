@@ -3,13 +3,13 @@
 &lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
 &lt;img alt="Creative Commons License"
 style="border-width:0"
-src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Mon, 11 Jul 2022 18:47:30 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Downloading videos from MS Stream</title><link>https://nicoguaro.github.io/posts/download_stream/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;This week a student asked me about downloading the videos from one of the
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Fri, 21 Oct 2022 17:34:24 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Downloading videos from MS Stream</title><link>https://nicoguaro.github.io/posts/download_stream/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;This week a student asked me about downloading the videos from one of the
 courses from MS Stream. The problem is that if you are not a proprietary
 of the video you cannot download it. So, I will show you an option to
 download videos without being a proprietary of them.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Disclaimer:&lt;/strong&gt; It might be a good idea if you ask your organization about
 the copyright of the videos.&lt;/p&gt;
-&lt;div class="section" id="prerequisites"&gt;
+&lt;section id="prerequisites"&gt;
 &lt;h2&gt;Prerequisites&lt;/h2&gt;
 &lt;p&gt;You will need the following:&lt;/p&gt;
 &lt;ul class="simple"&gt;
@@ -17,31 +17,36 @@ the copyright of the videos.&lt;/p&gt;
 &lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://www.ffmpeg.org/download.html"&gt;ffmpeg&lt;/a&gt;; and&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://nodejs.org/en/download/"&gt;Node.js&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="section" id="destreamer-installation"&gt;
+&lt;/section&gt;
+&lt;section id="destreamer-installation"&gt;
 &lt;h2&gt;&lt;code class="docutils literal"&gt;destreamer&lt;/code&gt; installation&lt;/h2&gt;
 &lt;p&gt;After getting the prerequisites you can download
 &lt;a class="reference external" href="https://github.com/snobu/destreamer"&gt;destreamer&lt;/a&gt; using&lt;/p&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_f6efd91099a54b23989094672ac22768-1"&gt;&lt;/a&gt;$ git clone https://github.com/snobu/destreamer
-&lt;a name="rest_code_f6efd91099a54b23989094672ac22768-2"&gt;&lt;/a&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; destreamer
-&lt;a name="rest_code_f6efd91099a54b23989094672ac22768-3"&gt;&lt;/a&gt;$ npm install
-&lt;a name="rest_code_f6efd91099a54b23989094672ac22768-4"&gt;&lt;/a&gt;$ npm run build
-&lt;/pre&gt;&lt;p&gt;in a terminal.&lt;/p&gt;
+&lt;div class="code"&gt;&lt;pre class="code bash"&gt;&lt;a id="rest_code_0898cea3765b478894622a1466e8c865-1" name="rest_code_0898cea3765b478894622a1466e8c865-1" href="https://nicoguaro.github.io/posts/download_stream/#rest_code_0898cea3765b478894622a1466e8c865-1"&gt;&lt;/a&gt;$ git clone https://github.com/snobu/destreamer
+&lt;a id="rest_code_0898cea3765b478894622a1466e8c865-2" name="rest_code_0898cea3765b478894622a1466e8c865-2" href="https://nicoguaro.github.io/posts/download_stream/#rest_code_0898cea3765b478894622a1466e8c865-2"&gt;&lt;/a&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; destreamer
+&lt;a id="rest_code_0898cea3765b478894622a1466e8c865-3" name="rest_code_0898cea3765b478894622a1466e8c865-3" href="https://nicoguaro.github.io/posts/download_stream/#rest_code_0898cea3765b478894622a1466e8c865-3"&gt;&lt;/a&gt;$ npm install
+&lt;a id="rest_code_0898cea3765b478894622a1466e8c865-4" name="rest_code_0898cea3765b478894622a1466e8c865-4" href="https://nicoguaro.github.io/posts/download_stream/#rest_code_0898cea3765b478894622a1466e8c865-4"&gt;&lt;/a&gt;$ npm run build
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;in a terminal.&lt;/p&gt;
 &lt;p&gt;If you do not want to play with
 &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Environment_variable"&gt;environment variables&lt;/a&gt;,
 I suggest that you just add &lt;code class="docutils literal"&gt;ffmpeg&lt;/code&gt; to the same folder as &lt;code class="docutils literal"&gt;destreamer&lt;/code&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="downloading"&gt;
+&lt;/section&gt;
+&lt;section id="downloading"&gt;
 &lt;h2&gt;Downloading&lt;/h2&gt;
 &lt;p&gt;After that, you need to navigate to the folder where you downloaded
 &lt;code class="docutils literal"&gt;destreamer&lt;/code&gt; and&lt;/p&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_bd4bfcfde9674938a67b707a3bf314a1-1"&gt;&lt;/a&gt;$ ./destreamer.sh -i &lt;span class="s2"&gt;"https://web.microsoftstream.com/video/VIDEO_ID"&lt;/span&gt;
-&lt;/pre&gt;&lt;p&gt;in Mac or Linux,&lt;/p&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_6ab9d7bf29134200b77b86aadb814e95-1"&gt;&lt;/a&gt;$ destreamer.cmd -i &lt;span class="s2"&gt;"https://web.microsoftstream.com/video/VIDEO_ID"&lt;/span&gt;
-&lt;/pre&gt;&lt;p&gt;in the command prompt in Windows, and&lt;/p&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_8b89029095694f9a9b9ead4ff9c76958-1"&gt;&lt;/a&gt;$ destreamer.ps1 -i &lt;span class="s2"&gt;"https://web.microsoftstream.com/video/VIDEO_ID"&lt;/span&gt;
-&lt;/pre&gt;&lt;p&gt;in PowerShell.``VIDEO_ID`` refers to the identifier in MS Stream.&lt;/p&gt;
+&lt;div class="code"&gt;&lt;pre class="code bash"&gt;&lt;a id="rest_code_6bb6e095c0224362b0e8993527140767-1" name="rest_code_6bb6e095c0224362b0e8993527140767-1" href="https://nicoguaro.github.io/posts/download_stream/#rest_code_6bb6e095c0224362b0e8993527140767-1"&gt;&lt;/a&gt;$ ./destreamer.sh -i &lt;span class="s2"&gt;"https://web.microsoftstream.com/video/VIDEO_ID"&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;in Mac or Linux,&lt;/p&gt;
+&lt;div class="code"&gt;&lt;pre class="code bash"&gt;&lt;a id="rest_code_3fbcfc82ec0f4ce5a2aaa6cb779f2097-1" name="rest_code_3fbcfc82ec0f4ce5a2aaa6cb779f2097-1" href="https://nicoguaro.github.io/posts/download_stream/#rest_code_3fbcfc82ec0f4ce5a2aaa6cb779f2097-1"&gt;&lt;/a&gt;$ destreamer.cmd -i &lt;span class="s2"&gt;"https://web.microsoftstream.com/video/VIDEO_ID"&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;in the command prompt in Windows, and&lt;/p&gt;
+&lt;div class="code"&gt;&lt;pre class="code bash"&gt;&lt;a id="rest_code_af5e6dc094ae44fa816ffa3d13aa430b-1" name="rest_code_af5e6dc094ae44fa816ffa3d13aa430b-1" href="https://nicoguaro.github.io/posts/download_stream/#rest_code_af5e6dc094ae44fa816ffa3d13aa430b-1"&gt;&lt;/a&gt;$ destreamer.ps1 -i &lt;span class="s2"&gt;"https://web.microsoftstream.com/video/VIDEO_ID"&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;in PowerShell.``VIDEO_ID`` refers to the identifier in MS Stream.&lt;/p&gt;
 &lt;p&gt;If you want to download several files (like a complete course), you
 can create a file with the URLs and use&lt;/p&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_954588134e8a42b8a62cdf2574a1d6ed-1"&gt;&lt;/a&gt;$ destreamer.cmd -f filename.txt
-&lt;/pre&gt;&lt;/div&gt;</description><category>nodejs</category><category>tutorial</category><category>videos</category><guid>https://nicoguaro.github.io/posts/download_stream/</guid><pubDate>Fri, 12 Jun 2020 20:31:22 GMT</pubDate></item></channel></rss>
+&lt;div class="code"&gt;&lt;pre class="code bash"&gt;&lt;a id="rest_code_f973007cd7734f7db204b62f04a45ed7-1" name="rest_code_f973007cd7734f7db204b62f04a45ed7-1" href="https://nicoguaro.github.io/posts/download_stream/#rest_code_f973007cd7734f7db204b62f04a45ed7-1"&gt;&lt;/a&gt;$ destreamer.cmd -f filename.txt
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/section&gt;</description><category>nodejs</category><category>tutorial</category><category>videos</category><guid>https://nicoguaro.github.io/posts/download_stream/</guid><pubDate>Fri, 12 Jun 2020 20:31:22 GMT</pubDate></item></channel></rss>

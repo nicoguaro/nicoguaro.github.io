@@ -3,11 +3,11 @@
 &lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
 &lt;img alt="Creative Commons License"
 style="border-width:0"
-src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Mon, 11 Jul 2022 18:47:35 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Herramientas (auxiliares) para Investigación</title><link>https://nicoguaro.github.io/es/posts/herramientas-investigacion/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;En esta entrada quiero hablar de algunas herramientas (...o algo así)
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Fri, 21 Oct 2022 17:34:20 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Herramientas (auxiliares) para Investigación</title><link>https://nicoguaro.github.io/es/posts/herramientas-investigacion/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;En esta entrada quiero hablar de algunas herramientas (...o algo así)
 que son útiles en el día a día de la investigación, pero que no suelen
 ser tan populares por ser en cierta forma &lt;em&gt;tangenciales&lt;/em&gt; al área
 específica en la que cada uno trabaja.&lt;/p&gt;
-&lt;div class="section" id="scripting"&gt;
+&lt;section id="scripting"&gt;
 &lt;h2&gt;Scripting&lt;/h2&gt;
 &lt;p&gt;Un &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Scripting_language"&gt;script&lt;/a&gt;  es un
 programa &lt;em&gt;usualmente&lt;/em&gt; simple que realiza una serie de tareas. ¡Lo
@@ -31,8 +31,8 @@ son &lt;a class="reference external" href="https://www.python.org/"&gt;Python&lt
 &lt;a class="reference external" href="http://www.mathworks.com/products/matlab/"&gt;Matlab&lt;/a&gt;/&lt;a class="reference external" href="http://www.gnu.org/software/octave/"&gt;Octave&lt;/a&gt;,
 &lt;a class="reference external" href="http://www.scilab.org/"&gt;Scilab&lt;/a&gt;. Dejándome llevar por el sesgo,
 recomiendo usar Python.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="graficos-y-esquemas"&gt;
+&lt;/section&gt;
+&lt;section id="graficos-y-esquemas"&gt;
 &lt;h2&gt;Gráficos y esquemas&lt;/h2&gt;
 &lt;p&gt;Una imagen vale más que mil palabras, o eso dice el dicho.
 Personalmente, me parece absolutamente cierto y trato de hacer
@@ -81,9 +81,6 @@ Illustrator —y sí que lo consigue. Obviamente, se podría usar
 Illustrator o Corel Draw para esta tarea. Si el único uso sería hacer
 esquemas técnico, creo que sería un desperdicio.&lt;/p&gt;
 &lt;table&gt;
-&lt;colgroup&gt;
-&lt;col style="width: 100%"&gt;
-&lt;/colgroup&gt;
 &lt;tbody&gt;
 &lt;tr&gt;&lt;td&gt;&lt;img alt="/images/sensor_hall.png" src="https://nicoguaro.github.io/images/sensor_hall.png"&gt;
 &lt;/td&gt;
@@ -96,8 +93,8 @@ Física.&lt;/p&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;/div&gt;
-&lt;div class="section" id="tomar-notas"&gt;
+&lt;/section&gt;
+&lt;section id="tomar-notas"&gt;
 &lt;h2&gt;Tomar notas&lt;/h2&gt;
 &lt;p&gt;Supongo que para algunos parecería un poco trivial hablar de "tomar
 notas" y mucho más viniendo de alguien que no tenía cuadernos en el
@@ -146,8 +143,8 @@ comparando manejadores de bibliografía están acá:
 &lt;a class="reference external" href="https://www.researchgate.net/post/alternative_to_Endnote?_tpcectx=qa_overview_following"&gt;[A]&lt;/a&gt;
 &lt;a class="reference external" href="http://www.docear.org/2013/10/14/what-makes-a-bad-reference-manager/"&gt;[B]&lt;/a&gt;
 &lt;a class="reference external" href="http://www.docear.org/2014/01/15/comprehensive-comparison-of-reference-managers-mendeley-vs-zotero-vs-docear/"&gt;[C]&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="reconstruccion-de-graficos"&gt;
+&lt;/section&gt;
+&lt;section id="reconstruccion-de-graficos"&gt;
 &lt;h2&gt;Reconstrucción de gráficos&lt;/h2&gt;
 &lt;p&gt;Es común encontrarse con información presentada en forma de gráficos.
 También es común que queramos tener los datos numéricos de estos
@@ -157,9 +154,6 @@ presentados en la literatura. Para esta tarea se pueden usar potentes
 software de procesamiento de imágenes, u otros más modestos diseñados
 específicamente para este fin.&lt;/p&gt;
 &lt;table&gt;
-&lt;colgroup&gt;
-&lt;col style="width: 100%"&gt;
-&lt;/colgroup&gt;
 &lt;tbody&gt;
 &lt;tr&gt;&lt;td&gt;&lt;img alt="/images/pointplot.jpg" src="https://nicoguaro.github.io/images/pointplot.jpg"&gt;
 &lt;/td&gt;
@@ -169,9 +163,6 @@ específicamente para este fin.&lt;/p&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;table&gt;
-&lt;colgroup&gt;
-&lt;col style="width: 100%"&gt;
-&lt;/colgroup&gt;
 &lt;tbody&gt;
 &lt;tr&gt;&lt;td&gt;&lt;img alt="/images/digitized_pts.png" src="https://nicoguaro.github.io/images/digitized_pts.png"&gt;
 &lt;/td&gt;
@@ -197,8 +188,8 @@ escrito en Java.&lt;/p&gt;&lt;/li&gt;
 de procesamiento de imágenes que está escrito en Java. No lo he usado
 para esta tarea de manera regular, pero podría usarse para ello.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="section" id="visualizacion-cientifica"&gt;
+&lt;/section&gt;
+&lt;section id="visualizacion-cientifica"&gt;
 &lt;h2&gt;Visualización científica&lt;/h2&gt;
 &lt;p&gt;La &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Scientific_visualization"&gt;visualización
 científica&lt;/a&gt;
@@ -244,8 +235,8 @@ quise dejar por fuera porque siempre he oído hablar maravillas de él
 &lt;/iframe&gt;
 &lt;p&gt;
     &lt;ahref&gt;Simulación de fuego cruzado en &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.
-&lt;/ahref&gt;&lt;/p&gt;&lt;/div&gt;
-&lt;div class="section" id="manejo-de-versiones"&gt;
+&lt;/ahref&gt;&lt;/p&gt;&lt;/section&gt;
+&lt;section id="manejo-de-versiones"&gt;
 &lt;h2&gt;Manejo de versiones&lt;/h2&gt;
 &lt;p&gt;El &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Revision_control"&gt;manejo de
 versiones&lt;/a&gt; es la
@@ -288,8 +279,8 @@ permite tener repositorios privados sin la necesidad de pagar. Sólo
 es gratuito para proyectos con 5 colaboradores o menos (o para
 proyectos &lt;a class="reference external" href="https://bitbucket.org/account/user/nicoguaro/plans/"&gt;académicos&lt;/a&gt;).&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="section" id="enlaces-sugeridos"&gt;
+&lt;/section&gt;
+&lt;section id="enlaces-sugeridos"&gt;
 &lt;h2&gt;Enlaces sugeridos&lt;/h2&gt;
 &lt;ol class="arabic simple"&gt;
 &lt;li&gt;&lt;p&gt;Software Carpentry. &lt;a class="reference external" href="http://software-carpentry.org/"&gt;http://software-carpentry.org/&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
@@ -298,4 +289,4 @@ proyectos &lt;a class="reference external" href="https://bitbucket.org/account/u
 &lt;p&gt;Seguro dejé mucho temas por fuera así como herramientas dentro de
 algún tópico. Si ese es el caso, agradecería que me lo digan en los
 comentarios.&lt;/p&gt;
-&lt;/div&gt;</description><category>blog viejo</category><category>investigación</category><category>tomar notas</category><category>visualización científica</category><guid>https://nicoguaro.github.io/es/posts/herramientas-investigacion/</guid><pubDate>Sat, 12 Jul 2014 09:24:00 GMT</pubDate></item></channel></rss>
+&lt;/section&gt;</description><category>blog viejo</category><category>investigación</category><category>tomar notas</category><category>visualización científica</category><guid>https://nicoguaro.github.io/es/posts/herramientas-investigacion/</guid><pubDate>Sat, 12 Jul 2014 09:24:00 GMT</pubDate></item></channel></rss>

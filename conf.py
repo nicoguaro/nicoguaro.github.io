@@ -425,7 +425,7 @@ POSTS_SECTIONS = True
 # Set descriptions for tag pages to make them more interesting. The
 # default is no description. The value is used in the meta description
 # and displayed underneath the tag list or index page’s title.
-# TAG_PAGES_DESCRIPTIONS = {
+# TAG_DESCRIPTIONS = {
 #    DEFAULT_LANG: {
 #        "blogging": "Meta-blog posts about blogging about blogging.",
 #        "open source": "My contributions to my many, varied, ever-changing, and eternal libre software projects."
@@ -433,7 +433,7 @@ POSTS_SECTIONS = True
 # }
 
 # Set special titles for tag pages. The default is "Posts about TAG".
-# TAG_PAGES_TITLES = {
+# TAG_TITLES = {
 #    DEFAULT_LANG: {
 #        "blogging": "Meta-posts about blogging",
 #        "open source": "Posts about open source software"
@@ -494,7 +494,7 @@ CATEGORY_OUTPUT_FLAT_HIERARCHY = False
 # Set descriptions for category pages to make them more interesting. The
 # default is no description. The value is used in the meta description
 # and displayed underneath the category list or index page’s title.
-# CATEGORY_PAGES_DESCRIPTIONS = {
+# CATEGORY_DESCRIPTIONS = {
 #    DEFAULT_LANG: {
 #        "blogging": "Meta-blog posts about blogging about blogging.",
 #        "open source": "My contributions to my many, varied, ever-changing, and eternal libre software projects."
@@ -502,7 +502,7 @@ CATEGORY_OUTPUT_FLAT_HIERARCHY = False
 # }
 
 # Set special titles for category pages. The default is "Posts about CATEGORY".
-# CATEGORY_PAGES_TITLES = {
+# CATEGORY_TITLES = {
 #    DEFAULT_LANG: {
 #        "blogging": "Meta-posts about blogging",
 #        "open source": "Posts about open source software"
@@ -1337,8 +1337,9 @@ FILE_METADATA_UNSLUGIFY_TITLES = True
 # Special settings to disable only parts of the indexes plugin (to allow RSS
 # but no blog indexes, or to allow blog indexes and Atom but no site-wide RSS).
 # Use with care.
-# DISABLE_INDEXES_PLUGIN_INDEX_AND_ATOM_FEED = False
-# DISABLE_INDEXES_PLUGIN_RSS_FEED = False
+# DISABLE_MAIN_ATOM_FEED = False
+# DISABLE_INDEXES = False
+# DISABLE_MAIN_RSS_FEED = False
 
 # Add the absolute paths to directories containing plugins to use them.
 # For example, the `plugins` directory of your clone of the Nikola plugins

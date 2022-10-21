@@ -9,7 +9,7 @@
 .. status:
 
 Esta es la primera publicación sobre redacción técnica [*]_ de una serie que
-crearé poco a poco. La escritura técnica es algo con lo
+crearé durante el transcurso de este año. La escritura técnica es algo con lo
 que la mayoría de nosotros tenemos que lidiar en diferentes contextos. Por
 ejemplo, en cursos universitarios, publicaciones de investigación,
 documentación de software. La idea principal de la serie es mencionar algunos
@@ -57,7 +57,7 @@ mencionar algunos puntos importantes de acuerdo con la sección
 1. La selección tipográfica más importante está en el cuerpo del texto.
    Esto se debe al hecho de que es la mayor parte del documento.
 
-2. Elija un tamaño de texto entre 10-12 puntos para documentos impresos
+2. Elija un tamaño de punto entre 10-12 puntos para documentos impresos
    y 15-25 píxeles para documentos digitales.
 
 3. El espacio entre líneas debe estar entre 120-145% del tamaño de la letra.
@@ -76,20 +76,21 @@ Editores
 Otro punto que quiero tocar en esta publicación es el de los editores. La
 primera pregunta que surge es "¿qué editor debo usar?". La respuesta corta es:
 **usa lo que tus colegas estén usando**. Ese es mi mejor consejo; de esa
-manera tienes personas con quienes hablar sobre tus dudas.
+manera tu tienes personas con quienes hablar sobre tus dudas.
 
 La respuesta larga ... es que cada editor tiene sus puntos débiles y fuertes.
-Yo he escrito artículos científicos en LaTeX, LibreOffice Writer y MS Word;
+Yo ha escrito artículos científicos en LaTeX, LibreOffice Writer y MS Word;
 todos se ven profesionales. Entonces, al final, puedes escribir tu
-documentos de varias maneras y lograr un resultado similar. Yo prefiero usar
-LaTeX para documentos largos, ya que se centra en la estructura del
+documentos de varias maneras y lograr un resultado similar. Prefiero usar
+LaTeX para documentos largos, ya que se centra en la estructura de la
 documento en lugar de la apariencia y esta es la forma en que uno debe
 administrar un documento largo como una disertación, en mi opinión.
 
 Si solo quieres que elija un editor y te lo sugiera, diría que
-`LibreOffice <https://www.libreoffice.org/>`_. Una buena referencia es
-"Designing with LibreOffice". Una vez que aprendas cómo usar estilos, preguntarás
-cómo has estado escribiendo todos los documentos hasta ahora.
+`LibreOffice <https://www.libreoffice.org/>`_. Una buena referencia para
+es "Designing with LibreOffice". Una vez que aprendas
+cómo usar estilos, preguntarás cómo has estado escribiendo todos los documentos
+hasta ahora.
 
 Hay dos grupos de editores que voy a discutir:
 WYSIWYG (siglas en inglés para "Lo que ves es lo que obtienes") y
@@ -98,7 +99,7 @@ editores basados en marcado.
 - WYSIWYG. Esta categoría es la que la mayoría de la gente conoce.
   Dos ejemplos son:
 
-  - LibreOffice Writer; y
+  - LibreOffice writer; y
 
   - Microsoft Word.
 
@@ -135,12 +136,15 @@ References
 3. Bruce Byfield (2016). `Designing with LibreOffice <https://designingwithlibreoffice.com/>`_.
    Friends of OpenDocument, Inc.
 
-4. Deville, S. (2015). `Writing academic papers in plain text with Markdown and Jupyter notebook
+4. Deville, S. (2015).
+   `Writing academic papers in plain text with Markdown and Jupyter notebook
    <https://sylvaindeville.net/2015/07/17/writing-academic-papers-in-plain-text-with-markdown-and-jupyter-notebook/>`_.
    Sylvain Deville.
 
-5. Eric Holscher (2016). `An introduction to Sphinx and Read the Docs for Technical Writers
-   <https://www.ericholscher.com/blog/2016/jul/1/sphinx-and-rtd-for-writers/>`_.
+5. Eric Holscher (2016).
+`An introduction to Sphinx and Read the Docs for Technical Writers
+<https://www.ericholscher.com/blog/2016/jul/1/sphinx-and-rtd-for-writers/>`__
+
 
 
 .. [*] Esta publicación está (algo) relacionada con una

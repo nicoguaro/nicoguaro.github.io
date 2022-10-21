@@ -95,8 +95,7 @@ vería en una de las caras de una bloque isométrico.</p>
 <p>A continuación, describiré brevemente las transformaciones involucradas en este
 proceso. Si sólo está interesado en la receta para hacer esto en Inkscape, pase
 al final de este post.</p>
-<div class="section" id="transformaciones-involucradas">
-<h2>Transformaciones involucradas</h2>
+<section id="transformaciones-involucradas"><h2>Transformaciones involucradas</h2>
 <p>Como estamos trabajando en una pantalla de computador, estamos hablando de 2
 dimensiones. Por lo tanto, todas las transformaciones están representadas por
 matrices 2×2. En el ejemplo de interés en este post necesitamos las
@@ -107,8 +106,7 @@ siguientes transformaciones:</p>
 <li><p>Rotación</p></li>
 </ol>
 <p>Las siguientes son las matrices de transformación.</p>
-<div class="section" id="escalado-en-la-direccion-vertical">
-<h3>Escalado en la dirección vertical</h3>
+<section id="escalado-en-la-direccion-vertical"><h3>Escalado en la dirección vertical</h3>
 <p>La matriz está dada por</p>
 <div class="math">
 \begin{equation*}
@@ -116,9 +114,7 @@ M_\text{scaling} = \begin{bmatrix} 1 &amp;0\\ 0 &amp;a\end{bmatrix}\, ,
 \end{equation*}
 </div>
 <p>donde <span class="math">\(a\)</span> es el factor de escalamiento.</p>
-</div>
-<div class="section" id="inclinacion-horizontal">
-<h3>Inclinación horizontal</h3>
+</section><section id="inclinacion-horizontal"><h3>Inclinación horizontal</h3>
 <p>La matriz está dada por</p>
 <div class="math">
 \begin{equation*}
@@ -126,9 +122,7 @@ M_\text{skew} = \begin{bmatrix} 1 &amp;\tan a\\ 0 &amp;1\end{bmatrix}\, ,
 \end{equation*}
 </div>
 <p>donde <span class="math">\(a\)</span> es el ángulo de inclinación.</p>
-</div>
-<div class="section" id="rotacion">
-<h3>Rotación</h3>
+</section><section id="rotacion"><h3>Rotación</h3>
 <p>La matriz está dada por</p>
 <div class="math">
 \begin{equation*}
@@ -136,9 +130,7 @@ M_\text{rotation} = \begin{bmatrix} \cos a &amp;-\sin a\\ \sin a &amp;\cos a\end
 \end{equation*}
 </div>
 <p>donde <span class="math">\(a\)</span> es el ángulo de rotación.</p>
-</div>
-<div class="section" id="transformacion-completa">
-<h3>Transformación completa</h3>
+</section><section id="transformacion-completa"><h3>Transformación completa</h3>
 <p>La transformación completa está dada por</p>
 <div class="math">
 \begin{equation*}
@@ -160,9 +152,7 @@ M_\text{complete} = M_\text{rotation} M_\text{skew} M_\text{scaling}\, ,
 <p>Estos valores parecen un poco arbitrarios, pero pueden obtenerse de la
 <a class="reference external" href="https://en.wikipedia.org/wiki/Isometric_projection#Mathematics">proyección isométrica</a>
 misma. Pero esta explicación sería un poco larga para este post.</p>
-</div>
-<div class="section" id="tranformacion-en-inskcape">
-<h3>Tranformación en Inskcape</h3>
+</section><section id="tranformacion-en-inskcape"><h3>Tranformación en Inskcape</h3>
 <p>Ya tenemos las matrices de transformación y podemos usarlas en Inkscape.
 Pero primero, necesitamos entender cómo funciona. Inkscape usa
 <a class="reference external" href="https://en.wikipedia.org/wiki/Scalable_Vector_Graphics">SVG</a>, el estándar
@@ -182,21 +172,15 @@ para <span class="math">\(a\)</span>, <span class="math">\(b\)</span>, <span cla
 <p>Sin embargo, mi método preferido es aplicar cada transformación después de
 otro en el cuadro de diálogo <cite>Transformar</cite> (<code class="docutils literal">Shift + Ctrl + M</code>).
 Y este es el método presentado en el resumen al final de esta publicación.</p>
-</div>
-</div>
-<div class="section" id="tl-dr">
-<h2>TL;DR</h2>
+</section></section><section id="tl-dr"><h2>TL;DR</h2>
 <p>Si solo está interesado en las transformaciones necesarias en Inkscape
 Puedes consultar el resumen a continuación. Utiliza el tercer cuadrante como se
 presenta abajo.</p>
-<img alt="Nombres para la representación en tercer cuadrante." class="align-center" src="../../../images/isometric_inkscape/third_angle.svg" style="width: 400px;"><div class="section" id="resumen">
-<h3>Resumen</h3>
+<img alt="Nombres para la representación en tercer cuadrante." class="align-center" src="../../../images/isometric_inkscape/third_angle.svg" style="width: 400px;"><section id="resumen"><h3>Resumen</h3>
 <p>Tenga en cuenta que Inkscape trata la rotación en sentido horario como
 positiva. Opuesto a la notación común en matemáticas.</p>
-<img alt="Resumen para diagramas isométricos en Inkscape." class="align-center" src="../../../images/isometric_inkscape/isometric_instructions.svg" style="width: 500px;">
+<img alt="Resumen para diagramas isométricos en Inkscape." class="align-center" src="../../../images/isometric_inkscape/isometric_instructions.svg" style="width: 500px;"></section></section>
 </div>
-</div>
-    </div>
     <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
 <li><a class="tag p-category" href="../../categories/algebra-lineal/" rel="tag">álgebra lineal</a></li>
             <li><a class="tag p-category" href="../../categories/graficos-por-computador/" rel="tag">gráficos por computador</a></li>

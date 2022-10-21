@@ -76,10 +76,9 @@ Trumbos's Principles
 Trumbo's Principles present some guidelines to take into account when
 designing/using colormaps [1]:
 
-- Order: ordered values should be represented by
-ordered colors
-- Separation: significantly different levels should be
-represented by distinguishable colors
+- Order: ordered values should be represented by ordered colors
+- Separation: significantly different levels should be represented by
+  distinguishable colors
 
 The rainbow colormap is not good at present the color information ordered, and
 that is why some people suggest to avoid it [3]. Although there are versions of

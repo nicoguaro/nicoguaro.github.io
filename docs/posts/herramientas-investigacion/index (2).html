@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html prefix="" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>(Auxiliary) Tools for research | Nicolás' blog</title>
+<link href="../../assets/css/all.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+<link rel="alternate" type="application/rss+xml" title="RSS (en)" href="../../rss.xml">
+<link rel="alternate" type="application/rss+xml" title="RSS (es)" href="../../es/rss.xml">
+<link rel="canonical" href="https://nicoguaro.github.io/posts/herramientas-investigacion/">
+<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Nicolás Guarín-Zapata">
+<link rel="prev" href="../la-zorra-y-las-uvas/" title="La zorra y las uvas" type="text/html">
+<link rel="next" href="../hermite_interp/" title="Piecewise Hermite interpolation" type="text/html">
+<meta property="og:site_name" content="Nicolás' blog">
+<meta property="og:title" content="(Auxiliary) Tools for research">
+<meta property="og:url" content="https://nicoguaro.github.io/posts/herramientas-investigacion/">
+<meta property="og:description" content="In this post I want to talk about some tools (or something like that)
+that are useful in the day-to-day research, but usually not so popular
+for being somewhat tangential to the area specific in which">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2014-07-12T04:24:00-05:00">
+<meta property="article:tag" content="note taking">
+<meta property="article:tag" content="old blog">
+<meta property="article:tag" content="research">
+<meta property="article:tag" content="scientific visualization">
+<link rel="alternate" hreflang="es" href="../../es/posts/herramientas-investigacion/">
+</head>
+<body>
+    <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+            styles, `#sidebar-checkbox` for behavior. -->
+    <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox"><!-- Toggleable sidebar --><div class="sidebar" id="sidebar">
+        <div class="sidebar-item">
+            <p>This is my personal website and blog.</p>
+        </div>
+        
+    <nav id="menu" role="navigation" class="sidebar-nav"><a class="sidebar-nav-item" href="../../pages/about/">About</a>
+        <a class="sidebar-nav-item" href="../../index.html">Blog</a>
+        <a class="sidebar-nav-item" href="../../pages/preprints-archive/">Preprints</a>
+        <a class="sidebar-nav-item" href="../../pages/links/">Links</a>
+        <a class="sidebar-nav-item" href="../../archive.html">Archive</a>
+        <a class="sidebar-nav-item" href="../../categories/">Tags</a>
+        <a class="sidebar-nav-item" href="../../rss.xml">RSS feed</a>
+    
+    
+    </nav>
+</div>
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          
+    <h3 id="brand" class="masthead-title">
+      <a href="https://nicoguaro.github.io/" title="Nicolás' blog" rel="home">Nicolás' blog</a>
+    </h3>
+
+        </div>
+      </div>
+
+      <div class="container content" id="content">
+        
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="post-title p-name entry-title" itemprop="headline name"><a href="." class="u-url">(Auxiliary) Tools for research</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
+            <p class="dateline"><a href="." rel="bookmark"><time class="post-date published dt-published" datetime="2014-07-12T04:24:00-05:00" itemprop="datePublished" title="2014-07-12 04:24">2014-07-12 04:24</time></a></p>
+                <p class="commentline">
+    
+    <a href="#disqus_thread" data-disqus-identifier="cache/posts/herramientas-investigacion.html">Comments</a>
+
+
+        </p>
+</div>
+        
+        <div class="metadata posttranslations translations">
+            <h3 class="posttranslations-intro">Also available in:</h3>
+                <p><a href="../../es/posts/herramientas-investigacion/" rel="alternate" hreflang="es">Español</a></p>
+        </div>
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <p>In this post I want to talk about some tools (or something like that)
+that are useful in the day-to-day research, but usually not so popular
+for being somewhat <em>tangential</em> to the area specific in which each one works.</p>
+<div class="section" id="scripting">
+<h2>Scripting</h2>
+<p>A <a class="reference external" href="http://en.wikipedia.org/wiki/Scripting_language">script</a> is a
+<em>usually</em> simple program that performs a series of tasks.
+If there is a task that must be done more than ... five times (the number varies
+according to the patience), then I think it's something we can ask the
+computer to do for us. In other words: we can automate that work. Some tasks
+that can be a good alternative to automate are: rename 100 files,
+convert a file from one format to another (e.g. STL to OBJ), read
+387 files with information on the climate and graph its evolution
+temporary (minimum, maximum and average temperature). These tasks can
+be easy to do by hand, but for the amount of work that
+they involve are tedious.</p>
+<p>The first thing to do is to get a scripting language. Some options are
+<a class="reference external" href="https://www.python.org/">Python</a>,
+<a class="reference external" href="http://www.gnu.org/software/bash/">Bash</a>,
+<a class="reference external" href="http://julialang.org/">Julia</a>,
+<a class="reference external" href="http://www.mathworks.com/products/matlab/">Matlab</a>/<a class="reference external" href="http://www.gnu.org/software/octave/">Octave</a>,
+<a class="reference external" href="http://www.scilab.org/">Scilab</a>. Allowing myself to follow my bias,
+I would recommend to use Python.</p>
+</div>
+<div class="section" id="graphics-and-schematics">
+<h2>Graphics and schematics</h2>
+<p>A picture is worth a thousand words, or so the saying goes.
+Personally, it seems absolutely true to me and I try to do
+<em>scribbles</em> to better understand something or explain it better.
+The first thing I would like to mention is the difference between images
+bitmap (or raster) and vector images.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://en.wikipedia.org/wiki/Raster_graphics">Bitmap image</a>: it's an image
+which is represented by an array (or rectangular grid) of pixels. In other
+words, the color information that there are in each point of the image. The
+most popular formats store the compressed information. For high contrast
+graphics (such as schematics or diagrams) the best format is PNG. If you have
+an animation, GIF would be preferable. And in the case of photographs it is
+better to use JPG.</p></li>
+<li><p><a class="reference external" href="http://en.wikipedia.org/wiki/Vector_graphics">Vector image</a>:
+is an image that is made up of geometric entities. In this case, the
+stored information is not point-to-point but <em>the construction</em> of
+the shapes that constitute it. For this reason, these images don't
+<em>pixelate</em> because the information you have is how to build it.
+This type of images is the best options for schematics and diagrams,
+since the only stored information are the strokes and text added to
+them (see Figure 1). The <em>de facto</em> standard for this type
+of images is PDF —it is the one I usually include in my documents
+\(\LaTeX\), although there is a way to embed SVG in \(\LaTeX\)
+But it's something I haven't yet explored. Although PDF is the
+<em>standard</em>, the preferred format is <a class="reference external" href="http://en.wikipedia.org/wiki/Scalable_Vector_Graphics">SVG (Scalable Vector
+Graphics)</a>
+which is a standard across the internet and most
+<em>modern</em> browsers allow viewing.</p></li>
+</ul>
+<p>Recapping, we should use JPG images for photographs and SVG
+for schematics/diagrams. Another attribute that may be useful is the
+Layer management, SVG allows this ... and for raster formats we have the
+option to use TIFF.</p>
+<p>Regarding software to generate/edit this type of images I must
+say that there are a large number of programs that allow exporting to
+these formats: Python/Matplotlib, Matlab, Inkscape, Adobe
+Illustrator, GIMP, Photoshop, LibreOffice. If the graph is generated
+from a calculation or a data series I use Matplotlib. If
+instead, we want to make a schematic or my tool of choice
+is <a class="reference external" href="http://www.inkscape.org/">Inkscape.</a> This
+program is intended to be a free alternative to programs like Adobe
+Illustrator —and it does achieve it. Obviously, you could use
+Illustrator or Corel Draw for this task. If the only use would be to make
+Technical schematics, I think it would be a waste.</p>
+<table>
+<colgroup><col style="width: 100%"></colgroup>
+<tbody>
+<tr>
+<td><img alt="/images/sensor_hall.png" src="../../images/sensor_hall.png"></td>
+</tr>
+<tr>
+<td><p><strong>Figure 1.</strong> Schematic for magnetic field sensing for <a class="reference external" href="http://en.wikipedia.org/wiki/Neodymium_magnet">permanent
+magnets</a> using
+<a class="reference external" href="http://en.wikipedia.org/wiki/Hall_effect">Hall effect</a>. From
+my Engineering Physics <a class="reference external" href="https://goo.gl/G9RRhC">thesis</a> .</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="taking-notes">
+<h2>Taking notes</h2>
+<p>I suppose that to some it would seem a bit trivial to speak of "notetaking"
+and much more coming from someone who didn't have notebooks in
+high school, but since I'm a bit stubborn I think I'll still write a
+little about this. The first thing I would like to mention is that I remember
+people talking to me about this at school, but there was never anything
+formal regarding developing these skills. Surfing the web,
+there is a lot of information. Even the <a class="reference external" href="http://en.wikipedia.org/wiki/Note-taking">Wikipedia article on
+English</a> is interesting.
+There is nothing better to write than to have a good pen and paper with a good
+grammage, that's why I still use a notebook where I keep track of
+what I do in my research and take notes. However, this scheme is quite linear
+and leaves out more <em>contemporary</em> options. That is, why settle for a document
+in this time of hyper-documents? The advantages of taking notes
+digitally jump to the eye, in a hyper-document you can have
+links, embed images, video and sound.</p>
+<p>Regarding tools, I include a short list here:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://evernote.com/">Evernote</a> is probably the most popular tool
+for taking notes. It's cross-platform, Freemium  (free basic and paid
+advanced functionality), and has many options. I use it, but not much in my
+research.</p></li>
+<li><p><a class="reference external" href="http://zim-wiki.org/">Zim</a> it is an offline wiki. Has great
+number of options like calendar, equations with <span class="math">\(\LaTeX\)</span>, images ...
+anyway. The but that I find is that no I have managed to configure the
+equations in Windows (and in my office I must use Windows :-/).</p></li>
+<li><p><a class="reference external" href="http://www.docear.org/">Docear</a> this is a tool thought,
+mainly, to handle bibliography. However, it allows to take
+notes and, in general, handle the information of the investigation. The
+more (or less) appealing feature is that it works around
+mental maps.</p></li>
+<li><p><a class="reference external" href="https://www.zotero.org/">Zotero</a> It is also a tool to handle bibliography,
+although it allows to handle some note taking (at least around the
+bibliography).</p></li>
+<li><p><a class="reference external" href="http://www.mendeley.com/">Mendeley</a> it is very similar to the previous one,
+although with more functionalities. The biggest but that I find it
+is that in 2013 it was bought by Elsevier.</p></li>
+</ul>
+<p>Regarding bibliography management I would also like to mention
+<a class="reference external" href="http://endnote.com/">EndNote</a> which is the program with the longest
+trajectory and <a class="reference external" href="http://jabref.sourceforge.net/">JabRef</a> which is the one
+that I have used the longest. Some interesting references
+comparing bibliography handlers are::
+<a class="reference external" href="https://www.researchgate.net/post/alternative_to_Endnote?_tpcectx=qa_overview_following">[A]</a>
+<a class="reference external" href="http://www.docear.org/2013/10/14/what-makes-a-bad-reference-manager/">[B]</a>
+<a class="reference external" href="http://www.docear.org/2014/01/15/comprehensive-comparison-of-reference-managers-mendeley-vs-zotero-vs-docear/">[C]</a>.</p>
+</div>
+<div class="section" id="graphic-reconstruction">
+<h2>Graphic reconstruction</h2>
+<p>It is common to find information presented in the form of graphics.
+It is also common that we want to have the numerical data of these
+graphs to be able to compare them with ours. To know if
+our measurements/simulations/methods give results similar to others
+presented in the literature. We could use powerful image processing software,
+or other more modest ones designed specifically for this purpose.</p>
+<table>
+<colgroup><col style="width: 100%"></colgroup>
+<tbody>
+<tr>
+<td><img alt="/images/pointplot.jpg" src="../../images/pointplot.jpg"></td>
+</tr>
+<tr>
+<td><p><strong>Figure 2.</strong> Original graphic.</p></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup><col style="width: 100%"></colgroup>
+<tbody>
+<tr>
+<td><img alt="/images/digitized_pts.png" src="../../images/digitized_pts.png"></td>
+</tr>
+<tr>
+<td><p><strong>Figure 3.</strong> Graphic processed in Engauge Digitizer. Some points were
+selected (automatically) to obtain their coordinates.</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p><a class="reference external" href="http://extensions.libreoffice.org/extension-center/digitizer-of-xy-chart">Digitizer of XY chart</a>
+this is a plugin for Libreoffice/OpenOffice and it exports the result
+to the current spreadsheet, it is simple and easy to use.</p></li>
+<li><p><a class="reference external" href="http://digitizer.sourceforge.net/">Engauge Digitizer</a>, is the one
+I normally use when I need to do this task (see Figures above). It is
+open source (and free) and has a fair amount of options
+to make the task easier.</p></li>
+<li><p><a class="reference external" href="http://plotdigitizer.sourceforge.net/">Plot Digitizer</a> I don't have
+a lot of information about this one (since I have never used it), except that
+it is written in Java.</p></li>
+<li><p><a class="reference external" href="http://imagej.nih.gov/ij/">ImageJ</a> this is a (complete) program for
+image processing that is written in Java. I have not used it
+for this task on a regular basis, but could be used for it.</p></li>
+</ul>
+</div>
+<div class="section" id="scientific-visualization">
+<h2>Scientific visualization</h2>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Scientific_visualization">Scientific visualization</a>
+is in charge of generating graphs that allow visualizing "scientific data"
+to facilitate the understanding behind the data. For this work, many of us have
+used scripting languages such as Matlab/Octave, Scilab or Python (with
+Matplotlib or Mayavi). However, as visualization is about something visual
+—what else?—, it is good have a tool that allows you to generate and change
+graphics interactively, although we must always automate as much
+amount of work possible (laziness has always been one of the largest mobiles of
+humanity, you have to accept it).</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://code.enthought.com/projects/mayavi/">MayaVi</a>, this is a
+program written in Python that uses <a class="reference external" href="http://en.wikipedia.org/wiki/VTK">VTK</a>. It is very versatile and the great
+advantage it has is that it can be used within Python
+<a class="reference external" href="https://scipy-lectures.github.io/packages/3d_plotting/index.html">scripts</a>.</p></li>
+<li><p><a class="reference external" href="http://www.paraview.org/">Paraview</a>, this program is also
+based on VTK and allows to parallelize the work (for
+multi-core computers and clusters). Below I include a
+video generated in Paraview to show its capabilities.</p></li>
+<li><p><a class="reference external" href="https://wci.llnl.gov/simulation/computer-codes/visit">Visit</a>,
+this program is also VTK based, I have never used it but
+I wanted to include it because people say it can be more intuitive than
+Paraview.</p></li>
+<li><p><a class="reference external" href="http://www.tecplot.com/">Tecplot,</a> this program is very popular
+at Purdue. I think it was initially intended for CFD, but it has been
+much expanded. Regarding 3D graphics, it does not seem better than
+ParaView, however, the 2D graphics capabilities (XY graphics, and
+others) make it attractive.</p></li>
+<li><p><a class="reference external" href="http://jwork.org/scavis/">Scavis</a>, this is written in Java. I didn't
+know it until I started writing this post but it caught my eye and I wante
+to put it on the list. Something that cught my attention is that it allows
+scripting in several languages: Java, Python, Ruby, BeanShell, and
+Matlab/Octave.</p></li>
+<li><p><a class="reference external" href="http://www.originlab.com/">Origin</a>, I have never used it but I didn't
+want to leave it out because I've always heard great things about it
+(probably comparing it with Excel ... but I can't comment).</p></li>
+</ul>
+<iframe src="https://player.vimeo.com/video/2016815" width="640" height="483" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>
+</iframe>
+<p>
+    <ahref>
+    Cross fire simulation
+    <a href="https://vimeo.com">Vimeo</a>.
+</ahref></p>
+</div>
+<div class="section" id="version-control">
+<h2>Version control</h2>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Version_control">Version control</a> is the
+management of changes in documents, source code and other types of
+information. This can be done manually, but it is easy to make mistakes
+or replace the version of a code easily, and for this it is
+advisable to use software that facilitates the work. The idea is to
+have a <em>place</em> (repository) where versions and changes are stored, and keep
+track of them. In this way you can revert to a previous version of documents
+and multiple people can work together. There are two paradigms (or
+architectures) for version control: centralized and distributed. In the first
+there is a centralized repository where you find all the information. In
+distributed architectures each user has a copy of the repository. Personally I
+have only used <a class="reference external" href="http://git-scm.com/">Git</a>, which falls under the distributed
+category and is one of the most popular version contorl software
+at the moment; it is used by companies like Google, Facebook and Netflix.</p>
+<p>An example can be seen in this
+<a class="reference external" href="https://github.com/bebopsan/SEC-Thesis">repository</a>, with the
+undergrad thesis document of Santiago Echeverri, which
+I had the opportunity to advise. We edited this document
+together while he was in Medellin and I was in
+USA. The document was made in the markup language
+<span class="math">\(\LaTeX\)</span>.</p>
+<p>In addition to having control over the versions and being able to access
+previous versions, it is useful to be able to store the information in a
+accesible location from anywhere in the world with a connection to
+Internet. This can be achieved with your own server, obviously, or
+also through an external provider. Two projects that are very
+popular for hosting repositories are
+(<a class="reference external" href="http://www.infoworld.com/d/application-development/bitbucket-vs-github-which-project-host-has-the-most-227061">comparison between Github and
+BitBucket</a>):</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/">Github</a> is the most popular at the moment.
+It allows to have projects with an unlimited number of collaborators.
+To have a private repository it is necessary to pay.</p></li>
+<li><p><a class="reference external" href="https://bitbucket.org/">BitBucket</a> has the main advantage that
+allows you to have private repositories without the need to pay. It is only
+free for projects with 5 or fewer collaborators (or for
+<a class="reference external" href="https://bitbucket.org/account/user/nicoguaro/plans/">academic projects</a>).</p></li>
+</ul>
+</div>
+<div class="section" id="suggested-links">
+<h2>Suggested links</h2>
+<ol class="arabic simple">
+<li><p>Software Carpentry. <a class="reference external" href="http://software-carpentry.org/">http://software-carpentry.org/</a></p></li>
+<li><p>Python Scientific Lecture Notes. <a class="reference external" href="https://scipy-lectures.github.io/">https://scipy-lectures.github.io/</a></p></li>
+</ol>
+<p>Surely I left a lot of topics outside as well as tools within a topic. If that's
+the case, I would appreciate if you tell me in the comments.</p>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../../categories/note-taking/" rel="tag">note taking</a></li>
+            <li><a class="tag p-category" href="../../categories/old-blog/" rel="tag">old blog</a></li>
+            <li><a class="tag p-category" href="../../categories/research/" rel="tag">research</a></li>
+            <li><a class="tag p-category" href="../../categories/scientific-visualization/" rel="tag">scientific visualization</a></li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="previous">
+                <a href="../la-zorra-y-las-uvas/" rel="prev" title="La zorra y las uvas">Previous post</a>
+            </li>
+            <li class="next">
+                <a href="../hermite_interp/" rel="next" title="Piecewise Hermite interpolation">Next post</a>
+            </li>
+        </ul></nav></aside><section class="comments hidden-print"><h2>Comments</h2>
+        
+    
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="nicoguaro-github",
+            disqus_url="https://nicoguaro.github.io/posts/herramientas-investigacion/",
+        disqus_title="(Auxiliary) Tools for research",
+        disqus_identifier="cache/posts/herramientas-investigacion.html",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
+        </script></article><script>var disqus_shortname="nicoguaro-github";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><footer id="footer"><p><a href="https://creativecommons.org/licenses/by/4.0/" rel="nofollow">CC BY 4.0</a> © 2022 <a href="mailto:nicoguarin@gmail.com">Nicolás Guarín-Zapata</a>- Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a></p>
+            
+        </footer>
+</div>
+    </div>
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+    
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-145359674-1', 'auto');
+ga('send', 'pageview');
+</script><script src="../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>

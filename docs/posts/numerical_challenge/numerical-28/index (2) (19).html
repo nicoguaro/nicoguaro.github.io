@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html prefix="" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Numerical methods challenge: Day 28 | Nicolás' blog</title>
+<link href="../../../assets/css/all.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+<link rel="alternate" type="application/rss+xml" title="RSS (en)" href="../../../rss.xml">
+<link rel="alternate" type="application/rss+xml" title="RSS (es)" href="../../../es/rss.xml">
+<link rel="canonical" href="https://nicoguaro.github.io/posts/numerical_challenge/numerical-28/">
+<!--[if lt IE 9]><script src="../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Nicolás Guarín-Zapata">
+<link rel="prev" href="../numerical-27/" title="Numerical methods challenge: Day 27" type="text/html">
+<link rel="next" href="../numerical-29/" title="Numerical methods challenge: Day 29" type="text/html">
+<meta property="og:site_name" content="Nicolás' blog">
+<meta property="og:title" content="Numerical methods challenge: Day 28">
+<meta property="og:url" content="https://nicoguaro.github.io/posts/numerical_challenge/numerical-28/">
+<meta property="og:description" content="During October (2017) I will write a program per day for some well-known
+numerical methods in both Python and Julia. It is intended to be an exercise
+then don't expect the code to be good enough for r">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2017-10-28T17:02:38-05:00">
+<meta property="article:tag" content="julia">
+<meta property="article:tag" content="lu factorization">
+<meta property="article:tag" content="numerical methods">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="scientific computing">
+<link rel="alternate" hreflang="es" href="../../../es/posts/numerical_challenge/numerical-28/">
+</head>
+<body>
+    <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+            styles, `#sidebar-checkbox` for behavior. -->
+    <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox"><!-- Toggleable sidebar --><div class="sidebar" id="sidebar">
+        <div class="sidebar-item">
+            <p>This is my personal website and blog.</p>
+        </div>
+        
+    <nav id="menu" role="navigation" class="sidebar-nav"><a class="sidebar-nav-item" href="../../../pages/about/">About</a>
+        <a class="sidebar-nav-item" href="../../../index.html">Blog</a>
+        <a class="sidebar-nav-item" href="../../../pages/preprints-archive/">Preprints</a>
+        <a class="sidebar-nav-item" href="../../../pages/links/">Links</a>
+        <a class="sidebar-nav-item" href="../../../archive.html">Archive</a>
+        <a class="sidebar-nav-item" href="../../../categories/">Tags</a>
+        <a class="sidebar-nav-item" href="../../../rss.xml">RSS feed</a>
+    
+    
+    </nav>
+</div>
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          
+    <h3 id="brand" class="masthead-title">
+      <a href="https://nicoguaro.github.io/" title="Nicolás' blog" rel="home">Nicolás' blog</a>
+    </h3>
+
+        </div>
+      </div>
+
+      <div class="container content" id="content">
+        
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="post-title p-name entry-title" itemprop="headline name"><a href="." class="u-url">Numerical methods challenge: Day 28</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
+            <p class="dateline"><a href="." rel="bookmark"><time class="post-date published dt-published" datetime="2017-10-28T17:02:38-05:00" itemprop="datePublished" title="2017-10-28 17:02">2017-10-28 17:02</time></a></p>
+                <p class="commentline">
+    
+    <a href="#disqus_thread" data-disqus-identifier="cache/posts/numerical_challenge/numerical-28.html">Comments</a>
+
+
+        </p>
+</div>
+        
+        <div class="metadata posttranslations translations">
+            <h3 class="posttranslations-intro">Also available in:</h3>
+                <p><a href="../../../es/posts/numerical_challenge/numerical-28/" rel="alternate" hreflang="es">Español</a></p>
+        </div>
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <p>During October (2017) I will write a program per day for some well-known
+numerical methods in both Python and Julia. It is intended to be an exercise
+then don't expect the code to be good enough for real use. Also,
+I should mention that I have almost no experience with Julia, so it
+probably won't be idiomatic Julia but more Python-like Julia.</p>
+<section id="lu-factorization"><h2>LU factorization</h2>
+<p>Today we have <a class="reference external" href="https://en.wikipedia.org/wiki/LU_decomposition">LU decomposition</a>.
+That is a factorization of a matrix into a lower (L) and upper (U) matrix.
+Basically it stores de steps of a Gauss elimination in matrices.</p>
+<p>Following are the codes</p>
+<section id="python"><h3>Python</h3>
+<div class="code"><pre class="code python"><a id="rest_code_821689e91830437d858da28b4605d4df-1" name="rest_code_821689e91830437d858da28b4605d4df-1" href="#rest_code_821689e91830437d858da28b4605d4df-1"></a><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span>
+<a id="rest_code_821689e91830437d858da28b4605d4df-2" name="rest_code_821689e91830437d858da28b4605d4df-2" href="#rest_code_821689e91830437d858da28b4605d4df-2"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<a id="rest_code_821689e91830437d858da28b4605d4df-3" name="rest_code_821689e91830437d858da28b4605d4df-3" href="#rest_code_821689e91830437d858da28b4605d4df-3"></a>
+<a id="rest_code_821689e91830437d858da28b4605d4df-4" name="rest_code_821689e91830437d858da28b4605d4df-4" href="#rest_code_821689e91830437d858da28b4605d4df-4"></a>
+<a id="rest_code_821689e91830437d858da28b4605d4df-5" name="rest_code_821689e91830437d858da28b4605d4df-5" href="#rest_code_821689e91830437d858da28b4605d4df-5"></a><span class="k">def</span> <span class="nf">LU</span><span class="p">(</span><span class="n">mat</span><span class="p">):</span>
+<a id="rest_code_821689e91830437d858da28b4605d4df-6" name="rest_code_821689e91830437d858da28b4605d4df-6" href="#rest_code_821689e91830437d858da28b4605d4df-6"></a>    <span class="n">m</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">mat</span><span class="o">.</span><span class="n">shape</span>
+<a id="rest_code_821689e91830437d858da28b4605d4df-7" name="rest_code_821689e91830437d858da28b4605d4df-7" href="#rest_code_821689e91830437d858da28b4605d4df-7"></a>    <span class="n">mat</span> <span class="o">=</span> <span class="n">mat</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<a id="rest_code_821689e91830437d858da28b4605d4df-8" name="rest_code_821689e91830437d858da28b4605d4df-8" href="#rest_code_821689e91830437d858da28b4605d4df-8"></a>    <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+<a id="rest_code_821689e91830437d858da28b4605d4df-9" name="rest_code_821689e91830437d858da28b4605d4df-9" href="#rest_code_821689e91830437d858da28b4605d4df-9"></a>        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">col</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">m</span><span class="p">):</span>
+<a id="rest_code_821689e91830437d858da28b4605d4df-10" name="rest_code_821689e91830437d858da28b4605d4df-10" href="#rest_code_821689e91830437d858da28b4605d4df-10"></a>            <span class="k">if</span> <span class="n">mat</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span> <span class="o">!=</span> <span class="mf">0.0</span><span class="p">:</span>
+<a id="rest_code_821689e91830437d858da28b4605d4df-11" name="rest_code_821689e91830437d858da28b4605d4df-11" href="#rest_code_821689e91830437d858da28b4605d4df-11"></a>                <span class="n">lam</span> <span class="o">=</span> <span class="n">mat</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span><span class="o">/</span><span class="n">mat</span><span class="p">[</span><span class="n">col</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span>
+<a id="rest_code_821689e91830437d858da28b4605d4df-12" name="rest_code_821689e91830437d858da28b4605d4df-12" href="#rest_code_821689e91830437d858da28b4605d4df-12"></a>                <span class="n">mat</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:</span><span class="n">m</span><span class="p">]</span> <span class="o">=</span> <span class="n">mat</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:</span><span class="n">m</span><span class="p">]</span> <span class="o">-</span>\
+<a id="rest_code_821689e91830437d858da28b4605d4df-13" name="rest_code_821689e91830437d858da28b4605d4df-13" href="#rest_code_821689e91830437d858da28b4605d4df-13"></a>                                      <span class="n">lam</span> <span class="o">*</span> <span class="n">mat</span><span class="p">[</span><span class="n">col</span><span class="p">,</span> <span class="n">col</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:</span><span class="n">m</span><span class="p">]</span>
+<a id="rest_code_821689e91830437d858da28b4605d4df-14" name="rest_code_821689e91830437d858da28b4605d4df-14" href="#rest_code_821689e91830437d858da28b4605d4df-14"></a>                <span class="n">mat</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">lam</span>
+<a id="rest_code_821689e91830437d858da28b4605d4df-15" name="rest_code_821689e91830437d858da28b4605d4df-15" href="#rest_code_821689e91830437d858da28b4605d4df-15"></a>    <span class="k">return</span> <span class="n">mat</span>
+<a id="rest_code_821689e91830437d858da28b4605d4df-16" name="rest_code_821689e91830437d858da28b4605d4df-16" href="#rest_code_821689e91830437d858da28b4605d4df-16"></a>
+<a id="rest_code_821689e91830437d858da28b4605d4df-17" name="rest_code_821689e91830437d858da28b4605d4df-17" href="#rest_code_821689e91830437d858da28b4605d4df-17"></a>
+<a id="rest_code_821689e91830437d858da28b4605d4df-18" name="rest_code_821689e91830437d858da28b4605d4df-18" href="#rest_code_821689e91830437d858da28b4605d4df-18"></a><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+<a id="rest_code_821689e91830437d858da28b4605d4df-19" name="rest_code_821689e91830437d858da28b4605d4df-19" href="#rest_code_821689e91830437d858da28b4605d4df-19"></a>    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+<a id="rest_code_821689e91830437d858da28b4605d4df-20" name="rest_code_821689e91830437d858da28b4605d4df-20" href="#rest_code_821689e91830437d858da28b4605d4df-20"></a>    <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+<a id="rest_code_821689e91830437d858da28b4605d4df-21" name="rest_code_821689e91830437d858da28b4605d4df-21" href="#rest_code_821689e91830437d858da28b4605d4df-21"></a>    <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+<a id="rest_code_821689e91830437d858da28b4605d4df-22" name="rest_code_821689e91830437d858da28b4605d4df-22" href="#rest_code_821689e91830437d858da28b4605d4df-22"></a>    <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+<a id="rest_code_821689e91830437d858da28b4605d4df-23" name="rest_code_821689e91830437d858da28b4605d4df-23" href="#rest_code_821689e91830437d858da28b4605d4df-23"></a><span class="n">B</span> <span class="o">=</span> <span class="n">LU</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</pre></div>
+</section><section id="julia"><h3>Julia</h3>
+<div class="code"><pre class="code julia"><a id="rest_code_637c98a6ab5841079d84f6249a6e397b-1" name="rest_code_637c98a6ab5841079d84f6249a6e397b-1" href="#rest_code_637c98a6ab5841079d84f6249a6e397b-1"></a><span class="k">function</span><span class="w"> </span><span class="n">LU</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span><span class="w"></span>
+<a id="rest_code_637c98a6ab5841079d84f6249a6e397b-2" name="rest_code_637c98a6ab5841079d84f6249a6e397b-2" href="#rest_code_637c98a6ab5841079d84f6249a6e397b-2"></a><span class="w">    </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span><span class="w"></span>
+<a id="rest_code_637c98a6ab5841079d84f6249a6e397b-3" name="rest_code_637c98a6ab5841079d84f6249a6e397b-3" href="#rest_code_637c98a6ab5841079d84f6249a6e397b-3"></a><span class="w">    </span><span class="n">mat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">copy</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span><span class="w"></span>
+<a id="rest_code_637c98a6ab5841079d84f6249a6e397b-4" name="rest_code_637c98a6ab5841079d84f6249a6e397b-4" href="#rest_code_637c98a6ab5841079d84f6249a6e397b-4"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="n">m</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<a id="rest_code_637c98a6ab5841079d84f6249a6e397b-5" name="rest_code_637c98a6ab5841079d84f6249a6e397b-5" href="#rest_code_637c98a6ab5841079d84f6249a6e397b-5"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="n">m</span><span class="w"></span>
+<a id="rest_code_637c98a6ab5841079d84f6249a6e397b-6" name="rest_code_637c98a6ab5841079d84f6249a6e397b-6" href="#rest_code_637c98a6ab5841079d84f6249a6e397b-6"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">mat</span><span class="p">[</span><span class="n">row</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mf">0.0</span><span class="w"></span>
+<a id="rest_code_637c98a6ab5841079d84f6249a6e397b-7" name="rest_code_637c98a6ab5841079d84f6249a6e397b-7" href="#rest_code_637c98a6ab5841079d84f6249a6e397b-7"></a><span class="w">                </span><span class="n">lam</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mat</span><span class="p">[</span><span class="n">row</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="p">]</span><span class="o">/</span><span class="n">mat</span><span class="p">[</span><span class="n">col</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="p">]</span><span class="w"></span>
+<a id="rest_code_637c98a6ab5841079d84f6249a6e397b-8" name="rest_code_637c98a6ab5841079d84f6249a6e397b-8" href="#rest_code_637c98a6ab5841079d84f6249a6e397b-8"></a><span class="w">                </span><span class="n">mat</span><span class="p">[</span><span class="n">row</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="n">m</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mat</span><span class="p">[</span><span class="n">row</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="n">m</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"></span>
+<a id="rest_code_637c98a6ab5841079d84f6249a6e397b-9" name="rest_code_637c98a6ab5841079d84f6249a6e397b-9" href="#rest_code_637c98a6ab5841079d84f6249a6e397b-9"></a><span class="w">                                      </span><span class="n">lam</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">mat</span><span class="p">[</span><span class="n">col</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="n">m</span><span class="p">]</span><span class="w"></span>
+<a id="rest_code_637c98a6ab5841079d84f6249a6e397b-10" name="rest_code_637c98a6ab5841079d84f6249a6e397b-10" href="#rest_code_637c98a6ab5841079d84f6249a6e397b-10"></a><span class="w">                </span><span class="n">mat</span><span class="p">[</span><span class="n">row</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lam</span><span class="w"></span>
+<a id="rest_code_637c98a6ab5841079d84f6249a6e397b-11" name="rest_code_637c98a6ab5841079d84f6249a6e397b-11" href="#rest_code_637c98a6ab5841079d84f6249a6e397b-11"></a><span class="w">            </span><span class="k">end</span><span class="w"></span>
+<a id="rest_code_637c98a6ab5841079d84f6249a6e397b-12" name="rest_code_637c98a6ab5841079d84f6249a6e397b-12" href="#rest_code_637c98a6ab5841079d84f6249a6e397b-12"></a><span class="w">        </span><span class="k">end</span><span class="w"></span>
+<a id="rest_code_637c98a6ab5841079d84f6249a6e397b-13" name="rest_code_637c98a6ab5841079d84f6249a6e397b-13" href="#rest_code_637c98a6ab5841079d84f6249a6e397b-13"></a><span class="w">    </span><span class="k">end</span><span class="w"></span>
+<a id="rest_code_637c98a6ab5841079d84f6249a6e397b-14" name="rest_code_637c98a6ab5841079d84f6249a6e397b-14" href="#rest_code_637c98a6ab5841079d84f6249a6e397b-14"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">mat</span><span class="w"></span>
+<a id="rest_code_637c98a6ab5841079d84f6249a6e397b-15" name="rest_code_637c98a6ab5841079d84f6249a6e397b-15" href="#rest_code_637c98a6ab5841079d84f6249a6e397b-15"></a><span class="k">end</span><span class="w"></span>
+<a id="rest_code_637c98a6ab5841079d84f6249a6e397b-16" name="rest_code_637c98a6ab5841079d84f6249a6e397b-16" href="#rest_code_637c98a6ab5841079d84f6249a6e397b-16"></a>
+<a id="rest_code_637c98a6ab5841079d84f6249a6e397b-17" name="rest_code_637c98a6ab5841079d84f6249a6e397b-17" href="#rest_code_637c98a6ab5841079d84f6249a6e397b-17"></a>
+<a id="rest_code_637c98a6ab5841079d84f6249a6e397b-18" name="rest_code_637c98a6ab5841079d84f6249a6e397b-18" href="#rest_code_637c98a6ab5841079d84f6249a6e397b-18"></a><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1.0</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">3.0</span><span class="p">;</span><span class="w"></span>
+<a id="rest_code_637c98a6ab5841079d84f6249a6e397b-19" name="rest_code_637c98a6ab5841079d84f6249a6e397b-19" href="#rest_code_637c98a6ab5841079d84f6249a6e397b-19"></a><span class="w">    </span><span class="mf">2.0</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="o">-</span><span class="mf">1.0</span><span class="w"> </span><span class="mf">1.0</span><span class="p">;</span><span class="w"></span>
+<a id="rest_code_637c98a6ab5841079d84f6249a6e397b-20" name="rest_code_637c98a6ab5841079d84f6249a6e397b-20" href="#rest_code_637c98a6ab5841079d84f6249a6e397b-20"></a><span class="w">    </span><span class="mf">3.0</span><span class="w"> </span><span class="o">-</span><span class="mf">1.0</span><span class="w"> </span><span class="o">-</span><span class="mf">1.0</span><span class="w"> </span><span class="mf">2.0</span><span class="p">;</span><span class="w"></span>
+<a id="rest_code_637c98a6ab5841079d84f6249a6e397b-21" name="rest_code_637c98a6ab5841079d84f6249a6e397b-21" href="#rest_code_637c98a6ab5841079d84f6249a6e397b-21"></a><span class="w">    </span><span class="o">-</span><span class="mf">1.0</span><span class="w"> </span><span class="mf">2.0</span><span class="w"> </span><span class="mf">3.0</span><span class="w"> </span><span class="o">-</span><span class="mf">1.0</span><span class="p">]</span><span class="w"></span>
+<a id="rest_code_637c98a6ab5841079d84f6249a6e397b-22" name="rest_code_637c98a6ab5841079d84f6249a6e397b-22" href="#rest_code_637c98a6ab5841079d84f6249a6e397b-22"></a><span class="n">B</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LU</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+<p>As an example we have the matrix</p>
+<div class="math">
+\begin{equation*}
+A = \begin{bmatrix}
+    1 &amp;1 &amp;0 &amp;3\\
+    2 &amp;1 &amp;-1 &amp;1\\
+    3 &amp;-1 &amp;-1 &amp;2\\
+    -1 &amp;2 &amp;3 &amp;-1
+    \end{bmatrix} =
+    \begin{bmatrix}
+    1 &amp;1 &amp;0 &amp;0\\
+    2 &amp;1 &amp;0 &amp;0\\
+    3 &amp;4 &amp;1 &amp;2\\
+    -1 &amp;-3 &amp;0 &amp;1
+    \end{bmatrix}
+    \begin{bmatrix}
+    1 &amp;1 &amp;0 &amp;3\\
+    0 &amp;-1 &amp;-1 &amp;-5\\
+    0 &amp;0 &amp;3 &amp;13\\
+    0 &amp;0 &amp;0 &amp;-13
+    \end{bmatrix}
+\end{equation*}
+</div>
+<p>And, the answer of both codes is</p>
+<div class="code"><pre class="code text"><a id="rest_code_01276cda1ed0429bbdda51ec73707a36-1" name="rest_code_01276cda1ed0429bbdda51ec73707a36-1" href="#rest_code_01276cda1ed0429bbdda51ec73707a36-1"></a>[[  1.,   1.,   0.,   3.],
+<a id="rest_code_01276cda1ed0429bbdda51ec73707a36-2" name="rest_code_01276cda1ed0429bbdda51ec73707a36-2" href="#rest_code_01276cda1ed0429bbdda51ec73707a36-2"></a> [  2.,  -1.,  -1.,  -5.],
+<a id="rest_code_01276cda1ed0429bbdda51ec73707a36-3" name="rest_code_01276cda1ed0429bbdda51ec73707a36-3" href="#rest_code_01276cda1ed0429bbdda51ec73707a36-3"></a> [  3.,   4.,   3.,  13.],
+<a id="rest_code_01276cda1ed0429bbdda51ec73707a36-4" name="rest_code_01276cda1ed0429bbdda51ec73707a36-4" href="#rest_code_01276cda1ed0429bbdda51ec73707a36-4"></a> [ -1.,  -3.,   0., -13.]]
+</pre></div>
+</section><section id="comparison-python-julia"><h3>Comparison Python/Julia</h3>
+<p>Regarding number of lines we have: 23 in Python and 22 in Julia. The comparison
+in execution time is done with <code class="docutils literal">%timeit</code> magic command in IPython and
+<code class="docutils literal">@benchmark</code> in Julia.</p>
+<p>For Python:</p>
+<div class="code"><pre class="code IPython"><a id="rest_code_9e5b6e95ffb840189c5119fef22127ba-1" name="rest_code_9e5b6e95ffb840189c5119fef22127ba-1" href="#rest_code_9e5b6e95ffb840189c5119fef22127ba-1"></a><span class="o">%</span><span class="k">timeit</span> LU(np.random.rand(10, 10))
+</pre></div>
+<p>with result</p>
+<div class="code"><pre class="code text"><a id="rest_code_8713189e9ad949848694c8454d8b7140-1" name="rest_code_8713189e9ad949848694c8454d8b7140-1" href="#rest_code_8713189e9ad949848694c8454d8b7140-1"></a>1000 loops, best of 3: 303 µs per loop
+</pre></div>
+<p>For Julia:</p>
+<div class="code"><pre class="code julia"><a id="rest_code_eda9e99490504b818840ab64163f165d-1" name="rest_code_eda9e99490504b818840ab64163f165d-1" href="#rest_code_eda9e99490504b818840ab64163f165d-1"></a><span class="nd">@benchmark</span><span class="w"> </span><span class="n">LU</span><span class="p">(</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">))</span><span class="w"></span>
+</pre></div>
+<p>with result</p>
+<div class="code"><pre class="code julia"><a id="rest_code_e6bbc3c314b742efbcb08fd360f02148-1" name="rest_code_e6bbc3c314b742efbcb08fd360f02148-1" href="#rest_code_e6bbc3c314b742efbcb08fd360f02148-1"></a><span class="n">BenchmarkTools</span><span class="o">.</span><span class="n">Trial</span><span class="o">:</span><span class="w"></span>
+<a id="rest_code_e6bbc3c314b742efbcb08fd360f02148-2" name="rest_code_e6bbc3c314b742efbcb08fd360f02148-2" href="#rest_code_e6bbc3c314b742efbcb08fd360f02148-2"></a><span class="w">  </span><span class="n">memory</span><span class="w"> </span><span class="n">estimate</span><span class="o">:</span><span class="w">  </span><span class="mf">29.25</span><span class="w"> </span><span class="n">KiB</span><span class="w"></span>
+<a id="rest_code_e6bbc3c314b742efbcb08fd360f02148-3" name="rest_code_e6bbc3c314b742efbcb08fd360f02148-3" href="#rest_code_e6bbc3c314b742efbcb08fd360f02148-3"></a><span class="w">  </span><span class="n">allocs</span><span class="w"> </span><span class="n">estimate</span><span class="o">:</span><span class="w">  </span><span class="mi">310</span><span class="w"></span>
+<a id="rest_code_e6bbc3c314b742efbcb08fd360f02148-4" name="rest_code_e6bbc3c314b742efbcb08fd360f02148-4" href="#rest_code_e6bbc3c314b742efbcb08fd360f02148-4"></a><span class="w">  </span><span class="o">--------------</span><span class="w"></span>
+<a id="rest_code_e6bbc3c314b742efbcb08fd360f02148-5" name="rest_code_e6bbc3c314b742efbcb08fd360f02148-5" href="#rest_code_e6bbc3c314b742efbcb08fd360f02148-5"></a><span class="w">  </span><span class="n">minimum</span><span class="w"> </span><span class="n">time</span><span class="o">:</span><span class="w">     </span><span class="mf">9.993</span><span class="w"> </span><span class="n">μs</span><span class="w"> </span><span class="p">(</span><span class="mf">0.00</span><span class="o">%</span><span class="w"> </span><span class="n">GC</span><span class="p">)</span><span class="w"></span>
+<a id="rest_code_e6bbc3c314b742efbcb08fd360f02148-6" name="rest_code_e6bbc3c314b742efbcb08fd360f02148-6" href="#rest_code_e6bbc3c314b742efbcb08fd360f02148-6"></a><span class="w">  </span><span class="n">median</span><span class="w"> </span><span class="n">time</span><span class="o">:</span><span class="w">      </span><span class="mf">11.725</span><span class="w"> </span><span class="n">μs</span><span class="w"> </span><span class="p">(</span><span class="mf">0.00</span><span class="o">%</span><span class="w"> </span><span class="n">GC</span><span class="p">)</span><span class="w"></span>
+<a id="rest_code_e6bbc3c314b742efbcb08fd360f02148-7" name="rest_code_e6bbc3c314b742efbcb08fd360f02148-7" href="#rest_code_e6bbc3c314b742efbcb08fd360f02148-7"></a><span class="w">  </span><span class="n">mean</span><span class="w"> </span><span class="n">time</span><span class="o">:</span><span class="w">        </span><span class="mf">14.943</span><span class="w"> </span><span class="n">μs</span><span class="w"> </span><span class="p">(</span><span class="mf">15.90</span><span class="o">%</span><span class="w"> </span><span class="n">GC</span><span class="p">)</span><span class="w"></span>
+<a id="rest_code_e6bbc3c314b742efbcb08fd360f02148-8" name="rest_code_e6bbc3c314b742efbcb08fd360f02148-8" href="#rest_code_e6bbc3c314b742efbcb08fd360f02148-8"></a><span class="w">  </span><span class="n">maximum</span><span class="w"> </span><span class="n">time</span><span class="o">:</span><span class="w">     </span><span class="mf">3.285</span><span class="w"> </span><span class="n">ms</span><span class="w"> </span><span class="p">(</span><span class="mf">95.64</span><span class="o">%</span><span class="w"> </span><span class="n">GC</span><span class="p">)</span><span class="w"></span>
+<a id="rest_code_e6bbc3c314b742efbcb08fd360f02148-9" name="rest_code_e6bbc3c314b742efbcb08fd360f02148-9" href="#rest_code_e6bbc3c314b742efbcb08fd360f02148-9"></a><span class="w">  </span><span class="o">--------------</span><span class="w"></span>
+<a id="rest_code_e6bbc3c314b742efbcb08fd360f02148-10" name="rest_code_e6bbc3c314b742efbcb08fd360f02148-10" href="#rest_code_e6bbc3c314b742efbcb08fd360f02148-10"></a><span class="w">  </span><span class="n">samples</span><span class="o">:</span><span class="w">          </span><span class="mi">10000</span><span class="w"></span>
+<a id="rest_code_e6bbc3c314b742efbcb08fd360f02148-11" name="rest_code_e6bbc3c314b742efbcb08fd360f02148-11" href="#rest_code_e6bbc3c314b742efbcb08fd360f02148-11"></a><span class="w">  </span><span class="n">evals</span><span class="o">/</span><span class="n">sample</span><span class="o">:</span><span class="w">     </span><span class="mi">1</span><span class="w"></span>
+</pre></div>
+<p>In this case, we can say that the Python code is roughly 30 times slower than
+Julia code.</p>
+</section></section>
+</div>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../../../categories/julia/" rel="tag">julia</a></li>
+            <li><a class="tag p-category" href="../../../categories/lu-factorization/" rel="tag">lu factorization</a></li>
+            <li><a class="tag p-category" href="../../../categories/numerical-methods/" rel="tag">numerical methods</a></li>
+            <li><a class="tag p-category" href="../../../categories/python/" rel="tag">python</a></li>
+            <li><a class="tag p-category" href="../../../categories/scientific-computing/" rel="tag">scientific computing</a></li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="previous">
+                <a href="../numerical-27/" rel="prev" title="Numerical methods challenge: Day 27">Previous post</a>
+            </li>
+            <li class="next">
+                <a href="../numerical-29/" rel="next" title="Numerical methods challenge: Day 29">Next post</a>
+            </li>
+        </ul></nav></aside><section class="comments hidden-print"><h2>Comments</h2>
+        
+    
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="nicoguaro-github",
+            disqus_url="https://nicoguaro.github.io/posts/numerical_challenge/numerical-28/",
+        disqus_title="Numerical methods challenge: Day 28",
+        disqus_identifier="cache/posts/numerical_challenge/numerical-28.html",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
+        </script></article><script>var disqus_shortname="nicoguaro-github";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><footer id="footer"><p><a href="https://creativecommons.org/licenses/by/4.0/" rel="nofollow">CC BY 4.0</a> © 2022 <a href="mailto:nicoguarin@gmail.com">Nicolás Guarín-Zapata</a>- Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a></p>
+            
+        </footer>
+</div>
+    </div>
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+    
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-145359674-1', 'auto');
+ga('send', 'pageview');
+</script><script src="../../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>
