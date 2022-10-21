@@ -358,7 +358,7 @@ POSTS_SECTIONS = True
 
 # Associate a description with a section. For use in meta description on
 # section index pages or elsewhere in themes.
-# POSTS_SECTION_DESCRIPTIONS = {
+# CATEGORY_DESCRIPTIONS = {
 #     DEFAULT_LANG: {
 #         'how-to': 'Learn how-to things properly with these amazing tutorials.',
 #     },
@@ -371,7 +371,7 @@ POSTS_SECTIONS = True
 # Names are determined from the output directory name automatically or the
 # metadata label. Unless overwritten below, names will use title cased and
 # hyphens replaced by spaces.
-# POSTS_SECTION_NAME = {
+# CATEGORY_DESTPATH_NAMES = {
 #    DEFAULT_LANG: {
 #        'posts': 'Blog Posts',
 #        'uncategorized': 'Odds and Ends',
@@ -379,9 +379,9 @@ POSTS_SECTIONS = True
 # }
 
 # Titles for per-section index pages. Can be either one string where "{name}"
-# is substituted or the POSTS_SECTION_NAME, or a dict of sections. Note
+# is substituted or the CATEGORY_DESTPATH_NAMES, or a dict of sections. Note
 # that the INDEX_PAGES option is also applied to section page titles.
-# POSTS_SECTION_TITLE = {
+# CATEGORY_TITLES = {
 #     DEFAULT_LANG: {
 #         'how-to': 'How-to and Tutorials',
 #     },
