@@ -35,6 +35,15 @@ Social media
 
 - `Flickr: nicoguaro <https://www.flickr.com/photos/nicoguaro/>`_
 
+.. raw:: html
+
+   <ul>
+   <li><a href="https://github.com/nicoguaro">GitHub: nicoguaro</a></li>
+   <li><a rel="me" href="https://fosstodon.org/@nicoguaro">Mastodon: @nicoguaro</a></li>
+   <li><a href="https://twitter.com/nicoguaro">Twitter: @nicoguaro</a></li>
+   <li><a href="https://www.flickr.com/photos/nicoguaro">Flickr: nicoguaro</a></li>
+   </ul>
+
 
 .. Twitter widget
   .. raw:: html

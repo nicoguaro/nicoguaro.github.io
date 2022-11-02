@@ -96,10 +96,10 @@ the copyright of the videos.</p>
 <code class="docutils literal">destreamer</code> installation</h2>
 <p>After getting the prerequisites you can download
 <a class="reference external" href="https://github.com/snobu/destreamer">destreamer</a> using</p>
-<div class="code"><pre class="code bash"><a id="rest_code_dd5ce9d7bfbe4facbb7bc2a5704b18ba-1" name="rest_code_dd5ce9d7bfbe4facbb7bc2a5704b18ba-1" href="#rest_code_dd5ce9d7bfbe4facbb7bc2a5704b18ba-1"></a>$ git clone https://github.com/snobu/destreamer
-<a id="rest_code_dd5ce9d7bfbe4facbb7bc2a5704b18ba-2" name="rest_code_dd5ce9d7bfbe4facbb7bc2a5704b18ba-2" href="#rest_code_dd5ce9d7bfbe4facbb7bc2a5704b18ba-2"></a>$ <span class="nb">cd</span> destreamer
-<a id="rest_code_dd5ce9d7bfbe4facbb7bc2a5704b18ba-3" name="rest_code_dd5ce9d7bfbe4facbb7bc2a5704b18ba-3" href="#rest_code_dd5ce9d7bfbe4facbb7bc2a5704b18ba-3"></a>$ npm install
-<a id="rest_code_dd5ce9d7bfbe4facbb7bc2a5704b18ba-4" name="rest_code_dd5ce9d7bfbe4facbb7bc2a5704b18ba-4" href="#rest_code_dd5ce9d7bfbe4facbb7bc2a5704b18ba-4"></a>$ npm run build
+<div class="code"><pre class="code bash"><a id="rest_code_660065d85b7b420981514449d156620a-1" name="rest_code_660065d85b7b420981514449d156620a-1" href="#rest_code_660065d85b7b420981514449d156620a-1"></a>$ git clone https://github.com/snobu/destreamer
+<a id="rest_code_660065d85b7b420981514449d156620a-2" name="rest_code_660065d85b7b420981514449d156620a-2" href="#rest_code_660065d85b7b420981514449d156620a-2"></a>$ <span class="nb">cd</span> destreamer
+<a id="rest_code_660065d85b7b420981514449d156620a-3" name="rest_code_660065d85b7b420981514449d156620a-3" href="#rest_code_660065d85b7b420981514449d156620a-3"></a>$ npm install
+<a id="rest_code_660065d85b7b420981514449d156620a-4" name="rest_code_660065d85b7b420981514449d156620a-4" href="#rest_code_660065d85b7b420981514449d156620a-4"></a>$ npm run build
 </pre></div>
 <p>in a terminal.</p>
 <p>If you do not want to play with
@@ -108,18 +108,18 @@ I suggest that you just add <code class="docutils literal">ffmpeg</code> to the 
 </section><section id="downloading"><h2>Downloading</h2>
 <p>After that, you need to navigate to the folder where you downloaded
 <code class="docutils literal">destreamer</code> and</p>
-<div class="code"><pre class="code bash"><a id="rest_code_2048dd173e1e4fd1a3d4b7974c6d50f0-1" name="rest_code_2048dd173e1e4fd1a3d4b7974c6d50f0-1" href="#rest_code_2048dd173e1e4fd1a3d4b7974c6d50f0-1"></a>$ ./destreamer.sh -i <span class="s2">"https://web.microsoftstream.com/video/VIDEO_ID"</span>
+<div class="code"><pre class="code bash"><a id="rest_code_14b32a73c3444022b77ae41538d5620f-1" name="rest_code_14b32a73c3444022b77ae41538d5620f-1" href="#rest_code_14b32a73c3444022b77ae41538d5620f-1"></a>$ ./destreamer.sh -i <span class="s2">"https://web.microsoftstream.com/video/VIDEO_ID"</span>
 </pre></div>
 <p>in Mac or Linux,</p>
-<div class="code"><pre class="code bash"><a id="rest_code_5d7b30f23ef142788c48b8c5517cf0c2-1" name="rest_code_5d7b30f23ef142788c48b8c5517cf0c2-1" href="#rest_code_5d7b30f23ef142788c48b8c5517cf0c2-1"></a>$ destreamer.cmd -i <span class="s2">"https://web.microsoftstream.com/video/VIDEO_ID"</span>
+<div class="code"><pre class="code bash"><a id="rest_code_50924a8eaa0f4e5393437fbc84b13b9c-1" name="rest_code_50924a8eaa0f4e5393437fbc84b13b9c-1" href="#rest_code_50924a8eaa0f4e5393437fbc84b13b9c-1"></a>$ destreamer.cmd -i <span class="s2">"https://web.microsoftstream.com/video/VIDEO_ID"</span>
 </pre></div>
 <p>in the command prompt in Windows, and</p>
-<div class="code"><pre class="code bash"><a id="rest_code_a260bf211a554090a4918a22699f731a-1" name="rest_code_a260bf211a554090a4918a22699f731a-1" href="#rest_code_a260bf211a554090a4918a22699f731a-1"></a>$ destreamer.ps1 -i <span class="s2">"https://web.microsoftstream.com/video/VIDEO_ID"</span>
+<div class="code"><pre class="code bash"><a id="rest_code_caec9878640a42738aa3ab161d7959b9-1" name="rest_code_caec9878640a42738aa3ab161d7959b9-1" href="#rest_code_caec9878640a42738aa3ab161d7959b9-1"></a>$ destreamer.ps1 -i <span class="s2">"https://web.microsoftstream.com/video/VIDEO_ID"</span>
 </pre></div>
 <p>in PowerShell.``VIDEO_ID`` refers to the identifier in MS Stream.</p>
 <p>If you want to download several files (like a complete course), you
 can create a file with the URLs and use</p>
-<div class="code"><pre class="code bash"><a id="rest_code_24862767d8694511a9e3068cc3c23be4-1" name="rest_code_24862767d8694511a9e3068cc3c23be4-1" href="#rest_code_24862767d8694511a9e3068cc3c23be4-1"></a>$ destreamer.cmd -f filename.txt
+<div class="code"><pre class="code bash"><a id="rest_code_ba0d837005df4e2197825fb055c923fd-1" name="rest_code_ba0d837005df4e2197825fb055c923fd-1" href="#rest_code_ba0d837005df4e2197825fb055c923fd-1"></a>$ destreamer.cmd -f filename.txt
 </pre></div>
 </section>
 </div>
@@ -172,10 +172,7 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 
 ga('create', 'UA-145359674-1', 'auto');
 ga('send', 'pageview');
-</script><a rel="me" href="https://fosstodon.org/@nicoguaro"></a>
-    
-    
-            <script src="../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+</script><script src="../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
     moment.locale("en");
     fancydates(0, "YYYY-MM-DD HH:mm");
     </script><!-- end fancy dates -->

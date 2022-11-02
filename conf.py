@@ -1262,7 +1262,7 @@ ga('send', 'pageview');
 
 ###  Mastodon verification
 
-BODY_END += """<a rel="me" href="https://fosstodon.org/@nicoguaro"></a>"""
+# BODY_END += """<a rel="me" href="https://fosstodon.org/@nicoguaro"></a>"""
 
 
 
