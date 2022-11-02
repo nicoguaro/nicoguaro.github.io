@@ -952,7 +952,8 @@ src="https://i.creativecommons.org/l/by/4.0/88x31.png"></a>"""
 # CONTENT_FOOTER = 'Contents &copy; {date} <a href="mailto:{email}">{author}</a> - Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a> {license}'
 CONTENT_FOOTER = '<a href="https://creativecommons.org/licenses/by/4.0/"  rel="nofollow">CC BY 4.0</a> ' \
                + '&copy; {date} <a href="mailto:{email}">{author}</a>' \
-               + '- Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a>'
+               + ' - Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a>'\
+               + ' - <a rel="me" href="https://fosstodon.org/@nicoguaro">Mastodon profile</a>'
 
 # Things that will be passed to CONTENT_FOOTER.format().  This is done
 # for translatability, as dicts are not formattable.  Nikola will
@@ -1259,10 +1260,6 @@ ga('create', 'UA-145359674-1', 'auto');
 ga('send', 'pageview');
 </script>
 """
-
-###  Mastodon verification
-
-# BODY_END += """<a rel="me" href="https://fosstodon.org/@nicoguaro">Mastodon</a>"""
 
 
 
