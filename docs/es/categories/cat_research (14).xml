@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nicolás' blog (Publicaciones sobre Research)</title><link>https://nicoguaro.github.io/</link><description></description><atom:link href="https://nicoguaro.github.io/es/categories/cat_research.xml" rel="self" type="application/rss+xml"></atom:link><language>es</language><copyright>Contents © 2022 &lt;a href="mailto:nicoguarin@gmail.com"&gt;Nicolás Guarín-Zapata&lt;/a&gt; 
+&lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
+&lt;img alt="Creative Commons License"
+style="border-width:0"
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Fri, 21 Oct 2022 17:34:20 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Herramientas (auxiliares) para Investigación</title><link>https://nicoguaro.github.io/es/posts/herramientas-investigacion/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;En esta entrada quiero hablar de algunas herramientas (...o algo así)
+que son útiles en el día a día de la investigación, pero que no suelen
+ser tan populares por ser en cierta forma &lt;em&gt;tangenciales&lt;/em&gt; al área
+específica en la que cada uno trabaja.&lt;/p&gt;
+&lt;section id="scripting"&gt;
+&lt;h2&gt;Scripting&lt;/h2&gt;
+&lt;p&gt;Un &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Scripting_language"&gt;script&lt;/a&gt;  es un
+programa &lt;em&gt;usualmente&lt;/em&gt; simple que realiza una serie de tareas. ¡Lo
+siento! trato de ceñirme al castellano pero no me gustan las
+traducciones para este término (archivo de órdenes, archivo de
+procesamiento por lotes o guion). Si existe una tarea que debe ser
+hecha más de... cinco veces (el número varía de acuerdo a la
+paciencia), entonces creo que es algo que podemos pedirle al
+computador que haga esta tarea por nosotros. En otras palabras:
+podemos automatizar ese trabajo. Algunas tareas que pueden ser una
+buena alternativa para automatizar son: renombrar 100 archivos,
+convertir un archivo de un formato a otro (p. ej., STL a OBJ), leer
+387 archivos con información sobre el clima y graficar su evolución
+temporal (temperatura mínima, máxima y promedio). Estas tareas pueden
+ser fáciles de hacer a mano, pero por la cantidad de trabajo que
+involucran son tediosas.&lt;/p&gt;
+&lt;p&gt;Lo primero es hacernos con un lenguaje de scripting. Algunas opciones
+son &lt;a class="reference external" href="https://www.python.org/"&gt;Python&lt;/a&gt;,
+&lt;a class="reference external" href="http://www.gnu.org/software/bash/"&gt;Bash&lt;/a&gt;,
+&lt;a class="reference external" href="http://julialang.org/"&gt;Julia&lt;/a&gt;,
+&lt;a class="reference external" href="http://www.mathworks.com/products/matlab/"&gt;Matlab&lt;/a&gt;/&lt;a class="reference external" href="http://www.gnu.org/software/octave/"&gt;Octave&lt;/a&gt;,
+&lt;a class="reference external" href="http://www.scilab.org/"&gt;Scilab&lt;/a&gt;. Dejándome llevar por el sesgo,
+recomiendo usar Python.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="graficos-y-esquemas"&gt;
+&lt;h2&gt;Gráficos y esquemas&lt;/h2&gt;
+&lt;p&gt;Una imagen vale más que mil palabras, o eso dice el dicho.
+Personalmente, me parece absolutamente cierto y trato de hacer
+&lt;em&gt;dibujitos&lt;/em&gt; para poder entender mejor algo o lograrlo explicar mejor.
+Lo primero que me gustaría mencionar es la diferencia entre imágenes
+de mapas de bits (o ráster) e imágenes vectoriales.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="http://en.wikipedia.org/wiki/Raster_graphics"&gt;Imagen de mapa de
+bits&lt;/a&gt;: es una imagen
+que está representada por un arreglo (o rejilla rectangular) de
+pixeles. Dicho de otro modo, se almacena la información de color que
+hay en cada punto de la imagen. Los formatos más populares almacenan
+la información comprimida. Para gráficos con alto contraste (como
+esquemas o diagramas) el mejor formato es PNG. Si se tiene una
+animación, GIF sería preferible. Y para el caso de fotografías es
+mejor utilizar JPG.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="http://en.wikipedia.org/wiki/Vector_graphics"&gt;Imagen vectorial&lt;/a&gt;:
+es una imagen que está formada por entidades geométricas. En esta no
+se almacena la información punto a punto sino &lt;em&gt;la construcción&lt;/em&gt; de
+las formas que la constituyen. Por esta razón, estas imágenes no se
+&lt;em&gt;pixelan&lt;/em&gt; pues la información que se tiene es de cómo construirla.
+Este tipo de imágenes es la mejor opciones para esquemas y diagramas,
+pues sólo se almacena la información de los trazos y texto que se
+añadan en ellas (ver Figura 1). El estándar &lt;em&gt;de facto&lt;/em&gt; para este tipo
+de imágenes es PDF —es el que suelo para incluir en mis documentos
+\(\LaTeX\), aunque existe forma de embeber SVG en \(\LaTeX\)
+pero es algo que aún no exploro—. A pesar de que PDF sea el
+&lt;em&gt;estándar&lt;/em&gt;, el formato a preferir es &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Scalable_Vector_Graphics"&gt;SVG (Scalable Vector
+Graphics)&lt;/a&gt;
+que es un estándar a través de la internet y la mayoría de
+navegadores &lt;em&gt;modernos&lt;/em&gt; permiten visualizar.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Recapitulando, deberíamos usar imágenes JPG para fotografías y SVG
+para esquemas/diagramas. Otro atributo que puede ser de utilidad es el
+manejo de capas, SVG permite esto.... y de formatos ráster tenemos la
+opción de usar TIFF.&lt;/p&gt;
+&lt;p&gt;En cuanto a software para generar/editar este tipo de imágenes debo
+decir que existen gran cantidad de programas que permiten exportar a
+estos formatos: Python/Matplotlib, Matlab, Inkscape, Adobe
+Illustrator, GIMP, Photoshop, LibreOffice. Si el gráfico es generado a
+partir de un cálculo o de una serie de datos yo uso Matplotlib. Si en
+cambio, queremos hacer un esquema o —como suelo decir— un muñeco mi
+herramienta favorita es &lt;a class="reference external" href="http://www.inkscape.org/"&gt;Inkscape.&lt;/a&gt; Este
+programa pretende ser una alternativa libre a programas como Adobe
+Illustrator —y sí que lo consigue. Obviamente, se podría usar
+Illustrator o Corel Draw para esta tarea. Si el único uso sería hacer
+esquemas técnico, creo que sería un desperdicio.&lt;/p&gt;
+&lt;table&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;&lt;img alt="/images/sensor_hall.png" src="https://nicoguaro.github.io/images/sensor_hall.png"&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;p&gt;&lt;strong&gt;Figura 1.&lt;/strong&gt; Esquema de sensado de campo magnético de &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Neodymium_magnet"&gt;imanes
+permanentes&lt;/a&gt; por
+&lt;a class="reference external" href="http://en.wikipedia.org/wiki/Hall_effect"&gt;efecto Hall&lt;/a&gt;. Sacado
+de mi &lt;a class="reference external" href="https://goo.gl/G9RRhC"&gt;trabajo de grado&lt;/a&gt; de Ingeniería
+Física.&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/section&gt;
+&lt;section id="tomar-notas"&gt;
+&lt;h2&gt;Tomar notas&lt;/h2&gt;
+&lt;p&gt;Supongo que para algunos parecería un poco trivial hablar de "tomar
+notas" y mucho más viniendo de alguien que no tenía cuadernos en el
+bachillerato, pero como soy un poco terco creo que igual escribiré un
+poco sobre esto. Lo primero que me gustaría mencionar es que recuerdo
+que me hablaran de este tema en el colegio, pero nunca hubo nada
+formal respecto a desarrollar estas habilidades. Buscando en la web,
+hay gran cantidad de información. Incluso el artículo de &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Note-taking"&gt;Wikipedia en
+inglés&lt;/a&gt; es interesante.
+No hay nada mejor para escribir que tener una pluma y un papel de buen
+gramaje, por eso es que aún uso un cuaderno en donde llevo cuenta de
+lo que hago en mi investigación y tomo notas. Sin embargo, este
+esquema es bastante lineal y deja por fuera oportunidades más
+&lt;em&gt;contemporáneas.&lt;/em&gt; Es decir ¿por qué conformarse con un documento en
+este tiempo de hiper-documentos? Las ventajas de tomar notas
+digitalmente saltan a la vista, en un hiper-documento se pueden tener
+enlaces, embeber imágenes, video y sonido.&lt;/p&gt;
+&lt;p&gt;En cuanto a herramientas, acá incluyo una pequeña lista:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://evernote.com/"&gt;Evernote&lt;/a&gt; es probablemente la herramienta
+más popular para tomar notas. Es multiplataforma, Freemium
+(funcionalidad básica gratuita y avanzada paga), y cuenta con muchas
+opciones. Yo la uso, pero no mucho en mi investigación.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="http://zim-wiki.org/"&gt;Zim&lt;/a&gt; es una wiki offline. Tiene gran
+cantidad de opciones como calendario, ecuaciones con código
+&lt;span class="math"&gt;\(\LaTeX\)&lt;/span&gt;, imágenes... en fin. El pero que le encuentro es que no
+he logrado configurar las ecuaciones en Windows (y en mi oficina debo
+usar Windows :-/).&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="http://www.docear.org/"&gt;Docear&lt;/a&gt; esta es una herramienta pensada,
+principalmente, para manejar bibliografía. Sin embargo, permite tomar
+notas y, en general, manejar la información de la investigación. La
+característica más (o menos) atractiva es que funciona alrededor de
+mapas mentales.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://www.zotero.org/"&gt;Zotero&lt;/a&gt; también es una herramienta para
+manejar bibliografía, aunque permite manejar algo de toma de notas
+(al menos alrededor de la bibliografía).&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="http://www.mendeley.com/"&gt;Mendeley&lt;/a&gt; es muy parecido al anterior,
+aunque con más funcionalidades. El pero más grande que le encuentro
+es que en 2013 fue comprado por Elsevier.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;En cuanto a manejo de bibliografía también me gustaría mencionar
+&lt;a class="reference external" href="http://endnote.com/"&gt;EndNote&lt;/a&gt; que es el programa con mayor
+trayectoria y  &lt;a class="reference external" href="http://jabref.sourceforge.net/"&gt;JabRef&lt;/a&gt; que es el
+que he usado por más tiempo. Algunas referencias interesantes
+comparando manejadores de bibliografía están acá:
+&lt;a class="reference external" href="https://www.researchgate.net/post/alternative_to_Endnote?_tpcectx=qa_overview_following"&gt;[A]&lt;/a&gt;
+&lt;a class="reference external" href="http://www.docear.org/2013/10/14/what-makes-a-bad-reference-manager/"&gt;[B]&lt;/a&gt;
+&lt;a class="reference external" href="http://www.docear.org/2014/01/15/comprehensive-comparison-of-reference-managers-mendeley-vs-zotero-vs-docear/"&gt;[C]&lt;/a&gt;.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="reconstruccion-de-graficos"&gt;
+&lt;h2&gt;Reconstrucción de gráficos&lt;/h2&gt;
+&lt;p&gt;Es común encontrarse con información presentada en forma de gráficos.
+También es común que queramos tener los datos numéricos de estos
+gráficos para poder compararlos con los nuestros. Para saber si
+nuestras medidas/simulaciones/métodos dan resultados similares a otros
+presentados en la literatura. Para esta tarea se pueden usar potentes
+software de procesamiento de imágenes, u otros más modestos diseñados
+específicamente para este fin.&lt;/p&gt;
+&lt;table&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;&lt;img alt="/images/pointplot.jpg" src="https://nicoguaro.github.io/images/pointplot.jpg"&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;p&gt;&lt;strong&gt;Figura 2.&lt;/strong&gt; Gráfico original.&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;&lt;img alt="/images/digitized_pts.png" src="https://nicoguaro.github.io/images/digitized_pts.png"&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;p&gt;&lt;strong&gt;Figura 3.&lt;/strong&gt; Gráfico procesado en Engauge Digitizer. Algunos puntos
+fueron seleccionados (automáticamente) para obtener sus coordenadas.&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="http://extensions.libreoffice.org/extension-center/digitizer-of-xy-chart"&gt;Digitizer of XY
+chart&lt;/a&gt;
+este es un plugin para Libreoffice/OpenOffice y exporta el resultado
+a la hoja de cálculo actual, es simple y fácil de usar.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="http://digitizer.sourceforge.net/"&gt;Engauge Digitizer&lt;/a&gt;, es el que
+normalmente uso cuando necesito hacer esta tarea (ver Figuras XX). Es
+de código abierto (y libre) y tiene una buena cantidad de opciones
+para facilitar la tarea.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="http://plotdigitizer.sourceforge.net/"&gt;Plot Digitizer&lt;/a&gt; no tengo
+mucha información sobre este (pues nunca lo he usado), salvo que está
+escrito en Java.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="http://imagej.nih.gov/ij/"&gt;ImageJ&lt;/a&gt; este es un (completo) programa
+de procesamiento de imágenes que está escrito en Java. No lo he usado
+para esta tarea de manera regular, pero podría usarse para ello.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/section&gt;
+&lt;section id="visualizacion-cientifica"&gt;
+&lt;h2&gt;Visualización científica&lt;/h2&gt;
+&lt;p&gt;La &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Scientific_visualization"&gt;visualización
+científica&lt;/a&gt;
+que se encarga de generar gráficos que permitan visualizar "datos
+científicos" para facilitar el entendimiento que hay detrás de los
+datos. Para esta labor muchos hemos usado lenguajes de scripting como
+Matlab/Octave, Scilab o Python (con Matplotlib o Mayavi). Sin embargo,
+como la visualización se trata de algo visual —¿como si no?—, es bueno
+contar con una herramienta que permita generar y cambiar los gráficos
+de manera interactiva, aunque siempre debemos automatizar la mayor
+cantidad de trabajo posible (la pereza siempre ha sido uno de los
+móviles más grandes de la humanidad, hay que aceptarlo).&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="http://code.enthought.com/projects/mayavi/"&gt;MayaVi&lt;/a&gt;, este es un
+programa escrito en Python que usa
+&lt;a class="reference external" href="http://en.wikipedia.org/wiki/VTK"&gt;VTK&lt;/a&gt;. Es una herramienta muy
+versátil y la gran ventaja que tiene es que puede usarse dentro de
+&lt;a class="reference external" href="https://scipy-lectures.github.io/packages/3d_plotting/index.html"&gt;scripts&lt;/a&gt;
+de Python.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="http://www.paraview.org/"&gt;Paraview&lt;/a&gt;, este programa también está
+basado en VTK y permite paralelizar las labores (para los
+computadores con múltiple núcleo y los clústers). Abajo incluyo un
+video generado en Paraview para mostrar sus capacidades.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://wci.llnl.gov/simulation/computer-codes/visit"&gt;Visit&lt;/a&gt;,
+este programa también está basado en VTK, nunca lo he usado pero
+quise incluirlo porque la gente dice que puede ser más intuitivo que
+Paraview.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="http://www.tecplot.com/"&gt;Tecplot,&lt;/a&gt; este programa es muy popular
+en Purdue. Creo que inicialmente fue pensado para CFD, pero se ha
+expandido mucho. En cuanto a gráficos 3D no me parece mejor que
+ParaView, sin embargo, las capacidades de gráficos 2D (gráficos XY, y
+demás) lo hacen atractivo.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="http://jwork.org/scavis/"&gt;Scavis&lt;/a&gt;, este está escrito en Java. No
+lo conocía hasta que inicie la escritura de esta entrada pero me
+llamó la atención y quise incluirlo en la lista. Algo que me llamó
+la atención es que permite scripting en varios lenguajes: Java,
+Python, Ruby, BeanShell y Matlab/Octave.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="http://www.originlab.com/"&gt;Origin&lt;/a&gt;, nunca lo he usado pero no lo
+quise dejar por fuera porque siempre he oído hablar maravillas de él
+(probablemente compárandolo con Excel... pero no puedo opinar).&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;iframe src="https://player.vimeo.com/video/2016815" width="640" height="483" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;
+    &lt;ahref&gt;Simulación de fuego cruzado en &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.
+&lt;/ahref&gt;&lt;/p&gt;&lt;/section&gt;
+&lt;section id="manejo-de-versiones"&gt;
+&lt;h2&gt;Manejo de versiones&lt;/h2&gt;
+&lt;p&gt;El &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Revision_control"&gt;manejo de
+versiones&lt;/a&gt; es la
+administración de cambios en documentos, código fuente y otro tipo de
+información. Esto puede hacerse de forma manual, pero es fácil cometer
+errores o remplazar la versión de un código fácilmente, y por esto es
+recomendable usar un software que facilite el trabajo. La idea es
+tener un &lt;em&gt;lugar&lt;/em&gt; (repositorio) en donde se almacenan las versiones y
+los cambios, y llevar un registro de estos. De esta forma se puede
+volver a una versión anterior de los documentos y varias personas
+pueden trabajar conjuntamente.  Existen dos paradigmas (o
+arquitecturas) para el manejo de versiones: centralizada y
+distribuida. En la primera existe un repositorio centralizado en donde
+se encuentra toda la información. En la arquitectura distribuida cada
+usuario tiene una copia del respositorio. Personalmente sólo he usado
+&lt;a class="reference external" href="http://git-scm.com/"&gt;Git&lt;/a&gt;, que entra en la categoría distribuida y
+es uno de los software de manejo de versiones más populares
+actualmente; lo usan compañías como Google, Facebook y Netflix.&lt;/p&gt;
+&lt;p&gt;Un ejemplo puede verse en este
+&lt;a class="reference external" href="https://github.com/bebopsan/SEC-Thesis"&gt;repositorio&lt;/a&gt;, en donde
+está el documento de trabajo de grado de Santiago Echeverri, el cual
+tuve la oportunidad de asesorar. Este documento lo editamos
+conjuntamente mientras él estaba en Medellín  y yo me encontraba en
+Estados Unidos. El documento se hizo en el lenguaje de marcadores
+&lt;span class="math"&gt;\(\LaTeX\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Además de tener un control sobre las versiones y poder acceder a
+versiones anteriores, es útil poder almacenar la información en un
+lugar accesible desde cualquier lugar del mundo con una conexión a
+internet. Esto puede lograrse con un servidor propio, obviamente, o
+también a través de un proveedor externo. Dos proyectos que  son muy
+populares para alojar repositorios y manejar sus versiones son
+(&lt;a class="reference external" href="http://www.infoworld.com/d/application-development/bitbucket-vs-github-which-project-host-has-the-most-227061"&gt;comparación entre Github y
+BitBucket&lt;/a&gt;):&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://github.com/"&gt;Github&lt;/a&gt;  es el más popular en este momento.
+Permite tener proyectos con un número ilimitado de colaboradores.
+Para tener un repositorio privado es necesario pagar.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://bitbucket.org/"&gt;BitBucket&lt;/a&gt; tiene como principal ventaja que
+permite tener repositorios privados sin la necesidad de pagar. Sólo
+es gratuito para proyectos con 5 colaboradores o menos (o para
+proyectos &lt;a class="reference external" href="https://bitbucket.org/account/user/nicoguaro/plans/"&gt;académicos&lt;/a&gt;).&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/section&gt;
+&lt;section id="enlaces-sugeridos"&gt;
+&lt;h2&gt;Enlaces sugeridos&lt;/h2&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;&lt;p&gt;Software Carpentry. &lt;a class="reference external" href="http://software-carpentry.org/"&gt;http://software-carpentry.org/&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Python Scientific Lecture Notes. &lt;a class="reference external" href="https://scipy-lectures.github.io/"&gt;https://scipy-lectures.github.io/&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Seguro dejé mucho temas por fuera así como herramientas dentro de
+algún tópico. Si ese es el caso, agradecería que me lo digan en los
+comentarios.&lt;/p&gt;
+&lt;/section&gt;</description><category>blog viejo</category><category>investigación</category><category>tomar notas</category><category>visualización científica</category><guid>https://nicoguaro.github.io/es/posts/herramientas-investigacion/</guid><pubDate>Sat, 12 Jul 2014 09:24:00 GMT</pubDate></item></channel></rss>

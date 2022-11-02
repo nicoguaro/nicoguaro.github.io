@@ -3,7 +3,7 @@
 &lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
 &lt;img alt="Creative Commons License"
 style="border-width:0"
-src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Fri, 21 Oct 2022 17:34:09 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Revisión ortográfica en Jupyter Notebook</title><link>https://nicoguaro.github.io/es/posts/ortografia_jupyter/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;El objetivo de esta publicación es mostrar cómo tener revisión automática
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Wed, 02 Nov 2022 13:30:35 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Revisión ortográfica en Jupyter Notebook</title><link>https://nicoguaro.github.io/es/posts/ortografia_jupyter/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;El objetivo de esta publicación es mostrar cómo tener revisión automática
 de ortografía en Jupyter Notebook, como se muestra a continuación.&lt;/p&gt;
 &lt;img alt="Ejemplo de corrección ortográfica en Jupyter Notebook." class="align-center" src="https://nicoguaro.github.io/images/ortografia_jupyter/ejemplo_ortografia.png" style="width: 600px;"&gt;
 &lt;p&gt;Existen &lt;a class="reference external" href="https://stackoverflow.com/q/39324039/3358223"&gt;varias formas&lt;/a&gt; de
@@ -26,11 +26,11 @@ una ruta relativa respecto a la carpeta en donde se encuentra el complemento.&lt
 &lt;p&gt;Existe una lista de complementos que agregan algunas funcionalidades
 comúnmente usadas a Jupyter notebook.&lt;/p&gt;
 &lt;p&gt;Escriba lo siguiente en una terminal, para instalarlo usando PIP.&lt;/p&gt;
-&lt;div class="code"&gt;&lt;pre class="code bash"&gt;&lt;a id="rest_code_6613f97288c5414aa50a9107a3dd488b-1" name="rest_code_6613f97288c5414aa50a9107a3dd488b-1" href="https://nicoguaro.github.io/es/posts/ortografia_jupyter/#rest_code_6613f97288c5414aa50a9107a3dd488b-1"&gt;&lt;/a&gt;pip install jupyter_contrib_nbextensions
+&lt;div class="code"&gt;&lt;pre class="code bash"&gt;&lt;a id="rest_code_268ea23334ba4f4abbb60ee2a2ff41cb-1" name="rest_code_268ea23334ba4f4abbb60ee2a2ff41cb-1" href="https://nicoguaro.github.io/es/posts/ortografia_jupyter/#rest_code_268ea23334ba4f4abbb60ee2a2ff41cb-1"&gt;&lt;/a&gt;pip install jupyter_contrib_nbextensions
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Sin embargo, si se está usando Anaconda el &lt;strong&gt;método recomendado&lt;/strong&gt; es usar
 &lt;code class="docutils literal"&gt;conda&lt;/code&gt;, como se muestra a continuación.&lt;/p&gt;
-&lt;div class="code"&gt;&lt;pre class="code bash"&gt;&lt;a id="rest_code_aef74ee5d40843c2bf9854389aab7f6d-1" name="rest_code_aef74ee5d40843c2bf9854389aab7f6d-1" href="https://nicoguaro.github.io/es/posts/ortografia_jupyter/#rest_code_aef74ee5d40843c2bf9854389aab7f6d-1"&gt;&lt;/a&gt;conda install -c conda-forge jupyter_contrib_nbextensions
+&lt;div class="code"&gt;&lt;pre class="code bash"&gt;&lt;a id="rest_code_a765a7e2323b41cabefaa4cb4ac2e99b-1" name="rest_code_a765a7e2323b41cabefaa4cb4ac2e99b-1" href="https://nicoguaro.github.io/es/posts/ortografia_jupyter/#rest_code_a765a7e2323b41cabefaa4cb4ac2e99b-1"&gt;&lt;/a&gt;conda install -c conda-forge jupyter_contrib_nbextensions
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Esto debe instalar los complementos y también la
 &lt;a class="reference external" href="https://github.com/Jupyter-contrib/jupyter_nbextensions_configurator"&gt;interfaz de configuración&lt;/a&gt;.
@@ -54,10 +54,10 @@ diccionario debe tener codificación &lt;a class="reference external" href="http
 Pueden descargarse en &lt;a class="reference external" href="https://nicoguaro.github.io/downloads/dict_es_ES.zip"&gt;este enlace&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Una vez que se tienen los diccionarios se deben ubicar en la ruta del
 complemento. En mi computador esta sería&lt;/p&gt;
-&lt;div class="code"&gt;&lt;pre class="code text"&gt;&lt;a id="rest_code_af280ef1dc9f43c0898f0b75ceca6f2e-1" name="rest_code_af280ef1dc9f43c0898f0b75ceca6f2e-1" href="https://nicoguaro.github.io/es/posts/ortografia_jupyter/#rest_code_af280ef1dc9f43c0898f0b75ceca6f2e-1"&gt;&lt;/a&gt;~/.local/share/jupyter/nbextensions/spellchecker/
+&lt;div class="code"&gt;&lt;pre class="code text"&gt;&lt;a id="rest_code_51521941d6594218bb0c791e69b2c007-1" name="rest_code_51521941d6594218bb0c791e69b2c007-1" href="https://nicoguaro.github.io/es/posts/ortografia_jupyter/#rest_code_51521941d6594218bb0c791e69b2c007-1"&gt;&lt;/a&gt;~/.local/share/jupyter/nbextensions/spellchecker/
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;y dentro de esta los ubicaremos en&lt;/p&gt;
-&lt;div class="code"&gt;&lt;pre class="code text"&gt;&lt;a id="rest_code_27c6c55f38224f8493df0ec8f9dd561a-1" name="rest_code_27c6c55f38224f8493df0ec8f9dd561a-1" href="https://nicoguaro.github.io/es/posts/ortografia_jupyter/#rest_code_27c6c55f38224f8493df0ec8f9dd561a-1"&gt;&lt;/a&gt;~/.local/share/jupyter/nbextensions/spellchecker/typo/dictionaries
+&lt;div class="code"&gt;&lt;pre class="code text"&gt;&lt;a id="rest_code_f3555a7a2f294335a0bcf2a87d4bad24-1" name="rest_code_f3555a7a2f294335a0bcf2a87d4bad24-1" href="https://nicoguaro.github.io/es/posts/ortografia_jupyter/#rest_code_f3555a7a2f294335a0bcf2a87d4bad24-1"&gt;&lt;/a&gt;~/.local/share/jupyter/nbextensions/spellchecker/typo/dictionaries
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Esta ubicación es arbitraria, lo importante es que necesitamos conocer
 la ruta relativa al complemento.&lt;/p&gt;

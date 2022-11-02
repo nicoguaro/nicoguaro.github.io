@@ -1260,6 +1260,10 @@ ga('send', 'pageview');
 </script>
 """
 
+###  Mastodon verification
+
+BODY_END += """<a rel="me" href="https://fosstodon.org/@nicoguaro"></a>"""
+
 
 
 # The possibility to extract metadata from the filename by using a

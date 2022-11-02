@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nicolás' blog (Publicaciones sobre ciencia ficción)</title><link>https://nicoguaro.github.io/</link><description></description><atom:link href="https://nicoguaro.github.io/es/categories/ciencia-ficcion.xml" rel="self" type="application/rss+xml"></atom:link><language>es</language><copyright>Contents © 2022 &lt;a href="mailto:nicoguarin@gmail.com"&gt;Nicolás Guarín-Zapata&lt;/a&gt; 
+&lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
+&lt;img alt="Creative Commons License"
+style="border-width:0"
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Fri, 21 Oct 2022 17:34:20 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Respecto a la teletransportación en Star Trek</title><link>https://nicoguaro.github.io/es/posts/teletransportacion-star-trek/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;Alguna vez una amiga me preguntó sobre cuál era más fácil de dos métodos para
+teletransportar personas. Uno consistía en "desconfigurar" y "reconfigurar" a
+la persona (como información, similar a &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Transporter_%28Star_Trek%29"&gt;Start Trek&lt;/a&gt;
+y la otra en "crear un atajo" entre dos lugares del espacio-tiempo para pasar
+a la persona. Obviamente, en ambos casos suponiendo que tales cosas se pueden
+hacer.&lt;/p&gt;
+&lt;p&gt;Respecto a la creación del atajo en el espacio-tiempo, creo que no he
+estudiado las ecuaciones de Relatividad General para poder hacer las cuentas,
+aunque tal vez en &lt;a class="reference external" href="http://fisicapasion.blogspot.com/"&gt;Física Pasión&lt;/a&gt;
+nos regalen estos cálculos.&lt;/p&gt;
+&lt;p&gt;La primera de las alternativas consiste,
+básicamente, en la representación de una persona como información y su
+procesamiento de "desconfiguración", transmisión y procesamiento de
+"reconfiguración". Ya que los humanos estamos hechos, mayormente,
+de agua asumiremos una persona de agua para los cálculos. Además tomaremos
+como masa de referencia &lt;span class="math"&gt;\(70\ \mbox{kg}\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Algunos datos que usaremos
+son:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;La masa molar del agua es &lt;span class="math"&gt;\(M_{H_2O}=18,01528\ \mbox{g/mol}\)&lt;/span&gt;;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;El número de Avogadro es &lt;span class="math"&gt;\(N_A=6,022 \times 10^{23}/\mbox{mol}\)&lt;/span&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Entonces tendríamos que el número de moléculas en una persona es&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+m_\text{persona} = \frac{70\ \mbox{kg}\ \mbox{moles}}
+    {18,015\times 10^{-3} \text{kg}}
+    =3885,7\ \mbox{moles}\, ,
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;y el número de moléculas sería&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+N_\text{moleculas} = N_A m_\text{persona} = 2,34\times 10^{27}\ \mbox{moleculas}\, .
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;El agua tiene 12 modos vibracionales y 6 traslacionales, y además 40 números
+cuánticos electrónicos. Lo que suma un total de 58 grados de libertad por
+cada molécula. Así que el número total de grados de libertad es&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+N_{GDL} = 1,36\times 10^{29}\, .
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;En 2011 hubo un &lt;a class="reference external" href="https://goo.gl/YEvzpM"&gt;record de transmisión&lt;/a&gt;
+de 186 Gb/s, considerando esta tasa el tiempo que tardaría en transmitirse la
+totalidad de los datos (asumiendo datos representados como reales de 32 bits)
+tardaría &lt;span class="math"&gt;\(2,3\times 10^{16}\ \mbox{s}\)&lt;/span&gt; o, equivalentemente,
+&lt;span class="math"&gt;\(1,70\times 10^{10}\)&lt;/span&gt; años (la edad estimada del universo es de
+&lt;span class="math"&gt;\(1,37\times 10^{10}\)&lt;/span&gt; años).&lt;/p&gt;
+&lt;p&gt;Si quisiéramos que esto pasara realmente rápido, digamos en 1 milisegundo,
+la tasa de transmisión debería ser &lt;span class="math"&gt;\(2,3\times 10^{19}\)&lt;/span&gt; más rápida que el
+récord que alcanzaron en el CERN… algo que es inconcebible para nosotros
+actualmente.&lt;/p&gt;</description><category>blog viejo</category><category>ciencia ficción</category><category>ciencia popular</category><category>cuentas de servilleta</category><guid>https://nicoguaro.github.io/es/posts/teletransportacion-star-trek/</guid><pubDate>Thu, 18 Apr 2013 08:40:00 GMT</pubDate></item></channel></rss>

@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nicolás' blog (Publicaciones sobre tutorial)</title><link>https://nicoguaro.github.io/</link><description></description><atom:link href="https://nicoguaro.github.io/es/categories/tutorial.xml" rel="self" type="application/rss+xml"></atom:link><language>es</language><copyright>Contents © 2022 &lt;a href="mailto:nicoguarin@gmail.com"&gt;Nicolás Guarín-Zapata&lt;/a&gt; 
+&lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
+&lt;img alt="Creative Commons License"
+style="border-width:0"
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Fri, 21 Oct 2022 17:34:07 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Descargar videos de MS Stream</title><link>https://nicoguaro.github.io/es/posts/download_stream/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;Esta semana un estudiante me preguntó acerca de descargar los videos de uno
+de los cursos de MS Stream. El problema es que si no eres propietario
+del video no puedes descargarlo. Entonces, voy a mostrar una opción para
+descargar videos sin ser propietario de los mismos.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Descargo de responsabilidad:&lt;/strong&gt; puede ser una buena idea preguntar a tu
+organización sobre los derechos de autor de los videos.&lt;/p&gt;
+&lt;section id="prerrequisitos"&gt;
+&lt;h2&gt;Prerrequisitos&lt;/h2&gt;
+&lt;p&gt;Vas a necesitar lo siguiente:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://git-scm.com/downloads"&gt;git&lt;/a&gt;;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://www.ffmpeg.org/download.html"&gt;ffmpeg&lt;/a&gt;; and&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://nodejs.org/en/download/"&gt;Node.js&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/section&gt;
+&lt;section id="instalacion-de-destreamer"&gt;
+&lt;h2&gt;Instalación de &lt;code class="docutils literal"&gt;destreamer&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;Después de obtener los requisitos previos, puedes descargar
+&lt;a class="reference external" href="https://github.com/snobu/destreamer"&gt;destreamer&lt;/a&gt; usando&lt;/p&gt;
+&lt;div class="code"&gt;&lt;pre class="code bash"&gt;&lt;a id="rest_code_aecce468a5984d96a9ce0f2762fc7700-1" name="rest_code_aecce468a5984d96a9ce0f2762fc7700-1" href="https://nicoguaro.github.io/es/posts/download_stream/#rest_code_aecce468a5984d96a9ce0f2762fc7700-1"&gt;&lt;/a&gt;$ git clone https://github.com/snobu/destreamer
+&lt;a id="rest_code_aecce468a5984d96a9ce0f2762fc7700-2" name="rest_code_aecce468a5984d96a9ce0f2762fc7700-2" href="https://nicoguaro.github.io/es/posts/download_stream/#rest_code_aecce468a5984d96a9ce0f2762fc7700-2"&gt;&lt;/a&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; destreamer
+&lt;a id="rest_code_aecce468a5984d96a9ce0f2762fc7700-3" name="rest_code_aecce468a5984d96a9ce0f2762fc7700-3" href="https://nicoguaro.github.io/es/posts/download_stream/#rest_code_aecce468a5984d96a9ce0f2762fc7700-3"&gt;&lt;/a&gt;$ npm install
+&lt;a id="rest_code_aecce468a5984d96a9ce0f2762fc7700-4" name="rest_code_aecce468a5984d96a9ce0f2762fc7700-4" href="https://nicoguaro.github.io/es/posts/download_stream/#rest_code_aecce468a5984d96a9ce0f2762fc7700-4"&gt;&lt;/a&gt;$ npm run build
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;en una terminal.&lt;/p&gt;
+&lt;p&gt;Si no se quiere jugar con
+&lt;a class="reference external" href="https://en.wikipedia.org/wiki/Environment_variable"&gt;variables de entorno&lt;/a&gt;,
+sugiero agregar &lt;code class="docutils literal"&gt;ffmpeg&lt;/code&gt; a la misma carpeta en donde se encuentra
+&lt;code class="docutils literal"&gt;destreamer&lt;/code&gt;.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="descarga"&gt;
+&lt;h2&gt;Descarga&lt;/h2&gt;
+&lt;p&gt;Después de eso, debe navegar a la carpeta donde descargaste &lt;code class="docutils literal"&gt;destreamer&lt;/code&gt; y&lt;/p&gt;
+&lt;div class="code"&gt;&lt;pre class="code bash"&gt;&lt;a id="rest_code_13a3f23543114003ac4b26e215e3425c-1" name="rest_code_13a3f23543114003ac4b26e215e3425c-1" href="https://nicoguaro.github.io/es/posts/download_stream/#rest_code_13a3f23543114003ac4b26e215e3425c-1"&gt;&lt;/a&gt;$ ./destreamer.sh -i &lt;span class="s2"&gt;"https://web.microsoftstream.com/video/VIDEO_ID"&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;en Mac o Linux,&lt;/p&gt;
+&lt;div class="code"&gt;&lt;pre class="code bash"&gt;&lt;a id="rest_code_6cc7333f106c438d9f2b3115a40c4018-1" name="rest_code_6cc7333f106c438d9f2b3115a40c4018-1" href="https://nicoguaro.github.io/es/posts/download_stream/#rest_code_6cc7333f106c438d9f2b3115a40c4018-1"&gt;&lt;/a&gt;$ destreamer.cmd -i &lt;span class="s2"&gt;"https://web.microsoftstream.com/video/VIDEO_ID"&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;en el &lt;em&gt;command prompt&lt;/em&gt; en Windows, y&lt;/p&gt;
+&lt;div class="code"&gt;&lt;pre class="code bash"&gt;&lt;a id="rest_code_4a9a44eb1611468682fe7ba17211542b-1" name="rest_code_4a9a44eb1611468682fe7ba17211542b-1" href="https://nicoguaro.github.io/es/posts/download_stream/#rest_code_4a9a44eb1611468682fe7ba17211542b-1"&gt;&lt;/a&gt;$ destreamer.ps1 -i &lt;span class="s2"&gt;"https://web.microsoftstream.com/video/VIDEO_ID"&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;en PowerShell. &lt;code class="docutils literal"&gt;VIDEO_ID&lt;/code&gt; se refiere al identificador del video
+en MS Stream.&lt;/p&gt;
+&lt;p&gt;Si deseas descargar varios archivos (como un curso completo),
+puedes crear un archivo con las URL y usar&lt;/p&gt;
+&lt;div class="code"&gt;&lt;pre class="code bash"&gt;&lt;a id="rest_code_3fb9d8ce00324246b7d867a339b088e7-1" name="rest_code_3fb9d8ce00324246b7d867a339b088e7-1" href="https://nicoguaro.github.io/es/posts/download_stream/#rest_code_3fb9d8ce00324246b7d867a339b088e7-1"&gt;&lt;/a&gt;$ destreamer.cmd -f filename.txt
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/section&gt;</description><category>nodejs</category><category>tutorial</category><category>videos</category><guid>https://nicoguaro.github.io/es/posts/download_stream/</guid><pubDate>Fri, 12 Jun 2020 20:31:22 GMT</pubDate></item><item><title>Revisión ortográfica en Jupyter Notebook</title><link>https://nicoguaro.github.io/es/posts/ortografia_jupyter/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;El objetivo de esta publicación es mostrar cómo tener revisión automática
+de ortografía en Jupyter Notebook, como se muestra a continuación.&lt;/p&gt;
+&lt;img alt="Ejemplo de corrección ortográfica en Jupyter Notebook." class="align-center" src="https://nicoguaro.github.io/images/ortografia_jupyter/ejemplo_ortografia.png" style="width: 600px;"&gt;
+&lt;p&gt;Existen &lt;a class="reference external" href="https://stackoverflow.com/q/39324039/3358223"&gt;varias formas&lt;/a&gt; de
+realizar esto. Sin embargo, la forma más fácil es a través del complemento
+(&lt;em&gt;nbextension&lt;/em&gt;) &lt;a class="reference external" href="https://nicoguaro.github.io/es/posts/ortografia_jupyter/&amp;lt;https:/jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/spellchecker/README.html"&gt;Spellchecker&lt;/a&gt;.&lt;/p&gt;
+&lt;section id="paso-a-paso"&gt;
+&lt;h2&gt;Paso a paso&lt;/h2&gt;
+&lt;p&gt;Los pasos a seguir son los siguientes:&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;&lt;p&gt;Instalar Jupyter notebook extensions (&lt;a class="reference external" href="https://github.com/ipython-contrib/jupyter_contrib_nbextensions"&gt;nbextensions&lt;/a&gt;). Este incluye
+&lt;a class="reference external" href="https://nicoguaro.github.io/es/posts/ortografia_jupyter/&amp;lt;https:/jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/spellchecker/README.html"&gt;Spellchecker&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Ubicar los diccionarios en la carpeta donde está el complemento. Los
+diccionarios deben usar la codificación UTF-8.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Configurar la ruta de los diccionarios. Esta puede ser una URL o
+una ruta relativa respecto a la carpeta en donde se encuentra el complemento.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;A continuación describiremos en detalle cada paso.&lt;/p&gt;
+&lt;section id="paso-1-instalacion-de-nbextensions"&gt;
+&lt;h3&gt;Paso 1: Instalación de nbextensions&lt;/h3&gt;
+&lt;p&gt;Existe una lista de complementos que agregan algunas funcionalidades
+comúnmente usadas a Jupyter notebook.&lt;/p&gt;
+&lt;p&gt;Escriba lo siguiente en una terminal, para instalarlo usando PIP.&lt;/p&gt;
+&lt;div class="code"&gt;&lt;pre class="code bash"&gt;&lt;a id="rest_code_6613f97288c5414aa50a9107a3dd488b-1" name="rest_code_6613f97288c5414aa50a9107a3dd488b-1" href="https://nicoguaro.github.io/es/posts/ortografia_jupyter/#rest_code_6613f97288c5414aa50a9107a3dd488b-1"&gt;&lt;/a&gt;pip install jupyter_contrib_nbextensions
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Sin embargo, si se está usando Anaconda el &lt;strong&gt;método recomendado&lt;/strong&gt; es usar
+&lt;code class="docutils literal"&gt;conda&lt;/code&gt;, como se muestra a continuación.&lt;/p&gt;
+&lt;div class="code"&gt;&lt;pre class="code bash"&gt;&lt;a id="rest_code_aef74ee5d40843c2bf9854389aab7f6d-1" name="rest_code_aef74ee5d40843c2bf9854389aab7f6d-1" href="https://nicoguaro.github.io/es/posts/ortografia_jupyter/#rest_code_aef74ee5d40843c2bf9854389aab7f6d-1"&gt;&lt;/a&gt;conda install -c conda-forge jupyter_contrib_nbextensions
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Esto debe instalar los complementos y también la
+&lt;a class="reference external" href="https://github.com/Jupyter-contrib/jupyter_nbextensions_configurator"&gt;interfaz de configuración&lt;/a&gt;.
+En el menú principal de Jupyter notebook aparecerá una nueva pestaña
+nombrada &lt;em&gt;Nbextensions&lt;/em&gt; en donde se pueden elegir los complementos a usar.
+La apariencia es la siguiente.&lt;/p&gt;
+&lt;img alt="Interfaz gráfica para los complementos de Jupyter." class="align-center" src="https://nicoguaro.github.io/images/ortografia_jupyter/interfaz_nbextensions.png" style="width: 600px;"&gt;
+&lt;p&gt;Algunos complementos recomendados son:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Collapsible Headings:&lt;/strong&gt; que permite ocultar secciones de los documentos.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;RISE:&lt;/strong&gt; que convierte los notebooks en presentaciones.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/section&gt;
+&lt;section id="paso-2-diccionarios-para-espanol"&gt;
+&lt;h3&gt;Paso 2: Diccionarios para español&lt;/h3&gt;
+&lt;p&gt;La documentación de &lt;a class="reference external" href="https://nicoguaro.github.io/es/posts/ortografia_jupyter/&amp;lt;https:/jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/spellchecker/README.html"&gt;Spellchecker&lt;/a&gt; sugiere usar un script de Python para
+descargar diccionarios del proyecto &lt;a class="reference external" href="https://chromium.googlesource.com/chromium/deps/hunspell_dictionaries/+/master"&gt;Chromium&lt;/a&gt;.
+Sin embargo, estos tienen como codificación ISO-8859-1 (occidente) y falla
+para caracteres con tildes o virgulillas. Para que no haya problemas el
+diccionario debe tener codificación &lt;a class="reference external" href="https://en.wikipedia.org/wiki/UTF-8"&gt;UTF-8&lt;/a&gt;.
+Pueden descargarse en &lt;a class="reference external" href="https://nicoguaro.github.io/downloads/dict_es_ES.zip"&gt;este enlace&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Una vez que se tienen los diccionarios se deben ubicar en la ruta del
+complemento. En mi computador esta sería&lt;/p&gt;
+&lt;div class="code"&gt;&lt;pre class="code text"&gt;&lt;a id="rest_code_af280ef1dc9f43c0898f0b75ceca6f2e-1" name="rest_code_af280ef1dc9f43c0898f0b75ceca6f2e-1" href="https://nicoguaro.github.io/es/posts/ortografia_jupyter/#rest_code_af280ef1dc9f43c0898f0b75ceca6f2e-1"&gt;&lt;/a&gt;~/.local/share/jupyter/nbextensions/spellchecker/
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;y dentro de esta los ubicaremos en&lt;/p&gt;
+&lt;div class="code"&gt;&lt;pre class="code text"&gt;&lt;a id="rest_code_27c6c55f38224f8493df0ec8f9dd561a-1" name="rest_code_27c6c55f38224f8493df0ec8f9dd561a-1" href="https://nicoguaro.github.io/es/posts/ortografia_jupyter/#rest_code_27c6c55f38224f8493df0ec8f9dd561a-1"&gt;&lt;/a&gt;~/.local/share/jupyter/nbextensions/spellchecker/typo/dictionaries
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Esta ubicación es arbitraria, lo importante es que necesitamos conocer
+la ruta relativa al complemento.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="paso-3-configuracion-complementos"&gt;
+&lt;h3&gt;Paso 3: Configuración complementos&lt;/h3&gt;
+&lt;p&gt;Ahora, en la pestaña &lt;em&gt;Nbextensions&lt;/em&gt; seleccionamos el complemento y llenamos
+los campos con la información de nuestro diccionario:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;language code to use with typo.js: &lt;code class="docutils literal"&gt;es_ES&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;url for the dictionary .dic file to use: &lt;code class="docutils literal"&gt;./typo/dictionaries/es_ES.dic&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;url for the dictionary .aff file to use: &lt;code class="docutils literal"&gt;./typo/dictionaries/es_ES.aff&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Esto se muestra a continuación.&lt;/p&gt;
+&lt;img alt="Configuración con archivos locales." class="align-center" src="https://nicoguaro.github.io/images/ortografia_jupyter/config_local.png" style="width: 600px;"&gt;
+&lt;p&gt;Otra opción es usar la URL para los archivos. En &lt;a class="reference external" href="https://github.com/wooorm/dictionaries"&gt;https://github.com/wooorm/dictionaries&lt;/a&gt;
+están disponibles los diccionarios del proyecto &lt;a class="reference external" href="https://hunspell.github.io/"&gt;hunspell&lt;/a&gt;
+en UTF-8. En este caso, la configuración sería:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;language code to use with typo.js: &lt;code class="docutils literal"&gt;es_ES&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;url for the dictionary .dic file to use: &lt;code class="docutils literal"&gt;&lt;span class="pre"&gt;https://raw.githubusercontent.com/wooorm/dictionaries/master/dictionaries/es/index.dic&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;url for the dictionary .aff file to use: &lt;code class="docutils literal"&gt;&lt;span class="pre"&gt;https://raw.githubusercontent.com/wooorm/dictionaries/master/dictionaries/es/index.aff&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Y se muestra a continuación.&lt;/p&gt;
+&lt;img alt="Configuración con archivos remotos." class="align-center" src="https://nicoguaro.github.io/images/ortografia_jupyter/config_url.png" style="width: 600px;"&gt;
+&lt;/section&gt;
+&lt;/section&gt;</description><category>ciencia de datos</category><category>computación científica</category><category>python</category><category>tutorial</category><guid>https://nicoguaro.github.io/es/posts/ortografia_jupyter/</guid><pubDate>Tue, 20 Aug 2019 19:45:41 GMT</pubDate></item><item><title>Gráficos isométricos en Inkscape: Parte 2</title><link>https://nicoguaro.github.io/es/posts/isometric_inkscape2/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;&lt;a class="reference external" href="https://nicoguaro.github.io/es/posts/isometric_inkscape"&gt;La semana pasada&lt;/a&gt; publiqué una guía rápida
+sobre dibujos isométricos dibujar usando &lt;a class="reference external" href="https://inkscape.org/en/"&gt;Inkscape&lt;/a&gt;.
+En ese post, mostré cómo obtener imágenes que se proyectan a las caras de
+un bloque isométrico.&lt;/p&gt;
+&lt;p&gt;Después de mi publicación, &lt;a class="reference external" href="https://twitter.com/parresianz"&gt;Biswajit Banerjee&lt;/a&gt;
+me preguntó en &lt;a class="reference external" href="https://twitter.com/parresianz/status/999787980658126848"&gt;Twitter&lt;/a&gt;
+si podría repetir el proceso con un ejemplo más complejo, y él sugirió
+el siguiente diagramaa&lt;/p&gt;
+&lt;img alt="Cálculo del momento de inercia para una viga." class="align-center" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Beam_moment_plain.svg/512px-Beam_moment_plain.svg.png"&gt;
+&lt;p&gt;que, creo, se creó en Inkscape usando la opción "Crear caja 3D".&lt;/p&gt;
+&lt;p&gt;En esta publicación, haré lo siguiente:&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;&lt;p&gt;Usar el mismo enfoque de la semana pasada para recrear este esquema.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Sugerir mi enfoque preferido para dibujar este esquema.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;section id="primer-enfoque"&gt;
+&lt;h2&gt;Primer enfoque&lt;/h2&gt;
+&lt;p&gt;Repetiré el resumen de la semana pasada. Hay que tener en cuenta que
+Inkscape trata la rotación en sentido horario como positiva.&lt;/p&gt;
+&lt;img alt="Resumen para esquemas isométricos en Inkscape." class="align-center" src="https://nicoguaro.github.io/images/isometric_inkscape/isometric_instructions.svg" style="width: 500px;"&gt;
+&lt;p&gt;Luego, para crear una caja con las dimensiones deseadas, primero creamos
+cada rectángulo con las dimensiones correctas (en proyecciones paralelas).
+En el siguiente ejemplo, usamos caras con relaciones de aspecto 3:2,
+2:1 y 4:3. La caja de la derecha es la cifra obtenida después de aplicar
+las transformaciones descritas en el esquema anterior.&lt;/p&gt;
+&lt;img alt="Orthogonal views and final isometric figure" class="align-center" src="https://nicoguaro.github.io/images/isometric_inkscape/isometric_ex2.svg" style="width: 500px;"&gt;
+&lt;p&gt;Ahora podemos proceder, para recrear la figura deseada. No conozco las
+dimensiones exactas de la caja; supongo que la sección transversal era
+un cuadrado y la relación de aspecto era 5:1. Después de aplicar las
+transformaciones para cada rectángulo obtenemos lo siguiente
+(agregando algunos ajustes aquí y allá).&lt;/p&gt;
+&lt;img alt="Figura usando el enfoque descrito." class="align-center" src="https://nicoguaro.github.io/images/isometric_inkscape/isometric_beam.svg" style="width: 500px;"&gt;
+&lt;/section&gt;
+&lt;section id="segundo-enfoque"&gt;
+&lt;h2&gt;Segundo enfoque&lt;/h2&gt;
+&lt;p&gt;Para este tipo de esquema, preferiría crear una cuadrícula axonométrica
+(&lt;code class="docutils literal"&gt;Archivo &amp;gt; Propiedades de documento &amp;gt; Cuadrículas&lt;/code&gt;). Después de
+agregar la cuadrícula a nuestro lienzo es bastante sencillo dibujar las
+figuras en vista isométrica. El lienzo debe ser similar a la siguiente
+imagen.&lt;/p&gt;
+&lt;img alt="Segundo enfoque: usando una rejilla axonométrica." class="align-center" src="https://nicoguaro.github.io/images/isometric_inkscape/screenshot_inkscape.png" style="width: 500px;"&gt;
+&lt;p&gt;Luego podemos dibujar cada cara usando la cuadrícula. Si queremos ser
+más precisos podemos activar &lt;code class="docutils literal"&gt;Ajustar a nodos cúspides&lt;/code&gt;. La siguiente
+animación muestra la construcción paso a paso.&lt;/p&gt;
+&lt;img alt="Construcción del isométrico paso a paso." class="align-center" src="https://nicoguaro.github.io/images/isometric_inkscape/isometric_construction.gif" style="width: 500px;"&gt;
+&lt;p&gt;Y obtenemos la siguiente imagen.&lt;/p&gt;
+&lt;img alt="Figura usando el segundo enfoque." class="align-center" src="https://nicoguaro.github.io/images/isometric_inkscape/isometric_beam2.svg" style="width: 500px;"&gt;
+&lt;/section&gt;
+&lt;section id="conclusion"&gt;
+&lt;h2&gt;Conclusión&lt;/h2&gt;
+&lt;p&gt;Como mencioné, Inkscape se puede usar para dibujar figuras simples en
+proyección isométrica. Sin embargo, sugiero utilizar un CAD como
+&lt;a class="reference external" href="https://freecadweb.org/"&gt;FreeCAD&lt;/a&gt; para geometrías más complicadas.&lt;/p&gt;
+&lt;/section&gt;</description><category>gráficos por computador</category><category>inkscape</category><category>tutorial</category><guid>https://nicoguaro.github.io/es/posts/isometric_inkscape2/</guid><pubDate>Wed, 30 May 2018 17:40:57 GMT</pubDate></item><item><title>Gráficos isométricos en Inkscape</title><link>https://nicoguaro.github.io/es/posts/isometric_inkscape/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;A veces me encuentro en la necesidad de hacer un diagrama usando una
+&lt;a class="reference external" href="https://en.wikipedia.org/wiki/Isometric_projection"&gt;proyección isométrica&lt;/a&gt;.
+Cuando el diagrama es complicado la mejor opción es usar algún software de
+CAD como &lt;a class="reference external" href="https://freecadweb.org/"&gt;FreeCAD&lt;/a&gt;, pero a veces sólo se necesita
+un diagrama simple. Otra situación en la que esto es común
+es en &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Isometric_graphics_in_video_games_and_pixel_art"&gt;videojuegos&lt;/a&gt;,
+donde se el &lt;a class="reference external" href="https://youtu.be/toWMFcWB4HA"&gt;arte isométrico&lt;/a&gt; y
+&lt;a class="reference external" href="https://en.wikipedia.org/wiki/Pixel_art"&gt;arte pixelado&lt;/a&gt; son bastante comunes.&lt;/p&gt;
+&lt;p&gt;Lo que queremos se muestra en la siguiente figura.&lt;/p&gt;
+&lt;img alt="Ejemplo de isométrico." class="align-center" src="https://nicoguaro.github.io/images/isometric_inkscape/isometric_example.svg" style="width: 400px;"&gt;
+&lt;p&gt;Es decir, queremos comenzar con cierto dibujo, o
+escrito en el caso del ejemplo, y queremos saber cómo se
+vería en una de las caras de una bloque isométrico.&lt;/p&gt;
+&lt;p&gt;A continuación, describiré brevemente las transformaciones involucradas en este
+proceso. Si sólo está interesado en la receta para hacer esto en Inkscape, pase
+al final de este post.&lt;/p&gt;
+&lt;section id="transformaciones-involucradas"&gt;
+&lt;h2&gt;Transformaciones involucradas&lt;/h2&gt;
+&lt;p&gt;Como estamos trabajando en una pantalla de computador, estamos hablando de 2
+dimensiones. Por lo tanto, todas las transformaciones están representadas por
+matrices 2×2. En el ejemplo de interés en este post necesitamos las
+siguientes transformaciones:&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;&lt;p&gt;Escalado vertical&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Inclinación horizontal&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Rotación&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Las siguientes son las matrices de transformación.&lt;/p&gt;
+&lt;section id="escalado-en-la-direccion-vertical"&gt;
+&lt;h3&gt;Escalado en la dirección vertical&lt;/h3&gt;
+&lt;p&gt;La matriz está dada por&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+M_\text{scaling} = \begin{bmatrix} 1 &amp;amp;0\\ 0 &amp;amp;a\end{bmatrix}\, ,
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;donde &lt;span class="math"&gt;\(a\)&lt;/span&gt; es el factor de escalamiento.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="inclinacion-horizontal"&gt;
+&lt;h3&gt;Inclinación horizontal&lt;/h3&gt;
+&lt;p&gt;La matriz está dada por&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+M_\text{skew} = \begin{bmatrix} 1 &amp;amp;\tan a\\ 0 &amp;amp;1\end{bmatrix}\, ,
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;donde &lt;span class="math"&gt;\(a\)&lt;/span&gt; es el ángulo de inclinación.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="rotacion"&gt;
+&lt;h3&gt;Rotación&lt;/h3&gt;
+&lt;p&gt;La matriz está dada por&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+M_\text{rotation} = \begin{bmatrix} \cos a &amp;amp;-\sin a\\ \sin a &amp;amp;\cos a\end{bmatrix}\, ,
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;donde &lt;span class="math"&gt;\(a\)&lt;/span&gt; es el ángulo de rotación.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="transformacion-completa"&gt;
+&lt;h3&gt;Transformación completa&lt;/h3&gt;
+&lt;p&gt;La transformación completa está dada por&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+M_\text{complete} = M_\text{rotation} M_\text{skew} M_\text{scaling}\, ,
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;particularmente,&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{align*}
+&amp;amp;M_\text{side} =
+  \frac{1}{2}\begin{bmatrix} \sqrt{3} &amp;amp; 0\\ -1 &amp;amp;2\end{bmatrix}\approx
+  \begin{bmatrix} 0.866 &amp;amp; 0.000\\ -0.500 &amp;amp;1.000\end{bmatrix}\, , \\
+&amp;amp;M_\text{front} = \frac{1}{2}\begin{bmatrix} \sqrt{3} &amp;amp; 0\\ 1 &amp;amp;2\end{bmatrix}\approx
+  \begin{bmatrix} 0.866 &amp;amp; 0.000\\ 0.500 &amp;amp;1.000\end{bmatrix}\, , \\
+&amp;amp;M_\text{plant} = \frac{1}{2}\begin{bmatrix} \sqrt{3} &amp;amp; -\sqrt{3}\\ -1 &amp;amp;1\end{bmatrix}\approx
+  \begin{bmatrix} 0.866 &amp;amp; -0.866\\ 0.500 &amp;amp;0.500\end{bmatrix}\, .
+\end{align*}
+&lt;/div&gt;
+&lt;p&gt;Estos valores parecen un poco arbitrarios, pero pueden obtenerse de la
+&lt;a class="reference external" href="https://en.wikipedia.org/wiki/Isometric_projection#Mathematics"&gt;proyección isométrica&lt;/a&gt;
+misma. Pero esta explicación sería un poco larga para este post.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="tranformacion-en-inskcape"&gt;
+&lt;h3&gt;Tranformación en Inskcape&lt;/h3&gt;
+&lt;p&gt;Ya tenemos las matrices de transformación y podemos usarlas en Inkscape.
+Pero primero, necesitamos entender cómo funciona. Inkscape usa
+&lt;a class="reference external" href="https://en.wikipedia.org/wiki/Scalable_Vector_Graphics"&gt;SVG&lt;/a&gt;, el estándar
+web para gráficos vectoriales.
+&lt;a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/transform"&gt;Las transformaciones&lt;/a&gt;
+en SVG se realizan utilizando la siguiente matriz&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+\begin{bmatrix} a &amp;amp;c &amp;amp;e\\ b &amp;amp;d &amp;amp;f\\ 0 &amp;amp;0 &amp;amp;1\end{bmatrix}\, ,
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;que usa &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Homogeneous_coordinates"&gt;coordenadas homogéneas&lt;/a&gt;.
+Entonces, se puede presionar &lt;code class="docutils literal"&gt;Shift + Ctrl + M&lt;/code&gt; y digitar
+las componentes de las matrices que se obtuvieron anteriormente
+para &lt;span class="math"&gt;\(a\)&lt;/span&gt;, &lt;span class="math"&gt;\(b\)&lt;/span&gt;, &lt;span class="math"&gt;\(c\)&lt;/span&gt;, y &lt;span class="math"&gt;\(d\)&lt;/span&gt;; dejando
+&lt;span class="math"&gt;\(e\)&lt;/span&gt; y &lt;span class="math"&gt;\(f\)&lt;/span&gt; con el valor 0.&lt;/p&gt;
+&lt;p&gt;Sin embargo, mi método preferido es aplicar cada transformación después de
+otro en el cuadro de diálogo &lt;cite&gt;Transformar&lt;/cite&gt; (&lt;code class="docutils literal"&gt;Shift + Ctrl + M&lt;/code&gt;).
+Y este es el método presentado en el resumen al final de esta publicación.&lt;/p&gt;
+&lt;/section&gt;
+&lt;/section&gt;
+&lt;section id="tl-dr"&gt;
+&lt;h2&gt;TL;DR&lt;/h2&gt;
+&lt;p&gt;Si solo está interesado en las transformaciones necesarias en Inkscape
+Puedes consultar el resumen a continuación. Utiliza el tercer cuadrante como se
+presenta abajo.&lt;/p&gt;
+&lt;img alt="Nombres para la representación en tercer cuadrante." class="align-center" src="https://nicoguaro.github.io/images/isometric_inkscape/third_angle.svg" style="width: 400px;"&gt;
+&lt;section id="resumen"&gt;
+&lt;h3&gt;Resumen&lt;/h3&gt;
+&lt;p&gt;Tenga en cuenta que Inkscape trata la rotación en sentido horario como
+positiva. Opuesto a la notación común en matemáticas.&lt;/p&gt;
+&lt;img alt="Resumen para diagramas isométricos en Inkscape." class="align-center" src="https://nicoguaro.github.io/images/isometric_inkscape/isometric_instructions.svg" style="width: 500px;"&gt;
+&lt;/section&gt;
+&lt;/section&gt;</description><category>álgebra lineal</category><category>gráficos por computador</category><category>inkscape</category><category>tutorial</category><guid>https://nicoguaro.github.io/es/posts/isometric_inkscape/</guid><pubDate>Thu, 24 May 2018 20:42:02 GMT</pubDate></item></channel></rss>
