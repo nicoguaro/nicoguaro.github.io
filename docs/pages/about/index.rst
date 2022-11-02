@@ -29,12 +29,6 @@ I love music and I used to take part of the `Choir of Universidad EAFIT
 Social media
 -------------
 
-- `GitHub: nicoguaro <https://github.com/nicoguaro>`_
-
-- `Twitter: @nicoguaro <https://twitter.com/nicoguaro>`_
-
-- `Flickr: nicoguaro <https://www.flickr.com/photos/nicoguaro/>`_
-
 .. raw:: html
 
    <ul>
