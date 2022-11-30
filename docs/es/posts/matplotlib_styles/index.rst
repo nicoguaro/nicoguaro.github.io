@@ -9,17 +9,17 @@
 
 Podemos dar formato a los gráficos de forma simple usando el
 `paquete de estilo <http://matplotlib.org/users/customizing.html>`_
-en matplotlib. La idea principal es craar un archivo con algunos
+en matplotlib. La idea principal es crear un archivo con algunos
 parámetros predefinidos (esto también puede hacerse a través de
 `rcParams`).
 
 Esta publicación no es un tutorial en cómo usar estos archivos, para
 estos puedes mirar la página
 `style sheet reference <http://matplotlib.org/examples/style_sheets/style_sheets_reference.html>`_.
-Acá, quiere jugar un poco con algunos de los parámetors para crear tres
+Acá, quiero jugar un poco con algunos de los parámetros para crear tres
 estilos diferentes. Los primeros dos tienen el estilo de un software
-(infame para algunos), que es usado por la mayoría de personas como
-su plataforma de visualización, el terecero es un estilo limpio. Todos
+(infame para algunos), que es usado por la mayoría de las personas como
+su plataforma de visualización, el tercero es un estilo limpio. Todos
 los archivos usados se pueden descargar
 `aquí <https://github.com/nicoguaro/matplotlib_styles>`_.
 
@@ -237,6 +237,3 @@ Además, encuentro muy útiles las siguientes herramientas:
 - `Colorgorical <http://vrl.cs.brown.edu/color>`_ es una herramienta
   para crear paletas de colores categóricas (cualitativas) para visualización
   de información.
-
-Puedes encontrar el código de esta publicación en
-`esteJupyter notebook <http://nbviewer.jupyter.org/gist/nicoguaro/862ea1015917d99352401433d45684e2/matplotlib_styles.ipynb>`_.

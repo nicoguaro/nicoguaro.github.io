@@ -236,7 +236,3 @@ Also, I found really useful the following tools:
 
 - `Colorgorical <http://vrl.cs.brown.edu/color>`_ is a tool to
   make categorical color palettes for information visualization.
-
-
-You can find the snippets present in this post in
-`this Jupyter notebook <http://nbviewer.jupyter.org/gist/nicoguaro/862ea1015917d99352401433d45684e2/matplotlib_styles.ipynb>`_.

@@ -171,7 +171,7 @@
  </url>
  <url>
   <loc>https://nicoguaro.github.io/categories/approximation/</loc>
-  <lastmod>2022-07-11T18:47:00Z</lastmod>
+  <lastmod>2022-11-19T12:58:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/categories/back-of-the-envelope-calculations/</loc>
@@ -423,7 +423,7 @@
  </url>
  <url>
   <loc>https://nicoguaro.github.io/categories/cholesky-decomposition/</loc>
-  <lastmod>2022-07-11T18:47:00Z</lastmod>
+  <lastmod>2022-11-19T12:58:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/categories/combinatorics/</loc>
@@ -443,7 +443,7 @@
  </url>
  <url>
   <loc>https://nicoguaro.github.io/categories/conjugate-gradient/</loc>
-  <lastmod>2022-07-11T18:47:00Z</lastmod>
+  <lastmod>2022-11-19T12:58:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/categories/data-science/</loc>
@@ -491,7 +491,7 @@
  </url>
  <url>
   <loc>https://nicoguaro.github.io/categories/latex/</loc>
-  <lastmod>2022-11-01T16:19:00Z</lastmod>
+  <lastmod>2022-11-19T12:58:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/categories/latex/index%20%281%29.html</loc>
@@ -618,6 +618,10 @@
   <lastmod>2022-08-17T03:49:00Z</lastmod>
  </url>
  <url>
+  <loc>https://nicoguaro.github.io/categories/latex/index%20%282%29%20%2829%29.html</loc>
+  <lastmod>2022-08-17T03:49:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://nicoguaro.github.io/categories/latex/index%20%282%29%20%283%29.html</loc>
   <lastmod>2022-08-17T03:49:00Z</lastmod>
  </url>
@@ -695,7 +699,7 @@
  </url>
  <url>
   <loc>https://nicoguaro.github.io/categories/libreoffice/</loc>
-  <lastmod>2022-07-11T18:47:00Z</lastmod>
+  <lastmod>2022-11-19T12:58:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/categories/linear-algebra/</loc>
@@ -711,7 +715,7 @@
  </url>
  <url>
   <loc>https://nicoguaro.github.io/categories/mathematica/</loc>
-  <lastmod>2022-07-11T18:47:00Z</lastmod>
+  <lastmod>2022-11-19T12:58:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/categories/matplotlib/</loc>
@@ -719,7 +723,7 @@
  </url>
  <url>
   <loc>https://nicoguaro.github.io/categories/monte-carlo/</loc>
-  <lastmod>2022-07-11T18:47:00Z</lastmod>
+  <lastmod>2022-11-19T12:58:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/categories/ms-word/</loc>
@@ -1631,11 +1635,15 @@
  </url>
  <url>
   <loc>https://nicoguaro.github.io/es/categories/cuadratura/</loc>
-  <lastmod>2022-08-17T14:28:00Z</lastmod>
+  <lastmod>2022-11-16T14:16:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/es/categories/cuadratura/index%20%281%29.html</loc>
   <lastmod>2022-08-17T03:39:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://nicoguaro.github.io/es/categories/cuadratura/index%20%282%29.html</loc>
+  <lastmod>2022-10-21T17:33:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/es/categories/cuentas-de-servilleta/</loc>
@@ -1799,11 +1807,15 @@
  </url>
  <url>
   <loc>https://nicoguaro.github.io/es/categories/integracion-de-verlet/</loc>
-  <lastmod>2022-08-17T14:28:00Z</lastmod>
+  <lastmod>2022-11-16T14:16:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/es/categories/integracion-de-verlet/index%20%281%29.html</loc>
   <lastmod>2022-08-17T03:39:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://nicoguaro.github.io/es/categories/integracion-de-verlet/index%20%282%29.html</loc>
+  <lastmod>2022-10-21T17:33:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/es/categories/interpolacion/</loc>
@@ -1827,7 +1839,7 @@
  </url>
  <url>
   <loc>https://nicoguaro.github.io/es/categories/latex/</loc>
-  <lastmod>2022-10-22T14:38:00Z</lastmod>
+  <lastmod>2022-11-16T14:16:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/es/categories/latex/index%20%281%29.html</loc>
@@ -1892,6 +1904,10 @@
  <url>
   <loc>https://nicoguaro.github.io/es/categories/latex/index%20%2822%29.html</loc>
   <lastmod>2022-10-21T17:28:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://nicoguaro.github.io/es/categories/latex/index%20%2823%29.html</loc>
+  <lastmod>2022-10-21T17:33:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/es/categories/latex/index%20%283%29.html</loc>
@@ -1959,11 +1975,15 @@
  </url>
  <url>
   <loc>https://nicoguaro.github.io/es/categories/metodo-de-elementos-finitos/</loc>
-  <lastmod>2022-08-17T14:28:00Z</lastmod>
+  <lastmod>2022-11-16T14:16:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/es/categories/metodo-de-elementos-finitos/index%20%281%29.html</loc>
   <lastmod>2022-08-17T03:39:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://nicoguaro.github.io/es/categories/metodo-de-elementos-finitos/index%20%282%29.html</loc>
+  <lastmod>2022-10-21T17:33:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/es/categories/metodo-de-ritz/</loc>
@@ -1975,11 +1995,15 @@
  </url>
  <url>
   <loc>https://nicoguaro.github.io/es/categories/metodo-del-disparo/</loc>
-  <lastmod>2022-08-17T14:28:00Z</lastmod>
+  <lastmod>2022-11-16T14:16:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/es/categories/metodo-del-disparo/index%20%281%29.html</loc>
   <lastmod>2022-08-17T03:39:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://nicoguaro.github.io/es/categories/metodo-del-disparo/index%20%282%29.html</loc>
+  <lastmod>2022-10-21T17:33:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/es/categories/metodos-numericos/</loc>
@@ -2003,11 +2027,15 @@
  </url>
  <url>
   <loc>https://nicoguaro.github.io/es/categories/optimizacion/</loc>
-  <lastmod>2022-08-17T14:28:00Z</lastmod>
+  <lastmod>2022-11-16T14:16:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/es/categories/optimizacion/index%20%281%29.html</loc>
   <lastmod>2022-08-17T03:39:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://nicoguaro.github.io/es/categories/optimizacion/index%20%282%29.html</loc>
+  <lastmod>2022-10-21T17:33:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/es/categories/palabras/</loc>
@@ -2115,15 +2143,19 @@
  </url>
  <url>
   <loc>https://nicoguaro.github.io/es/categories/zorra/</loc>
-  <lastmod>2022-08-17T14:28:00Z</lastmod>
+  <lastmod>2022-11-16T14:16:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/es/categories/zorra/index%20%281%29.html</loc>
   <lastmod>2022-08-17T03:39:00Z</lastmod>
  </url>
  <url>
+  <loc>https://nicoguaro.github.io/es/categories/zorra/index%20%282%29.html</loc>
+  <lastmod>2022-10-21T17:33:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://nicoguaro.github.io/es/index-1.html</loc>
-  <lastmod>2022-11-02T23:36:00Z</lastmod>
+  <lastmod>2022-11-30T22:22:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/es/index-2.html</loc>
@@ -15646,7 +15678,7 @@
  </url>
  <url>
   <loc>https://nicoguaro.github.io/index-1.html</loc>
-  <lastmod>2022-11-02T23:36:00Z</lastmod>
+  <lastmod>2022-11-30T22:22:00Z</lastmod>
  </url>
  <url>
   <loc>https://nicoguaro.github.io/index-2.html</loc>
@@ -15666,11 +15698,15 @@
  </url>
  <url>
   <loc>https://nicoguaro.github.io/pages/about/</loc>
-  <lastmod>2022-11-01T16:19:00Z</lastmod>
+  <lastmod>2022-11-16T14:16:00Z</lastmod>
   <xhtml:link rel="alternate" hreflang="es" href="https://nicoguaro.github.io/es/pages/about/" />
  </url>
  <url>
   <loc>https://nicoguaro.github.io/pages/about/index%20%281%29.html</loc>
+  <lastmod>2022-10-21T17:34:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://nicoguaro.github.io/pages/about/index%20%2810%29.html</loc>
   <lastmod>2022-10-21T17:34:00Z</lastmod>
  </url>
  <url>
@@ -15695,6 +15731,10 @@
  </url>
  <url>
   <loc>https://nicoguaro.github.io/pages/about/index%20%282%29%20%287%29.html</loc>
+  <lastmod>2022-10-21T17:34:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://nicoguaro.github.io/pages/about/index%20%282%29%20%288%29.html</loc>
   <lastmod>2022-10-21T17:34:00Z</lastmod>
  </url>
  <url>
@@ -15754,11 +15794,15 @@
  </url>
  <url>
   <loc>https://nicoguaro.github.io/pages/work/</loc>
-  <lastmod>2022-11-01T16:19:00Z</lastmod>
+  <lastmod>2022-11-16T14:16:00Z</lastmod>
   <xhtml:link rel="alternate" hreflang="es" href="https://nicoguaro.github.io/es/pages/work/" />
  </url>
  <url>
   <loc>https://nicoguaro.github.io/pages/work/index%20%281%29.html</loc>
+  <lastmod>2022-10-21T17:34:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://nicoguaro.github.io/pages/work/index%20%2810%29.html</loc>
   <lastmod>2022-10-21T17:34:00Z</lastmod>
  </url>
  <url>
@@ -15783,6 +15827,10 @@
  </url>
  <url>
   <loc>https://nicoguaro.github.io/pages/work/index%20%282%29%20%287%29.html</loc>
+  <lastmod>2022-10-21T17:34:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://nicoguaro.github.io/pages/work/index%20%282%29%20%288%29.html</loc>
   <lastmod>2022-10-21T17:34:00Z</lastmod>
  </url>
  <url>
@@ -15953,11 +16001,15 @@
  </url>
  <url>
   <loc>https://nicoguaro.github.io/posts/cyclic_colormaps/</loc>
-  <lastmod>2022-11-01T16:19:00Z</lastmod>
+  <lastmod>2022-11-04T12:47:00Z</lastmod>
   <xhtml:link rel="alternate" hreflang="es" href="https://nicoguaro.github.io/es/posts/cyclic_colormaps/" />
  </url>
  <url>
   <loc>https://nicoguaro.github.io/posts/cyclic_colormaps/index%20%281%29.html</loc>
+  <lastmod>2022-10-21T17:34:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://nicoguaro.github.io/posts/cyclic_colormaps/index%20%2810%29.html</loc>
   <lastmod>2022-10-21T17:34:00Z</lastmod>
  </url>
  <url>
@@ -15982,6 +16034,10 @@
  </url>
  <url>
   <loc>https://nicoguaro.github.io/posts/cyclic_colormaps/index%20%282%29%20%287%29.html</loc>
+  <lastmod>2022-10-21T17:34:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://nicoguaro.github.io/posts/cyclic_colormaps/index%20%282%29%20%288%29.html</loc>
   <lastmod>2022-10-21T17:34:00Z</lastmod>
  </url>
  <url>
@@ -16018,11 +16074,15 @@
  </url>
  <url>
   <loc>https://nicoguaro.github.io/posts/download_stream/</loc>
-  <lastmod>2022-11-01T16:19:00Z</lastmod>
+  <lastmod>2022-11-04T12:47:00Z</lastmod>
   <xhtml:link rel="alternate" hreflang="es" href="https://nicoguaro.github.io/es/posts/download_stream/" />
  </url>
  <url>
   <loc>https://nicoguaro.github.io/posts/download_stream/index%20%281%29.html</loc>
+  <lastmod>2022-10-21T17:34:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://nicoguaro.github.io/posts/download_stream/index%20%2810%29.html</loc>
   <lastmod>2022-10-21T17:34:00Z</lastmod>
  </url>
  <url>
@@ -16047,6 +16107,10 @@
  </url>
  <url>
   <loc>https://nicoguaro.github.io/posts/download_stream/index%20%282%29%20%287%29.html</loc>
+  <lastmod>2022-10-21T17:34:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://nicoguaro.github.io/posts/download_stream/index%20%282%29%20%288%29.html</loc>
   <lastmod>2022-10-21T17:34:00Z</lastmod>
  </url>
  <url>
@@ -16343,11 +16407,15 @@
  </url>
  <url>
   <loc>https://nicoguaro.github.io/posts/infinite_fdm/</loc>
-  <lastmod>2022-11-01T16:19:00Z</lastmod>
+  <lastmod>2022-11-04T12:47:00Z</lastmod>
   <xhtml:link rel="alternate" hreflang="es" href="https://nicoguaro.github.io/es/posts/infinite_fdm/" />
  </url>
  <url>
   <loc>https://nicoguaro.github.io/posts/infinite_fdm/index%20%281%29.html</loc>
+  <lastmod>2022-10-21T17:34:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://nicoguaro.github.io/posts/infinite_fdm/index%20%2810%29.html</loc>
   <lastmod>2022-10-21T17:34:00Z</lastmod>
  </url>
  <url>
@@ -16372,6 +16440,10 @@
  </url>
  <url>
   <loc>https://nicoguaro.github.io/posts/infinite_fdm/index%20%282%29%20%287%29.html</loc>
+  <lastmod>2022-10-21T17:34:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://nicoguaro.github.io/posts/infinite_fdm/index%20%282%29%20%288%29.html</loc>
   <lastmod>2022-10-21T17:34:00Z</lastmod>
  </url>
  <url>
@@ -17420,7 +17492,7 @@
  </url>
  <url>
   <loc>https://nicoguaro.github.io/posts/numerical_challenge/numerical-04/</loc>
-  <lastmod>2022-11-01T16:19:00Z</lastmod>
+  <lastmod>2022-11-19T12:58:00Z</lastmod>
   <xhtml:link rel="alternate" hreflang="es" href="https://nicoguaro.github.io/es/posts/numerical_challenge/numerical-04/" />
  </url>
  <url>

@@ -3,7 +3,7 @@
 &lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
 &lt;img alt="Creative Commons License"
 style="border-width:0"
-src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Wed, 02 Nov 2022 17:08:32 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Using MikTex with LaTeX Workshop on Windows</title><link>https://nicoguaro.github.io/es/posts/latex_vscode_wind/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;This is a post to mention how to setup Visual Studio Code for LaTeX—through
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Wed, 30 Nov 2022 22:22:04 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Using MikTex with LaTeX Workshop on Windows</title><link>https://nicoguaro.github.io/es/posts/latex_vscode_wind/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;This is a post to mention how to setup Visual Studio Code for LaTeX—through
 the &lt;a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop"&gt;LaTeX Workshop extension&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;In the past,  I have used several text editors and for LaTeX. A couple of years
 ago I replaced &lt;a class="reference external" href="https://www.texstudio.org/"&gt;TeXstudio&lt;/a&gt; for VS Code, and I think

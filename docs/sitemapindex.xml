@@ -7,7 +7,7 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <sitemap>
   <loc>https://nicoguaro.github.io/authors/nicolas-guarin-zapata.xml</loc>
-  <lastmod>2022-11-02T17:08:00Z</lastmod>
+  <lastmod>2022-11-30T22:22:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/authors/sebastian-tobon.xml</loc>
@@ -63,7 +63,7 @@
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/categories/cat_visualization.xml</loc>
-  <lastmod>2022-11-02T17:08:00Z</lastmod>
+  <lastmod>2022-11-30T22:22:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/categories/cat_writing.xml</loc>
@@ -163,7 +163,7 @@
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/categories/matplotlib.xml</loc>
-  <lastmod>2022-11-02T17:08:00Z</lastmod>
+  <lastmod>2022-11-30T22:22:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/categories/monte-carlo.xml</loc>
@@ -219,7 +219,7 @@
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/categories/python.xml</loc>
-  <lastmod>2022-11-02T17:08:00Z</lastmod>
+  <lastmod>2022-11-30T22:22:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/categories/quadrature.xml</loc>
@@ -255,7 +255,7 @@
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/categories/scientific-computing.xml</loc>
-  <lastmod>2022-11-02T17:08:00Z</lastmod>
+  <lastmod>2022-11-30T22:22:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/categories/scientific-visualization.xml</loc>
@@ -303,7 +303,7 @@
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/categories/visualization.xml</loc>
-  <lastmod>2022-11-02T17:08:00Z</lastmod>
+  <lastmod>2022-11-30T22:22:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/categories/wolfram-engine.xml</loc>
@@ -327,7 +327,7 @@
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/authors/nicolas-guarin-zapata.xml</loc>
-  <lastmod>2022-11-02T17:08:00Z</lastmod>
+  <lastmod>2022-11-30T22:22:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/authors/sebastian-tobon%20%281%29.xml</loc>
@@ -1263,7 +1263,7 @@
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/cat_visualization.xml</loc>
-  <lastmod>2022-11-02T17:08:00Z</lastmod>
+  <lastmod>2022-11-30T22:22:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/cat_writing%20%281%29.xml</loc>
@@ -1695,7 +1695,7 @@
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/computacion-cientifica.xml</loc>
-  <lastmod>2022-11-02T17:08:00Z</lastmod>
+  <lastmod>2022-11-30T22:22:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/computer-algebra-system%20%281%29.xml</loc>
@@ -4827,7 +4827,7 @@
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/matplotlib.xml</loc>
-  <lastmod>2022-11-02T17:08:00Z</lastmod>
+  <lastmod>2022-11-30T22:22:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/metodo-de-diferencias-finitas%20%281%29.xml</loc>
@@ -7583,7 +7583,7 @@
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/python.xml</loc>
-  <lastmod>2022-11-02T17:08:00Z</lastmod>
+  <lastmod>2022-11-30T22:22:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/research.xml</loc>
@@ -9767,7 +9767,7 @@
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/visualizacion.xml</loc>
-  <lastmod>2022-11-02T17:08:00Z</lastmod>
+  <lastmod>2022-11-30T22:22:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/categories/wolfram-engine%20%281%29.xml</loc>
@@ -10175,14 +10175,14 @@
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/es/rss.xml</loc>
-  <lastmod>2022-11-02T17:08:00Z</lastmod>
+  <lastmod>2022-11-30T22:22:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/rss.xml</loc>
-  <lastmod>2022-11-02T17:08:00Z</lastmod>
+  <lastmod>2022-11-30T22:22:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://nicoguaro.github.io/sitemap.xml</loc>
-  <lastmod>2022-11-02T23:36:00Z</lastmod>
+  <lastmod>2022-11-30T22:22:00Z</lastmod>
  </sitemap>
 </sitemapindex>
