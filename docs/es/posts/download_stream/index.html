@@ -96,10 +96,10 @@ organización sobre los derechos de autor de los videos.</p>
 </h2>
 <p>Después de obtener los requisitos previos, puedes descargar
 <a class="reference external" href="https://github.com/snobu/destreamer">destreamer</a> usando</p>
-<div class="code"><pre class="code bash"><a id="rest_code_a866c509087b458eb179c7cb69b109b7-1" name="rest_code_a866c509087b458eb179c7cb69b109b7-1" href="#rest_code_a866c509087b458eb179c7cb69b109b7-1"></a>$ git clone https://github.com/snobu/destreamer
-<a id="rest_code_a866c509087b458eb179c7cb69b109b7-2" name="rest_code_a866c509087b458eb179c7cb69b109b7-2" href="#rest_code_a866c509087b458eb179c7cb69b109b7-2"></a>$ <span class="nb">cd</span> destreamer
-<a id="rest_code_a866c509087b458eb179c7cb69b109b7-3" name="rest_code_a866c509087b458eb179c7cb69b109b7-3" href="#rest_code_a866c509087b458eb179c7cb69b109b7-3"></a>$ npm install
-<a id="rest_code_a866c509087b458eb179c7cb69b109b7-4" name="rest_code_a866c509087b458eb179c7cb69b109b7-4" href="#rest_code_a866c509087b458eb179c7cb69b109b7-4"></a>$ npm run build
+<div class="code"><pre class="code bash"><a id="rest_code_2989e9b99968457eb2d8485aed1b7da7-1" name="rest_code_2989e9b99968457eb2d8485aed1b7da7-1" href="#rest_code_2989e9b99968457eb2d8485aed1b7da7-1"></a>$ git clone https://github.com/snobu/destreamer
+<a id="rest_code_2989e9b99968457eb2d8485aed1b7da7-2" name="rest_code_2989e9b99968457eb2d8485aed1b7da7-2" href="#rest_code_2989e9b99968457eb2d8485aed1b7da7-2"></a>$ <span class="nb">cd</span> destreamer
+<a id="rest_code_2989e9b99968457eb2d8485aed1b7da7-3" name="rest_code_2989e9b99968457eb2d8485aed1b7da7-3" href="#rest_code_2989e9b99968457eb2d8485aed1b7da7-3"></a>$ npm install
+<a id="rest_code_2989e9b99968457eb2d8485aed1b7da7-4" name="rest_code_2989e9b99968457eb2d8485aed1b7da7-4" href="#rest_code_2989e9b99968457eb2d8485aed1b7da7-4"></a>$ npm run build
 </pre></div>
 <p>en una terminal.</p>
 <p>Si no se quiere jugar con
@@ -108,19 +108,19 @@ sugiero agregar <code class="docutils literal">ffmpeg</code> a la misma carpeta 
 <code class="docutils literal">destreamer</code>.</p>
 </section><section id="descarga"><h2>Descarga</h2>
 <p>Después de eso, debe navegar a la carpeta donde descargaste <code class="docutils literal">destreamer</code> y</p>
-<div class="code"><pre class="code bash"><a id="rest_code_4e04fef2868e4f3393d42245f0127aef-1" name="rest_code_4e04fef2868e4f3393d42245f0127aef-1" href="#rest_code_4e04fef2868e4f3393d42245f0127aef-1"></a>$ ./destreamer.sh -i <span class="s2">"https://web.microsoftstream.com/video/VIDEO_ID"</span>
+<div class="code"><pre class="code bash"><a id="rest_code_1868df0f672e46f9bdbee25045dc13c9-1" name="rest_code_1868df0f672e46f9bdbee25045dc13c9-1" href="#rest_code_1868df0f672e46f9bdbee25045dc13c9-1"></a>$ ./destreamer.sh -i <span class="s2">"https://web.microsoftstream.com/video/VIDEO_ID"</span>
 </pre></div>
 <p>en Mac o Linux,</p>
-<div class="code"><pre class="code bash"><a id="rest_code_436ba0c393bc43f2a98c367fa69324c5-1" name="rest_code_436ba0c393bc43f2a98c367fa69324c5-1" href="#rest_code_436ba0c393bc43f2a98c367fa69324c5-1"></a>$ destreamer.cmd -i <span class="s2">"https://web.microsoftstream.com/video/VIDEO_ID"</span>
+<div class="code"><pre class="code bash"><a id="rest_code_568ecaaca713436b936847d9b79552a4-1" name="rest_code_568ecaaca713436b936847d9b79552a4-1" href="#rest_code_568ecaaca713436b936847d9b79552a4-1"></a>$ destreamer.cmd -i <span class="s2">"https://web.microsoftstream.com/video/VIDEO_ID"</span>
 </pre></div>
 <p>en el <em>command prompt</em> en Windows, y</p>
-<div class="code"><pre class="code bash"><a id="rest_code_5d634dc346e64b3dbce0b157abd3b3f8-1" name="rest_code_5d634dc346e64b3dbce0b157abd3b3f8-1" href="#rest_code_5d634dc346e64b3dbce0b157abd3b3f8-1"></a>$ destreamer.ps1 -i <span class="s2">"https://web.microsoftstream.com/video/VIDEO_ID"</span>
+<div class="code"><pre class="code bash"><a id="rest_code_9aee828e65ef4c80b7ab50e643a8b367-1" name="rest_code_9aee828e65ef4c80b7ab50e643a8b367-1" href="#rest_code_9aee828e65ef4c80b7ab50e643a8b367-1"></a>$ destreamer.ps1 -i <span class="s2">"https://web.microsoftstream.com/video/VIDEO_ID"</span>
 </pre></div>
 <p>en PowerShell. <code class="docutils literal">VIDEO_ID</code> se refiere al identificador del video
 en MS Stream.</p>
 <p>Si deseas descargar varios archivos (como un curso completo),
 puedes crear un archivo con las URL y usar</p>
-<div class="code"><pre class="code bash"><a id="rest_code_18ca8149c80f4bec935a08c5dcabbcdc-1" name="rest_code_18ca8149c80f4bec935a08c5dcabbcdc-1" href="#rest_code_18ca8149c80f4bec935a08c5dcabbcdc-1"></a>$ destreamer.cmd -f filename.txt
+<div class="code"><pre class="code bash"><a id="rest_code_00b95558513b4fd78ac05a0685f03780-1" name="rest_code_00b95558513b4fd78ac05a0685f03780-1" href="#rest_code_00b95558513b4fd78ac05a0685f03780-1"></a>$ destreamer.cmd -f filename.txt
 </pre></div>
 </section>
 </div>
@@ -158,7 +158,7 @@ puedes crear un archivo con las URL y usar</p>
     <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
-        </section></article><script>var disqus_shortname="nicoguaro-github";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><footer id="footer"><p><a href="https://creativecommons.org/licenses/by/4.0/" rel="nofollow">CC BY 4.0</a> © 2022 <a href="mailto:nicoguarin@gmail.com">Nicolás Guarín-Zapata</a> - Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a> - <a rel="me" href="https://fosstodon.org/@nicoguaro">Mastodon profile</a></p>
+        </section></article><script>var disqus_shortname="nicoguaro-github";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><footer id="footer"><p><a href="https://creativecommons.org/licenses/by/4.0/" rel="nofollow">CC BY 4.0</a> © 2023 <a href="mailto:nicoguarin@gmail.com">Nicolás Guarín-Zapata</a> - Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a> - <a rel="me" href="https://fosstodon.org/@nicoguaro">Mastodon profile</a></p>
             
         </footer>
 </div>

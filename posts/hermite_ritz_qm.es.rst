@@ -1,7 +1,7 @@
 .. title: Solución de la ecuación de Schrödinger usando el método de Ritz
 .. slug: hermite_ritz_qm
 .. date: 2017-07-11 19:04:57 UTC-05:00
-.. tags: métodos variacionales, método de elementos finitos, polinomios de Hermite
+.. tags: métodos variacionales, método de elementos finitos, polinomios de Hermite, mecánica cuántica
 .. category: Scientific Computing
 .. type: text
 .. has_math: yes

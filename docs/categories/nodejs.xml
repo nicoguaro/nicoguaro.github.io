@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nicolás' blog (Posts about nodejs)</title><link>https://nicoguaro.github.io/</link><description></description><atom:link href="https://nicoguaro.github.io/categories/nodejs.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2022 &lt;a href="mailto:nicoguarin@gmail.com"&gt;Nicolás Guarín-Zapata&lt;/a&gt; 
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nicolás' blog (Posts about nodejs)</title><link>https://nicoguaro.github.io/</link><description></description><atom:link href="https://nicoguaro.github.io/categories/nodejs.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2023 &lt;a href="mailto:nicoguarin@gmail.com"&gt;Nicolás Guarín-Zapata&lt;/a&gt; 
 &lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
 &lt;img alt="Creative Commons License"
 style="border-width:0"
-src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Wed, 02 Nov 2022 17:08:35 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Downloading videos from MS Stream</title><link>https://nicoguaro.github.io/posts/download_stream/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;This week a student asked me about downloading the videos from one of the
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Sun, 29 Jan 2023 16:05:32 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Downloading videos from MS Stream</title><link>https://nicoguaro.github.io/posts/download_stream/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;This week a student asked me about downloading the videos from one of the
 courses from MS Stream. The problem is that if you are not a proprietary
 of the video you cannot download it. So, I will show you an option to
 download videos without being a proprietary of them.&lt;/p&gt;
@@ -22,10 +22,10 @@ the copyright of the videos.&lt;/p&gt;
 &lt;h2&gt;&lt;code class="docutils literal"&gt;destreamer&lt;/code&gt; installation&lt;/h2&gt;
 &lt;p&gt;After getting the prerequisites you can download
 &lt;a class="reference external" href="https://github.com/snobu/destreamer"&gt;destreamer&lt;/a&gt; using&lt;/p&gt;
-&lt;div class="code"&gt;&lt;pre class="code bash"&gt;&lt;a id="rest_code_660065d85b7b420981514449d156620a-1" name="rest_code_660065d85b7b420981514449d156620a-1" href="https://nicoguaro.github.io/posts/download_stream/#rest_code_660065d85b7b420981514449d156620a-1"&gt;&lt;/a&gt;$ git clone https://github.com/snobu/destreamer
-&lt;a id="rest_code_660065d85b7b420981514449d156620a-2" name="rest_code_660065d85b7b420981514449d156620a-2" href="https://nicoguaro.github.io/posts/download_stream/#rest_code_660065d85b7b420981514449d156620a-2"&gt;&lt;/a&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; destreamer
-&lt;a id="rest_code_660065d85b7b420981514449d156620a-3" name="rest_code_660065d85b7b420981514449d156620a-3" href="https://nicoguaro.github.io/posts/download_stream/#rest_code_660065d85b7b420981514449d156620a-3"&gt;&lt;/a&gt;$ npm install
-&lt;a id="rest_code_660065d85b7b420981514449d156620a-4" name="rest_code_660065d85b7b420981514449d156620a-4" href="https://nicoguaro.github.io/posts/download_stream/#rest_code_660065d85b7b420981514449d156620a-4"&gt;&lt;/a&gt;$ npm run build
+&lt;div class="code"&gt;&lt;pre class="code bash"&gt;&lt;a id="rest_code_427987f1de114ce5bde9be0a915874e2-1" name="rest_code_427987f1de114ce5bde9be0a915874e2-1" href="https://nicoguaro.github.io/posts/download_stream/#rest_code_427987f1de114ce5bde9be0a915874e2-1"&gt;&lt;/a&gt;$ git clone https://github.com/snobu/destreamer
+&lt;a id="rest_code_427987f1de114ce5bde9be0a915874e2-2" name="rest_code_427987f1de114ce5bde9be0a915874e2-2" href="https://nicoguaro.github.io/posts/download_stream/#rest_code_427987f1de114ce5bde9be0a915874e2-2"&gt;&lt;/a&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; destreamer
+&lt;a id="rest_code_427987f1de114ce5bde9be0a915874e2-3" name="rest_code_427987f1de114ce5bde9be0a915874e2-3" href="https://nicoguaro.github.io/posts/download_stream/#rest_code_427987f1de114ce5bde9be0a915874e2-3"&gt;&lt;/a&gt;$ npm install
+&lt;a id="rest_code_427987f1de114ce5bde9be0a915874e2-4" name="rest_code_427987f1de114ce5bde9be0a915874e2-4" href="https://nicoguaro.github.io/posts/download_stream/#rest_code_427987f1de114ce5bde9be0a915874e2-4"&gt;&lt;/a&gt;$ npm run build
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;in a terminal.&lt;/p&gt;
 &lt;p&gt;If you do not want to play with
@@ -36,17 +36,17 @@ I suggest that you just add &lt;code class="docutils literal"&gt;ffmpeg&lt;/code
 &lt;h2&gt;Downloading&lt;/h2&gt;
 &lt;p&gt;After that, you need to navigate to the folder where you downloaded
 &lt;code class="docutils literal"&gt;destreamer&lt;/code&gt; and&lt;/p&gt;
-&lt;div class="code"&gt;&lt;pre class="code bash"&gt;&lt;a id="rest_code_14b32a73c3444022b77ae41538d5620f-1" name="rest_code_14b32a73c3444022b77ae41538d5620f-1" href="https://nicoguaro.github.io/posts/download_stream/#rest_code_14b32a73c3444022b77ae41538d5620f-1"&gt;&lt;/a&gt;$ ./destreamer.sh -i &lt;span class="s2"&gt;"https://web.microsoftstream.com/video/VIDEO_ID"&lt;/span&gt;
+&lt;div class="code"&gt;&lt;pre class="code bash"&gt;&lt;a id="rest_code_a49e9b4c997f4ae290b6552ebd87b829-1" name="rest_code_a49e9b4c997f4ae290b6552ebd87b829-1" href="https://nicoguaro.github.io/posts/download_stream/#rest_code_a49e9b4c997f4ae290b6552ebd87b829-1"&gt;&lt;/a&gt;$ ./destreamer.sh -i &lt;span class="s2"&gt;"https://web.microsoftstream.com/video/VIDEO_ID"&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;in Mac or Linux,&lt;/p&gt;
-&lt;div class="code"&gt;&lt;pre class="code bash"&gt;&lt;a id="rest_code_50924a8eaa0f4e5393437fbc84b13b9c-1" name="rest_code_50924a8eaa0f4e5393437fbc84b13b9c-1" href="https://nicoguaro.github.io/posts/download_stream/#rest_code_50924a8eaa0f4e5393437fbc84b13b9c-1"&gt;&lt;/a&gt;$ destreamer.cmd -i &lt;span class="s2"&gt;"https://web.microsoftstream.com/video/VIDEO_ID"&lt;/span&gt;
+&lt;div class="code"&gt;&lt;pre class="code bash"&gt;&lt;a id="rest_code_705ab18176e74c6cb52ce316e7ab7d68-1" name="rest_code_705ab18176e74c6cb52ce316e7ab7d68-1" href="https://nicoguaro.github.io/posts/download_stream/#rest_code_705ab18176e74c6cb52ce316e7ab7d68-1"&gt;&lt;/a&gt;$ destreamer.cmd -i &lt;span class="s2"&gt;"https://web.microsoftstream.com/video/VIDEO_ID"&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;in the command prompt in Windows, and&lt;/p&gt;
-&lt;div class="code"&gt;&lt;pre class="code bash"&gt;&lt;a id="rest_code_caec9878640a42738aa3ab161d7959b9-1" name="rest_code_caec9878640a42738aa3ab161d7959b9-1" href="https://nicoguaro.github.io/posts/download_stream/#rest_code_caec9878640a42738aa3ab161d7959b9-1"&gt;&lt;/a&gt;$ destreamer.ps1 -i &lt;span class="s2"&gt;"https://web.microsoftstream.com/video/VIDEO_ID"&lt;/span&gt;
+&lt;div class="code"&gt;&lt;pre class="code bash"&gt;&lt;a id="rest_code_7422f84629ba4cfbbd583f87fe1d3567-1" name="rest_code_7422f84629ba4cfbbd583f87fe1d3567-1" href="https://nicoguaro.github.io/posts/download_stream/#rest_code_7422f84629ba4cfbbd583f87fe1d3567-1"&gt;&lt;/a&gt;$ destreamer.ps1 -i &lt;span class="s2"&gt;"https://web.microsoftstream.com/video/VIDEO_ID"&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;in PowerShell.``VIDEO_ID`` refers to the identifier in MS Stream.&lt;/p&gt;
 &lt;p&gt;If you want to download several files (like a complete course), you
 can create a file with the URLs and use&lt;/p&gt;
-&lt;div class="code"&gt;&lt;pre class="code bash"&gt;&lt;a id="rest_code_ba0d837005df4e2197825fb055c923fd-1" name="rest_code_ba0d837005df4e2197825fb055c923fd-1" href="https://nicoguaro.github.io/posts/download_stream/#rest_code_ba0d837005df4e2197825fb055c923fd-1"&gt;&lt;/a&gt;$ destreamer.cmd -f filename.txt
+&lt;div class="code"&gt;&lt;pre class="code bash"&gt;&lt;a id="rest_code_327ebf1d1d1b40b68a7b49d162d5ff88-1" name="rest_code_327ebf1d1d1b40b68a7b49d162d5ff88-1" href="https://nicoguaro.github.io/posts/download_stream/#rest_code_327ebf1d1d1b40b68a7b49d162d5ff88-1"&gt;&lt;/a&gt;$ destreamer.cmd -f filename.txt
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/section&gt;</description><category>nodejs</category><category>tutorial</category><category>videos</category><guid>https://nicoguaro.github.io/posts/download_stream/</guid><pubDate>Fri, 12 Jun 2020 20:31:22 GMT</pubDate></item></channel></rss>

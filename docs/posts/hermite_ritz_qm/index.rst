@@ -1,7 +1,7 @@
 .. title: Solution of the Schrödinger equation using Ritz method
 .. slug: hermite_ritz_qm
 .. date: 2017-07-11 19:04:57 UTC-05:00
-.. tags: variational methods, finite element method, Hermite polynomials
+.. tags: variational methods, finite element method, Hermite polynomials, quantum mechanics
 .. category: Scientific Computing
 .. type: text
 .. has_math: yes
