@@ -11,12 +11,17 @@
 Esta es una página de archivo de artículos de investigación. A continuación
 se pueden encontrar enlaces a los *preprints*.
 
-2021
+2023
 ----
 
-- Guarín-Zapata, N., Valencia, C., & Gómez, J. (2021).
-  `Analysis of the directionality on periodic materials <preprint2021b_>`_.
-  arXiv preprint arXiv: `2109.09893 <https://arxiv.org/abs/2109.09893>`_.
+- Guarín-Zapata, N., Valencia, C., & Gómez, J. (2023).
+  `Analysis of the directionality on periodic materials.
+  <https://www.tandfonline.com/doi/full/10.1080/15376494.2023.2226958>`_.
+  Mechanics of Advanced Materials and Structures, DOI: 10.1080/15376494.2023.2226958
+  (`preprint <preprint2023_>`_, `preprint en español <preprint2023-es_>`_).
+
+2021
+----
 
 - Guarín-Zapata, N., Gomez, J., Hadjesfandiari, A. R., & Dargush, G. F. (2021).
   `Variational principles and finite element Bloch analysis in couple stress
@@ -122,4 +127,6 @@ se pueden encontrar enlaces a los *preprints*.
 
 .. _preprint2021a: /downloads/preprints/2021_ccst_bloch.pdf
 
-.. _preprint2021b: /downloads/preprints/2021_directionality.pdf
+.. _preprint2023: /downloads/preprints/2023_directionality.pdf
+
+.. _preprint2023-es: /downloads/preprints/2023_directionality-es.pdf
