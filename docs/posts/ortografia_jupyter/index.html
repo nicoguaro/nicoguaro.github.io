@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width">
 <title>Spell Check in Jupyter Notebook | Nicolás' blog</title>
 <link href="../../assets/css/all.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
 <link rel="alternate" type="application/rss+xml" title="RSS (en)" href="../../rss.xml">
 <link rel="alternate" type="application/rss+xml" title="RSS (es)" href="../../es/rss.xml">
 <link rel="canonical" href="https://nicoguaro.github.io/posts/ortografia_jupyter/">
@@ -38,7 +38,7 @@
         <a class="sidebar-nav-item" href="../../index.html">Blog</a>
         <a class="sidebar-nav-item" href="../../pages/preprints-archive/">Preprints</a>
         <a class="sidebar-nav-item" href="../../pages/links/">Links</a>
-        <a class="sidebar-nav-item" href="../../archive.html">Archive</a>
+        <a class="sidebar-nav-item" href="../../archive.html">Archives</a>
         <a class="sidebar-nav-item" href="../../categories/">Tags</a>
         <a class="sidebar-nav-item" href="../../rss.xml">RSS feed</a>
     
@@ -100,11 +100,11 @@ relative to the folder where the plugin is located.</p></li>
 <p>There is a list of plugins that add some commonly used functionality to
 the Jupyter notebook.</p>
 <p>Type the following in a terminal, to install it using PIP.</p>
-<div class="code"><pre class="code bash"><a id="rest_code_bbdd6152e6384f55a4cb630d40683f65-1" name="rest_code_bbdd6152e6384f55a4cb630d40683f65-1" href="#rest_code_bbdd6152e6384f55a4cb630d40683f65-1"></a>pip install jupyter_contrib_nbextensions
+<div class="code"><pre class="code bash"><a id="rest_code_5d2c118474a041c8b4554437fddcd6be-1" name="rest_code_5d2c118474a041c8b4554437fddcd6be-1" href="#rest_code_5d2c118474a041c8b4554437fddcd6be-1"></a>pip<span class="w"> </span>install<span class="w"> </span>jupyter_contrib_nbextensions
 </pre></div>
 <p>However, if Anaconda is being used the <strong>recommended method</strong> is to use
 <code class="docutils literal">conda</code>, as shown below.</p>
-<div class="code"><pre class="code bash"><a id="rest_code_eb6ec169014a4747b5a92288be057ef9-1" name="rest_code_eb6ec169014a4747b5a92288be057ef9-1" href="#rest_code_eb6ec169014a4747b5a92288be057ef9-1"></a>conda install -c conda-forge jupyter_contrib_nbextensions
+<div class="code"><pre class="code bash"><a id="rest_code_ee4926a539554536bcdaa3e659179600-1" name="rest_code_ee4926a539554536bcdaa3e659179600-1" href="#rest_code_ee4926a539554536bcdaa3e659179600-1"></a>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>jupyter_contrib_nbextensions
 </pre></div>
 <p>This should install the plugins and also the
 <a class="reference external" href="https://github.com/Jupyter-contrib/jupyter_nbextensions_configurator">configuration interface</a>.
@@ -124,10 +124,10 @@ dictionary must be <a class="reference external" href="https://en.wikipedia.org/
 They can be downloaded at <a class="reference external" href="../../downloads/dict_es_ES.zip">this link</a>.</p>
 <p>Once you have the dictionaries, they must be located in the path of the
 plugin. On my computer this would be</p>
-<div class="code"><pre class="code text"><a id="rest_code_bbb945fa55af4937bba433b615be2012-1" name="rest_code_bbb945fa55af4937bba433b615be2012-1" href="#rest_code_bbb945fa55af4937bba433b615be2012-1"></a>~/.local/share/jupyter/nbextensions/spellchecker/
+<div class="code"><pre class="code text"><a id="rest_code_387a9c666801497ea7023e8c0e8e85ca-1" name="rest_code_387a9c666801497ea7023e8c0e8e85ca-1" href="#rest_code_387a9c666801497ea7023e8c0e8e85ca-1"></a>~/.local/share/jupyter/nbextensions/spellchecker/
 </pre></div>
 <p>and within this we will place them in</p>
-<div class="code"><pre class="code text"><a id="rest_code_176488e17ee844c7b26c22b2274c97b4-1" name="rest_code_176488e17ee844c7b26c22b2274c97b4-1" href="#rest_code_176488e17ee844c7b26c22b2274c97b4-1"></a>~/.local/share/jupyter/nbextensions/spellchecker/typo/dictionaries
+<div class="code"><pre class="code text"><a id="rest_code_a962998b83404a00899a5440cdb2cb8d-1" name="rest_code_a962998b83404a00899a5440cdb2cb8d-1" href="#rest_code_a962998b83404a00899a5440cdb2cb8d-1"></a>~/.local/share/jupyter/nbextensions/spellchecker/typo/dictionaries
 </pre></div>
 <p>This location is arbitrary, the important thing is that we need to know
 the relative path to the plugin.</p>
@@ -187,7 +187,7 @@ would be:</p>
     <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
-        </section></article><script>var disqus_shortname="nicoguaro-github";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><footer id="footer"><p><a href="https://creativecommons.org/licenses/by/4.0/" rel="nofollow">CC BY 4.0</a> © 2023 <a href="mailto:nicoguarin@gmail.com">Nicolás Guarín-Zapata</a> - Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a> - <a rel="me" href="https://fosstodon.org/@nicoguaro">Mastodon profile</a></p>
+        </section></article><script>var disqus_shortname="nicoguaro-github";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><footer id="footer"><p><a href="https://creativecommons.org/licenses/by/4.0/" rel="nofollow">CC BY 4.0</a> © 2025 <a href="mailto:nicoguarin@gmail.com">Nicolás Guarín-Zapata</a> - Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a> - <a rel="me" href="https://fosstodon.org/@nicoguaro">Mastodon profile</a></p>
             
         </footer>
 </div>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nicolás' blog (Publicaciones sobre tutorial)</title><link>https://nicoguaro.github.io/</link><description></description><atom:link href="https://nicoguaro.github.io/es/categories/tutorial.xml" rel="self" type="application/rss+xml"></atom:link><language>es</language><copyright>Contents © 2023 &lt;a href="mailto:nicoguarin@gmail.com"&gt;Nicolás Guarín-Zapata&lt;/a&gt; 
+<?xml-stylesheet type="text/xsl" href="../../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nicolás' blog (Publicaciones sobre tutorial)</title><link>https://nicoguaro.github.io/</link><description></description><atom:link href="https://nicoguaro.github.io/es/categories/tutorial.xml" rel="self" type="application/rss+xml"></atom:link><language>es</language><copyright>Contents © 2025 &lt;a href="mailto:nicoguarin@gmail.com"&gt;Nicolás Guarín-Zapata&lt;/a&gt; 
 &lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
 &lt;img alt="Creative Commons License"
 style="border-width:0"
-src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Sun, 29 Jan 2023 16:05:38 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Descargar videos de MS Stream</title><link>https://nicoguaro.github.io/es/posts/download_stream/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;Esta semana un estudiante me preguntó acerca de descargar los videos de uno
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Fri, 28 Feb 2025 03:50:52 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Descargar videos de MS Stream</title><link>https://nicoguaro.github.io/es/posts/download_stream/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;Esta semana un estudiante me preguntó acerca de descargar los videos de uno
 de los cursos de MS Stream. El problema es que si no eres propietario
 del video no puedes descargarlo. Entonces, voy a mostrar una opción para
 descargar videos sin ser propietario de los mismos.&lt;/p&gt;
@@ -22,10 +22,10 @@ organización sobre los derechos de autor de los videos.&lt;/p&gt;
 &lt;h2&gt;Instalación de &lt;code class="docutils literal"&gt;destreamer&lt;/code&gt;&lt;/h2&gt;
 &lt;p&gt;Después de obtener los requisitos previos, puedes descargar
 &lt;a class="reference external" href="https://github.com/snobu/destreamer"&gt;destreamer&lt;/a&gt; usando&lt;/p&gt;
-&lt;div class="code"&gt;&lt;pre class="code bash"&gt;&lt;a id="rest_code_2989e9b99968457eb2d8485aed1b7da7-1" name="rest_code_2989e9b99968457eb2d8485aed1b7da7-1" href="https://nicoguaro.github.io/es/posts/download_stream/#rest_code_2989e9b99968457eb2d8485aed1b7da7-1"&gt;&lt;/a&gt;$ git clone https://github.com/snobu/destreamer
-&lt;a id="rest_code_2989e9b99968457eb2d8485aed1b7da7-2" name="rest_code_2989e9b99968457eb2d8485aed1b7da7-2" href="https://nicoguaro.github.io/es/posts/download_stream/#rest_code_2989e9b99968457eb2d8485aed1b7da7-2"&gt;&lt;/a&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; destreamer
-&lt;a id="rest_code_2989e9b99968457eb2d8485aed1b7da7-3" name="rest_code_2989e9b99968457eb2d8485aed1b7da7-3" href="https://nicoguaro.github.io/es/posts/download_stream/#rest_code_2989e9b99968457eb2d8485aed1b7da7-3"&gt;&lt;/a&gt;$ npm install
-&lt;a id="rest_code_2989e9b99968457eb2d8485aed1b7da7-4" name="rest_code_2989e9b99968457eb2d8485aed1b7da7-4" href="https://nicoguaro.github.io/es/posts/download_stream/#rest_code_2989e9b99968457eb2d8485aed1b7da7-4"&gt;&lt;/a&gt;$ npm run build
+&lt;div class="code"&gt;&lt;pre class="code bash"&gt;&lt;a id="rest_code_ca193eb347f74def884d8411b7c20d8f-1" name="rest_code_ca193eb347f74def884d8411b7c20d8f-1" href="https://nicoguaro.github.io/es/posts/download_stream/#rest_code_ca193eb347f74def884d8411b7c20d8f-1"&gt;&lt;/a&gt;$&lt;span class="w"&gt; &lt;/span&gt;git&lt;span class="w"&gt; &lt;/span&gt;clone&lt;span class="w"&gt; &lt;/span&gt;https://github.com/snobu/destreamer
+&lt;a id="rest_code_ca193eb347f74def884d8411b7c20d8f-2" name="rest_code_ca193eb347f74def884d8411b7c20d8f-2" href="https://nicoguaro.github.io/es/posts/download_stream/#rest_code_ca193eb347f74def884d8411b7c20d8f-2"&gt;&lt;/a&gt;$&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;cd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;destreamer
+&lt;a id="rest_code_ca193eb347f74def884d8411b7c20d8f-3" name="rest_code_ca193eb347f74def884d8411b7c20d8f-3" href="https://nicoguaro.github.io/es/posts/download_stream/#rest_code_ca193eb347f74def884d8411b7c20d8f-3"&gt;&lt;/a&gt;$&lt;span class="w"&gt; &lt;/span&gt;npm&lt;span class="w"&gt; &lt;/span&gt;install
+&lt;a id="rest_code_ca193eb347f74def884d8411b7c20d8f-4" name="rest_code_ca193eb347f74def884d8411b7c20d8f-4" href="https://nicoguaro.github.io/es/posts/download_stream/#rest_code_ca193eb347f74def884d8411b7c20d8f-4"&gt;&lt;/a&gt;$&lt;span class="w"&gt; &lt;/span&gt;npm&lt;span class="w"&gt; &lt;/span&gt;run&lt;span class="w"&gt; &lt;/span&gt;build
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;en una terminal.&lt;/p&gt;
 &lt;p&gt;Si no se quiere jugar con
@@ -36,19 +36,19 @@ sugiero agregar &lt;code class="docutils literal"&gt;ffmpeg&lt;/code&gt; a la mi
 &lt;section id="descarga"&gt;
 &lt;h2&gt;Descarga&lt;/h2&gt;
 &lt;p&gt;Después de eso, debe navegar a la carpeta donde descargaste &lt;code class="docutils literal"&gt;destreamer&lt;/code&gt; y&lt;/p&gt;
-&lt;div class="code"&gt;&lt;pre class="code bash"&gt;&lt;a id="rest_code_1868df0f672e46f9bdbee25045dc13c9-1" name="rest_code_1868df0f672e46f9bdbee25045dc13c9-1" href="https://nicoguaro.github.io/es/posts/download_stream/#rest_code_1868df0f672e46f9bdbee25045dc13c9-1"&gt;&lt;/a&gt;$ ./destreamer.sh -i &lt;span class="s2"&gt;"https://web.microsoftstream.com/video/VIDEO_ID"&lt;/span&gt;
+&lt;div class="code"&gt;&lt;pre class="code bash"&gt;&lt;a id="rest_code_856b8a3d4ce141fd9e32f933ba8154d9-1" name="rest_code_856b8a3d4ce141fd9e32f933ba8154d9-1" href="https://nicoguaro.github.io/es/posts/download_stream/#rest_code_856b8a3d4ce141fd9e32f933ba8154d9-1"&gt;&lt;/a&gt;$&lt;span class="w"&gt; &lt;/span&gt;./destreamer.sh&lt;span class="w"&gt; &lt;/span&gt;-i&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;"https://web.microsoftstream.com/video/VIDEO_ID"&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;en Mac o Linux,&lt;/p&gt;
-&lt;div class="code"&gt;&lt;pre class="code bash"&gt;&lt;a id="rest_code_568ecaaca713436b936847d9b79552a4-1" name="rest_code_568ecaaca713436b936847d9b79552a4-1" href="https://nicoguaro.github.io/es/posts/download_stream/#rest_code_568ecaaca713436b936847d9b79552a4-1"&gt;&lt;/a&gt;$ destreamer.cmd -i &lt;span class="s2"&gt;"https://web.microsoftstream.com/video/VIDEO_ID"&lt;/span&gt;
+&lt;div class="code"&gt;&lt;pre class="code bash"&gt;&lt;a id="rest_code_1af2c98334b144a3b9109478d11e46c1-1" name="rest_code_1af2c98334b144a3b9109478d11e46c1-1" href="https://nicoguaro.github.io/es/posts/download_stream/#rest_code_1af2c98334b144a3b9109478d11e46c1-1"&gt;&lt;/a&gt;$&lt;span class="w"&gt; &lt;/span&gt;destreamer.cmd&lt;span class="w"&gt; &lt;/span&gt;-i&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;"https://web.microsoftstream.com/video/VIDEO_ID"&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;en el &lt;em&gt;command prompt&lt;/em&gt; en Windows, y&lt;/p&gt;
-&lt;div class="code"&gt;&lt;pre class="code bash"&gt;&lt;a id="rest_code_9aee828e65ef4c80b7ab50e643a8b367-1" name="rest_code_9aee828e65ef4c80b7ab50e643a8b367-1" href="https://nicoguaro.github.io/es/posts/download_stream/#rest_code_9aee828e65ef4c80b7ab50e643a8b367-1"&gt;&lt;/a&gt;$ destreamer.ps1 -i &lt;span class="s2"&gt;"https://web.microsoftstream.com/video/VIDEO_ID"&lt;/span&gt;
+&lt;div class="code"&gt;&lt;pre class="code bash"&gt;&lt;a id="rest_code_379f85ca89804ed18f2fc9d63ed91fe6-1" name="rest_code_379f85ca89804ed18f2fc9d63ed91fe6-1" href="https://nicoguaro.github.io/es/posts/download_stream/#rest_code_379f85ca89804ed18f2fc9d63ed91fe6-1"&gt;&lt;/a&gt;$&lt;span class="w"&gt; &lt;/span&gt;destreamer.ps1&lt;span class="w"&gt; &lt;/span&gt;-i&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;"https://web.microsoftstream.com/video/VIDEO_ID"&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;en PowerShell. &lt;code class="docutils literal"&gt;VIDEO_ID&lt;/code&gt; se refiere al identificador del video
 en MS Stream.&lt;/p&gt;
 &lt;p&gt;Si deseas descargar varios archivos (como un curso completo),
 puedes crear un archivo con las URL y usar&lt;/p&gt;
-&lt;div class="code"&gt;&lt;pre class="code bash"&gt;&lt;a id="rest_code_00b95558513b4fd78ac05a0685f03780-1" name="rest_code_00b95558513b4fd78ac05a0685f03780-1" href="https://nicoguaro.github.io/es/posts/download_stream/#rest_code_00b95558513b4fd78ac05a0685f03780-1"&gt;&lt;/a&gt;$ destreamer.cmd -f filename.txt
+&lt;div class="code"&gt;&lt;pre class="code bash"&gt;&lt;a id="rest_code_d369bd8abd07489c8f4148c82e2b628d-1" name="rest_code_d369bd8abd07489c8f4148c82e2b628d-1" href="https://nicoguaro.github.io/es/posts/download_stream/#rest_code_d369bd8abd07489c8f4148c82e2b628d-1"&gt;&lt;/a&gt;$&lt;span class="w"&gt; &lt;/span&gt;destreamer.cmd&lt;span class="w"&gt; &lt;/span&gt;-f&lt;span class="w"&gt; &lt;/span&gt;filename.txt
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/section&gt;</description><category>nodejs</category><category>tutorial</category><category>videos</category><guid>https://nicoguaro.github.io/es/posts/download_stream/</guid><pubDate>Fri, 12 Jun 2020 20:31:22 GMT</pubDate></item><item><title>Revisión ortográfica en Jupyter Notebook</title><link>https://nicoguaro.github.io/es/posts/ortografia_jupyter/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;El objetivo de esta publicación es mostrar cómo tener revisión automática
 de ortografía en Jupyter Notebook, como se muestra a continuación.&lt;/p&gt;
@@ -73,11 +73,11 @@ una ruta relativa respecto a la carpeta en donde se encuentra el complemento.&lt
 &lt;p&gt;Existe una lista de complementos que agregan algunas funcionalidades
 comúnmente usadas a Jupyter notebook.&lt;/p&gt;
 &lt;p&gt;Escriba lo siguiente en una terminal, para instalarlo usando PIP.&lt;/p&gt;
-&lt;div class="code"&gt;&lt;pre class="code bash"&gt;&lt;a id="rest_code_821a3db48d5a4e6692adf3a7ec90e85e-1" name="rest_code_821a3db48d5a4e6692adf3a7ec90e85e-1" href="https://nicoguaro.github.io/es/posts/ortografia_jupyter/#rest_code_821a3db48d5a4e6692adf3a7ec90e85e-1"&gt;&lt;/a&gt;pip install jupyter_contrib_nbextensions
+&lt;div class="code"&gt;&lt;pre class="code bash"&gt;&lt;a id="rest_code_76ee04f634eb496896db07f578a2bdf6-1" name="rest_code_76ee04f634eb496896db07f578a2bdf6-1" href="https://nicoguaro.github.io/es/posts/ortografia_jupyter/#rest_code_76ee04f634eb496896db07f578a2bdf6-1"&gt;&lt;/a&gt;pip&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;jupyter_contrib_nbextensions
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Sin embargo, si se está usando Anaconda el &lt;strong&gt;método recomendado&lt;/strong&gt; es usar
 &lt;code class="docutils literal"&gt;conda&lt;/code&gt;, como se muestra a continuación.&lt;/p&gt;
-&lt;div class="code"&gt;&lt;pre class="code bash"&gt;&lt;a id="rest_code_0ce8208ee9964434bcca83e224dd7851-1" name="rest_code_0ce8208ee9964434bcca83e224dd7851-1" href="https://nicoguaro.github.io/es/posts/ortografia_jupyter/#rest_code_0ce8208ee9964434bcca83e224dd7851-1"&gt;&lt;/a&gt;conda install -c conda-forge jupyter_contrib_nbextensions
+&lt;div class="code"&gt;&lt;pre class="code bash"&gt;&lt;a id="rest_code_2e4af0ab4d55497a98a5d3497165b849-1" name="rest_code_2e4af0ab4d55497a98a5d3497165b849-1" href="https://nicoguaro.github.io/es/posts/ortografia_jupyter/#rest_code_2e4af0ab4d55497a98a5d3497165b849-1"&gt;&lt;/a&gt;conda&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;-c&lt;span class="w"&gt; &lt;/span&gt;conda-forge&lt;span class="w"&gt; &lt;/span&gt;jupyter_contrib_nbextensions
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Esto debe instalar los complementos y también la
 &lt;a class="reference external" href="https://github.com/Jupyter-contrib/jupyter_nbextensions_configurator"&gt;interfaz de configuración&lt;/a&gt;.
@@ -101,10 +101,10 @@ diccionario debe tener codificación &lt;a class="reference external" href="http
 Pueden descargarse en &lt;a class="reference external" href="https://nicoguaro.github.io/downloads/dict_es_ES.zip"&gt;este enlace&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Una vez que se tienen los diccionarios se deben ubicar en la ruta del
 complemento. En mi computador esta sería&lt;/p&gt;
-&lt;div class="code"&gt;&lt;pre class="code text"&gt;&lt;a id="rest_code_453a9f12647745589068ee8cf331150f-1" name="rest_code_453a9f12647745589068ee8cf331150f-1" href="https://nicoguaro.github.io/es/posts/ortografia_jupyter/#rest_code_453a9f12647745589068ee8cf331150f-1"&gt;&lt;/a&gt;~/.local/share/jupyter/nbextensions/spellchecker/
+&lt;div class="code"&gt;&lt;pre class="code text"&gt;&lt;a id="rest_code_8332d8626b2f4ee1bdee428cfaf133be-1" name="rest_code_8332d8626b2f4ee1bdee428cfaf133be-1" href="https://nicoguaro.github.io/es/posts/ortografia_jupyter/#rest_code_8332d8626b2f4ee1bdee428cfaf133be-1"&gt;&lt;/a&gt;~/.local/share/jupyter/nbextensions/spellchecker/
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;y dentro de esta los ubicaremos en&lt;/p&gt;
-&lt;div class="code"&gt;&lt;pre class="code text"&gt;&lt;a id="rest_code_90c1d69793d54d45a80ef5252a402724-1" name="rest_code_90c1d69793d54d45a80ef5252a402724-1" href="https://nicoguaro.github.io/es/posts/ortografia_jupyter/#rest_code_90c1d69793d54d45a80ef5252a402724-1"&gt;&lt;/a&gt;~/.local/share/jupyter/nbextensions/spellchecker/typo/dictionaries
+&lt;div class="code"&gt;&lt;pre class="code text"&gt;&lt;a id="rest_code_cfd5a19ee8bc44b7916d5ad58e10a31f-1" name="rest_code_cfd5a19ee8bc44b7916d5ad58e10a31f-1" href="https://nicoguaro.github.io/es/posts/ortografia_jupyter/#rest_code_cfd5a19ee8bc44b7916d5ad58e10a31f-1"&gt;&lt;/a&gt;~/.local/share/jupyter/nbextensions/spellchecker/typo/dictionaries
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Esta ubicación es arbitraria, lo importante es que necesitamos conocer
 la ruta relativa al complemento.&lt;/p&gt;

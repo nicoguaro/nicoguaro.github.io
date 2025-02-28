@@ -2,7 +2,7 @@
 .. slug: marking-tetrahedron
 .. date: 2020-06-05 22:58:32 UTC-05:00
 .. tags: monte carlo, combinatoria, geometría computacional
-.. category: Scientific Computing
+.. category: Computación científica
 .. type: text
 .. has_math: yes
 

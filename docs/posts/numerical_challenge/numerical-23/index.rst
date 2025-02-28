@@ -2,6 +2,7 @@
 .. slug: numerical-23
 .. date: 2017-10-23 20:30:03 UTC-05:00
 .. tags: numerical methods, python, julia, scientific computing, ritz method
+.. category: Scientific Computing
 .. type: text
 .. has_math: yes
 

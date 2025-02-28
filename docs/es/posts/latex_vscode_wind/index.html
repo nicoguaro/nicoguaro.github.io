@@ -2,27 +2,27 @@
 <html prefix="" lang="es">
 <head>
 <meta charset="utf-8">
-<meta name="description" content="Setting LaTeX with VS Code">
+<meta name="description" content="Cómo configurar LaTeX con VS Code">
 <meta name="viewport" content="width=device-width">
-<title>Using MikTex with LaTeX Workshop on Windows | Nicolás' blog</title>
+<title>Usando MixTex con LaTeX Workshop en Windows | Nicolás' blog</title>
 <link href="../../../assets/css/all.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
 <link rel="alternate" type="application/rss+xml" title="RSS (en)" href="../../../rss.xml">
 <link rel="alternate" type="application/rss+xml" title="RSS (es)" href="../../rss.xml">
 <link rel="canonical" href="https://nicoguaro.github.io/es/posts/latex_vscode_wind/">
 <!--[if lt IE 9]><script src="../../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Nicolás Guarín-Zapata">
 <link rel="prev" href="../tech_writing/tech_writing_figs/" title="Escritura técnica: usando figuras" type="text/html">
 <meta property="og:site_name" content="Nicolás' blog">
-<meta property="og:title" content="Using MikTex with LaTeX Workshop on Windows">
+<meta property="og:title" content="Usando MixTex con LaTeX Workshop en Windows">
 <meta property="og:url" content="https://nicoguaro.github.io/es/posts/latex_vscode_wind/">
-<meta property="og:description" content="Setting LaTeX with VS Code">
+<meta property="og:description" content="Cómo configurar LaTeX con VS Code">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2022-09-23T12:00:00-05:00">
+<meta property="article:tag" content="escritura">
+<meta property="article:tag" content="investigación">
 <meta property="article:tag" content="latex">
-<meta property="article:tag" content="research">
-<meta property="article:tag" content="typography">
+<meta property="article:tag" content="tiografía">
 <meta property="article:tag" content="visual-studio-code">
-<meta property="article:tag" content="writing">
 <link rel="alternate" hreflang="en" href="../../../posts/latex_vscode_wind/">
 </head>
 <body>
@@ -38,7 +38,7 @@
         <a class="sidebar-nav-item" href="../../../index.html">Blog</a>
         <a class="sidebar-nav-item" href="../../../pages/preprints-archive/">Preprints</a>
         <a class="sidebar-nav-item" href="../../../pages/links/">Links</a>
-        <a class="sidebar-nav-item" href="../../../archive.html">Archive</a>
+        <a class="sidebar-nav-item" href="../../../archive.html">Archives</a>
         <a class="sidebar-nav-item" href="../../../categories/">Tags</a>
         <a class="sidebar-nav-item" href="../../../rss.xml">RSS feed</a>
     
@@ -61,7 +61,7 @@
 
       <div class="container content" id="content">
         
-<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="post-title p-name entry-title" itemprop="headline name"><a href="." class="u-url">Using MikTex with LaTeX Workshop on Windows</a></h1>
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="post-title p-name entry-title" itemprop="headline name"><a href="." class="u-url">Usando MixTex con LaTeX Workshop en Windows</a></h1>
 
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">Nicolás Guarín-Zapata</span></p>
@@ -71,40 +71,43 @@
     <a href="#disqus_thread" data-disqus-identifier="cache/posts/latex_vscode_win.html">Comentarios</a>
 
 
-                <meta name="description" itemprop="description" content="Setting LaTeX with VS Code"></p>
+                <meta name="description" itemprop="description" content="Cómo configurar LaTeX con VS Code"></p>
 </div>
         
+        <div class="metadata posttranslations translations">
+            <h3 class="posttranslations-intro">También disponible en:</h3>
+                <p><a href="../../../posts/latex_vscode_wind/" rel="alternate" hreflang="en">English</a></p>
+        </div>
 
     </header><div class="e-content entry-content" itemprop="articleBody text">
-    <p>This is a post to mention how to setup Visual Studio Code for LaTeX—through
-the <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop">LaTeX Workshop extension</a>.</p>
-<p>In the past,  I have used several text editors and for LaTeX. A couple of years
-ago I replaced <a class="reference external" href="https://www.texstudio.org/">TeXstudio</a> for VS Code, and I think
-that it works just fine. <a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code</a>
-is one of the <a class="reference external" href="https://insights.stackoverflow.com/survey/2019#development-environments-and-tools">most used IDE right now</a>.
-One advantage of using VS Code to type your documents is that you can set it up
-to fit your workflow and use it for several languages/purposes. It is also
-cross-platform, you will not be worrying for having different workflows in
-Linux or Windows.</p>
-<p>You need to follow these steps to make it work:</p>
+    <p>Este es un post para mencionar cómo configurar Visual Studio Code
+para LaTeX—a través de la extensión <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop">LaTeX Workshop</a>—.</p>
+<p>En el pasado, he utilizado varios editores de texto y para LaTeX. Hace un par
+de años sustituí <a class="reference external" href="https://www.texstudio.org/">TeXstudio</a> por VS Code, y creo
+que funciona muy bien. <a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code</a>
+es uno de los <a class="reference external" href="https://insights.stackoverflow.com/survey/2019#development-environments-and-tools">IDE más usados ahora mismo</a>.
+Una ventaja de usar VS Code para escribir tus documentos es que puedes
+configurarlo para adaptarse a tu flujo de trabajo y utilizarlo para varios
+lenguajes/propósitos. También es multiplataforma, no tendrás que preocuparte
+por tener diferentes flujos de trabajo en Linux o Windows.</p>
+<p>Necesitas seguir estos pasos para hacerlo funcionar:</p>
 <ul class="simple">
-<li><p>Install Perl. You can use <a class="reference external" href="https://strawberryperl.com/">Strawberry Perl</a> in
-Windows.</p></li>
-<li><p>If you don't have administrator privileges you can install the <a class="reference external" href="https://strawberryperl.com/releases.html">portable
-version</a> and add the path to the
-executable to the PATH environment variable.</p></li>
-<li><p>Install MikTeX. The creator of LaTeX Workshop suggests to use TeX Live instead
-because it already comes with Perl and you could skip one step in this list.
-The disadvantages of using TeX Live instead of MikTeX are more
-(see <a class="reference external" href="https://tex.stackexchange.com/questions/20036/what-are-the-advantages-of-tex-live-over-miktex">here</a>).</p></li>
-<li><p>Install <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop">LaTeX Workshop</a>.</p></li>
+<li><p>Instala Perl. Puedes utilizar <a class="reference external" href="https://strawberryperl.com/">Strawberry Perl</a>
+en Windows.</p></li>
+<li><p>Si no tienes privilegios de administrador puedes instalar la versión <a class="reference external" href="https://strawberryperl.com/releases.html">portable</a> y añadir la ruta al ejecutable
+a la variable de entorno PATH.</p></li>
+<li><p>Instala MikTeX. El creador de LaTeX Workshop sugiere usar TeX Live en su lugar
+porque ya viene con Perl y podrías saltarte un paso de esta lista.
+Las desventajas de usar TeX Live en lugar de MikTeX son más
+(vea <a class="reference external" href="https://tex.stackexchange.com/questions/20036/what-are-the-advantages-of-tex-live-over-miktex">aquí</a>).</p></li>
+<li><p>Instala <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop">LaTeX Workshop</a>.</p></li>
 </ul>
-<section id="references"><h2>References</h2>
+<section id="referencias"><h2>Referencias</h2>
 <ol class="arabic simple">
 <li><p>Cangemi, Denis. “The Reasons Why You Must Use Visual Studio Code.” Medium,
-13 Aug. 2020, <a class="reference external" href="https://blog.devgenius.io/the-reasons-why-you-must-use-visual-studio-code-b522f946a849">https://blog.devgenius.io/the-reasons-why-you-must-use-visual-studio-code-b522f946a849</a>.</p></li>
+13 de agosto de 2020, <a class="reference external" href="https://blog.devgenius.io/the-reasons-why-you-must-use-visual-studio-code-b522f946a849">https://blog.devgenius.io/the-reasons-why-you-must-use-visual-studio-code-b522f946a849</a>.</p></li>
 <li><p>Wright, Joseph. “TeX on Windows: TeX Live versus MiKTeX Revisited.” Some TeX
-Developments, 18 Dec. 2016, <a class="reference external" href="https://www.texdev.net/2016/12/18/tex-on-windows-tex-live-versus-miktex-revisited/">https://www.texdev.net/2016/12/18/tex-on-windows-tex-live-versus-miktex-revisited/</a>.</p></li>
+Developments, 18 de diciembre de 2016, <a class="reference external" href="https://www.texdev.net/2016/12/18/tex-on-windows-tex-live-versus-miktex-revisited/">https://www.texdev.net/2016/12/18/tex-on-windows-tex-live-versus-miktex-revisited/</a>.</p></li>
 </ol>
 <div class="line-block">
 <div class="line"><br></div>
@@ -112,11 +115,11 @@ Developments, 18 Dec. 2016, <a class="reference external" href="https://www.texd
 </section>
 </div>
     <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
-<li><a class="tag p-category" href="../../categories/latex/" rel="tag">latex</a></li>
-            <li><a class="tag p-category" href="../../categories/research/" rel="tag">research</a></li>
-            <li><a class="tag p-category" href="../../categories/typography/" rel="tag">typography</a></li>
+<li><a class="tag p-category" href="../../categories/escritura/" rel="tag">escritura</a></li>
+            <li><a class="tag p-category" href="../../categories/investigacion/" rel="tag">investigación</a></li>
+            <li><a class="tag p-category" href="../../categories/latex/" rel="tag">latex</a></li>
+            <li><a class="tag p-category" href="../../categories/tiografia/" rel="tag">tiografía</a></li>
             <li><a class="tag p-category" href="../../categories/visual-studio-code/" rel="tag">visual-studio-code</a></li>
-            <li><a class="tag p-category" href="../../categories/writing/" rel="tag">writing</a></li>
         </ul>
 <ul class="pager hidden-print">
 <li class="previous">
@@ -129,7 +132,7 @@ Developments, 18 Dec. 2016, <a class="reference external" href="https://www.texd
         <script>
         var disqus_shortname ="nicoguaro-github",
             disqus_url="https://nicoguaro.github.io/es/posts/latex_vscode_wind/",
-        disqus_title="Using MikTex with LaTeX Workshop on Windows",
+        disqus_title="Usando MixTex con LaTeX Workshop en Windows",
         disqus_identifier="cache/posts/latex_vscode_win.html",
         disqus_config = function () {
             this.language = "es_ES";
@@ -144,7 +147,7 @@ Developments, 18 Dec. 2016, <a class="reference external" href="https://www.texd
     <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
-        </section></article><script>var disqus_shortname="nicoguaro-github";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><footer id="footer"><p><a href="https://creativecommons.org/licenses/by/4.0/" rel="nofollow">CC BY 4.0</a> © 2023 <a href="mailto:nicoguarin@gmail.com">Nicolás Guarín-Zapata</a> - Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a> - <a rel="me" href="https://fosstodon.org/@nicoguaro">Mastodon profile</a></p>
+        </section></article><script>var disqus_shortname="nicoguaro-github";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><footer id="footer"><p><a href="https://creativecommons.org/licenses/by/4.0/" rel="nofollow">CC BY 4.0</a> © 2025 <a href="mailto:nicoguarin@gmail.com">Nicolás Guarín-Zapata</a> - Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a> - <a rel="me" href="https://fosstodon.org/@nicoguaro">Mastodon profile</a></p>
             
         </footer>
 </div>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nicolás' blog (Publicaciones sobre Escritura)</title><link>https://nicoguaro.github.io/</link><description></description><atom:link href="https://nicoguaro.github.io/es/categories/cat_escritura.xml" rel="self" type="application/rss+xml"></atom:link><language>es</language><copyright>Contents © 2025 &lt;a href="mailto:nicoguarin@gmail.com"&gt;Nicolás Guarín-Zapata&lt;/a&gt; 
+&lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
+&lt;img alt="Creative Commons License"
+style="border-width:0"
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Fri, 28 Feb 2025 04:20:11 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Usando MixTex con LaTeX Workshop en Windows</title><link>https://nicoguaro.github.io/es/posts/latex_vscode_wind/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;Este es un post para mencionar cómo configurar Visual Studio Code
+para LaTeX—a través de la extensión &lt;a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop"&gt;LaTeX Workshop&lt;/a&gt;—.&lt;/p&gt;
+&lt;p&gt;En el pasado, he utilizado varios editores de texto y para LaTeX. Hace un par
+de años sustituí &lt;a class="reference external" href="https://www.texstudio.org/"&gt;TeXstudio&lt;/a&gt; por VS Code, y creo
+que funciona muy bien. &lt;a class="reference external" href="https://code.visualstudio.com/"&gt;Visual Studio Code&lt;/a&gt;
+es uno de los &lt;a class="reference external" href="https://insights.stackoverflow.com/survey/2019#development-environments-and-tools"&gt;IDE más usados ahora mismo&lt;/a&gt;.
+Una ventaja de usar VS Code para escribir tus documentos es que puedes
+configurarlo para adaptarse a tu flujo de trabajo y utilizarlo para varios
+lenguajes/propósitos. También es multiplataforma, no tendrás que preocuparte
+por tener diferentes flujos de trabajo en Linux o Windows.&lt;/p&gt;
+&lt;p&gt;Necesitas seguir estos pasos para hacerlo funcionar:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;Instala Perl. Puedes utilizar &lt;a class="reference external" href="https://strawberryperl.com/"&gt;Strawberry Perl&lt;/a&gt;
+en Windows.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Si no tienes privilegios de administrador puedes instalar la versión &lt;a class="reference external" href="https://strawberryperl.com/releases.html"&gt;portable&lt;/a&gt; y añadir la ruta al ejecutable
+a la variable de entorno PATH.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Instala MikTeX. El creador de LaTeX Workshop sugiere usar TeX Live en su lugar
+porque ya viene con Perl y podrías saltarte un paso de esta lista.
+Las desventajas de usar TeX Live en lugar de MikTeX son más
+(vea &lt;a class="reference external" href="https://tex.stackexchange.com/questions/20036/what-are-the-advantages-of-tex-live-over-miktex"&gt;aquí&lt;/a&gt;).&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Instala &lt;a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop"&gt;LaTeX Workshop&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;section id="referencias"&gt;
+&lt;h2&gt;Referencias&lt;/h2&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;&lt;p&gt;Cangemi, Denis. “The Reasons Why You Must Use Visual Studio Code.” Medium,
+13 de agosto de 2020, &lt;a class="reference external" href="https://blog.devgenius.io/the-reasons-why-you-must-use-visual-studio-code-b522f946a849"&gt;https://blog.devgenius.io/the-reasons-why-you-must-use-visual-studio-code-b522f946a849&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Wright, Joseph. “TeX on Windows: TeX Live versus MiKTeX Revisited.” Some TeX
+Developments, 18 de diciembre de 2016, &lt;a class="reference external" href="https://www.texdev.net/2016/12/18/tex-on-windows-tex-live-versus-miktex-revisited/"&gt;https://www.texdev.net/2016/12/18/tex-on-windows-tex-live-versus-miktex-revisited/&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;</description><category>escritura</category><category>investigación</category><category>latex</category><category>tiografía</category><category>visual-studio-code</category><guid>https://nicoguaro.github.io/es/posts/latex_vscode_wind/</guid><pubDate>Fri, 23 Sep 2022 17:00:00 GMT</pubDate></item></channel></rss>

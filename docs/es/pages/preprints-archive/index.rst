@@ -11,10 +11,27 @@
 Esta es una página de archivo de artículos de investigación. A continuación
 se pueden encontrar enlaces a los *preprints*.
 
+2025
+----
+- José Ortiz-Ocampo y Nicolás Guarín-Zapata (2025).
+  Implicit Time-Marching for Lagrange Multiplier Formulation
+  for Couple Stress Elastodynamics. Computer Methods in Applied Mechanics
+  and Engineering, en revisión (`preprint <preprint2025>`_).
+
+2024
+----
+
+- Taige Hao, Wei Huang, Nicolás Guarín‐Zapata, Derek Lublin, Yu Chen, Haitao
+  Yu, Loukham Shyamsunder, Pablo Zavattieri y David Kisailus (2024).
+  `Bioinspired SiC/Chitosan Impact Resistant Coatings.
+  <https://advanced.onlinelibrary.wiley.com/doi/full/10.1002/adfm.202417291>`_
+  Advanced Functional Materials, DOI: 10.1002/adfm.202417291 (acceso abierto).
+
+
 2023
 ----
 
-- Guarín-Zapata, N., Valencia, C., & Gómez, J. (2023).
+- Nicolás Guarín-Zapata, Camilo Valencia y Juan Gómez (2023).
   `Analysis of the directionality on periodic materials.
   <https://www.tandfonline.com/doi/full/10.1080/15376494.2023.2226958>`_.
   Mechanics of Advanced Materials and Structures, DOI: 10.1080/15376494.2023.2226958
@@ -23,7 +40,7 @@ se pueden encontrar enlaces a los *preprints*.
 2021
 ----
 
-- Guarín-Zapata, N., Gomez, J., Hadjesfandiari, A. R., & Dargush, G. F. (2021).
+- Nicolás Guarín-Zapata, Juan Gomez, Ali Reza Hadjesfandiari y Gary F. Dargush (2021).
   `Variational principles and finite element Bloch analysis in couple stress
   elastodynamics. <https://www.sciencedirect.com/science/article/pii/S0165212521001074>`_
   Wave Motion, 106, 102809, DOI: 10.1016/j.wavemoti.2021.102809
@@ -33,46 +50,57 @@ se pueden encontrar enlaces a los *preprints*.
 ----
 
 - Claus Claeys, Elke Deckers, Wim Desmet, Juan Gomez, Nicolás
-  Guarín-Zapata, Florian Maurin, y Camilo Valencia (2020).
+  Guarín-Zapata, Florian Maurin y Camilo Valencia (2020).
   Corrigendum to “Probability that a band-gap extremum is located on
   the irreducible Brillouin-zone contour for the 17 different plane
   crystallographic lattices” International Journal of Solids and
   Structures, 135 (2018) 26–36. (`preprint <preprint2020c_>`_).
 
-- Juan Ortega-Alvarez, Nicolás Guarín-Zapata, Camilo Vieira, y
+- Juan Ortega-Alvarez, Nicolás Guarín-Zapata, Camilo Vieira y
   Juan Gomez (2020).
-  `Flipping a Computational Modeling Class: Strategies to Engage Students and Foster Active Learning <https://ieeexplore.ieee.org/abstract/document/9273890>`_.
+  `Flipping a Computational Modeling Class: Strategies to Engage
+  Students and Foster Active Learning
+  <https://ieeexplore.ieee.org/abstract/document/9273890>`_.
   Frontiers in Education 2020. October 21-24, 2020. Uppsala,
   Sweden (`preprint <preprint2020b_>`_).
 
-- Wei Huang, Mehdi Shishebor, Nicolás Guarín-Zapata et al. (2020):
-  `A natural impact-resistant bicontinuous composite nanoparticle coating <https://www.nature.com/articles/s41563-020-0768-7>`_
+- Wei Huang, Mehdi Shishehbor, Nicolás Guarín-Zapata,
+  Nathan D. Kirchhofer, Jason Li, Luz Cruz, Taifeng Wang et al. (2020).
+  `A natural impact-resistant bicontinuous composite nanoparticle
+  coating <https://www.nature.com/articles/s41563-020-0768-7>`_
   Nature Materials (2020): 1-8. DOI: 10.1038/s41563-020-0768-7
   (`léelo <https://rdcu.be/b6oFj>`_).  
 
 
-- Nicolás Guarín-Zapata, Juan Gomez, Camilo Valencia, Gary Dargush,
-  Ali Reza Hadjesfandiari (2020): `Finite element modeling of micropolar-based phononic crystals <https://www.sciencedirect.com/science/article/pii/S0165212519300526>`_.
-  Wave Motion, 92, 102406. DOI: 10.1016/j.wavemoti.2019.102406 (`preprint <preprint2020a_>`_).
+- Nicolás Guarín-Zapata, Juan Gomez, Camilo Valencia, Gary Dargush y
+  Ali Reza Hadjesfandiari (2020). `Finite element modeling of
+  micropolar-based phononic crystals
+  <https://www.sciencedirect.com/science/article/pii/S0165212519300526>`_.
+  Wave Motion, 92, 102406. DOI: 10.1016/j.wavemoti.2019.102406
+  (`preprint <preprint2020a_>`_).
 
 2019
 ----
 
-- Camilo Valencia, Juan Gómez, Nicolás Guarín-Zapata (2019):
-  `A general purpose element-based approach to compute dispersion relations in periodic materials with existing finite element codes <https://www.worldscientific.com/doi/10.1142/S2591728519500051>`_.
+- Camilo Valencia, Juan Gómez y Nicolás Guarín-Zapata (2019).
+  `A general purpose element-based approach to compute dispersion
+  relations in periodic materials with existing finite element codes
+  <https://www.worldscientific.com/doi/10.1142/S2591728519500051>`_.
   Journal of Theoretical and Computational Acoustics.
   DOI: 10.1142/S2591728519500051 (`preprint <preprint2019a_>`_,
   `supplementary material <supplementary2019a_>`_).
 
-- Nicolás Guarín-Zapata, Juan Gómez, David Kisailus, Pablo Zavattieri (2019):
-  `Bandgap tuning in bioinspired helicoidal composites <https://www.sciencedirect.com/science/article/pii/S0022509619302431>`_.
+- Nicolás Guarín-Zapata, Juan Gómez, David Kisailus y Pablo Zavattieri (2019).
+  `Bandgap tuning in bioinspired helicoidal composites
+  <https://www.sciencedirect.com/science/article/pii/S0022509619302431>`_.
   Journal of the Mechanics and Physics of Solids, 131, 344-357.
   DOI: 10.1016/j.jmps.2019.07.003  (`preprint <preprint2019b_>`_).
 
 2016
 ----
 
-- Nick Yaraghi, Nicolás Guarín‐Zapata, Lessa Grunenfelder,... (2016).
+- Nicholas A. Yaraghi, Nicolás Guarín-Zapata, Lessa K. Grunenfelder,
+  Eric Hintsala, Sanjit Bhowmick, Jon M. Hiller, Mark Betts et al. (2016).
   `A sinusoidally architected helicoidal biocomposite <article2016_>`_.
   Advanced Materials, 28(32), 6835-6844. DOI: 10.1002/adma.201600786
   (`preprint <preprint2016_>`_).
@@ -80,19 +108,19 @@ se pueden encontrar enlaces a los *preprints*.
 2015
 ----
 
-- Nicolás Guarín-Zapata, Juan Gomez, Nick Yaraghi, David Kisailus, D.,
+- Nicolás Guarín-Zapata, Juan Gomez, Nick Yaraghi, David Kisailus y
   Pablo Zavattieri (2015). `Shear wave filtering in naturally-occurring Bouligand structures <article2015b_>`_.
   Acta biomaterialia, 23, 11-20. DOI: 10.1016/j.actbio.2015.04.039
   (`preprint <preprint2015b_>`_).
 
-- Nicolás Guarín-Zapata, Juan Gomez (2015).
+- Nicolás Guarín-Zapata y Juan Gomez (2015).
   `Evaluation of the spectral finite element method with the theory of phononic crystals <article2015a_>`_.
   Journal of Computational Acoustics, 23(02), 1550004. DOI: 10.1142/S0218396X15500046
   (`preprint <preprint2015a_>`_).
 
 2014
 ----
-- Sara Elena Rodríguez, Nicolás Guarín-Zapata. (2014).
+- Sara Elena Rodríguez y Nicolás Guarín-Zapata. (2014).
   `Introducción a la acústica de la bandola andina colombiana <article2014_>`_.
   Ricercare, (1), 111-126. DOI: 10.17230/ricercare.2014.1.7  (`preprint <preprint2014_>`_).
 
