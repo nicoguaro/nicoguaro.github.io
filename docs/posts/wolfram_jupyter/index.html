@@ -32,7 +32,8 @@ pretty much, the same syntax. The use of the Wolfram ">
             styles, `#sidebar-checkbox` for behavior. -->
     <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox"><!-- Toggleable sidebar --><div class="sidebar" id="sidebar">
         <div class="sidebar-item">
-            <p>This is my personal website and blog.</p>
+            <p>A reserved <a href="https://getnikola.com" target="_blank">Nikola</a> theme that places the utmost gravity on content with a hidden drawer. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a> for Jekyll,
+            ported to Nikola by <a href="https://twitter.com/ralsina" target="_blank">@ralsina</a>.</p>
         </div>
         
     <nav id="menu" role="navigation" class="sidebar-nav"><a class="sidebar-nav-item" href="../../pages/about/">About</a>
@@ -103,25 +104,25 @@ software development.</p>
 <li><p>Execute the installer.</p></li>
 <li><p>Type the following in a terminal</p></li>
 </ul>
-<div class="code"><pre class="code text"><a id="rest_code_1977d7a222c44cf7beee4de3dde92c27-1" name="rest_code_1977d7a222c44cf7beee4de3dde92c27-1" href="#rest_code_1977d7a222c44cf7beee4de3dde92c27-1"></a>wolframscript
+<div class="code"><pre class="code text"><a id="rest_code_a78399261fa24bbba9e50a3c51d29c50-1" name="rest_code_a78399261fa24bbba9e50a3c51d29c50-1" href="#rest_code_a78399261fa24bbba9e50a3c51d29c50-1"></a>wolframscript
 </pre></div>
 <p>and you should be asked for your email and password.</p>
 <p>After that you should be in a terminal and see the following</p>
-<div class="code"><pre class="code text"><a id="rest_code_4836cce2ee11439294286d25432c9e0c-1" name="rest_code_4836cce2ee11439294286d25432c9e0c-1" href="#rest_code_4836cce2ee11439294286d25432c9e0c-1"></a>Wolfram Engine activated. See https://www.wolfram.com/wolframscript/ for more information.
-<a id="rest_code_4836cce2ee11439294286d25432c9e0c-2" name="rest_code_4836cce2ee11439294286d25432c9e0c-2" href="#rest_code_4836cce2ee11439294286d25432c9e0c-2"></a>Wolfram Language 12.2.0 Engine for Linux x86 (64-bit)
-<a id="rest_code_4836cce2ee11439294286d25432c9e0c-3" name="rest_code_4836cce2ee11439294286d25432c9e0c-3" href="#rest_code_4836cce2ee11439294286d25432c9e0c-3"></a>Copyright 1988-2021 Wolfram Research, Inc.
+<div class="code"><pre class="code text"><a id="rest_code_8475459b54a0495e989f15d1255839ce-1" name="rest_code_8475459b54a0495e989f15d1255839ce-1" href="#rest_code_8475459b54a0495e989f15d1255839ce-1"></a>Wolfram Engine activated. See https://www.wolfram.com/wolframscript/ for more information.
+<a id="rest_code_8475459b54a0495e989f15d1255839ce-2" name="rest_code_8475459b54a0495e989f15d1255839ce-2" href="#rest_code_8475459b54a0495e989f15d1255839ce-2"></a>Wolfram Language 12.2.0 Engine for Linux x86 (64-bit)
+<a id="rest_code_8475459b54a0495e989f15d1255839ce-3" name="rest_code_8475459b54a0495e989f15d1255839ce-3" href="#rest_code_8475459b54a0495e989f15d1255839ce-3"></a>Copyright 1988-2021 Wolfram Research, Inc.
 </pre></div>
 <div class="line-block">
 <div class="line"><br></div>
 </div>
 <p>And we can try that it is working</p>
-<div class="code"><pre class="code mathematica"><a id="rest_code_f0866abe45ba4846a5385aa9f4f1e442-1" name="rest_code_f0866abe45ba4846a5385aa9f4f1e442-1" href="#rest_code_f0866abe45ba4846a5385aa9f4f1e442-1"></a><span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">:=</span><span class="w"> </span><span class="err">$</span><span class="n">Version</span>
-<a id="rest_code_f0866abe45ba4846a5385aa9f4f1e442-2" name="rest_code_f0866abe45ba4846a5385aa9f4f1e442-2" href="#rest_code_f0866abe45ba4846a5385aa9f4f1e442-2"></a>
-<a id="rest_code_f0866abe45ba4846a5385aa9f4f1e442-3" name="rest_code_f0866abe45ba4846a5385aa9f4f1e442-3" href="#rest_code_f0866abe45ba4846a5385aa9f4f1e442-3"></a><span class="n">Out</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="w"> </span><span class="mf">12.2.0</span><span class="w"> </span><span class="n">for</span><span class="w"> </span><span class="n">Linux</span><span class="w"> </span><span class="n">x86</span><span class="w"> </span><span class="p">(</span><span class="mi">64</span><span class="o">-</span><span class="n">bit</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">January</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">2021</span><span class="p">)</span>
-<a id="rest_code_f0866abe45ba4846a5385aa9f4f1e442-4" name="rest_code_f0866abe45ba4846a5385aa9f4f1e442-4" href="#rest_code_f0866abe45ba4846a5385aa9f4f1e442-4"></a>
-<a id="rest_code_f0866abe45ba4846a5385aa9f4f1e442-5" name="rest_code_f0866abe45ba4846a5385aa9f4f1e442-5" href="#rest_code_f0866abe45ba4846a5385aa9f4f1e442-5"></a><span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">:=</span><span class="w"> </span><span class="n">Integrate</span><span class="p">[</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">x</span><span class="p">]</span>
-<a id="rest_code_f0866abe45ba4846a5385aa9f4f1e442-6" name="rest_code_f0866abe45ba4846a5385aa9f4f1e442-6" href="#rest_code_f0866abe45ba4846a5385aa9f4f1e442-6"></a>
-<a id="rest_code_f0866abe45ba4846a5385aa9f4f1e442-7" name="rest_code_f0866abe45ba4846a5385aa9f4f1e442-7" href="#rest_code_f0866abe45ba4846a5385aa9f4f1e442-7"></a><span class="n">Out</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">=</span><span class="w"> </span><span class="n">ArcTan</span><span class="p">[</span><span class="n">x</span><span class="p">]</span>
+<div class="code"><pre class="code mathematica"><a id="rest_code_7777cf9509634f7ab0b9d4b5064e7985-1" name="rest_code_7777cf9509634f7ab0b9d4b5064e7985-1" href="#rest_code_7777cf9509634f7ab0b9d4b5064e7985-1"></a><span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">:=</span><span class="w"> </span><span class="err">$</span><span class="n">Version</span>
+<a id="rest_code_7777cf9509634f7ab0b9d4b5064e7985-2" name="rest_code_7777cf9509634f7ab0b9d4b5064e7985-2" href="#rest_code_7777cf9509634f7ab0b9d4b5064e7985-2"></a>
+<a id="rest_code_7777cf9509634f7ab0b9d4b5064e7985-3" name="rest_code_7777cf9509634f7ab0b9d4b5064e7985-3" href="#rest_code_7777cf9509634f7ab0b9d4b5064e7985-3"></a><span class="n">Out</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="w"> </span><span class="mf">12.2.0</span><span class="w"> </span><span class="n">for</span><span class="w"> </span><span class="n">Linux</span><span class="w"> </span><span class="n">x86</span><span class="w"> </span><span class="p">(</span><span class="mi">64</span><span class="o">-</span><span class="n">bit</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">January</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">2021</span><span class="p">)</span>
+<a id="rest_code_7777cf9509634f7ab0b9d4b5064e7985-4" name="rest_code_7777cf9509634f7ab0b9d4b5064e7985-4" href="#rest_code_7777cf9509634f7ab0b9d4b5064e7985-4"></a>
+<a id="rest_code_7777cf9509634f7ab0b9d4b5064e7985-5" name="rest_code_7777cf9509634f7ab0b9d4b5064e7985-5" href="#rest_code_7777cf9509634f7ab0b9d4b5064e7985-5"></a><span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">:=</span><span class="w"> </span><span class="n">Integrate</span><span class="p">[</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">x</span><span class="p">]</span>
+<a id="rest_code_7777cf9509634f7ab0b9d4b5064e7985-6" name="rest_code_7777cf9509634f7ab0b9d4b5064e7985-6" href="#rest_code_7777cf9509634f7ab0b9d4b5064e7985-6"></a>
+<a id="rest_code_7777cf9509634f7ab0b9d4b5064e7985-7" name="rest_code_7777cf9509634f7ab0b9d4b5064e7985-7" href="#rest_code_7777cf9509634f7ab0b9d4b5064e7985-7"></a><span class="n">Out</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">=</span><span class="w"> </span><span class="n">ArcTan</span><span class="p">[</span><span class="n">x</span><span class="p">]</span>
 </pre></div>
 <div class="line-block">
 <div class="line"><br></div>
@@ -129,26 +130,26 @@ software development.</p>
 <p>Now we need to install
 <a class="reference external" href="https://github.com/WolframResearch/WolframLanguageForJupyter.git">WolframLanguageForJupyter</a>.
 For that we can type the following in a terminal</p>
-<div class="code"><pre class="code bash"><a id="rest_code_ba5432a01ac4455a90bda8fda561397d-1" name="rest_code_ba5432a01ac4455a90bda8fda561397d-1" href="#rest_code_ba5432a01ac4455a90bda8fda561397d-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/WolframResearch/WolframLanguageForJupyter.git
-<a id="rest_code_ba5432a01ac4455a90bda8fda561397d-2" name="rest_code_ba5432a01ac4455a90bda8fda561397d-2" href="#rest_code_ba5432a01ac4455a90bda8fda561397d-2"></a>
-<a id="rest_code_ba5432a01ac4455a90bda8fda561397d-3" name="rest_code_ba5432a01ac4455a90bda8fda561397d-3" href="#rest_code_ba5432a01ac4455a90bda8fda561397d-3"></a><span class="nb">cd</span><span class="w"> </span>WolframLanguageForJupyter/
-<a id="rest_code_ba5432a01ac4455a90bda8fda561397d-4" name="rest_code_ba5432a01ac4455a90bda8fda561397d-4" href="#rest_code_ba5432a01ac4455a90bda8fda561397d-4"></a>
-<a id="rest_code_ba5432a01ac4455a90bda8fda561397d-5" name="rest_code_ba5432a01ac4455a90bda8fda561397d-5" href="#rest_code_ba5432a01ac4455a90bda8fda561397d-5"></a>./configure-jupyter.wls<span class="w"> </span>add
+<div class="code"><pre class="code bash"><a id="rest_code_f605d00298c44987ab3284c24987632e-1" name="rest_code_f605d00298c44987ab3284c24987632e-1" href="#rest_code_f605d00298c44987ab3284c24987632e-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/WolframResearch/WolframLanguageForJupyter.git
+<a id="rest_code_f605d00298c44987ab3284c24987632e-2" name="rest_code_f605d00298c44987ab3284c24987632e-2" href="#rest_code_f605d00298c44987ab3284c24987632e-2"></a>
+<a id="rest_code_f605d00298c44987ab3284c24987632e-3" name="rest_code_f605d00298c44987ab3284c24987632e-3" href="#rest_code_f605d00298c44987ab3284c24987632e-3"></a><span class="nb">cd</span><span class="w"> </span>WolframLanguageForJupyter/
+<a id="rest_code_f605d00298c44987ab3284c24987632e-4" name="rest_code_f605d00298c44987ab3284c24987632e-4" href="#rest_code_f605d00298c44987ab3284c24987632e-4"></a>
+<a id="rest_code_f605d00298c44987ab3284c24987632e-5" name="rest_code_f605d00298c44987ab3284c24987632e-5" href="#rest_code_f605d00298c44987ab3284c24987632e-5"></a>./configure-jupyter.wls<span class="w"> </span>add
 </pre></div>
 <div class="line-block">
 <div class="line"><br></div>
 </div>
 <p>To test that it is installed we can type the following in a terminal</p>
-<div class="code"><pre class="code bash"><a id="rest_code_28139c19e6fa4d7b971a3f95f4c6c6c7-1" name="rest_code_28139c19e6fa4d7b971a3f95f4c6c6c7-1" href="#rest_code_28139c19e6fa4d7b971a3f95f4c6c6c7-1"></a>jupyter<span class="w"> </span>kernelspec<span class="w"> </span>list
+<div class="code"><pre class="code bash"><a id="rest_code_abb56656ed044ae6bf4ff2219aacadfd-1" name="rest_code_abb56656ed044ae6bf4ff2219aacadfd-1" href="#rest_code_abb56656ed044ae6bf4ff2219aacadfd-1"></a>jupyter<span class="w"> </span>kernelspec<span class="w"> </span>list
 </pre></div>
 <p>and it should have an output that includes a line similar to the following</p>
-<div class="code"><pre class="code bash"><a id="rest_code_0af423b956fc4d4f9e050a91e099ecab-1" name="rest_code_0af423b956fc4d4f9e050a91e099ecab-1" href="#rest_code_0af423b956fc4d4f9e050a91e099ecab-1"></a>wolframlanguage12.<span class="w">   </span>/home/nicoguaro/.local/share/jupyter/kernels/wolframlanguage12.2
+<div class="code"><pre class="code bash"><a id="rest_code_250262b1baa94e76a9db2c5323d0f3c1-1" name="rest_code_250262b1baa94e76a9db2c5323d0f3c1-1" href="#rest_code_250262b1baa94e76a9db2c5323d0f3c1-1"></a>wolframlanguage12.<span class="w">   </span>/home/nicoguaro/.local/share/jupyter/kernels/wolframlanguage12.2
 </pre></div>
 <div class="line-block">
 <div class="line"><br></div>
 </div>
 <p>Or we could also try with</p>
-<div class="code"><pre class="code bash"><a id="rest_code_d506406db4e349e59472785b1c726257-1" name="rest_code_d506406db4e349e59472785b1c726257-1" href="#rest_code_d506406db4e349e59472785b1c726257-1"></a>jupyter<span class="w"> </span>notebook
+<div class="code"><pre class="code bash"><a id="rest_code_61690003ae4c493791449f46bc31c13b-1" name="rest_code_61690003ae4c493791449f46bc31c13b-1" href="#rest_code_61690003ae4c493791449f46bc31c13b-1"></a>jupyter<span class="w"> </span>notebook
 </pre></div>
 <p>and see the following in the kernel menu.</p>
 <img alt="Kernel menu after installing WolframLanguageForJupyter." class="align-center" src="../../images/wolfram_menu.png" style="width: 400px;"><div class="line-block">
@@ -165,8 +166,8 @@ see a static version
 \int \frac{1}{1 + x^3}\mathrm{d}x\, .
 \end{equation*}
 </div>
-<div class="code"><pre class="code mathematica"><a id="rest_code_3ddf32d0e9584d69a1b0a3edaca38f85-1" name="rest_code_3ddf32d0e9584d69a1b0a3edaca38f85-1" href="#rest_code_3ddf32d0e9584d69a1b0a3edaca38f85-1"></a><span class="n">sol</span><span class="o">:=</span><span class="w"> </span><span class="n">Integrate</span><span class="p">[</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="o">^</span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="n">x</span><span class="p">]</span>
-<a id="rest_code_3ddf32d0e9584d69a1b0a3edaca38f85-2" name="rest_code_3ddf32d0e9584d69a1b0a3edaca38f85-2" href="#rest_code_3ddf32d0e9584d69a1b0a3edaca38f85-2"></a><span class="n">TeXForm</span><span class="p">[</span><span class="n">sol</span><span class="p">]</span>
+<div class="code"><pre class="code mathematica"><a id="rest_code_2e08d3926e814ec19074777599edf275-1" name="rest_code_2e08d3926e814ec19074777599edf275-1" href="#rest_code_2e08d3926e814ec19074777599edf275-1"></a><span class="n">sol</span><span class="o">:=</span><span class="w"> </span><span class="n">Integrate</span><span class="p">[</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="o">^</span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="n">x</span><span class="p">]</span>
+<a id="rest_code_2e08d3926e814ec19074777599edf275-2" name="rest_code_2e08d3926e814ec19074777599edf275-2" href="#rest_code_2e08d3926e814ec19074777599edf275-2"></a><span class="n">TeXForm</span><span class="p">[</span><span class="n">sol</span><span class="p">]</span>
 </pre></div>
 <div class="math">
 \begin{equation*}
@@ -177,10 +178,10 @@ see a static version
 <div class="line"><br></div>
 </div>
 <p>And make a 3D plot.</p>
-<div class="code"><pre class="code text"><a id="rest_code_e5136534b36340d481fcbe6ef423b3fc-1" name="rest_code_e5136534b36340d481fcbe6ef423b3fc-1" href="#rest_code_e5136534b36340d481fcbe6ef423b3fc-1"></a>fun:= Sin[Sqrt[x^2 + y^2]]/Sqrt[x^2 + y^2]
-<a id="rest_code_e5136534b36340d481fcbe6ef423b3fc-2" name="rest_code_e5136534b36340d481fcbe6ef423b3fc-2" href="#rest_code_e5136534b36340d481fcbe6ef423b3fc-2"></a>Plot3D[fun, {x, -5*Pi, 5*Pi}, {y, -5*Pi, 5*Pi},
-<a id="rest_code_e5136534b36340d481fcbe6ef423b3fc-3" name="rest_code_e5136534b36340d481fcbe6ef423b3fc-3" href="#rest_code_e5136534b36340d481fcbe6ef423b3fc-3"></a>    PlotPoints -&gt; 100, BoxRatios -&gt; {1, 1, 0.2},
-<a id="rest_code_e5136534b36340d481fcbe6ef423b3fc-4" name="rest_code_e5136534b36340d481fcbe6ef423b3fc-4" href="#rest_code_e5136534b36340d481fcbe6ef423b3fc-4"></a>    PlotRange -&gt; All]
+<div class="code"><pre class="code text"><a id="rest_code_f88d1ca31f4748ccb6e14b03741d4914-1" name="rest_code_f88d1ca31f4748ccb6e14b03741d4914-1" href="#rest_code_f88d1ca31f4748ccb6e14b03741d4914-1"></a>fun:= Sin[Sqrt[x^2 + y^2]]/Sqrt[x^2 + y^2]
+<a id="rest_code_f88d1ca31f4748ccb6e14b03741d4914-2" name="rest_code_f88d1ca31f4748ccb6e14b03741d4914-2" href="#rest_code_f88d1ca31f4748ccb6e14b03741d4914-2"></a>Plot3D[fun, {x, -5*Pi, 5*Pi}, {y, -5*Pi, 5*Pi},
+<a id="rest_code_f88d1ca31f4748ccb6e14b03741d4914-3" name="rest_code_f88d1ca31f4748ccb6e14b03741d4914-3" href="#rest_code_f88d1ca31f4748ccb6e14b03741d4914-3"></a>    PlotPoints -&gt; 100, BoxRatios -&gt; {1, 1, 0.2},
+<a id="rest_code_f88d1ca31f4748ccb6e14b03741d4914-4" name="rest_code_f88d1ca31f4748ccb6e14b03741d4914-4" href="#rest_code_f88d1ca31f4748ccb6e14b03741d4914-4"></a>    PlotRange -&gt; All]
 </pre></div>
 <img alt="3D plot in the notebook." class="align-center" src="../../images/wolfram_plot.png" style="width: 600px;"><div class="line-block">
 <div class="line"><br></div>

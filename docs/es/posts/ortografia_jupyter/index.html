@@ -31,7 +31,8 @@
             styles, `#sidebar-checkbox` for behavior. -->
     <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox"><!-- Toggleable sidebar --><div class="sidebar" id="sidebar">
         <div class="sidebar-item">
-            <p>This is my personal website and blog.</p>
+            <p>A reserved <a href="https://getnikola.com" target="_blank">Nikola</a> theme that places the utmost gravity on content with a hidden drawer. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a> for Jekyll,
+            ported to Nikola by <a href="https://twitter.com/ralsina" target="_blank">@ralsina</a>.</p>
         </div>
         
     <nav id="menu" role="navigation" class="sidebar-nav"><a class="sidebar-nav-item" href="../../../pages/about/">About</a>
@@ -100,11 +101,11 @@ una ruta relativa respecto a la carpeta en donde se encuentra el complemento.</p
 <p>Existe una lista de complementos que agregan algunas funcionalidades
 comúnmente usadas a Jupyter notebook.</p>
 <p>Escriba lo siguiente en una terminal, para instalarlo usando PIP.</p>
-<div class="code"><pre class="code bash"><a id="rest_code_76ee04f634eb496896db07f578a2bdf6-1" name="rest_code_76ee04f634eb496896db07f578a2bdf6-1" href="#rest_code_76ee04f634eb496896db07f578a2bdf6-1"></a>pip<span class="w"> </span>install<span class="w"> </span>jupyter_contrib_nbextensions
+<div class="code"><pre class="code bash"><a id="rest_code_746ab7c9c4084e5f919bc9cf5e63dcf5-1" name="rest_code_746ab7c9c4084e5f919bc9cf5e63dcf5-1" href="#rest_code_746ab7c9c4084e5f919bc9cf5e63dcf5-1"></a>pip<span class="w"> </span>install<span class="w"> </span>jupyter_contrib_nbextensions
 </pre></div>
 <p>Sin embargo, si se está usando Anaconda el <strong>método recomendado</strong> es usar
 <code class="docutils literal">conda</code>, como se muestra a continuación.</p>
-<div class="code"><pre class="code bash"><a id="rest_code_2e4af0ab4d55497a98a5d3497165b849-1" name="rest_code_2e4af0ab4d55497a98a5d3497165b849-1" href="#rest_code_2e4af0ab4d55497a98a5d3497165b849-1"></a>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>jupyter_contrib_nbextensions
+<div class="code"><pre class="code bash"><a id="rest_code_65aca59d050d4627be2ad79119f203ea-1" name="rest_code_65aca59d050d4627be2ad79119f203ea-1" href="#rest_code_65aca59d050d4627be2ad79119f203ea-1"></a>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>jupyter_contrib_nbextensions
 </pre></div>
 <p>Esto debe instalar los complementos y también la
 <a class="reference external" href="https://github.com/Jupyter-contrib/jupyter_nbextensions_configurator">interfaz de configuración</a>.
@@ -124,10 +125,10 @@ diccionario debe tener codificación <a class="reference external" href="https:/
 Pueden descargarse en <a class="reference external" href="../../../downloads/dict_es_ES.zip">este enlace</a>.</p>
 <p>Una vez que se tienen los diccionarios se deben ubicar en la ruta del
 complemento. En mi computador esta sería</p>
-<div class="code"><pre class="code text"><a id="rest_code_8332d8626b2f4ee1bdee428cfaf133be-1" name="rest_code_8332d8626b2f4ee1bdee428cfaf133be-1" href="#rest_code_8332d8626b2f4ee1bdee428cfaf133be-1"></a>~/.local/share/jupyter/nbextensions/spellchecker/
+<div class="code"><pre class="code text"><a id="rest_code_86df46903a7b4ab792137a6d91f2b4ab-1" name="rest_code_86df46903a7b4ab792137a6d91f2b4ab-1" href="#rest_code_86df46903a7b4ab792137a6d91f2b4ab-1"></a>~/.local/share/jupyter/nbextensions/spellchecker/
 </pre></div>
 <p>y dentro de esta los ubicaremos en</p>
-<div class="code"><pre class="code text"><a id="rest_code_cfd5a19ee8bc44b7916d5ad58e10a31f-1" name="rest_code_cfd5a19ee8bc44b7916d5ad58e10a31f-1" href="#rest_code_cfd5a19ee8bc44b7916d5ad58e10a31f-1"></a>~/.local/share/jupyter/nbextensions/spellchecker/typo/dictionaries
+<div class="code"><pre class="code text"><a id="rest_code_d2f671d1372c4a148f62a0bcc93aa552-1" name="rest_code_d2f671d1372c4a148f62a0bcc93aa552-1" href="#rest_code_d2f671d1372c4a148f62a0bcc93aa552-1"></a>~/.local/share/jupyter/nbextensions/spellchecker/typo/dictionaries
 </pre></div>
 <p>Esta ubicación es arbitraria, lo importante es que necesitamos conocer
 la ruta relativa al complemento.</p>

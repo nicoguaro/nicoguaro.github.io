@@ -3,7 +3,7 @@
 &lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
 &lt;img alt="Creative Commons License"
 style="border-width:0"
-src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Fri, 28 Feb 2025 03:50:56 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Spell Check in Jupyter Notebook</title><link>https://nicoguaro.github.io/posts/ortografia_jupyter/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;The purpose of this post is to show how to have automatic spell check in
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Tue, 15 Apr 2025 20:33:30 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Spell Check in Jupyter Notebook</title><link>https://nicoguaro.github.io/posts/ortografia_jupyter/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;The purpose of this post is to show how to have automatic spell check in
 Jupyter Notebook, as shown below.&lt;/p&gt;
 &lt;img alt="Example of spell checking in Jupyter Notebook." class="align-center" src="https://nicoguaro.github.io/images/ortografia_jupyter/ejemplo_ortografia.png" style="width: 600px;"&gt;
 &lt;p&gt;There are &lt;a class="reference external" href="https://stackoverflow.com/q/39324039/3358223"&gt;several ways&lt;/a&gt;
@@ -26,11 +26,11 @@ relative to the folder where the plugin is located.&lt;/p&gt;&lt;/li&gt;
 &lt;p&gt;There is a list of plugins that add some commonly used functionality to
 the Jupyter notebook.&lt;/p&gt;
 &lt;p&gt;Type the following in a terminal, to install it using PIP.&lt;/p&gt;
-&lt;div class="code"&gt;&lt;pre class="code bash"&gt;&lt;a id="rest_code_5d2c118474a041c8b4554437fddcd6be-1" name="rest_code_5d2c118474a041c8b4554437fddcd6be-1" href="https://nicoguaro.github.io/posts/ortografia_jupyter/#rest_code_5d2c118474a041c8b4554437fddcd6be-1"&gt;&lt;/a&gt;pip&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;jupyter_contrib_nbextensions
+&lt;div class="code"&gt;&lt;pre class="code bash"&gt;&lt;a id="rest_code_7286b06d5dc74b2aab7bec68086e634a-1" name="rest_code_7286b06d5dc74b2aab7bec68086e634a-1" href="https://nicoguaro.github.io/posts/ortografia_jupyter/#rest_code_7286b06d5dc74b2aab7bec68086e634a-1"&gt;&lt;/a&gt;pip&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;jupyter_contrib_nbextensions
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;However, if Anaconda is being used the &lt;strong&gt;recommended method&lt;/strong&gt; is to use
 &lt;code class="docutils literal"&gt;conda&lt;/code&gt;, as shown below.&lt;/p&gt;
-&lt;div class="code"&gt;&lt;pre class="code bash"&gt;&lt;a id="rest_code_ee4926a539554536bcdaa3e659179600-1" name="rest_code_ee4926a539554536bcdaa3e659179600-1" href="https://nicoguaro.github.io/posts/ortografia_jupyter/#rest_code_ee4926a539554536bcdaa3e659179600-1"&gt;&lt;/a&gt;conda&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;-c&lt;span class="w"&gt; &lt;/span&gt;conda-forge&lt;span class="w"&gt; &lt;/span&gt;jupyter_contrib_nbextensions
+&lt;div class="code"&gt;&lt;pre class="code bash"&gt;&lt;a id="rest_code_613aa60deee248018dec7368f063ccec-1" name="rest_code_613aa60deee248018dec7368f063ccec-1" href="https://nicoguaro.github.io/posts/ortografia_jupyter/#rest_code_613aa60deee248018dec7368f063ccec-1"&gt;&lt;/a&gt;conda&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;-c&lt;span class="w"&gt; &lt;/span&gt;conda-forge&lt;span class="w"&gt; &lt;/span&gt;jupyter_contrib_nbextensions
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;This should install the plugins and also the
 &lt;a class="reference external" href="https://github.com/Jupyter-contrib/jupyter_nbextensions_configurator"&gt;configuration interface&lt;/a&gt;.
@@ -54,10 +54,10 @@ dictionary must be &lt;a class="reference external" href="https://en.wikipedia.o
 They can be downloaded at &lt;a class="reference external" href="https://nicoguaro.github.io/downloads/dict_es_ES.zip"&gt;this link&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Once you have the dictionaries, they must be located in the path of the
 plugin. On my computer this would be&lt;/p&gt;
-&lt;div class="code"&gt;&lt;pre class="code text"&gt;&lt;a id="rest_code_387a9c666801497ea7023e8c0e8e85ca-1" name="rest_code_387a9c666801497ea7023e8c0e8e85ca-1" href="https://nicoguaro.github.io/posts/ortografia_jupyter/#rest_code_387a9c666801497ea7023e8c0e8e85ca-1"&gt;&lt;/a&gt;~/.local/share/jupyter/nbextensions/spellchecker/
+&lt;div class="code"&gt;&lt;pre class="code text"&gt;&lt;a id="rest_code_597e1023e0aa48028768baf32175c613-1" name="rest_code_597e1023e0aa48028768baf32175c613-1" href="https://nicoguaro.github.io/posts/ortografia_jupyter/#rest_code_597e1023e0aa48028768baf32175c613-1"&gt;&lt;/a&gt;~/.local/share/jupyter/nbextensions/spellchecker/
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;and within this we will place them in&lt;/p&gt;
-&lt;div class="code"&gt;&lt;pre class="code text"&gt;&lt;a id="rest_code_a962998b83404a00899a5440cdb2cb8d-1" name="rest_code_a962998b83404a00899a5440cdb2cb8d-1" href="https://nicoguaro.github.io/posts/ortografia_jupyter/#rest_code_a962998b83404a00899a5440cdb2cb8d-1"&gt;&lt;/a&gt;~/.local/share/jupyter/nbextensions/spellchecker/typo/dictionaries
+&lt;div class="code"&gt;&lt;pre class="code text"&gt;&lt;a id="rest_code_cc13977993ef4cfa8c0013b1e2e1a1f0-1" name="rest_code_cc13977993ef4cfa8c0013b1e2e1a1f0-1" href="https://nicoguaro.github.io/posts/ortografia_jupyter/#rest_code_cc13977993ef4cfa8c0013b1e2e1a1f0-1"&gt;&lt;/a&gt;~/.local/share/jupyter/nbextensions/spellchecker/typo/dictionaries
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;This location is arbitrary, the important thing is that we need to know
 the relative path to the plugin.&lt;/p&gt;

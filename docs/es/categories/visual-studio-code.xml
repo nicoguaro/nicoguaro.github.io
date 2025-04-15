@@ -3,7 +3,7 @@
 &lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
 &lt;img alt="Creative Commons License"
 style="border-width:0"
-src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Fri, 28 Feb 2025 04:20:11 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Usando MixTex con LaTeX Workshop en Windows</title><link>https://nicoguaro.github.io/es/posts/latex_vscode_wind/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;Este es un post para mencionar cómo configurar Visual Studio Code
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Tue, 15 Apr 2025 20:33:30 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Usando MixTex con LaTeX Workshop en Windows</title><link>https://nicoguaro.github.io/es/posts/latex_vscode_wind/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;Este es un post para mencionar cómo configurar Visual Studio Code
 para LaTeX—a través de la extensión &lt;a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop"&gt;LaTeX Workshop&lt;/a&gt;—.&lt;/p&gt;
 &lt;p&gt;En el pasado, he utilizado varios editores de texto y para LaTeX. Hace un par
 de años sustituí &lt;a class="reference external" href="https://www.texstudio.org/"&gt;TeXstudio&lt;/a&gt; por VS Code, y creo
