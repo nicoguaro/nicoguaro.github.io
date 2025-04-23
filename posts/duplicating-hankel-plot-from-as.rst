@@ -16,7 +16,7 @@ Functions <https://en.wikipedia.org/wiki/Abramowitz_and_Stegun>`_ or
 
 Luckily, John D. Cook replicated the following plot from Abramowitz and Stegun
 in his `blog <https://www.johndcook.com/blog/2025/01/22/duplicating-hankel-plot-from-as/>`_
-using Mathematica.
+using Mathematica. Although, this figure was originally published in [#f2]_.
 
 .. image:: /images/A&S/abramowitz_stegun-hankel.png
    :width: 800 px
@@ -184,5 +184,10 @@ download it `here </downloads/hankel_plot.py>`_
 
 
 .. [#f1] The succesor of this book is the `NIST of Mathematical Functions <https://dlmf.nist.gov/>`_.
+
+
+.. [#f2] Jahnke, Eugen, Fritz Emde, and Friedrich Lösch (1960).
+   "Tables of higher functions." McGraw-Hill.
+   Archive: https://archive.org/details/isbn_9780070322455
 
 |

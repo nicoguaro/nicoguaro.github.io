@@ -16,7 +16,7 @@ o *Abramowitz y Stegun* [#f1]_, como se le conoce comúnmente.
 
 Afortunadamente, John D. Cook replicó el siguiente gráfico de Abramowitz y
 Stegun en su `blog <https://www.johndcook.com/blog/2025/01/22/duplicating-hankel-plot-from-as/>`_
-utilizando Mathematica.
+utilizando Mathematica. Aunque esta figura fue publicada originalmente en [#f2]_.
 
 .. image:: /images/A&S/abramowitz_stegun-hankel.png
    :width: 800 px
@@ -180,5 +180,9 @@ descargarlo `aquí </downloads/hankel_plot.py>`_
 
 
 .. [#f1] El sucesor de este libro es la `Biblioteca Digital de Funciones Matemáticas <https://dlmf.nist.gov/>`_.
+
+.. [#f2] Jahnke, Eugen, Fritz Emde, y Friedrich Lösch (1960).
+   "Tables of higher functions." McGraw-Hill.
+   Archivo: https://archive.org/details/isbn_9780070322455
 
 |
