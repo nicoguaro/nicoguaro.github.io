@@ -190,7 +190,8 @@ Diapositivas
 
 En el caso de diapositivas hay dos relaciones de aspecto comunes 16:9 y 4:3.
 Además, diferentes programas usan diferentes tamaños nominales. La siguiente
-tabla muestra los tamaños nomiales para LibreOffice Impress y MS Power Point.
+tabla muestra los tamaños nomiales para LibreOffice Impress, MS Power Point
+y LaTeX usando Beamer.
 
 +---------------------+--------------------+--------------------+
 |                     |          16:9      |        4:3         |
@@ -199,6 +200,14 @@ tabla muestra los tamaños nomiales para LibreOffice Impress y MS Power Point.
 +---------------------+--------------------+--------------------+
 | MS Power Point      | 13.32 in × 7.50 in | 10.00 in × 7.50 in |
 +---------------------+--------------------+--------------------+
+| LaTeX (Beamer)      | 16.00 cm × 9.00 cm | 12.80 cm × 9.60 cm |
++---------------------+--------------------+--------------------+
+
+
+Historial de actualizaciones
+----------------------------
+
+- [Mayo 20, 2025]: Añadir tamaños nominales de LaTeX.
 
 
 Referencias
@@ -223,5 +232,8 @@ Referencias
 
 6. Journal of applied physics (n.d.). "Preparing Your Manuscript: Authors
    Instruction." Fecha de acceso: Noviembre 1, 2021, de https://aip.scitation.org/jap/authors/manuscript
+
+7. Werner. (2012). Respuesta a «Proper page size for slides»
+   [En línea]. TeX - LaTeX Stack Exchange. https://tex.stackexchange.com/a/75651
 
 |

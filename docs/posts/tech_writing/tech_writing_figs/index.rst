@@ -192,8 +192,8 @@ Slides
 
 In the case of slides there are two common aspect ratios 16:9 and 4:3.
 And, different software have different nominal sizes. The following
-table present the nominal sizes for LibreOffice Impress and MS
-Power Point.
+table present the nominal sizes for LibreOffice Impress, MS
+Power Point and LaTeX using Beamer.
 
 +---------------------+--------------------+--------------------+
 |                     |          16:9      |        4:3         |
@@ -202,6 +202,14 @@ Power Point.
 +---------------------+--------------------+--------------------+
 | MS Power Point      | 13.32 in × 7.50 in | 10.00 in × 7.50 in |
 +---------------------+--------------------+--------------------+
+| LaTeX (Beamer)      | 16.00 cm × 9.00 cm | 12.80 cm × 9.60 cm |
++---------------------+--------------------+--------------------+
+
+
+Update History
+--------------
+
+- [May 20, 2025]: Add LaTeX nominal sizes.
 
 
 References
@@ -226,5 +234,8 @@ References
 
 6. Journal of applied physics (n.d.). "Preparing Your Manuscript: Authors
    Instruction." Retrieved November 1, 2021, from https://aip.scitation.org/jap/authors/manuscript
+
+7. Werner. (2012). Answer to “Proper page size for slides”
+   [Online post]. TeX - LaTeX Stack Exchange. https://tex.stackexchange.com/a/75651
 
 |
