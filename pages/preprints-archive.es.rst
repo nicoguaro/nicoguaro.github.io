@@ -13,10 +13,17 @@ se pueden encontrar enlaces a los *preprints*.
 
 2025
 ----
+
+- Juan Fernando Riascos-Goyes, Michaek Lowry, Nicolás Guarín-Zapata,
+  Juan Pablo Ospina (2025). Street network sub-patterns and travel mode.
+  Computers, Environment and Urban Systems, en revisión
+  (`preprint <preprint2025b_>`_, `preprint en español <preprint2025b-es_>`_).
+
+
 - José Ortiz-Ocampo y Nicolás Guarín-Zapata (2025).
   Implicit Time-Marching for Lagrange Multiplier Formulation
   for Couple Stress Elastodynamics. Computer Methods in Applied Mechanics
-  and Engineering, en revisión (`preprint <preprint2025>`_).
+  and Engineering, en revisión (`preprint <preprint2025a_>`_).
 
 2024
 ----
@@ -158,3 +165,9 @@ se pueden encontrar enlaces a los *preprints*.
 .. _preprint2023: /downloads/preprints/2023_directionality.pdf
 
 .. _preprint2023-es: /downloads/preprints/2023_directionality-es.pdf
+
+.. _preprint2025a: /downloads/preprints/2025_implicit_ccst.pdf
+
+.. _preprint2025b: /downloads/preprints/2025_street_networks.pdf
+
+.. _preprint2025b-es: /downloads/preprints/2025_street_networks-es.pdf
