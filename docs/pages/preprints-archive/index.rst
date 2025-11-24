@@ -14,9 +14,16 @@ links to the preprints.
 2025
 ----
 
+- Óscar Rincón-Cardeno, Gregorio Pérez-Bernal, Silvana Montoya-Noguera,
+  Nicolás Guarín-Zapata, (2025). Comparative Analysis of Wave Scattering
+  Numerical Modeling Using the Boundary Element Method and Physics-Informed
+  Neural Networks. Engineering Computations, under review
+  (`preprint <preprint2025c_>`_).
+ 
+
 - Juan Fernando Riascos-Goyes, Michaek Lowry, Nicolás Guarín-Zapata,
-  Juan Pablo Ospina (2025). Street network sub-patterns and travel mode.
-  Computers, Environment and Urban Systems, under review
+  Juan Pablo Ospina (2025). Decoding street network morphologies and their
+  correlation to travel mode choice. Cities, under review
   (`preprint <preprint2025b_>`_, `preprint in Spanish <preprint2025b-es_>`_).
 
 - José Ortiz-Ocampo & Nicolás Guarín-Zapata (2025).
@@ -174,3 +181,5 @@ links to the preprints.
 .. _preprint2025b: /downloads/preprints/2025_street_networks.pdf
 
 .. _preprint2025b-es: /downloads/preprints/2025_street_networks-es.pdf
+
+.. _preprint2025c: /downloads/preprints/2025_comparative_bem_pinns.pdf
