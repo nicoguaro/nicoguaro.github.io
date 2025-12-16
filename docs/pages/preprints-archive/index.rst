@@ -189,3 +189,5 @@ links to the preprints.
 .. _preprint2025b-es: /downloads/preprints/2025_street_networks-es.pdf
 
 .. _preprint2025c: /downloads/preprints/2025_comparative_bem_pinns.pdf
+
+.. _preprint2025d: /downloads/preprints/2025_pinn_inverse_unbounded.pdf
