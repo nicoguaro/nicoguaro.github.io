@@ -14,10 +14,16 @@ links to the preprints.
 2025
 ----
 
+- Gregorio Pérez-Bernal, Oscar Rincón-Cardeño, Silvana Montoya-Noguera,
+  Nicolás Guarín-Zapata (2025). Physics-informed neural networks to solve
+  inverse problems in unbounded domains. Machine Learning for Computational
+  Science and Engineering, under review (`preprint <preprint2025d_>`_).
+
+
 - Óscar Rincón-Cardeno, Gregorio Pérez-Bernal, Silvana Montoya-Noguera,
   Nicolás Guarín-Zapata, (2025). Comparative Analysis of Wave Scattering
   Numerical Modeling Using the Boundary Element Method and Physics-Informed
-  Neural Networks. Engineering Computations, under review
+  Neural Networks. Engineering with Computers, under review
   (`preprint <preprint2025c_>`_).
  
 
