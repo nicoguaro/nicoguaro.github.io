@@ -1,4 +1,4 @@
-.. title: Numerical methods challenge: Day 31
+.. title: Numerical methods challenge: Day 31 - Putting things together
 .. slug: numerical-31
 .. date: 2017-10-31 20:45:09 UTC-05:00
 .. tags: numerical methods, python, julia, scientific computing, conjugate gradient, finite element method
@@ -12,8 +12,8 @@ then don't expect the code to be good enough for real use. Also,
 I should mention that I had almost no experience with Julia, so it
 probably is not idiomatic Julia but more Python-like Julia.
 
-Putting some things together
-============================
+Putting things together
+========================
 
 Today, I am putting some things together, namely, I am going to solve the
 system of equations that results in the finite element using the conjugate

@@ -1,4 +1,4 @@
-.. title: Reto de métodos numéricos: Día 29
+.. title: Reto de métodos numéricos: Día 29 - Descomposición de Cholesky
 .. slug: numerical-29
 .. date: 2017-10-29 21:10:08 UTC-05:00
 .. tags: métodos numéricos, python, julia, computación científica, descomposición de cholesky

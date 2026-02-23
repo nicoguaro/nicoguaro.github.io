@@ -1,4 +1,4 @@
-.. title: Reto de métodos numéricos: Día 17
+.. title: Reto de métodos numéricos: Día 17 - Método de Euler
 .. slug: numerical-17
 .. date: 2017-10-17 16:29:05 UTC-05:00
 .. tags: métodos numéricos, python, julia, computación científica, edo

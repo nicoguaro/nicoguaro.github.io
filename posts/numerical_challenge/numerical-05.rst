@@ -1,4 +1,4 @@
-.. title: Numerical methods challenge: Day 5
+.. title: Numerical methods challenge: Day 5 – Broyden's method
 .. slug: numerical-05
 .. date: 2017-10-05 13:21:41 UTC-05:00
 .. tags: numerical methods, python, julia, scientific computing, root finding

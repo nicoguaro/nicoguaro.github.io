@@ -1,4 +1,4 @@
-.. title: Reto de métodos numéricos: Día 13
+.. title: Reto de métodos numéricos: Día 13 - Splines cúbicas
 .. slug: numerical-13
 .. date: 2017-10-13 19:20:06 UTC-05:00
 .. tags: métodos numéricos, python, julia, computación científica, interpolación

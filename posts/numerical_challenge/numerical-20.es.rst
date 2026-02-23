@@ -1,4 +1,4 @@
-.. title: Reto de métodos numéricos: Día 20
+.. title: Reto de métodos numéricos: Día 20 - Método del disparo
 .. slug: numerical-20
 .. date: 2017-10-20 20:10:43 UTC-05:00
 .. tags: métodos numéricos, python, julia, computación científica, edo, método del disparo

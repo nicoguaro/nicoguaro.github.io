@@ -1,4 +1,4 @@
-.. title: Numerical methods challenge: Day 18
+.. title: Numerical methods challenge: Day 18 - Runge-Kutta method
 .. slug: numerical-18
 .. date: 2017-10-18 19:58:37 UTC-05:00
 .. tags: numerical methods, python, julia, scientific computing, ode, runge-kutta

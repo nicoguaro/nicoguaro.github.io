@@ -1,4 +1,4 @@
-.. title: Numerical methods challenge: Day 4
+.. title: Numerical methods challenge: Day 4 – Newton's method
 .. slug: numerical-04
 .. date: 2017-10-04 21:30:15 UTC-05:00
 .. tags: numerical methods, python, julia, scientific computing, root finding

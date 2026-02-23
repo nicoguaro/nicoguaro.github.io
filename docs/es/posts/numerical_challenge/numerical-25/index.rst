@@ -1,4 +1,4 @@
-.. title: Reto de métodos numéricos: Día 25
+.. title: Reto de métodos numéricos: Día 25 - Elementos finitos
 .. slug: numerical-25
 .. date: 2017-10-25 21:41:53 UTC-05:00
 .. tags: métodos numéricos, python, julia, computación científica, método de elementos finitos

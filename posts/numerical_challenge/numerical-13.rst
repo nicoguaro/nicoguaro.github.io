@@ -1,4 +1,4 @@
-.. title: Numerical methods challenge: Day 13
+.. title: Numerical methods challenge: Day 13 - Cubic splines
 .. slug: numerical-13
 .. date: 2017-10-13 19:20:06 UTC-05:00
 .. tags: numerical methods, python, julia, scientific computing, interpolation

@@ -1,4 +1,4 @@
-.. title: Numerical methods challenge: Day 30
+.. title: Numerical methods challenge: Day 30 - Conjugate gradient
 .. slug: numerical-30
 .. date: 2017-10-30 19:38:03 UTC-05:00
 .. tags: numerical methods, python, julia, scientific computing, conjugate gradient

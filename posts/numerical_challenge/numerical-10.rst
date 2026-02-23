@@ -1,4 +1,4 @@
-.. title: Numerical methods challenge: Day 10
+.. title: Numerical methods challenge: Day 10 - Runge phenomenon
 .. slug: numerical-10
 .. date: 2017-10-10 21:16:26 UTC-05:00
 .. tags: numerical methods, python, julia, scientific computing, interpolation

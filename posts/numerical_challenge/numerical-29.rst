@@ -1,4 +1,4 @@
-.. title: Numerical methods challenge: Day 29
+.. title: Numerical methods challenge: Day 29 - Cholesky decomposition
 .. slug: numerical-29
 .. date: 2017-10-29 21:10:08 UTC-05:00
 .. tags: numerical methods, python, julia, scientific computing, cholesky decomposition

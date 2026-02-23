@@ -1,4 +1,4 @@
-.. title: Numerical methods challenge: Day 2
+.. title: Numerical methods challenge: Day 2 – Regula falsi
 .. slug: numerical-02
 .. date: 2017-10-02 20:47:05 UTC-05:00
 .. tags: numerical methods, python, julia, scientific computing, root finding

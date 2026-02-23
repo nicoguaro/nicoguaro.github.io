@@ -1,4 +1,4 @@
-.. title: Numerical methods challenge: Day 28
+.. title: Numerical methods challenge: Day 28 - LU factorization
 .. slug: numerical-28
 .. date: 2017-10-28 17:02:38 UTC-05:00
 .. tags: numerical methods, python, julia, scientific computing, lu factorization

@@ -1,4 +1,4 @@
-.. title: Numerical methods challenge: Day 7
+.. title: Numerical methods challenge: Day 7 – Nelder-Mead
 .. slug: numerical-07
 .. date: 2017-10-07 14:51:35 UTC-05:00
 .. tags: numerical methods, python, julia, scientific computing, optimization

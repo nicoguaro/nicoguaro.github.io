@@ -1,4 +1,4 @@
-.. title: Numerical methods challenge: Day 19
+.. title: Numerical methods challenge: Day 19 - Verlet integration
 .. slug: numerical-19
 .. date: 2017-10-19 15:24:57 UTC-05:00
 .. tags: numerical methods, python, julia, scientific computing, ode, verlet integration

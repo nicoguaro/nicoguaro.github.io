@@ -1,4 +1,4 @@
-.. title: Reto de métodos numéricos: Día 19
+.. title: Reto de métodos numéricos: Día 19 - Integración de Verlet
 .. slug: numerical-19
 .. date: 2017-10-19 15:24:57 UTC-05:00
 .. tags: métodos numéricos, python, julia, computación científica, edo, integración de verlet
@@ -18,7 +18,7 @@ Integración de Verlet
 
 Hoy tenemos la técnica de `integración de Verlet
 <https://en.wikipedia.org/wiki/Verlet_integration>`_. Este método se usa de
-formae xtendida para integrar las ecuaciones de movimiento de muchos sistemas,
+formae extendida para integrar las ecuaciones de movimiento de muchos sistemas,
 como en mecánica orbital o dinámica molecular. Una de las razones principales
 para escoger este método es que es un 
 `integrado simpléctico <https://en.wikipedia.org/wiki/Symplectic_integrator>`_.

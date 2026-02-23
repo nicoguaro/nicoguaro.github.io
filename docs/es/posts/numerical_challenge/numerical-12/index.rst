@@ -1,4 +1,4 @@
-.. title: Reto de métodos numéricos: Día 12
+.. title: Reto de métodos numéricos: Día 12 - Interpolación de Hermite
 .. slug: numerical-12
 .. date: 2017-10-12 15:06:10 UTC-05:00
 .. tags: métodos numéricos, python, julia, computación científica, interpolación

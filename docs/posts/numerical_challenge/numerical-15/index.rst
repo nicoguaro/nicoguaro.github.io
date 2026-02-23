@@ -1,4 +1,4 @@
-.. title: Numerical methods challenge: Day 15
+.. title: Numerical methods challenge: Day 15 - Simpson's rule
 .. slug: numerical-15
 .. date: 2017-10-17 16:22:06 UTC-05:00
 .. tags: numerical methods, python, julia, scientific computing, quadrature

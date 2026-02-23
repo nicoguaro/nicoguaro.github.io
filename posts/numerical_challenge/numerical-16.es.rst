@@ -1,4 +1,4 @@
-.. title: Reto de métodos numéricos: Día 16
+.. title: Reto de métodos numéricos: Día 16 - Cuadratura de Clenshaw-Curtis
 .. slug: numerical-16
 .. date: 2017-10-17 16:29:00 UTC-05:00
 .. tags: métodos numéricos, python, julia, computación científica, cuadratura

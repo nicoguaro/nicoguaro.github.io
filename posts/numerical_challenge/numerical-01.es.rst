@@ -1,4 +1,4 @@
-.. title: Reto de métodos numéricos
+.. title: Reto de métodos numéricos: Día 1 – Método de bisección
 .. slug: numerical-01
 .. date: 2017-10-01 23:12:04 UTC-05:00
 .. tags: métodos numéricos, python, julia, computación científica, búsqueda de raíces

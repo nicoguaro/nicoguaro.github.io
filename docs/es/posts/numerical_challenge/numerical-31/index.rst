@@ -1,4 +1,4 @@
-.. title: Reto de métodos numéricos: Día 31
+.. title: Reto de métodos numéricos: Día 31 - Poniendo todo junto
 .. slug: numerical-31
 .. date: 2017-10-31 20:45:09 UTC-05:00
 .. tags: métodos numéricos, python, julia, computación científica, gradiente conjugado, método de elementos finitos

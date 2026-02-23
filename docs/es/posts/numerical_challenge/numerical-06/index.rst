@@ -1,4 +1,4 @@
-.. title: Reto de métodos numéricos: Día 6
+.. title: Reto de métodos numéricos: Día 6 – Descenso del gradiente
 .. slug: numerical-06
 .. date: 2017-10-06 20:05:08 UTC-05:00
 .. tags: métodos numéricos, python, julia, computación científica, optimización

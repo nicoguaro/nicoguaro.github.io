@@ -1,4 +1,4 @@
-.. title: Numerical methods challenge: Day 12
+.. title: Numerical methods challenge: Day 12 - Hermite interpolation
 .. slug: numerical-12
 .. date: 2017-10-12 15:06:10 UTC-05:00
 .. tags: numerical methods, python, julia, scientific computing, interpolation

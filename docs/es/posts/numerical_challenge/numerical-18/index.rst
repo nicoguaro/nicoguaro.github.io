@@ -1,4 +1,4 @@
-.. title: Reto de métodos numéricos: Día 18
+.. title: Reto de métodos numéricos: Día 18 - Método de Runge-Kutta
 .. slug: numerical-18
 .. date: 2017-10-18 19:58:37 UTC-05:00
 .. tags: métodos numéricos, python, julia, computación científica, edo, runge-kutta

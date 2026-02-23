@@ -1,4 +1,4 @@
-.. title: Reto de métodos numéricos: Día 8
+.. title: Reto de métodos numéricos: Día 8 – Método de Newton para optimización
 .. slug: numerical-08
 .. date: 2017-10-09 16:15:50 UTC-05:00
 .. tags: métodos numéricos, python, julia, computación científica, optimización

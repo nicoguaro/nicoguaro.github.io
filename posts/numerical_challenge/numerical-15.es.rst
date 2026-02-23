@@ -1,4 +1,4 @@
-.. title: Reto de métodos numéricos: Día 15
+.. title: Reto de métodos numéricos: Día 15 - Regla de Simpson
 .. slug: numerical-15
 .. date: 2017-10-17 16:22:06 UTC-05:00
 .. tags: métodos numéricos, python, julia, computación científica, cuadratura

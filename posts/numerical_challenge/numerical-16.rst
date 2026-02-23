@@ -1,4 +1,4 @@
-.. title: Numerical methods challenge: Day 16
+.. title: Numerical methods challenge: Day 16 - Clenshaw-Curtis quadrature
 .. slug: numerical-16
 .. date: 2017-10-17 16:29:00 UTC-05:00
 .. tags: numerical methods, python, julia, scientific computing, quadrature

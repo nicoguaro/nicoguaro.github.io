@@ -1,4 +1,4 @@
-.. title: Reto de métodos numéricos: Día 11
+.. title: Reto de métodos numéricos: Día 11 - Matrices de Vandermonde
 .. slug: numerical-11
 .. date: 2017-10-11 12:25:10 UTC-05:00
 .. tags: métodos numéricos, python, julia, computación científica, interpolación

@@ -1,4 +1,4 @@
-.. title: Reto de métodos numéricos: Día 2
+.. title: Reto de métodos numéricos: Día 2 – Regula falsi
 .. slug: numerical-02
 .. date: 2017-10-02 20:47:05 UTC-05:00
 .. tags: métodos numéricos, python, julia, computación científica, búsqueda de raíces

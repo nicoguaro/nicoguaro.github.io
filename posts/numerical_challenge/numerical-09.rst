@@ -1,4 +1,4 @@
-.. title: Numerical methods challenge: Day 9
+.. title: Numerical methods challenge: Day 9 - Lagrange interpolation
 .. slug: numerical-09
 .. date: 2017-10-09 21:17:56 UTC-05:00
 .. tags: numerical methods, python, julia, scientific computing, interpolation

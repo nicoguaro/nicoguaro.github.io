@@ -1,4 +1,4 @@
-.. title: Numerical methods challenge: Day 25
+.. title: Numerical methods challenge: Day 25 - Finite elements
 .. slug: numerical-25
 .. date: 2017-10-25 21:41:53 UTC-05:00
 .. tags: numerical methods, python, julia, scientific computing, finite element method

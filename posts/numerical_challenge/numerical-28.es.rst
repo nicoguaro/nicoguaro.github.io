@@ -1,4 +1,4 @@
-.. title: Reto de métodos numéricos: Día 28
+.. title: Reto de métodos numéricos: Día 28 - Factorilzación LU
 .. slug: numerical-28
 .. date: 2017-10-28 17:02:38 UTC-05:00
 .. tags: métodos numéricos, python, julia, computación científica, factorización lu

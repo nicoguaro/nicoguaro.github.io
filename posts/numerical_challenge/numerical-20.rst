@@ -1,5 +1,4 @@
-.. title: Numerical methods challenge: Day 20
-.. slug: numerical-20
+.. title: Numerical methods challenge: Day 20 - Shotting method
 .. date: 2017-10-20 20:10:43 UTC-05:00
 .. tags: numerical methods, python, julia, scientific computing, ode, shooting method
 .. category: Scientific Computing

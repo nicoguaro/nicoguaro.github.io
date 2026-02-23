@@ -1,4 +1,4 @@
-.. title: Numerical methods challenge: Day 27
+.. title: Numerical methods challenge: Day 27 - Monte Carlo integration
 .. slug: numerical-27
 .. date: 2017-10-27 21:27:06 UTC-05:00
 .. tags: numerical methods, python, julia, scientific computing, monte carlo

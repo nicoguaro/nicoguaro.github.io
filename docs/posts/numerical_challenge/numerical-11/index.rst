@@ -1,4 +1,4 @@
-.. title: Numerical methods challenge: Day 11
+.. title: Numerical methods challenge: Day 11 - Vandermonde matrices
 .. slug: numerical-11
 .. date: 2017-10-11 12:25:10 UTC-05:00
 .. tags: numerical methods, python, julia, scientific computing, interpolation

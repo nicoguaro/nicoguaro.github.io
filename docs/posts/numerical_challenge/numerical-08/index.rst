@@ -1,4 +1,4 @@
-.. title: Numerical methods challenge: Day 8
+.. title: Numerical methods challenge: Day 8 – Newton's method for optimization
 .. slug: numerical-08
 .. date: 2017-10-09 16:15:50 UTC-05:00
 .. tags: numerical methods, python, julia, scientific computing, optimization

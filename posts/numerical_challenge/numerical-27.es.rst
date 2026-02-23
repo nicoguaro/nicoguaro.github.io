@@ -1,4 +1,4 @@
-.. title: Reto de métodos numéricos: Día 27
+.. title: Reto de métodos numéricos: Día 27 - Integración Monte Carlo
 .. slug: numerical-27
 .. date: 2017-10-27 21:27:06 UTC-05:00
 .. tags: métodos numéricos, python, julia, computación científica, monte carlo

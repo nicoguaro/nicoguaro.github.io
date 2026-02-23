@@ -1,4 +1,4 @@
-.. title: Reto de métodos numéricos: Día 5
+.. title: Reto de métodos numéricos: Día 5 – Método de Broyden
 .. slug: numerical-05
 .. date: 2017-10-05 13:21:41 UTC-05:00
 .. tags: métodos numéricos, python, julia, computación científica, búsqueda de raíces

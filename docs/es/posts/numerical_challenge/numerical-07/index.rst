@@ -1,4 +1,4 @@
-.. title: Reto de métodos numéricos: Día 7
+.. title: Reto de métodos numéricos: Día 7 – Nelder-Mead
 .. slug: numerical-07
 .. date: 2017-10-07 14:51:35 UTC-05:00
 .. tags: métodos numéricos, python, julia, computación científica, optimización

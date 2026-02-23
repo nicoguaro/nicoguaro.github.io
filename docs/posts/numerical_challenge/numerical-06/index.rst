@@ -1,4 +1,4 @@
-.. title: Numerical methods challenge: Day 6
+.. title: Numerical methods challenge: Day 6 – Gradient descent
 .. slug: numerical-06
 .. date: 2017-10-06 20:05:08 UTC-05:00
 .. tags: numerical methods, python, julia, scientific computing, optimization

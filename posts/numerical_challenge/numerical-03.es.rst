@@ -1,4 +1,4 @@
-.. title: Reto de métodos numéricos: Día 3
+.. title: Reto de métodos numéricos: Día 3 – Método de Newton
 .. slug: numerical-03
 .. date: 2017-10-03 19:26:13 UTC-05:00
 .. tags: métodos numéricos, python, julia, computación científica, búsqueda de raíces

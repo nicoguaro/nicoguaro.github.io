@@ -1,4 +1,4 @@
-.. title: Numerical methods challenge: Day 3
+.. title: Numerical methods challenge: Day 3 – Newton's Method
 .. slug: numerical-03
 .. date: 2017-10-03 19:26:13 UTC-05:00
 .. tags: numerical methods, python, julia, scientific computing, root finding

@@ -1,4 +1,4 @@
-.. title: Reto de métodos numéricos: Día 23
+.. title: Reto de métodos numéricos: Día 23 - Método de Ritz
 .. slug: numerical-23
 .. date: 2017-10-23 20:30:03 UTC-05:00
 .. tags: métodos numéricos, python, julia, computación científica, método de ritz

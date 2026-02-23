@@ -1,4 +1,4 @@
-.. title: Reto de métodos numéricos: Día 21
+.. title: Reto de métodos numéricos: Día 21 - Iteración de Jacobi
 .. slug: numerical-21
 .. date: 2017-10-21 14:57:55 UTC-05:00
 .. tags: métodos numéricos, python, julia, computación científica, edp, método de diferencias finitas

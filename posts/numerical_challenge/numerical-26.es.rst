@@ -1,4 +1,4 @@
-.. title: Reto de métodos numéricos: Día 26
+.. title: Reto de métodos numéricos: Día 26- Elementos de frontera
 .. slug: numerical-26
 .. date: 2017-10-26 19:15:08 UTC-05:00
 .. tags: métodos numéricos, python, julia, computación científica, método de elementos de frontera

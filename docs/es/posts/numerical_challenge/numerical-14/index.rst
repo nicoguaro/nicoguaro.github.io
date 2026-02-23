@@ -1,4 +1,4 @@
-.. title: Reto de métodos numéricos: Día 14
+.. title: Reto de métodos numéricos: Día 14 - Regla del trapecio
 .. slug: numerical-14
 .. date: 2017-10-14 14:00:42 UTC-05:00
 .. tags: métodos numéricos, python, julia, computación científica, cuadratura

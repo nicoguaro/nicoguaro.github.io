@@ -1,4 +1,4 @@
-.. title: Reto de métodos numéricos: Día 30
+.. title: Reto de métodos numéricos: Día 30 - Gradiente conjugado
 .. slug: numerical-30
 .. date: 2017-10-30 19:38:03 UTC-05:00
 .. tags: métodos numéricos, python, julia, computación científica, gradiente conjugado

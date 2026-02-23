@@ -1,4 +1,4 @@
-.. title: Numerical methods challenge: Day 26
+.. title: Numerical methods challenge: Day 26 - Boundary element method
 .. slug: numerical-26
 .. date: 2017-10-26 19:15:08 UTC-05:00
 .. tags: numerical methods, python, julia, scientific computing, boundary element method

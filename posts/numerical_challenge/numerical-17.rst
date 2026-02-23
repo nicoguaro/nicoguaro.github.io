@@ -1,4 +1,4 @@
-.. title: Numerical methods challenge: Day 17
+.. title: Numerical methods challenge: Day 17 - Euler method
 .. slug: numerical-17
 .. date: 2017-10-17 16:29:05 UTC-05:00
 .. tags: numerical methods, python, julia, scientific computing, ode
