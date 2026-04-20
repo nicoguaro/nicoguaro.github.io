@@ -11,20 +11,24 @@
 Esta es una página de archivo de artículos de investigación. A continuación
 se pueden encontrar enlaces a los *preprints*.
 
+2026
+----
+
+- Óscar Rincón-Cardeno, Gregorio Pérez-Bernal, Silvana Montoya-Noguera,
+  Nicolás Guarín-Zapata (2026). Benchmarking Physics-Informed Neural
+  Networks and Boundary Element Method: Accuracy–Efficiency Trade-offs
+  in Wave Scattering. Engineering Analysis with Boundary Elements
+  (`preprint <preprint2026a_>`_, `material suplementario <supplementary2026a_>`_).
+
+
 2025
 ----
 
 - Gregorio Pérez-Bernal, Oscar Rincón-Cardeño, Silvana Montoya-Noguera,
   Nicolás Guarín-Zapata (2025). Physics-informed neural networks to solve
   inverse problems in unbounded domains. Machine Learning for Computational
-  Science and Engineering, en revisión (`preprint <preprint2025d_>`_).
+  Science and Engineering, en revisión (`preprint <preprint2025c_>`_).
 
-
-- Óscar Rincón-Cardeno, Gregorio Pérez-Bernal, Silvana Montoya-Noguera,
-  Nicolás Guarín-Zapata, (2025). Comparative Analysis of Wave Scattering
-  Numerical Modeling Using the Boundary Element Method and Physics-Informed
-  Neural Networks. Engineering with Computers, en revisión
-  (`preprint <preprint2025c_>`_).
 
 - Juan Fernando Riascos-Goyes, Michaek Lowry, Nicolás Guarín-Zapata,
   Juan Pablo Ospina (2025). Decoding street network morphologies and their
@@ -184,6 +188,8 @@ se pueden encontrar enlaces a los *preprints*.
 
 .. _preprint2025b-es: /downloads/preprints/2025_street_networks-es.pdf
 
-.. _preprint2025c: /downloads/preprints/2025_comparative_bem_pinns.pdf
+.. _preprint2025c: /downloads/preprints/2025_pinn_inverse_unbounded.pdf
 
-.. _preprint2025d: /downloads/preprints/2025_pinn_inverse_unbounded.pdf
+.. _preprint2026a: /downloads/preprints/2026_benchmark_bem_pinss.pdf
+
+.. _supplementary2026a: /downloads/supplementary/2026_benchmark_bem_pinss-supplementary.pdf

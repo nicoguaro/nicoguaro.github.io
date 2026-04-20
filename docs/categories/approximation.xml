@@ -1,18 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nicolás' blog (Posts about approximation)</title><link>https://nicoguaro.github.io/</link><description></description><atom:link href="https://nicoguaro.github.io/categories/approximation.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2025 &lt;a href="mailto:nicoguarin@gmail.com"&gt;Nicolás Guarín-Zapata&lt;/a&gt; 
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nicolás' blog (Posts about approximation)</title><link>https://nicoguaro.github.io/</link><description></description><atom:link href="https://nicoguaro.github.io/categories/approximation.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2026 &lt;a href="mailto:nicoguarin@gmail.com"&gt;Nicolás Guarín-Zapata&lt;/a&gt; 
 &lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
 &lt;img alt="Creative Commons License"
 style="border-width:0"
-src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Tue, 15 Apr 2025 20:33:31 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Piecewise Hermite interpolation</title><link>https://nicoguaro.github.io/posts/hermite_interp/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;In this post, we find the Hermite interpolation functions for the
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Mon, 20 Apr 2026 22:29:52 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Piecewise Hermite interpolation</title><link>https://nicoguaro.github.io/posts/hermite_interp/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;In this post, we find the Hermite interpolation functions for the
 domain [-1, 1]. And then, we use it for a pieciwise interpolation. Notice
 that this interpolation has &lt;span class="math"&gt;\(C^1\)&lt;/span&gt; continuity compared to the
 &lt;span class="math"&gt;\(C^0\)&lt;/span&gt; continuity that is common in Lagrange interpolation.&lt;/p&gt;
 &lt;p&gt;To compute the polynomials explicitly we use &lt;cite&gt;sympy&lt;/cite&gt;.&lt;/p&gt;
-&lt;div class="code"&gt;&lt;pre class="code ipython2"&gt;&lt;a id="rest_code_e71779986ec242658abf41800bc28e3f-1" name="rest_code_e71779986ec242658abf41800bc28e3f-1" href="https://nicoguaro.github.io/posts/hermite_interp/#rest_code_e71779986ec242658abf41800bc28e3f-1"&gt;&lt;/a&gt;&lt;span class="kn"&gt;from&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nn"&gt;__future__&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;division&lt;/span&gt;
-&lt;a id="rest_code_e71779986ec242658abf41800bc28e3f-2" name="rest_code_e71779986ec242658abf41800bc28e3f-2" href="https://nicoguaro.github.io/posts/hermite_interp/#rest_code_e71779986ec242658abf41800bc28e3f-2"&gt;&lt;/a&gt;&lt;span class="kn"&gt;import&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nn"&gt;numpy&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;as&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nn"&gt;np&lt;/span&gt;
-&lt;a id="rest_code_e71779986ec242658abf41800bc28e3f-3" name="rest_code_e71779986ec242658abf41800bc28e3f-3" href="https://nicoguaro.github.io/posts/hermite_interp/#rest_code_e71779986ec242658abf41800bc28e3f-3"&gt;&lt;/a&gt;&lt;span class="kn"&gt;import&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nn"&gt;sympy&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;as&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nn"&gt;sym&lt;/span&gt;
-&lt;a id="rest_code_e71779986ec242658abf41800bc28e3f-4" name="rest_code_e71779986ec242658abf41800bc28e3f-4" href="https://nicoguaro.github.io/posts/hermite_interp/#rest_code_e71779986ec242658abf41800bc28e3f-4"&gt;&lt;/a&gt;&lt;span class="kn"&gt;import&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;as&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nn"&gt;plt&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+&lt;aside class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;&amp;lt;string&amp;gt;&lt;/span&gt;, line 10)&lt;/p&gt;
+&lt;p&gt;Cannot find pygments lexer for language "ipython2"&lt;/p&gt;
+&lt;pre class="literal-block"&gt;.. code:: ipython2
+
+    from __future__ import division
+    import numpy as np
+    import sympy as sym
+    import matplotlib.pyplot as plt
+
+&lt;/pre&gt;
+&lt;/aside&gt;
 &lt;p&gt;We want to find a set of basis function that satisfy the following&lt;/p&gt;
 &lt;div class="math"&gt;
 \begin{align*}
@@ -57,14 +64,21 @@ f(x) \approx N_1(x) u_1 + N_2(x) u_2 + |J|(N_3(x) u'_3 + N_4(x) u'_4)\quad \fora
 &lt;/div&gt;
 &lt;p&gt;with &lt;span class="math"&gt;\(|J| = (b - a)/2\)&lt;/span&gt; the Jacobian determinant of the
 transformation.&lt;/p&gt;
-&lt;div class="code"&gt;&lt;pre class="code ipython2"&gt;&lt;a id="rest_code_3f09104f8b9543379e74a625c6a09008-1" name="rest_code_3f09104f8b9543379e74a625c6a09008-1" href="https://nicoguaro.github.io/posts/hermite_interp/#rest_code_3f09104f8b9543379e74a625c6a09008-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;x1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sym&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;symbols&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"x1 x2 x"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a id="rest_code_3f09104f8b9543379e74a625c6a09008-2" name="rest_code_3f09104f8b9543379e74a625c6a09008-2" href="https://nicoguaro.github.io/posts/hermite_interp/#rest_code_3f09104f8b9543379e74a625c6a09008-2"&gt;&lt;/a&gt;&lt;span class="n"&gt;V&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sym&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Matrix&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;
-&lt;a id="rest_code_3f09104f8b9543379e74a625c6a09008-3" name="rest_code_3f09104f8b9543379e74a625c6a09008-3" href="https://nicoguaro.github.io/posts/hermite_interp/#rest_code_3f09104f8b9543379e74a625c6a09008-3"&gt;&lt;/a&gt;    &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x1&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x1&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
-&lt;a id="rest_code_3f09104f8b9543379e74a625c6a09008-4" name="rest_code_3f09104f8b9543379e74a625c6a09008-4" href="https://nicoguaro.github.io/posts/hermite_interp/#rest_code_3f09104f8b9543379e74a625c6a09008-4"&gt;&lt;/a&gt;    &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x2&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x2&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
-&lt;a id="rest_code_3f09104f8b9543379e74a625c6a09008-5" name="rest_code_3f09104f8b9543379e74a625c6a09008-5" href="https://nicoguaro.github.io/posts/hermite_interp/#rest_code_3f09104f8b9543379e74a625c6a09008-5"&gt;&lt;/a&gt;    &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;x1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;x1&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
-&lt;a id="rest_code_3f09104f8b9543379e74a625c6a09008-6" name="rest_code_3f09104f8b9543379e74a625c6a09008-6" href="https://nicoguaro.github.io/posts/hermite_interp/#rest_code_3f09104f8b9543379e74a625c6a09008-6"&gt;&lt;/a&gt;    &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;x2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;x2&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]])&lt;/span&gt;
-&lt;a id="rest_code_3f09104f8b9543379e74a625c6a09008-7" name="rest_code_3f09104f8b9543379e74a625c6a09008-7" href="https://nicoguaro.github.io/posts/hermite_interp/#rest_code_3f09104f8b9543379e74a625c6a09008-7"&gt;&lt;/a&gt;&lt;span class="n"&gt;V&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+&lt;aside class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;&amp;lt;string&amp;gt;&lt;/span&gt;, line 62)&lt;/p&gt;
+&lt;p&gt;Cannot find pygments lexer for language "ipython2"&lt;/p&gt;
+&lt;pre class="literal-block"&gt;.. code:: ipython2
+
+    x1, x2, x = sym.symbols("x1 x2 x")
+    V = sym.Matrix([
+        [1, x1, x1**2, x1**3],
+        [1, x2, x2**2, x2**3],
+        [0, 1, 2*x1, 3*x1**2],
+        [0, 1, 2*x2, 3*x2**2]])
+    V
+
+&lt;/pre&gt;
+&lt;/aside&gt;
 &lt;div class="math"&gt;
 \begin{equation*}
 \left[\begin{matrix}1 &amp;amp; x_{1} &amp;amp; x_{1}^{2} &amp;amp; x_{1}^{3}\\
@@ -77,17 +91,32 @@ transformation.&lt;/p&gt;
 It is similar to a Vandermonde matrix for the first &lt;span class="math"&gt;\(n\)&lt;/span&gt; nodes
 and the derivatives of each row for the following ones.&lt;/p&gt;
 &lt;p&gt;The coefficients for our polynomials are given by the inverse of this matrix.&lt;/p&gt;
-&lt;div class="code"&gt;&lt;pre class="code ipython2"&gt;&lt;a id="rest_code_df9eddf212e140f2b472b8e95a0c52f4-1" name="rest_code_df9eddf212e140f2b472b8e95a0c52f4-1" href="https://nicoguaro.github.io/posts/hermite_interp/#rest_code_df9eddf212e140f2b472b8e95a0c52f4-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;sym&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;simplify&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;V&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;inv&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+&lt;aside class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;&amp;lt;string&amp;gt;&lt;/span&gt;, line 88)&lt;/p&gt;
+&lt;p&gt;Cannot find pygments lexer for language "ipython2"&lt;/p&gt;
+&lt;pre class="literal-block"&gt;.. code:: ipython2
+
+    sym.simplify(V.inv())
+
+&lt;/pre&gt;
+&lt;/aside&gt;
 &lt;div class="math"&gt;
 \begin{equation*}
 \left[\begin{matrix}\frac{x_{2}^{2} \left(3 x_{1} - x_{2}\right)}{x_{1}^{3} - 3 x_{1}^{2} x_{2} + 3 x_{1} x_{2}^{2} - x_{2}^{3}} &amp;amp; \frac{x_{1}^{2} \left(x_{1} - 3 x_{2}\right)}{x_{1}^{3} - 3 x_{1}^{2} x_{2} + 3 x_{1} x_{2}^{2} - x_{2}^{3}} &amp;amp; - \frac{x_{1} x_{2}^{2}}{x_{1}^{2} - 2 x_{1} x_{2} + x_{2}^{2}} &amp;amp; - \frac{x_{1}^{2} x_{2}}{x_{1}^{2} - 2 x_{1} x_{2} + x_{2}^{2}}\\- \frac{6 x_{1} x_{2}}{x_{1}^{3} - 3 x_{1}^{2} x_{2} + 3 x_{1} x_{2}^{2} - x_{2}^{3}} &amp;amp; \frac{6 x_{1} x_{2}}{x_{1}^{3} - 3 x_{1}^{2} x_{2} + 3 x_{1} x_{2}^{2} - x_{2}^{3}} &amp;amp; \frac{x_{2} \left(2 x_{1} + x_{2}\right)}{x_{1}^{2} - 2 x_{1} x_{2} + x_{2}^{2}} &amp;amp; \frac{x_{1} \left(x_{1} + 2 x_{2}\right)}{x_{1}^{2} - 2 x_{1} x_{2} + x_{2}^{2}}\\\frac{3 x_{1} + 3 x_{2}}{x_{1}^{3} - 3 x_{1}^{2} x_{2} + 3 x_{1} x_{2}^{2} - x_{2}^{3}} &amp;amp; - \frac{3 x_{1} + 3 x_{2}}{x_{1}^{3} - 3 x_{1}^{2} x_{2} + 3 x_{1} x_{2}^{2} - x_{2}^{3}} &amp;amp; - \frac{x_{1} + 2 x_{2}}{x_{1}^{2} - 2 x_{1} x_{2} + x_{2}^{2}} &amp;amp; - \frac{2 x_{1} + x_{2}}{x_{1}^{2} - 2 x_{1} x_{2} + x_{2}^{2}}\\- \frac{2}{x_{1}^{3} - 3 x_{1}^{2} x_{2} + 3 x_{1} x_{2}^{2} - x_{2}^{3}} &amp;amp; \frac{2}{x_{1}^{3} - 3 x_{1}^{2} x_{2} + 3 x_{1} x_{2}^{2} - x_{2}^{3}} &amp;amp; \frac{1}{x_{1}^{2} - 2 x_{1} x_{2} + x_{2}^{2}} &amp;amp; \frac{1}{x_{1}^{2} - 2 x_{1} x_{2} + x_{2}^{2}}\end{matrix}\right]
 \end{equation*}
 &lt;/div&gt;
 &lt;p&gt;And we replace the values for the extreme nodes, -1 and 1.&lt;/p&gt;
-&lt;div class="code"&gt;&lt;pre class="code ipython2"&gt;&lt;a id="rest_code_c6cf93e450b24e4ab4df1b33267d66e2-1" name="rest_code_c6cf93e450b24e4ab4df1b33267d66e2-1" href="https://nicoguaro.github.io/posts/hermite_interp/#rest_code_c6cf93e450b24e4ab4df1b33267d66e2-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;V_inv&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sym&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;simplify&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;V&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;subs&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;&lt;span class="n"&gt;x1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x2&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;})&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;inv&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
-&lt;a id="rest_code_c6cf93e450b24e4ab4df1b33267d66e2-2" name="rest_code_c6cf93e450b24e4ab4df1b33267d66e2-2" href="https://nicoguaro.github.io/posts/hermite_interp/#rest_code_c6cf93e450b24e4ab4df1b33267d66e2-2"&gt;&lt;/a&gt;&lt;span class="n"&gt;V_inv&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+&lt;aside class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;&amp;lt;string&amp;gt;&lt;/span&gt;, line 100)&lt;/p&gt;
+&lt;p&gt;Cannot find pygments lexer for language "ipython2"&lt;/p&gt;
+&lt;pre class="literal-block"&gt;.. code:: ipython2
+
+    V_inv = sym.simplify(V.subs({x1:-1, x2:1}).inv())
+    V_inv
+
+
+&lt;/pre&gt;
+&lt;/aside&gt;
 &lt;div class="math"&gt;
 \begin{equation*}
 \left[\begin{matrix}\frac{1}{2} &amp;amp; \frac{1}{2} &amp;amp; \frac{1}{4} &amp;amp; - \frac{1}{4}\\
@@ -97,8 +126,17 @@ and the derivatives of each row for the following ones.&lt;/p&gt;
 \end{equation*}
 &lt;/div&gt;
 &lt;p&gt;The polynomials are the product of the coefficients and the monomials&lt;/p&gt;
-&lt;div class="code"&gt;&lt;pre class="code ipython2"&gt;&lt;a id="rest_code_2180f72021c948e5addd75b65dfb2af8-1" name="rest_code_2180f72021c948e5addd75b65dfb2af8-1" href="https://nicoguaro.github.io/posts/hermite_interp/#rest_code_2180f72021c948e5addd75b65dfb2af8-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;sym&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;factor&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;V_inv&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;T&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;sym&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Matrix&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;]))&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+&lt;aside class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;&amp;lt;string&amp;gt;&lt;/span&gt;, line 119)&lt;/p&gt;
+&lt;p&gt;Cannot find pygments lexer for language "ipython2"&lt;/p&gt;
+&lt;pre class="literal-block"&gt;.. code:: ipython2
+
+    sym.factor(V_inv.T * sym.Matrix([1, x, x**2, x**3]))
+
+
+
+&lt;/pre&gt;
+&lt;/aside&gt;
 &lt;div class="math"&gt;
 \begin{equation*}
 \left[\begin{matrix}\frac{1}{4} \left(x - 1\right)^{2} \left(x + 2\right)\\- \frac{1}{4} \left(x - 2\right) \left(x + 1\right)^{2}\\\frac{1}{4} \left(x - 1\right)^{2} \left(x + 1\right)\\\frac{1}{4} \left(x - 1\right) \left(x + 1\right)^{2}\end{matrix}\right]
@@ -115,50 +153,70 @@ N_4 (x) &amp;amp;= \frac{1}{4} (x + 1)^2 (x - 1)\, ,
 &lt;/div&gt;
 &lt;p&gt;and the following function computes the interpolation for a given
 function and derivative&lt;/p&gt;
-&lt;div class="code"&gt;&lt;pre class="code ipython2"&gt;&lt;a id="rest_code_c994663375f84b938ce8b3facffc7c6e-1" name="rest_code_c994663375f84b938ce8b3facffc7c6e-1" href="https://nicoguaro.github.io/posts/hermite_interp/#rest_code_c994663375f84b938ce8b3facffc7c6e-1"&gt;&lt;/a&gt;&lt;span class="k"&gt;def&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;hermite_interp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fun&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;grad&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x0&lt;/span&gt;&lt;span class="o"&gt;=-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x1&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;npts&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;101&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-&lt;a id="rest_code_c994663375f84b938ce8b3facffc7c6e-2" name="rest_code_c994663375f84b938ce8b3facffc7c6e-2" href="https://nicoguaro.github.io/posts/hermite_interp/#rest_code_c994663375f84b938ce8b3facffc7c6e-2"&gt;&lt;/a&gt;    &lt;span class="n"&gt;jaco&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x1&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;x0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;
-&lt;a id="rest_code_c994663375f84b938ce8b3facffc7c6e-3" name="rest_code_c994663375f84b938ce8b3facffc7c6e-3" href="https://nicoguaro.github.io/posts/hermite_interp/#rest_code_c994663375f84b938ce8b3facffc7c6e-3"&gt;&lt;/a&gt;    &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;linspace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;npts&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a id="rest_code_c994663375f84b938ce8b3facffc7c6e-4" name="rest_code_c994663375f84b938ce8b3facffc7c6e-4" href="https://nicoguaro.github.io/posts/hermite_interp/#rest_code_c994663375f84b938ce8b3facffc7c6e-4"&gt;&lt;/a&gt;    &lt;span class="n"&gt;f1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;fun&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a id="rest_code_c994663375f84b938ce8b3facffc7c6e-5" name="rest_code_c994663375f84b938ce8b3facffc7c6e-5" href="https://nicoguaro.github.io/posts/hermite_interp/#rest_code_c994663375f84b938ce8b3facffc7c6e-5"&gt;&lt;/a&gt;    &lt;span class="n"&gt;f2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;fun&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a id="rest_code_c994663375f84b938ce8b3facffc7c6e-6" name="rest_code_c994663375f84b938ce8b3facffc7c6e-6" href="https://nicoguaro.github.io/posts/hermite_interp/#rest_code_c994663375f84b938ce8b3facffc7c6e-6"&gt;&lt;/a&gt;    &lt;span class="n"&gt;g1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;grad&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a id="rest_code_c994663375f84b938ce8b3facffc7c6e-7" name="rest_code_c994663375f84b938ce8b3facffc7c6e-7" href="https://nicoguaro.github.io/posts/hermite_interp/#rest_code_c994663375f84b938ce8b3facffc7c6e-7"&gt;&lt;/a&gt;    &lt;span class="n"&gt;g2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;grad&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a id="rest_code_c994663375f84b938ce8b3facffc7c6e-8" name="rest_code_c994663375f84b938ce8b3facffc7c6e-8" href="https://nicoguaro.github.io/posts/hermite_interp/#rest_code_c994663375f84b938ce8b3facffc7c6e-8"&gt;&lt;/a&gt;    &lt;span class="n"&gt;N1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a id="rest_code_c994663375f84b938ce8b3facffc7c6e-9" name="rest_code_c994663375f84b938ce8b3facffc7c6e-9" href="https://nicoguaro.github.io/posts/hermite_interp/#rest_code_c994663375f84b938ce8b3facffc7c6e-9"&gt;&lt;/a&gt;    &lt;span class="n"&gt;N2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a id="rest_code_c994663375f84b938ce8b3facffc7c6e-10" name="rest_code_c994663375f84b938ce8b3facffc7c6e-10" href="https://nicoguaro.github.io/posts/hermite_interp/#rest_code_c994663375f84b938ce8b3facffc7c6e-10"&gt;&lt;/a&gt;    &lt;span class="n"&gt;N3&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a id="rest_code_c994663375f84b938ce8b3facffc7c6e-11" name="rest_code_c994663375f84b938ce8b3facffc7c6e-11" href="https://nicoguaro.github.io/posts/hermite_interp/#rest_code_c994663375f84b938ce8b3facffc7c6e-11"&gt;&lt;/a&gt;    &lt;span class="n"&gt;N4&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a id="rest_code_c994663375f84b938ce8b3facffc7c6e-12" name="rest_code_c994663375f84b938ce8b3facffc7c6e-12" href="https://nicoguaro.github.io/posts/hermite_interp/#rest_code_c994663375f84b938ce8b3facffc7c6e-12"&gt;&lt;/a&gt;    &lt;span class="n"&gt;interp&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;N1&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;f1&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;N2&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;f2&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;jaco&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;N3&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;g1&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;N4&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;g2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a id="rest_code_c994663375f84b938ce8b3facffc7c6e-13" name="rest_code_c994663375f84b938ce8b3facffc7c6e-13" href="https://nicoguaro.github.io/posts/hermite_interp/#rest_code_c994663375f84b938ce8b3facffc7c6e-13"&gt;&lt;/a&gt;    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;interp&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+&lt;aside class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;&amp;lt;string&amp;gt;&lt;/span&gt;, line 144)&lt;/p&gt;
+&lt;p&gt;Cannot find pygments lexer for language "ipython2"&lt;/p&gt;
+&lt;pre class="literal-block"&gt;.. code:: ipython2
+
+    def hermite_interp(fun, grad, x0=-1, x1=1, npts=101):
+        jaco = (x1 - x0)/2
+        x = np.linspace(-1, 1, npts)
+        f1 = fun(x0)
+        f2 = fun(x1)
+        g1 = grad(x0)
+        g2 = grad(x1)
+        N1 = 1/4*(x - 1)**2 * (2 + x)
+        N2 = 1/4*(x + 1)**2 * (2 - x)
+        N3 = 1/4*(x - 1)**2 * (x + 1)
+        N4 = 1/4*(x + 1)**2 * (x - 1)
+        interp = N1*f1 + N2*f2 + jaco*(N3*g1 + N4*g2)
+        return interp
+&lt;/pre&gt;
+&lt;/aside&gt;
 &lt;p&gt;In this case, we interpolate the &lt;code class="docutils literal"&gt;sinc&lt;/code&gt; function&lt;/p&gt;
-&lt;div class="code"&gt;&lt;pre class="code ipython2"&gt;&lt;a id="rest_code_afee045e3e3b47e4a6a1c30a01fe1d20-1" name="rest_code_afee045e3e3b47e4a6a1c30a01fe1d20-1" href="https://nicoguaro.github.io/posts/hermite_interp/#rest_code_afee045e3e3b47e4a6a1c30a01fe1d20-1"&gt;&lt;/a&gt;&lt;span class="k"&gt;def&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;fun&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-&lt;a id="rest_code_afee045e3e3b47e4a6a1c30a01fe1d20-2" name="rest_code_afee045e3e3b47e4a6a1c30a01fe1d20-2" href="https://nicoguaro.github.io/posts/hermite_interp/#rest_code_afee045e3e3b47e4a6a1c30a01fe1d20-2"&gt;&lt;/a&gt;    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a id="rest_code_afee045e3e3b47e4a6a1c30a01fe1d20-3" name="rest_code_afee045e3e3b47e4a6a1c30a01fe1d20-3" href="https://nicoguaro.github.io/posts/hermite_interp/#rest_code_afee045e3e3b47e4a6a1c30a01fe1d20-3"&gt;&lt;/a&gt;
-&lt;a id="rest_code_afee045e3e3b47e4a6a1c30a01fe1d20-4" name="rest_code_afee045e3e3b47e4a6a1c30a01fe1d20-4" href="https://nicoguaro.github.io/posts/hermite_interp/#rest_code_afee045e3e3b47e4a6a1c30a01fe1d20-4"&gt;&lt;/a&gt;
-&lt;a id="rest_code_afee045e3e3b47e4a6a1c30a01fe1d20-5" name="rest_code_afee045e3e3b47e4a6a1c30a01fe1d20-5" href="https://nicoguaro.github.io/posts/hermite_interp/#rest_code_afee045e3e3b47e4a6a1c30a01fe1d20-5"&gt;&lt;/a&gt;&lt;span class="k"&gt;def&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;grad&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-&lt;a id="rest_code_afee045e3e3b47e4a6a1c30a01fe1d20-6" name="rest_code_afee045e3e3b47e4a6a1c30a01fe1d20-6" href="https://nicoguaro.github.io/posts/hermite_interp/#rest_code_afee045e3e3b47e4a6a1c30a01fe1d20-6"&gt;&lt;/a&gt;    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cos&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+&lt;aside class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;&amp;lt;string&amp;gt;&lt;/span&gt;, line 162)&lt;/p&gt;
+&lt;p&gt;Cannot find pygments lexer for language "ipython2"&lt;/p&gt;
+&lt;pre class="literal-block"&gt;.. code:: ipython2
+
+    def fun(x):
+        return np.sin(2*np.pi*x)/(2*np.pi*x)
+
+
+    def grad(x):
+        return np.cos(2*np.pi*x)/x - np.sin(2*np.pi*x)/(2*np.pi*x**2)
+
+&lt;/pre&gt;
+&lt;/aside&gt;
 &lt;p&gt;The following snippet compute the interpolation and plot it.&lt;/p&gt;
-&lt;div class="code"&gt;&lt;pre class="code ipython2"&gt;&lt;a id="rest_code_3bb1f317df76418194791239e5b293f0-1" name="rest_code_3bb1f317df76418194791239e5b293f0-1" href="https://nicoguaro.github.io/posts/hermite_interp/#rest_code_3bb1f317df76418194791239e5b293f0-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
-&lt;a id="rest_code_3bb1f317df76418194791239e5b293f0-2" name="rest_code_3bb1f317df76418194791239e5b293f0-2" href="https://nicoguaro.github.io/posts/hermite_interp/#rest_code_3bb1f317df76418194791239e5b293f0-2"&gt;&lt;/a&gt;&lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;
-&lt;a id="rest_code_3bb1f317df76418194791239e5b293f0-3" name="rest_code_3bb1f317df76418194791239e5b293f0-3" href="https://nicoguaro.github.io/posts/hermite_interp/#rest_code_3bb1f317df76418194791239e5b293f0-3"&gt;&lt;/a&gt;&lt;span class="n"&gt;nels&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;7&lt;/span&gt;
-&lt;a id="rest_code_3bb1f317df76418194791239e5b293f0-4" name="rest_code_3bb1f317df76418194791239e5b293f0-4" href="https://nicoguaro.github.io/posts/hermite_interp/#rest_code_3bb1f317df76418194791239e5b293f0-4"&gt;&lt;/a&gt;&lt;span class="n"&gt;npts&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;200&lt;/span&gt;
-&lt;a id="rest_code_3bb1f317df76418194791239e5b293f0-5" name="rest_code_3bb1f317df76418194791239e5b293f0-5" href="https://nicoguaro.github.io/posts/hermite_interp/#rest_code_3bb1f317df76418194791239e5b293f0-5"&gt;&lt;/a&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;linspace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;npts&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a id="rest_code_3bb1f317df76418194791239e5b293f0-6" name="rest_code_3bb1f317df76418194791239e5b293f0-6" href="https://nicoguaro.github.io/posts/hermite_interp/#rest_code_3bb1f317df76418194791239e5b293f0-6"&gt;&lt;/a&gt;&lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;fun&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a id="rest_code_3bb1f317df76418194791239e5b293f0-7" name="rest_code_3bb1f317df76418194791239e5b293f0-7" href="https://nicoguaro.github.io/posts/hermite_interp/#rest_code_3bb1f317df76418194791239e5b293f0-7"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"black"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a id="rest_code_3bb1f317df76418194791239e5b293f0-8" name="rest_code_3bb1f317df76418194791239e5b293f0-8" href="https://nicoguaro.github.io/posts/hermite_interp/#rest_code_3bb1f317df76418194791239e5b293f0-8"&gt;&lt;/a&gt;&lt;span class="n"&gt;xi&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;linspace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;num&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;nels&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;endpoint&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;False&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a id="rest_code_3bb1f317df76418194791239e5b293f0-9" name="rest_code_3bb1f317df76418194791239e5b293f0-9" href="https://nicoguaro.github.io/posts/hermite_interp/#rest_code_3bb1f317df76418194791239e5b293f0-9"&gt;&lt;/a&gt;&lt;span class="n"&gt;dx&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;xi&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;xi&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-&lt;a id="rest_code_3bb1f317df76418194791239e5b293f0-10" name="rest_code_3bb1f317df76418194791239e5b293f0-10" href="https://nicoguaro.github.io/posts/hermite_interp/#rest_code_3bb1f317df76418194791239e5b293f0-10"&gt;&lt;/a&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;x0&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;xi&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;a id="rest_code_3bb1f317df76418194791239e5b293f0-11" name="rest_code_3bb1f317df76418194791239e5b293f0-11" href="https://nicoguaro.github.io/posts/hermite_interp/#rest_code_3bb1f317df76418194791239e5b293f0-11"&gt;&lt;/a&gt;    &lt;span class="n"&gt;x1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;x0&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;dx&lt;/span&gt;
-&lt;a id="rest_code_3bb1f317df76418194791239e5b293f0-12" name="rest_code_3bb1f317df76418194791239e5b293f0-12" href="https://nicoguaro.github.io/posts/hermite_interp/#rest_code_3bb1f317df76418194791239e5b293f0-12"&gt;&lt;/a&gt;    &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;linspace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;npts&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a id="rest_code_3bb1f317df76418194791239e5b293f0-13" name="rest_code_3bb1f317df76418194791239e5b293f0-13" href="https://nicoguaro.github.io/posts/hermite_interp/#rest_code_3bb1f317df76418194791239e5b293f0-13"&gt;&lt;/a&gt;    &lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;hermite_interp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fun&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;grad&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x0&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;x0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x1&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;x1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;npts&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;npts&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a id="rest_code_3bb1f317df76418194791239e5b293f0-14" name="rest_code_3bb1f317df76418194791239e5b293f0-14" href="https://nicoguaro.github.io/posts/hermite_interp/#rest_code_3bb1f317df76418194791239e5b293f0-14"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;linestyle&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"dashed"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"#4daf4a"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a id="rest_code_3bb1f317df76418194791239e5b293f0-15" name="rest_code_3bb1f317df76418194791239e5b293f0-15" href="https://nicoguaro.github.io/posts/hermite_interp/#rest_code_3bb1f317df76418194791239e5b293f0-15"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]],&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]],&lt;/span&gt; &lt;span class="n"&gt;marker&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"o"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"#4daf4a"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;a id="rest_code_3bb1f317df76418194791239e5b293f0-16" name="rest_code_3bb1f317df76418194791239e5b293f0-16" href="https://nicoguaro.github.io/posts/hermite_interp/#rest_code_3bb1f317df76418194791239e5b293f0-16"&gt;&lt;/a&gt;         &lt;span class="n"&gt;linewidth&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a id="rest_code_3bb1f317df76418194791239e5b293f0-17" name="rest_code_3bb1f317df76418194791239e5b293f0-17" href="https://nicoguaro.github.io/posts/hermite_interp/#rest_code_3bb1f317df76418194791239e5b293f0-17"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"x"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a id="rest_code_3bb1f317df76418194791239e5b293f0-18" name="rest_code_3bb1f317df76418194791239e5b293f0-18" href="https://nicoguaro.github.io/posts/hermite_interp/#rest_code_3bb1f317df76418194791239e5b293f0-18"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"y"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a id="rest_code_3bb1f317df76418194791239e5b293f0-19" name="rest_code_3bb1f317df76418194791239e5b293f0-19" href="https://nicoguaro.github.io/posts/hermite_interp/#rest_code_3bb1f317df76418194791239e5b293f0-19"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;legend&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="s2"&gt;"Exact function"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"Interpolation"&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
-&lt;a id="rest_code_3bb1f317df76418194791239e5b293f0-20" name="rest_code_3bb1f317df76418194791239e5b293f0-20" href="https://nicoguaro.github.io/posts/hermite_interp/#rest_code_3bb1f317df76418194791239e5b293f0-20"&gt;&lt;/a&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+&lt;aside class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;&amp;lt;string&amp;gt;&lt;/span&gt;, line 174)&lt;/p&gt;
+&lt;p&gt;Cannot find pygments lexer for language "ipython2"&lt;/p&gt;
+&lt;pre class="literal-block"&gt;.. code:: ipython2
+
+    a = 2
+    b = 5
+    nels = 7
+    npts = 200
+    x = np.linspace(a, b, npts)
+    y = fun(x)
+    plt.plot(x, y, color="black")
+    xi = np.linspace(a, b, num=nels, endpoint=False)
+    dx = xi[1] - xi[0]
+    for x0 in xi:
+        x1 = x0 + dx
+        x = np.linspace(x0, x1, npts)
+        y = hermite_interp(fun, grad, x0=x0, x1=x1, npts=npts)
+    plt.plot(x, y, linestyle="dashed", color="#4daf4a")
+    plt.plot([x[0], x[-1]], [y[0], y[-1]], marker="o", color="#4daf4a",
+             linewidth=0)
+    plt.xlabel("x")
+    plt.ylabel("y")
+    plt.legend(["Exact function", "Interpolation"])
+    plt.show()
+
+&lt;/pre&gt;
+&lt;/aside&gt;
 &lt;img alt="/images/sinc_interp.svg" src="https://nicoguaro.github.io/images/sinc_interp.svg"&gt;
 &lt;section id="references"&gt;
 &lt;h2&gt;References&lt;/h2&gt;

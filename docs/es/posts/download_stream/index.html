@@ -9,7 +9,7 @@
 <link rel="alternate" type="application/rss+xml" title="RSS (en)" href="../../../rss.xml">
 <link rel="alternate" type="application/rss+xml" title="RSS (es)" href="../../rss.xml">
 <link rel="canonical" href="https://nicoguaro.github.io/es/posts/download_stream/">
-<!--[if lt IE 9]><script src="../../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Nicolás Guarín-Zapata">
+<!--[if lt IE 9]><script src="../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Nicolás Guarín-Zapata">
 <link rel="prev" href="../marking-tetrahedron/" title="Marcado Aleatorio de un Tetraedro" type="text/html">
 <link rel="next" href="../bem_corrected/" title="Regresando al Método de elementos de frontera" type="text/html">
 <meta property="og:site_name" content="Nicolás' blog">
@@ -97,10 +97,10 @@ organización sobre los derechos de autor de los videos.</p>
 </h2>
 <p>Después de obtener los requisitos previos, puedes descargar
 <a class="reference external" href="https://github.com/snobu/destreamer">destreamer</a> usando</p>
-<div class="code"><pre class="code bash"><a id="rest_code_14077fc68f6e4207a6832d9adf236a47-1" name="rest_code_14077fc68f6e4207a6832d9adf236a47-1" href="#rest_code_14077fc68f6e4207a6832d9adf236a47-1"></a>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/snobu/destreamer
-<a id="rest_code_14077fc68f6e4207a6832d9adf236a47-2" name="rest_code_14077fc68f6e4207a6832d9adf236a47-2" href="#rest_code_14077fc68f6e4207a6832d9adf236a47-2"></a>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>destreamer
-<a id="rest_code_14077fc68f6e4207a6832d9adf236a47-3" name="rest_code_14077fc68f6e4207a6832d9adf236a47-3" href="#rest_code_14077fc68f6e4207a6832d9adf236a47-3"></a>$<span class="w"> </span>npm<span class="w"> </span>install
-<a id="rest_code_14077fc68f6e4207a6832d9adf236a47-4" name="rest_code_14077fc68f6e4207a6832d9adf236a47-4" href="#rest_code_14077fc68f6e4207a6832d9adf236a47-4"></a>$<span class="w"> </span>npm<span class="w"> </span>run<span class="w"> </span>build
+<div class="code"><pre class="code bash"><a id="rest_code_ae9139e37eeb44d8b6403410c61b8398-1" name="rest_code_ae9139e37eeb44d8b6403410c61b8398-1" href="#rest_code_ae9139e37eeb44d8b6403410c61b8398-1"></a>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/snobu/destreamer
+<a id="rest_code_ae9139e37eeb44d8b6403410c61b8398-2" name="rest_code_ae9139e37eeb44d8b6403410c61b8398-2" href="#rest_code_ae9139e37eeb44d8b6403410c61b8398-2"></a>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>destreamer
+<a id="rest_code_ae9139e37eeb44d8b6403410c61b8398-3" name="rest_code_ae9139e37eeb44d8b6403410c61b8398-3" href="#rest_code_ae9139e37eeb44d8b6403410c61b8398-3"></a>$<span class="w"> </span>npm<span class="w"> </span>install
+<a id="rest_code_ae9139e37eeb44d8b6403410c61b8398-4" name="rest_code_ae9139e37eeb44d8b6403410c61b8398-4" href="#rest_code_ae9139e37eeb44d8b6403410c61b8398-4"></a>$<span class="w"> </span>npm<span class="w"> </span>run<span class="w"> </span>build
 </pre></div>
 <p>en una terminal.</p>
 <p>Si no se quiere jugar con
@@ -109,19 +109,19 @@ sugiero agregar <code class="docutils literal">ffmpeg</code> a la misma carpeta 
 <code class="docutils literal">destreamer</code>.</p>
 </section><section id="descarga"><h2>Descarga</h2>
 <p>Después de eso, debe navegar a la carpeta donde descargaste <code class="docutils literal">destreamer</code> y</p>
-<div class="code"><pre class="code bash"><a id="rest_code_4befed4c4e054beb8ff0e3cf97c8a74f-1" name="rest_code_4befed4c4e054beb8ff0e3cf97c8a74f-1" href="#rest_code_4befed4c4e054beb8ff0e3cf97c8a74f-1"></a>$<span class="w"> </span>./destreamer.sh<span class="w"> </span>-i<span class="w"> </span><span class="s2">"https://web.microsoftstream.com/video/VIDEO_ID"</span>
+<div class="code"><pre class="code bash"><a id="rest_code_e9bd5f7e6a4542e5a2966771ce9c3f7e-1" name="rest_code_e9bd5f7e6a4542e5a2966771ce9c3f7e-1" href="#rest_code_e9bd5f7e6a4542e5a2966771ce9c3f7e-1"></a>$<span class="w"> </span>./destreamer.sh<span class="w"> </span>-i<span class="w"> </span><span class="s2">"https://web.microsoftstream.com/video/VIDEO_ID"</span>
 </pre></div>
 <p>en Mac o Linux,</p>
-<div class="code"><pre class="code bash"><a id="rest_code_a4003f5f4a5a4860a4de90285e88c1a4-1" name="rest_code_a4003f5f4a5a4860a4de90285e88c1a4-1" href="#rest_code_a4003f5f4a5a4860a4de90285e88c1a4-1"></a>$<span class="w"> </span>destreamer.cmd<span class="w"> </span>-i<span class="w"> </span><span class="s2">"https://web.microsoftstream.com/video/VIDEO_ID"</span>
+<div class="code"><pre class="code bash"><a id="rest_code_7d22a14710be4d088ce8c748e724bb16-1" name="rest_code_7d22a14710be4d088ce8c748e724bb16-1" href="#rest_code_7d22a14710be4d088ce8c748e724bb16-1"></a>$<span class="w"> </span>destreamer.cmd<span class="w"> </span>-i<span class="w"> </span><span class="s2">"https://web.microsoftstream.com/video/VIDEO_ID"</span>
 </pre></div>
 <p>en el <em>command prompt</em> en Windows, y</p>
-<div class="code"><pre class="code bash"><a id="rest_code_d869eea6308f4a988ba08f8c0ec8139c-1" name="rest_code_d869eea6308f4a988ba08f8c0ec8139c-1" href="#rest_code_d869eea6308f4a988ba08f8c0ec8139c-1"></a>$<span class="w"> </span>destreamer.ps1<span class="w"> </span>-i<span class="w"> </span><span class="s2">"https://web.microsoftstream.com/video/VIDEO_ID"</span>
+<div class="code"><pre class="code bash"><a id="rest_code_86f325962a9f4a9c8026fb5e09756851-1" name="rest_code_86f325962a9f4a9c8026fb5e09756851-1" href="#rest_code_86f325962a9f4a9c8026fb5e09756851-1"></a>$<span class="w"> </span>destreamer.ps1<span class="w"> </span>-i<span class="w"> </span><span class="s2">"https://web.microsoftstream.com/video/VIDEO_ID"</span>
 </pre></div>
 <p>en PowerShell. <code class="docutils literal">VIDEO_ID</code> se refiere al identificador del video
 en MS Stream.</p>
 <p>Si deseas descargar varios archivos (como un curso completo),
 puedes crear un archivo con las URL y usar</p>
-<div class="code"><pre class="code bash"><a id="rest_code_c017624f54054d1aaedef66f1c048b85-1" name="rest_code_c017624f54054d1aaedef66f1c048b85-1" href="#rest_code_c017624f54054d1aaedef66f1c048b85-1"></a>$<span class="w"> </span>destreamer.cmd<span class="w"> </span>-f<span class="w"> </span>filename.txt
+<div class="code"><pre class="code bash"><a id="rest_code_db5571d093fb451ba684485a6bf1a2b6-1" name="rest_code_db5571d093fb451ba684485a6bf1a2b6-1" href="#rest_code_db5571d093fb451ba684485a6bf1a2b6-1"></a>$<span class="w"> </span>destreamer.cmd<span class="w"> </span>-f<span class="w"> </span>filename.txt
 </pre></div>
 </section>
 </div>
