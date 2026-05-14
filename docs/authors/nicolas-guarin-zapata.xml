@@ -3,7 +3,7 @@
 &lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
 &lt;img alt="Creative Commons License"
 style="border-width:0"
-src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Mon, 20 Apr 2026 22:29:52 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Duplicating Hankel plot from Abramowitz &amp; Stegun</title><link>https://nicoguaro.github.io/posts/duplicating-hankel-plot-from-as/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;Recently, I had a discussion in class about solutions for partial differential
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Thu, 14 May 2026 21:25:42 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Duplicating Hankel plot from Abramowitz &amp; Stegun</title><link>https://nicoguaro.github.io/posts/duplicating-hankel-plot-from-as/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;Recently, I had a discussion in class about solutions for partial differential
 equations and how visualization played a role way before digital computers
 were ubiquitous. We also discussed about the &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Abramowitz_and_Stegun"&gt;Handbook of Mathematical
 Functions&lt;/a&gt; or

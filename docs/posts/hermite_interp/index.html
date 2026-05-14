@@ -88,17 +88,12 @@ domain [-1, 1]. And then, we use it for a pieciwise interpolation. Notice
 that this interpolation has <span class="math">\(C^1\)</span> continuity compared to the
 <span class="math">\(C^0\)</span> continuity that is common in Lagrange interpolation.</p>
 <p>To compute the polynomials explicitly we use <cite>sympy</cite>.</p>
-<aside class="system-message"><p class="system-message-title">System Message: ERROR/3 (<span class="docutils literal">&lt;string&gt;</span>, line 10)</p>
-<p>Cannot find pygments lexer for language "ipython2"</p>
-<pre class="literal-block">.. code:: ipython2
-
-    from __future__ import division
-    import numpy as np
-    import sympy as sym
-    import matplotlib.pyplot as plt
-
-</pre>
-</aside><p>We want to find a set of basis function that satisfy the following</p>
+<div class="code"><pre class="code python"><a id="rest_code_6442407e32f04ee38c924e8979c31de2-1" name="rest_code_6442407e32f04ee38c924e8979c31de2-1" href="#rest_code_6442407e32f04ee38c924e8979c31de2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">division</span>
+<a id="rest_code_6442407e32f04ee38c924e8979c31de2-2" name="rest_code_6442407e32f04ee38c924e8979c31de2-2" href="#rest_code_6442407e32f04ee38c924e8979c31de2-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<a id="rest_code_6442407e32f04ee38c924e8979c31de2-3" name="rest_code_6442407e32f04ee38c924e8979c31de2-3" href="#rest_code_6442407e32f04ee38c924e8979c31de2-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sym</span>
+<a id="rest_code_6442407e32f04ee38c924e8979c31de2-4" name="rest_code_6442407e32f04ee38c924e8979c31de2-4" href="#rest_code_6442407e32f04ee38c924e8979c31de2-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+</pre></div>
+<p>We want to find a set of basis function that satisfy the following</p>
 <div class="math">
 \begin{align*}
 N_1(x_1) &amp;= 1\\
@@ -142,20 +137,15 @@ f(x) \approx N_1(x) u_1 + N_2(x) u_2 + |J|(N_3(x) u'_3 + N_4(x) u'_4)\quad \fora
 </div>
 <p>with <span class="math">\(|J| = (b - a)/2\)</span> the Jacobian determinant of the
 transformation.</p>
-<aside class="system-message"><p class="system-message-title">System Message: ERROR/3 (<span class="docutils literal">&lt;string&gt;</span>, line 62)</p>
-<p>Cannot find pygments lexer for language "ipython2"</p>
-<pre class="literal-block">.. code:: ipython2
-
-    x1, x2, x = sym.symbols("x1 x2 x")
-    V = sym.Matrix([
-        [1, x1, x1**2, x1**3],
-        [1, x2, x2**2, x2**3],
-        [0, 1, 2*x1, 3*x1**2],
-        [0, 1, 2*x2, 3*x2**2]])
-    V
-
-</pre>
-</aside><div class="math">
+<div class="code"><pre class="code python"><a id="rest_code_e6e6ac933c454559861fb9dc71d07fa9-1" name="rest_code_e6e6ac933c454559861fb9dc71d07fa9-1" href="#rest_code_e6e6ac933c454559861fb9dc71d07fa9-1"></a><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s2">"x1 x2 x"</span><span class="p">)</span>
+<a id="rest_code_e6e6ac933c454559861fb9dc71d07fa9-2" name="rest_code_e6e6ac933c454559861fb9dc71d07fa9-2" href="#rest_code_e6e6ac933c454559861fb9dc71d07fa9-2"></a><span class="n">V</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">Matrix</span><span class="p">([</span>
+<a id="rest_code_e6e6ac933c454559861fb9dc71d07fa9-3" name="rest_code_e6e6ac933c454559861fb9dc71d07fa9-3" href="#rest_code_e6e6ac933c454559861fb9dc71d07fa9-3"></a>    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x1</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">x1</span><span class="o">**</span><span class="mi">3</span><span class="p">],</span>
+<a id="rest_code_e6e6ac933c454559861fb9dc71d07fa9-4" name="rest_code_e6e6ac933c454559861fb9dc71d07fa9-4" href="#rest_code_e6e6ac933c454559861fb9dc71d07fa9-4"></a>    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">x2</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">x2</span><span class="o">**</span><span class="mi">3</span><span class="p">],</span>
+<a id="rest_code_e6e6ac933c454559861fb9dc71d07fa9-5" name="rest_code_e6e6ac933c454559861fb9dc71d07fa9-5" href="#rest_code_e6e6ac933c454559861fb9dc71d07fa9-5"></a>    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">x1</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="n">x1</span><span class="o">**</span><span class="mi">2</span><span class="p">],</span>
+<a id="rest_code_e6e6ac933c454559861fb9dc71d07fa9-6" name="rest_code_e6e6ac933c454559861fb9dc71d07fa9-6" href="#rest_code_e6e6ac933c454559861fb9dc71d07fa9-6"></a>    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">x2</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="n">x2</span><span class="o">**</span><span class="mi">2</span><span class="p">]])</span>
+<a id="rest_code_e6e6ac933c454559861fb9dc71d07fa9-7" name="rest_code_e6e6ac933c454559861fb9dc71d07fa9-7" href="#rest_code_e6e6ac933c454559861fb9dc71d07fa9-7"></a><span class="n">V</span>
+</pre></div>
+<div class="math">
 \begin{equation*}
 \left[\begin{matrix}1 &amp; x_{1} &amp; x_{1}^{2} &amp; x_{1}^{3}\\
 1 &amp; x_{2} &amp; x_{2}^{2} &amp; x_{2}^{3}\\
@@ -167,29 +157,18 @@ transformation.</p>
 It is similar to a Vandermonde matrix for the first <span class="math">\(n\)</span> nodes
 and the derivatives of each row for the following ones.</p>
 <p>The coefficients for our polynomials are given by the inverse of this matrix.</p>
-<aside class="system-message"><p class="system-message-title">System Message: ERROR/3 (<span class="docutils literal">&lt;string&gt;</span>, line 88)</p>
-<p>Cannot find pygments lexer for language "ipython2"</p>
-<pre class="literal-block">.. code:: ipython2
-
-    sym.simplify(V.inv())
-
-</pre>
-</aside><div class="math">
+<div class="code"><pre class="code python"><a id="rest_code_86a8a79007274890b82a69ad276e2516-1" name="rest_code_86a8a79007274890b82a69ad276e2516-1" href="#rest_code_86a8a79007274890b82a69ad276e2516-1"></a><span class="n">sym</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">V</span><span class="o">.</span><span class="n">inv</span><span class="p">())</span>
+</pre></div>
+<div class="math">
 \begin{equation*}
 \left[\begin{matrix}\frac{x_{2}^{2} \left(3 x_{1} - x_{2}\right)}{x_{1}^{3} - 3 x_{1}^{2} x_{2} + 3 x_{1} x_{2}^{2} - x_{2}^{3}} &amp; \frac{x_{1}^{2} \left(x_{1} - 3 x_{2}\right)}{x_{1}^{3} - 3 x_{1}^{2} x_{2} + 3 x_{1} x_{2}^{2} - x_{2}^{3}} &amp; - \frac{x_{1} x_{2}^{2}}{x_{1}^{2} - 2 x_{1} x_{2} + x_{2}^{2}} &amp; - \frac{x_{1}^{2} x_{2}}{x_{1}^{2} - 2 x_{1} x_{2} + x_{2}^{2}}\\- \frac{6 x_{1} x_{2}}{x_{1}^{3} - 3 x_{1}^{2} x_{2} + 3 x_{1} x_{2}^{2} - x_{2}^{3}} &amp; \frac{6 x_{1} x_{2}}{x_{1}^{3} - 3 x_{1}^{2} x_{2} + 3 x_{1} x_{2}^{2} - x_{2}^{3}} &amp; \frac{x_{2} \left(2 x_{1} + x_{2}\right)}{x_{1}^{2} - 2 x_{1} x_{2} + x_{2}^{2}} &amp; \frac{x_{1} \left(x_{1} + 2 x_{2}\right)}{x_{1}^{2} - 2 x_{1} x_{2} + x_{2}^{2}}\\\frac{3 x_{1} + 3 x_{2}}{x_{1}^{3} - 3 x_{1}^{2} x_{2} + 3 x_{1} x_{2}^{2} - x_{2}^{3}} &amp; - \frac{3 x_{1} + 3 x_{2}}{x_{1}^{3} - 3 x_{1}^{2} x_{2} + 3 x_{1} x_{2}^{2} - x_{2}^{3}} &amp; - \frac{x_{1} + 2 x_{2}}{x_{1}^{2} - 2 x_{1} x_{2} + x_{2}^{2}} &amp; - \frac{2 x_{1} + x_{2}}{x_{1}^{2} - 2 x_{1} x_{2} + x_{2}^{2}}\\- \frac{2}{x_{1}^{3} - 3 x_{1}^{2} x_{2} + 3 x_{1} x_{2}^{2} - x_{2}^{3}} &amp; \frac{2}{x_{1}^{3} - 3 x_{1}^{2} x_{2} + 3 x_{1} x_{2}^{2} - x_{2}^{3}} &amp; \frac{1}{x_{1}^{2} - 2 x_{1} x_{2} + x_{2}^{2}} &amp; \frac{1}{x_{1}^{2} - 2 x_{1} x_{2} + x_{2}^{2}}\end{matrix}\right]
 \end{equation*}
 </div>
 <p>And we replace the values for the extreme nodes, -1 and 1.</p>
-<aside class="system-message"><p class="system-message-title">System Message: ERROR/3 (<span class="docutils literal">&lt;string&gt;</span>, line 100)</p>
-<p>Cannot find pygments lexer for language "ipython2"</p>
-<pre class="literal-block">.. code:: ipython2
-
-    V_inv = sym.simplify(V.subs({x1:-1, x2:1}).inv())
-    V_inv
-
-
-</pre>
-</aside><div class="math">
+<div class="code"><pre class="code python"><a id="rest_code_5825172b415546bc86c11451788f7506-1" name="rest_code_5825172b415546bc86c11451788f7506-1" href="#rest_code_5825172b415546bc86c11451788f7506-1"></a><span class="n">V_inv</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">V</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">x1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">x2</span><span class="p">:</span><span class="mi">1</span><span class="p">})</span><span class="o">.</span><span class="n">inv</span><span class="p">())</span>
+<a id="rest_code_5825172b415546bc86c11451788f7506-2" name="rest_code_5825172b415546bc86c11451788f7506-2" href="#rest_code_5825172b415546bc86c11451788f7506-2"></a><span class="n">V_inv</span>
+</pre></div>
+<div class="math">
 \begin{equation*}
 \left[\begin{matrix}\frac{1}{2} &amp; \frac{1}{2} &amp; \frac{1}{4} &amp; - \frac{1}{4}\\
 - \frac{3}{4} &amp; \frac{3}{4} &amp; - \frac{1}{4} &amp; - \frac{1}{4}\\
@@ -198,16 +177,9 @@ and the derivatives of each row for the following ones.</p>
 \end{equation*}
 </div>
 <p>The polynomials are the product of the coefficients and the monomials</p>
-<aside class="system-message"><p class="system-message-title">System Message: ERROR/3 (<span class="docutils literal">&lt;string&gt;</span>, line 119)</p>
-<p>Cannot find pygments lexer for language "ipython2"</p>
-<pre class="literal-block">.. code:: ipython2
-
-    sym.factor(V_inv.T * sym.Matrix([1, x, x**2, x**3]))
-
-
-
-</pre>
-</aside><div class="math">
+<div class="code"><pre class="code python"><a id="rest_code_daeaf3c077e74aceb1b13ac44e39eb97-1" name="rest_code_daeaf3c077e74aceb1b13ac44e39eb97-1" href="#rest_code_daeaf3c077e74aceb1b13ac44e39eb97-1"></a><span class="n">sym</span><span class="o">.</span><span class="n">factor</span><span class="p">(</span><span class="n">V_inv</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> <span class="n">sym</span><span class="o">.</span><span class="n">Matrix</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">]))</span>
+</pre></div>
+<div class="math">
 \begin{equation*}
 \left[\begin{matrix}\frac{1}{4} \left(x - 1\right)^{2} \left(x + 2\right)\\- \frac{1}{4} \left(x - 2\right) \left(x + 1\right)^{2}\\\frac{1}{4} \left(x - 1\right)^{2} \left(x + 1\right)\\\frac{1}{4} \left(x - 1\right) \left(x + 1\right)^{2}\end{matrix}\right]
 \end{equation*}
@@ -223,65 +195,51 @@ N_4 (x) &amp;= \frac{1}{4} (x + 1)^2 (x - 1)\, ,
 </div>
 <p>and the following function computes the interpolation for a given
 function and derivative</p>
-<aside class="system-message"><p class="system-message-title">System Message: ERROR/3 (<span class="docutils literal">&lt;string&gt;</span>, line 144)</p>
-<p>Cannot find pygments lexer for language "ipython2"</p>
-<pre class="literal-block">.. code:: ipython2
-
-    def hermite_interp(fun, grad, x0=-1, x1=1, npts=101):
-        jaco = (x1 - x0)/2
-        x = np.linspace(-1, 1, npts)
-        f1 = fun(x0)
-        f2 = fun(x1)
-        g1 = grad(x0)
-        g2 = grad(x1)
-        N1 = 1/4*(x - 1)**2 * (2 + x)
-        N2 = 1/4*(x + 1)**2 * (2 - x)
-        N3 = 1/4*(x - 1)**2 * (x + 1)
-        N4 = 1/4*(x + 1)**2 * (x - 1)
-        interp = N1*f1 + N2*f2 + jaco*(N3*g1 + N4*g2)
-        return interp
-</pre>
-</aside><p>In this case, we interpolate the <code class="docutils literal">sinc</code> function</p>
-<aside class="system-message"><p class="system-message-title">System Message: ERROR/3 (<span class="docutils literal">&lt;string&gt;</span>, line 162)</p>
-<p>Cannot find pygments lexer for language "ipython2"</p>
-<pre class="literal-block">.. code:: ipython2
-
-    def fun(x):
-        return np.sin(2*np.pi*x)/(2*np.pi*x)
-
-
-    def grad(x):
-        return np.cos(2*np.pi*x)/x - np.sin(2*np.pi*x)/(2*np.pi*x**2)
-
-</pre>
-</aside><p>The following snippet compute the interpolation and plot it.</p>
-<aside class="system-message"><p class="system-message-title">System Message: ERROR/3 (<span class="docutils literal">&lt;string&gt;</span>, line 174)</p>
-<p>Cannot find pygments lexer for language "ipython2"</p>
-<pre class="literal-block">.. code:: ipython2
-
-    a = 2
-    b = 5
-    nels = 7
-    npts = 200
-    x = np.linspace(a, b, npts)
-    y = fun(x)
-    plt.plot(x, y, color="black")
-    xi = np.linspace(a, b, num=nels, endpoint=False)
-    dx = xi[1] - xi[0]
-    for x0 in xi:
-        x1 = x0 + dx
-        x = np.linspace(x0, x1, npts)
-        y = hermite_interp(fun, grad, x0=x0, x1=x1, npts=npts)
-    plt.plot(x, y, linestyle="dashed", color="#4daf4a")
-    plt.plot([x[0], x[-1]], [y[0], y[-1]], marker="o", color="#4daf4a",
-             linewidth=0)
-    plt.xlabel("x")
-    plt.ylabel("y")
-    plt.legend(["Exact function", "Interpolation"])
-    plt.show()
-
-</pre>
-</aside><img alt="/images/sinc_interp.svg" src="../../images/sinc_interp.svg"><section id="references"><h2>References</h2>
+<div class="code"><pre class="code python"><a id="rest_code_bc4819e8e9ae49f29970a8f64e7412c9-1" name="rest_code_bc4819e8e9ae49f29970a8f64e7412c9-1" href="#rest_code_bc4819e8e9ae49f29970a8f64e7412c9-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">hermite_interp</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="n">grad</span><span class="p">,</span> <span class="n">x0</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">x1</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">npts</span><span class="o">=</span><span class="mi">101</span><span class="p">):</span>
+<a id="rest_code_bc4819e8e9ae49f29970a8f64e7412c9-2" name="rest_code_bc4819e8e9ae49f29970a8f64e7412c9-2" href="#rest_code_bc4819e8e9ae49f29970a8f64e7412c9-2"></a>    <span class="n">jaco</span> <span class="o">=</span> <span class="p">(</span><span class="n">x1</span> <span class="o">-</span> <span class="n">x0</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+<a id="rest_code_bc4819e8e9ae49f29970a8f64e7412c9-3" name="rest_code_bc4819e8e9ae49f29970a8f64e7412c9-3" href="#rest_code_bc4819e8e9ae49f29970a8f64e7412c9-3"></a>    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">npts</span><span class="p">)</span>
+<a id="rest_code_bc4819e8e9ae49f29970a8f64e7412c9-4" name="rest_code_bc4819e8e9ae49f29970a8f64e7412c9-4" href="#rest_code_bc4819e8e9ae49f29970a8f64e7412c9-4"></a>    <span class="n">f1</span> <span class="o">=</span> <span class="n">fun</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span>
+<a id="rest_code_bc4819e8e9ae49f29970a8f64e7412c9-5" name="rest_code_bc4819e8e9ae49f29970a8f64e7412c9-5" href="#rest_code_bc4819e8e9ae49f29970a8f64e7412c9-5"></a>    <span class="n">f2</span> <span class="o">=</span> <span class="n">fun</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span>
+<a id="rest_code_bc4819e8e9ae49f29970a8f64e7412c9-6" name="rest_code_bc4819e8e9ae49f29970a8f64e7412c9-6" href="#rest_code_bc4819e8e9ae49f29970a8f64e7412c9-6"></a>    <span class="n">g1</span> <span class="o">=</span> <span class="n">grad</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span>
+<a id="rest_code_bc4819e8e9ae49f29970a8f64e7412c9-7" name="rest_code_bc4819e8e9ae49f29970a8f64e7412c9-7" href="#rest_code_bc4819e8e9ae49f29970a8f64e7412c9-7"></a>    <span class="n">g2</span> <span class="o">=</span> <span class="n">grad</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span>
+<a id="rest_code_bc4819e8e9ae49f29970a8f64e7412c9-8" name="rest_code_bc4819e8e9ae49f29970a8f64e7412c9-8" href="#rest_code_bc4819e8e9ae49f29970a8f64e7412c9-8"></a>    <span class="n">N1</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x</span><span class="p">)</span>
+<a id="rest_code_bc4819e8e9ae49f29970a8f64e7412c9-9" name="rest_code_bc4819e8e9ae49f29970a8f64e7412c9-9" href="#rest_code_bc4819e8e9ae49f29970a8f64e7412c9-9"></a>    <span class="n">N2</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span>
+<a id="rest_code_bc4819e8e9ae49f29970a8f64e7412c9-10" name="rest_code_bc4819e8e9ae49f29970a8f64e7412c9-10" href="#rest_code_bc4819e8e9ae49f29970a8f64e7412c9-10"></a>    <span class="n">N3</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<a id="rest_code_bc4819e8e9ae49f29970a8f64e7412c9-11" name="rest_code_bc4819e8e9ae49f29970a8f64e7412c9-11" href="#rest_code_bc4819e8e9ae49f29970a8f64e7412c9-11"></a>    <span class="n">N4</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<a id="rest_code_bc4819e8e9ae49f29970a8f64e7412c9-12" name="rest_code_bc4819e8e9ae49f29970a8f64e7412c9-12" href="#rest_code_bc4819e8e9ae49f29970a8f64e7412c9-12"></a>    <span class="n">interp</span> <span class="o">=</span> <span class="n">N1</span><span class="o">*</span><span class="n">f1</span> <span class="o">+</span> <span class="n">N2</span><span class="o">*</span><span class="n">f2</span> <span class="o">+</span> <span class="n">jaco</span><span class="o">*</span><span class="p">(</span><span class="n">N3</span><span class="o">*</span><span class="n">g1</span> <span class="o">+</span> <span class="n">N4</span><span class="o">*</span><span class="n">g2</span><span class="p">)</span>
+<a id="rest_code_bc4819e8e9ae49f29970a8f64e7412c9-13" name="rest_code_bc4819e8e9ae49f29970a8f64e7412c9-13" href="#rest_code_bc4819e8e9ae49f29970a8f64e7412c9-13"></a>    <span class="k">return</span> <span class="n">interp</span>
+</pre></div>
+<p>In this case, we interpolate the <code class="docutils literal">sinc</code> function</p>
+<div class="code"><pre class="code python"><a id="rest_code_544e579f135441f7839b1ea85ecd9be5-1" name="rest_code_544e579f135441f7839b1ea85ecd9be5-1" href="#rest_code_544e579f135441f7839b1ea85ecd9be5-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<a id="rest_code_544e579f135441f7839b1ea85ecd9be5-2" name="rest_code_544e579f135441f7839b1ea85ecd9be5-2" href="#rest_code_544e579f135441f7839b1ea85ecd9be5-2"></a>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+<a id="rest_code_544e579f135441f7839b1ea85ecd9be5-3" name="rest_code_544e579f135441f7839b1ea85ecd9be5-3" href="#rest_code_544e579f135441f7839b1ea85ecd9be5-3"></a>
+<a id="rest_code_544e579f135441f7839b1ea85ecd9be5-4" name="rest_code_544e579f135441f7839b1ea85ecd9be5-4" href="#rest_code_544e579f135441f7839b1ea85ecd9be5-4"></a>
+<a id="rest_code_544e579f135441f7839b1ea85ecd9be5-5" name="rest_code_544e579f135441f7839b1ea85ecd9be5-5" href="#rest_code_544e579f135441f7839b1ea85ecd9be5-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">grad</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<a id="rest_code_544e579f135441f7839b1ea85ecd9be5-6" name="rest_code_544e579f135441f7839b1ea85ecd9be5-6" href="#rest_code_544e579f135441f7839b1ea85ecd9be5-6"></a>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">x</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+<p>The following snippet compute the interpolation and plot it.</p>
+<div class="code"><pre class="code python"><a id="rest_code_5792e5c1dd7d4252b050df2345ba065f-1" name="rest_code_5792e5c1dd7d4252b050df2345ba065f-1" href="#rest_code_5792e5c1dd7d4252b050df2345ba065f-1"></a><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
+<a id="rest_code_5792e5c1dd7d4252b050df2345ba065f-2" name="rest_code_5792e5c1dd7d4252b050df2345ba065f-2" href="#rest_code_5792e5c1dd7d4252b050df2345ba065f-2"></a><span class="n">b</span> <span class="o">=</span> <span class="mi">5</span>
+<a id="rest_code_5792e5c1dd7d4252b050df2345ba065f-3" name="rest_code_5792e5c1dd7d4252b050df2345ba065f-3" href="#rest_code_5792e5c1dd7d4252b050df2345ba065f-3"></a><span class="n">nels</span> <span class="o">=</span> <span class="mi">7</span>
+<a id="rest_code_5792e5c1dd7d4252b050df2345ba065f-4" name="rest_code_5792e5c1dd7d4252b050df2345ba065f-4" href="#rest_code_5792e5c1dd7d4252b050df2345ba065f-4"></a><span class="n">npts</span> <span class="o">=</span> <span class="mi">200</span>
+<a id="rest_code_5792e5c1dd7d4252b050df2345ba065f-5" name="rest_code_5792e5c1dd7d4252b050df2345ba065f-5" href="#rest_code_5792e5c1dd7d4252b050df2345ba065f-5"></a><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">npts</span><span class="p">)</span>
+<a id="rest_code_5792e5c1dd7d4252b050df2345ba065f-6" name="rest_code_5792e5c1dd7d4252b050df2345ba065f-6" href="#rest_code_5792e5c1dd7d4252b050df2345ba065f-6"></a><span class="n">y</span> <span class="o">=</span> <span class="n">fun</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a id="rest_code_5792e5c1dd7d4252b050df2345ba065f-7" name="rest_code_5792e5c1dd7d4252b050df2345ba065f-7" href="#rest_code_5792e5c1dd7d4252b050df2345ba065f-7"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"black"</span><span class="p">)</span>
+<a id="rest_code_5792e5c1dd7d4252b050df2345ba065f-8" name="rest_code_5792e5c1dd7d4252b050df2345ba065f-8" href="#rest_code_5792e5c1dd7d4252b050df2345ba065f-8"></a><span class="n">xi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="n">nels</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<a id="rest_code_5792e5c1dd7d4252b050df2345ba065f-9" name="rest_code_5792e5c1dd7d4252b050df2345ba065f-9" href="#rest_code_5792e5c1dd7d4252b050df2345ba065f-9"></a><span class="n">dx</span> <span class="o">=</span> <span class="n">xi</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">xi</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<a id="rest_code_5792e5c1dd7d4252b050df2345ba065f-10" name="rest_code_5792e5c1dd7d4252b050df2345ba065f-10" href="#rest_code_5792e5c1dd7d4252b050df2345ba065f-10"></a><span class="k">for</span> <span class="n">x0</span> <span class="ow">in</span> <span class="n">xi</span><span class="p">:</span>
+<a id="rest_code_5792e5c1dd7d4252b050df2345ba065f-11" name="rest_code_5792e5c1dd7d4252b050df2345ba065f-11" href="#rest_code_5792e5c1dd7d4252b050df2345ba065f-11"></a>    <span class="n">x1</span> <span class="o">=</span> <span class="n">x0</span> <span class="o">+</span> <span class="n">dx</span>
+<a id="rest_code_5792e5c1dd7d4252b050df2345ba065f-12" name="rest_code_5792e5c1dd7d4252b050df2345ba065f-12" href="#rest_code_5792e5c1dd7d4252b050df2345ba065f-12"></a>    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">npts</span><span class="p">)</span>
+<a id="rest_code_5792e5c1dd7d4252b050df2345ba065f-13" name="rest_code_5792e5c1dd7d4252b050df2345ba065f-13" href="#rest_code_5792e5c1dd7d4252b050df2345ba065f-13"></a>    <span class="n">y</span> <span class="o">=</span> <span class="n">hermite_interp</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="n">grad</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="o">=</span><span class="n">x1</span><span class="p">,</span> <span class="n">npts</span><span class="o">=</span><span class="n">npts</span><span class="p">)</span>
+<a id="rest_code_5792e5c1dd7d4252b050df2345ba065f-14" name="rest_code_5792e5c1dd7d4252b050df2345ba065f-14" href="#rest_code_5792e5c1dd7d4252b050df2345ba065f-14"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">"dashed"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"#4daf4a"</span><span class="p">)</span>
+<a id="rest_code_5792e5c1dd7d4252b050df2345ba065f-15" name="rest_code_5792e5c1dd7d4252b050df2345ba065f-15" href="#rest_code_5792e5c1dd7d4252b050df2345ba065f-15"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]],</span> <span class="p">[</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">"o"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"#4daf4a"</span><span class="p">,</span>
+<a id="rest_code_5792e5c1dd7d4252b050df2345ba065f-16" name="rest_code_5792e5c1dd7d4252b050df2345ba065f-16" href="#rest_code_5792e5c1dd7d4252b050df2345ba065f-16"></a>         <span class="n">linewidth</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<a id="rest_code_5792e5c1dd7d4252b050df2345ba065f-17" name="rest_code_5792e5c1dd7d4252b050df2345ba065f-17" href="#rest_code_5792e5c1dd7d4252b050df2345ba065f-17"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"x"</span><span class="p">)</span>
+<a id="rest_code_5792e5c1dd7d4252b050df2345ba065f-18" name="rest_code_5792e5c1dd7d4252b050df2345ba065f-18" href="#rest_code_5792e5c1dd7d4252b050df2345ba065f-18"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"y"</span><span class="p">)</span>
+<a id="rest_code_5792e5c1dd7d4252b050df2345ba065f-19" name="rest_code_5792e5c1dd7d4252b050df2345ba065f-19" href="#rest_code_5792e5c1dd7d4252b050df2345ba065f-19"></a><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">"Exact function"</span><span class="p">,</span> <span class="s2">"Interpolation"</span><span class="p">])</span>
+<a id="rest_code_5792e5c1dd7d4252b050df2345ba065f-20" name="rest_code_5792e5c1dd7d4252b050df2345ba065f-20" href="#rest_code_5792e5c1dd7d4252b050df2345ba065f-20"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+<img alt="/images/sinc_interp.svg" src="../../images/sinc_interp.svg"><section id="references"><h2>References</h2>
 <aside class="footnote-list brackets"><aside class="footnote brackets" id="footnote-1" role="doc-footnote"><span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#footnote-reference-1">1</a><span class="fn-bracket">]</span></span>
 <p>Walter Gautschi (1962). On inverses of Vandermonde
 and confluent Vandermonde matrices. Numerische Mathematik, 4

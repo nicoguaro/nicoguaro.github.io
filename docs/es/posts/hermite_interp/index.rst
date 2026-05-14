@@ -14,7 +14,7 @@ y no :math:`C^0` como en la interpolación de Lagrange.
 
 Para calcular los polinomios explícitamente podemos usar `sympy`.
 
-.. code:: ipython2
+.. code:: python
 
     from __future__ import division
     import numpy as np
@@ -64,7 +64,7 @@ La fórmula para la interpolación sería
 
 con :math:`|J| = (b - a)/2` el determinante jacobiano de la transformación.
 
-.. code:: ipython2
+.. code:: python
 
     x1, x2, x = sym.symbols("x1 x2 x")
     V = sym.Matrix([
@@ -90,7 +90,7 @@ Los coeficientes de nuestros polinomios están dados por la inversa de esta
 matriz.
 
 
-.. code:: ipython2
+.. code:: python
 
     sym.simplify(V.inv())
 
@@ -101,7 +101,7 @@ matriz.
 
 Y remplazamos los valores para los nodos extremos, -1 y 1.
 
-.. code:: ipython2
+.. code:: python
 
     V_inv = sym.simplify(V.subs({x1:-1, x2:1}).inv())
     V_inv
@@ -118,7 +118,7 @@ Y remplazamos los valores para los nodos extremos, -1 y 1.
 Los polinomios son el producto de los coeficientes y los monomios
 
 
-.. code:: ipython2
+.. code:: python
 
     sym.factor(V_inv.T * sym.Matrix([1, x, x**2, x**3]))
 
@@ -142,7 +142,7 @@ La base interpolante sería
 y la siguiente función calcula la interpolación para una función y
 derivada dadas
 
-.. code:: ipython2
+.. code:: python
 
     def hermite_interp(fun, grad, x0=-1, x1=1, npts=101):
         jaco = (x1 - x0)/2
@@ -160,7 +160,7 @@ derivada dadas
 
 En este caso, interpolamos la función ``sinc``
 
-.. code:: ipython2
+.. code:: python
 
     def fun(x):
         return np.sin(2*np.pi*x)/(2*np.pi*x)
@@ -171,7 +171,7 @@ En este caso, interpolamos la función ``sinc``
 
 El siguiente bloque de código calcula la interpolación y la grafica.
 
-.. code:: ipython2
+.. code:: python
 
     a = 2
     b = 5

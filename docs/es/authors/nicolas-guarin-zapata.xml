@@ -3,7 +3,7 @@
 &lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/"&gt;
 &lt;img alt="Creative Commons License"
 style="border-width:0"
-src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Mon, 20 Apr 2026 22:29:52 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Duplicando un gráfico de la función Hankel de Abramowitz y Stegun</title><link>https://nicoguaro.github.io/es/posts/duplicating-hankel-plot-from-as/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;Recientemente, tuve una discusión en clase sobre las soluciones de ecuaciones
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Thu, 14 May 2026 21:25:42 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Duplicando un gráfico de la función Hankel de Abramowitz y Stegun</title><link>https://nicoguaro.github.io/es/posts/duplicating-hankel-plot-from-as/</link><dc:creator>Nicolás Guarín-Zapata</dc:creator><description>&lt;p&gt;Recientemente, tuve una discusión en clase sobre las soluciones de ecuaciones
 diferenciales parciales y cómo la visualización jugó un papel importante mucho
 antes de que las computadoras digitales fueran omnipresentes. También hablamos
 sobre el &lt;a class="reference external" href="https://es.wikipedia.org/wiki/Abramowitz_y_Stegun"&gt;Manual de Funciones Matemáticas&lt;/a&gt;
